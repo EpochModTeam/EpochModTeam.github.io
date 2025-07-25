@@ -1,0 +1,2207 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Scripts Latest Topics</title><link>https://epochmod.com/forum/forum/69-scripts/</link><description>Scripts Latest Topics</description><language>en</language><item><title>Extended Base Objects for Epoch V 0.1</title><link>https://epochmod.com/forum/topic/45259-extended-base-objects-for-epoch-v-01/</link><description><![CDATA[
+<p>
+	For a while now I have wanted to put together an addon that makes available additional storage containers and, in the future, other craftable items like heli pads, additional lights and so forth. To that end, and with quite a lot of help from Grahame, I offer V 0.1 of Extended Base Objects for Epoch. It offers a variety of additional storage containers and an easy method for installation.
+</p>
+
+<p>
+	Installation: download from my github here:  <a href="https://github.com/Ghostrider-DbD-/EB4E" rel="external nofollow">https://github.com/Ghostrider-DbD-/EB4E</a>
+</p>
+
+<p>
+	Subscribe on Steam here: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1475332817" rel="external nofollow">https://steamcommunity.com/sharedfiles/filedetails/?id=1475332817</a>
+</p>
+
+<p>
+	Unpack your mission.pbo using PBO manager or its equivalent.
+</p>
+
+<p>
+	Copy all files from the mapname.epoch folder to the folder created by unpacking your mission.
+</p>
+
+<p>
+	Repack your mission.
+</p>
+
+<p>
+	Copy @EB4E to the same folder containing @Epoch and <span><span>@epochhive on your server.</span></span><span><span>  </span></span>
+</p>
+
+<p>
+	<span><span> Copy the key found in @EB4E\Key to the \keys folder on your server.</span></span>
+</p>
+
+<p>
+	<span><span>Add "EB4E" to the -mods="@Epoch;blahblah;" parameter for server startup.</span></span>
+</p>
+
+<p>
+	<span><span>Players can subscribe to the mod here: </span></span><a href="https://github.com/Ghostrider-DbD-/EB4E" rel="external nofollow">https://github.com/Ghostrider-DbD-/EB4E</a>
+</p>
+]]></description><guid isPermaLink="false">45259</guid><pubDate>Mon, 20 Aug 2018 11:32:20 +0000</pubDate></item><item><title><![CDATA[Custom Spawn Dialog with Gear & HALO Selection, moving Map, Credits, Custom spawns and more ...]]></title><link>https://epochmod.com/forum/topic/34896-custom-spawn-dialog-with-gear-halo-selection-moving-map-credits-custom-spawns-and-more/</link><description><![CDATA[
+<p>Please bear with me if this spawn dialog is not perfect, as it is my first time creating one ...</p>
+<p> </p>
+<p>The Short intro:</p>
+<p> </p>
+<p>This is an easy 2 line install, "complete" Spawn system with everything described in the headline and more ...</p>
+<p> </p>
+<p> </p>
+<p>The Long Intro:</p>
+<p> </p>
+<p>This is an easy 2 line install, "complete" spawn system (3lines if you want dead body check, 4 if you do not have my killfeed installed already)</p>
+<p> </p>
+<p>you can:</p>
+<p> </p>
+<ul>
+<li>Select gear screen (can be switched off)</li>
+<li>Add random gear (if above is switched off or not all items are selected)</li>
+<li>2 levels of Custom gear for donors</li>
+<li>setup custom spawns</li>
+<li>setup 2 levels of donor spawns</li>
+<li>set a custom name to any custom location (if none is added it will just use nearest city name if one is avalible)</li>
+<li>add pictures to your spawn room (one for each wall, no pictures included)</li>
+<li>replace default teleporters with custom ones (to disable the default teleport option)</li>
+<li>or just add an extra scroll option to the default teleporters</li>
+<li>spawn near group leader (can be switched off)</li>
+<li>spawn near jammer (can be switched off completly now so nobody gets any errors)</li>
+<li>disable spawns near players dead body, with configurable distance (requires my killfeed installed)</li>
+<li>run credits or other script on spawn (simple credits file is included)</li>
+<li>User can select to spawn with halo jump or ground spawn (or can be set to forced in any way you want)</li>
+<li>will work on any map that spawns a "Debug_static_F" (even unsupported maps, alltho you might need to add spawn locations)</li>
+</ul>
+<p> </p>
+<p>i have already added spawn locations for altis, stratis, bornholm and chernarus any other map will ned custom locations added.</p>
+<p> </p>
+<p>NOTE: a player that has already spawned or did not spawn in near the clone room, will NOT have the option to spawn, if you teleport there to test it, pls relog before clicking the scroll action on the console, or it will NOT show anything.</p>
+<p> </p>
+<p>to install this you will need to download the attached files and add them to your mission, then add this line in your init.sqf (outside any if statements):</p>
+<pre class="ipsCode prettyprint">
+[] execVM "addons\halv_spawn\init.sqf";
+</pre>
+<p>now in description.ext add the very top:</p>
+<p> </p>
+<p>if you already have a Halv_defines.hpp, then you can skip the step below, as you do not need another, infact your server will fail to load if you have more than one in description.ext!.</p>
+<p>(but perhaps check when it was last edited and see if you perhaps need to update it).</p>
+<p> </p>
+<p>if you do not have a Halv_defines.hpp, then you need to add this line:</p>
+<pre class="ipsCode prettyprint">
+#include "addons\halv_spawn\Halv_defines.hpp"
+</pre>
+<p>once you have the above line, add directly below it:</p>
+<pre class="ipsCode prettyprint">
+#include "addons\halv_spawn\spawndialog.hpp"
+</pre>
+<p><span style="font-size:18px;">VERY IMPORTANT:</span></p>
+<p> </p>
+<p>most text is translated to multiple languges, so put this file in the root folder of your mission.pbo along side with your init.sqf, mission.sqm and description.ext or NO text will be shown in ANY dialog EVEN ENGLISH!!!</p>
+<p> </p>
+<div>
+<a href="http://pastebin.com/t3gYneqE" rel="external nofollow">http://pastebin.com/t3gYneqE</a> &lt;&lt;== Stringtable.xml</div>
+<p> </p>
+<p>you are now done, the rest is extra ...</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>if you want dead body check to work, you will need to install (or update) this:</p>
+<p> </p>
+<p><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/34570-easy-kill-feedmessages-beta/&amp;do=embed"></iframe></p>
+<p> </p>
+<p>if/when you have installed that, open up halv_fnc_playerdied.sqf and right after this:</p>
+<p> </p>
+<p><span>if you want donor spawns to work, you will have to add your or whoever you want on the lists uid in spawn_settings.sqf like this:</span></p>
+<pre class="ipsCode prettyprint">
+//UID's for lvl 1 spawn's
+_level1UIDs = ["12312453","12312453","12312453"];
+//UID's for lvl 2 spawn's
+_level2UIDs = ["12312453","12312453","12312453"];
+//this is to allow any lvl 2 to spawn on lvl 1, comment out to seperate the two
+_level1UIDs = _level1UIDs + _level2UIDs;
+</pre>
+<p>same goes for spawn_gear_settings.sqf, you will need to add your uid in both or only the one where you added yours will work.</p>
+<p> </p>
+<p>besides that, please check ALL the settings files or for more info you can ask me here ... (but please refrain from stupid questins already answered in the settings files)</p>
+<p> </p>
+<p> </p>
+<p>if you have infistar antihack, you will need to in run.sqf add this number here, like this:</p>
+<pre class="ipsCode prettyprint">
+_allowedDialogs = [-1,602];
+</pre>
+<p>to this:</p>
+<pre class="ipsCode prettyprint">
+_allowedDialogs = [-1,602,7777];
+</pre>
+<div> </div>
+<div>i do not currently have a good picture of the dialog, so if someone could share could pls one i can use?</div>
+<div> </div>
+<p><span style="font-size:18px;">I will not support changing this so players cannot get all items (including donor items) or locations on random spawns.</span></p>
+<p><span style="font-size:18px;">If you have problems with players killing themself to get better weapons/spawns, it means you have too good options for donors or only shit options for non donors, level it out instead of giving donors OP spawns!</span></p>
+<div> </div>
+<div>
+<p>have fun</p>
+<p> </p>
+<p>regards</p>
+<p>Halv</p>
+<p> </p>
+<p>Link:</p>
+<p><a href="https://github.com/Halvhjearne/halv_spawn" rel="external nofollow">https://github.com/Halvhjearne/halv_spawn</a></p>
+</div>
+]]></description><guid isPermaLink="false">34896</guid><pubDate>Fri, 01 May 2015 00:19:12 +0000</pubDate></item><item><title>[Release] HS Blackmarket 1.6 | 'New' Trader System | Special Trader | Blackmarket</title><link>https://epochmod.com/forum/topic/34661-release-hs-blackmarket-16-new-trader-system-special-trader-blackmarket/</link><description><![CDATA[
+<p>/*<br>
+    <strong>HS Blackmarket</strong><br>
+   <strong> by Halv &amp; Suppe</strong><br>
+*/<br><br>
+The HS Blackmarket is a 'new' Trader-system for A3 Epoch, it was created in collaboration with <a href="https://epochmod.com/forum/index.php?/user/10011-halvhjearne/">Halv</a>, Halv wrote the main part of the script, he is the true genius.<br><br><strong><u>Features:</u></strong><br>
+- Trader with Custom Dialog (Menu)<br>
+- Trader with unlimited supply<br>
+- You control how many Trader will spawn<br>
+- Trader will spawn random over the Map<br>
+- Trader will spawn in 5 different "Camps"<br>
+- With persistent Vehicles or not persistent Vehicles<br>
+- Easily edit/add Prices, Items, Vehicles, Weapons<br>
+- Easily Blacklist Items, Vehicles, Weapons</p>
+<p>- Easily control about Vehicleammo<br>
+- Vehicleammo count over restart (10 bullets left for the restart = 10 bullets left after restart)<br>
+- Static and Random Traders<br>
+- Work with stock Epoch AH and infistar<br>
+- Work without emod !<br>
+- Work on every Map<br>
+ <br><strong><u>Pictures:</u></strong><br></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<br><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="GEPOXDN.jpg" data-src="http://i.imgur.com/GEPOXDN.jpg"><br><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="LSOi4es.jpg" data-src="http://i.imgur.com/LSOi4es.jpg"><br>
+</blockquote>
+<p><br>
+ <br><strong><u>Download:</u></strong><br><a href="https://github.com/GBR-Suppe/a3_epoch_HSBlackmarket" rel="external nofollow">https://github.com/GBR-Suppe/a3_epoch_HSBlackmarket</a></p>
+<p> </p>
+<p> </p>
+<p><strong><u>Install:</u></strong><br>
+- Copy the "trader" Folder <u>and</u> the Stringtable.xml in your epoch.Mission<br><br>
+- Add to your init:</p>
+<pre class="ipsCode prettyprint lang-auto">
+  [] execVM "trader\init.sqf";
+  [] execVM "trader\resetvehicleammo.sqf";
+  [] execVM "trader\HALV_takegive_crypto_init.sqf"; 
+</pre>
+<p>- Add to your description.ext  ( on the very top and if you use Halv's spawn script as well, you need only 1x the Halv_defines.hpp)</p>
+<pre class="ipsCode prettyprint lang-auto">
+  #include "trader\Halv_defines.hpp"
+  #include "trader\tradedialog.hpp"
+  #include "trader\HSPricing.hpp"
+</pre>
+<p>- (optional) Open epoch.Mission/trader/init.sqf to configurate the HS Blackmarket</p>
+<p> </p>
+<p>- (optional) Open epoch.Mission/trader/settings.sqf and resetvehicleammo.sqf to configurate the Vehicleammo<br><br>
+- (optional) Open epoch.Mission/trader/HSPricing.hpp to configurate prices, or to add Items, Vehicles, Weapons and so on<br><br>
+- (optional) Remove 1 Epoch Trader for every Blackmarket Trader you added (remove Epoch Trader: \Arma 3\@epochhive\epochconfig.hpp  ,search for NPCSlotsLimit)</p>
+<p> </p>
+<p>- (optional) To get all messages of the traders (like the vehicleworldlimit check) you need: <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/34570-easy-kill-feedmessages-wstudy-bury-body-function-beta/&amp;do=embed"></iframe><br>
+ <br><strong><u>Edit your BE Filter:</u></strong><br></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<br>
+createvehicle.txt   Line 1   add:
+<pre class="ipsCode prettyprint lang-auto">
+!="M_AT" !="SmokeLauncherAmmo" !="B_AssaultPack_cbr" !="B_AssaultPack_dgtl" !="B_AssaultPack_khk" !="B_AssaultPack_mcamo" !="B_AssaultPack_ocamo" !="B_AssaultPack_rgr" !="B_AssaultPack_sgg" !="B_Carryall_cbr" !="B_Carryall_khk" !="B_Carryall_mcamo" !="B_Carryall_ocamo" !="B_Carryall_oli" !="B_Carryall_oucamo" !="B_FieldPack_blk" !="B_FieldPack_cbr" !="B_FieldPack_khk" !="B_FieldPack_ocamo" !="B_FieldPack_oli" !="B_FieldPack_oucamo" !="B_Kitbag_cbr" !="B_Kitbag_mcamo" !="B_Kitbag_rgr" !="B_Kitbag_sgg" !="B_Parachute" !="B_TacticalPack_blk" !="B_TacticalPack_mcamo" !="B_TacticalPack_ocamo" !="B_TacticalPack_oli" !="B_TacticalPack_rgr"</pre>
+<p>createvehicle.txt   Line 2   add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="smallbackpack_red_epoch" !="smallbackpack_green_epoch" !="smallbackpack_teal_epoch" !="smallbackpack_pink_epoch"</pre>
+<p>publicvariable.txt    Line 1   add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="BIS_fnc_objectVar_obj2_1288" !="HALV_takegive" !="HSPV_traderrequest"</pre>
+<p>setvariable.txt   Line 1   add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="bis_fnc_objectvar_var" = "BIS_fnc_objectVar_obj2_1280"</pre>
+<p>scripts.txt      7 createDialog    add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="createDialog "HS_trader_dialog";"</pre>
+<p>scripts.txt      7 addMagazine    add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="if !(player canAdd (_x select 0)) exitWith {};\nplayer addMagazine[_x select 0, _x select 1];"</pre>
+<p>scripts.txt      7 setVelocity    add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="_smokeg setVelocity _Gvel;"</pre>
+<p>scripts.txt      7 addItem    add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="_this call HS_additemtolb;false"</pre>
+<p>scripts.txt      7 exec    add:</p>
+<pre class="ipsCode prettyprint lang-auto">
+!="trader\init.sqf";"</pre>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p><strong><u>For infistar Server:</u></strong><br></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>add these: 9999,9980 to the allowedDialogs.<br>
+like this: _allowedDialogs = [-1,602,7777,7778,9999,9980];</p>
+<p><strong>and</strong></p>
+<p>/*  Remove Actions Plr and /*  Remove Actions Objs</p>
+<p>^ must both be false.</p>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p> </p>
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RQ545XAL7KP3Y" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="btn_donate_LG.gif" data-src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"></a>   for Halv                           <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=92UNX4VAJT77Y" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="btn_donate_LG.gif" data-src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"></a>   for Suppe</p>
+<p> </p>
+<p>Copyright © 2015 Halvhjearne &amp; Suppe<br><br>
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your    option) any later version.<br><br>
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.<br><br>
+You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/" rel="external nofollow">http://www.gnu.org/licenses/</a>.</p>
+]]></description><guid isPermaLink="false">34661</guid><pubDate>Wed, 22 Apr 2015 17:25:26 +0000</pubDate></item><item><title>[RELEASE]  Attach Explosives</title><link>https://epochmod.com/forum/topic/34576-release-attach-explosives/</link><description><![CDATA[
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"><span style="color:#ff0000;"><span style="font-size:36px;"><span>Attach Explosives</span></span></span></p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;">
+</p>
+<div class="ipsEmbeddedVideo" contenteditable="false"><div><iframe width="480" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" allowfullscreen="true" data-embed-src="https://www.youtube.com/embed/_850PHDq0Lo?feature=oembed"></iframe></div></div>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"><span style="font-size:12px;">(Please forgive my building noobishness.  I don't play much.)</span></p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;">I've been holding onto this one for a while, but after seeing all the whining and complaining here on the forums about not being able to breach bases without insane amounts of explosives, I've decided to release this. This is not my original work, but it has been modified by second_coming and myself to work for Epoch.</p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;">The problem with explosives currently is that it takes way too many of them to do any real damage to structures. The reason is that with Arma, when you place an explosives charge it is placed on the ground in front of the object. When the explosive goes off most of the explosive force is driven into the ground. Damage of the objects nearby is limited to splash damage only, which is only a fraction of the damage that can potentially be dealt by the explosive.</p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;">So, to solve this, you can use this script to attach the explosive charge directly to the object you are wanting to demolish, thereby greatly reducing the amount of explosives it takes to accomplish the desired effect. With the traditional placement method of setting a charge on the ground in front of an object, it can take up to 30 charges to breach a door. By attaching the explosive directly to the door, we can now have the same damage,  but through using only 3 or 4 charges.</p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;">The explosives can be attached to any object you specify within the script. You can set it to work with only Epoch buildables, or you can also include vehicles, as I have done in the download. This makes for some interesting scenarios where people can set traps for others by attaching a charge to their vehicles and then detonating them remotely to either create a distraction or also to destroy a vehicle with a target player inside. The possibilities are endless and can provide for some exciting gameplay, in addition to making base raiding more realistic and fun.</p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"> </p>
+<p style="color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;font-size:16px;"><span style="font-size:24px;">Installation:</span> See included text file</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:36px;"><a href="https://github.com/DarthRogue/EtV" rel="external nofollow">Download</a></span></p>
+<p> </p>
+<p><span style="font-size:14px;">Some things to note:  I don't know how well this will work with the stock Anti-Hack since it uses addActions.  I've heard conflicting reports about how those are handled with the stock AH.  There is a new server files version coming which should fix this, but until then, your mileage may vary.  I also don't know that the stock AH will allow the damage to occur properly on player built items.  If you are using Infistar, please ensure that the indestructible option is turned off, otherwise this script will have no effect on buildable objects.  You should also disable '</span>Check Actions Plr ','Remove Actions Plr','Remove Actions Objs','revert_allowDamage', 'HandleDamage check', and Revert HandleDamage' to make sure those don't interfere as well, although you likely already have those turned off to accommodate other mods already.</p>
+]]></description><guid isPermaLink="false">34576</guid><pubDate>Sun, 19 Apr 2015 16:14:31 +0000</pubDate></item><item><title><![CDATA[Taxi & Bus   |   Transport for Arma]]></title><link>https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/</link><description><![CDATA[
+<p>
+	<span style="font-size:36px;"><span style="color:rgb(255,0,0);"><span style="font-family:'Trebuchet MS', Helvetica, sans-serif;"><strong>PROJECT ON HOLD - TO BE RESUMED ONE DAY...</strong></span></span></span>
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	source code is here: <a href="https://gitlab.com/themgm/transport_for_arma" rel="external nofollow">https://gitlab.com/themgm/transport_for_arma</a>
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<span style="font-size:26px;"><strong>TRANSPORT FOR ARMA</strong></span>
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<strong><span style="font-size:16px;">INTRODUCTION</span></strong><br />
+	This script bring the following functionality:
+</p>
+
+<ol><li>
+		<strong>[READY] </strong>Players can call an AI piloted land vehicle <em><strong>TaxiAnywhere</strong></em> and request it to take you to a point on map which YOU CHOOSE BY CLICKING ON MAP.<br />
+		Upon reaching destination AI-controlled-taxi-vehicle will stop and you can disembark. The taxi will then ride away and despawn away from player (for immersion).<br />
+		 
+	</li>
+	<li>
+		<strong>[READY] </strong>Players can call an AI piloted land vehicle <em><strong>FixedDestinationTaxi</strong></em> and request it to take you to ONE OF THE FEW PRE-CHOSEN (by ServerAdmin) points on map.<br />
+		Upon reaching destination AI-controlled-taxi-vehicle will stop and you can disembark. The taxi will then ride away and despawn away from player (for immersion).<br />
+		 
+	</li>
+	<li>
+		<strong>[WIP] </strong>Players can embark an AI piloted land vehicle <em><strong>PublicBus</strong></em> and it will automatically drive on its PRE-CHOSEN BUS ROUTE (by ServerAdmin).<br />
+		When a player wish to disembark, they can request a STOP-VEHICLE via the TfA-GUI &amp; allow them to disembark. The bus will then ride away and carry on looping its route.
+	</li>
+</ol><p>
+	<br /><span style="font-size:16px;"><strong>PAYMENT SYSTEM NOTES</strong></span>
+</p>
+
+<ul><li>
+		Taxi Anywhere Taxis    :    Initial Booking Fee + 1st Mile Fee + Pay-as-you-Go Fee    -- ServerAdmin can customize or disable any of the fees.
+	</li>
+	<li>
+		Fixed Destination Taxis    :    'Single Fee'             -- Fee is calculated on the fly according to a pricing mechanism. ServerAdmin can customize or disable this fee.
+	</li>
+	<li>
+		Public Buses        :    'Single Fee'            -- ServerAdmin can customize/disable the fee on any/all BusRoutes.
+	</li>
+</ul><p>
+	 
+</p>
+
+<p>
+	<span style="font-size:16px;line-height:25.6px;"><strong>LICENSE</strong></span><br />
+	GNU GPL v3. You can do whatever you want with this mod as long as you give the same freedom to others on your derivative works.
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<strong><span style="font-size:16px;">DOWNLOAD</span></strong>
+</p>
+
+<p>
+	29 Jan 2017 - git repo is gone. direct link to the last package (v.0.6.5b2 from 18th May 2016) <a href="http://www.filedropper.com/mgmtfav065build2" rel="external nofollow">http://www.filedropper.com/mgmtfav065build2</a><br />
+	18th May 2016 - New version v.0.6.5b2 available!<br /><strong>Release package </strong>direct link to 7zip archive file: <a href="https://gitlab.com/themgm/Transport_for_Arma/blob/master/release_packages/_autogenerated/v.0.6.5.build2/mgmTfA_v.0.6.5.build2.7z" rel="external nofollow">https://gitlab.com/themgm/Transport_for_Arma/blob/master/release_packages/_autogenerated/v.0.6.5.build2/mgmTfA_v.0.6.5.build2.7z</a><br /><strong>Installation Instructions: </strong><a href="https://gitlab.com/themgm/Transport_for_Arma/blob/master/documentation/INSTALLATION_INSTRUCTIONS.txt" rel="external nofollow">https://gitlab.com/themgm/Transport_for_Arma/blob/master/documentation/INSTALLATION_INSTRUCTIONS.txt</a><br />
+	Link to <strong>release directory </strong>where you can download the three <strong>additional files to verify integrity</strong>: <a href="https://gitlab.com/themgm/Transport_for_Arma/tree/master/release_packages/_autogenerated/v.0.6.5.build2" rel="external nofollow">https://gitlab.com/themgm/Transport_for_Arma/tree/master/release_packages/_autogenerated/v.0.6.5.build2</a><br />
+	If you try this script, please let me know what you think :)
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<span style="font-size:16px;line-height:25.6px;"><b>FEEDBACK / SUGGESTIONS / BUG REPORTS / SUPPORT</b></span><br />
+	Please post in this thread.
+</p>
+
+<p>
+	<br />
+	 
+</p>
+
+<p>
+	<strong>See it in action! Click below to go to post #2 - VIDEOS</strong>
+</p>
+<iframe data-embedcontent="" data-embedid="embed219726416" frameborder="0" scrolling="no" style="height:252px;max-width:502px;" data-embed-src="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/?do=embed&amp;embedComment=224967&amp;embedDo=findComment"></iframe>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	last edit:<br /><strong>21 Jan 21 - added source code URL (find it in the 1st post)</strong><br /><s>29 Jan 17 - added latest version link &amp; clarified project status.</s>
+</p>
+]]></description><guid isPermaLink="false">33927</guid><pubDate>Thu, 02 Apr 2015 00:18:36 +0000</pubDate></item><item><title>Deployable Sleeping Bags as Spawn Points</title><link>https://epochmod.com/forum/topic/44991-deployable-sleeping-bags-as-spawn-points/</link><description><![CDATA[
+<p>
+	<img alt="sleeping_bags.jpg" class="ipsImage" height="562" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" width="1000" data-src="http://www.grahamecurtis.com/images/sleeping_bags.jpg"></p>
+
+<p>
+	<em>Another class of item added to EpochCore client-side in 1.1 are deployable sleeping bags. Here is the code for placing them and a suggestion (and code) for actually making use of them to provide greater flexibility at respawn for your players.</em>
+</p>
+
+<p>
+	<strong>Installation Instructions</strong>
+</p>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	(1) Add the sleeping bag "kits" to your loot tables and trader price lists. The class names are <em>KitSleepingBagGreen</em>, <em>KitSleepingBagBlue </em>and <em>KitSleepingBagBrown</em>
+</p>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	(2) Add the following to epoch_config/Configs/CfgItemInteractions.hpp:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	class KitSleepingBagGreen : Item_Build_base
+    {
+        buildClass = "SleepingBagGreen_SIM_EPOCH";
+    };
+	class KitSleepingBagBlue : Item_Build_base
+    {
+        buildClass = "SleepingBagBlue_SIM_EPOCH";
+    };
+	class KitSleepingBagBrown : Item_Build_base
+    {
+        buildClass = "SleepingBagBrown_SIM_EPOCH";
+    };</span></pre>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	<span style="background-color:transparent;color:rgb(85,85,85);float:none;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">(3) </span><span style="background-color:transparent;color:rgb(85,85,85);float:none;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">Add the following to epoch_config/Configs/CfgBaseBuilding.hpp:</span>
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	class SleepingBagGreen_EPOCH  : Default
+	{
+		removeParts[] = {{"KitSleepingBagGreen",1}};
+		GhostPreview = "SleepingBagGreen_Ghost_EPOCH";
+		staticClass = "SleepingBagGreen_EPOCH";
+		simulClass = "SleepingBagGreen_SIM_EPOCH";
+		bypassJammer = 1;
+	};
+	class SleepingBagGreen_SIM_EPOCH : SleepingBagGreen_EPOCH
+	{
+		removeParts[] = {};
+	};
+	class SleepingBagGreen_Ghost_EPOCH : SleepingBagGreen_SIM_EPOCH {};
+	class SleepingBagBlue_EPOCH  : Default
+	{
+		removeParts[] = {{"KitSleepingBagBlue",1}};
+		GhostPreview = "SleepingBagBlue_Ghost_EPOCH";
+		staticClass = "SleepingBagBlue_EPOCH";
+		simulClass = "SleepingBagBlue_SIM_EPOCH";
+		bypassJammer = 1;
+	};
+	class SleepingBagBlue_SIM_EPOCH : SleepingBagBlue_EPOCH
+	{
+		removeParts[] = {};
+	};
+	class SleepingBagBlue_Ghost_EPOCH : SleepingBagBlue_SIM_EPOCH {};
+	class SleepingBagBrown_EPOCH  : Default
+	{
+		removeParts[] = {{"KitSleepingBagBrown",1}};
+		GhostPreview = "SleepingBagBrown_Ghost_EPOCH";
+		staticClass = "SleepingBagBrown_EPOCH";
+		simulClass = "SleepingBagBrown_SIM_EPOCH";
+		bypassJammer = 1;
+	};
+	class SleepingBagBrown_SIM_EPOCH : SleepingBagBrown_EPOCH
+	{
+		removeParts[] = {};
+	};
+	class SleepingBagBrown_Ghost_EPOCH : SleepingBagBrown_SIM_EPOCH {};</span></pre>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	So, at this point you can place sleeping bags and they look pretty nice, but what's the point. Well, say for example that you would like to seal your jammer away in a dark place in your base but don't want to respawn in that room, but do want to respawn somewhere in a base; or perhaps you are doing a mission or you're off hunting heroes and don't want to make your way from the coast all over again... well, <strong>you can set sleeping bags to be spawn points too!</strong>
+</p>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	(4) Change the definition for the select_jammer class in epoch_config/Configs/CfgActionMenu/cfgActionMenu_target.hpp to:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">class select_jammer
+{
+	condition = "((dyna_cursorTargetType isEqualTo 'PlotPole_EPOCH') || (dyna_cursorTargetType isEqualTo 'SleepingBagGreen_EPOCH') || (dyna_cursorTargetType isEqualTo 'SleepingBagBlue_EPOCH') || (dyna_cursorTargetType isEqualTo 'SleepingBagBrown_EPOCH')) &amp;&amp; (damage dyna_cursorTarget &lt; 1)";
+	action = "[dyna_cursorTarget,player,Epoch_personalToken] remoteExec [""EPOCH_server_makeSP"",2];";
+	icon = "x\addons\a3_epoch_code\Data\UI\buttons\player_inspect.paa";
+	tooltip = "Make Spawnpoint";
+};</span></pre>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;margin-bottom:0px;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	RePBO your mission file and upload it to the server.
+</p>
+
+<p style="background-color:transparent;color:rgb(85,85,85);font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;margin-bottom:0px;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	(5) Now unpack epoch_server.pbo. There is one file in there that needs a change which is compile/epoch_player/EPOCH_server_loadPlayer.sqf. Change line 145 from:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">				_jammers = nearestObjects[_CheckLocation, ["PlotPole_EPOCH"], 6];</span></pre>
+
+<p>
+	to:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">				_jammers = nearestObjects[_CheckLocation, ["PlotPole_EPOCH","SleepingBagGreen_EPOCH","SleepingBagBlue_EPOCH","SleepingBagBrown_EPOCH"], 6];</span></pre>
+
+<p>
+	RePBO epoch_server.pbo and upload to your server. You now have sleeping bags that can be built anywhere and used as respawn points.
+</p>
+
+<p>
+	<em>Be aware though! Anyone can pick yours up in the wild (as they should be able to) and you will no longer spawn at its location!</em>
+</p>
+
+<p>
+	<em>(Optional 6) Also note that should you give these as starting gear you may want to add energy to a player at spawn by changing the energy entry in the CustomVarsDefaults array in epoch_config/CfgEpochClient.hpp to something like the following (which gives 1250 energy to a new spawned player):</em>
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">		{"Energy",1250,{2500,0}},</span></pre>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">44991</guid><pubDate>Sun, 18 Mar 2018 14:50:00 +0000</pubDate></item><item><title>Yet another kill feed script for A3 Epoch</title><link>https://epochmod.com/forum/topic/46779-yet-another-kill-feed-script-for-a3-epoch/</link><description><![CDATA[
+<p>
+	<strong>Description:</strong>
+</p>
+
+<ul><li>
+		    The script was inspired by Halv's killfeed script from 2015 but was rewritten from scratch.
+	</li>
+	<li>
+		    Major changes are the script now ties in to the built-in epoch code for handling player deaths, does not rely on public variables, and uses remoteExec to tell the server when a player kill has to be handled. In addition, almost all of the     messaging functions have been moved from the server to the client.
+	</li>
+	<li>
+		    Other changes include making available the use of the epoch messaging system as an optional way to tell players about kills, and optional logging of PVP kills.
+	</li>
+	<li>
+		A dynamenu-accessed study body option
+	</li>
+	<li>
+		A dynamenu bury body option
+	</li>
+</ul><p>
+	<strong>Credits:</strong>
+</p>
+
+<p>
+	    The EpochMod team for the amazing framework thy have provided.
+</p>
+
+<p>
+	    Halv for the original killfeed for A3Epoch 
+</p>
+<iframe allowfullscreen="" data-embedauthorid="10011" data-embedcontent="" data-embedid="embed9634527054" scrolling="no" style="height:394px;max-width:502px;" data-embed-src="https://epochmod.com/forum/topic/34570-easy-kill-feedmessages-wstudy-bury-body-function-beta/?do=embed"></iframe>
+
+<p>
+	   Gr8 for some improvements in the GUI
+</p>
+
+<p>
+	    He-Man for helpful tips in dealing with deaths from sappers.
+</p>
+
+<p>
+	    Tarabass for many many helpful suggestions and extensive testing.
+</p>
+
+<p>
+	<strong>Download: </strong> <a href="https://github.com/Ghostrider-DbD-/kill-feed" rel="external nofollow">https://github.com/Ghostrider-DbD-/kill-feed</a>
+</p>
+
+<p>
+	<strong>Installation:</strong>   <a href="https://github.com/Ghostrider-DbD-/kill-feed/blob/master/INSTALLATION.md" rel="external nofollow">https://github.com/Ghostrider-DbD-/kill-feed/blob/master/INSTALLATION.md</a>
+</p>
+]]></description><guid isPermaLink="false">46779</guid><pubDate>Sun, 12 Jul 2020 14:49:14 +0000</pubDate></item><item><title>Calling Your Banker</title><link>https://epochmod.com/forum/topic/45040-calling-your-banker/</link><description><![CDATA[
+<p>
+	<em>Sometimes you are going to be caught short in the wild; maybe you found a trader in the wilderness or just did a GTA job on a roaming AI truck and nicked their crypto. Well, if you allow ATMs and phones, here's a little bit of code to let you call the bank when you cannot find them...</em>
+</p>
+
+<p>
+	(1) Add the particular items that you want to allow people to call on to your loot tables and trader configs. Choices include: ItemMobilePhone_old, ItemMobilePhone_smart, ItemPortableLongRangeRadio, ItemSatellitePhone, ItemSurvivalRadio
+</p>
+
+<p>
+	(2) For each of the items you want to use for remote calling the bank add the lines below for it to epoch_config/Configs/CfgItemInteractions.hpp:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	class ItemMobilePhone_old : Default
+    {
+        interactAction = 18; 
+        interactText = "CALL BANKER";
+    };
+	class ItemMobilePhone_smart : Default
+    {
+        interactAction = 18; 
+        interactText = "CALL BANKER";
+    };
+	class ItemPortableLongRangeRadio : Default
+    {
+        interactAction = 18; 
+        interactText = "CALL BANKER";
+    };
+	class ItemSatellitePhone : Default
+    {
+        interactAction = 18; 
+        interactText = "CALL BANKER";
+    };
+	class ItemSurvivalRadio : Default
+    {
+        interactAction = 18; 
+        interactText = "CALL BANKER";
+    };	</span></pre>
+
+<p>
+	(3) Before these lines at the end of epoch_code/compile/EPOCH_consumeItem.sqf:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	default {
+		["Found nothing", 5] call Epoch_message;
+	};</span></pre>
+
+<p>
+	Add:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	case 18: { // Call banker
+		if (isNil "EPOCH_bankTransferActive") then {
+			if (random 1 &gt; 0.5) then {
+				[player, [], Epoch_personalToken] remoteExec ["EPOCH_server_storeCrypto",2];
+
+				closeDialog 0;
+				createDialog "InteractBank";
+
+				lbClear 21500;
+				{
+					_index = lbAdd[21500, name _x];
+					lbSetData[21500, _index, netId _x];
+				} forEach(allPlayers - [player]);
+			} else {
+				["You cannot get a signal, please try again", 5] call Epoch_message;
+			};	
+		};
+	};</span></pre>
+
+<p>
+	Note that there's a bit of randomization so the players only have a 50% chance of getting through. You can reduce this further to make their lives more interesting <img alt=":laugh:" data-emoticon="" height="20" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/laugh@2x.png 2x" title=":laugh:" width="20" data-src="https://epochmod.com/forum/uploads/emoticons/laugh.png"></p>
+
+<p>
+	That's it. RePBO the mission and upload to your server.
+</p>
+]]></description><guid isPermaLink="false">45040</guid><pubDate>Sun, 01 Apr 2018 21:36:25 +0000</pubDate></item><item><title>Restrain player</title><link>https://epochmod.com/forum/topic/46794-restrain-player/</link><description><![CDATA[
+<p>
+	This is a script to restrain a player you stand close to (needs a rope - until i find a better solution like handcuffs/zipties)
+</p>
+
+<p>
+	all credits go to <a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31595-he-man/?do=hovercard" data-mentionid="31595" href="https://epochmod.com/forum/profile/31595-he-man/" rel="">@He-Man</a> Thank you for your support again
+</p>
+
+<p>
+	The link to the action-pic and the prepared script is here:
+</p>
+
+<p>
+	<a href="https://www.dropbox.com/s/xjmfqi9xywp8dpq/restrainscript.zip" rel="external nofollow">https://www.dropbox.com/s/xjmfqi9xywp8dpq/restrainscript.zip</a>
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		 
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			in init.sqf add
+		</p>
+
+		<div class="ipsSpoiler" data-ipsspoiler="">
+			<div class="ipsSpoiler_header">
+				 
+			</div>
+
+			<div class="ipsSpoiler_contents">
+				<pre class="ipsCode">
+
+
+ restraincheck = compileFinal  preprocessFileLineNumbers "addons\restrain\restraincheck.sqf";
+restrain = compileFinal  preprocessFileLineNumbers "addons\restrain\restrain.sqf"; </pre>
+			</div>
+		</div>
+
+		<p>
+			in CfgRemoteExec.hpp add
+		</p>
+
+		<div class="ipsSpoiler" data-ipsspoiler="">
+			<div class="ipsSpoiler_header">
+				 
+			</div>
+
+			<div class="ipsSpoiler_contents">
+				<pre class="ipsCode">
+
+
+	    class restrain {
+      allowedTargets=1;
+      jip = 0;
+    };</pre>
+
+				<p>
+					in CfgActionMenu_target.hpp add
+				</p>
+
+				<div class="ipsSpoiler" data-ipsspoiler="">
+					<div class="ipsSpoiler_header">
+						 
+					</div>
+
+					<div class="ipsSpoiler_contents">
+						<pre class="ipsCode">
+
+
+
+ class restrainPlayer
+{
+    condition = "dyna_isPlayer &amp;&amp; (damage dyna_cursorTarget &lt; 1) &amp;&amp; !(dyna_cursorTarget getvariable ['restrain',false])";
+    action= "if !('ItemRope' in magazines player) exitwith {['Get a rope to restrain a player!',5] call Epoch_Message;};player removeitem 'ItemRope';dyna_cursorTarget call restraincheck;";
+    icon = "addons\pics\Actions\restrain.paa";
+    tooltip = "Restrain player";
+};
+class unrestrainPlayer
+{
+    condition = "dyna_isPlayer &amp;&amp; (damage dyna_cursorTarget &lt; 1) &amp;&amp; dyna_cursorTarget getvariable ['restrain',false]";
+    action= "dyna_cursorTarget call restraincheck;";
+    icon = "addons\pics\Actions\restrain.paa";
+    tooltip = "UnRestrain player";
+}; </pre>
+					</div>
+				</div>
+
+				<p>
+					in addons\restrain\restrain.sqf write
+				</p>
+
+				<div class="ipsSpoiler" data-ipsspoiler="">
+					<div class="ipsSpoiler_header">
+						 
+					</div>
+
+					<div class="ipsSpoiler_contents">
+						<pre class="ipsCode">
+
+
+
+ params ["_target","_caller","_isrestrained"];
+if !(player isEqualTo _target) exitwith {};
+if (_target isEqualTo _caller) exitwith {};
+if (_target distance _caller &gt; 10) exitwith {};
+if (vehicle player != player) exitwith {['Restrain warning!', 5] call Epoch_message;};
+if (_isrestrained) then {
+    player setVariable ["restrain", false, true];
+}
+else {
+    player setVariable ["restrain", true, true];
+    [] spawn {
+        _pos = getposatl player;
+        while {player getVariable ["restrain", false]}  do {
+            player playMove "AmovPercMstpSnonWnonDnon_EaseIn"; //Animation in
+            player setposatl _pos;            
+            if (((!alive player) || (player getVariable["onkill",FALSE]))) then {
+                player setVariable ["restrain", false, true];
+            };
+        };
+        player playMoveNow "AmovPercMstpSnonWnonDnon_EaseOut"; //Animation out
+    };
+}; </pre>
+
+						<p>
+							 
+						</p>
+					</div>
+				</div>
+
+				<p>
+					and in addons\restrain\restraincheck.sqf write
+				</p>
+
+				<div class="ipsSpoiler" data-ipsspoiler="">
+					<div class="ipsSpoiler_header">
+						 
+					</div>
+
+					<div class="ipsSpoiler_contents">
+						<pre class="ipsCode">
+
+
+
+ _target = _this;
+_isrestrained = _target getVariable ["restrain", false];
+[_target,player,_isrestrained] remoteexec ["restrain",_target];</pre>
+					</div>
+				</div>
+
+				<p>
+					 
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+]]></description><guid isPermaLink="false">46794</guid><pubDate>Sat, 18 Jul 2020 22:37:13 +0000</pubDate></item><item><title>VGFE (Virtual Vehicle Storage for Epoch</title><link>https://epochmod.com/forum/topic/46746-vgfe-virtual-vehicle-storage-for-epoch/</link><description><![CDATA[
+<p>
+	<strong>Credits:</strong>
+</p>
+
+<p>
+	Epoch Mod Team for a great mod.
+</p>
+
+<p>
+	He-man for many helpful discussions.
+</p>
+
+<p>
+	RedBaron for helpful discussion and extensive debugging.
+</p>
+
+<p>
+	Shix who's VG for Exile stimulated this effort.
+</p>
+
+<p>
+	<b>Description</b>: provides a set of GUI and scripts by which players can store vehicles in a virtual garage that preserves fuel, damage, weapons loadouts and inventory. The position and orientation of the vehicle at the time it is stored is also saved.
+</p>
+
+<p>
+	Optional storage points can be added by placing pre-specified objects and locations such as airfields and docks. By interacting with these objects, players can store vehicles in virtual hangers or dry docks. The idea of the hangers is that it allows players who like winged aircraft a chance to safely store their jets. A similar logic applies to the dry dock.
+</p>
+
+<p>
+	Provisions to prevent using the virtual vehicle storage to teleport is built in.
+</p>
+
+<p>
+	Some examples of what the player sees are included below.
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			<a class="ipsAttachLink ipsAttachLink_image" data-fileext="jpg" data-fileid="2528" href="https://epochmod.com/forum/uploads/monthly_2020_06/967894190_VirtualGarageHangerandDryDock.jpg.6acdfcbcee8c12c1b402a655b4b65bf7.jpg" rel=""><img alt="1759679574_VirtualGarageHangerandDryDock.thumb.jpg.3c3f33dbc679ece9db034a4c99888412.jpg" class="ipsImage ipsImage_thumbnailed" data-fileid="2528" data-ratio="56.30" style="height:auto;" width="1000" data-src="https://epochmod.com/forum/uploads/monthly_2020_06/1759679574_VirtualGarageHangerandDryDock.thumb.jpg.3c3f33dbc679ece9db034a4c99888412.jpg" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" /></a>
+		</p>
+	</div>
+</div>
+
+<p>
+	<strong>Download</strong>:  <a href="https://github.com/Ghostrider-DbD-/Virtual-Vehicle-Storage-for-Epoch" rel="external nofollow">https://github.com/Ghostrider-DbD-/Virtual-Vehicle-Storage-for-Epoch</a>
+</p>
+
+<p>
+	<strong>Installation</strong>: <a href="https://github.com/Ghostrider-DbD-/Virtual-Vehicle-Storage-for-Epoch" rel="external nofollow">https://github.com/Ghostrider-DbD-/Virtual-Vehicle-Storage-for-Epoch</a>
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">46746</guid><pubDate>Thu, 18 Jun 2020 04:42:43 +0000</pubDate></item><item><title>Claim Vehicle Script for Mission or Roaming AI Vehicles</title><link>https://epochmod.com/forum/topic/46778-claim-vehicle-script-for-mission-or-roaming-ai-vehicles/</link><description><![CDATA[
+<p>
+	<strong>DescriptIon: </strong>This is a small script that allows players to make temporary vehicles from missions or roaming AI permenant, keyed vehicles.
+</p>
+
+<p>
+	                       Server owners can define what is required to claim a vehicle, such as crypto, electronics parts, and locks.
+</p>
+
+<p>
+	                       The claim vehicle function is available through the dynamenu.
+</p>
+
+<p>
+	<strong>Credits:</strong> EpochMod team for  the wonderful framework they have provided.
+</p>
+
+<p>
+	                OtterNas who's original Claim Vehicle script for Arma 2 inspired me to write this.
+</p>
+
+<p>
+	<strong>Download:</strong> <a href="https://github.com/Ghostrider-DbD-/ClaimVehicle_A3Epoch" rel="external nofollow">https://github.com/Ghostrider-DbD-/ClaimVehicle_A3Epoch</a>
+</p>
+
+<p>
+	<strong>Installation: </strong><a href="https://github.com/Ghostrider-DbD-/ClaimVehicle_A3Epoch/blob/master/INSTALLATION.md" rel="external nofollow">https://github.com/Ghostrider-DbD-/ClaimVehicle_A3Epoch/blob/master/INSTALLATION.md</a>
+</p>
+]]></description><guid isPermaLink="false">46778</guid><pubDate>Sun, 12 Jul 2020 09:57:51 +0000</pubDate></item><item><title>Gigacraft Admin Menu A3-Epoch</title><link>https://epochmod.com/forum/topic/32324-gigacraft-admin-menu-a3-epoch/</link><description><![CDATA[
+<p>Hello Epoch Users,</p>
+<p> </p>
+<p>i (RHE24) &amp; Stefan have a simple Admin Menu for your Epoch Server.</p>
+<p>We are Admins on the Gigacraft A3 Epoch Server.</p>
+<p> </p>
+<p><u><span style="color:#daa520;"><em><strong>Its based on Arma3 Wiki and fusion13 and AltisLife</strong></em></span></u></p>
+<p> </p>
+<p><span style="color:#008000;">Features</span></p>
+<div style="margin:0px;font-size:13px;font-family:sans-serif;">
+<ul><li><span style="color:#008000;"><em>Teleport</em></span>
+</li><li><span style="color:#008000;"><em>Godmode</em></span></li>
+<li><span style="color:#008000;"><em>Vehicle Spawn</em></span></li>
+<li><span style="color:#008000;"><em>Weapon Spawn</em></span></li>
+<li><span style="color:#008000;"><em>Group Spawn</em></span></li>
+<li><span style="color:#008000;"><em>ESP</em></span></li>
+<li><span style="color:#008000;"><em>Heal self and Players</em></span></li>
+<li><span style="color:#008000;"><em>Spectate</em></span></li>
+</ul></div>
+<p> </p>
+<p>You can Download the 7z Archive</p>
+<p> </p>
+<p> </p>
+<p><a href="https://sourceforge.net/projects/gama3epoch/files/latest/download" rel="external nofollow">https://sourceforge.net/projects/gama3epoch/files/latest/download</a></p>
+<p> </p>
+<p> </p>
+<p><span style="color:#008000;"><em><strong>Install:</strong></em></span></p>
+<p> </p>
+<p>, extract to our Mission Folder.</p>
+<p> </p>
+<p>Insert this in your init.sqf </p>
+<pre class="ipsCode prettyprint">
+//Gigacraft Admin Menu 
+[] execVM "gigacraft_admin_menu\admin\activate.sqf"; 
+[] execVM "gigacraft_admin_menu\admin\loop.sqf";</pre>
+<p>then in tools.sqf  and activate.sqf search this</p>
+<pre class="ipsCode prettyprint">
+if ((getPlayerUID player) in ["####", "####", "####", "####", "####", "####", "####"]) then { //all admins</pre>
+<p>and in activate.sqf</p>
+<div>
+<pre class="ipsCode prettyprint">
+if ((getPlayerUID player) in ["####", "####", "####", "####", "####", "####", "####"]) then {
+;</pre>
+</div>
+<p> </p>
+<p><span style="color:#8b4513;"><em><strong>replace  "####" with your Admin UIDS, like 76xxxxxxxxxxx</strong></em></span></p>
+<p> </p>
+<p>thats all, repack your to pbo and have a Menu :)</p>
+<p> </p>
+<div>---------------------------------------------------------------------</div>
+<div>presentet by RHE24 &amp; Stefan, we are Admins on our Arma3 Epoch Server.</div>
+<div> </div>
+<div>Server IP: gigacraft.de:2302</div>
+]]></description><guid isPermaLink="false">32324</guid><pubDate>Thu, 12 Feb 2015 12:31:51 +0000</pubDate></item><item><title>Unlimited Revive</title><link>https://epochmod.com/forum/topic/46485-unlimited-revive/</link><description><![CDATA[
+<p>
+	I have a private Epoch server that my friends and I play on. We're not PVP and have issues with trying to stay alive. With that, I was looking for a way to setup unlimited revives as well as bypass needing a Defibrillator. I'm going to show you how to setup unlimited revives and then show you the code I used to bypass the Defibrillator.
+</p>
+
+<p>
+	Before I start, I wanted to give a huge thank you to (in no special order) AWOL, Vampire, Ghostrider, He-Man, and Grahame for giving their time to help me on Discord!
+</p>
+
+<p>
+	Ok, here's what we need to do.
+</p>
+
+<p>
+	Extract your mission pbo file (mine is bornholm.pbo) and go into epoch_code\compile\setup\EPOCH_clientRevive.sqf
+</p>
+
+<p>
+	<a href="https://github.com/EpochModTeam/Epoch/blob/release/Sources/epoch_code/compile/setup/EPOCH_clientRevive.sqf#L59" rel="external nofollow">https://github.com/EpochModTeam/Epoch/blob/release/Sources/epoch_code/compile/setup/EPOCH_clientRevive.sqf#L59</a>
+</p>
+
+<p>
+	Find line 59 and change it to true
+</p>
+
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="lit">58</span><span class="pln"> </span><span class="com">// set token and can revive to false</span><span class="pln">
+</span><span class="lit">59</span><span class="pln"> </span><span class="typ">Epoch_canBeRevived</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="lit">60</span><span class="pln"> </span><span class="typ">Epoch_personalToken</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> _personalToken</span><span class="pun">;</span></pre>
+
+<p>
+	 
+</p>
+
+<p>
+	Next step, extract your epoch_server.pbo file in @epochhive\addons
+</p>
+
+<p>
+	Find EPOCH_server_revivePlayer.sqf in @epochhive\addons\epoch_server\compile\epoch_player
+</p>
+
+<p>
+	<a href="https://github.com/EpochModTeam/Epoch/blob/release/Sources/epoch_server/compile/epoch_player/EPOCH_server_revivePlayer.sqf#L119" rel="external nofollow">https://github.com/EpochModTeam/Epoch/blob/release/Sources/epoch_server/compile/epoch_player/EPOCH_server_revivePlayer.sqf#L119</a>
+</p>
+
+<p>
+	Find line 119 and comment out the code
+</p>
+
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="lit">116</span><span class="pln"> _newPlyr setVariable </span><span class="pun">[</span><span class="str">"SETUP"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">];</span><span class="pln">
+</span><span class="lit">117</span><span class="pln"> _newPlyr setVariable </span><span class="pun">[</span><span class="str">"PUID"</span><span class="pun">,</span><span class="pln"> _playerUID</span><span class="pun">];</span><span class="pln">
+</span><span class="lit">118</span><span class="pln"> _newPlyr setVariable </span><span class="pun">[</span><span class="str">"GROUP"</span><span class="pun">,</span><span class="pln"> _playerGroup</span><span class="pun">];</span><span class="pln">
+</span><span class="lit">119</span><span class="pln"> </span><span class="com">//_newPlyr setVariable ["REVIVE", false];</span><span class="pln">
+</span><span class="lit">120</span><span class="pln"> _newPlyr setVariable </span><span class="pun">[</span><span class="str">"SERVER_VARS"</span><span class="pun">,</span><span class="pln">_player getVariable </span><span class="pun">[</span><span class="str">"SERVER_VARS"</span><span class="pun">,[]]];</span><span class="pln">
+</span><span class="lit">121</span><span class="pln"> _newPlyr setVariable </span><span class="pun">[</span><span class="str">"EPOCH_playerPlayTime"</span><span class="pun">,</span><span class="pln">_player getvariable </span><span class="pun">[</span><span class="str">"EPOCH_playerPlayTime"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">],</span><span class="kwd">true</span><span class="pun">];</span></pre>
+
+<p>
+	 
+</p>
+
+<p>
+	Ok, thats it. You now have unlimited revives.
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	Last part. If you don't want to use the Defibrillator, you can copy the following code. This will require the player to have at least 100 energy in order to revive a dead player. Makes it a lot easier, but also prevents players from dying and then running back to revive everyone else.
+</p>
+
+<p>
+	Lets go back to your mission pbo and find this file epoch_code\compile\EPOCH_DefibrillatorUse.sqf
+</p>
+
+<p>
+	<a href="https://github.com/EpochModTeam/Epoch/blob/release/Sources/epoch_code/compile/EPOCH_DefibrillatorUse.sqf#L20-L57" rel="external nofollow">https://github.com/EpochModTeam/Epoch/blob/release/Sources/epoch_code/compile/EPOCH_DefibrillatorUse.sqf#L20-L57</a>
+</p>
+
+<p>
+	Replace lines 20-57 with the following code:
+</p>
+
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isplayer _unit</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+    _energyneeded </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">EPOCH_playerEnergy </span><span class="pun">-</span><span class="pln"> _energyneeded </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+        _output </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">"Energy"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="pln">_energyneeded</span><span class="pun">]</span><span class="pln"> call EPOCH_giveAttributes</span><span class="pun">;</span><span class="pln">
+        _unit spawn </span><span class="pun">{</span><span class="pln">
+            player playMove </span><span class="str">'AinvPknlMstpSnonWrflDnon_medic0'</span><span class="pun">;</span><span class="pln">
+            player playMove </span><span class="str">'AinvPknlMstpSnonWrflDnon_medicEnd'</span><span class="pun">;</span><span class="pln">
+            uisleep </span><span class="lit">8</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">alive player </span><span class="pun">&amp;&amp;</span><span class="pln"> isplayer _this</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+                </span><span class="pun">[</span><span class="pln">_this</span><span class="pun">,</span><span class="pln">player</span><span class="pun">,</span><span class="typ">Epoch_personalToken</span><span class="pun">]</span><span class="pln"> remoteExec </span><span class="pun">[</span><span class="str">'EPOCH_server_revivePlayer'</span><span class="pun">,</span><span class="lit">2</span><span class="pun">];</span><span class="pln">
+            </span><span class="pun">};</span><span class="pln">
+        </span><span class="pun">};</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="pun">[</span><span class="str">'Not enough energy to revive'</span><span class="pun">,</span><span class="lit">5</span><span class="pun">]</span><span class="pln"> call </span><span class="typ">Epoch_Message</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="pun">[</span><span class="str">'This Player can not be revived'</span><span class="pun">,</span><span class="lit">5</span><span class="pun">]</span><span class="pln"> call </span><span class="typ">Epoch_Message</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span></pre>
+
+<p>
+	 
+</p>
+
+<p>
+	That should be it. Assuming you made all of the changes that I did, you can revive as many times as you want and a defib not necessary.
+</p>
+]]></description><guid isPermaLink="false">46485</guid><pubDate>Sat, 22 Feb 2020 09:07:33 +0000</pubDate></item><item><title>Virtual Arsenal Shop System working with epoch</title><link>https://epochmod.com/forum/topic/46398-virtual-arsenal-shop-system-working-with-epoch/</link><description><![CDATA[
+<p>
+	I spent some time getting Virtual Arsenal Shop System (VASS) working in epoch recently and figured I'd share that (though may not be the best way to do this, as it's my first time really making anything for arma or epoch).
+</p>
+
+<p>
+	<u><strong>Full credit to:</strong></u><br /><a href="https://github.com/7erra/VASS-Virtual-Arsenal-Shop-System" rel="external nofollow">https://github.com/7erra/VASS-Virtual-Arsenal-Shop-System</a>
+</p>
+
+<p>
+	<span style="font-size:20px;"><u><strong>EDIT:</strong></u>  </span>I created a fork on github with basically all of the below changes, so you only need to merge description.ext, init.sqf and CfgFunctions.hpp. (Instructions for doing so are at the top of the readme in the repo.)<br /><a href="https://github.com/Alsekwolf/VASS-Virtual-Arsenal-Shop-System" rel="external nofollow">https://github.com/Alsekwolf/VASS-Virtual-Arsenal-Shop-System</a>
+</p>
+
+<p>
+	<br /><u><strong>Step 0:</strong></u><br />
+	get the "VASS" folder from that Github and place it at the root of your mission file.
+</p>
+
+<p>
+	<u><strong>Step 1:</strong></u>
+</p>
+
+<p>
+	Add to description.ext
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">#include "VASS\gui\cfgGUI.hpp"</span></pre>
+
+<p>
+	<strong><u>Step 2:</u></strong>
+</p>
+
+<p>
+	Add to CfgFunctions (Default for epoch would be in mission file \epoch_config\Configs\CfgFunctions.hpp)<br />
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">class TER
+{
+	class VASS
+	{
+		file = "VASS\fnc";
+		class shop {
+			preInit = 1;
+		};
+		class getItemValues {};
+		class VASShandler {};
+		class addShopCargo {};
+		class addShop {};
+		class resetTimer {};
+	};
+};</span></pre>
+
+<p>
+	<u><strong>Step 3:</strong></u>
+</p>
+
+<p>
+	Now you are going to need an object in SQF code at wherever you want the shop to be accessed, something like<br />
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	private _objects = [];
+	private _objectIDs = [];
+	
+	private _item1 = objNull;
+	_item1 = createVehicle ["Land_CashDesk_F",[11843.6,13031.7,0.0419998],[],0,"CAN_COLLIDE"];
+	_this = _item1;
+	_objects pushback _this;
+	_objectIDs pushback 1;
+	_this setPosWorld [11843.6,13031.7,6.992];
+	_this setVectorDirAndUp [[-0.956641,0.29127,0.00066811],[0.000698392,0,1]];
+	trader123 = _this;
+	_this setVehicleVarName "trader123";
+	publicVariable "trader123";</span></pre>
+
+<p>
+	but you won't want to use that, it does need a name Variable though, like "trader123" shown there (the rest of the code will assume you use trader123, or change it in any occurrences).<br />
+	 
+</p>
+
+<p>
+	<u><strong>Step 4:</strong></u><br />
+	Create a SQF somewhere in the mission file, mine will be TraderCFG\Trader.sqf and add this code to it<br />
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">// Client Stuff //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (hasInterface) then
+{
+_shop = [trader123,"Shop test"] call TER_fnc_addShop;
+};
+// Client Stuff //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Shop Inventory //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+_cargoArray =
+[
+	// array in format: "class", price, amount
+	"arifle_MSBS65_F",100,true,
+    "arifle_AK12_F",100,5,
+    "arifle_AKM_F",50,5,
+    "arifle_MX_F",75,5,
+    "hgun_P07_F",20,5,
+    "optic_DMS",10,5,
+    "optic_ACO_grn",5,5,
+    "B_AssaultPack_mcamo",25,5,
+	"U_B_Wetsuit",25,true,
+	"U_B_HeliPilotCoveralls",10,true,
+    "U_B_CombatUniform_mcam",15,5,
+    "30Rnd_762x39_Mag_F",5,true,
+    "30Rnd_65x39_caseless_mag",13,true
+];
+// Shop Inventory ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Server Stuff //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if(isServer) then
+{	
+	// Objects /////////////////////////////////////////////////////////////
+	private _objects = [];
+	private _objectIDs = [];
+	
+	private _item1 = objNull;
+	_item1 = createVehicle ["Land_CashDesk_F",[11843.6,13031.7,0.0419998],[],0,"CAN_COLLIDE"];
+	_this = _item1;
+	_objects pushback _this;
+	_objectIDs pushback 1;
+	_this setPosWorld [11843.6,13031.7,6.992];
+	_this setVectorDirAndUp [[-0.956641,0.29127,0.00066811],[0.000698392,0,1]];
+	trader123 = _this;
+	_this setVehicleVarName "trader123";
+	publicVariable "trader123";
+	// Objects /////////////////////////////////////////////////////////////
+	
+	// Add Shop Inventory /////////////////////////////////////////////////
+	[trader123, _cargoArray, 2] call TER_fnc_addShopCargo;
+	// Add Shop Inventory /////////////////////////////////////////////////
+};
+// Server Stuff //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</span></pre>
+
+<p>
+	Replace all the code inside "// Objects //" with the object code you got in step 3, and make the any occurrences of "trader123" match what you name yours.
+</p>
+
+<p>
+	<u><strong>Step 5:</strong></u><br />
+	you'll need to add that file to run in your init.sqf, something like
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">call compile preprocessFileLineNumbers "TraderCFG\Trader.sqf";</span></pre>
+
+<p>
+	<u><strong>Step 6:</strong></u><br />
+	navigate to "VASS/fnc/fn_VASShandler.sqf" and in change "getMoney" to be like
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	case "getMoney":{
+		/*
+			Description:
+			 VASS wants to know how much money the unit has
+
+			Parameter(s):
+			 0: OBJECT - Unit whose money is requested
+
+			Has to return:
+			 NUMBER - Unit's money
+		*/
+		params ["_unit"];
+		_Crypto = EPOCH_playerCrypto;
+		_Crypto;
+	};</span></pre>
+
+<p>
+	<u><strong>Step 7: </strong></u><br />
+	you'll need 2 files, name doesn't really matter but mine are "TraderSetMoney_init.sqf" and "TraderSetMoney.sqf"<br />
+	in TraderSetMoney_init or whatever you name it, put
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">if(isServer)then{
+	Alsekwolf_server_TraderSetMoney = compileFinal preprocessFileLineNumbers "TraderSetMoney.sqf";
+	"Alsekwolf_TakeGive" addPublicVariableEventHandler {(_this select 1) call Alsekwolf_server_TraderSetMoney};
+};</span></pre>
+
+<p>
+	(Change the TraderSetMoney.sqf name to whatever you make that file, or add if its in a folder and not root mission file)<br /><br /><u><strong>Step 8:</strong></u>
+</p>
+
+<p>
+	put the following code in "TraderSetMoney.sqf" or whatever you name it<br />
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">_this call EPOCH_server_effectCrypto;</span></pre>
+
+<p>
+	<u><strong>Step 9:</strong></u>
+</p>
+
+<p>
+	put the following code in your init.sqf and make it match your naming
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">[] ExecVM "TraderSetMoney_init.sqf"; </span></pre>
+
+<p>
+	<u><strong>Step 10:</strong></u>
+</p>
+
+<p>
+	in "VASS/fnc/fn_VASShandler.sqf" change "setMoney" to match<br />
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	case "setMoney":{
+		/*
+			Description:
+			 VASS changes the amount of money the player has
+
+			Parameter(s):
+			 1: OBJECT - Unit whose money will be changed
+			 0: NUMBER - Amount of money changed (can be positive or negative)
+
+			Has to return:
+			 Nothing
+		*/
+		params ["_unit", "_change"];
+		Alsekwolf_TakeGive = [player,_change];
+		publicVariableServer "Alsekwolf_TakeGive";
+	};</span></pre>
+
+<p>
+	 
+</p>
+
+<p>
+	That should be everything, I'm really sorry if I missed anything, it's been about 2 weeks of trying different things to get this working.<br />
+	Also sorry for the bad writing of instructions, not great at that.
+</p>
+]]></description><guid isPermaLink="false">46398</guid><pubDate>Fri, 10 Jan 2020 00:01:35 +0000</pubDate></item><item><title>DZSA-Style broken windows on Livonia or maps using Livonia assets</title><link>https://epochmod.com/forum/topic/46381-dzsa-style-broken-windows-on-livonia-or-maps-using-livonia-assets/</link><description><![CDATA[
+<p>
+	Want the DayZ SA broken windows effect for Livonia or maps that use its buildings (like CUP's Chernarus 2020 map) then run this script <em>on your server</em> on restart?
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">{  
+    _house = _x; 
+    _hitPoints = "isClass _x" configClasses (configFile &gt;&gt; "CfgVehicles" &gt;&gt; (typeOf _house) &gt;&gt; "HitPoints");  
+   
+    {  
+        _hitpointname = (configName _x);  
+        if ("Glass" in _hitpointname) then { 
+            _house setHitPointDamage [_hitPointName, 1];  
+        }; 
+    } forEach _hitPoints; 
+} foreach ((getArray(configFile &gt;&gt; "CfgWorlds" &gt;&gt; worldName &gt;&gt; "centerPosition") ) nearObjects ["House", worldSize]); </span></pre>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">46381</guid><pubDate>Sat, 04 Jan 2020 19:29:08 +0000</pubDate></item><item><title>[UPGRADED DEC2017][scarCODE] Virtual Garage System by IT07</title><link>https://epochmod.com/forum/topic/37088-upgraded-dec2017scarcode-virtual-garage-system-by-it07/</link><description><![CDATA[
+<p>
+	<strong><span style="font-size:72px;">EPOCH VGS</span></strong><span style="color:#A9A9A9;"><span style="font-size:18px;"><em> by IT07</em></span></span>
+</p>
+
+<p>
+	<strong><span style="font-size:20px;">Here it is :D</span></strong><br />
+	Detailed info is in the README.md on GitHub
+</p>
+
+<p>
+	<a href="https://github.com/IT07/Game_code/tree/master/ArmA_3/A3_EPOCH_virtualGarage" rel="external nofollow">https://github.com/IT07/Game_code/tree/master/ArmA_3/A3_EPOCH_virtualGarage</a><br /><br />
+	Updated code: <a href="https://github.com/ravmustang/Game_code/tree/VGS-Overhaul/ArmA_3/A3_EPOCH_virtualGarage" rel="external nofollow">https://github.com/ravmustang/Game_code/tree/VGS-Overhaul/ArmA_3/A3_EPOCH_virtualGarage</a>
+</p>
+]]></description><guid isPermaLink="false">37088</guid><pubDate>Tue, 11 Aug 2015 21:06:36 +0000</pubDate></item><item><title>ESVP - Extended Safezones with Vehicle Protection</title><link>https://epochmod.com/forum/topic/42179-esvp-extended-safezones-with-vehicle-protection/</link><description><![CDATA[
+<p>
+	<strong>Title:</strong>                 SPK_ESVP<br /><strong>Author:</strong>            Sp4rkY <a href="https://github.com/SPKcoding" rel="external nofollow">(Github)</a><br /><strong>Description:</strong>   Extended Safezones with Vehicle Protection for Arma 3 Epoch<br /><strong>Version:</strong>           0.9<br /><strong>Required:</strong>        Arma 3 1.66+ / Epoch 0.4+<br /><strong>Credits:</strong>            IT07 (Thx for many brain) <a href="https://github.com/IT07" rel="external nofollow">(Github)</a><br />
+	                          |V.I.P.| CH!LL3R (Thx for thoughts &amp; testing!)
+</p>
+
+<p>
+	<br /><u><strong>DOWNLOAD &amp; INSTALL INSTRUCTIONS:</strong></u><br /><a href="https://github.com/SPKcoding/A3_Epoch_ESVP" rel="external nofollow">&gt;&gt;&gt; &gt;&gt; &gt; CLICK ME &lt; &lt;&lt; &lt;&lt;&lt;</a>
+</p>
+
+<p>
+	<strong>Edit by EpochMod - 2019-11-08:<br />
+	There came some issues up with the Arma 1.96 update.<br />
+	Unfortunately <a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12505-sp4rky/?do=hovercard" data-mentionid="12505" href="https://epochmod.com/forum/profile/12505-sp4rky/" rel="">@Sp4rkY</a> currently seems to be not active here, so we have added a pull request for his GitHub files.<br />
+	So if you want to use this addon, check / add this changes:<br /><a href="https://github.com/SPKcoding/A3_Epoch_ESVP/pull/2/files" rel="external nofollow">https://github.com/SPKcoding/A3_Epoch_ESVP/pull/2/files</a></strong>
+</p>
+
+<p>
+	<br /><u><strong>FEATURES:</strong></u><br />
+	* Fully customizable<br />
+	* Works with all maps<br />
+	* Works for players and vehicles<br />
+	* No more `"ProtectionZone_Invisible_F"` is needed (usually found in map config in a3_epoch_server_settings.pbo)<br />
+	* Fired bullets will automatically be deleted in safezones<br />
+	* (optional) Teleport players out of safezones after restart<br />
+	* (optional) Teleport players away from the parking place (if used) after restart<br />
+	* Protection from idiots trying to drive over other players (including traders)<br />
+	* Check vehicle ownership of bought vehicles<br />
+	* (optional) Teleport vehicles out of safezones at server restart to:<br />
+	    - (optional) a given distance from the respective safezone<br />
+	    - (optional) a static parking place (you can use your own map addition and define as many parking lots you want)<br />
+	* (optional) Restricted vehicle´s access in safezones (only the owner(s) can enter the vehicle)<br />
+	* (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)<br />
+	* (optional) Protection for lifted vehicle´s<br />
+	    - If using this feature, there will be also a check for the owner, so stealing is not possible<br />
+	* (optional) Unlock teleported vehicles<br />
+	* 2 ways of info messages (depends on if vehicle protection is used or not)<br />
+	* (optional) Vehicle Access Menu:<br />
+	    - "Refresh" button to update the player-list while menu is open<br />
+	    - "Registered" listing to see which players are added to your vehicle<br />
+	    - "Clear" button to remove the added players<br />
+	* (optional) restrict access to driver seat for primary vehicle owner<br />
+	* slingload check for bought vehicles (you can not steal cars or ships)<br />
+	* (optional) info messages for prohibited lifting<br />
+	* (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones<br />
+	* (optional) Allow/disallow to chop/sledge/chainsaw anything in safezones<br />
+	* (optional) Feature to set map markers directly from this script (no need to define them anywhere else)<br />
+	* If using the "vehicle teleporting WITHOUT Parking Place" - function:<br />
+	    - the vehicles get teleported to a random position within the given radius out of the safezones<br />
+	* If using the "vehicle teleporting WITH Parking Place" - function, it will works like this:<br />
+	    - server restarts, vehicles in safezones will be teleported to a parking place<br />
+	    - vehicles which are present at the parking place are getting teleported to a random location on the map, new vehicles (in safezones) are ported to the parking place<br />
+	* If the respective safezone contains water, ships are treated like this:<br />
+	    - if ships are located at water surface, they gets teleported close to the safezone´s shore at given radius<br />
+	    - if ships are located at terrain surface because of lifting or simliar, they gets ported random at the maps shore<br />
+	* If not using "vehicle teleporting" - function, remaining vehicles in safezones are indestructible after restart<br />
+	* Debug option for better determine errors (client &amp; server)
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<em>Enjoy this stuff and have fun!</em>
+</p>
+
+<p>
+	<em>cheers</em>
+</p>
+]]></description><guid isPermaLink="false">42179</guid><pubDate>Fri, 03 Jun 2016 02:53:08 +0000</pubDate></item><item><title>[Release] Lootspawner, configurable building loot system</title><link>https://epochmod.com/forum/topic/32757-release-lootspawner-configurable-building-loot-system/</link><description><![CDATA[
+<p>Lootspawner, configurable building loot system<u> in a autostart Addon.</u><br><br>
+Full credits go to: Ed! (404Forums) and [GoT] JoSchaap (GoT2DayZ.nl) for the initial spawnsystem for Wasteland and Na_Palm !<br>
+Armaholic: <a href="" rel="external nofollow">http://forums.bistud...ing-loot-system</a><br><br><u>I have only packed the Lootspawner in a autostart Addon.</u><br><br>
+The Lootspawner is used on 99% of the epoch server and if you have given time and hassle for configuring, and do not wish that they will be stolen. then is that the correct.<br><br><u>Advantage:</u><br>
+- Now lazy people can no longer view or steal your settings.<br>
+- The Lootspawner is not more in your epoch.mission.pbo.<br>
+- Smaller Missionfile.<br><br><u>Download:</u><br><a href="https://github.com/GBR-Suppe/Lootspawner-Master" rel="external nofollow">https://github.com/GBR-Suppe/Lootspawner-Master</a><br><br><u>Install:</u><br>
+1.0      Configure the Lootspawner: (or paste your previous settings in it)<br>
+1.1     'Lootspawner.sqf' to change the available variables as needed  (ex. spawninterval, chance of loot, categories of loot...)<br>
+1.2     'LSlootLists.sqf' to customize the items inside the categories.<br>
+1.3     'LSlootBuildings.sqf' to change the lootcategory of a building or add/remove buildings.<br><br>
+2.0    Pack the pbo back together after configure.<br><br>
+3.0    Copy the "loot_addon.pbo" into the folder "@epochhive\addons\"<br><br>
+4.0    <u>If it already exists</u>: Remove the old LSpawner folder and everything from the LSpawner in the init.sqf (in your epoch.mission)<br><br>
+        And ready :-) There is nothing in the init.sqf necessary, the lootaddon starts completely alone.<br><br><br>
+Have fun and thanks for taking your time!<br><br>
+Greez GBR Suppe<br>
+ </p>
+<p><u>Changelog:</u></p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><br><br>
+Version 1.1:<br>
+-added Cherno Builinglist<br>
+-added @MAS Weapons example<br>
+-added a lot of examples<br>
+-small chance in the init<br>
+-added @MAS Classnamelist<br><br>
+Version 1.2:<br>
+- added a complete Bornholm LSlootBuildings.sqf<br>
+- added more examples:<br>
+- added a Epoch furniture example ! (spawn more Epoch furnitures) for maximum Loot !<br>
+- added a example with LSLootLists with @MAS and DLC weapons
+<p> </p>
+<p></p></blockquote><p></p>
+]]></description><guid isPermaLink="false">32757</guid><pubDate>Fri, 27 Feb 2015 19:49:48 +0000</pubDate></item><item><title>A3E Animated Crash Spawner</title><link>https://epochmod.com/forum/topic/44947-a3e-animated-crash-spawner/</link><description><![CDATA[
+<p>
+	I  always liked the animated helicopter crash spawner in ARMA2/DayZ/Epoch and, with permission, I have ported the latest 1.0.6.2 version provided by <a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36459-jasontm/?do=hovercard" data-mentionid="36459" href="https://epochmod.com/forum/profile/36459-jasontm/" rel="">@JasonTM</a> to ARMA3/Epoch. It's nice as an enhancement to the existing static ARMA3/Epoch DayZ-Style Helo Crash Sites script or as a replacement. It is great to see a helo flying around for a while and then crash, spilling loot around the burning wreck <img alt=":biggrin:" data-emoticon="" height="20" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/biggrin@2x.png 2x" title=":biggrin:" width="20" data-src="https://epochmod.com/forum/uploads/emoticons/biggrin.png"></p>
+
+<p>
+	<em><strong>Note that the version provided requires that you have CUP Terrains Core and CUP Vehicles installed on your server (so you'd be good to go after changing the loot <a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard" data-mentionid="25169" href="https://epochmod.com/forum/profile/25169-natoed/" rel="">@natoed</a> and <a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37734-drokz/?do=hovercard" data-mentionid="37734" href="https://epochmod.com/forum/profile/37734-drokz/" rel="">@Drokz</a> </strong></em><img alt=":wink:" data-emoticon="" height="20" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/wink@2x.png 2x" title=":wink:" width="20" data-src="https://epochmod.com/forum/uploads/emoticons/wink.png"><strong>)<em>. </em></strong>
+</p>
+
+<p>
+	<em><strong>It's not that difficult to mod the loot and helos/planes used by the script for vanilla ARMA3 weapons and equipment (that I hate) so I leave that at an exercise for the reader. </strong></em>
+</p>
+
+<p>
+	<em><strong>Also note that the helo does not crash at the centre of the marker that appears... it is within that area only!</strong></em>
+</p>
+
+<p>
+	<strong>Credits</strong>
+</p>
+<iframe allowfullscreen="" data-embedcontent="" data-embedid="embed7051896488" scrolling="no" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" style="height:213px;max-width:502px;" data-embed-src="https://epochmod.com/forum/topic/44919-animated-crash-spawner/?do=embed"></iframe><iframe allowfullscreen="" data-embedcontent="" data-embedid="embed2967616299" scrolling="no" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" style="height:283px;max-width:502px;" data-embed-src="https://epochmod.com/forum/topic/34565-dayz-style-heli-crash-sites/?do=embed&amp;comment=286350&amp;embedComment=286350&amp;embedDo=findComment"></iframe>
+
+<p>
+	<strong>Installation</strong>
+</p>
+
+<p>
+	Download AnimatedCrashSpawner.sqf from <a href="https://github.com/morgoth0/Animated-Crash-Spawner" rel="external nofollow">https://github.com/morgoth0/Animated-Crash-Spawner</a> and put it in the EpochEvents folder of your epoch_server_settings PBO.
+</p>
+
+<p>
+	Feel free to play with the configuration settings at the top of the file:
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">crashsite_loot = ["CUP_srifle_M110","CUP_srifle_VSSVintorez","CUP_srifle_ksvk","CUP_srifle_AS50","CUP_srifle_M40A3","CUP_srifle_M107_Base","CUP_srifle_M14","hlc_lmg_M249para","CUP_arifle_M16A4_Base","hlc_rifle_akm","hlc_rifle_m4a1carryhandle","hlc_rifle_awcovert_FDE","CUP_arifle_L85A2","hlc_rifle_ak74_MTK","optic_Nightstalker","optic_LRPS","optic_DMS","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","optic_Aco","optic_Holosight","acc_pointer_IR","Rangefinder","EnergyPack","ItemGeigerCounter_EPOCH","ItemDefibrillator","ToolKit","FAK","morphine_epoch","ItemLockbox","EpochRadio0","nanite_gun_epoch","RyanZombiesAntiVirusCure_Item","ItemRotor","CUP_hgun_BallisticShield_Armed","SmokeShellToxic","ClaymoreDirectionalMine_Remote_Mag","ItemCanteen_Clean","optic_Nightstalker","Towelette"];
+
+// Configs - You can adjust these
+#define DEBUG_MODE 		false  	// Adds diagnostic entries to the server rpt
+#define CRASH_TIMEOUT 	1200	// The amount of time it takes for the mission to time out if no players show up
+#define SPAWN_CHANCE 	100	 	// Percent chance of spawning a crash number between 0 - 100 
+#define GUARANTEED_LOOT	16	 	// Guaranteed Loot Spawns
+#define RANDOM_LOOT		8		// Random number of loot piles as well as the guaranteed ones
+#define SPAWN_FIRE 		true 	// Spawn Smoke/Fire at the helicrash
+//#define FADE_FIRE 		false	// Fade the Smoke/Fire overtime
+#define PREWAYPOINTS 	2		// Amount of way points the heli flies to before crashing
+#define MIN_LOOT_RADIUS 4	 	// Minimum distance for loot to spawn from the crash site in meters
+#define MAX_LOOT_RADIUS 10	 	// Maximum distance for loot to spawn from the crash site in meters
+#define MARKER_RADIUS 	400	 	// Radius for the marker
+#define SHOW_MARKER		true	// Show a marker on the map
+#define MARKER_NAME 	true	// Add the crash name to the marker, SHOW_MARKER must be true
+#define LOWER_GRASS		true	// lowers the grass around the loot
+_crashDamage			= 1;	// Amount of damage the heli can take before crashing (between 0.1 and 1) Lower the number and the heli can take less damage before crashing 1 damage is fully destroyed and 0.1 something like a DMR could one shot the heli
+_exploRange				= 200;	// How far away from the predefined crash point should the heli start crashing
+
+//Parameters for finding a suitable position to spawn the crash site
+#define SEARCH_CENTER epoch_centerMarkerPosition
+#define SEARCH_RADIUS EPOCH_dynamicVehicleArea
+#define SEARCH_DIST_MIN 20
+#define SEARCH_SLOPE_MAX 2
+
+// Initialize mission variables - DO NOT CHANGE THESE
+_ran15		= 0;
+_isClose1	= false;
+_isClose2	= false;
+_isClose3	= false;
+_inFlight 	= true;
+_missionEnd	= false;
+_lootArray	= [];
+
+// Do not change below values if you do not know what you are doing
+_crashSelect = selectRandom [["CUP_B_UH1Y_UNA_USMC","CUP_B_UH1Y_Wreck",false],["CUP_B_MV22_VIV_USMC","CUP_MV22Wreck",false],["CUP_O_Mi8_VIV_RU","Mi8Wreck",false],["CUP_B_UH60M_Unarmed_FFV_US","BlackhawkWreck",false],["CUP_B_UH60M_Unarmed_FFV_MEV_US","BlackhawkWreck",false],["CUP_B_A10_CAS_USA","CUP_A10Wreck",true],["CUP_O_Ka52_Blk_RU","CUP_Ka52Wreck",false],["CUP_O_Mi24_P_Dynamic_RU","CUP_Mi24Wreck",false],["CUP_B_AH1Z_Dynamic_USMC","CUP_AH1ZWreck",false],["CUP_B_AV8B_DYN_USMC","CUP_AV8BWreck",true],["CUP_B_Su25_Dyn_CDF","CUP_SU25Wreck",true],["CUP_O_AN2_TK","CUP_AN2Wreck",true]]</span></pre>
+
+		<p>
+			 
+		</p>
+	</div>
+</div>
+
+<p>
+	RePBO epoch_server_settings and upload to your server. Then add the following line to the events[] array in @EpochHive/epoch_config.hpp changing the first number to match how often you want the script to run:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">    { 2700, "AnimatedCrashSpawner", 0 , 1, -1, {} ,{"VR"}},</span></pre>
+
+<p>
+	And enjoy!
+</p>
+
+<p>
+	<strong>Issues/To Dos</strong>
+</p>
+
+<ul>
+<li>
+		For the life of me I cannot get client side messages about the incoming helos working right now for this script. Tried using the same mechanism as I used in the DZMS system and then the function used in the Message Epoch event but both just made the script silently fail... Will fix asap, but the script works fine without them and the marker is placed when the helo crashes.
+	</li>
+	<li>
+		Better loot table handling - probably using additions to the CfgLootTable
+	</li>
+</ul>
+]]></description><guid isPermaLink="false">44947</guid><pubDate>Tue, 27 Feb 2018 00:29:03 +0000</pubDate></item><item><title><![CDATA[Repair & Rearming script]]></title><link>https://epochmod.com/forum/topic/34454-repair-rearming-script/</link><description><![CDATA[
+<p>I was personally looking for a repair / re-arming script for arma 3 epoch and noticed that there wasnt really any good out there yet, so i decide to do something about that.</p>
+<p>i went back in my a2 mission file and fetched this scrip that was originally written by <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/3935-release-vehicle-service-point-refuel-repair-rearm-script/&amp;do=embed"></iframe> ported it to work with crypto changed it so it allows you to re-arm all types of magazines for all types of weapons (from drivers seat), removed re-fuel (as fuel is auto and free on any fuelstation) and added a few extra features like a banned weapons array, banned magazines array, max global amount of magazines, max magazines for each weapon and colour of scroll action, you can check out here:</p>
+<p> </p>
+<p> </p>
+<p><a href="http://pastebin.com/uMrvqiGT" rel="external nofollow">http://pastebin.com/uMrvqiGT</a></p>
+<p> </p>
+<p><a href="http://pastebin.com/7MNi6KZc" rel="external nofollow">http://pastebin.com/7MNi6KZc</a></p>
+<p> </p>
+<p><a href="http://pastebin.com/ySETb79x" rel="external nofollow">http://pastebin.com/ySETb79x</a></p>
+<p> </p>
+<p> </p>
+<p>for anyone who does not know how to add this:</p>
+<p> </p>
+<p>put all files in a folde called addons\service_point\ in your mission</p>
+<div> </div>
+<div>if you already have an init.sqf, add the line from the code tag below to the bottom of yours:</div>
+<div> </div>
+<p>if you do not have an init,sqf in your mission, then make an empty file, call it init.sqf and add the lines in code tag below:</p>
+<pre class="ipsCode prettyprint">
+if(hasInterface) then{
+	[] execVM "addons\service_point\service_point.sqf";
+};
+</pre>
+<p>or you can edit the line:</p>
+<pre class="ipsCode prettyprint">
+_folder = "addons\service_point\"; // folder where the service point scripts are saved, relative to the mission file
+</pre>
+<p>and put it wherever you want.</p>
+<p> </p>
+<p>By default, this will only work with "Land_CarService_F" building types, but you can add any building/vehicle type you like in the array on line 8 of service_point.sqf, like this:</p>
+<pre class="ipsCode prettyprint">
+_servicePointClasses = ["Land_CarService_F","myaddedbuilding1","myaddedbuilding2","anotherbuilding2"]; // service point classes (can be house, vehicle and unit classes)
+</pre>
+<p>i put notes by the options you can change, so go through the beginning of service_point.sqf and checkout what you can change.</p>
+<p> </p>
+<p>all credits goes to axe cop for his original code.</p>
+<p> </p>
+<p>have fun</p>
+<p> </p>
+<p>regards</p>
+<p>Halvhjearne</p>
+<p> </p>
+<p>Edit:</p>
+<p>Since it is not possible to remove or add crypto to the player from the player himself (wich is ridicules really), i made this little addition and updated the scripts, to ensure the crypto is removed from the player:</p>
+<p> </p>
+<p><a href="https://github.com/Halvhjearne/HALV_takegive_crypto" rel="external nofollow">https://github.com/Halvhjearne/HALV_takegive_crypto</a></p>
+<p> </p>
+<p>to use it updatet the service point script files with the updated code and put both of the .sqf files from github in a folder called custom in your mission.pbo.</p>
+<p> </p>
+<p>then add this line to the bottom of your init.sqf:</p>
+<pre class="ipsCode prettyprint">
+[] execVM "custom\HALV_takegive_crypto_init.sqf";
+</pre>
+<p>now it will actually remove the crypto from the player ...</p>
+]]></description><guid isPermaLink="false">34454</guid><pubDate>Wed, 15 Apr 2015 05:38:09 +0000</pubDate></item><item><title>[Release] Simple And Working True Safe Zones</title><link>https://epochmod.com/forum/topic/41795-release-simple-and-working-true-safe-zones/</link><description><![CDATA[
+<p>
+	<strong>NoKillScript – <em>Prevents any ‘Safe Zone’ killings and damage to player’s vehicles.</em></strong>
+</p>
+
+<p>
+	<strong>Version:  1.16</strong>
+</p>
+
+<p>
+	<br /><strong>Tested On:</strong>  ARMA 3 (should work on ARMA 2, though untested)
+</p>
+
+<p>
+	<strong>Tested Modes:</strong> Single Player, Multiplayer (Dedicated Server)
+</p>
+
+<p>
+	<strong>Tested Environments:</strong>  Standard ARMA SP/MP, Epoch, Exile
+</p>
+
+<p>
+	<strong>Script Executor:</strong>  Client
+</p>
+
+<p>
+	<strong>Script Host: </strong> Server or Client
+</p>
+
+<p>
+	<strong>Format:  script,</strong> SQS
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<u><strong>Description:</strong></u><br />
+	NoKillZone (NKZ), is a script that helps put an end to the notorious ‘safe zone’ killings that plagued MP environments such as Epoch and Exile.
+</p>
+
+<p>
+	Simply place a marker on your map, and then put the marker name in the scripts parameters, and that’s it!  It is a simple script to use.  Nothing fancy here.
+</p>
+
+<p>
+	Once it starts, it just loops over and over checking to see if player has entered or left the mark area. Matters not if they teleport into the area, fly over it, or respawn in to it – the script will detect all players in the zone regardless how they arrived or left.
+</p>
+
+<p>
+	100% client side and consumes almost no resources from the client.
+</p>
+
+<p>
+	Runs till client exits the server.
+</p>
+
+<p>
+	No triggers are used.
+</p>
+
+<p>
+	This script is for players only, it does not detect/react to any AI units.
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	<u><strong>Uses:</strong></u><br />
+	To mark a ‘safe area’ where players can be safe and not have to worry about being killed by anyone.
+</p>
+
+<p>
+	It is possible, if desired for example, to have player protected at 100m and then at 50m, their vehicle protected.  This is done by using 2 scripts.  One with the DISTANCE parameter set to ‘100’ and the other set to ‘50’.
+</p>
+
+<p>
+	<br /><u><strong>Usage:</strong></u><br />
+	[MARKER,DISTANCE,TEXT-IN,TEXT-OUT,PROTECTION] exec "NoKillZone.Sqs";
+</p>
+
+<p>
+	MARKER = Map marker name - In quotes<br />
+	DISTANCE = Radius of protection in meters<br />
+	TEXT-IN *  = Text to be shown via Hint when entering the zone - In quotes<br />
+	TEXT-OUT *  = Text to be shown via Hint when leaving the zone - In quotes<br />
+	PROTECTION *  = Allows you to choose protection for player or player and their vehicle.
+</p>
+
+<p>
+	* = Optional parameter
+</p>
+
+<p>
+	<u>Example:</u><br />
+	["CentralSZ",500,"You Have Entered The Central Safe Zone","You Have Left The Central Safe Zone",1] exec "NoKillZone.Sqs"
+</p>
+
+<p>
+	Full documentation can be found in the top lines of the script.  Just open it in a text program such as NotePad++ to view.
+</p>
+
+<p>
+	For servers, call script from 'INIT.SQF' and/or 'OnPlayerRespawn.Sqf'.
+</p>
+
+<p>
+	For SP, you can also call it from the INIT.Sqf or you can activate it via the debug console or other means such as a radio trigger.
+</p>
+
+<p>
+	Once launched, you will get a 'confirmation' message showing script is active, what zone, and if vehicle protection is active.
+</p>
+
+<p>
+	<br /><u><strong>Other Notes:</strong></u><br />
+	While not ‘optimized’ and the ‘cleanest’ looking script, it does work and work well.  If you wish to spend one to two hours ‘optimizing’ it to save a few milliseconds, be my guest!  ;-)
+</p>
+
+<p>
+	<br /><u><strong>Known Issues:</strong></u><br />
+	Script can be run many times for the same location (marker).<br />
+	There is no way to exit the script without the player quitting the game.<br />
+	Not all parameter errors are detected, though some are
+</p>
+
+<p>
+	<em>(The above issues are set to be addressed in the future)</em>
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	Video Example:  <a href="https://youtu.be/Ysda2TwD58g" rel="external nofollow">No Kill Zone Example</a>
+</p>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">41795</guid><pubDate>Fri, 01 Apr 2016 14:25:19 +0000</pubDate></item><item><title>Painshop ... paint/set custom textures on Backpack, Uniforms and vehicles.</title><link>https://epochmod.com/forum/topic/35945-painshop-paintset-custom-textures-on-backpack-uniforms-and-vehicles/</link><description><![CDATA[
+<p>Ok so last night someone came to my ts just to ask me if he could donate to use my paintshop...</p>
+<p> </p>
+<p>obviusly i could not just allow this, but he insisted that i should take his donation and i told him that i would not promise anything but i was already planning on posting it soonish on the forum.</p>
+<p>he was so happy about this, that he decided to donate to me anyway and since i was so flattered by this "move of generosity", i decided that today would be the day to "reveal" it for everyone.</p>
+<p> </p>
+<p>so here it is ... PaintShop by Halv:</p>
+<p> </p>
+<p>[screenshots below, maybe video comming soon].</p>
+<p> </p>
+<p>this all started with me fiddling with the sliders in the gui editor wanting to use these for something, so i started making this gui to allow me to set a custom colour on vehicles ... later it kinda "grew a bit" and became what it is today where you can use it to set textures on basicly any "vehicle" in arma 3.</p>
+<p> </p>
+<p>for now, only uniforms and backpacks are persistant, but im hoping this will change in the future.</p>
+<p> </p>
+<p>backpacks and uniforms are saved into profilenamespace so it will be persistant over restarts (even over deaths) the player will HAVE to go and set the default colours on their clothing in order to actually remove this again, if not you will be able to relog (if you somehow loose it) and it will be back as it was choosen in the paintshop.</p>
+<p> </p>
+<p>you can use the sliders to set a custom colour of choice or you can easily add or remove custom textures in the settings.sqf file</p>
+<p> </p>
+<p>to install this you will need to download these files:</p>
+<p><a href="https://github.com/Halvhjearne/paintshop" rel="external nofollow">https://github.com/Halvhjearne/paintshop</a></p>
+<p> </p>
+<p>to install add to your init.sqf something like:</p>
+<pre class="ipsCode prettyprint">
+[] execVM "addons\paintshop\paintshop.sqf";
+</pre>
+<p>within a:</p>
+<pre class="ipsCode prettyprint">
+if(hasInterface) then{
+</pre>
+<div>now in description.ext add the very top:</div>
+<div> </div>
+<div>if you already have a Halv_defines.hpp, then you can skip the step below, as you do not need another, infact your server will fail to load if you have more than one in description.ext!.</div>
+<div>(but perhaps check when it was last edited and see if you perhaps need to update it).</div>
+<div> </div>
+<div>if you do not have a Halv_defines.hpp, then you need to add this line:</div>
+<div>
+<pre class="ipsCode prettyprint">
+#include "addons\halv_spawn\Halv_defines.hpp"</pre>
+<p>once you have the above line, add directly below it:</p>
+</div>
+<pre class="ipsCode prettyprint">
+#include "addons\paintshop\paintshop.hpp"
+</pre>
+<p>if you have infistar antihack, you will need to add this:</p>
+<pre class="ipsCode prettyprint">
+6666
+</pre>
+<p>in _allowedDialogs like this:</p>
+<pre class="ipsCode prettyprint">
+_allowedDialogs = [-1,602,6666];
+</pre>
+<p>and set _CAP  and _OAP to false, like this:</p>
+<pre class="ipsCode prettyprint">
+/*  Check Actions Plr    */ _CAP = false;
+
+/*  Remove Actions Plr   */ _OAP = false;
+</pre>
+<p>if you dont care about customization, you can skip the next two steps, but <span style="color:rgb(255,0,0);">READ THE RED TEXT BELOW</span>!!</p>
+<p> </p>
+<p> </p>
+<p>to add custom pictures/preset colours just open settings.sqf and change the array, look at how its already done:</p>
+<pre class="ipsCode prettyprint">
+//custom textures
+	["Linux","trader\trader.jpg"],
+	["DK Flag","custom\dkflag.jpg"],
+</pre>
+<p>first is text, this is the text shown in the menu, next is the path to where your picture is located.</p>
+<p>you can also use this to set preset colours like this:</p>
+<pre class="ipsCode prettyprint">
+//preset colors
+	["Red","#(argb,8,8,3)color(1,0,0,1)"],
+	["Green","#(argb,8,8,3)color(0,1,0,1)"],
+</pre>
+<p><span style="color:#ff0000;"><span style="font-size:24px;">VERY IMPORTANT:</span></span></p>
+<p><span style="color:#ff0000;">remeber to change / remove my custom images from settings.sqf or you will get an error about them missing when you open the paintshop!</span></p>
+<p> </p>
+<p>Known bug/limitations:</p>
+<ol><li>
+	<p>when adding textures by double clicking them, it changes the colour on the next side aswell.</p>
+	<p>the side painted is not actually painted, its just the "test colouring" that activates cause it switches side and if you press accept the colours selected is painted correctly.</p>
+	<p>to avoid this just use "add to list" option instead or learn to live with it (untill i feel like fixing it  :lol:  ).</p>
+	</li><li>
+	<p>some objects cannot be painted, this includes tempest based vehicles, parachute bags and some other, im hoping i prevented the paintshop from opening if no sides are availible to paint on.</p>
+	</li>
+	<li>
+	<p>sometimes players uniform/bag is not painted on login, just relog and its usually back.</p>
+	</li>
+	<li>
+	<p>profilenamespace can become corrupt and in extreemly rare cases it is possible that it will crash your game on load, in such cases try delete your profile and creating a new one and it should fix it.</p>
+	</li>
+	<li>
+	<p>player texture/colours are not seen by ai like players see it, so bright colours will have no effect on how ai reacts towards the player ... idk if this can be called a bug or a feature, its not something i can change (or even want to if i could).</p>
+	</li>
+</ol><p>special thanks to mr. Garcia for donating, only hoping i would release this ... you will not be dissapointed now ;)</p>
+<p> </p>
+<p>have fun</p>
+<p> </p>
+<p>Regards</p>
+<p>Halv</p>
+]]></description><guid isPermaLink="false">35945</guid><pubDate>Tue, 16 Jun 2015 12:10:57 +0000</pubDate></item><item><title>Bunker Event</title><link>https://epochmod.com/forum/topic/45261-bunker-event/</link><description><![CDATA[
+<p>
+	There are some (currently) unused bunkers in the Epoch files and I thought, what can we do with them...???<br />
+	So I have written a small script to spawn them in a configureable square.
+</p>
+
+<p>
+	It is just a small "fun-event", that needs Admin support!<br />
+	Only the doors between the bunkers are opened. So nobody can enter it from outside. (Only ported in Players can enter this event)<br />
+	You can also configure some missing bunkers for a bit more opened feeling.<br /><br />
+	By default, loot is spawning. To disable it, you have to add this line (already in experimental):<br /><a href="https://github.com/EpochModTeam/Epoch/commit/e033973debd25bb8d16582a194bd62d2a731cb1a" rel="external nofollow">https://github.com/EpochModTeam/Epoch/commit/e033973debd25bb8d16582a194bd62d2a731cb1a</a>
+</p>
+
+<p>
+	Here are 2 small Videos from the "Event":<br /><a href="http://plays.tv/video/5b7b30a4cb1bc433b6/bunker2" rel="external nofollow">http://plays.tv/video/5b7b30a4cb1bc433b6/bunker2</a><br /><a href="https://plays.tv/video/5aa5961bd853eb1462/bunker-event" rel="external nofollow">https://plays.tv/video/5aa5961bd853eb1462/bunker-event</a><br />
+	 
+</p>
+
+<p>
+	You have to run this Server Side by console or via "if (isserver) then {...};"<br />
+	By default it is located in the salt lake on Altis, but you can change the parameters by yourself at the bottom of the script.<br /><br />
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span>_BunkerEvent</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	params </span><span class="pun">[</span><span class="str">"_startpos"</span><span class="pun">,</span><span class="str">"_countx"</span><span class="pun">,</span><span class="str">"_county"</span><span class="pun">,</span><span class="str">"_skip"</span><span class="pun">,[</span><span class="str">"_loot"</span><span class="pun">,</span><span class="kwd">true</span><span class="pun">]];</span><span class="pln">
+	_bunkerarr </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">"bunker_epoch_01"</span><span class="pun">,</span><span class="str">"bunker_epoch_02"</span><span class="pun">,</span><span class="str">"bunker_epoch_03"</span><span class="pun">,</span><span class="str">"bunker_epoch_04"</span><span class="pun">,</span><span class="str">"bunker_epoch_06"</span><span class="pun">,</span><span class="str">"bunker_epoch_09"</span><span class="pun">,</span><span class="str">"bunker_epoch_10"</span><span class="pun">,</span><span class="str">"bunker_epoch_11"</span><span class="pun">,</span><span class="str">"bunker_epoch_12"</span><span class="pun">,</span><span class="str">"bunker_epoch_13"</span><span class="pun">,</span><span class="str">"bunker_epoch_14"</span><span class="pun">,</span><span class="str">"bunker_epoch_15"</span><span class="pun">];</span><span class="pln">
+	_spawnpos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		_spawnpos pushback _x
+	</span><span class="pun">}</span><span class="pln"> foreach _startpos</span><span class="pun">;</span><span class="pln">
+	_dist </span><span class="pun">=</span><span class="pln"> </span><span class="lit">12.9</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">for</span><span class="pln"> </span><span class="str">"_i"</span><span class="pln"> from </span><span class="lit">1</span><span class="pln"> to _county </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">for</span><span class="pln"> </span><span class="str">"_k"</span><span class="pln"> from </span><span class="lit">1</span><span class="pln"> to _countx </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">!([</span><span class="pln">_k</span><span class="pun">,</span><span class="pln">_i</span><span class="pun">]</span><span class="pln"> in _skip</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+				_veh </span><span class="pun">=</span><span class="pln"> createVehicle </span><span class="pun">[</span><span class="pln">selectrandom _bunkerarr</span><span class="pun">,</span><span class="pln"> _spawnpos</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[],</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CAN_COLLIDE"</span><span class="pun">];</span><span class="pln">
+				</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">_loot</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+					_veh setvariable </span><span class="pun">[</span><span class="str">'EPOCH_Skiploot'</span><span class="pun">,</span><span class="kwd">true</span><span class="pun">,</span><span class="kwd">true</span><span class="pun">];</span><span class="pln">
+				</span><span class="pun">};</span><span class="pln">
+				_veh setposasl _spawnpos</span><span class="pun">;</span><span class="pln">
+				_veh animate </span><span class="pun">[</span><span class="str">"One"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+				_veh animate </span><span class="pun">[</span><span class="str">"Two"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+				_veh animate </span><span class="pun">[</span><span class="str">"Three"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+				_veh animate </span><span class="pun">[</span><span class="str">"Four"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+				</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_i </span><span class="pun">==</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+					_veh animate </span><span class="pun">[</span><span class="str">"Four"</span><span class="pun">,</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+				</span><span class="pun">};</span><span class="pln">
+				</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_i </span><span class="pun">==</span><span class="pln"> _county</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+					_veh animate </span><span class="pun">[</span><span class="str">"Three"</span><span class="pun">,</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+				</span><span class="pun">};</span><span class="pln">
+				</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_k </span><span class="pun">==</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+					_veh animate </span><span class="pun">[</span><span class="str">"Two"</span><span class="pun">,</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+				</span><span class="pun">};</span><span class="pln">
+				</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_k </span><span class="pun">==</span><span class="pln"> _countx</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+					_veh animate </span><span class="pun">[</span><span class="str">"One"</span><span class="pun">,</span><span class="lit">1</span><span class="pun">];</span><span class="pln">
+				</span><span class="pun">};</span><span class="pln">
+			</span><span class="pun">};</span><span class="pln">
+				_spawnpos </span><span>set</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,(</span><span class="pln">_startpos select </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> _dist</span><span class="pun">*</span><span class="pln">_k</span><span class="pun">];</span><span class="pln">
+		</span><span class="pun">};</span><span class="pln">
+		_spawnpos </span><span>set</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,(</span><span class="pln">_startpos select </span><span class="lit">0</span><span class="pun">)];</span><span class="pln">
+		_spawnpos </span><span>set</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,(</span><span class="pln">_startpos select </span><span class="lit">1</span><span class="pun">)+</span><span class="pln">_dist</span><span class="pun">*</span><span class="pln">_i</span><span class="pun">];</span><span class="pln">
+	</span><span class="pun">};</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+_startpos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">23807.1</span><span class="pun">,</span><span class="lit">18623.1</span><span class="pun">,</span><span class="lit">3.19</span><span class="pun">];</span><span class="pln">
+_countx </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+_county </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10</span><span class="pun">;</span><span class="pln">
+_skip </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[[</span><span class="lit">3</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],[</span><span class="lit">8</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],[</span><span class="lit">3</span><span class="pun">,</span><span class="lit">8</span><span class="pun">],[</span><span class="lit">8</span><span class="pun">,</span><span class="lit">8</span><span class="pun">]];</span><span class="pln">
+_loot </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">_startpos</span><span class="pun">,</span><span class="pln">_countx</span><span class="pun">,</span><span class="pln">_county</span><span class="pun">,</span><span class="pln">_skip</span><span class="pun">,</span><span class="pln">_loot</span><span class="pun">]</span><span class="pln"> call </span><span>_BunkerEvent</span><span class="pun">;</span></pre>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">45261</guid><pubDate>Mon, 20 Aug 2018 20:40:05 +0000</pubDate></item><item><title><![CDATA[Easy Kill feed/messages w/study & bury body  function (Beta)]]></title><link>https://epochmod.com/forum/topic/34570-easy-kill-feedmessages-wstudy-bury-body-function-beta/</link><description><![CDATA[
+<p>Im not sure i found the best way to do it, but it works and currently i do not see a better way (maybe epoch devs can shed some light on how this would be done better or perhaps integrate this?), i havent seen anything about killmessages anywhere and i guess some servers might have been waiting for something like this for a bit now, so here it is:</p>
+<p> </p>
+<p>with this installed, you can easily setup the following types of killmessages:</p>
+<p> </p>
+<p> </p>
+<div>sideChat //note that sideChat only shows if more than one player is on the server (not that it matters much)</div>
+<div>globalChat</div>
+<div>systemChat</div>
+<div>titleText</div>
+<div>cutText</div>
+<div>hint</div>
+<div>hintSilent</div>
+<div>dynamictext</div>
+<div> </div>
+<div> </div>
+<div>obviusly you can switch any of these on or off (in settings.sqf) and besides this, it can add a custom channel to your server with the name and/or colour you specify at the top of the settings file ...</div>
+<div> </div>
+<div> </div>
+<div>you can also swith on/off if you want it to show killfeed from players killed by ai or simmular (alltho sappers will currently show as error: no vehicle, as there is no killer left to check).</div>
+<div> </div>
+<div>to install this, all you need to do is put all files in a folder called "addons\messages" in your mission, edit settings as you like and add this line:</div>
+<div>
+<pre class="ipsCode prettyprint">
+[] execVM "addons\messages\init.sqf";
+</pre>
+<p>to the very bottom of your init.sqf if that does not work, try at the top.</p>
+<p> </p>
+<p>if you have A3EAI it might be a good idea to move this line:</p>
+<pre class="ipsCode prettyprint">
+#include "A3EAI_Client\A3EAI_initclient.sqf";
+</pre>
+<p>to the very bottom of your init.</p>
+<p> </p>
+<p>(you can also edit the second line of settings.sqf to match your prefered folder structure)</p>
+<p> </p>
+<p>Link:</p>
+<p> </p>
+<p><a href="https://github.com/Halvhjearne/killfeed" rel="external nofollow">https://github.com/Halvhjearne/killfeed</a></p>
+<p> </p>
+</div>
+<p>as requested i have now added a study body function to this.</p>
+<p> </p>
+<p>here is a picture of how the killfeeds look:</p>
+<p> </p>
+<p>(note that the red custom chat is now unsupported by me)</p>
+<p><a class="ipsAttachLink ipsAttachLink_image" href="https://epochmod.com/forum/uploads/monthly_04_2015/post-10011-0-98003700-1429627824.jpg" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" data-fileid="1656" alt="post-10011-0-98003700-1429627824_thumb.j" data-src="https://epochmod.com/forum/uploads/monthly_04_2015/post-10011-0-98003700-1429627824_thumb.jpg" width="100" data-ratio="65"></a></p>
+]]></description><guid isPermaLink="false">34570</guid><pubDate>Sun, 19 Apr 2015 13:29:09 +0000</pubDate></item><item><title>DayZ-Style Portable Generators for A3E</title><link>https://epochmod.com/forum/topic/44988-dayz-style-portable-generators-for-a3e/</link><description><![CDATA[
+<div class="ipsEmbeddedVideo">
+	<div>
+		<iframe allowfullscreen="true" frameborder="0" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" width="480" data-embed-src="https://www.youtube.com/embed/WNEcW1OaH1M?feature=oembed"></iframe>
+	</div>
+</div>
+
+<p>
+	I got certain configs updated in the EpochCore client files allowing a few extra nice features to be deployed in A3/Epoch, and I'll start off by posting the information to set up portable generators to allow fuel pumps to be used for refueling vehicles if auto-refueling is turned off on your server. 
+</p>
+
+<p>
+	<u><strong>Installation Instructions</strong></u>
+</p>
+
+<p>
+	(1) Add the portable generator "kit" to your loot tables and trader price lists. The class name is <em>KitGenerator</em>
+</p>
+
+<p>
+	(2) Add the files in this downloadable archive to a folder in your mission called, for example, sounds:
+</p>
+
+<p>
+	<a href="https://www.dropbox.com/s/75gq2rezy1tcbe2/generator_sounds.zip?dl=0" rel="external nofollow">https://www.dropbox.com/s/75gq2rezy1tcbe2/generator_sounds.zip?dl=0</a>
+</p>
+
+<p>
+	<em><strong>The license file is required!</strong> It is a Creative Commons Attribution Only license for the sound file.</em>
+</p>
+
+<p>
+	(3) Add the following lines to your mission file's custom description.ext (replacing the path for the generator1.ogg sound with the location in which you put it):
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">// Portable Generator Sounds
+
+class CfgSFX
+{
+	class Generator
+	{
+		sounds[] = {"Generator"};
+		name = "Generator";
+		Generator[] = {"sounds\generator1.ogg","db+10",1,200,1,0,0,0};
+		Empty[] = {"",0,0,0,0,0,0,0};
+	};
+};
+
+class CfgVehicles // NOTE: CfgVehicles definitions are only permitted in description.ext for sound sources. It cannot be used for CfgVehicles customizations
+{
+	class PortableGenerator
+	{
+		sound = "Generator"; 
+	};
+};</span></pre>
+
+<p>
+	(4) Create a file in the folder of your mission file where you store your own scripts, e.g. custom called PortableGenerator.sqf and paste the following code into it:
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">private ["_generator","_action","_fueled","_running","_sound","_fuelPumps"];
+
+_generator = _this select 0;
+_action = _this select 1;
+
+_fueled = _generator getVariable ["GeneratorFueled",false];
+_running = _generator getVariable ["GeneratorRunning",false];
+
+switch _action do {
+	case 0: {
+		// Turn off generator
+		player playMove 'AinvPknlMstpSnonWrflDnon_medic0';
+		player playMove 'AinvPknlMstpSnonWrflDnon_medicEnd';
+		_generator setVariable ["GeneratorRunning",false,true];
+		_sound = _generator getVariable ["GeneratorSound", objNull];
+		deleteVehicle _sound;
+		_fuelPumps = nearestObjects [_generator, ["Land_fs_feed_F","Land_FuelStation_Feed_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_01_pump_malevil_F"],10];
+		{_x setFuelCargo 0;} foreach _fuelPumps;
+	};	
+	
+	case 1: {
+		// Turn on generator
+		// Play animation for starting the generator
+		player playMove 'AinvPknlMstpSnonWrflDnon_medic0';
+		player playMove 'AinvPknlMstpSnonWrflDnon_medicEnd';
+		_generator setVariable ["GeneratorRunning",true,true];
+		_sound = createSoundSource ["PortableGenerator", getPosATL _generator, [], 0];
+		_generator setVariable ["GeneratorSound",_sound,true];	
+		_fuelPumps = nearestObjects [_generator, ["Land_fs_feed_F","Land_FuelStation_Feed_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_01_pump_malevil_F"],10];
+		{_x setFuelCargo (random 1);} foreach _fuelPumps;
+	};	
+	
+	case 2: {
+		// Refuel generator
+		if ("jerrycan_epoch" in (magazines player)) then {
+			player removeMagazine "jerrycan_epoch";
+			player addMagazine "jerrycanE_epoch";
+			// Play animation for refueling
+			closeDialog 0;
+			player playMove 'AinvPknlMstpSnonWrflDnon_medic0';
+			player playMove 'AinvPknlMstpSnonWrflDnon_medicEnd';
+			_generator setVariable ["GeneratorFueled",true,true];
+		} else {
+			["You need a full jerry can to refuel the generator", 5] call Epoch_message;
+		};
+	};	
+	
+	default {
+		["Nothing to do", 5] call Epoch_message;
+	};
+};	</span></pre>
+
+		<p>
+			 
+		</p>
+	</div>
+</div>
+
+<p>
+	(5) Add the following lines to your mission's init.sqf (replacing the path with whatever you used in step (4)):
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">if(hasInterface) then{
+	PortableGenerator  = compileFinal  preprocessFileLineNumbers "custom\PortableGenerator.sqf";
+};</span></pre>
+
+<p>
+	(6) Add the following to epoch_config/Configs/CfgItemInteractions.hpp:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">    class KitGenerator : Item_Build_base
+    {
+        buildClass = "Generator_EPOCH";
+    };</span></pre>
+
+<p>
+	<span style="float:none;background-color:transparent;color:rgb(85,85,85);font-family:'Open Sans', Tahoma, sans-serif;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">(7) </span><span style="background-color:transparent;color:rgb(85,85,85);float:none;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">Add the following to epoch_config/Configs/CfgBaseBuilding.hpp:</span>
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	class Generator_EPOCH : Default
+    {
+        removeParts[] = {{"KitGenerator",1}};
+        GhostPreview = "Generator_Ghost_EPOCH";
+        staticClass = "Generator_EPOCH";
+        simulClass = "Generator_SIM_EPOCH";
+        limitNearby = 2;
+        bypassJammer = 1;
+    };
+    class Generator_SIM_EPOCH : Generator_EPOCH
+    {
+        removeParts[] = {};
+    };
+    class Generator_Ghost_EPOCH : Generator_SIM_EPOCH {};</span></pre>
+
+<p>
+	(8) Add the following code to epoch_config/Configs/CfgActionMenu/cfgActionMenu_target.hpp:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">// Portable Generators
+
+class generator_refill
+{
+	condition = "((dyna_cursorTarget isKindOf 'Generator_EPOCH') &amp;&amp; !(dyna_cursorTarget getVariable [""GeneratorFueled"",false]) &amp;&amp; !(dyna_cursorTarget getVariable [""GeneratorRunning"",false]))";
+	action = "[dyna_cursorTarget, 2] call PortableGenerator;";
+	icon = "x\addons\a3_epoch_code\Data\UI\buttons\vehicle_refuel.paa";
+	tooltip = "Refuel generator";
+};
+
+class generator_start
+{
+	condition = "((dyna_cursorTarget isKindOf 'Generator_EPOCH') &amp;&amp; (dyna_cursorTarget getVariable [""GeneratorFueled"",false]) &amp;&amp; !(dyna_cursorTarget getVariable [""GeneratorRunning"",false]))";
+	action = "[dyna_cursorTarget, 1] call PortableGenerator;";
+	icon = "x\addons\a3_epoch_code\Data\UI\buttons\Replace_Engine.paa";
+	tooltip = "Start generator";
+};
+
+class generator_stop
+{
+	condition = "((dyna_cursorTarget isKindOf 'Generator_EPOCH') &amp;&amp; (dyna_cursorTarget getVariable [""GeneratorRunning"",false]))";
+	action = "[dyna_cursorTarget, 0] call PortableGenerator;";
+	icon = "x\addons\a3_epoch_code\Data\UI\buttons\Remove_Engine.paa";
+	tooltip = "Stop generator";
+};</span></pre>
+
+<p>
+	RePBO your mission file and upload it to the server. That should be it.
+</p>
+]]></description><guid isPermaLink="false">44988</guid><pubDate>Sat, 17 Mar 2018 18:08:38 +0000</pubDate></item></channel></rss>

@@ -1,0 +1,1789 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Tutorials Latest Topics</title><link>https://epochmod.com/forum/forum/77-tutorials/</link><description>Tutorials Latest Topics</description><language>en</language><item><title>Put your server addons in a server side pbo</title><link>https://epochmod.com/forum/topic/36574-put-your-server-addons-in-a-server-side-pbo/</link><description><![CDATA[
+<p>I can't take credit for creating this method. I found it here in the forums but I really don't remember where. It was included with some addon I was looking at. This will allow you to create a pbo of your map addons that you can put into your addons folder. You won't need to edit any default epoch files and it can be easily re-inserted into your server files when there's an update. I will not explain how to made map addons. There are other tutorials/topics about that. This assumes you've made addons and exported them to sqf format. For example, the addon's sqf should look similar to this:</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+private ["_objs"];
+_objs = [
+	["Hhedgehog_concrete",[5877.36,9122.8,0],14.1429,[0,0,1],true]
+];
+
+{
+	private ["_obj"];
+	_obj = createVehicle [_x select 0, [0,0,0], [], 0, "CAN_COLLIDE"];
+	if (_x select 4) then {
+		_obj setDir (_x select 2);
+		_obj setPos (_x select 1);
+	} else {
+		_obj setPosATL (_x select 1);
+		_obj setVectorDirAndUp (_x select 3);
+	};
+} foreach _objs;
+</pre>
+<p></p></blockquote><p></p>
+<p> </p>
+<p>Now on to the instructions.</p>
+<p> </p>
+<p>1. Download this pbo: <a href="https://www.dropbox.com/s/32v7i81loel8l2m/a3_custom.pbo?dl=0" rel="external nofollow">https://www.dropbox.com/s/32v7i81loel8l2m/a3_custom.pbo?dl=0</a></p>
+<p>2. Extract it into your server's addons folder.</p>
+<p>3. In the mapcontent folder, place all of your custom addon sqf files.</p>
+<p>4. Open init\fn_init.sqf.</p>
+<p>5. Edit the lines to include each addon name. An example is included in the fn_init.sqf:</p>
+<pre class="ipsCode prettyprint">
+[] execVM "a3_custom\mapcontent\yourcustom.sqf";
+</pre>
+<p>Repack it and upload it to your server's addons folder.</p>
+]]></description><guid isPermaLink="false">36574</guid><pubDate>Sun, 19 Jul 2015 13:34:26 +0000</pubDate></item><item><title>How to base build the correct way - ARMA 3 Epoch</title><link>https://epochmod.com/forum/topic/31475-how-to-base-build-the-correct-way-arma-3-epoch/</link><description><![CDATA[
+<p>Not seen anyone so far using the building system to it's full potential.</p>
+<p>Here's a quick vid I made to show how you can build almost in an ARMA 2 style way.</p>
+<p>Hope this helps free up some barn's do we can start seeing decent bases on servers ;)</p>
+<p> </p>
+<p>
+</p>
+<div class="ipsEmbeddedVideo" contenteditable="false"><div><iframe width="480" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" allowfullscreen="true" data-embed-src="https://www.youtube.com/embed/MbdjvbOZOyc?feature=oembed"></iframe></div></div>
+<p> </p>
+<p>@Admin, Hope this is allowed. If not my appologies and please remove.</p>
+<p> </p>
+<p>Thanks</p>
+<p>Imp...</p>
+]]></description><guid isPermaLink="false">31475</guid><pubDate>Sat, 17 Jan 2015 04:39:57 +0000</pubDate></item><item><title>[TUTORIAL] Putting the Z in EpochZ</title><link>https://epochmod.com/forum/topic/40975-tutorial-putting-the-z-in-epochz/</link><description><![CDATA[
+<p>
+	Hi All,
+</p>
+
+<p>
+	Since there seem to be quite a few people who seem to be interested in zombies for Epoch, I thought I'd provide a small tutorial based on my experiences setting up the Ryan's Zombies &amp; Demons mod for my server. I'd like to acknowledge posts by Knives (on configuring Epoch) and synnr (for configuration of the Civilian Occupation System for spawning zombies) on the <a href="https://forums.bistudio.com/topic/182412-zombies-demons-32/" rel="external nofollow">Ryan's Z&amp;D thread on BIS' forums</a>.
+</p>
+
+<p>
+	<em>Note: This tutorial assumes that you have basic administration experience on a dedicated Epoch server, you are comfortable modifying PBO sources and editing mission files and have an understanding of coding in the Arma 3/Epoch environment.</em>
+</p>
+
+<p>
+	<u><strong>Installing the mod</strong></u>
+</p>
+
+<p>
+	The first thing to do is, of course, to install the Zombies &amp; Demons mod. For your client you can simply subscribe to the mod on Steam or install it via one of the many Arma 3 launchers. For the server I downloaded the mod from Dropbox (the link is on the first page of the thread on the BIS forums and changes with each release) and FTPed the @Ryanszombies folder to my Arma root folder on my dedicated server.
+</p>
+
+<p>
+	Copy the bikey found as RyanD.bikey in the @Ryanszombies/Keys folder to the Keys folder in your Arma 3 root folder.
+</p>
+
+<p>
+	You now need to add the mod to the start up parameters for Arma 3 on your server as below:
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode">
+@Epoch;@allinarmaterrainpack;@EpochHive;@Ryanzombies;</pre>
+
+<pre>
+
+ </pre>
+
+<p>
+	There are changes to be made to the mission PBO, so you'll need to download that from your server's MPMissions folder and open it using a PBO manager such as Eliteness or PBO Manager. Go into the mission folder and you'll see a number of files, the only one of interest for this process being mission.sqm. To easily edit mission.sqm you'll want to use a code editor such as Notepad++.
+</p>
+
+<p>
+	The first change to mission.sqm is to add "ryanzombies","ryanzombiesfunctions" to the addOns[] list.
+</p>
+
+<p>
+	<u><strong>Now to configure BattlEye</strong></u>
+</p>
+
+<p>
+	Add the following line to setpos.txt:
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode">
+1 "" !="RyanZombieC_man_1mediumOpfor" !="RyanZombieC_man_polo_1_FmediumOpfor" !="RyanZombieC_man_polo_2_FmediumOpfor" !="RyanZombieC_man_polo_4_FmediumOpfor" !="RyanZombieC_man_polo_5_FmediumOpfor" !="RyanZombieC_man_polo_6_FmediumOpfor" !="RyanZombieC_man_p_fugitive_FmediumOpfor" !="RyanZombieC_man_w_worker_FmediumOpfor" !="RyanZombieC_scientist_FmediumOpfor" !="RyanZombieC_man_hunter_1_FmediumOpfor" !="RyanZombieC_man_pilot_FmediumOpfor" !="RyanZombieC_journalist_FmediumOpfor" !="RyanZombieC_OrestesmediumOpfor" !="RyanZombieC_NikosmediumOpfor"</pre>
+
+<pre>
+
+ </pre>
+
+<p>
+	Add the following to the end of the first line in createvehicle.txt:
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span>!="RyanZombieC_man_1mediumOpfor" !="RyanZombieC_man_polo_1_FmediumOpfor" !="RyanZombieC_man_polo_2_FmediumOpfor" !="RyanZombieC_man_polo_4_FmediumOpfor" !="RyanZombieC_man_polo_5_FmediumOpfor" !="RyanZombieC_man_polo_6_FmediumOpfor" !="RyanZombieC_man_p_fugitive_FmediumOpfor" !="RyanZombieC_man_w_worker_FmediumOpfor" !="RyanZombieC_scientist_FmediumOpfor" !="RyanZombieC_man_hunter_1_FmediumOpfor" !="RyanZombieC_man_pilot_FmediumOpfor" !="RyanZombieC_journalist_FmediumOpfor" !="RyanZombieC_OrestesmediumOpfor" !="RyanZombieC_NikosmediumOpfor" !="RyanZombieC_man_1medium" !="RyanZombieC_man_polo_1_Fmedium" !="RyanZombieC_man_polo_2_Fmedium" !="RyanZombieC_man_polo_4_Fmedium" !="RyanZombieC_man_polo_5_Fmedium" !="RyanZombieC_man_polo_6_Fmedium" !="RyanZombieC_man_p_fugitive_Fmedium" !="RyanZombieC_man_w_worker_Fmedium" !="RyanZombieC_scientist_Fmedium" !="RyanZombieC_man_hunter_1_Fmedium" !="RyanZombieC_man_pilot_Fmedium" !="RyanZombieC_journalist_Fmedium" !="RyanZombieC_Orestesmedium" !="RyanZombieC_Nikosmedium"</span></pre>
+
+<pre>
+
+ </pre>
+
+<p>
+	Add the following line to setdamage.txt:
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode">
+5 "" !=RyanZombieC !="0.700000"</pre>
+
+<pre>
+
+ </pre>
+
+<p>
+	Make the following changes to scripts.txt:
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode">
+Add !="_zombie enableFatigue false;" to the line beginning with 7 enableFatigue
+
+
+</pre>
+
+<p>
+	Add !="fnc_RyanZombies_SetHitIndex = compileF" to the line beginning with 7 setVelocity
+</p>
+
+<p>
+	Add !"ryanzombies" to the line beginning with 7 addWeaponCargo 
+</p>
+
+<p>
+	Add !"ryanzombies" to the line beginning with 7 addMagazineCargo 
+</p>
+
+<p>
+	Add !"ryanzombies" to the line beginning with 7 addItem 
+</p>
+
+<p>
+	Add !="Ryanzombiesdamage" to the line beginning with 7 setDamage 
+</p>
+
+<p>
+	Add !="_zombie = _this select 0;" "_zombie setdammage 0.7" to the line beginning with 7 setDammage 
+</p>
+
+<p>
+	Add !="_zombie addMPEventHandler" to the line beginning with 7 addMPEventHandler
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	I found that I also needed make one change to the BEServer.cfg (how you edit this file depends on who you're hosting the server with). You'll need to alter the line beginning MaxSetDamagePerInterval as follows (I chose 10000 simply as a number that probably won't ever be exceeded):
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode">
+MaxSetDamagePerInterval 10000 1</pre>
+
+<pre>
+
+ </pre>
+
+<p>
+	After making this change I believe that you need to restart BattlEye using a utility like RCON.
+</p>
+
+<p>
+	At this point Ryan's Zombies &amp; Demons is installed on and available for use after you start up the server. Download the mod to your PC using your preferred launcher (or manually if you wish). However, as yet you don't have zombies on the map. I'll deal with this next.
+</p>
+
+<p>
+	<u><strong>Adding the Z to a Zombie Epochalypse</strong></u>
+</p>
+
+<p>
+	Adding Zombies to your map can be achieved in two different ways. The first and easiest is to take advantage of the Civilian Occupation System (COS) scripts and use them to populate all population centres with zombies; the second is to spend a lot of time placing native Ryan's Zombies &amp; Demons mod zombie spawners; and the third (my own personal preference) is to use a combination of both. I use COS to populate all the towns and villages on Altis in my map and set up specific zombie spawners for special locations that, IMO, deserve a horde.
+</p>
+
+<p>
+	No matter which option you choose, you are going to have to set up some basic GameLogics on the map to let Ryan's mod configure the default configuration. This will involve creating and editing a new mission from which you will extract information to add to your Epoch mission files.
+</p>
+
+<p>
+	<u>Setting up Ryan's Zombies &amp; Demons Basics</u>
+</p>
+
+<p>
+	First off, start up Arma 3 with Ryan's Zombies and Demons as a loaded mod. When you get to the start screen select Editor and then the map that matches that of your Epoch server.
+</p>
+
+<p>
+	When in the Editor the first thing you have to do is place a unit - can simply be a Rifleman, doesn't matter, you just need to place a unit before you can place the GameLogics you will need later.
+</p>
+
+<p>
+	The next thing to do is place the Game Logic Spawner. Select Modules and double click on the map. Select the category 'Zombie Settings' and then the module "Game Logic Spawner' (see the screenshot below). This allows you to set the overall configuration for zombies on the map, for example the maximum number of spawned zombies, how many are spawned per horde initially and how close you need to be to the spawn point for the zombies to start to appear.
+</p>
+
+<p>
+	<a href="http://www.irishexaminerusa.com/tmp/2015-12-09_00002.jpg" rel="external nofollow"><img alt="2015-12-09_00002.jpg" class="ipsImage" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" style="width:0px;height:0px;" data-src="http://www.grahamecurtis.com/images/2015-12-09_00002.jpg"></a>
+</p>
+
+<p>
+	Note, you should give it a name, for example, 'Zombie_Settings' to make it easier to see in your mission file when you've finished editing.
+</p>
+
+<p>
+	You can also select other Modules after to set other defaults for the zombies or demons spawned. Here for example is screen for setting the health of zombies:
+</p>
+
+<p>
+	<a href="http://www.irishexaminerusa.com/tmp/2015-12-09_00003.jpg" rel="external nofollow"><img alt="2015-12-09_00003.jpg" class="ipsImage" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" style="width:0px;height:0px;" data-src="http://www.grahamecurtis.com/images/2015-12-09_00003.jpg"></a>
+</p>
+
+<p>
+	Set those up how you like them and then we'll move on to how to get zombies spawning on the map.
+</p>
+
+<p>
+	You'll want to stay in the Editor for the moment. Later when we've finished I'll let you know how to get this information into your mission so that the zombies will appear on your server how you want them.
+</p>
+
+<p>
+	<u>Setting up Zombies via the default Spawn mechanism</u>
+</p>
+
+<p>
+	Ryan's Zombies &amp; Demons has modules called Spawners which you can place on the map and which will, when so placed, spawn a horde where you placed it. Select Spawner from the drop-down list of modules for Zombie Settings and double click on the map where you want to place the spawn. You'll then see this screen:
+</p>
+
+<p>
+	<a href="http://www.irishexaminerusa.com/tmp/2015-12-09_00004.jpg" rel="external nofollow"><img alt="2015-12-09_00004.jpg" class="ipsImage" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" style="width:0px;height:0px;" data-src="http://www.grahamecurtis.com/images/2015-12-09_00004.jpg"></a>
+</p>
+
+<p>
+	Name it based on the location for convenience and to be able to easily see it in the mission.sqm you're going to save. You'll want the side to be Independent. The type should match your view of what zombies should appear and how they behave. You have slow (Walking Dead), medium (my view of Ringo's Black Tide zombies) and fast (think 28 Days Later) and military and/or civilian and a few other types to choose from. 
+</p>
+
+<p>
+	Activation should be for both Blufor and Opfor since in Epoch men are Blufor and women characters are Opfor. This guarantees that the zombies activate for all player characters. You can also select the activation radius and the cap for the total number of spawned zombies in this location at any time.
+</p>
+
+<p>
+	If you are poplulating the world using these spawners then simple rinse and repeat until you've set all of the spawns up and then save the mission with a name that you'll recognize, for example "zombie_setup".
+</p>
+
+<p>
+	<u>Using Civilian Occupation System as an alternative or in addition to the standard spawns</u>
+</p>
+
+<p>
+	Civilian Occupation System (COS) is a set of scripts that populate urban areas with civilians but it just so happens that it is also a way to easily place zombies in all urban areas on your map. I personally use COS to do exactly that and then set up a few additional spawns in areas where I think a massed horde should be present (for example Karvala Hospital...). If you're simply going to use the default spawners then you can ignore this step.
+</p>
+
+<p>
+	We'll get to configuring COS later, but while you're in the editor you will need to add a GameLogic to get it working. To do this, select the individual unit function, double click anyway on the map select units and select the side as Game Logic and the class as Objects:
+</p>
+
+<p>
+	<a href="http://www.irishexaminerusa.com/tmp/2015-12-09_00005.jpg" rel="external nofollow"><img alt="2015-12-09_00005.jpg" class="ipsImage" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" style="width:0px;height:0px;" data-src="http://www.grahamecurtis.com/images/2015-12-09_00005.jpg"></a>
+</p>
+
+<p>
+	Name it SERVER and add the following to the INITIALIZATION field: 
+</p>
+
+<p>
+	 
+</p>
+
+<pre class="ipsCode">
+null=[] execVM "cos\cosInit.sqf";</pre>
+
+<p>
+	After hitting okay, save the mission again.
+</p>
+
+<p>
+	<u>Adding the Zombies to you mission PBO</u>
+</p>
+
+<p>
+	At this point you have all the information you will need to configure zombie spawns using the default spawn mechanism and it will be simply a case of extracting that information from the mission.sqm that you've just created and placing it in the mission.sqm in your server's mission.sqm (the one you extracted earlier from the mission PBO, e.g. epoch.Altis.pbo).
+</p>
+
+<p>
+	The saved mission.sqm will be, by default, located in C:\Documents\Arma 3\missions\&lt;the name you saved the mission as&gt;, e.g C:\Documents/Arma 3\mission\zombie_setup\mission.sqm.
+</p>
+
+<p>
+	Here's an example of a file with entries for COS, Zombie settings and a Spawner:
+</p>
+
+<blockquote>
+	<blockquote>
+		<p>
+			version=12; class Mission {     addOns[]=     {         "A3_Characters_F_BLUFOR",         "a3_characters_f",         "ryanzombiesfunctions",         "A3_Modules_F",         "a3_map_altis"     };     addOnsAuto[]=     {         "A3_Characters_F_BLUFOR",         "a3_characters_f",         "ryanzombiesfunctions",         "A3_Modules_F",         "a3_map_altis"     };     randomSeed=2746002;     class Intel     {         timeOfChanges=1800.0002;         startWeather=0.30000001;         startWind=0.1;         startWaves=0.1;         forecastWeather=0.30000001;         forecastWind=0.1;         forecastWaves=0.1;         forecastLightnings=0.1;         year=2035;         month=6;         day=24;         hour=12;         minute=0;         startFogDecay=0.013;         forecastFogDecay=0.013;     };     class Groups     {         items=6;         class Item0         {             side="WEST";             class Vehicles             {                 items=1;                 class Item0                 {                     position[]={12040.725,5.5149193,10609.327};                     id=0;                     side="WEST";                     vehicle="B_Soldier_F";                     player="PLAYER COMMANDER";                     leader=1;                     skill=0.60000002;                 };             };         };         class Item1         {             side="LOGIC";             class Vehicles             {                 items=1;                 class Item0                 {                     position[]={11948.96,11.335839,10503.363};                     class args                     {                         items=9;                         class Item0                         {                             value="100";                             parentCls="RyanZM_ModuleSpawner";                             typeName="Amount";                         };                         class Item1                         {                             value="10000";                             parentCls="RyanZM_ModuleSpawner";                             typeName="TotalAmount";                         };                         class Item2                         {                             value="5";                             parentCls="RyanZM_ModuleSpawner";                             typeName="Start";                         };                         class Item3                         {                             value="60";                             parentCls="RyanZM_ModuleSpawner";                             typeName="Frequency";                         };                         class Item4                         {                             value="0.5";                             parentCls="RyanZM_ModuleSpawner";                             typeName="Delay";                         };                         class Item5                         {                             value="0";                             parentCls="RyanZM_ModuleSpawner";                             typeName="Density";                         };                         class Item6                         {                             value="0.9";                             parentCls="RyanZM_ModuleSpawner";                             typeName="Activation";                         };                         class Item7                         {                             value="100";                             parentCls="RyanZM_ModuleSpawner";                             typeName="ActivationRadius";                         };                         class Item8                         {                             value="14";                             parentCls="RyanZM_ModuleSpawner";                             typeName="HordeSize";                         };                     };                     id=1;                     side="LOGIC";                     vehicle="RyanZM_ModuleSpawner";                     leader=1;                     lock="UNLOCKED";                     skill=0.60000002;                 };             };         };         class Item2         {             side="LOGIC";             class Vehicles             {                 items=1;                 class Item0                 {                     position[]={11970.136,10.336121,10379.738};                     class args                     {                         items=2;                         class Item0                         {                             value="0.7";                             parentCls="RyanZM_ModuleZombieHealth";                             typeName="ZombieMaxHealth";                         };                         class Item1                         {                             value="0.7";                             parentCls="RyanZM_ModuleZombieHealth";                             typeName="DemonMaxHealth";                         };                     };                     id=2;                     side="LOGIC";                     vehicle="RyanZM_ModuleZombieHealth";                     leader=1;                     lock="UNLOCKED";                     skill=0.60000002;                 };             };         };         class Item3         {             side="LOGIC";             class Vehicles             {                 items=1;                 class Item0                 {                     position[]={11850.136,12.167753,10422.125};                     class args                     {                         items=3;                         class Item0                         {                             value="0.7";                             parentCls="RyanZM_ModuleInfection";                             typeName="Infection";                         };                         class Item1                         {                             value="30";                             parentCls="RyanZM_ModuleInfection";                             typeName="InfectionTimer";                         };                         class Item2                         {                             value="0.9";                             parentCls="RyanZM_ModuleInfection";                             typeName="Uniform";                         };                     };                     id=3;                     side="LOGIC";                     vehicle="RyanZM_ModuleInfection";                     leader=1;                     lock="UNLOCKED";                     skill=0.60000002;                 };             };         };         class Item4         {             side="LOGIC";             class Vehicles             {                 items=1;                 class Item0                 {                     position[]={10777.195,4.790421,10895.428};                     class args                     {                         items=15;                         class Item0                         {                             value="0.9";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Side";                         };                         class Item1                         {                             value="0.65";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Type";                         };                         class Item2                         {                             value="0.95";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Type2";                         };                         class Item3                         {                             value="0.95";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Type3";                         };                         class Item4                         {                             value="0.7";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Activation";                         };                         class Item5                         {                             value="0.5";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Activation2";                         };                         class Item6                         {                             value="0.9";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Activation3";                         };                         class Item7                         {                             value="100";                             parentCls="RyanZM_ModuleSpawn";                             typeName="ActivationRadius";                         };                         class Item8                         {                             value="100";                             parentCls="RyanZM_ModuleSpawn";                             typeName="AliveAmount";                         };                         class Item9                         {                             value="10000";                             parentCls="RyanZM_ModuleSpawn";                             typeName="TotalAmount";                         };                         class Item10                         {                             value="5";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Start";                         };                         class Item11                         {                             value="60";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Frequency";                         };                         class Item12                         {                             value="0.5";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Delay";                         };                         class Item13                         {                             value="0";                             parentCls="RyanZM_ModuleSpawn";                             typeName="Density";                         };                         class Item14                         {                             value="14";                             parentCls="RyanZM_ModuleSpawn";                             typeName="HordeSize";                         };                     };                     id=4;                     side="LOGIC";                     vehicle="RyanZM_ModuleSpawn";                     leader=1;                     lock="UNLOCKED";                     skill=0.60000002;                     text="Orimea_Spawn";                 };             };         };         class Item5         {             side="LOGIC";             class Vehicles             {                 items=1;                 class Item0                 {                     position[]={12128.96,8.0174341,10521.024};                     id=5;                     side="LOGIC";                     vehicle="Logic";                     leader=1;                     skill=0.60000002;                     text="SERVER";                     init="null=[] execVM ""cos\cosInit.sqf"";";                 };             };         };     }; }; class Intro {     addOns[]=     {         "a3_map_altis"     };     addOnsAuto[]=     {         "a3_map_altis"     };     randomSeed=3426787;     class Intel     {         timeOfChanges=1800.0002;         startWeather=0.30000001;         startWind=0.1;         startWaves=0.1;         forecastWeather=0.30000001;         forecastWind=0.1;         forecastWaves=0.1;         forecastLightnings=0.1;         year=2035;         month=6;         day=24;         hour=12;         minute=0;         startFogDecay=0.013;         forecastFogDecay=0.013;     }; }; class OutroWin {     addOns[]=     {         "a3_map_altis"     };     addOnsAuto[]=     {         "a3_map_altis"     };     randomSeed=9212940;     class Intel     {         timeOfChanges=1800.0002;         startWeather=0.30000001;         startWind=0.1;         startWaves=0.1;         forecastWeather=0.30000001;         forecastWind=0.1;         forecastWaves=0.1;         forecastLightnings=0.1;         year=2035;         month=6;         day=24;         hour=12;         minute=0;         startFogDecay=0.013;         forecastFogDecay=0.013;     }; }; class OutroLoose {     addOns[]=     {         "a3_map_altis"     };     addOnsAuto[]=     {         "a3_map_altis"     };     randomSeed=1247975;     class Intel     {         timeOfChanges=1800.0002;         startWeather=0.30000001;         startWind=0.1;         startWaves=0.1;         forecastWeather=0.30000001;         forecastWind=0.1;         forecastWaves=0.1;         forecastLightnings=0.1;         year=2035;         month=6;         day=24;         hour=12;         minute=0;         startFogDecay=0.013;         forecastFogDecay=0.013;     }; };
+		</p>
+	</blockquote>
+
+	<p>
+		Take a look at class Groups. All the entries to be copied are located here. Ignore the first entry which is the Rifleman you placed on the map. Now open the mission.sqm for your server. You'll see a class Groups in here to. It should start like this:
+	</p>
+
+	<pre class="ipsCode">
+    class Groups
+
+	    {
+
+	        items = 100;
+
+	        class Item0
+
+	        {
+
+	            side = "CIV";
+
+	            class Vehicles
+
+	            {
+
+	                items = 1;
+
+	                class Item0
+
+	                {
+
+	                    position[] = {23598.076,3.19,17997.086};
+
+	                    azimut = 136.241;
+
+	                    special = "NONE";
+
+	                    id = 0;
+
+	                    side = "CIV";
+
+	                    vehicle = "VirtualMan_EPOCH";
+
+	                    player = "PLAY CDG";
+
+	                    leader = 1;
+
+	                    skill = 0.6;
+
+	                };
+
+	            };
+
+	        };</pre>
+
+	<p>
+		It then has another 99 items (class Item1 to Item99). The items that you created in your mission file will need to be copied and pasted into this list at the end, changing their names to Item100, Item101, Item102, etc. For example, the object Item1 in the file above should be renamed Item100, the object Item2 would be Item101, etc. When you've added all the entries you will also need to change the line that reads,
+	</p>
+
+	<pre class="ipsCode">
+        items = 100;</pre>
+
+	<p>
+		to
+	</p>
+
+	<pre class="ipsCode">
+        items = xxx</pre>
+
+	<p>
+		where xxx is one more than the last Item number you added. For example, if the last class Item object is Item 106, then change this line to items=107.
+	</p>
+
+	<p>
+		At this point, if you're not using the Civilian Occupation System to populate zombies in urban areas you are almost done. All you need to do now is re-pbo your mission file, upload it to the server and restart the service. Enjoy zombie awesomeness....
+	</p>
+
+	<p>
+		If you are using COS then read on...
+	</p>
+
+	<p>
+		<u>Configuring COS</u>
+	</p>
+
+	<p>
+		You'll want to <a href="http://www.armaholic.com/page.php?id=25219" rel="external nofollow">download COS to your PC from Armaholic</a>. Unpack the archive and go into the COS_05 folder created.
+	</p>
+
+	<p>
+		Inside there is a folder called COS.Altis which contains a folder called cos, a mission.sqm and a 'Read me' text file.
+	</p>
+
+	<p>
+		You want to copy the cos folder to your mission folder.
+	</p>
+
+	<p>
+		Go into that copied folder and you need to edit two files. First open cosInit.sqf in Notepad++.
+	</p>
+
+	<p>
+		Change the line that reads:
+	</p>
+
+	<pre class="ipsCode">
+DefaultSide = Civilian;// Set side of units spawned</pre>
+
+	<p>
+		to
+	</p>
+
+	<pre class="ipsCode">
+DefaultSide = Resistance;// Set side of units spawned</pre>
+
+	<p>
+		Change the lines
+	</p>
+
+	<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span>COScars=true;// Spawn Cars
+
+COSparked=true;// Spawn parked cars</span></pre>
+
+	<p>
+		to
+	</p>
+
+	<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span>COScars=false;// Spawn Cars
+
+COSparked=false;// Spawn parked cars</span></pre>
+
+	<p>
+		And the line that reads
+	</p>
+
+	<pre class="ipsCode">
+COScivPool =["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_man_w_worker_F"];    
+</pre>
+
+	<p>
+		to
+	</p>
+
+	<pre class="ipsCode">
+COScivPool =["RyanZombieC_man_1medium", "RyanZombieC_man_polo_1_Fmedium", "RyanZombieC_man_polo_2_Fmedium", "RyanZombieC_man_polo_4_Fmedium", "RyanZombieC_man_polo_5_Fmedium", "RyanZombieC_man_polo_6_Fmedium", "RyanZombieC_man_p_fugitive_Fmedium", "RyanZombieC_man_w_worker_Fmedium", "RyanZombieC_scientist_Fmedium", "RyanZombieC_man_hunter_1_Fmedium", "RyanZombieC_man_pilot_Fmedium", "RyanZombieC_journalist_Fmedium", "RyanZombieC_Orestesmedium", "RyanZombieC_Nikosmedium"];    
+</pre>
+
+	<p>
+		As you gain experience with COS you can also later modify the numbers of zombies spawned in each urban area and whitelist or blacklist areas of the map. I'll leave that as an exercise for the reader.
+	</p>
+
+	<p>
+		Finally, you have a choice of having the zombies stand statically until they detect a player by sight or shot or whether they patrol their towns and villages. If you want them moving around then you don't need to make any further changes<span style="line-height:1.6;">. If you want them static to start with then edit the file cosCore.sqf and change the lines</span>
+	</p>
+
+	<pre class="ipsCode">
+// Apply Patrol script to all units
+
+	null =[_civilianArray,_PatrolVehArray,_roadPosArray] execVM "cos\CosPatrol.sqf";</pre>
+
+	<p>
+		to
+	</p>
+
+	<pre class="ipsCode">
+// Apply Patrol script to all units
+
+	//null =[_civilianArray,_PatrolVehArray,_roadPosArray] execVM "cos\CosPatrol.sqf";</pre>
+
+	<p>
+		After this just repack your mission PBO, upload to your server and restart it and enjoy some yummy zombie action.
+	</p>
+
+	<p>
+		There are a lot of other features that can be customized with this excellent mod and a lot more tales to tell. For the moment though I'll leave it off here. If you see any issues with the tutorial or things that need further explanation please let me know and I'll edit this post. I think I've covered and caught everything and it's working well on my server but Murphy's Law is a terrible thing.
+	</p>
+
+	<p>
+		A final note: once configured correctly the zombies are there and will viciously attack you. At this time you will not see any attack animations due to the removal of certain functions from Epoch a while ago. I raised an issue on GitHub for this and VBAWOL has said that he will be restoring these remote execs now that BIS has provided security for server admins via the CfgRemoteExec class. In order to get these animations working when this has been done you will need to change the following lines in description.ext from
+	</p>
+
+	<pre class="ipsCode">
+class CfgRemoteExec
+
+	{
+
+	  class Functions
+
+	  {
+
+	    mode = 1;
+
+	    jip = 0;
+
+	    class EPOCH_server_save_vehicles {
+
+	      allowedTargets=2;
+
+	      jip = 0;
+
+	    };
+
+	  };
+
+	  class Commands {mode=0;};
+
+	};</pre>
+
+	<pre>
+
+to
+</pre>
+
+	<pre class="ipsCode">
+class CfgRemoteExec
+
+	{
+
+	  class Functions
+
+	  {
+
+	    mode = 1;
+
+	    jip = 0;
+
+	    class EPOCH_server_save_vehicles {
+
+	      allowedTargets=2;
+
+	      jip = 0;
+
+	    };
+
+	    // Following added for Ryan's Zombies &amp; Demons
+
+	    class fnc_RyanZombies_SwitchMove { allowedTargets=0; };
+
+	    class fnc_RyanZombies_PlayMoveNow { allowedTargets=0; };
+
+	    class fnc_RyanZombies_DoMoveLocalized { allowedTargets=0; };
+
+	    class fnc_RyanZombies_Bleeding { allowedTargets=0; };
+
+	    class fnc_RyanZombies_Velocity { allowedTargets=0; };
+
+	    class fnc_RyanZombies_SetHitIndex { allowedTargets=0; };
+
+	  };
+
+	  class Commands {mode=0;};
+
+	};</pre>
+
+	<p>
+		Cheers,
+	</p>
+
+	<p>
+		Grahame.
+	</p>
+</blockquote>
+]]></description><guid isPermaLink="false">40975</guid><pubDate>Wed, 09 Dec 2015 23:37:07 +0000</pubDate></item><item><title>The smoking light is off ladies and gentlemen...</title><link>https://epochmod.com/forum/topic/45121-the-smoking-light-is-off-ladies-and-gentlemen/</link><description><![CDATA[
+<p>
+	<img alt="smoking.jpg" class="ipsImage" height="562" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" width="1000" data-src="http://www.grahamecurtis.com/images/smoking.jpg"></p>
+
+<p>
+	Okay... it's post-Apocalypse... you <strong>really</strong> need a cigarette... And they can be rare loot ... worth a lot in a trade, but how do you add them to an A3E server? Easy, follow these easy steps.
+</p>
+
+<p>
+	(1) Add the Immersion (I always preferred it when it was Murshun... but... meh) Cigarettes mod to your server
+</p>
+
+<p>
+	<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=753946944" rel="external nofollow">https://steamcommunity.com/sharedfiles/filedetails/?id=753946944</a>
+</p>
+
+<p>
+	(2) You need to permission some functions so others can see the smoke from your cigarettes. Add 
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">		class murshun_cigs_fnc_start_cig { allowedTargets=0; }; 
+		class murshun_cigs_fnc_start_cig_your { allowedTargets=0; }; 
+		class murshun_cigs_fnc_start_cig_his { allowedTargets=0; }; 
+		class murshun_cigs_lighter_01 { allowedTargets=0; }; 
+		class murshun_cigs_matches_01 { allowedTargets=0; }; 
+		class murshun_cigs_matches_02 { allowedTargets=0; }; 
+		class murshun_cigs_fnc_anim { allowedTargets=0; }; 
+		class murshun_cigs_fnc_smoke { allowedTargets=0; }; </span></pre>
+
+<p>
+	to epoch_config/Configs/CfgRemoteExec.hpp in your mission file.
+</p>
+
+<p>
+	(3) Optional: if you enforce the use of a lighter to light fires then change lines 30-38 in epoch_code/compile/interface_event_handlers/EPOCH_handleUIActions.sqf from
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	case (_actionName isEqualTo 'FireInflame'): {
+		if!('lighter_epoch' in magazines player) then {
+			_msg = 'You need a lighter';
+			_blocked = true;
+		}else{
+			[player,'lighter_epoch',-1] call EPOCH_usedItemRepack;
+			//[_actionObj] remoteExec ['EPOCH_server_addToFireSystem',2];
+		};
+	};</span></pre>
+
+<p>
+	to:
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">	case 'FireInflame': {
+		if (["CfgEpochClient", "ActionFireOnLighter", true] call EPOCH_fnc_returnConfigEntryV2) then {
+			// New code to handle Murshun fire sources - lighters and matches
+			if ('murshun_cigs_lighter' in magazines player) then {
+					[player,'murshun_cigs_lighter',-1] call EPOCH_usedItemRepack;
+					//[_actionObj] remoteExec ['EPOCH_server_addToFireSystem',2];
+				} else {
+					if ('murshun_cigs_matches' in magazines player) then {
+						[player,'murshun_cigs_matches',-1] call EPOCH_usedItemRepack;
+						//[_actionObj] remoteExec ['EPOCH_server_addToFireSystem',2];
+					} else {
+						_msg = 'You need matches or a lighter';
+						_blocked = true;
+					};
+				};
+			};
+		};</span></pre>
+
+<p>
+	(4) Now you need to add the addactions every time the player logs in so that they can take a cigarette out and light it, or light someone else's. Create a file called initPlayerLocal.sqf in the root of your mission file that contains the following (if you already have one then just add the four addactions to it):
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">if (!isDedicated and hasInterface) then 
+{ 
+	waitUntil {alive vehicle player};	
+	waitUntil {typeOF player != "VirtualMan_EPOCH"};
+	uisleep 15;	
+
+	// Add Murshun Actions to the scrollwheel
+    player addAction [localize "STR_murshun_cigs_start_cig", {params ["_target", "_caller"];[_caller] spawn murshun_cigs_fnc_start_cig_your}, nil, 0, false, true, "", "if (_target != player) exitWith {false}; ((goggles _this) in murshun_cigs_cigsArray) and (!(_this getVariable ['murshun_cigs_cigLitUp', false]))", 5, false];
+	player addAction [localize "STR_murshun_cigs_stop_cig", {params ["_target", "_caller"];[_caller] spawn murshun_cigs_fnc_stop_cig}, nil, 0, false, true, "", "if (_target != player) exitWith {false}; ((goggles _this) in murshun_cigs_cigsArray) and ((_this getVariable ['murshun_cigs_cigLitUp', false]))", 5, false];
+	player addAction [localize "STR_murshun_cigs_take_cig_from_pack", {params ["_target", "_caller"];[_caller] spawn murshun_cigs_fnc_take_cig_from_pack}, nil, 0, false, true, "", "if (_target != player) exitWith {false}; 'murshun_cigs_cigpack' in (magazineCargo uniformContainer player)", 5, false];
+	player addAction [localize "STR_murshun_cigs_start_someones_cig", {params ["_target", "_caller"];[cursorObject, _caller] spawn murshun_cigs_fnc_start_cig_his}, nil, 0, false, true, "", "if !(cursorObject isKindOf 'Man') exitWith {false}; ((goggles cursorObject) in murshun_cigs_cigsArray) &amp;&amp; (!(cursorObject getVariable ['murshun_cigs_cigLitUp', false])) &amp;&amp; (alive cursorObject)", 5, false];
+};</span></pre>
+
+<p>
+	Finally just add the following classes into your trader price lists (and spawn them as rare Epoch and mission loot as you'd like):
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">    class murshun_cigs_cigpack { price = 100; };	// Beautiful, wonderful Murshun cigarettes, pack of 20
+    class murshun_cigs_matches { price = 5; };		// Pack of matches
+    class murshun_cigs_lighter { price = 20; };		// Zippo
+    class immersion_pops_poppack { price = 5; };	// Lollipops</span></pre>
+
+<p>
+	And remove the Epoch lighter (which won't work with Murshun without a client side preinit function... <img alt=":ph34r:" data-emoticon="" height="20" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/ph34r@2x.png 2x" title=":ph34r:" width="20" data-src="https://epochmod.com/forum/uploads/emoticons/ph34r.png"></p>
+
+<p>
+	That's it. RePBO your mission file and upload to your server...
+</p>
+]]></description><guid isPermaLink="false">45121</guid><pubDate>Wed, 23 May 2018 23:41:16 +0000</pubDate></item><item><title>All-In-One Docker based Arma 3 Epoch Linux Server</title><link>https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/</link><description><![CDATA[
+<p>
+	The goal of this Docker image is to automate the install and setup of a Linux based Arma 3 server with the latest stable version of Epoch.
+</p>
+
+<ol style="color:#555555;"><li>
+		<p>
+			First, install docker:<span> </span><a href="https://www.docker.com/" rel="external nofollow" style="color:#22b8eb;">https://www.docker.com/</a>.
+		</p>
+	</li>
+	<li>
+		<p>
+			Next, Start by pulling the docker image:<span> </span>
+		</p>
+
+		<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">docker pull epochmodteam/arma3epochserver</span></pre>
+
+		<p>
+			<code style="color:#333333;"> </code><a href="https://hub.docker.com/r/epochmodteam/arma3epochserver/" rel="external nofollow" style="color:#22b8eb;">https://hub.docker.com/r/epochmodteam/arma3epochserver/</a>
+		</p>
+	</li>
+	<li>
+		Then start the server:
+		<pre class="ipsCode">
+docker run --rm -e STEAM_USERNAME='your@email.net' -e STEAM_PASSWORD='YourPassW0rd' --privileged -p 2302-2306:2302-2306/udp -it epochmodteam/arma3epochserver</pre>
+
+		<p>
+			<em>Note: the --</em><em>rm</em><em> here removes the server when stopped</em>
+		</p>
+	</li>
+</ol><p style="color:#555555;">
+	Change the STEAM_USERNAME and STEAM_PASSWORD before running, as you must login to be able to download Arma 3 server files and workshop mods.<br /><br />
+	You can alternatively add a "credentials" file to the location you are running the command from and instead of specifying<span> </span><code style="color:#333333;">-e STEAM_USERNAME='your@email.net' -e STEAM_PASSWORD='YourPassW0rd'</code><span> </span>via command line use:<br /><strong>--</strong><strong>env</strong><strong>-file credentials</strong>
+</p>
+
+<pre class="ipsCode">
+STEAM_USERNAME=your@email.net
+STEAM_PASSWORD=YourPassW0rd</pre>
+
+<pre style="color:#555555;">
+ </pre>
+
+<p style="color:#555555;">
+	If you want to persist data add the<span> </span><code style="color:#333333;">-v C:\Docker\data:/data</code><span> </span>option below and change the folder "C:\Docker\data" to a location you want to store the redis database. (Note: You will need to setup the Shared Drive in Docker &gt; Settings.)
+</p>
+
+<pre class="ipsCode">
+docker run --rm -e --env-file credentials --privileged -v C:\Docker\data:/data -p 2302-230:2302-2306/udp -it epochmodteam/arma3epochserver</pre>
+
+<p>
+	 <br />
+	Also, Epoch Experimental can be installed using: <strong>epochmodteam</strong><strong>/arma3epochserver:experimental</strong>
+</p>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">43635</guid><pubDate>Thu, 30 Mar 2017 20:52:07 +0000</pubDate></item><item><title>All you need to know about BE Filters but were too lazy to Google</title><link>https://epochmod.com/forum/topic/29736-all-you-need-to-know-about-be-filters-but-were-too-lazy-to-google/</link><description><![CDATA[
+<p style="text-align:center;"><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:19.5pt;">This is not my Guide!</span></span></span></strong></p>
+<p style="text-align:center;"> </p>
+
+	All credits goes to ebay over at opendayz.net and his original post:
+
+	<span style="font-size:10pt;"><a href="http://opendayz.net/threads/a-guide-to-battleye-filters.21066/" rel="external nofollow"><span style="font-family:georgia, serif;"><span style="font-size:14pt;">http://opendayz.net/threads/a-guide-to-battleye-filters.21066/</span></span></a></span>
+<p style="text-align:center;"> </p>
+<p>This is reposted here in part only – you need to check out the original post for the full guide.  </p>
+<p>I have chosen to post this in this way for a few reasons:</p>
+<p><span style="font-family:symbol;">·         </span>I am tired of people just posting “BE Files?” when they encounter Restriction kicks from putting in random scripts in their mission files.</p>
+<p><span style="font-family:symbol;">·         </span>I want to make sure that people learn how to do it and work on learning some basic skills in how to manage their own server – adjusting their filters when they put more stuff into the server seems to be lacking so far…</p>
+<p> </p>
+<p>A simple google search provides all the information you will ever need on the topic of BE filters.  (<a href="http://bit.ly/1DgDAAE" rel="external nofollow">http://bit.ly/1DgDAAE</a>) (<a href="http://lmgtfy.com/?q=Editing+BattleEye+filters+for+Arma+3" rel="external nofollow">http://lmgtfy.com/?q=Editing+BattleEye+filters+for+Arma+3</a>)<br>
+ </p>
+<p>So without further details let me present:</p>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;"><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:19.5pt;">Ebay’s: A Guide to BattlEye Filters</span></span></span></strong><span style="color:#141414;"><span style="font-family:'times new roman', serif;"><span style="font-size:11.5pt;">​</span></span></span></p>
+<p><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">I noticed a severe lack of information on BattlEye across Arma and DayZ modding communities. This guide will give an overview of BE filters, BEServer.cfg and automatic banning with BE.</span></span></span><br><br><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:16.5pt;">What they are:</span></span></span></strong><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">BE filters are an optional feature of </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="http://battleye.com/" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">BattlEye Anti-Cheat</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> for Arma games. They provide some additional protection that is customizable by mod makers and server admins. Currently </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="http://forums.bistudio.com/member.php?17183-able" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Bastian ($able)</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> is the sole developer of BE for Arma. However, other Bohemia devs like </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="http://forums.bistudio.com/member.php?23627-Dwarden" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Dwarden</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> contribute ideas for him to implement. Dwarden also made the original filters for DayZ mod a few years ago.</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Mod developers usually provide filters with their server files. Below are links to current filters for popular DayZ mods:</span></span></span><br>
+ </p>
+<ul><li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><a href="https://github.com/vbawol/DayZ-Epoch/tree/master/Server%20Files/Battleye" rel="external nofollow"><span style="color:#b8330d;">DayZ Epoch</span></a></span></span>
+</li><li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><a href="https://github.com/DayZMod/Battleye-Filters/" rel="external nofollow"><span style="color:#b8330d;">DayZ Mod 1.8.2</span></a></span></span></li>
+<li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><a href="https://github.com/scrumbee/DayzOverwatch-Server/tree/master/dayz_overwatch/BattlEye" rel="external nofollow"><span style="color:#b8330d;">DayZ Overwatch</span></a></span></span></li>
+</ul><p><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Infistar also maintains filters for compatibility with his antihack </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="http://infistar.de/xtra.html" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">here</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">. Place the .txt files in your dedicated </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="https://community.bistudio.com/wiki/ArmA:_Server_configuration" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">server config directory</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">\BattlEye\ folder. If you are using a managed host this will usually be accessible through FTP.</span></span></span><br><br><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:16.5pt;">How they work:</span></span></span></strong><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">BE searches all scripts running on the<strong> client</strong> (</span></span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">) and specific command parameters (</span></span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">other filters</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">) for the keywords provided in the filter .txt files. If a match is found it can take one of the following actions:</span></span></span><br><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">1</span></span></span></strong> <span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">= Log to .log file only</span></span></span><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">2</span></span></span></strong> <span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">= Log to console only</span></span></span><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">3 </span></span></span></strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">= Log to both</span></span></span><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">4</span></span></span></strong> <span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">= Kick with no log</span></span></span><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">5</span></span></span></strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> = Kick and log to .log file only</span></span></span><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">6</span></span></span></strong> <span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">= Kick and log to console only</span></span></span><br><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">7</span></span></span></strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> = Kick and log to both</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><strong>Console</strong></span> refers to the window which opens when running the Arma server.exe. The console always shows all connects, disconnects and kicks. Its output is saved in a .txt file in the config directory if <strong>logFile</strong> option is set in </span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="https://community.bistudio.com/wiki/server.cfg#Server_Options" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">server.cfg</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">. It is also visible when connected over Rcon.</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Logging to .log is recommended because it creates separate .log files in the \BattlEye\ folder for each restriction type. This makes it much easier to review than one large console log file with all types mixed together.</span><br><br>
+Logging to console is only useful if a live stream of BE logs is needed over Rcon. Beware it increases server resource usage, especially when streaming frequently written to logs. It also tends to flood Rcon and make connect, disconnect and kick messages difficult to read. For this reason logging to console is not advised unless your filters are configured to log very little. It should also be noted logging to both console and .log with <strong>logFile</strong> set in server.cfg is writing the same data to disk in two different files.</span></span><br><br><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:16.5pt;">Adding keywords:</span></span></span></strong><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">On a new line add the number followed by a single space and a keyword:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">If a keyword contains spaces it must be enclosed in double quotes:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 "key word"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">If a keyword contains double quotes <strong>"</strong> they must be preceded by a <strong>\</strong> like so:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 "key \"word\""</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">If a keyword contains regex metacharacters <strong>({}[]()^$.|*+? </strong>and<strong> \)</strong> they must also be preceded by a <strong>\</strong> like so:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 "key \(word\)"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><strong>Note:</strong></span> The one exception to this rule is </span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">. Currently it is the only filter that does not support regex. It will be added later </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="http://forums.bistudio.com/showthread.php?167504-Regular-Expression-%28Regex%29-Support-for-BE-Filters" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">according to Bastian</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">. This means the only characters that need to be preceded with a <strong>\</strong> in scripts.txt are double quotes <strong>"</strong> for now.</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Use keywords that catch multiple strings when possible. For example, say in </span></span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">createVehicle.txt </span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">you want to kick for spawning humvees. Instead of adding a keyword for each class name like this:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 HMMWV_DES_EP1<br>
+5 HMMWV_M1035_DES_EP1<br>
+5 HMMWV_Ambulance_DES_EP1<br>
+...</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">It is more efficient to use a single keyword that covers all humvees:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 HMMWV_</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">To catch everything use empty double quotes for the keyword <strong>""</strong> or leave it blank:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 ""</span></span></span><br><br><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:16.5pt;">Adding exceptions (fixing unwanted kicks):</span></span></span></strong><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">On the same line add a single space after the keyword. Then add either </span></span></span><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">!</span></span></span></strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">= or </span></span></span><strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">!</span></span></span></strong><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> with the exception:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword !keywordException</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Exceptions follow the same rules as keywords. If an exception contains spaces it must be enclosed in double quotes:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword !"keyword exception"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">If an exception contains double quotes <strong>"</strong> they must be preceded by a <strong>\</strong> like so:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 "key word" !"key word \"exception\""</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">If an exception contains regex metacharacters <strong>({}[]()^$.|*+? </strong>and<strong> \)</strong> they must also be preceded by a <strong>\</strong> like so:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword !"keyword \(exception\)"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><strong>Note:</strong></span> Again this regex rule does not apply to </span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">.</span></span></span><br><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">The two options for exceptions are:</span></span></span><br>
+ </p>
+<ul><li><strong><span style="color:#000000;"><span style="font-family:georgia, serif;"><span style="font-size:16.5pt;">!=</span></span></span></strong> <span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">The parameter must exactly match the exception. In </span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> the entire <a href="https://community.bistudio.com/wiki/Statement" rel="external nofollow"><span style="color:#b8330d;">statement</span></a></span> the keyword is found in must exactly match the exception.</span>
+</li><li><strong><span style="color:#000000;"><span style="font-family:georgia, serif;"><span style="font-size:16.5pt;">!</span></span></span></strong> <span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">The parameter must contain the exception. In </span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> the statement the keyword is found in must contain the exception.</span></span></li>
+</ul><p><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">For example, if this is our </span></span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">createvehicle.txt</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> filter:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 "HMMWV_" !"HMMWV_Ambulance"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">The code example below will not kick because the type parameter contains HMMWV_Ambulance which is an exception:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">createVehicle ["HMMWV_Ambulance_DES_EP1",getPosATL player,[],10,"NONE"];</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">The code example below will kick because the parameter does not contain HMMWV_Ambulance:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">createVehicle ["HMMWV_DES_EP1",getPosATL player,[],10,"NONE];</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">If we change our filter to use <strong>!=</strong> like so:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 "HMMWV_" !="HMMWV_Ambulance"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Now both of the above code examples will kick because the parameters are not exact matches to HMMWV_Ambulance. The below code example will not kick because it is an exact match:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">createVehicle ["HMMWV_Ambulance",getPosATL player,[],10,"NONE"];</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Exceptions work differently in </span></span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"> as noted above. For example, if this is our filter in </span></span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">scripts.txt</span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword !=keywordException</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">The code example below will kick because the exception is not an exact match to the statement:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">systemChat "keywordException";</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">To fix we need to change the filter to include the entire statement as an exception:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword !="systemChat \"keywordException\";"</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Now the above code example will not kick.</span><br><br><strong>Note: </strong></span>statements should be one line by convention in SQF, but they can span multiple lines. For example the statement below will work without error, but spans four lines:</span></p>
+<p><span style="color:#403931;"><span style="font-family:'trebuchet ms', sans-serif;"><span style="font-size:8.5pt;">Code (Text):</span></span></span></p>
+<p><span style="color:#141414;"><span style="font-family:consolas;"><span style="font-size:10pt;">if (2 &gt; 1) then<br>
+{<br>
+    systemChat "keywordException"<br>
+};</span></span></span></p>
+<p><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Because there is no semicolon <strong>;</strong> on the end of the systemChat line, the above code will still kick. To avoid this the script should be written so the systemChat line ends with a semicolon.</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Alternatively, the filter could be changed to use <strong>!</strong> instead of <strong>!=</strong> so the statement the keyword is found in must only<em>contain</em> the exception:</span></span></span><br><span style="color:#b30000;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">5 keyword !keywordException</span></span></span><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">Now both of the above code examples will not kick.</span><br><br>
+In general exceptions should be written with <strong>!=</strong> when ever possible. Using <strong>!</strong> allows much more through the filter. There are some exceptions to this, such as the </span></span><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">createvehicle.txt </span></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">HMMWV_Ambulance example above. In that case it is more efficient to use a single <strong>!</strong> exception to allow multiple class names, rather than multiple <strong>!=</strong> exceptions. Many more fancy things can be done in filters that support regex. To learn more about regex </span></span></span><span style="font-family:'times new roman', serif;"><span style="font-size:12pt;"><a href="http://www.regular-expressions.info/quickstart.html" rel="external nofollow"><span style="color:#b8330d;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">check this out</span></span></span></a></span></span><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">.</span></span></span><br><br><span style="color:#141414;"><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;"><strong>Note:</strong></span> BE filters are not case sensitive, but they are sensitive to spaces and line breaks.</span><br><br>
+Below is a walk through of each filter file in this format:</span><br><strong><span style="color:#0080ff;"><span style="font-family:georgia, serif;"><span style="font-size:13.5pt;">filename.txt:</span></span></span></strong><br>
+ </p>
+<ul><li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">[Filters] Which command(s) parameter(s) are searched for keywords</span></span>
+</li><li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">[Kick] Suggested keywords to kick and log (5)</span></span></li>
+<li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">[Log] Optional keywords to log (1). Opting to log extra keywords may provide more information for identifying cheaters and monitoring server activity. The trade off is larger logs to review, extra resource usage from searching for more keywords and more writes to disk.</span></span></li>
+<li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">[Logs] Additional info the log file shows</span></span></li>
+<li><span style="font-family:georgia, serif;"><span style="font-size:11.5pt;">[Abuse] How the command(s) can be abused by cheaters <strong>(if no other prevention is in place)</strong></span></span></li>
+</ul><p> </p>
+]]></description><guid isPermaLink="false">29736</guid><pubDate>Thu, 11 Dec 2014 14:35:59 +0000</pubDate></item><item><title>[HowTo] Add custom Buildings and Objects to your Map (updated)</title><link>https://epochmod.com/forum/topic/43595-howto-add-custom-buildings-and-objects-to-your-map-updated/</link><description><![CDATA[
+<p style="color:#555555;">
+	Download E3DEN Editor from workshop (<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=630702051" rel="external nofollow" style="color:#333333;">https://steamcommunity.com/sharedfiles/filedetails/?id=630702051</a>) and enable it in your Mods.
+</p>
+
+<p style="color:#555555;">
+	Start the game, open editor and select the Map you want to add buildings at.
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	Place all the stuff you want to add and save your project from time to time.
+</p>
+
+<p style="color:#555555;">
+	Create a file called buildings.sqf (just an example you can name it as you like). Open it and get back into editor. Click tools and press Save project as SQF. Your map addons are now copied to clipboard.
+</p>
+
+<p style="color:#555555;">
+	Open the buildings.sqf and insert the code with ctrl+v. Save it and close.
+</p>
+
+<p style="color:#555555;">
+	Open your mission file (epoch.Altis for example, you need a tool like pbo manager to do that), create a folder named addons if you dont have already, create another one called mapaddons inside of addons folder. Place the buildings.sqf in this folder.
+</p>
+
+<p style="color:#555555;">
+	Now open your init.sqf or create it in the mission root folder if you dont have one and insert the following code:
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	 if (isserver) then {
+</p>
+
+<p style="color:#555555;">
+	     [] execVM "addons\mapaddons\buildings.sqf";
+</p>
+
+<p style="color:#555555;">
+	};
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	Save, repbo and upload. This should add all the stuff you created in the Editor to your map.
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	To add more, you can just create a second one for other map stuff by create a new buildings2.sqf with your other buildings and call them like this
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	 if (isserver) then {
+</p>
+
+<p style="color:#555555;">
+	     [] execVM "addons\mapaddons\buildings.sqf";
+</p>
+
+<p style="color:#555555;">
+	     [] execVM "addons\mapaddons\buildings2.sqf";
+</p>
+
+<p style="color:#555555;">
+	};
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	Or just edit your old project and overwrite the buildings.sqf
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	 
+</p>
+
+<p style="color:#555555;">
+	Hope this helps
+</p>
+]]></description><guid isPermaLink="false">43595</guid><pubDate>Sun, 26 Mar 2017 07:55:47 +0000</pubDate></item><item><title>[HowTo] Add Buildings or other Objects</title><link>https://epochmod.com/forum/topic/31415-howto-add-buildings-or-other-objects/</link><description><![CDATA[
+<p>I<span><span>n your: \Arma 3\@epochhive\addons\a3_epoch_server_settings</span></span>.pbo are the <span><span><span><span><span><span><span><span><span><span>different</span></span></span> <span>maps...</span></span></span></span></span></span></span></span></p>
+<p><span><span><span>unpack the pbo and open \configs\maps MAPUWANTTOEDIT.H <span><span><span> [ I<span><span>t</span> <span>is divided into</span> <span>the <span><span>different</span></span></span> <span>maps.</span> <span>(</span><span>Stratis</span><span>,</span> <span>Altis</span><span>,</span> C<span>herno</span>, <u>add more if u need</u> <span>...</span><span>)</span></span></span></span></span></span></span></span> ]</p>
+<p> </p>
+<p>Example:Altis.H start with:</p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>    };<br>
+    class Altis : Default<br>
+    {<br>
+        worldSize = 20000;                         <span style="color:#b22222;">//  =  say the name :D the size of the world, in Altis 20000</span><br>
+        traderBlds[] = { "Land_Kiosk_blueking_F", "Land_FuelStation_Build_F", "Land_CarService_F", "Land_i_Garage_V1_F", "Land_i_Shed_Ind_F", "Land_i_Shop_01_V1_F" };<br>
+        containerPos[] = {                          <span style="color:#b22222;">//  =  the container spawn pos ingame, if a container spawned then there:</span><br>
+                { 8599.97, 24513.6, 0 },          <span style="color:#b22222;">//  container1</span></p>
+<p>                { 17702.8, 19466.5, 0 }           <span style="color:#b22222;">//  container2  //last one without comma</span><br>
+        };<br>
+        telePos[] = {                                 <span style="color:#b22222;">// = the 3 Spawnpoints.</span></p>
+<p>                { "Transport_C_EPOCH", { 23600.5, 18009, 0.233421 }, "", { 13326.5, 14515.2, 0.16426 } }, // Trader city 1<br>
+                { "Transport_W_EPOCH", { 23585.4, 18000.7, 0.233424 }, "", { 6192.46, 16834, 0.00154114 } }, // Trader city 2<br>
+                { "Transport_E_EPOCH", { 23615.5, 18000.9, 0.233423 }, "", { 18451.9, 14278.1, 0.00143814 } } // Trader city 3<br>
+        };<br>
+        <span style="color:#008080;">propsPos[] = {</span>                            <span style="color:#b22222;">// = the position were houses spawn then:</span><br>
+                <span style="color:#b22222;">//trader city #1</span><br>
+                {"Land_MarketShelter_F", { <span style="color:#000000;">13315.3, 14512.4, 0.0361125</span> }, 119.966},<br>
+                { "Land_ScrapHeap_2_F", { <span style="color:#000000;">13315.9, 14499, 0.00584948</span> }, 255.706 }</p>
+<p>                ...............................................................................</p>
+<p></p>
+</blockquote>
+<p></p>
+<p>propsPos[] = {                                    <span style="color:#b22222;">//<u>in the propsPos you can <strong>add houses</strong>, atm, waterbarrels or everything you want</u>. just....</span></p>
+<p><span style="color:#008080;">propsPos[] = {</span><br>
+                //trader city #1<br>
+                {"Land_MarketShelter_F", { <span style="color:#000000;">13315.3, 14512.4, 0.0361125</span> }, 119.966},<br>
+                { "Land_ScrapHeap_2_F", { 13315.9, 14499, 0.00584948 }, 255.706 },</p>
+<p>                { "<span style="color:#33ff00;">classnameyouneed</span>" ,    { <span style="color:#ff0000;">X </span>,              <span style="color:#ee82ee;">Z ,       </span><span style="color:#0000ff;">offsetY</span>    }, <span style="color:#ffa500;">azimut</span> }           <span style="color:#b22222;">//  add more if u wish, but the last one without comma</span></p>
+<p> </p>
+<p><span><span>Important is</span> <span>only the</span> <span>last</span> <span>batch</span> <span>may</span> <span>not</span></span> a "comma"  so, look at the "," at the end from the line.</p>
+<p> </p>
+<p><span>Build what you want with the A3 Editor</span><span>, save coordinates for your cpp (press "copy Epoch CFG to Clipbord")</span>, then past this in a empty txt file, <span><span><span><span>or</span> <span>directly</span></span><span> <span>into the</span> <span>cpp.</span></span></span></span></p>
+<p>*<span><span><span><span>with</span> <span>the</span> <span>custom</span> <span>pbo</span> <span><span>you can</span></span> <span>specify more</span> <span>features</span><span>,</span> <span>such as</span> <span>set vector</span> <span>and</span> <span>so</span></span></span></span></p>
+<p> </p>
+<p><strong>Repack the .pbo</strong> and ready </p>
+<p> </p>
+<p>*I<span>f you want to build with the MCC Sandbox Tool or Zeus</span><span>, save</span> with MCC Sandbox<span> (press "save all sqm")</span>, <span><span>then</span><span><span> convert</span></span> <span>the</span> <span>coordinates</span> <span>and <span><span>add</span> <span>this</span> <span>into the</span> <span>cpp.</span></span></span></span> (Use the Mission converter<span><span>)</span></span>*</p>
+<p> </p>
+<p><u><span style="font-size:18px;"><strong>The coordinates:</strong></span></u></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p><span><span><span><span>The</span> A<span>3</span> E<span>ditor</span> <span>has a</span></span></span></span> "C<span>opy Epoch CFG to Clipbord" <span><span>button, <span><span>these</span> <span>are</span> <span>just</span> <span>the right</span> <span>coordinates</span> <span>for the</span> config.<span>cpp, <span><span>So</span> <span>the</span> A<span>3</span> <span>Editor</span> <span>is</span> </span></span></span></span></span></span>very good and easy to get the right coordinates.</p>
+<p>*I<span>f you want to build with the MCC Sandbox Tool or Zeus</span><span>, save</span> with MCC Sandbox<span> (press "save all sqm")</span>, <span><span>then</span><span><span> convert</span></span> <span>the</span> <span>coordinates</span> <span>and <span><span>add</span> <span>this</span> <span>into the</span> <span>cpp.</span></span></span></span> (Use the Mission converter<span><span>)</span></span></p>
+<p> </p>
+<p><u><strong><span style="font-size:18px;">If you need more Infos about <span style="font-size:18px;">coordinates</span>:</span></strong></u></p>
+<p> </p>
+<p><u><span><span>mission.sqm </span></span><span><span>coordinates:</span></span></u></p>
+<p>       };<br>
+        class Item4<br>
+        {                             {<span style="color:#ff0000;">X</span>,           <span style="color:#00ffff;">Y</span>,                <span style="color:#ee82ee;">Z</span>}<br>
+            position[]={<span style="color:#ff0000;">1325.1554</span>,<span style="color:#00ffff;">13.24902,8729</span>.<span style="color:#ee82ee;">6484</span>};<br>
+            azimut=-<span style="color:#ffa500;">303.53421</span>;<br>
+            id=4;<br>
+            side="EMPTY";<br>
+            vehicle="<span style="color:#00ff00;">Land_CampingChair_V2_F</span>";<br>
+            skill=0.60000002;<br>
+        };</p>
+<p> </p>
+<p><u>in the config.cpp:</u></p>
+<p>                { "<span style="color:#33ff00;">classname</span>", { <span style="color:#0000ff;"><span style="color:#ff0000;">X</span>, <span style="color:#ee82ee;">Z</span>, offsetY</span> }, <span style="color:#ffa500;">azimut</span> },</p>
+<p> </p>
+<p>so... we need <span><span>the</span> <span style="color:#0000ff;"><span>offsetY</span></span></span></p>
+<p><span>Ge<span>t</span> <span>the</span> <span>offsetY</span> w<span>ith help</span> <span>of the MCC</span> Sandbox Editor Tool<span>.</span></span> <span>export the code</span> (save), <span><span>then</span><span><span> </span>you get this block: (with offsetY)</span></span></p>
+<p> </p>
+<p><u><span><span><span><span>mission.sqm </span></span><span><span>coordinates after saving with MCC:</span></span></span></span></u></p>
+<p>       };<br>
+        class Item4<br>
+        {<br>
+            position[]={<span style="color:#ff0000;">1325.1554</span>,<span style="color:#00ffff;">13.24902,8729</span>.<span style="color:#ee82ee;">6484</span>};<br>
+            azimut=-<span style="color:#ffa500;">303.53421</span>;<br>
+            id=4;<br>
+            side="EMPTY";<br>
+            vehicle="<span style="color:#00ff00;">Land_CampingChair_V2_F</span>";<br>
+            skill=0.60000002;</p>
+<p>            offsetY=<span style="color:#0000ff;">0.0144939;</span><br>
+        };</p>
+<p>with the <span style="color:#0000ff;">offsetY</span>, <span><span>now we have</span> <span>everything we need.</span></span></p>
+<p> </p>
+<p><span><span>important</span> <span>is</span><span>:</span></span></p>
+<p>            position[]={<span style="color:#ff0000;">X</span>, <span style="color:#00ffff;">Y</span>, <span style="color:#ee82ee;">Z</span>};<br>
+            azimut=-<span style="color:#ffa500;">azimut</span>;     (azimut is the"look direction")<br>
+            vehicle="<span style="color:#33ff00;">classname</span>";</p>
+<p>            offsetY=<span style="color:#0000ff;">NUMBER;</span></p>
+<p> </p>
+<p><span style="color:#0000ff;">            </span><span style="color:#00ffff;">Y </span>= we dont need <span style="color:#00ffff;">Y</span> in the config.cpp</p>
+<p> </p>
+<p><u>in the config.cpp:</u></p>
+<p>                { "<span style="color:#00ff00;">Land_CampingChair_V2_F</span>", { <span style="color:#0000ff;"><span style="color:#ff0000;">1325.1554</span>, <span style="color:#ee82ee;">6484</span>, <span style="color:#0000ff;">0.0144939</span></span> }, <span style="color:#ffa500;">303.53421 </span>},  //last one without comma</p>
+<p>and ready is the chair :D</p>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p><span style="font-size:18px;"><u><strong>useful tools and links:</strong></u></span></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<br><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/30810-m3editor-a3-3d-editor/&amp;do=embed"></iframe> - A3 3D Editor and the<span><span><span><span> custom</span> <span>pbo</span></span></span></span>
+<p> </p>
+<p><a href="http://www.armaholic.com/page.php?id=19580" rel="external nofollow">http://www.armaholic.com/page.php?id=19580</a>  - MCC Sandbox Editor<br><a href="https://www.dropbox.com/sh/nbn9nrpo92cafqe/AAD6h5KuWmYP74zJ6CYjcQK7a?dl=0" rel="external nofollow">https://www.dropbox.com/sh/nbn9nrpo92cafqe/AAD6h5KuWmYP74zJ6CYjcQK7a?dl=0</a>  - Mission.sqm formater (<span><span><span> <span><span>convert</span> <span>a complete</span> <span>mission.sqm )</span></span></span></span></span> ( Instructions after the verification by an Mod, than here im Forum under Tools )</p>
+<p> </p>
+<p><a href="http://www.armaholic.com/page.php?id=16369" rel="external nofollow">http://www.armaholic.com/page.php?id=16369</a>  - to open and repack PBOs<br><br><a href="https://community.bistudio.com/wiki/Arma_3_CfgVehicles_EMPTY" rel="external nofollow">https://community.bistudio.com/wiki/Arma_3_CfgVehicles_EMPTY</a>  - list with all things you can place: (wiki arma 3, CfgVehicle EMPTY)</p>
+<p></p>
+</blockquote>
+<p></p>
+]]></description><guid isPermaLink="false">31415</guid><pubDate>Thu, 15 Jan 2015 17:31:55 +0000</pubDate></item><item><title>[Tutorial] How to add buildings to epoch without editing mission.sqm</title><link>https://epochmod.com/forum/topic/36567-tutorial-how-to-add-buildings-to-epoch-without-editing-missionsqm/</link><description><![CDATA[
+<p>Hey guys, first tutorial so be kind, also before i begin, this isn't my code and i take no credit for it whatsoever, i have made a few adjustments but mostly to tidy up. Please if your the original author, contact me and i shall credit you accordingly!</p>
+<p>Ok so here goes -</p>
+<p> </p>
+<p>Credits:</p>
+<p>macca134 - Files on the linked post</p>
+<p>DirtySanchez - Pointing out the possible ways to add the objects</p>
+<p>BetterDeadThanZed - Pointing out the original post was useless + pointing out code optimisations</p>
+<p>Halvhjearne &amp; KiloSwiss - Help figuring out how to add textures</p>
+<p> </p>
+<p>Step 1:</p>
+<p>Download the "a3_epoch_custom.zip" found here and extract it - </p>
+<p><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/30810-m3editor-a3-3d-editor/&amp;do=embed"></iframe></p>
+<p> </p>
+<div>Step 2: </div>
+<div>Add the folder to "@epochhive/addons"</div>
+<div> </div>
+<div>Step 3:</div>
+<div>Edit and rename "@epochhive/addons/a3_epoch_custom/mapcontent/somecontent1.sqf"</div>
+<div>for example my renamed file is - billboards.sqf</div>
+<div> </div>
+<div>Step 4:</div>
+<div>Edit the renamed file to include the objects you wish to add and their position, for example i changed - </div>
+<div> </div>
+<div><span style="color:#0000ff;">diag_log format['Custom %1 - Starting somecontent1.sqf',time];</span></div>
+<div> </div>
+<div>
+<div><span style="color:#0000ff;">_pos = [630.292419,1808.09729,0.0749831];</span></div>
+<div><span style="color:#0000ff;">_object = createVehicle ["Land_LampStreet_F", _pos, [], 0, "CAN_COLLIDE"];</span></div>
+<div><span style="color:#0000ff;">_object setDir 280.171;</span></div>
+<div><span style="color:#0000ff;">_object setPosATL _pos;</span></div>
+<div> </div>
+<div>to</div>
+<div> </div>
+<div><span style="color:#0000ff;">diag_log format['Custom %1 - Starting billboards.sqf',time];</span></div>
+<div> </div>
+<div>
+<div><span style="color:#0000ff;">_pos = [13102.2, 10143.8, 0];</span></div>
+<div><span style="color:#0000ff;">_object = createVehicle ["Land_Billboard_F", _pos, [], 0, "CAN_COLLIDE"];</span></div>
+<div><span style="color:#0000ff;">_object setDir 185.52;</span></div>
+<div><span style="color:#0000ff;">_object setPosATL _pos;</span></div>
+</div>
+</div>
+<div> </div>
+<div>
+<div>To edit the texture of say a billboard then add this to the bottom of your entry in billboards.sqf so it looks like this -</div>
+<div> </div>
+<div>
+<div>
+<div><span style="color:rgb(0,0,255);">diag_log format['Custom %1 - Starting billboards.sqf',time];</span></div>
+<div> </div>
+<div>
+<div><span style="color:rgb(0,0,255);">_pos = [13102.2, 10143.8, 0];</span></div>
+<div><span style="color:rgb(0,0,255);">_object = createVehicle ["Land_Billboard_F", _pos, [], 0, "CAN_COLLIDE"];</span></div>
+<div><span style="color:rgb(0,0,255);">_object setDir 185.52;</span></div>
+<div><span style="color:rgb(0,0,255);">_object setPosATL _pos;</span></div>
+</div>
+</div>
+</div>
+<div><span style="color:#0000ff;"><span>_object setObjectTextureGlobal </span><span>[</span><span>0</span><span>,</span><span> </span><span>"textures\test.jpg"</span><span>];</span></span></div>
+<div> </div>
+</div>
+<div>
+<div>Step 5:</div>
+<div>Open .../a3_epoch_custom/init/fn_init.sqf and edit this line-</div>
+<div><span style="color:#0000ff;">[] execVM "\x\addons\custom\mapcontent\somecontent1.sqf";</span></div>
+<div>to -</div>
+<div>
+<span style="color:#0000ff;">[] execVM "\x\addons\custom\mapcontent\billboards.sqf"; </span>(replace billboards.sqf with what you renamed your file to)</div>
+<div> </div>
+<div>
+<div>Step 6:</div>
+<div>Pack "a3_epoch_custom" into a .pbo and enjoy</div>
+<div> </div>
+<div>Step 7:</div>
+<div>If you added the texture line, then open your mission .pbo in your mpmissions folder and add a new folder call "textures", in this folder is where you place the image you want as a texture.</div>
+<div>Remember to change the name in the line you added earlier (<span style="color:rgb(0,0,255);">_object setObjectTextureGlobal </span><span style="color:rgb(0,0,255);">[</span><span style="color:rgb(0,0,255);">0</span><span style="color:rgb(0,0,255);">,</span><span style="color:rgb(0,0,255);"> </span><span style="color:rgb(0,0,255);">"textures\</span><span style="color:#ff0000;"><span>test</span></span><span style="color:rgb(0,0,255);">.jpg"</span><span style="color:rgb(0,0,255);">];</span>) to match the name of the image in the textures folder.</div>
+<div> </div>
+<div>Step 8:</div>
+<div>Repack mission .pbo</div>
+<div> </div>
+<div>Notes:</div>
+<div> </div>
+<div>To get the coordinates i just teleport to the position i want and look in the infistar logs, but you could use the editor to find these positions.</div>
+<div>You can add seperate files in the ".../mapcontent/...." folder by adding another "call compile......" line to the "fn_init.sqf".</div>
+<div> </div>
+<div>Cheers guys, hope this helped!</div>
+<div> </div>
+<div>XMortX</div>
+</div>
+</div>
+]]></description><guid isPermaLink="false">36567</guid><pubDate>Sat, 18 Jul 2015 23:40:26 +0000</pubDate></item><item><title>[TUTORIAL] Quick Bulletpoint-style Notes to Set Up a Arma 3 Epoch Dedicated Server</title><link>https://epochmod.com/forum/topic/34424-tutorial-quick-bulletpoint-style-notes-to-set-up-a-arma-3-epoch-dedicated-server/</link><description><![CDATA[
+<p>Following the forum software upgrade, this post became invisible. I can't seem to make it work any more not sure what's wrong and don't have the time to mess with it any more.</p><p> </p><p>Here is a quick fix, I took the code 1st post BB code and converted to HTML.<br>Published the resulting HTML code in GitLab repo at <a rel="external nofollow" href="https://gitlab.com/themgm/Arma_3_Misc/raw/master/HOWTO_setup_Arma_3_Epoch_Dedicated_Server/HOWTO_setup_Arma_3_Epoch_Dedicated_Server.html">https://gitlab.com/themgm/Arma_3_Misc/raw/master/HOWTO_setup_Arma_3_Epoch_Dedicated_Server/HOWTO_setup_Arma_3_Epoch_Dedicated_Server.html</a></p><p> </p><p>Sadly the one above does show as TEXT and not HTML web page.</p><p> </p><p>Here is a hack to the hack, I copy &amp; pasted the code to a web developer pastebin-like site, here is the link:</p><p><span style="font-size:36px;"><a rel="external nofollow" href="http://output.jsbin.com/cejamiwaxa">http://output.jsbin.com/cejamiwaxa</a></span></p><p> </p><p>Until I have time to troubleshoot just use the above link please.</p><p> </p><p>To mods: this new forum software does seem to suck BTW :(</p><p> </p>
+]]></description><guid isPermaLink="false">34424</guid><pubDate>Mon, 13 Apr 2015 21:14:17 +0000</pubDate></item><item><title>[TUTORIAL]Installing JSRS Support w/stock Epoch AntiHack</title><link>https://epochmod.com/forum/topic/31953-tutorialinstalling-jsrs-support-wstock-epoch-antihack/</link><description><![CDATA[
+<p>I've seen a little confusion around the forums about how to install JSRS compatibility into servers. The information is out there but it's spread across several threads. Follow this comprehensive guide and your players will be able to connect with JSRS enabled and you won't have to compromise your server's security.<br><br><br><br>
+1. Open your epochAH.hpp file and on the line 7 for whitelistedpatches, add the below list to the end of the line before the closing } bracket.<br></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint lang-auto">
+,"DragonFyre_Bullethits","DragonFyre_Explosions","DragonFyre_Sonic_Cracks","DragonFyre_230mm_Titan","DragonFyre_Air_Weapons","DragonFyre_35mm_Autocannon","DragonFyre_120mm_Cannon","DragonFyre_Autocannon","DragonFyre_DAGR","DragonFyre_DAR","DragonFyre_Minigun","DragonFyre_30mm_Cannon","DragonFyre_Gau8","DragonFyre_155mm_AMOS","DragonFyre_M134","DragonFyre_LMGRCWS","DragonFyre_GMG20","DragonFyre_GMG40","DragonFyre_127","DragonFyre_Skalpel_ATGM","DragonFyre_Skyfire","DragonFyre_Veh_Titan","DragonFyre_4Five45","DragonFyre_ACPC","DragonFyre_MX","DragonFyre_M6","DragonFyre_Khaybar","DragonFyre_M320R","DragonFyre_EBR","DragonFyre_FS2000","DragonFyre_M200","DragonFyre_P07","DragonFyre_NLAW","DragonFyre_PDW","DragonFyre_Rahim","DragonFyre_Rook40","DragonFyre_RPG32","DragonFyre_Scorpian","DragonFyre_TRG20","DragonFyre_UGL","DragonFyre_SDAR","DragonFyre_Vector","DragonFyre_Zafir","DragonFyre_Zubr45","DragonFyre_Movement","DragonFyre_Distance","DragonFyre_FighterPlane3","DragonFyre_CAS_Plane1","DragonFyre_AH99_Blackfoot","DragonFyre_AH9_Pawnee","DragonFyre_UAV_1","DragonFyre_CH67_Huron","DragonFyre_CH49_Mohawk","DragonFyre_Mi290_Taru","DragonFyre_Mi48_Kajman","DragonFyre_UAV_2","DragonFyre_Po30_Orca","DragonFyre_CAS_Plane2","DragonFyre_UH80_GhostHawk","DragonFyre_WY55_Hellcat","DragonFyre_Boat_Armed_1","DragonFyre_2S9_Sorcher","DragonFyre_AFV4_Gorgon","DragonFyre_AMV7_Marshal","DragonFyre_BTRK_Kamysh","DragonFyre_FV720_Mora","DragonFyre_IFV6a_Cheetah","DragonFyre_IFV6c_Panther","DragonFyre_M2A1_Slammer","DragonFyre_M4_Scorcher","DragonFyre_M5_Sandstorm","DragonFyre_MBT52_Kuma","DragonFyre_MSE3_Marid","DragonFyre_T100_Varsuk","DragonFyre_ZSU39_Tigris","DragonFyre_Hatchback","DragonFyre_truck1","DragonFyre_Hunter","DragonFyre_Ifrit","DragonFyre_Offroad","DragonFyre_Quadbike","DragonFyre_Strider","DragonFyre_SUV","DragonFyre_truck2","DragonFyre_Van","DragonFyre_Truck3","cba_xeh","Extended_EventHandlers","CBA_Extended_EventHandlers","cba_common","cba_events","cba_hashes","cba_network","cba_strings","cba_vectors","cba_ai","cba_arrays","cba_diagnostic","cba_ui","cba_versioning","cba_help","cba_keybinding","cba_ui_helper","cba_main","cba_main_a3","cba_xeh_a3"
+</pre>
+<p></p>
+</blockquote>
+<p><br><br>
+That will add all of the config patches to Epoch to let the Antihack know that they are ok for players to use. The list includes CBA addons as well as the ones for JSRS3:DragonFyre. The above list is compatible with JSRS3:DragonFyre ONLY. If you wish to use JSRS2.2 or older you will have to replace the DragonFyre patches list with those from the older JSRS version. The CBA patches however will be the same.<br><br>
+2. Add the signature keys for CBA and JSRS to your server's keys folder<br><br>
+3. Now comes the fun part....BE filters.</p>
+<p> </p>
+<p>       ****UPDATE 3/27/15****  New BE filters are needed as of 0.3.0.1.  See <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/31953-tutorialinstalling-jsrs-support-wstock-epoch-antihack/?p=222524&amp;do=embed"></iframe> for the updated scripts.txt filters.  Credit: PryMary</p>
+<p> </p>
+<p>
+</p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint lang-auto">
+setvariable.txt
+
+line 1 - !"slx_xeh_playable"
+
+
+
+</pre>
+<pre class="ipsCode prettyprint lang-auto">
+scripts.txt
+
+line 1 - !"bis_fnc_locWeaponInfo"  !"call BIS_fnc_selectRandom;"
+
+line 19 - !"if (_unit in playableUnits"
+
+line 20 - !"{ _x call _fnc } forEach vehicles;"
+
+line 22 - !="\"["\x\cba\addons\network\fnc_globalExecute.sqf\",\".sqf",0,false,false,false,\"CBA\",\"Network\",\"globalExecute\"]"
+
+line 23 - !="[\"\x\cba\addons\common\fnc_addWeaponCargo.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"addWeaponCargo\"]" !="[\"\x\cba\addons\common\fnc_addWeaponCargoGlobal.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"addWeaponCargoGlobal\"]"
+
+line 25 - !="[\"\x\cba\addons\common\fnc_addMagazine.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"addMagazine\"]" !="[\"\x\cba\addons\common\fnc_addMagazineVerified.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"addMagazineVerified\"]"
+
+line 26 - !="[\"\x\cba\addons\common\fnc_addMagazineCargo.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"addMagazineCargo\"]" !="[\"\x\cba\addons\common\fnc_addMagazineCargoGlobal.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"addMagazineCargoGlobal\"]"
+
+line 36 - !"BIS_OO_grpLogic = _group;"
+
+line 37 - !"call CBA_fnc_getSharedGroup;"
+
+line 42 - !"fnc_setMarkerPersistent.sqf"
+
+line 43 - !="[\"\x\cba\addons\common\fnc_createMarker.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Misc\",\"createMarker\"]"
+
+line 51 - !"ctrlSetEventHandler ["MouseButtonDblClick", _ver_act];"
+
+line 52 - !="[\"\x\cba\addons\events\fnc_addEventHandler.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Events\",\"addEventHandler\"]" !" _obj addEventHandler [_x, compile format[\"_this call SLX_XEH_EH_%1\", _x]] } f"
+
+line 53 - !"_display displayaddeventhandler [\"unload\",\"uinamespace setvariable ['BIS_fnc_guiMess" !="findDisplay -1337 displayAddEventHandler ['Unload'" !"cba_keybinding_fnc_onKeyDown"
+
+line 58 - !="[\"\x\cba\addons\events\fnc_removeEventHandler.sqf\",\".sqf\",0,false,false,false,\"CBA\",\"Events\",\"removeEventHandler\"]"
+</pre>
+<p></p>
+</blockquote>
+<p><br><br>
+Add those lines to the various lines in your BE filters as listed. There may be another one or two but I'm pretty sure that's all of them. I pulled them from my own working files.<br><br>
+Please note that as BE filters for the game change or get updated with new Epoch patches the BE filters may change, meaning that you may have to update parts of the above filters list. The same goes for future CBA/JSRS updates as well.<br><br>
+That's all you have to do! CBA and JSRS @mod folders do not have to be installed server side in order for your clients to use it.<br><br>
+Enjoy! :D</p>
+]]></description><guid isPermaLink="false">31953</guid><pubDate>Fri, 30 Jan 2015 19:01:53 +0000</pubDate></item><item><title>[HowTo] Redis DB Trader Cleanup</title><link>https://epochmod.com/forum/topic/32028-howto-redis-db-trader-cleanup/</link><description><![CDATA[
+<p>Hi,</p><p> </p><p>I am going to post some scripts which are for Redis DB to solve the following problems.</p><p> </p><p>1. Vehicles Stuck in Traders causing low vehicle count on map</p><p>2. Traders who are way overstocked</p><p>3. Reset all vehicles back to random pos</p><p> </p><p><span style="color:#ff0000;"><strong>Important Information before starting</strong></span></p><p><span style="color:#ff0000;">1. Shutdown Arma 3 Server</span></p><p><span style="color:#ff0000;">2. Shutdown Redis</span></p><p><span style="color:#ff0000;">3. Backup you DB, then back it up again</span></p><p><span style="color:#ff0000;">4. Understand that you could break your db if you mess up, refer to step 3.</span></p><p> </p><p><strong>Prerequisites</strong></p><p>Download redis-cli.exe - <a href="https://msopentech.com/opentech-projects/redis/" rel="external nofollow">https://msopentech.com/opentech-projects/redis/</a></p><p> </p><p><strong>Purge Traders Items</strong></p><p><em><u>clean_ai_items.lua</u></em></p><p></p><p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p></p><pre class="ipsCode prettyprint lang-auto">local count = 0
+local valuelist = redis.call('keys', 'AI_ITEMS:1:*')
+if valuelist then
+    for i = 1, #valuelist do
+        
+		--Delete
+		redis.call('del', valuelist[i])
+
+		--Set ( Custom Trader loadouts can be set here)
+	        --redis.call('set', valuelist[i], '[[],[]]')
+
+		count = count + 1
+       
+    end
+end
+return count
+</pre></blockquote><p></p><p><strong>Purge Vehicle Spawns ( reset all vehicles and contents )</strong></p><p><u><em>clean_vehicles.lua</em></u></p><p></p><p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p></p><pre class="ipsCode prettyprint lang-auto">local count = 0
+local valuelist = redis.call('keys', 'Vehicle:1:*')
+local valueitem
+if valuelist then
+    for i = 1, #valuelist do
+		
+                --Purge all vehicles
+                count = count + 1
+                redis.call('del', valuelist[i]) 
+
+		--Fancy Stuff can go here?
+		--valueitem = redis.call('get',valuelist[i])
+				
+                --if valueitem == '[]' then 
+		--  redis.call('del', valuelist[i]) 
+		--  count = count + 1
+		--end	
+        
+    end
+end
+return count
+</pre></blockquote><p></p><p> </p><p><strong>Replace Traders Items - Vehicles Only, will replace with specified item</strong></p><p><em><u>clean_sold_vehicles_only.lua</u></em></p><p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p></p><pre class="ipsCode prettyprint lang-auto">local VEHICLE_ARRAY =	{"C_Offroad_01_EPOCH","C_Quadbike_01_EPOCH","C_Hatchback_01_EPOCH","C_Hatchback_02_EPOCH","C_SUV_01_EPOCH","C_Rubberboat_EPOCH",
+				 "C_Rubberboat_02_EPOCH","C_Rubberboat_03_EPOCH","C_Rubberboat_04_EPOCH","C_Van_01_box_EPOCH","C_Van_01_transport_EPOCH","C_Boat_Civil_01_EPOCH",
+				 "C_Boat_Civil_01_police_EPOCH","C_Boat_Civil_01_rescue_EPOCH","B_Heli_Light_01_EPOCH","B_SDV_01_EPOCH","B_MRAP_01_EPOCH",
+				 "B_Truck_01_transport_EPOCH","B_Truck_01_covered_EPOCH","B_Truck_01_box_EPOCH","O_Truck_02_covered_EPOCH","O_Truck_02_transport_EPOCH",
+				 "O_Truck_03_covered_EPOCH","O_Truck_02_box_EPOCH","I_Heli_light_03_unarmed_EPOCH","O_Heli_Light_02_unarmed_EPOCH","I_Heli_Transport_02_EPOCH",
+				 "O_Heli_Transport_04_EPOCH","O_Heli_Transport_04_bench_EPOCH","O_Heli_Transport_04_box_EPOCH","O_Heli_Transport_04_covered_EPOCH",
+				 "B_Heli_Transport_03_unarmed_EPOCH","K01","K02","K03","K04","B_G_Offroad_01_F","O_MRAP_02_F","I_MRAP_03_F","O_G_Offroad_01_F",
+				 "I_G_Offroad_01_F","I_G_VAN_01_transport_F"}
+	
+local count = 0
+local valuelist = redis.call('keys', 'AI_ITEMS:1:*')
+local valueitem
+if valuelist then
+    for i = 1, #valuelist do
+		
+		--Clean Vehicles which have been sold
+		valueitem = redis.call('get',valuelist[i])
+		
+		for v = 1, #VEHICLE_ARRAY do
+		
+			valueitem = string.gsub(valueitem, VEHICLE_ARRAY[v], "EpochRadio0")		
+		
+		end
+		
+			  redis.call('set', valuelist[i], valueitem)
+			  count = count + 1
+		
+        
+    end
+end
+return count
+</pre></blockquote><p> </p><p> </p><p><strong>How to Run</strong></p><p> </p><p>1. Ensure you have taken backups</p><p>2. Shutdown Arma 3 Server</p><p>3. Startup REDIS DB</p><p>4. Create file above "clean_ai_items.lua" in same directory</p><p>4. In the directory where redis-cli.exe is located open a command prompt ( SHIFT + RIGHT CICK --&gt; Open Command WIndows here)</p><p>5. Execute below command in command prompt changing inputs to suit your environment, if your unsure what the below flags are run a redis-cli --help for info.</p><p></p><pre class="ipsCode prettyprint lang-auto">redis-cli -h 127.0.0.1 -p 2456 -a mypass -n 0 --eval clean_ai_items.lua
+</pre>6. You should get a count outputted of how many traders were purged of there items<p>7. The changes should save eventually but to do a manual save run the following</p><p></p><pre class="ipsCode prettyprint lang-auto">redis-cli -h 127.0.0.1 -p 2456 -a mypass -n 0
+127.0.0.1:2456&gt; save
+OK
+127.0.0.1:2456&gt; shutdown
+not connected&gt;
+</pre>8. I recommend taking another db backup<p>9. Startup DB </p><p>10. Startup Arma 3 Server</p><p>11. Enjoy Clean Traders and freed up vehicles</p><p> </p><p><strong>Special Notes</strong></p><p>If you want to get fancy and do preloaded traders then you can use the commented section in the <em><u>clean_ai_items.lua file</u></em></p>
+]]></description><guid isPermaLink="false">32028</guid><pubDate>Mon, 02 Feb 2015 15:19:07 +0000</pubDate></item><item><title>GER - [Tutorial] Basebuilding video</title><link>https://epochmod.com/forum/topic/41743-ger-tutorial-basebuilding-video/</link><description><![CDATA[
+<p>
+	Hi all,
+</p>
+
+<p>
+	here a building tutorial made by two players from our Epoch Server. Many Thanks to Timst and Mr. Smith again!
+</p>
+
+<div class="ipsEmbeddedVideo">
+	<div>
+		<iframe allowfullscreen="true" frameborder="0" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" width="480" data-embed-src="https://www.youtube.com/embed/lU4XBjziwAo?feature=oembed"></iframe>
+	</div>
+</div>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">41743</guid><pubDate>Thu, 24 Mar 2016 13:05:28 +0000</pubDate></item><item><title>Editing Items or Adding Items to Traders using RedisManager</title><link>https://epochmod.com/forum/topic/31459-editing-items-or-adding-items-to-traders-using-redismanager/</link><description><![CDATA[
+<p>Install RedisManager Or if you have it Open it</p>
+<p> </p>
+<p>Download Location</p>
+<p><a href="https://github.com/uglide/RedisDesktopManager" title="External link" rel="external nofollow">https://github.com/u...sDesktopManager</a></p>
+<p> </p>
+<p>1. Once RedisManager is open Connect to your database.</p>
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="image.png" data-src="http://s28.postimg.org/n77r85599/image.png"></p>
+<p> </p>
+<p>2. Click on the + sign by db0</p>
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="image.png" data-src="http://s18.postimg.org/k5ifp76vd/image.png"></p>
+<p> </p>
+<p>3. Click on the + sign by AI Items.</p>
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="image.png" data-src="http://s27.postimg.org/u647sk5gj/image.png"></p>
+<p> </p>
+<p>4. You see AI_ITEMS:NA420  Each one is a Trader items. So go through each line and add items. </p>
+<p>YOU CAN COPY AND PASTE SAME INFO IN ALL TRADERS. UP TO YOU.</p>
+<pre class="ipsCode prettyprint">
+[["WhiskeyNoodle","ItemCoolerE","Hatchet","16Rnd_9x21_Mag","PaintCanGrn","HeatPack","ItemGoldBar10oz","Chemlight_green","HandGrenade","30Rnd_9x21_Mag","6Rnd_45ACP_Cylinder","20Rnd_556x45_UW_mag","5Rnd_rollins_mag","9rnd_45X88_magazine","ItemScraps","optic_Holosight_smg","30Rnd_65x39_caseless_green","SmokeShellRed","SmokeShellBlue","20Rnd_762x51_Mag","emptyjar_epoch","muzzle_snds_H","SmokeShellOrange","5Rnd_127x108_APDS_Mag","arifle_Mk20C_plain_F","ChainSaw","30Rnd_65x39_caseless_mag_Tracer","30Rnd_65x39_caseless_mag","muzzle_snds_M","muzzle_snds_B","C_Van_01_box_EPOCH","honey_epoch","ItemEmerald","30Rnd_556x45_Stanag","30Rnd_762x39_Mag","PaintCanOra","11Rnd_45ACP_Mag","MortarBucket","FoodSnooter","PaintCanBlk","PaintCanBlu","PaintCanYel","optic_Holosight","arifle_MX_F","200Rnd_65x39_cased_Box","LMG_Mk200_F","Binocular","arifle_Mk20_plain_F","H_14_EPOCH","optic_Aco_smg","7Rnd_408_Mag","200Rnd_556x45_M249","9Rnd_45ACP_Mag","30Rnd_45ACP_Mag_SMG_01","V_4_EPOCH","V_16_EPOCH","hgun_PDW2000_F","jerrycan_epoch","100Rnd_65x39_caseless_mag","hgun_P07_F","SmokeShellGreen","Pelt_EPOCH","NVG_EPOCH","MiniGrenade","CircuitParts","optic_Yorris","10Rnd_762x51_Mag","5Rnd_127x108_Mag","6Rnd_GreenSignal_F","hgun_Pistol_Signal_F","SmokeShell","optic_Aco","hgun_Pistol_heavy_01_F","arifle_MXC_F","hgun_Rook40_F","M14Grn_EPOCH","SmokeShellPurple","muzzle_snds_H_MG","acc_flashlight","m249Tan_EPOCH","SMG_02_F","m249_EPOCH","200Rnd_65x39_cased_Box_Tracer","30Rnd_556x45_Stanag_Tracer_Yellow","optic_DMS","Towelette","acc_pointer_IR"],[1,4,0,11,1,2,2,19,16,5,5,2,2,2,1,1,2,1,2,1,0,1,15,0,1,0,2,0,2,2,0,0,1,8,2,1,11,0,0,0,1,1,1,3,13,1,2,1,0,2,2,2,9,4,1,1,2,0,1,1,14,1,0,8,0,1,1,0,2,1,14,3,1,1,1,0,14,1,1,1,1,1,1,1,1,2,1]]
+</pre>
+<p>This is very basic and simple.</p>
+<p> </p>
+<p>Mister T</p>
+]]></description><guid isPermaLink="false">31459</guid><pubDate>Fri, 16 Jan 2015 19:38:39 +0000</pubDate></item><item><title>How to use M3Editor to edit your maps in epoch</title><link>https://epochmod.com/forum/topic/37610-how-to-use-m3editor-to-edit-your-maps-in-epoch/</link><description><![CDATA[
+<p>This is a little video I made .. 30 mins long .. shows you what you need software wise, and how to setup .. as well as general tutorial on options and functions <br><br>This is not the best tutorial video .. I hate my speaking voice ..like my squirrel voice better lol ..</p><p>So take it easy on me .. but I could find little in the way of instruction for M3editor . so I made a newbie video :)</p><p>Hope U like, and find it useful <br><br><a href="https://www.youtube.com/watch?v=M5qG-MSejG4" rel="external nofollow">https://www.youtube.com/watch?v=M5qG-MSejG4</a></p>
+]]></description><guid isPermaLink="false">37610</guid><pubDate>Mon, 21 Sep 2015 02:16:56 +0000</pubDate></item><item><title>[Tutorial] Editing cfgCrafting.hpp (Epoch Crafting V2)</title><link>https://epochmod.com/forum/topic/37856-tutorial-editing-cfgcraftinghpp-epoch-crafting-v2/</link><description><![CDATA[
+<p>Video tutorial that covers editing new crafting menu configs in an upcoming patch. Please note that any current custom cfgCrafting edits you have for old system will break the server and requires to be updated.</p>
+<p>Hoping to see some cool releases from you guys!</p>
+<p>Enjoy!</p>
+<div class="ipsEmbeddedVideo" contenteditable="false"><div><iframe width="480" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" allowfullscreen="true" data-embed-src="https://www.youtube.com/embed/qQDz1o_-kMw?feature=oembed"></iframe></div></div>
+<p> </p>
+]]></description><guid isPermaLink="false">37856</guid><pubDate>Wed, 14 Oct 2015 07:02:25 +0000</pubDate></item><item><title>Youtube Video Tutorial on Arma 3 Epoch Server Tutorial</title><link>https://epochmod.com/forum/topic/32458-youtube-video-tutorial-on-arma-3-epoch-server-tutorial/</link><description><![CDATA[
+<p>heres a video that shows you how to make an epoch server</p>
+<p>http://youtu.be/1HW4xhVwsns</p>
+]]></description><guid isPermaLink="false">32458</guid><pubDate>Tue, 17 Feb 2015 12:40:25 +0000</pubDate></item><item><title>[HowTo] Add new Cars</title><link>https://epochmod.com/forum/topic/30876-howto-add-new-cars/</link><description><![CDATA[
+<p>I will show you how you can add Cars like Ifrit or so !!</p>
+<p> </p>
+<p>1. Go on <a href="http://wiki.7thcavalry.us/wiki/ARMA_3_Vehicles" rel="external nofollow">http://wiki.7thcavalry.us/wiki/ARMA_3_Vehicles</a> and pick up the class for the Car you want add !!</p>
+<p>2. Open @EpochHive/epochconfig.hpp</p>
+<p>3 If you wannt a Ifirt add this code </p>
+<pre class="ipsCode prettyprint">
+//search for that code
+allowedVehiclesList[] = {
+//and now under that code add this code to add a Ifrit !!
+{"O_MRAP_02_F",3},
+</pre>
+<p>4. Add all your Cars that you wannt add !!</p>
+<p> </p>
+<p>5. Now we set the max. Spawn on Restart</p>
+<pre class="ipsCode prettyprint">
+//You see that code
+{"O_MRAP_02_F",3},
+//this ,3 is the Max. Spawn of this Car. Change it for more or lower max. Spawn
+</pre>
+<p>6. Restart</p>
+<p> </p>
+<p style="text-align:center;"><strong>If you have any Question feel free to ask !!</strong></p>
+]]></description><guid isPermaLink="false">30876</guid><pubDate>Sun, 04 Jan 2015 08:50:43 +0000</pubDate></item><item><title>[HOWTO] Kill command for specific arma3server.exe</title><link>https://epochmod.com/forum/topic/37184-howto-kill-command-for-specific-arma3serverexe/</link><description><![CDATA[
+<p>Hey guys,</p>
+<p> </p>
+<p>maybe you can use this. I had the problem with running 2 arma3servers and some day i decided to have different restart cycles.</p>
+<p>If you kill your arma3server.exe with taskkill, probably both servers are killed because only using "arma3server.exe" as kill value.</p>
+<p> </p>
+<p>With this line you can kill a specific arma server. Just adjust the port as you need it. Was it does is, that it will find out which program id uses the specific port and kills the program. Tested and works fine.</p>
+<p> </p>
+<p><strong>WINDOWS VERSION of course ;)</strong></p>
+<pre class="ipsCode prettyprint">
+FOR /F "tokens=4 delims= " %%P IN ('netstat -a -n -o ^| findstr :2302') DO taskkill /F /PID %%P</pre>
+<p>Cheers</p>
+<p> </p>
+<p>Flow</p>
+]]></description><guid isPermaLink="false">37184</guid><pubDate>Tue, 18 Aug 2015 13:33:12 +0000</pubDate></item><item><title>[TUTORIAL]  Adding logo to screen</title><link>https://epochmod.com/forum/topic/34488-tutorial-adding-logo-to-screen/</link><description><![CDATA[
+<p style="text-align:center;"><span style="font-size:24px;"><span style="color:#ff8c00;">Adding Static Logo Image to Screen</span></span></p>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;"><span style="font-size:24px;"><span style="color:#ff8c00;"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="el6ldmj.png" data-src="http://i.imgur.com/el6ldmj.png"></span></span></p>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;"> </p>
+<p><span style="font-size:24px;"><span style="font-size:14px;">Want to add a clan logo to your screen for your players?  It can be done!  And here's how.</span></span></p>
+<p> </p>
+<p><span style="font-size:14px;">1.  Open your favorite text editor and copy in this code:</span></p>
+<p> </p>
+<p><span style="font-size:14px;"></span></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+​_pic = "images\dhlogo2.paa";
+[
+    '&lt;img align=''left'' size=''2.1'' shadow=''0'' image='+(str(_pic))+' /&gt;',
+    safeZoneX+0.02,
+    safeZoneY+safeZoneH-0.18,
+    99999,
+    0,
+    0,
+    3090
+] spawn bis_fnc_dynamicText;
+</pre>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p>2.  Save the text file as 'logo.sqf'</p>
+<p> </p>
+<p>3.  Also in your text editor, copy and paste this code into a new text file:</p>
+<p> </p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+class RscTitles {
+    class wm_disp {
+        idd = -1;
+        onLoad = "uiNamespace setVariable ['wm_disp', _this select 0]";
+        fadein = 0;
+        fadeout = 0;
+        duration = 10e10;
+        controlsBackground[] = {};
+        objects[] = {};
+        class controls {
+            class wm_text2 {
+                idc = 1;
+                x = safeZoneX+0.027;//safeZoneW*0.01;
+                y = safeZoneY+safeZoneH-0.16;
+                w = 0.151*safeZoneH;
+                h = 0.057*safeZoneH;
+                shadow = 2;
+                class Attributes
+                {
+                    font = "EtelkaNarrowMediumPro";
+                    color = "#24FFFFFF";
+                    align = "left";
+                    valign = "middle";
+                    shadow = 2;
+                };
+                colorBackground[] = { 1, 0.3, 0, 0 };
+                font = "EtelkaNarrowMediumPro";
+                size = 0.06*safeZoneH;
+                type = 13;
+                style = 0;
+                text="";
+            };
+        };
+    };
+};
+</pre>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p>4.  Save the file as logo.hpp.  File type should be "All Files"</p>
+<p> </p>
+<p>5.  Open your init.sqf in your mission file and add this line ABOVE any line that says if "(!isDedicated and hasInterface) then"</p>
+<pre class="ipsCode prettyprint">
+
+          //In-Game Logo
+          [] execVM "images\logo.sqf";
+</pre>
+<div>
+<p> </p>
+</div>
+<div>6.  Open your description.ext and add this at the bottom:</div>
+<div> </div>
+<div>
+<pre class="ipsCode prettyprint">
+class RscTitles
+{
+	
+	#include "images\logo.hpp"
+};
+</pre>
+<p>If you already have an RscTitles section, then just add the #include line between the RscTitles brackets</p>
+<p> </p>
+<p>7.  In your mission file, copy the files you just created to a sub-folder of your choosing.  You will have to update the file paths referenced above as necessary.</p>
+<p> </p>
+<p>8.  Now comes the fun part.  You will need to design or find an image that will work.  The image should be resized to be any multiple of 2.  The best size is 128x128, but larger or smaller image sizes will work.  I would caution you though to try to find a balance between being large enough to see, but small enough so as to not balloon your mission file size too much.  128x128 seems to fit that bill nicely.  If you don't have them already, download the <a href="https://community.bistudio.com/wiki/BI_Tools_2.5" rel="external nofollow">BIS tool set</a>.  Run the installer.  All you really need to install for this project is TexView2.</p>
+<p> </p>
+<p>9.  Open TexView2 and then open your desired image.  Save the image as a PAA, ensuring that in the upper left drop-down box RGBA is selected, which it should be by default.</p>
+<p> </p>
+<p>10.  Copy the completed image to your mission file in a folder of your choosing and then make sure the path to the image in logo.sqf matches the name and location of the image file.</p>
+</div>
+<div> </div>
+<div>Things to note:</div>
+<div> </div>
+<div>You can alter the placement of the image by playing with the alignment values in the hpp file.  You can also make adjustments to the sqf file, where it says 'left'.  You can change it to 'center' or 'right'.  </div>
+<div>You can use any image as a source, but I would recommend using something with a transparent background so the image covers as little screen space as possible.  </div>
+<div>From what I've seen thus far, no BE filters are necessary for this.</div>
+<div>When this image is in game on screen, the text chat box moves up and around it, so there's no worries about the image covering player chat text.  </div>
+<div> </div>
+<div>Credit goes to KiloSwiss and Zupa from their pointers in <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/32724-bottom-mainscreen-image-issue/&amp;do=embed"></iframe> for helping work out the kinks.</div>
+<p> </p>
+]]></description><guid isPermaLink="false">34488</guid><pubDate>Thu, 16 Apr 2015 16:21:53 +0000</pubDate></item><item><title>How to whitelistedVehiclePos.</title><link>https://epochmod.com/forum/topic/36704-how-to-whitelistedvehiclepos/</link><description><![CDATA[
+<p>Hi!</p>
+<p> </p>
+<p>Is anyone able to teach how to use this future?</p>
+<p>B_MRAP_01_EPOCH[] = {{{20848.6,7354.6,-0.00321198},{{0.742712,0.669594,-0.00486337},{-0.0281729,0.0385042,0.998861}}}</p>
+<p>First coords are looks familiar. Second and third coords are for?</p>
+<p> </p>
+<p>Sorry for my english, might be abnormal.</p>
+<p> </p>
+<p>Thanks in advance.</p>
+]]></description><guid isPermaLink="false">36704</guid><pubDate>Sat, 25 Jul 2015 16:49:02 +0000</pubDate></item><item><title>[VIDEO TUTORIAL]  Arma 3 Epoch Linux Server Setup (0.3.0.3)</title><link>https://epochmod.com/forum/topic/36054-video-tutorial-arma-3-epoch-linux-server-setup-0303/</link><description><![CDATA[
+<p>Here's a video tutorial for how to download and install an A3 epoch server in Linux (Debian Wheezy x64 used).</p>
+<p> </p>
+<p></p>
+<p>https://www.youtube.com/watch?v=s-xZAW_y_8E</p>
+<p></p>
+]]></description><guid isPermaLink="false">36054</guid><pubDate>Sun, 21 Jun 2015 21:16:30 +0000</pubDate></item><item><title>[WIP][HOWTO] Linux - Centos 7.0 Epoch Server</title><link>https://epochmod.com/forum/topic/34942-wiphowto-linux-centos-70-epoch-server/</link><description><![CDATA[
+<p>Hi Guys,<br>
+ <br>
+I have just got a Centos 7.0 server up and running on Linux.. I am planning to write a how to shortly. with ASM !<br>
+ <br>
+If you want to give it a test try 37.152.48.109:2302<br>
+ <br>
+-------------------------<br>
+** The epochserver.so at present requires GLIBCXX_3.4.20 and GLIBC_2.4 that is not in the repo by default so we just have to fudge 2 of the 32bit libraries for this to work with centos, Have asked if the dev's can compile with and less bleeding edge glibc to be inline with arma3 linux.<br>
+ <br><strong><span style="font-size:18px;">Requirements</span></strong><br>
+ <br>
+Linux Knowledge - Would Help.<br>
+CPU - Some<br>
+RAM -Yes<br>
+DISK - I have gone with 24GB for the moment for my testing but with Arma3+Epoch it only is using about 5GB.. <br>
+ <br>
+ <br><strong><u><span style="font-size:18px;">Centos Install</span></u></strong><br>
+ <br><strong><span style="font-size:24px;">WIP TBD</span></strong><br>
+ <br>
+1) Download the Minimal ISO from <a href="http://www.centos.org/download/" rel="external nofollow">http://www.centos.org/download/</a><br>
+2) <br>
+ <br><u>Packages needed</u></p>
+<pre class="ipsCode prettyprint lang-auto">
+yum install epel-release
+yum update
+yum install wget lynx nano glibc.i686 libgcc.i686 watchdog libstdc++.i686 net-tools screen psmisc redis glib2.i686 zip unzip
+</pre>
+<p><u>Extra Packages</u></p>
+<p> <br>
+These need to be forced installed for now, I have tested this on multiple boxes however I would be careful doing this on a box that is doing lots of other things, glibc can screw lots of things up.. <br>
+ <br><br>
+glibc-2.20-8.fc21.i686.rpm<br>
+libstdc++-4.9.2-6.fc21.i686.rpm<br>
+ <br>
+You will need todo this as <u><strong>root user</strong></u></p>
+<pre class="ipsCode prettyprint lang-auto">
+wget ftp://ftp.pbone.net/mirror/download.fedora.redhat.com/pub/fedora/linux/updates/21/i386/g/glibc-2.20-8.fc21.i686.rpm
+wget ftp://ftp.pbone.net/mirror/download.fedora.redhat.com/pub/fedora/linux/updates/21/i386/l/libstdc++-4.9.2-6.fc21.i686.rpm
+
+rpm -Uvh --force --nodeps glibc-2.20-8.fc21.i686.rpm libstdc++-4.9.2-6.fc21.i686.rpm
+</pre>
+<p>Mirrors can be found here if the links are dead.<br><a href="http://rpm.pbone.net/index.php3/stat/4/idpl/28989829/dir/fedora_21/com/glibc-2.20-8.fc21.i686.rpm.html" rel="external nofollow">http://rpm.pbone.net/index.php3/stat/4/idpl/28989829/dir/fedora_21/com/glibc-2.20-8.fc21.i686.rpm.html</a><br><a href="http://rpm.pbone.net/index.php3/stat/4/idpl/28878844/dir/fedora_21/com/libstdc++-4.9.2-6.fc21.i686.rpm.html" rel="external nofollow">http://rpm.pbone.net/index.php3/stat/4/idpl/28878844/dir/fedora_21/com/libstdc++-4.9.2-6.fc21.i686.rpm.html</a><br>
+ <br>
+ <strong><u><span style="font-size:18px;">Steam Arma3 Install</span></u></strong><br>
+ <br>
+Add User I've gone with epoch, Basically we add the user, download the steamcmd decompress that then make a simple bash file to download Arma3, You will need to change XX YY with your username and password</p>
+<pre class="ipsCode prettyprint lang-auto">
+adduser epoch
+su - epoch
+mkdir steamcmd
+cd steamcmd
+wget http://media.steampowered.com/client/steamcmd_linux.tar.gz
+tar zxfv steamcmd_linux.tar.gz
+cd ~
+echo -e '#!/bin/bash\n./steamcmd/steamcmd.sh +login XX YY +force_install_dir /home/epoch/arma3 +"app_update 233780" validate +quit' &gt; a3update.sh
+chmod +x a3update.sh
+./a3update.sh
+
+</pre>
+<p>You could also try anonymous logins (TO BE TESTED)<u><strong> Does not work as A3 Server requires purchase</strong></u><br><a href="https://developer.valvesoftware.com/wiki/Dedicated_Servers_List" rel="external nofollow">https://developer.valvesoftware.com/wiki/Dedicated_Servers_List</a></p>
+<pre class="ipsCode prettyprint lang-auto">
+echo -e '#!/bin/bash\n./steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/epoch/arma3 +"app_update 233780" validate +quit' &gt; a3update_anonymous.sh
+chmod +x a3update_anonymous.sh
+./a3update_anonymous.sh
+</pre>
+<p><strong><u><span style="font-size:18px;">Redis Install</span></u></strong><br>
+ <br>
+Use your favorite text editor to open up /etc/redis.conf i like nano myself, search for requirepass (in nano press ctrl+w and enter requirepass) once you have found this un comment that line and place whatever password you like.  This will need to match your EpochServer.ini later on.<br>
+ <br>
+*more to come on optimization<br>
+ <br>
+Now lets start redis and set it to auto boot as root do the following</p>
+<pre class="ipsCode prettyprint lang-auto">
+systemctl enable redis
+service redis start
+</pre>
+<p>Redis should now be up and running.  The dump file is kept at /var/lib/redis/dump.rdb <br>
+ <br>
+ <strong><u><span style="font-size:18px;">Epoch Install</span></u></strong><br>
+ <br>
+You will need to get the client and server files copied to the box, you can either SCP them from your desktop PC or use a wget or something to get them.  *You can use the steam workshop to download the main client files but I have not covered that here *YET*<br>
+ <br>
+to check you have the right libaries you will need to do the following, You can ignore the errors with libhiredis and libpcre as they are taken care of with the "export LD_LIBRARY_PATH" within the script<br>
+ <br>
+Once you have the files decompressed on your server make sure all the main folders are lower case, I had to change @Epoch\Addons to @epoch\addons</p>
+<p> </p>
+<p>Get Client Files (could be done better)</p>
+<pre class="ipsCode prettyprint">
+cd ~
+mkdir tmp
+url=`wget http://epochmod.com/download.php -q -O -|grep "Official HTTP Mirrors"|awk -F\| {'print $1"\n"$2'}|sed -n 's/.*href="\([^"]*\).*/\1/p'|head -n1`; echo "$url";wget "$url"
+unzip Epoch_Client_*
+mv \@Epoch/ \@epoch
+mv \@epoch/Addons/ \@epoch/addons
+mv \@epoch/ ~/arma3/
+</pre>
+<p>Getting the server files, You can do the following on a clean server to get the files. We delete the DB and BEC dir as this is not needed on Linux.</p>
+<pre class="ipsCode prettyprint lang-auto">
+cd ~
+mkdir tmp
+wget https://github.com/EpochModTeam/Epoch/archive/master.zip
+unzip master.zip
+rm -r Epoch-master/Server_Install_Pack/DB/
+rm -r Epoch-master/Server_Install_Pack/BEC/
+mv Epoch-master/Server_Install_Pack/* ~/arma3/
+</pre>
+<p>Now lets check we have the right libraries. If the output has anthing todo with "not found" or gives errors you will need to fix them</p>
+<pre class="ipsCode prettyprint lang-auto">
+ldd ~/arma3/\@epochhive/epochserver.so
+ldd ~/arma3/sc/battleye/beserver.so
+ldd ~/arma3/arma3server
+</pre>
+<p>Now we need to run the epoch_linux_startscript.sh script with the check option</p>
+<pre class="ipsCode prettyprint">
+cd ~/arma3/
+./epoch_linux_startscript.sh check
+</pre>
+<p>You should get something like the following, You will see errors and this will tell you what you need to run to fix it</p>
+<pre class="ipsCode prettyprint">
+ArmA 3 directory: /home/epoch/arma3 OK
+Server executable: /home/epoch/arma3/arma3server OK
+CFG directory: /home/epoch/arma3/sc OK
+Config file: /home/epoch/arma3/sc/config.cfg OK
+Basic file: /home/epoch/arma3/sc/basic.cfg OK
+Battleye directory: /home/epoch/arma3/sc/battleye/ OK
+Arma3Profile: /home/epoch/arma3/sc/users/sc/sc.arma3profile OK
+Log directory: /home/epoch/arma3/logs MISSING!
+========= We need that folder. You can use the next row to create it: =========
+mkdir /home/epoch/arma3/logs
+
+Old Log directory: /home/epoch/arma3/logs/old MISSING!
+========= We need that folder. You can use the next row to create it: =========
+mkdir /home/epoch/arma3/logs/old
+
+Profile directory: ~/.local/share/Arma\ 3\ -\ Other\ Profiles/sc MISSING!
+========= You should create this folder. You can use the next row for that: =========
+=========       ( Not sure if we need this? Capital letters are ok ?)       =========
+mkdir -p ~/.local/share/Arma\ 3\ -\ Other\ Profiles/sc
+
+Arma3Profile symlink: ~/.local/share/Arma\ 3\ -\ Other\ Profiles/sc/sc.Arma3Profile MISSING!
+========= You should creat this symlink. You can use the next row for that: =========
+=========       ( Capital letters are ok in ~/.local/share/Arma 3.. !)      =========
+ln -s /home/epoch/arma3/sc/sc.arma3profile ~/.local/share/Arma\ 3\ -\ Other\ Profiles/sc/sc.Arma3Profile
+
+
+Port number will be: 2302
+PID file will be: /home/epoch/arma3/2302.pid
+RUN file will be: /home/epoch/arma3/2302.run
+
+Start cmd will be:
+/home/epoch/arma3/arma3server &gt;&gt;/home/epoch/arma3/logs/port_2302.25.05.15_1001.log 2&gt;&amp;1 -config=/home/epoch/arma3/sc/config.cfg -cfg=/home/epoch/arma3/sc/basic.cfg -port=2302 -name=sc -pid=/home/epoch/arma3/2302.pid -mod=@epoch -cpuCount=4 -exThreads=1 -maxmem=2047 -nosound -autoinit -loadMissionToMemory
+
+If you got something MISSING, you have to work from the top to the bottom, fix the top issue and start the check again!
+</pre>
+<p>Now just run the command its asking you to-do. for me I just did the following</p>
+<pre class="ipsCode prettyprint">
+mkidr -p /home/epoch/arma3/logs/old
+mkdir -p ~/.local/share/Arma\ 3\ -\ Other\ Profiles/sc
+ln -s /home/epoch/arma3/sc/sc.arma3profile ~/.local/share/Arma\ 3\ -\ Other\ Profiles/sc/sc.Arma3Profile
+</pre>
+<p>Now just run the check again and you should have no errors.</p>
+<p> </p>
+<p><strong><u>Configurations</u></strong></p>
+<p> </p>
+<p>Now just edit the following files to what settings you like</p>
+<p> </p>
+<p>Make sure your Password in the Redis section matches the password you set when doing the redis install.</p>
+<pre class="ipsCode prettyprint">
+nano ~/arma3/\@epochhive/EpochServer.ini
+</pre>
+<p>Change your Admin settings in here</p>
+<pre class="ipsCode prettyprint">
+nano ~/arma3/\@epochhive/epochah.hpp
+</pre>
+<p>You should be ready to start the server now</p>
+<pre class="ipsCode prettyprint">
+~/arma3/epoch_linux_startscript.sh start
+</pre>
+<p><strong><u><span style="font-size:18px;">BattlEye Install</span></u></strong><br>
+ <br>
+Make sure your BEServer.cfg is changed to lower case<br>
+Change your EpochServer.ini "IP = 127.0.0.1" to the main interface of your server, 127.0.01 does not seem to connect<br>
+ <br>
+you can run the following line in the same dir at the ini file and it will change it for you<br>
+ </p>
+<pre class="ipsCode prettyprint lang-auto">
+IP=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'`; sed -i '0,/IP = 127.0.0.1/s//IP = '"$IP"'/' EpochServer.ini
+</pre>
+<p>  <br><span style="font-size:18px;"><u><strong>ASM Install</strong></u></span><br>
+ <br>
+Taken from <a href="http://forums.bistudio.com/showthread.php?182602-Arma-Server-Monitor-for-Linux" rel="external nofollow">http://forums.bistudio.com/showthread.php?182602-Arma-Server-Monitor-for-Linux</a><br>
+ <br>
+The simplest way to keep the ASM running even when the server restarts is as follows. Find the line that says <br>
+ </p>
+<blockquote data-ipsquote="" class="ipsQuote"><div>
+<p># this is a background watchdog process. Do not start directly<br>
+while [ -f ${RUNFILE} ]; do</p>
+</div></blockquote>
+<p> <br>
+Directly under that add the following</p>
+<pre class="ipsCode prettyprint lang-auto">
+#Keeps ASM running if found and executable
+if [ -x "${ARMA_DIR}/asm" ]; then
+	echo &gt;&gt;${LOGFILE} "WATCHDOG ($$): [$(date)] Starting ASM"
+	killall -9 asm 1&gt; /dev/null 2&gt;/dev/null
+	$ARMA_DIR/asm -s &amp;&gt;$ARMA_DIR/asm.out &amp;
+fi
+</pre>
+<p>To just enable or disable the ASM just "chmod -x asm" or "chmod +x asm"<br>
+ <br>
+ <br><span style="font-size:18px;"><u><strong>Performance Tweaks</strong></u></span><br>
+ <br>
+You can use the linux command taskset to set the cpu affinity for processors, Looks for the "${SERVER} &gt;&gt;${LOGFILE}" in the start script and put something like this infront of the line, This would enable it for cpu0, cpu1, cpu2 and cpu3</p>
+<pre class="ipsCode prettyprint lang-auto">
+taskset -c 0,1,2,3 ${SERVER} &gt;&gt;${LOGFILE} 2&gt;&amp;1 -config=${CONFIG} -cfg=${CFG} -port=${PORT} -name=${NAME} -pid=${PIDFILE} -mod=${MODS} -servermod=${SERVERMODS} -bepath=${BEPATH} ${OTHERPARAMS}
+</pre>
+<p>You can also use the nice command to prioroties the proccess. by default application have 0 set to them. positive figures lower the priority, negatives increase priority. On Centos don't go more than -20 as that is what the core items need like disk controls and stuff, to make it perminate for the epoch user to have -10 you can edidt the /etc/security/limits.conf todo this just add a new line with "epoch hard priority -10" or you can just run this as root</p>
+<pre class="ipsCode prettyprint lang-auto">
+echo -e "epoch hard priority -10" &gt;&gt; /etc/security/limits.conf
+</pre>
+]]></description><guid isPermaLink="false">34942</guid><pubDate>Sat, 02 May 2015 16:16:12 +0000</pubDate></item><item><title>[Be/Fr] Tutoriel base building</title><link>https://epochmod.com/forum/topic/35372-befr-tutoriel-base-building/</link><description><![CDATA[
+<p>Voici un tuto en français de +- 30 min sur les base du base building.</p>
+<p> </p>
+<p>Here is a tutorial in French  on the basis of the basic building.</p>
+<p> </p>
+<p> </p>
+<p>
+</p>
+<div class="ipsEmbeddedVideo" contenteditable="false"><div><iframe width="480" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" allowfullscreen="true" data-embed-src="https://www.youtube.com/embed/qYjKJXA-LUU?feature=oembed"></iframe></div></div>
+]]></description><guid isPermaLink="false">35372</guid><pubDate>Tue, 19 May 2015 04:54:58 +0000</pubDate></item><item><title>AI missions/script comparison</title><link>https://epochmod.com/forum/topic/35204-ai-missionsscript-comparison/</link><description><![CDATA[
+<p>There are many different AI-missions and scripts here, and trying to wade through them all to get a comparison can be kind of tough. That's what this thread is for, give your impression and your opinions on one versus the other (strength vs. weaknesses). I will be using this template for my comparisons, feel free to use it or your own:</p>
+<p> </p>
+<p>Name of script:  </p>
+<p>Creator: </p>
+<p>HC support: </p>
+<p>Type of script:</p>
+<p>Configurability:</p>
+<p>In development: </p>
+<p>Bugs:</p>
+<p>Your opinion: </p>
+<p>Compared to similar mods:</p>
+<div> </div>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>1.</p>
+<p> </p>
+<p>Name of script:  VEMF (Vampire's Epoch Mission Framework)</p>
+<p>Creator: Vampire</p>
+<p>HC support: No</p>
+<p>Type of script: Multiple town invasion(s) with box reward</p>
+<p>Configurability: Not a lot.</p>
+<p>In development: No, development has ceased.</p>
+<p>Bugs: Sometimes loot crates spawn on top of roofs, other than that, none to speak of.</p>
+<p>Your opinion:  It's a good town-invasion script, but the AI don't take cover so players soon will easily farm these missions. AI The loot crate can spawn on roofs sometimes.</p>
+<p>Compared to similar mods: There aren't really any other missions exactly like VEMF, A3EAI has roaming town AI, but does not come with loot crates, A3EAI is more advanced and the AI uses teamwork much better, doesn't stand in the open as much, etc. My personal opinion is that other AI-scripts have come past it by now.</p>
+<p> </p>
+<p>2.</p>
+<p> </p>
+<p>Name of script:  SEM (Simple Epoch Missions)</p>
+<p>Creator: Kiloswiss</p>
+<p>HC support: No</p>
+<p>Type of script: Mission system divided into two categories: Static and Dynamic (think crashes and convoys)</p>
+<p>Configurability: Easy to configure, not that many settings</p>
+<p>In development: Development has halted indefinitely</p>
+<p>Bugs: Some missions do not finish (AI wander off), mission descriptions can be a bit wonky (blablablablabla).</p>
+<p>Your opinion: This is your classic mission system, aside for some </p>
+<p>Compared to similar mods: FuMS has SEM integrated into it, but FuMS runs on HC, which is an improvement in my opinion</p>
+<p> </p>
+<p>3.</p>
+<p> </p>
+<p>Name of script: A3EAI (Arma 3 Epoch AI)</p>
+<p>Creator: Face</p>
+<p>HC support: Yes, but you can run it on local server without HC also.</p>
+<p>Type of script: Roaming infantry, roaming vehicles, town AI, Static AI </p>
+<p>Configurability: Lots and lots of options for you to configure and customize, from loot to skill levels, etc. - in some way A3EAI can emulate players, in some ways it's the best PvE-AI for an empty server. Face designed it to be somewhat of a single player experience. </p>
+<p>In development: Yes. Face is expanding on it in his spare time.</p>
+<p>Bugs: None to speak of. It is a very solid script.</p>
+<p>Your opinion: We run a rather slow server (population wise) and this makes the server feel more alive. Sometimes players mistake the AI for other players. </p>
+<p>Compared to similar mods: Somewhat similar to a part of VEMF, but much better. </p>
+<p> </p>
+<p>4.</p>
+<p> </p>
+<p>Name of script: FuMS (Fulcrum Mission System)</p>
+<p>Creator: horbin</p>
+<p>HC support: Yes</p>
+<p>Type of script: Full mission system with tons and tons of different type of missions, town invasions, etc. </p>
+<p>Configurability: Like A3EAI this comes with a TON of configurable settings.</p>
+<p>In development: Yes, horbin updates it every once in awhile. </p>
+<p>Bugs: Plenty, missions won't end (SEM), start, and it's a bit wonky, configuring each "theme" can be hairy, there are lots of things you can mess up. </p>
+<p>Your opinion: Generally this is THE most powerful mission system out there currently given that it integrates several other mission systems.</p>
+<p>Compared to similar mods: SEM, VEMF, better than both.</p>
+]]></description><guid isPermaLink="false">35204</guid><pubDate>Mon, 11 May 2015 16:31:44 +0000</pubDate></item></channel></rss>
