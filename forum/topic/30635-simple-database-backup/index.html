@@ -1,0 +1,4177 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	
+<!-- Mirrored from epochmod.com/forum/topic/30635-simple-database-backup/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Jul 2025 05:49:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        
+		<title>Simple Database backup - Tools - Epoch Mod Community</title>
+		
+			<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		
+		
+		
+		
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	
+	
+		<meta property="og:image" content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png">
+	
+
+
+	<meta name="twitter:card" content="summary_large_image" />
+
+
+	
+		<meta name="twitter:site" content="@EpochMod" />
+	
+
+
+	
+		
+			
+				<meta property="og:title" content="Simple Database backup">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:type" content="website">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:url" content="https://epochmod.com/forum/topic/30635-simple-database-backup/">
+			
+		
+	
+
+	
+		
+			
+				<meta name="description" content="I created this because i wanted an easier alternative to the log-rotator.cmd included with epoch. I also dont want to rotate my logs everytime i do a database backup. This creates a backup of your dump.rdb (your database) and sorts it in a folder named YEAR-MONTH (e.g. 2014-12). the actual filena...">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:description" content="I created this because i wanted an easier alternative to the log-rotator.cmd included with epoch. I also dont want to rotate my logs everytime i do a database backup. This creates a backup of your dump.rdb (your database) and sorts it in a folder named YEAR-MONTH (e.g. 2014-12). the actual filena...">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:updated_time" content="2019-07-11T01:54:08Z">
+			
+		
+	
+
+	
+		
+			
+				<meta name="keywords" content="Backup, Database">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:site_name" content="Epoch Mod Community">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:locale" content="en_US">
+			
+		
+	
+
+
+	
+		<link rel="canonical" href="index.html" />
+	
+
+
+
+
+<link rel="manifest" href="../../manifest.webmanifest/index.html">
+<meta name="msapplication-config" content="https://epochmod.com/forum/browserconfig.xml/">
+<meta name="msapplication-starturl" content="/">
+<meta name="application-name" content="Epoch Mod Community">
+<meta name="apple-mobile-web-app-title" content="Epoch Mod Community">
+
+	<meta name="theme-color" content="#000000">
+
+
+
+
+
+
+
+
+
+
+<link rel="preload" href="../../applications/core/interface/font/fontawesome-webfont3e6e.woff2?v=4.7.0" as="font" crossorigin="anonymous">
+		
+
+
+
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_frameworkc11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_corec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forumsc11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topicsc11f.css?v=7f6edac1d51681449780' media='all'>
+
+
+
+
+
+<link rel='stylesheet' href='../../uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_customc11f.css?v=7f6edac1d51681449780' media='all'>
+
+
+
+
+		
+		
+
+	
+	<link rel='shortcut icon' href='../../uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico' type="image/x-icon">
+
+	</head>
+	<body class='ipsApp ipsApp_front ipsJS_none ipsClearfix' data-controller='core.front.core.app' data-message="" data-pageApp='forums' data-pageLocation='front' data-pageModule='forums' data-pageController='topic' data-pageID='30635'  >
+		
+        
+
+        
+
+		<a href='#ipsLayout_mainArea' class='ipsHide' title='Go to main content on this page' accesskey='m'>Jump to content</a>
+		
+
+
+
+
+
+		<div id='ipsLayout_header' class='ipsClearfix'>
+			<header>
+				<div class='ipsLayout_container'>
+					
+
+
+<a href='../../index.html' id='elLogo' accesskey='1'><img src="../../uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png" alt='Epoch Mod Community'></a>
+
+					
+						
+
+	<ul id='elUserNav' class='ipsList_inline cSignedOut ipsResponsive_showDesktop'>
+		
+        
+		
+        
+        
+            
+            <li id='elSignInLink'>
+                <a href='../../login/index.html' data-ipsMenu-closeOnClick="false" data-ipsMenu id='elUserSignIn'>
+                    Existing user? Sign In &nbsp;<i class='fa fa-caret-down'></i>
+                </a>
+                
+<div id='elUserSignIn_menu' class='ipsMenu ipsMenu_auto ipsHide'>
+	<form accept-charset='utf-8' method='post' action='https://epochmod.com/forum/login/'>
+		<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3">
+		<input type="hidden" name="ref" value="aHR0cHM6Ly9lcG9jaG1vZC5jb20vZm9ydW0vdG9waWMvMzA2MzUtc2ltcGxlLWRhdGFiYXNlLWJhY2t1cC8=">
+		<div data-role="loginForm">
+			
+			
+			
+				
+<div class="ipsPad ipsForm ipsForm_vertical">
+	<h4 class="ipsType_sectionHead">Sign In</h4>
+	<br><br>
+	<ul class='ipsList_reset'>
+		<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+			
+			
+				<input type="text" placeholder="Display Name or Email Address" name="auth" autocomplete="email">
+			
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+			<input type="password" placeholder="Password" name="password" autocomplete="current-password">
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+			<span class="ipsCustomInput">
+				<input type="checkbox" name="remember_me" id="remember_me_checkbox" value="1" checked aria-checked="true">
+				<span></span>
+			</span>
+			<div class="ipsFieldRow_content">
+				<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+				<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+			</div>
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_fullWidth">
+			<button type="submit" name="_processLogin" value="usernamepassword" class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit">Sign In</button>
+			
+				<p class="ipsType_right ipsType_small">
+					
+						<a href='../../lostpassword/index.html' data-ipsDialog data-ipsDialog-title='Forgot your password?'>
+					
+					Forgot your password?</a>
+				</p>
+			
+		</li>
+	</ul>
+</div>
+			
+		</div>
+	</form>
+</div>
+            </li>
+            
+        
+		
+	</ul>
+
+						
+<ul class='ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop'>
+	<li data-ipsDrawer data-ipsDrawer-drawerElem='#elMobileDrawer'>
+		<a href='#'>
+			
+			
+				
+			
+			
+			
+			<i class='fa fa-navicon'></i>
+		</a>
+	</li>
+</ul>
+					
+				</div>
+			</header>
+			
+
+	<nav data-controller='core.front.core.navBar' class=' ipsResponsive_showDesktop'>
+		<div class='ipsNavBar_primary ipsLayout_container '>
+			<ul data-role="primaryNavBar" class='ipsClearfix'>
+				
+
+
+	
+		
+		
+		<li  id='elNavSecondary_18' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="https://epochmod.com/" data-navItem-id="18">
+					Home<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_12' data-role="navBarItem" data-navApp="cms" data-navExt="Pages">
+			
+			
+				<a href="../../projects/index.html"  data-navItem-id="12" >
+					Downloads<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+			
+		
+		<li class='ipsNavBar_active' data-active id='elNavSecondary_8' data-role="navBarItem" data-navApp="forums" data-navExt="Forums">
+			
+			
+				<a href="../../index.html"  data-navItem-id="8" data-navDefault>
+					Forums<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_13' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="http://epochmod.gamepedia.com/" target='_blank' rel="noopener" data-navItem-id="13" >
+					Wiki<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_1' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="../../index.html"  data-navItem-id="1" >
+					Browse<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+				<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+					
+
+
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_10' data-role="navBarItem" data-navApp="core" data-navExt="StaffDirectory">
+			
+			
+				<a href="../../staff/index.html"  data-navItem-id="10" >
+					Staff<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_11' data-role="navBarItem" data-navApp="core" data-navExt="OnlineUsers">
+			
+			
+				<a href="../../online/index.html"  data-navItem-id="11" >
+					Online Users<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+					<li class='ipsHide' id='elNavigationMore_1' data-role='navMore'>
+						<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_1' id='elNavigationMore_1_dropdown'>More <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_1_dropdown_menu' data-role='moreDropdown'></ul>
+					</li>
+				</ul>
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_2' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="../../discover/index.html"  data-navItem-id="2" >
+					Activity<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+				<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+					
+
+
+	
+		
+		
+		<li  id='elNavSecondary_3' data-role="navBarItem" data-navApp="core" data-navExt="AllActivity">
+			
+			
+				<a href="../../discover/index.html"  data-navItem-id="3" >
+					All Activity<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_4' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreams">
+			
+			
+				<a href="#"  data-navItem-id="4" >
+					My Activity Streams<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_5' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreamsItem">
+			
+			
+				<a href="../../discover/unread/index.html"  data-navItem-id="5" >
+					Unread Content<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_6' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreamsItem">
+			
+			
+				<a href="../../discover/content-started/index.html"  data-navItem-id="6" >
+					Content I Started<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_7' data-role="navBarItem" data-navApp="core" data-navExt="Search">
+			
+			
+				<a href="../../search/index.html"  data-navItem-id="7" >
+					Search<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+					<li class='ipsHide' id='elNavigationMore_2' data-role='navMore'>
+						<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_2' id='elNavigationMore_2_dropdown'>More <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_2_dropdown_menu' data-role='moreDropdown'></ul>
+					</li>
+				</ul>
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_19' data-role="navBarItem" data-navApp="core" data-navExt="Leaderboard">
+			
+			
+				<a href="../../leaderboard/index.html"  data-navItem-id="19" >
+					Leaderboard<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+	
+
+	
+	
+
+				<li class='ipsHide' id='elNavigationMore' data-role='navMore'>
+					<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore' id='elNavigationMore_dropdown'>More</a>
+					<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+						<li class='ipsHide' id='elNavigationMore_more' data-role='navMore'>
+							<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_more' id='elNavigationMore_more_dropdown'>More <i class='fa fa-caret-down'></i></a>
+							<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_more_dropdown_menu' data-role='moreDropdown'></ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+
+	<div id="elSearchWrapper">
+		<div id='elSearch' data-controller="core.front.core.quickSearch">
+			<form accept-charset='utf-8' action='http://epochmod.com/forum/search/?do=quicksearch' method='post'>
+                <input type='search' id='elSearchField' placeholder='Search...' name='q' autocomplete='off' aria-label='Search'>
+                <details class='cSearchFilter'>
+                    <summary class='cSearchFilter__text'></summary>
+                    <ul class='cSearchFilter__menu'>
+                        
+                        <li><label><input type="radio" name="type" value="all" ><span class='cSearchFilter__menuText'>Everywhere</span></label></li>
+                        
+                            
+                                <li><label><input type="radio" name="type" value='contextual_{&quot;type&quot;:&quot;forums_topic&quot;,&quot;nodes&quot;:65}' checked><span class='cSearchFilter__menuText'>This Forum</span></label></li>
+                            
+                                <li><label><input type="radio" name="type" value='contextual_{&quot;type&quot;:&quot;forums_topic&quot;,&quot;item&quot;:30635}' checked><span class='cSearchFilter__menuText'>This Topic</span></label></li>
+                            
+                        
+                        
+                            <li><label><input type="radio" name="type" value="core_statuses_status"><span class='cSearchFilter__menuText'>Status Updates</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="forums_topic"><span class='cSearchFilter__menuText'>Topics</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="cms_pages_pageitem"><span class='cSearchFilter__menuText'>Pages</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="cms_records1"><span class='cSearchFilter__menuText'>Article</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="core_members"><span class='cSearchFilter__menuText'>Members</span></label></li>
+                        
+                    </ul>
+                </details>
+				<button class='cSearchSubmit' type="submit" aria-label='Search'><i class="fa fa-search"></i></button>
+			</form>
+		</div>
+	</div>
+
+		</div>
+	</nav>
+
+			
+<ul id='elMobileNav' class='ipsResponsive_hideDesktop' data-controller='core.front.core.mobileNav'>
+	
+		
+			
+			
+				
+				
+			
+				
+				
+			
+				
+					<li id='elMobileBreadcrumb'>
+						<a href='../../forum/65-tools/index.html'>
+							<span>Tools</span>
+						</a>
+					</li>
+				
+				
+			
+				
+				
+			
+		
+	
+	
+	
+	<li >
+		<a data-action="defaultStream" href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+	</li>
+
+	
+
+	
+		<li class='ipsJS_show'>
+			<a href='../../search/index.html'><i class='fa fa-search'></i></a>
+		</li>
+	
+</ul>
+		</div>
+		<main id='ipsLayout_body' class='ipsLayout_container'>
+			<div id='ipsLayout_contentArea'>
+				<div id='ipsLayout_contentWrapper'>
+					
+<nav class='ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover'>
+	
+
+	<ul class='ipsList_inline ipsPos_right'>
+		
+		<li >
+			<a data-action="defaultStream" class='ipsType_light '  href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>All Activity</span></a>
+		</li>
+		
+	</ul>
+
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href='../../index.html'>
+				<span>Home <i class='fa fa-angle-right'></i></span>
+			</a>
+		</li>
+		
+		
+			<li>
+				
+					<a href='../../forum/41-arma-3/index.html'>
+						<span>ArmA 3 <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/67-community-projects/index.html'>
+						<span>Community Projects <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/65-tools/index.html'>
+						<span>Tools <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					Simple Database backup
+				
+			</li>
+		
+	</ul>
+</nav>
+					
+					<div id='ipsLayout_mainArea'>
+						
+						
+						
+						
+
+	
+
+
+
+
+						
+
+
+
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+		
+	
+	<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+		<div class="ipsFlex-flex:11">
+			<h1 class="ipsType_pageTitle ipsContained_container">
+				
+
+				
+				
+					<span class="ipsType_break ipsContained">
+						<span>Simple Database backup</span>
+					</span>
+				
+			</h1>
+			
+			
+				
+
+
+	
+		<ul class='ipsTags ipsList_inline ' >
+			
+				
+					
+
+<li >
+	
+	<a href="../../tags/Backup/index.html" class='ipsTag' title="Find other content tagged with 'Backup'" rel="tag" data-tag-label="Backup"><span>Backup</span></a>
+	
+</li>
+				
+					
+
+<li >
+	
+	<a href="../../tags/Database/index.html" class='ipsTag' title="Find other content tagged with 'Database'" rel="tag" data-tag-label="Database"><span>Database</span></a>
+	
+</li>
+				
+			
+			
+		</ul>
+		
+	
+
+			
+		</div>
+		
+	</div>
+	<hr class="ipsHr">
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+		<div class="ipsFlex-flex:11">
+			<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+				
+
+
+	<a href="../../profile/22820-5nine/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22820-5nine/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_mini" title="Go to 5nine's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png' alt='5nine' loading="lazy">
+	</a>
+
+				<div>
+					<p class="ipsType_reset ipsType_blendLinks">
+						<span class="ipsType_normal">
+						
+							<strong>By 
+
+
+<a href='../../profile/22820-5nine/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22820-5nine/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to 5nine's profile" class="ipsType_break">5nine</a></strong><br><span class="ipsType_light"><time datetime='2014-12-30T05:54:11Z' title='12/30/14 05:54  AM' data-short='10 yr'>December 30, 2014</time> in <a href="../../forum/65-tools/index.html">Tools</a></span>
+						
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+			<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+				<div class="ipsShareLinks">
+					
+						
+
+
+    <a href='#elShareItem_1960780308_menu' id='elShareItem_1960780308' data-ipsMenu class='ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light'>
+        <span><i class='fa fa-share-alt'></i></span> &nbsp;Share
+    </a>
+
+    <div class='ipsPadding ipsMenu ipsMenu_auto ipsHide' id='elShareItem_1960780308_menu' data-controller="core.front.core.sharelink">
+        <ul class='ipsList_inline'>
+            
+                <li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+            
+                <li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+            
+        </ul>
+        
+            <hr class='ipsHr'>
+            <button class='ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='Simple Database backup' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/'>More sharing options...</button>
+        
+    </div>
+
+					
+					
+
+
+
+					
+
+<div data-followApp='forums' data-followArea='topic' data-followID='30635' data-controller='core.front.core.followButton'>
+	
+
+	<a href='../../login/index.html' rel="nofollow" class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall " data-role="followButton" data-ipsTooltip title='Sign in to follow this'>
+		<span>Followers</span>
+		<span class='ipsCommentCount'>2</span>
+	</a>
+
+</div>
+				</div>
+			</div>
+					
+	</div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+<div class="ipsClearfix">
+	<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+		
+		
+		
+	</ul>
+</div>
+
+<div id="comments" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-autopoll data-baseurl="https://epochmod.com/forum/topic/30635-simple-database-backup/" data-lastpage data-feedid="topic-30635" class="cTopic ipsClear ipsSpacer_top">
+	
+			
+	
+
+	
+
+<div data-controller='core.front.core.recommendedComments' data-url='https://epochmod.com/forum/topic/30635-simple-database-backup/?recommended=comments' class='ipsRecommendedComments ipsHide'>
+	<div data-role="recommendedComments">
+		<h2 class='ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom'>Recommended Posts</h2>
+		
+	</div>
+</div>
+	
+	<div id="elPostFeed" data-role="commentFeed" data-controller="core.front.core.moderation" >
+		<form action="https://epochmod.com/forum/topic/30635-simple-database-backup/?csrfKey=36ed90c8cc4fe240ad7ebf7ca30612f3&amp;do=multimodComment" method="post" data-ipspageaction data-role="moderationTools">
+			
+			
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-187120'></a>
+<article  id='elComment_187120' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/22820-5nine/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22820-5nine/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to 5nine's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png' alt='5nine' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/22820-5nine/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/22820-5nine/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22820-5nine/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to 5nine's profile" class="ipsType_break"><span style='color:#'>5nine</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=187120' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2014-12-30T05:54:11Z' title='12/30/14 05:54  AM' data-short='10 yr'>December 30, 2014</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/22820-5nine/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22820-5nine/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to 5nine's profile" class="ipsType_break">5nine</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/22820-5nine/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22820-5nine/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to 5nine's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png' alt='5nine' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/22820-5nine/content/" rel="nofollow" title="82 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 82
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-187120_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="187120" data-quoteData='{&quot;userid&quot;:22820,&quot;username&quot;:&quot;5nine&quot;,&quot;timestamp&quot;:1419918851,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:30635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:187120}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_187120_menu' class='ipsComment_ellipsis' id='elControls_187120' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-187120_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_187120_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=reportComment&amp;comment=187120' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='index.html' title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_187120_menu' data-ipsDialog-title="Share this post" id='elSharePost_187120' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=187120' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2014-12-30T05:54:11Z' title='12/30/14 05:54  AM' data-short='10 yr'>December 30, 2014</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>I created this because i wanted an easier alternative to the log-rotator.cmd included with epoch. I also dont want to rotate my logs everytime i do a database backup. </p>
+<p> </p>
+<p>This creates a backup of your dump.rdb (your database) and sorts it in a folder named YEAR-MONTH (e.g. 2014-12). the actual filename also gets a date and timestamp like "Epoch-20141230_2205.rdb". So by using this you will get your backups nice and sorted with a folder for every month of the year. </p>
+<p> </p>
+<p><strong>Step 1:</strong></p>
+<p>create a batch file inside your C:\-arma3 server path-\DB folder (where redis-server.exe is located)and name it backup.cmd. Insert the code below: </p>
+<pre class="ipsCode prettyprint">
+::::::::::::::Created by Fivenine @ NibbleGaming.tk::::::::::::::
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:::: Set your Arma3 Server base installation directory below.
+set arma3srvpath=C:\YOUR ARMA 3\SERVER FOLDER\HERE
+
+:::: Set your Redis Password and IP below (found inside Redis.conf)
+set Redispass=ChangeMe
+set RedisIP=127.0.0.1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+::::::::::::::::::::::::::::::::::::::::
+:: Set Time and Date
+SET _CUR_DATE=%DATE%
+SET _CUR_TIME=%TIME%
+::Setting date
+FOR /F "tokens=1-4 delims=/.- " %%a IN ("%_CUR_DATE%") DO SET MONTH=%%b
+FOR /F "tokens=1-4 delims=/.- " %%a IN ("%_CUR_DATE%") DO SET DAY=%%c
+FOR /F "tokens=1-4 delims=/.- " %%a IN ("%_CUR_DATE%") DO SET YEAR=%%a
+:: Setting Time
+FOR /F "tokens=1-4 delims=:." %%a IN ("%_CUR_TIME%") DO SET HOUR=%%a
+FOR /F "tokens=1-4 delims=:." %%a IN ("%_CUR_TIME%") DO SET MINUTE=%%b
+SET FOLDER_NAME=%YEAR%-%MONTH%
+SET BACKUP_FILE=Epoch-%YEAR%%MONTH%%DAY%_%HOUR%%MINUTE%.rdb
+
+:: Forcesave Redis Database
+redis-cli -h %RedisIP% -a %Redispass% save
+
+::create folders
+if exist "%arma3srvpath%\DBbackups" goto createYDfolder
+mkdir "%arma3srvpath%\DBbackups"
+:createYDfolder
+if exist "%arma3srvpath%\DBbackups\%FOLDER_NAME%" goto startbackup
+mkdir "%arma3srvpath%\DBbackups\%FOLDER_NAME%"
+
+:startbackup
+copy "%arma3srvpath%\DB\dump.rdb" "%arma3srvpath%\DBbackups\%FOLDER_NAME%\%BACKUP_FILE%"
+:: Done
+
+exit
+</pre>
+<p><strong>step 2:</strong></p>
+<p>Download Redis from here <a href="https://raw.github.com/mythz/redis-windows/master/downloads/redis64-latest.zip" rel="external nofollow">https://raw.github.com/mythz/redis-windows/master/downloads/redis64-latest.zip</a> and copy redis-cli.exe from inside that .zip to your DB folder. </p>
+<p> </p>
+<p><strong>step 3:</strong></p>
+<p>Done!</p>
+<p> </p>
+<p>Now just run backup.cmd to perform your backup. I include it in my restart procedure using simple batch files. You can also schedule it to run using windows task scheduler or whatever suits you best. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><strong>Having problems?</strong></p>
+<p>I'm not sure if this works with every time and dateformat. So depending on where you live you might get a weird date and time format on your folders and files. If you do, simply create a batch file, call it timetest.cmd and insert this:</p>
+<pre class="ipsCode prettyprint">
+@echo off
+echo %DATE%
+echo %TIME%
+timeout 120
+</pre>
+<p>Run that batch file and then copy paste the output here and i'll help you out. </p>
+
+
+			
+		</div>
+
+		
+			<div class='ipsItemControls'>
+				
+					
+						
+
+	<div data-controller='core.front.core.reaction' class='ipsItemControls_right ipsClearfix '>	
+		<div class='ipsReact ipsPos_right'>
+			
+				
+				<div class='ipsReact_blurb ' data-role='reactionBlurb'>
+					
+						
+
+	
+	<ul class='ipsReact_reactions'>
+		
+			<li class="ipsReact_overview ipsType_blendLinks">
+				
+<a href='https://epochmod.com/forum/profile/14465-san/' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/14465-san/?do=hovercard' title="Go to San's profile" class="ipsType_break">San</a> and 
+<a href='https://epochmod.com/forum/profile/23358-damianl/' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/23358-damianl/?do=hovercard' title="Go to DamianL's profile" class="ipsType_break">DamianL</a>
+			</li>
+		
+		
+			
+				
+				<li class='ipsReact_reactCount'>
+					
+						<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=showReactionsComment&amp;comment=187120&amp;reaction=1' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label="<strong>Like</strong><br>Loading..." data-ipsTooltip-ajax="https://epochmod.com/forum/topic/30635-simple-database-backup/?do=showReactionsComment&amp;comment=187120&amp;reaction=1&amp;tooltip=1" data-ipsTooltip-safe title="See who reacted &quot;Like&quot;">
+					
+							<span>
+								<img src='../../uploads/reactions/react_like.png' alt="Like" loading="lazy">
+							</span>
+							<span>
+								2
+							</span>
+					
+						</a>
+					
+				</li>
+			
+		
+	</ul>
+
+					
+				</div>
+			
+			
+			
+		</div>
+	</div>
+
+					
+				
+				<ul class='ipsComment_controls ipsClearfix ipsItemControls_left' data-role="commentControls">
+					
+						
+						
+						
+												
+					
+					<li class='ipsHide' data-role='commentLoading'>
+						<span class='ipsLoading ipsLoading_tiny ipsLoading_noAnim'></span>
+					</li>
+				</ul>
+			</div>
+		
+
+		
+			
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_187120_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/30635-simple-database-backup/' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D187120" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D187120" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D187120&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment%26comment=187120&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='I created this because i wanted an easier alternative to the log-rotator.cmd included with epoch. I also dont want to rotate my logs everytime i do a database backup.  
+  
+This creates a backup of your dump.rdb (your database) and sorts it in a folder named YEAR-MONTH (e.g. 2014-12). the actual filename also gets a date and timestamp like &quot;Epoch-20141230_2205.rdb&quot;. So by using this you will get your backups nice and sorted with a folder for every month of the year.  
+  
+Step 1: 
+create a batch file inside your C:\-arma3 server path-\DB folder (where redis-server.exe is located)and name it backup.cmd. Insert the code below:  
+
+::::::::::::::Created by Fivenine @ NibbleGaming.tk::::::::::::::
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:::: Set your Arma3 Server base installation directory below.
+set arma3srvpath=C:\YOUR ARMA 3\SERVER FOLDER\HERE
+
+:::: Set your Redis Password and IP below (found inside Redis.conf)
+set Redispass=ChangeMe
+set RedisIP=127.0.0.1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don&#039;t touch anything below this point unless you know what your doing.
+::::::::::::::::::::::::::::::::::::::::
+:: Set Time and Date
+SET _CUR_DATE=%DATE%
+SET _CUR_TIME=%TIME%
+::Setting date
+FOR /F &quot;tokens=1-4 delims=/.- &quot; %%a IN (&quot;%_CUR_DATE%&quot;) DO SET MONTH=%%b
+FOR /F &quot;tokens=1-4 delims=/.- &quot; %%a IN (&quot;%_CUR_DATE%&quot;) DO SET DAY=%%c
+FOR /F &quot;tokens=1-4 delims=/.- &quot; %%a IN (&quot;%_CUR_DATE%&quot;) DO SET YEAR=%%a
+:: Setting Time
+FOR /F &quot;tokens=1-4 delims=:.&quot; %%a IN (&quot;%_CUR_TIME%&quot;) DO SET HOUR=%%a
+FOR /F &quot;tokens=1-4 delims=:.&quot; %%a IN (&quot;%_CUR_TIME%&quot;) DO SET MINUTE=%%b
+SET FOLDER_NAME=%YEAR%-%MONTH%
+SET BACKUP_FILE=Epoch-%YEAR%%MONTH%%DAY%_%HOUR%%MINUTE%.rdb
+
+:: Forcesave Redis Database
+redis-cli -h %RedisIP% -a %Redispass% save
+
+::create folders
+if exist &quot;%arma3srvpath%\DBbackups&quot; goto createYDfolder
+mkdir &quot;%arma3srvpath%\DBbackups&quot;
+:createYDfolder
+if exist &quot;%arma3srvpath%\DBbackups\%FOLDER_NAME%&quot; goto startbackup
+mkdir &quot;%arma3srvpath%\DBbackups\%FOLDER_NAME%&quot;
+
+:startbackup
+copy &quot;%arma3srvpath%\DB\dump.rdb&quot; &quot;%arma3srvpath%\DBbackups\%FOLDER_NAME%\%BACKUP_FILE%&quot;
+:: Done
+
+exit
+
+step 2: 
+Download Redis from here https://raw.github.com/mythz/redis-windows/master/downloads/redis64-latest.zip and copy redis-cli.exe from inside that .zip to your DB folder.  
+  
+step 3: 
+Done! 
+  
+Now just run backup.cmd to perform your backup. I include it in my restart procedure using simple batch files. You can also schedule it to run using windows task scheduler or whatever suits you best.  
+  
+  
+  
+Having problems? 
+I&#039;m not sure if this works with every time and dateformat. So depending on where you live you might get a weird date and time format on your folders and files. If you do, simply create a batch file, call it timetest.cmd and insert this: 
+
+@echo off
+echo %DATE%
+echo %TIME%
+timeout 120
+
+Run that batch file and then copy paste the output here and i&#039;ll help you out.  
+' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=187120'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-189483'></a>
+<article  id='elComment_189483' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="https://epochmod.com/forum/profile/16741-jobey/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/16741-jobey/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Jobey's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c478%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Jobey' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/16741-jobey/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='https://epochmod.com/forum/profile/16741-jobey/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/16741-jobey/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Jobey's profile" class="ipsType_break"><span style='color:#'>Jobey</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189483' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-01-04T11:58:00Z' title='01/04/15 11:58  AM' data-short='10 yr'>January 4, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='https://epochmod.com/forum/profile/16741-jobey/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/16741-jobey/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Jobey's profile" class="ipsType_break">Jobey</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="https://epochmod.com/forum/profile/16741-jobey/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/16741-jobey/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Jobey's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c478%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Jobey' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/16741-jobey/content/" rel="nofollow" title="13 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 13
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-189483_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="189483" data-quoteData='{&quot;userid&quot;:16741,&quot;username&quot;:&quot;Jobey&quot;,&quot;timestamp&quot;:1420372680,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:30635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:189483}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_189483_menu' class='ipsComment_ellipsis' id='elControls_189483' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-189483_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_189483_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=reportComment&amp;comment=189483' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189483' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_189483_menu' data-ipsDialog-title="Share this post" id='elSharePost_189483' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189483' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-01-04T11:58:00Z' title='01/04/15 11:58  AM' data-short='10 yr'>January 4, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>this worked like a charm for me but can I just ask, how do you go about restoring the backup, still new at the DB side of things</p>
+
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_189483_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189483' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D189483" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D189483" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D189483&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment%26comment=189483&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='this worked like a charm for me but can I just ask, how do you go about restoring the backup, still new at the DB side of things 
+' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189483'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-189558'></a>
+<article  id='elComment_189558' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/22820-5nine/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22820-5nine/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to 5nine's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png' alt='5nine' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/22820-5nine/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/22820-5nine/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22820-5nine/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to 5nine's profile" class="ipsType_break"><span style='color:#'>5nine</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189558' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-01-04T15:58:28Z' title='01/04/15 03:58  PM' data-short='10 yr'>January 4, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/22820-5nine/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22820-5nine/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to 5nine's profile" class="ipsType_break">5nine</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/22820-5nine/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22820-5nine/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to 5nine's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png' alt='5nine' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/22820-5nine/content/" rel="nofollow" title="82 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 82
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-189558_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="189558" data-quoteData='{&quot;userid&quot;:22820,&quot;username&quot;:&quot;5nine&quot;,&quot;timestamp&quot;:1420387108,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:30635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:189558}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+						<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_189558_menu' class='ipsComment_ellipsis' id='elControls_189558' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-189558_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_189558_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=reportComment&amp;comment=189558' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189558' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_189558_menu' data-ipsDialog-title="Share this post" id='elSharePost_189558' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189558' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-01-04T15:58:28Z' title='01/04/15 03:58  PM' data-short='10 yr'>January 4, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<blockquote data-ipsquote="" class="ipsQuote" data-ipsquote-contentcommentid="189483" data-ipsquote-contenttype="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentid="30635" data-ipsquote-username="Jobey" data-cite="Jobey" data-ipsquote-timestamp="1420372680"><div>
+<div>
+<p>this worked like a charm for me but can I just ask, how do you go about restoring the backup, still new at the DB side of things</p>
+</div>
+</div></blockquote>
+<p>rename the backup you want to dump.rdb, copy and replace  it in your DB folder while your redis server is shut down. </p>
+
+
+			
+		</div>
+
+		
+
+		
+			
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_189558_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189558' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D189558" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D189558" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D189558&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment%26comment=189558&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='rename the backup you want to dump.rdb, copy and replace  it in your DB folder while your redis server is shut down.  
+' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=189558'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+						<ul class="ipsTopicMeta">
+							
+							
+								<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 months later...
+								</li>
+							
+						</ul>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-225721'></a>
+<article  id='elComment_225721' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="https://epochmod.com/forum/profile/17549-ohdeathhhh/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17549-ohdeathhhh/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to OhDeathhhh's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-17549.jpg' alt='OhDeathhhh' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/17549-ohdeathhhh/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='https://epochmod.com/forum/profile/17549-ohdeathhhh/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17549-ohdeathhhh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to OhDeathhhh's profile" class="ipsType_break"><span style='color:#'>OhDeathhhh</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=225721' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-04-04T04:28:43Z' title='04/04/15 04:28  AM' data-short='10 yr'>April 4, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='https://epochmod.com/forum/profile/17549-ohdeathhhh/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17549-ohdeathhhh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to OhDeathhhh's profile" class="ipsType_break">OhDeathhhh</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="https://epochmod.com/forum/profile/17549-ohdeathhhh/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17549-ohdeathhhh/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to OhDeathhhh's profile">
+		<img src='https://epochmod.com/forum/uploads/profile/photo-thumb-17549.jpg' alt='OhDeathhhh' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/17549-ohdeathhhh/content/" rel="nofollow" title="7 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 7
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-225721_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="225721" data-quoteData='{&quot;userid&quot;:17549,&quot;username&quot;:&quot;OhDeathhhh&quot;,&quot;timestamp&quot;:1428121723,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:30635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:225721}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_225721_menu' class='ipsComment_ellipsis' id='elControls_225721' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-225721_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_225721_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=reportComment&amp;comment=225721' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=225721' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_225721_menu' data-ipsDialog-title="Share this post" id='elSharePost_225721' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=225721' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-04-04T04:28:43Z' title='04/04/15 04:28  AM' data-short='10 yr'>April 4, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<div>This worked for me, but to char players.</div>
+<div> </div>
+<div>All constructions made by players, wall, lockbox, shelf gone.</div>
+<div> </div>
+<div>How to backup the construction?</div>
+
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_225721_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=225721' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D225721" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D225721" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D225721&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment%26comment=225721&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='This worked for me, but to char players.
+ 
+All constructions made by players, wall, lockbox, shelf gone.
+ 
+How to backup the construction?
+' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=225721'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+						<ul class="ipsTopicMeta">
+							
+							
+								<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									4 years later...
+								</li>
+							
+						</ul>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-306717'></a>
+<article  id='elComment_306717' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="https://epochmod.com/forum/profile/39511-upperking/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39511-upperking/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to upperking's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%236762c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='upperking' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/39511-upperking/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='https://epochmod.com/forum/profile/39511-upperking/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39511-upperking/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to upperking's profile" class="ipsType_break"><span style='color:#'>upperking</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306717' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2019-07-10T12:04:35Z' title='07/10/19 12:04  PM' data-short='6 yr'>July 10, 2019</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='https://epochmod.com/forum/profile/39511-upperking/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39511-upperking/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to upperking's profile" class="ipsType_break">upperking</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="https://epochmod.com/forum/profile/39511-upperking/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39511-upperking/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to upperking's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%236762c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='upperking' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/39511-upperking/content/" rel="nofollow" title="1 post" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 1
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-306717_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="306717" data-quoteData='{&quot;userid&quot;:39511,&quot;username&quot;:&quot;upperking&quot;,&quot;timestamp&quot;:1562760275,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:30635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:306717}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_306717_menu' class='ipsComment_ellipsis' id='elControls_306717' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-306717_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_306717_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=reportComment&amp;comment=306717' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306717' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_306717_menu' data-ipsDialog-title="Share this post" id='elSharePost_306717' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306717' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2019-07-10T12:04:35Z' title='07/10/19 12:04  PM' data-short='6 yr'>July 10, 2019</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			<p>
+	Wed 07/10/2019<br />
+	 8:02:23.51
+</p>
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_306717_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306717' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D306717" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D306717" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D306717&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment%26comment=306717&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='Wed 07/10/2019 
+	 8:02:23.51
+ ' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306717'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-306720'></a>
+<article  id='elComment_306720' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/10264-ghostrider-grg/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10264-ghostrider-grg/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Ghostrider-GRG's profile">
+		<img src='../../uploads/monthly_2017_09/GRG3-400.thumb.jpg.08cd39ea06a532d62d39c270dad9b33d.jpg' alt='Ghostrider-GRG' loading="lazy">
+	</a>
+
+				
+				
+					<a href="../../profile/10264-ghostrider-grg/badges/index.html" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/10264-ghostrider-grg/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10264-ghostrider-grg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Ghostrider-GRG's profile" class="ipsType_break"><span style='color:#'>Ghostrider-GRG</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306720' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2019-07-11T01:54:08Z' title='07/11/19 01:54  AM' data-short='6 yr'>July 11, 2019</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/10264-ghostrider-grg/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10264-ghostrider-grg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Ghostrider-GRG's profile" class="ipsType_break">Ghostrider-GRG</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/10264-ghostrider-grg/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10264-ghostrider-grg/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Ghostrider-GRG's profile">
+		<img src='../../uploads/monthly_2017_09/GRG3-400.thumb.jpg.08cd39ea06a532d62d39c270dad9b33d.jpg' alt='Ghostrider-GRG' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="../../profile/10264-ghostrider-grg/content/index.html" rel="nofollow" title="953 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 953
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+	
+	<li data-role='custom-field' class='ipsResponsive_hidePhone ipsType_break'>
+		
+<span class='ft'>Location</span><span class='fc'>Sabina, Taviana</span>
+	</li>
+	
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-306720_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="306720" data-quoteData='{&quot;userid&quot;:10264,&quot;username&quot;:&quot;Ghostrider-GRG&quot;,&quot;timestamp&quot;:1562810048,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:30635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:306720}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_306720_menu' class='ipsComment_ellipsis' id='elControls_306720' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-306720_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_306720_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=reportComment&amp;comment=306720' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306720' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_306720_menu' data-ipsDialog-title="Share this post" id='elSharePost_306720' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306720' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2019-07-11T01:54:08Z' title='07/11/19 01:54  AM' data-short='6 yr'>July 11, 2019</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			<p>
+	I just make a copy of dump.db with the date appended to the file name. On my server, I do this on a separate drive but you could do it anywhere. All the data you need is stored in that file.
+</p>
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_306720_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306720' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D306720" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D306720" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F%3Fdo%3DfindComment%26comment%3D306720&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment%26comment=306720&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='I just make a copy of dump.db with the date appended to the file name. On my server, I do this on a separate drive but you could do it anywhere. All the data you need is stored in that file.
+ ' data-webShareUrl='https://epochmod.com/forum/topic/30635-simple-database-backup/?do=findComment&amp;comment=306720'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+			
+			
+<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3" />
+
+
+		</form>
+	</div>
+
+	
+	
+	
+	
+	
+		<a id="replyForm"></a>
+	<div data-role="replyArea" class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" >
+			
+				
+				
+
+<div>
+	<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3">
+	
+		<div class='ipsType_center ipsPad'>
+			<h2 class='ipsType_pageTitle'>Please sign in to comment</h2>
+			<p class='ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half'>You will be able to leave a comment after signing in</p>
+			<br>
+			<br>
+			<a href='https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9lcG9jaG1vZC5jb20vZm9ydW0vdG9waWMvMzA2MzUtc2ltcGxlLWRhdGFiYXNlLWJhY2t1cC8jcmVwbHlGb3Jt' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-remoteVerify="false" data-ipsDialog-title="Sign In Now" class='ipsButton ipsButton_alternate ipsButton_large'>Sign In Now</a>
+		</div>
+	
+</div>
+			
+		</div>
+	
+
+	
+		<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+			<div class="ipsShareLinks">
+				
+					
+
+
+    <a href='#elShareItem_741492199_menu' id='elShareItem_741492199' data-ipsMenu class='ipsShareButton ipsButton ipsButton_verySmall ipsButton_light '>
+        <span><i class='fa fa-share-alt'></i></span> &nbsp;Share
+    </a>
+
+    <div class='ipsPadding ipsMenu ipsMenu_auto ipsHide' id='elShareItem_741492199_menu' data-controller="core.front.core.sharelink">
+        <ul class='ipsList_inline'>
+            
+                <li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F30635-simple-database-backup%2F&amp;title=Simple+Database+backup" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+            
+                <li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/30635-simple-database-backup/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+            
+        </ul>
+        
+            <hr class='ipsHr'>
+            <button class='ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Simple Database backup' data-webShareText='Simple Database backup' data-webShareUrl='index.html'>More sharing options...</button>
+        
+    </div>
+
+				
+					
+
+<div data-followApp='forums' data-followArea='topic' data-followID='30635' data-controller='core.front.core.followButton'>
+	
+
+	<a href='../../login/index.html' rel="nofollow" class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall " data-role="followButton" data-ipsTooltip title='Sign in to follow this'>
+		<span>Followers</span>
+		<span class='ipsCommentCount'>2</span>
+	</a>
+
+</div>
+				
+			</div>
+		</div>
+	
+</div>
+
+
+
+<div class="ipsPager ipsSpacer_top">
+	<div class="ipsPager_prev">
+		
+			<a href="../../forum/65-tools/index.html" title="Go to Tools" rel="parent">
+				<span class="ipsPager_type">Go to topic listing</span>
+			</a>
+		
+	</div>
+	
+</div>
+
+
+						
+
+
+	<div class='cWidgetContainer '  data-role='widgetReceiver' data-orientation='horizontal' data-widgetArea='footer'>
+		<ul class='ipsList_reset'>
+			
+				
+					
+					<li class='ipsWidget ipsWidget_horizontal ipsBox  ' data-blockID='app_core_relatedContent_sido2emh4' data-blockConfig="true" data-blockTitle="Similar Content" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+
+<h3 class='ipsWidget_title ipsType_reset'>Similar Content</h3>
+
+
+	<div class='ipsWidget_inner'>
+		<ul class='ipsDataList'>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/?preview=1' data-ipsHover-timeout='1.5' >
+									How to set up and manage multiple DayZ SA Servers responsibly 2021
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='../../profile/22784-harkness/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Harkness's profile" class="ipsType_break">Harkness</a>,  <time datetime='2021-08-11T01:28:21Z' title='08/11/21 01:28  AM' data-short='3 yr'>August 11, 2021</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/set%20up/index.html" class='ipsTag' title="Find other content tagged with 'set up'" rel="tag" data-tag-label="set up"><span>set up</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/guide/index.html" class='ipsTag' title="Find other content tagged with 'guide'" rel="tag" data-tag-label="guide"><span>guide</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_2745329'>(and 19 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_2745329_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/set%20up/index.html" class='ipsTag' title="Find other content tagged with 'set up'" rel="tag" data-tag-label="set up"><span>set up</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/guide/index.html" class='ipsTag' title="Find other content tagged with 'guide'" rel="tag" data-tag-label="guide"><span>guide</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/tutorial/index.html" class='ipsTag' title="Find other content tagged with 'tutorial'" rel="tag" data-tag-label="tutorial"><span>tutorial</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/dayz/index.html" class='ipsTag' title="Find other content tagged with 'dayz'" rel="tag" data-tag-label="dayz"><span>dayz</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/standalone/index.html" class='ipsTag' title="Find other content tagged with 'standalone'" rel="tag" data-tag-label="standalone"><span>standalone</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/server/index.html" class='ipsTag' title="Find other content tagged with 'server'" rel="tag" data-tag-label="server"><span>server</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/how/index.html" class='ipsTag' title="Find other content tagged with 'how'" rel="tag" data-tag-label="how"><span>how</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/manage/index.html" class='ipsTag' title="Find other content tagged with 'manage'" rel="tag" data-tag-label="manage"><span>manage</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/multiple/index.html" class='ipsTag' title="Find other content tagged with 'multiple'" rel="tag" data-tag-label="multiple"><span>multiple</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/game/index.html" class='ipsTag' title="Find other content tagged with 'game'" rel="tag" data-tag-label="game"><span>game</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/restart/index.html" class='ipsTag' title="Find other content tagged with 'restart'" rel="tag" data-tag-label="restart"><span>restart</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/backup/index-2.html" class='ipsTag' title="Find other content tagged with 'backup'" rel="tag" data-tag-label="backup"><span>backup</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/archive/index.html" class='ipsTag' title="Find other content tagged with 'archive'" rel="tag" data-tag-label="archive"><span>archive</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/bec/index.html" class='ipsTag' title="Find other content tagged with 'bec'" rel="tag" data-tag-label="bec"><span>bec</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/battleye/index.html" class='ipsTag' title="Find other content tagged with 'battleye'" rel="tag" data-tag-label="battleye"><span>battleye</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/battleye%20extended%20controls/index.html" class='ipsTag' title="Find other content tagged with 'battleye extended controls'" rel="tag" data-tag-label="battleye extended controls"><span>battleye extended controls</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/warning/index.html" class='ipsTag' title="Find other content tagged with 'warning'" rel="tag" data-tag-label="warning"><span>warning</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/message/index.html" class='ipsTag' title="Find other content tagged with 'message'" rel="tag" data-tag-label="message"><span>message</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/player/index.html" class='ipsTag' title="Find other content tagged with 'player'" rel="tag" data-tag-label="player"><span>player</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/walkthrough/index.html" class='ipsTag' title="Find other content tagged with 'walkthrough'" rel="tag" data-tag-label="walkthrough"><span>walkthrough</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/2021/index.html" class='ipsTag' title="Find other content tagged with '2021'" rel="tag" data-tag-label="2021"><span>2021</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>0</span>
+								<span class='ipsDataItem_stats_type'> replies</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1358</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/22784-harkness/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to Harkness's profile">
+		<img src='../../uploads/monthly_2020_09/224236537_69223110_10212121577993051_3324963234439495680_n(1)(1)(1)(1)(1).thumb.jpg.2c25a9fd8dfc519e71c8ffa92d07a93c.jpg' alt='Harkness' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/22784-harkness/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Harkness's profile" class="ipsType_break">Harkness</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2021-08-11T01:28:21Z' title='08/11/21 01:28  AM' data-short='3 yr'>August 11, 2021</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/47312-epoch-107-database-issues/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/47312-epoch-107-database-issues/?preview=1' data-ipsHover-timeout='1.5' >
+									Epoch 1.0.7 Database Issues
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='../../profile/29524-voltan/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/29524-voltan/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Voltan's profile" class="ipsType_break">Voltan</a>,  <time datetime='2021-05-13T16:30:30Z' title='05/13/21 04:30  PM' data-short='4 yr'>May 13, 2021</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/epoch%201.0.7/index.html" class='ipsTag' title="Find other content tagged with 'epoch 1.0.7'" rel="tag" data-tag-label="epoch 1.0.7"><span>epoch 1.0.7</span></a>
+	
+</li>
+					
+				
+			
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1</span>
+								<span class='ipsDataItem_stats_type'> answer</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>853</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/31214-airwaves-man/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/31214-airwaves-man/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to Airwaves Man's profile">
+		<img src='../../uploads/monthly_2016_12/photo_2016-12-18_17-42-12.thumb.jpg.4e45d4ccfe998a0815fc83429c7bc402.jpg' alt='Airwaves Man' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/31214-airwaves-man/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/31214-airwaves-man/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Airwaves Man's profile" class="ipsType_break">Airwaves Man</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/47312-epoch-107-database-issues/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2021-05-29T07:49:26Z' title='05/29/21 07:49  AM' data-short='4 yr'>May 29, 2021</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+								<span>
+
+	<a href="../../tags/epoch/index.html" title="Find other content tagged with 'epoch'" class='ipsTag_prefix' rel="tag" data-tag-label='epoch'><span>epoch</span></a>
+</span>
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/46753-i-cant-get-player-built-objects-to-save-to-my-database/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/46753-i-cant-get-player-built-objects-to-save-to-my-database/?preview=1' data-ipsHover-timeout='1.5' >
+									I can&#039;t get player built objects to save to my database
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='https://epochmod.com/forum/profile/39711-joeclark1337gmailcom/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39711-joeclark1337gmailcom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to joeclark1337@gmail.com's profile" class="ipsType_break"><span class="__cf_email__" data-cfemail="b0dadfd5d3dcd1c2db81838387f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span></a>,  <time datetime='2020-06-22T19:44:59Z' title='06/22/20 07:44  PM' data-short='5 yr'>June 22, 2020</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/day-z/" class='ipsTag' title="Find other content tagged with 'day-z'" rel="tag" data-tag-label="day-z"><span>day-z</span></a>
+	
+</li>
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_466938785'>(and 1 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_466938785_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/day-z/" class='ipsTag' title="Find other content tagged with 'day-z'" rel="tag" data-tag-label="day-z"><span>day-z</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/arma-2/" class='ipsTag' title="Find other content tagged with 'arma-2'" rel="tag" data-tag-label="arma-2"><span>arma-2</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1</span>
+								<span class='ipsDataItem_stats_type'> answer</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1568</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/39588-kreefthond/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39588-kreefthond/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to Kreefthond's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%238bc462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EK%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Kreefthond' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/39588-kreefthond/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39588-kreefthond/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Kreefthond's profile" class="ipsType_break">Kreefthond</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/46753-i-cant-get-player-built-objects-to-save-to-my-database/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2020-08-14T08:43:28Z' title='08/14/20 08:43  AM' data-short='4 yr'>August 14, 2020</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/45331-release-dayzepoch10623deditorlivemissionwithdatabaseinteraction/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/45331-release-dayzepoch10623deditorlivemissionwithdatabaseinteraction/?preview=1' data-ipsHover-timeout='1.5' >
+									[Release] Dayz.Epoch.1062.3d.Editor.Live.Mission.With.Database.Interaction
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='https://epochmod.com/forum/profile/1286-sandbird/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Sandbird's profile" class="ipsType_break">Sandbird</a>,  <time datetime='2018-10-24T10:16:24Z' title='10/24/18 10:16  AM' data-short='6 yr'>October 24, 2018</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/hive/index.html" class='ipsTag' title="Find other content tagged with 'hive'" rel="tag" data-tag-label="hive"><span>hive</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_1960769215'>(and 2 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_1960769215_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/hive/index.html" class='ipsTag' title="Find other content tagged with 'hive'" rel="tag" data-tag-label="hive"><span>hive</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/server/index.html" class='ipsTag' title="Find other content tagged with 'server'" rel="tag" data-tag-label="server"><span>server</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/editor/index.html" class='ipsTag' title="Find other content tagged with 'editor'" rel="tag" data-tag-label="editor"><span>editor</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>20</span>
+								<span class='ipsDataItem_stats_type'> replies</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>6304</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/39563-jexie/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39563-jexie/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to Jexie's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23629fc4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Jexie' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/39563-jexie/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39563-jexie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Jexie's profile" class="ipsType_break">Jexie</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/45331-release-dayzepoch10623deditorlivemissionwithdatabaseinteraction/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2020-11-15T20:03:40Z' title='11/15/20 08:03  PM' data-short='4 yr'>November 15, 2020</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/44951-safe-is-not-saving-items-to-the-database/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/44951-safe-is-not-saving-items-to-the-database/?preview=1' data-ipsHover-timeout='1.5' >
+									Safe is not saving items to the database
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='../../profile/39110-warburgg/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39110-warburgg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Warburgg's profile" class="ipsType_break">Warburgg</a>,  <time datetime='2018-02-28T17:58:22Z' title='02/28/18 05:58  PM' data-short='7 yr'>February 28, 2018</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/safe/" class='ipsTag' title="Find other content tagged with 'safe'" rel="tag" data-tag-label="safe"><span>safe</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_93819933'>(and 2 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_93819933_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/safe/" class='ipsTag' title="Find other content tagged with 'safe'" rel="tag" data-tag-label="safe"><span>safe</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/database/index-2.html" class='ipsTag' title="Find other content tagged with 'database'" rel="tag" data-tag-label="database"><span>database</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/sql/" class='ipsTag' title="Find other content tagged with 'sql'" rel="tag" data-tag-label="sql"><span>sql</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/bug/index.html" class='ipsTag' title="Find other content tagged with 'bug'" rel="tag" data-tag-label="bug"><span>bug</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>3</span>
+								<span class='ipsDataItem_stats_type'> answers</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1890</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/39110-warburgg/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39110-warburgg/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to Warburgg's profile">
+		<img src='../../uploads/monthly_2018_02/26166130_1479188562207222_2226282309561326408_n.thumb.jpg.2f424d840a3b87189ec244e079f28080.jpg' alt='Warburgg' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/39110-warburgg/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39110-warburgg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F30635-simple-database-backup%252F' title="Go to Warburgg's profile" class="ipsType_break">Warburgg</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/44951-safe-is-not-saving-items-to-the-database/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2018-03-01T19:57:08Z' title='03/01/18 07:57  PM' data-short='7 yr'>March 1, 2018</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+</li>
+				
+					
+					<li class='ipsWidget ipsWidget_horizontal ipsBox  ' data-blockID='app_cms_Blocks_mtkskjhzs' data-blockConfig="true" data-blockTitle="Custom Blocks" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+Advertisement
+
+
+</li>
+				
+			
+		</ul>
+	</div>
+
+					</div>
+					
+
+
+	<div id='ipsLayout_sidebar' class='ipsLayout_sidebarright ' data-controller='core.front.widgets.sidebar'>
+		
+		
+		
+		
+
+
+	<div class='cWidgetContainer '  data-role='widgetReceiver' data-orientation='vertical' data-widgetArea='sidebar'>
+		<ul class='ipsList_reset'>
+			
+				
+					
+					<li class='ipsWidget ipsWidget_vertical ipsBox  ' data-blockID='app_cms_Wysiwyg_hbjjvq53w' data-blockConfig="true" data-blockTitle="WYSIWYG Editor" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+<div class='ipsWidget_inner ipsPad ipsType_richText' data-controller='core.front.core.lightboxedImages'>
+	<p>
+	<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;" /></a>
+</p>
+</div>
+</li>
+				
+			
+		</ul>
+	</div>
+
+	</div>
+
+					
+<nav class='ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover'>
+	
+		
+
+
+	
+
+	<ul class='ipsList_inline ipsPos_right'>
+		
+		<li >
+			<a data-action="defaultStream" class='ipsType_light '  href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>All Activity</span></a>
+		</li>
+		
+	</ul>
+
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href='../../index.html'>
+				<span>Home <i class='fa fa-angle-right'></i></span>
+			</a>
+		</li>
+		
+		
+			<li>
+				
+					<a href='../../forum/41-arma-3/index.html'>
+						<span>ArmA 3 <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/67-community-projects/index.html'>
+						<span>Community Projects <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/65-tools/index.html'>
+						<span>Tools <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					Simple Database backup
+				
+			</li>
+		
+	</ul>
+</nav>
+				</div>
+			</div>
+			
+		</main>
+		<footer id='ipsLayout_footer' class='ipsClearfix'>
+			<div class='ipsLayout_container'>
+				
+				
+
+<ul id='elFooterSocialLinks' class='ipsList_inline ipsType_center ipsSpacer_top'>
+	
+
+	
+		<li class='cUserNav_icon'>
+			<a href='https://facebook.com/EpochMod' target='_blank' class='cShareLink cShareLink_facebook' rel='noopener noreferrer'><i class='fa fa-facebook'></i></a>
+		</li>
+	
+		<li class='cUserNav_icon'>
+			<a href='https://twitter.com/EpochMod' target='_blank' class='cShareLink cShareLink_twitter' rel='noopener noreferrer'><i class='fa fa-twitter'></i></a>
+		</li>
+	
+		<li class='cUserNav_icon'>
+			<a href='https://github.com/EpochModTeam/' target='_blank' class='cShareLink cShareLink_github' rel='noopener noreferrer'><i class='fa fa-github'></i></a>
+		</li>
+	
+
+</ul>
+
+
+<ul class='ipsList_inline ipsType_center ipsSpacer_top' id="elFooterLinks">
+	
+	
+	
+	
+	
+	
+		<li><a rel="nofollow" href='../../contact/index.html' data-ipsdialog data-ipsDialog-remoteSubmit data-ipsDialog-flashMessage='Thanks, your message has been sent to the administrators.' data-ipsdialog-title="Contact Us">Contact Us</a></li>
+	
+</ul>	
+
+
+<p id='elCopyright'>
+	<span id='elCopyright_userLine'>Copyright © 2019 Epoch Mod Team</span>
+	<a rel='nofollow' title='Invision Community' href='https://www.invisioncommunity.com/'>Powered by Invision Community</a>
+</p>
+			</div>
+		</footer>
+		
+<div id='elMobileDrawer' class='ipsDrawer ipsHide'>
+	<div class='ipsDrawer_menu'>
+		<a href='#' class='ipsDrawer_close' data-action='close'><span>&times;</span></a>
+		<div class='ipsDrawer_content ipsFlex ipsFlex-fd:column'>
+			
+				<div class='ipsPadding ipsBorder_bottom'>
+					<ul class='ipsToolList ipsToolList_vertical'>
+						<li>
+							<a href='../../login/index.html' id='elSigninButton_mobile' class='ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth'>Existing user? Sign In</a>
+						</li>
+						
+					</ul>
+				</div>
+			
+
+			
+
+			<ul class='ipsDrawer_list ipsFlex-flex:11'>
+				
+
+				
+				
+				
+				
+					
+						
+						
+							<li><a href="https://epochmod.com/">Home</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../projects/index.html' >Downloads</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../index.html' >Forums</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='http://epochmod.gamepedia.com/' target='_blank' rel="noopener">Wiki</a></li>
+						
+					
+				
+					
+						
+						
+							<li class='ipsDrawer_itemParent'>
+								<h4 class='ipsDrawer_title'><a href='#'>Browse</a></h4>
+								<ul class='ipsDrawer_list'>
+									<li data-action="back"><a href='#'>Back</a></li>
+									
+									
+										
+										
+										
+											
+										
+											
+												
+											
+										
+											
+												
+											
+										
+									
+													
+									
+									
+									
+										
+
+
+	
+
+	
+		
+			<li>
+				<a href='../../staff/index.html' >
+					Staff
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../online/index.html' >
+					Online Users
+				</a>
+			</li>
+		
+	
+
+										
+								</ul>
+							</li>
+						
+					
+				
+					
+						
+						
+							<li class='ipsDrawer_itemParent'>
+								<h4 class='ipsDrawer_title'><a href='#'>Activity</a></h4>
+								<ul class='ipsDrawer_list'>
+									<li data-action="back"><a href='#'>Back</a></li>
+									
+									
+										
+										
+										
+											
+												
+													
+													
+									
+													
+									
+									
+									
+										
+
+
+	
+		
+			<li>
+				<a href='../../discover/index.html' >
+					All Activity
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='#' >
+					My Activity Streams
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../discover/unread/index.html' >
+					Unread Content
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../discover/content-started/index.html' >
+					Content I Started
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../search/index.html' >
+					Search
+				</a>
+			</li>
+		
+	
+
+										
+								</ul>
+							</li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../leaderboard/index.html' >Leaderboard</a></li>
+						
+					
+				
+					
+				
+					
+				
+				
+			</ul>
+
+			
+		</div>
+	</div>
+</div>
+
+<div id='elMobileCreateMenuDrawer' class='ipsDrawer ipsHide'>
+	<div class='ipsDrawer_menu'>
+		<a href='#' class='ipsDrawer_close' data-action='close'><span>&times;</span></a>
+		<div class='ipsDrawer_content ipsSpacer_bottom ipsPad'>
+			<ul class='ipsDrawer_list'>
+				<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+		
+		
+
+	
+	<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type='text/javascript'>
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = '../../applications/core/interface/ckeditor/ckeditor/index.html';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "36ed90c8cc4fe240ad7ebf7ca30612f3",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+
+
+
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_library0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_js_lang_10673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_framework0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_core/global_global_core0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_front0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_core/front_front_core0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_forums/front_front_topic0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_map0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+
+	<script type='text/javascript'>
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+
+
+
+<script type='application/ld+json'>
+{
+    "name": "Simple Database backup",
+    "headline": "Simple Database backup",
+    "text": "I created this because i wanted an easier alternative to the log-rotator.cmd included with epoch. I also dont want to rotate my logs everytime i do a database backup.\u00a0 \n\u00a0 \nThis creates a backup of your dump.rdb (your database) and sorts it in a folder named YEAR-MONTH (e.g. 2014-12). the actual filename also gets a date and timestamp like \"Epoch-20141230_2205.rdb\". So by using this you will get your backups nice and sorted with a folder for every month of the year.\u00a0 \n\u00a0 \nStep 1: \ncreate a batch file inside your C:\\-arma3 server path-\\DB folder (where redis-server.exe is located)and name it backup.cmd. Insert the code below:\u00a0 \n\n::::::::::::::Created by Fivenine @ NibbleGaming.tk::::::::::::::\n\n:::::::::::::: CONFIG ::::::::::::::::::\n\n:::: Set your Arma3 Server base installation directory below.\nset arma3srvpath=C:\\YOUR ARMA 3\\SERVER FOLDER\\HERE\n\n:::: Set your Redis Password and IP below (found inside Redis.conf)\nset Redispass=ChangeMe\nset RedisIP=127.0.0.1\n\n::::::::::: ADVANCED CONFIG ::::::::::::\n:: Don\u0027t touch anything below this point unless you know what your doing.\n::::::::::::::::::::::::::::::::::::::::\n:: Set Time and Date\nSET _CUR_DATE=%DATE%\nSET _CUR_TIME=%TIME%\n::Setting date\nFOR /F \"tokens=1-4 delims=/.- \" %%a IN (\"%_CUR_DATE%\") DO SET MONTH=%%b\nFOR /F \"tokens=1-4 delims=/.- \" %%a IN (\"%_CUR_DATE%\") DO SET DAY=%%c\nFOR /F \"tokens=1-4 delims=/.- \" %%a IN (\"%_CUR_DATE%\") DO SET YEAR=%%a\n:: Setting Time\nFOR /F \"tokens=1-4 delims=:.\" %%a IN (\"%_CUR_TIME%\") DO SET HOUR=%%a\nFOR /F \"tokens=1-4 delims=:.\" %%a IN (\"%_CUR_TIME%\") DO SET MINUTE=%%b\nSET FOLDER_NAME=%YEAR%-%MONTH%\nSET BACKUP_FILE=Epoch-%YEAR%%MONTH%%DAY%_%HOUR%%MINUTE%.rdb\n\n:: Forcesave Redis Database\nredis-cli -h %RedisIP% -a %Redispass% save\n\n::create folders\nif exist \"%arma3srvpath%\\DBbackups\" goto createYDfolder\nmkdir \"%arma3srvpath%\\DBbackups\"\n:createYDfolder\nif exist \"%arma3srvpath%\\DBbackups\\%FOLDER_NAME%\" goto startbackup\nmkdir \"%arma3srvpath%\\DBbackups\\%FOLDER_NAME%\"\n\n:startbackup\ncopy \"%arma3srvpath%\\DB\\dump.rdb\" \"%arma3srvpath%\\DBbackups\\%FOLDER_NAME%\\%BACKUP_FILE%\"\n:: Done\n\nexit\n\nstep 2: \nDownload Redis from here\u00a0https://raw.github.com/mythz/redis-windows/master/downloads/redis64-latest.zip\u00a0and copy redis-cli.exe from inside that .zip to your DB folder.\u00a0 \n\u00a0 \nstep 3: \nDone! \n\u00a0 \nNow just run backup.cmd to perform your backup. I include it in my restart procedure using simple batch files. You can also schedule it to run using windows task scheduler or whatever suits you best.\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \nHaving problems? \nI\u0027m not sure if this works with every time and dateformat. So depending on where you live you might get a weird date and time format on your folders and files. If you do, simply create a batch file, call it timetest.cmd and insert this: \n\n@echo off\necho %DATE%\necho %TIME%\ntimeout 120\n\nRun that batch file and then copy paste the output here and i\u0027ll help you out.\u00a0 \n",
+    "dateCreated": "2014-12-30T05:54:11+0000",
+    "datePublished": "2014-12-30T05:54:11+0000",
+    "dateModified": "2019-07-11T01:54:08+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png",
+    "author": {
+        "@type": "Person",
+        "name": "5nine",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png",
+        "url": "https://epochmod.com/forum/profile/22820-5nine/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 5033
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 5
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 2
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "5nine",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png",
+            "url": "https://epochmod.com/forum/profile/22820-5nine/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/30635-simple-database-backup/",
+    "discussionUrl": "https://epochmod.com/forum/topic/30635-simple-database-backup/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-189483",
+            "url": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-189483",
+            "author": {
+                "@type": "Person",
+                "name": "Jobey",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/16741-jobey/"
+            },
+            "dateCreated": "2015-01-04T11:58:00+0000",
+            "text": "this worked like a charm for me but can I just ask, how do you go about restoring the backup, still new at the DB side of things \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-189558",
+            "url": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-189558",
+            "author": {
+                "@type": "Person",
+                "name": "5nine",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-22820.png",
+                "url": "https://epochmod.com/forum/profile/22820-5nine/"
+            },
+            "dateCreated": "2015-01-04T15:58:28+0000",
+            "text": "rename the backup you want to dump.rdb, copy and replace \u00a0it in your DB folder while your redis server is shut down.\u00a0 \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-225721",
+            "url": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-225721",
+            "author": {
+                "@type": "Person",
+                "name": "OhDeathhhh",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-17549.jpg",
+                "url": "https://epochmod.com/forum/profile/17549-ohdeathhhh/"
+            },
+            "dateCreated": "2015-04-04T04:28:43+0000",
+            "text": "This worked for me, but to char players.\n\u00a0\nAll constructions made by players, wall, lockbox, shelf gone.\n\u00a0\nHow to backup the construction?\n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-306717",
+            "url": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-306717",
+            "author": {
+                "@type": "Person",
+                "name": "upperking",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/39511-upperking/"
+            },
+            "dateCreated": "2019-07-10T12:04:35+0000",
+            "text": "Wed 07/10/2019 \n\t\u00a08:02:23.51\n ",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-306720",
+            "url": "https://epochmod.com/forum/topic/30635-simple-database-backup/#comment-306720",
+            "author": {
+                "@type": "Person",
+                "name": "Ghostrider-GRG",
+                "image": "https://epochmod.com/forum/uploads/monthly_2017_09/GRG3-400.thumb.jpg.08cd39ea06a532d62d39c270dad9b33d.jpg",
+                "url": "https://epochmod.com/forum/profile/10264-ghostrider-grg/"
+            },
+            "dateCreated": "2019-07-11T01:54:08+0000",
+            "text": "I just make a copy of dump.db with the date appended to the file name. On my server, I do this on a separate drive but you could do it anywhere. All the data you need is stored in that file.\n ",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/67-community-projects/",
+                "name": "Community Projects"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/65-tools/",
+                "name": "Tools"
+            }
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+
+
+
+<script type='text/javascript'>
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+
+		
+		<!--ipsQueryLog-->
+		<!--ipsCachingLog-->
+		
+		
+		
+        
+	</body>
+
+<!-- Mirrored from epochmod.com/forum/topic/30635-simple-database-backup/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Jul 2025 05:49:35 GMT -->
+</html>

@@ -1,0 +1,4404 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	
+<!-- Mirrored from epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Jul 2025 05:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        
+		<title>Redis backup - linux shell script - Tools - Epoch Mod Community</title>
+		
+			<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		
+		
+		
+		
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	
+	
+		<meta property="og:image" content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png">
+	
+
+
+	<meta name="twitter:card" content="summary_large_image" />
+
+
+	
+		<meta name="twitter:site" content="@EpochMod" />
+	
+
+
+	
+		
+			
+				<meta property="og:title" content="Redis backup - linux shell script">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:type" content="website">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:url" content="https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/">
+			
+		
+	
+
+	
+		
+			
+				<meta name="description" content="i just threw this together, cause i wanted to backup my database once in a while, however i do not want be held responsible for anything you do to your system. pls remeber to backup anything you hold dearly before using this and NEVER use this with root permissions! http://pastebin.com/iBiZkvUb i...">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:description" content="i just threw this together, cause i wanted to backup my database once in a while, however i do not want be held responsible for anything you do to your system. pls remeber to backup anything you hold dearly before using this and NEVER use this with root permissions! http://pastebin.com/iBiZkvUb i...">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:updated_time" content="2015-07-28T22:56:38Z">
+			
+		
+	
+
+	
+		
+			
+				<meta name="keywords" content="Redis, backup, linux, script, Halv">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:site_name" content="Epoch Mod Community">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:locale" content="en_US">
+			
+		
+	
+
+
+	
+		<link rel="canonical" href="index.html" />
+	
+
+
+
+
+<link rel="manifest" href="../../manifest.webmanifest/index.html">
+<meta name="msapplication-config" content="https://epochmod.com/forum/browserconfig.xml/">
+<meta name="msapplication-starturl" content="/">
+<meta name="application-name" content="Epoch Mod Community">
+<meta name="apple-mobile-web-app-title" content="Epoch Mod Community">
+
+	<meta name="theme-color" content="#000000">
+
+
+
+
+
+
+
+
+
+
+<link rel="preload" href="../../applications/core/interface/font/fontawesome-webfont3e6e.woff2?v=4.7.0" as="font" crossorigin="anonymous">
+		
+
+
+
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_frameworkc11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_corec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forumsc11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topicsc11f.css?v=7f6edac1d51681449780' media='all'>
+
+
+
+
+
+<link rel='stylesheet' href='../../uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_customc11f.css?v=7f6edac1d51681449780' media='all'>
+
+
+
+
+		
+		
+
+	
+	<link rel='shortcut icon' href='../../uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico' type="image/x-icon">
+
+	</head>
+	<body class='ipsApp ipsApp_front ipsJS_none ipsClearfix' data-controller='core.front.core.app' data-message="" data-pageApp='forums' data-pageLocation='front' data-pageModule='forums' data-pageController='topic' data-pageID='36726'  >
+		
+        
+
+        
+
+		<a href='#ipsLayout_mainArea' class='ipsHide' title='Go to main content on this page' accesskey='m'>Jump to content</a>
+		
+
+
+
+
+
+		<div id='ipsLayout_header' class='ipsClearfix'>
+			<header>
+				<div class='ipsLayout_container'>
+					
+
+
+<a href='../../index.html' id='elLogo' accesskey='1'><img src="../../uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png" alt='Epoch Mod Community'></a>
+
+					
+						
+
+	<ul id='elUserNav' class='ipsList_inline cSignedOut ipsResponsive_showDesktop'>
+		
+        
+		
+        
+        
+            
+            <li id='elSignInLink'>
+                <a href='../../login/index.html' data-ipsMenu-closeOnClick="false" data-ipsMenu id='elUserSignIn'>
+                    Existing user? Sign In &nbsp;<i class='fa fa-caret-down'></i>
+                </a>
+                
+<div id='elUserSignIn_menu' class='ipsMenu ipsMenu_auto ipsHide'>
+	<form accept-charset='utf-8' method='post' action='https://epochmod.com/forum/login/'>
+		<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3">
+		<input type="hidden" name="ref" value="aHR0cHM6Ly9lcG9jaG1vZC5jb20vZm9ydW0vdG9waWMvMzY3MjYtcmVkaXMtYmFja3VwLWxpbnV4LXNoZWxsLXNjcmlwdC8=">
+		<div data-role="loginForm">
+			
+			
+			
+				
+<div class="ipsPad ipsForm ipsForm_vertical">
+	<h4 class="ipsType_sectionHead">Sign In</h4>
+	<br><br>
+	<ul class='ipsList_reset'>
+		<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+			
+			
+				<input type="text" placeholder="Display Name or Email Address" name="auth" autocomplete="email">
+			
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+			<input type="password" placeholder="Password" name="password" autocomplete="current-password">
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+			<span class="ipsCustomInput">
+				<input type="checkbox" name="remember_me" id="remember_me_checkbox" value="1" checked aria-checked="true">
+				<span></span>
+			</span>
+			<div class="ipsFieldRow_content">
+				<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+				<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+			</div>
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_fullWidth">
+			<button type="submit" name="_processLogin" value="usernamepassword" class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit">Sign In</button>
+			
+				<p class="ipsType_right ipsType_small">
+					
+						<a href='../../lostpassword/index.html' data-ipsDialog data-ipsDialog-title='Forgot your password?'>
+					
+					Forgot your password?</a>
+				</p>
+			
+		</li>
+	</ul>
+</div>
+			
+		</div>
+	</form>
+</div>
+            </li>
+            
+        
+		
+	</ul>
+
+						
+<ul class='ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop'>
+	<li data-ipsDrawer data-ipsDrawer-drawerElem='#elMobileDrawer'>
+		<a href='#'>
+			
+			
+				
+			
+			
+			
+			<i class='fa fa-navicon'></i>
+		</a>
+	</li>
+</ul>
+					
+				</div>
+			</header>
+			
+
+	<nav data-controller='core.front.core.navBar' class=' ipsResponsive_showDesktop'>
+		<div class='ipsNavBar_primary ipsLayout_container '>
+			<ul data-role="primaryNavBar" class='ipsClearfix'>
+				
+
+
+	
+		
+		
+		<li  id='elNavSecondary_18' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="https://epochmod.com/" data-navItem-id="18">
+					Home<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_12' data-role="navBarItem" data-navApp="cms" data-navExt="Pages">
+			
+			
+				<a href="../../projects/index.html"  data-navItem-id="12" >
+					Downloads<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+			
+		
+		<li class='ipsNavBar_active' data-active id='elNavSecondary_8' data-role="navBarItem" data-navApp="forums" data-navExt="Forums">
+			
+			
+				<a href="../../index.html"  data-navItem-id="8" data-navDefault>
+					Forums<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_13' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="http://epochmod.gamepedia.com/" target='_blank' rel="noopener" data-navItem-id="13" >
+					Wiki<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_1' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="../../index.html"  data-navItem-id="1" >
+					Browse<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+				<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+					
+
+
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_10' data-role="navBarItem" data-navApp="core" data-navExt="StaffDirectory">
+			
+			
+				<a href="../../staff/index.html"  data-navItem-id="10" >
+					Staff<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_11' data-role="navBarItem" data-navApp="core" data-navExt="OnlineUsers">
+			
+			
+				<a href="../../online/index.html"  data-navItem-id="11" >
+					Online Users<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+					<li class='ipsHide' id='elNavigationMore_1' data-role='navMore'>
+						<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_1' id='elNavigationMore_1_dropdown'>More <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_1_dropdown_menu' data-role='moreDropdown'></ul>
+					</li>
+				</ul>
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_2' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="../../discover/index.html"  data-navItem-id="2" >
+					Activity<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+				<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+					
+
+
+	
+		
+		
+		<li  id='elNavSecondary_3' data-role="navBarItem" data-navApp="core" data-navExt="AllActivity">
+			
+			
+				<a href="../../discover/index.html"  data-navItem-id="3" >
+					All Activity<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_4' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreams">
+			
+			
+				<a href="#"  data-navItem-id="4" >
+					My Activity Streams<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_5' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreamsItem">
+			
+			
+				<a href="../../discover/unread/index.html"  data-navItem-id="5" >
+					Unread Content<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_6' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreamsItem">
+			
+			
+				<a href="../../discover/content-started/index.html"  data-navItem-id="6" >
+					Content I Started<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_7' data-role="navBarItem" data-navApp="core" data-navExt="Search">
+			
+			
+				<a href="../../search/index.html"  data-navItem-id="7" >
+					Search<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+					<li class='ipsHide' id='elNavigationMore_2' data-role='navMore'>
+						<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_2' id='elNavigationMore_2_dropdown'>More <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_2_dropdown_menu' data-role='moreDropdown'></ul>
+					</li>
+				</ul>
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_19' data-role="navBarItem" data-navApp="core" data-navExt="Leaderboard">
+			
+			
+				<a href="../../leaderboard/index.html"  data-navItem-id="19" >
+					Leaderboard<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+	
+
+	
+	
+
+				<li class='ipsHide' id='elNavigationMore' data-role='navMore'>
+					<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore' id='elNavigationMore_dropdown'>More</a>
+					<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+						<li class='ipsHide' id='elNavigationMore_more' data-role='navMore'>
+							<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_more' id='elNavigationMore_more_dropdown'>More <i class='fa fa-caret-down'></i></a>
+							<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_more_dropdown_menu' data-role='moreDropdown'></ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+
+	<div id="elSearchWrapper">
+		<div id='elSearch' data-controller="core.front.core.quickSearch">
+			<form accept-charset='utf-8' action='http://epochmod.com/forum/search/?do=quicksearch' method='post'>
+                <input type='search' id='elSearchField' placeholder='Search...' name='q' autocomplete='off' aria-label='Search'>
+                <details class='cSearchFilter'>
+                    <summary class='cSearchFilter__text'></summary>
+                    <ul class='cSearchFilter__menu'>
+                        
+                        <li><label><input type="radio" name="type" value="all" ><span class='cSearchFilter__menuText'>Everywhere</span></label></li>
+                        
+                            
+                                <li><label><input type="radio" name="type" value='contextual_{&quot;type&quot;:&quot;forums_topic&quot;,&quot;nodes&quot;:65}' checked><span class='cSearchFilter__menuText'>This Forum</span></label></li>
+                            
+                                <li><label><input type="radio" name="type" value='contextual_{&quot;type&quot;:&quot;forums_topic&quot;,&quot;item&quot;:36726}' checked><span class='cSearchFilter__menuText'>This Topic</span></label></li>
+                            
+                        
+                        
+                            <li><label><input type="radio" name="type" value="core_statuses_status"><span class='cSearchFilter__menuText'>Status Updates</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="forums_topic"><span class='cSearchFilter__menuText'>Topics</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="cms_pages_pageitem"><span class='cSearchFilter__menuText'>Pages</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="cms_records1"><span class='cSearchFilter__menuText'>Article</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="core_members"><span class='cSearchFilter__menuText'>Members</span></label></li>
+                        
+                    </ul>
+                </details>
+				<button class='cSearchSubmit' type="submit" aria-label='Search'><i class="fa fa-search"></i></button>
+			</form>
+		</div>
+	</div>
+
+		</div>
+	</nav>
+
+			
+<ul id='elMobileNav' class='ipsResponsive_hideDesktop' data-controller='core.front.core.mobileNav'>
+	
+		
+			
+			
+				
+				
+			
+				
+				
+			
+				
+					<li id='elMobileBreadcrumb'>
+						<a href='../../forum/65-tools/index.html'>
+							<span>Tools</span>
+						</a>
+					</li>
+				
+				
+			
+				
+				
+			
+		
+	
+	
+	
+	<li >
+		<a data-action="defaultStream" href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+	</li>
+
+	
+
+	
+		<li class='ipsJS_show'>
+			<a href='../../search/index.html'><i class='fa fa-search'></i></a>
+		</li>
+	
+</ul>
+		</div>
+		<main id='ipsLayout_body' class='ipsLayout_container'>
+			<div id='ipsLayout_contentArea'>
+				<div id='ipsLayout_contentWrapper'>
+					
+<nav class='ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover'>
+	
+
+	<ul class='ipsList_inline ipsPos_right'>
+		
+		<li >
+			<a data-action="defaultStream" class='ipsType_light '  href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>All Activity</span></a>
+		</li>
+		
+	</ul>
+
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href='../../index.html'>
+				<span>Home <i class='fa fa-angle-right'></i></span>
+			</a>
+		</li>
+		
+		
+			<li>
+				
+					<a href='../../forum/41-arma-3/index.html'>
+						<span>ArmA 3 <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/67-community-projects/index.html'>
+						<span>Community Projects <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/65-tools/index.html'>
+						<span>Tools <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					Redis backup - linux shell script
+				
+			</li>
+		
+	</ul>
+</nav>
+					
+					<div id='ipsLayout_mainArea'>
+						
+						
+						
+						
+
+	
+
+
+
+
+						
+
+
+
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+		
+	
+	<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+		<div class="ipsFlex-flex:11">
+			<h1 class="ipsType_pageTitle ipsContained_container">
+				
+
+				
+				
+					<span class="ipsType_break ipsContained">
+						<span>Redis backup - linux shell script</span>
+					</span>
+				
+			</h1>
+			
+			
+				
+
+
+	
+		<ul class='ipsTags ipsList_inline ' >
+			
+				
+					
+
+<li >
+	
+	<a href="../../tags/Redis/index-2.html" class='ipsTag' title="Find other content tagged with 'Redis'" rel="tag" data-tag-label="Redis"><span>Redis</span></a>
+	
+</li>
+				
+					
+
+<li >
+	
+	<a href="../../tags/backup/index-2.html" class='ipsTag' title="Find other content tagged with 'backup'" rel="tag" data-tag-label="backup"><span>backup</span></a>
+	
+</li>
+				
+					
+
+<li >
+	
+	<a href="../../tags/linux/index.html" class='ipsTag' title="Find other content tagged with 'linux'" rel="tag" data-tag-label="linux"><span>linux</span></a>
+	
+</li>
+				
+					
+
+<li >
+	
+	<a href="../../tags/script/index.html" class='ipsTag' title="Find other content tagged with 'script'" rel="tag" data-tag-label="script"><span>script</span></a>
+	
+</li>
+				
+					
+
+<li >
+	
+	<a href="../../tags/Halv/index-2.html" class='ipsTag' title="Find other content tagged with 'Halv'" rel="tag" data-tag-label="Halv"><span>Halv</span></a>
+	
+</li>
+				
+			
+			
+		</ul>
+		
+	
+
+			
+		</div>
+		
+	</div>
+	<hr class="ipsHr">
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+		<div class="ipsFlex-flex:11">
+			<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+				
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_mini" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+				<div>
+					<p class="ipsType_reset ipsType_blendLinks">
+						<span class="ipsType_normal">
+						
+							<strong>By 
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break">Halvhjearne</a></strong><br><span class="ipsType_light"><time datetime='2015-07-26T12:49:41Z' title='07/26/15 12:49  PM' data-short='9 yr'>July 26, 2015</time> in <a href="../../forum/65-tools/index.html">Tools</a></span>
+						
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+			<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+				<div class="ipsShareLinks">
+					
+						
+
+
+    <a href='#elShareItem_1565692374_menu' id='elShareItem_1565692374' data-ipsMenu class='ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light'>
+        <span><i class='fa fa-share-alt'></i></span> &nbsp;Share
+    </a>
+
+    <div class='ipsPadding ipsMenu ipsMenu_auto ipsHide' id='elShareItem_1565692374_menu' data-controller="core.front.core.sharelink">
+        <ul class='ipsList_inline'>
+            
+                <li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+            
+                <li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+            
+        </ul>
+        
+            <hr class='ipsHr'>
+            <button class='ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='Redis backup - linux shell script' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/'>More sharing options...</button>
+        
+    </div>
+
+					
+					
+
+
+
+					
+
+<div data-followApp='forums' data-followArea='topic' data-followID='36726' data-controller='core.front.core.followButton'>
+	
+
+	<a href='../../login/index.html' rel="nofollow" class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall " data-role="followButton" data-ipsTooltip title='Sign in to follow this'>
+		<span>Followers</span>
+		<span class='ipsCommentCount'>1</span>
+	</a>
+
+</div>
+				</div>
+			</div>
+					
+	</div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+<div class="ipsClearfix">
+	<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+		
+		
+		
+	</ul>
+</div>
+
+<div id="comments" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-autopoll data-baseurl="https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/" data-lastpage data-feedid="topic-36726" class="cTopic ipsClear ipsSpacer_top">
+	
+			
+	
+
+	
+
+<div data-controller='core.front.core.recommendedComments' data-url='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?recommended=comments' class='ipsRecommendedComments ipsHide'>
+	<div data-role="recommendedComments">
+		<h2 class='ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom'>Recommended Posts</h2>
+		
+	</div>
+</div>
+	
+	<div id="elPostFeed" data-role="commentFeed" data-controller="core.front.core.moderation" >
+		<form action="https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?csrfKey=36ed90c8cc4fe240ad7ebf7ca30612f3&amp;do=multimodComment" method="post" data-ipspageaction data-role="moderationTools">
+			
+			
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-255378'></a>
+<article  id='elComment_255378' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/10011-halvhjearne/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break"><span style='color:#'>Halvhjearne</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255378' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-26T12:49:41Z' title='07/26/15 12:49  PM' data-short='9 yr'>July 26, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break">Halvhjearne</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Collaborator</span></li>
+				
+					<li data-role='group-icon'><img src='https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png' alt='' class='cAuthorGroupIcon'></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/10011-halvhjearne/content/" rel="nofollow" title="1479 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 1.5k
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+	
+	<li data-role='custom-field' class='ipsResponsive_hidePhone ipsType_break'>
+		
+<span class='ft'>Location</span><span class='fc'>DK</span>
+	</li>
+	
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-255378_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="255378" data-quoteData='{&quot;userid&quot;:10011,&quot;username&quot;:&quot;Halvhjearne&quot;,&quot;timestamp&quot;:1437914981,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:36726,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:255378}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_255378_menu' class='ipsComment_ellipsis' id='elControls_255378' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-255378_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_255378_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=reportComment&amp;comment=255378' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='index.html' title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_255378_menu' data-ipsDialog-title="Share this post" id='elSharePost_255378' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255378' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-26T12:49:41Z' title='07/26/15 12:49  PM' data-short='9 yr'>July 26, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>i just threw this together, cause i wanted to backup my database once in a while, however i do not want be held responsible for anything you do to your system.</p>
+<p> </p>
+<p>pls remeber to backup anything you hold dearly before using this and NEVER use this with root permissions!</p>
+<p> </p>
+<p><a href="http://pastebin.com/iBiZkvUb" rel="external nofollow">http://pastebin.com/iBiZkvUb</a></p>
+<p> </p>
+<p>if setup correctly the script will backup the database to a folder named the day of the week, database name/folder will be something like:</p>
+<pre class="ipsCode prettyprint">
+/whatever/dayoftheweek/dump_2015_26-07_14.00-01.rdb
+</pre>
+<p>If you do not plan to use the same user, that runs redis-server to run the backup script, then you will need to make sure the dump.rdb is written with permissions to allow this.</p>
+<p> </p>
+<p>by default redis-server will be starting with --umask 007 flag, to change it you need to change the redis-server init script (mine was located at /etc/init.d/redis-server).</p>
+<p> </p>
+<p>find the line that starts like this:</p>
+<pre class="ipsCode prettyprint">
+if start-stop-daemon --start --quiet --umask 003
+</pre>
+<p>this is whats important:</p>
+<pre class="ipsCode prettyprint">
+--umask 007
+</pre>
+<p>we will need to change this to something like:</p>
+<pre class="ipsCode prettyprint">
+--umask 003
+</pre>
+<p>now it will write the file with read permissions for all users (-rw-rw-r--).</p>
+<p> </p>
+<p>now make sure to restart redis-server:</p>
+<pre class="ipsCode prettyprint">
+service redis-server restart
+</pre>
+<p>change the path's on top of the script to determin where the database is located:</p>
+<pre class="ipsCode prettyprint">
+# set path to where your redis.rdb file is located
+REDISDBDIR=/var/lib/redis
+</pre>
+<p>and where you want the files to end up:</p>
+<pre class="ipsCode prettyprint">
+# set path to where you want the db file to end up
+DBBACKUPDIR=/media/9c2af2c6-2d7e-4383-9255-6fa2b6d58a28/SysDisk/armabackup
+</pre>
+<p>if you want it to delete or show you old database files you can use/uncomment the lines on the bottom:</p>
+<pre class="ipsCode prettyprint">
+##########################################################
+# Change how long you want to save a database copy below #
+##########################################################
+ 
+#show old db's, uncomment to use:
+                            #-mmin = +minutes
+#find ${DBBACKUPDIR} -type f -mmin +240
+                            #-mtime = +days
+#find ${DBBACKUPDIR} -type f -mtime +3
+################## IMPORTANT: ############################
+# delete db's older than 7days, change the 7 below       #
+# or comment out with a # infront of the line to disable #
+##########################################################
+#find $DBBACKUPDIR -type f -mtime +7 -delete
+</pre>
+<p>have fun</p>
+<p> </p>
+<p>Regards</p>
+<p>Halv</p>
+
+
+			
+		</div>
+
+		
+
+		
+			
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_255378_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255378" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255378" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255378&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment%26comment=255378&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='i just threw this together, cause i wanted to backup my database once in a while, however i do not want be held responsible for anything you do to your system. 
+  
+pls remeber to backup anything you hold dearly before using this and NEVER use this with root permissions! 
+  
+http://pastebin.com/iBiZkvUb 
+  
+if setup correctly the script will backup the database to a folder named the day of the week, database name/folder will be something like: 
+
+/whatever/dayoftheweek/dump_2015_26-07_14.00-01.rdb
+
+If you do not plan to use the same user, that runs redis-server to run the backup script, then you will need to make sure the dump.rdb is written with permissions to allow this. 
+  
+by default redis-server will be starting with --umask 007 flag, to change it you need to change the redis-server init script (mine was located at /etc/init.d/redis-server). 
+  
+find the line that starts like this: 
+
+if start-stop-daemon --start --quiet --umask 003
+
+this is whats important: 
+
+--umask 007
+
+we will need to change this to something like: 
+
+--umask 003
+
+now it will write the file with read permissions for all users (-rw-rw-r--). 
+  
+now make sure to restart redis-server: 
+
+service redis-server restart
+
+change the path&#039;s on top of the script to determin where the database is located: 
+
+# set path to where your redis.rdb file is located
+REDISDBDIR=/var/lib/redis
+
+and where you want the files to end up: 
+
+# set path to where you want the db file to end up
+DBBACKUPDIR=/media/9c2af2c6-2d7e-4383-9255-6fa2b6d58a28/SysDisk/armabackup
+
+if you want it to delete or show you old database files you can use/uncomment the lines on the bottom: 
+
+##########################################################
+# Change how long you want to save a database copy below #
+##########################################################
+ 
+#show old db&#039;s, uncomment to use:
+                            #-mmin = +minutes
+#find ${DBBACKUPDIR} -type f -mmin +240
+                            #-mtime = +days
+#find ${DBBACKUPDIR} -type f -mtime +3
+################## IMPORTANT: ############################
+# delete db&#039;s older than 7days, change the 7 below       #
+# or comment out with a # infront of the line to disable #
+##########################################################
+#find $DBBACKUPDIR -type f -mtime +7 -delete
+
+have fun 
+  
+Regards 
+Halv 
+' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255378'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-255877'></a>
+<article  id='elComment_255877' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/17839-slayer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17839-slayer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to slayer's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48f%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='slayer' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/17839-slayer/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/17839-slayer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17839-slayer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to slayer's profile" class="ipsType_break"><span style='color:#'>slayer</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255877' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T12:25:04Z' title='07/28/15 12:25  PM' data-short='9 yr'>July 28, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/17839-slayer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17839-slayer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to slayer's profile" class="ipsType_break">slayer</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/17839-slayer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17839-slayer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to slayer's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48f%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='slayer' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/17839-slayer/content/" rel="nofollow" title="22 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 22
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-255877_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="255877" data-quoteData='{&quot;userid&quot;:17839,&quot;username&quot;:&quot;slayer&quot;,&quot;timestamp&quot;:1438086304,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:36726,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:255877}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_255877_menu' class='ipsComment_ellipsis' id='elControls_255877' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-255877_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_255877_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=reportComment&amp;comment=255877' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255877' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_255877_menu' data-ipsDialog-title="Share this post" id='elSharePost_255877' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255877' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T12:25:04Z' title='07/28/15 12:25  PM' data-short='9 yr'>July 28, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>This is incorrect practice of doing backup of redis.</p>
+<p> </p>
+<p>You need to call</p>
+<pre class="ipsCode prettyprint">
+redis-cli bgsave </pre>
+<p>to force redis write database from memory to disk, then wait 10-15 minutes and copy rdb file to your backup directory. If you just copy rdb file from redis directory it may be corrupted or mistimed.</p>
+
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_255877_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255877' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255877" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255877" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255877&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment%26comment=255877&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='This is incorrect practice of doing backup of redis. 
+  
+You need to call 
+
+redis-cli bgsave 
+to force redis write database from memory to disk, then wait 10-15 minutes and copy rdb file to your backup directory. If you just copy rdb file from redis directory it may be corrupted or mistimed. 
+' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255877'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-255880'></a>
+<article  id='elComment_255880' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/10011-halvhjearne/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break"><span style='color:#'>Halvhjearne</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255880' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T12:47:41Z' title='07/28/15 12:47  PM' data-short='9 yr'>July 28, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break">Halvhjearne</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Collaborator</span></li>
+				
+					<li data-role='group-icon'><img src='https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png' alt='' class='cAuthorGroupIcon'></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/10011-halvhjearne/content/" rel="nofollow" title="1479 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 1.5k
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+	
+	<li data-role='custom-field' class='ipsResponsive_hidePhone ipsType_break'>
+		
+<span class='ft'>Location</span><span class='fc'>DK</span>
+	</li>
+	
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-255880_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="255880" data-quoteData='{&quot;userid&quot;:10011,&quot;username&quot;:&quot;Halvhjearne&quot;,&quot;timestamp&quot;:1438087661,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:36726,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:255880}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+						<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_255880_menu' class='ipsComment_ellipsis' id='elControls_255880' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-255880_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_255880_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=reportComment&amp;comment=255880' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255880' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_255880_menu' data-ipsDialog-title="Share this post" id='elSharePost_255880' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255880' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T12:47:41Z' title='07/28/15 12:47  PM' data-short='9 yr'>July 28, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<blockquote data-ipsquote="" class="ipsQuote" data-ipsquote-contentcommentid="255877" data-ipsquote-contenttype="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentid="36726" data-ipsquote-username="slayer" data-cite="slayer" data-ipsquote-timestamp="1438086304"><div>
+<div>
+<p>This is incorrect practice of doing backup of redis.</p>
+<p> </p>
+<p>You need to call</p>
+<pre class="ipsCode prettyprint">
+redis-cli bgsave </pre>
+<p>to force redis write database from memory to disk, then wait 10-15 minutes and copy rdb file to your backup directory. If you just copy rdb file from redis directory it may be corrupted or mistimed.</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>i doubt it would become corrupted, but you are right it might be a good idea to save the db before you copy it.</p>
+<p> </p>
+<p>however, if enough keys has been changed recently (wich will usually happend right before a restart) and you setup redis to save correctly, then i dont see a problem with using just this.</p>
+
+
+			
+		</div>
+
+		
+
+		
+			
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_255880_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255880' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255880" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255880" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255880&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment%26comment=255880&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='i doubt it would become corrupted, but you are right it might be a good idea to save the db before you copy it. 
+  
+however, if enough keys has been changed recently (wich will usually happend right before a restart) and you setup redis to save correctly, then i dont see a problem with using just this. 
+' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255880'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-255968'></a>
+<article  id='elComment_255968' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/17839-slayer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17839-slayer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to slayer's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48f%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='slayer' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/17839-slayer/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/17839-slayer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17839-slayer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to slayer's profile" class="ipsType_break"><span style='color:#'>slayer</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255968' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T19:27:18Z' title='07/28/15 07:27  PM' data-short='9 yr'>July 28, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/17839-slayer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17839-slayer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to slayer's profile" class="ipsType_break">slayer</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/17839-slayer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17839-slayer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to slayer's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48f%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='slayer' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/17839-slayer/content/" rel="nofollow" title="22 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 22
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-255968_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="255968" data-quoteData='{&quot;userid&quot;:17839,&quot;username&quot;:&quot;slayer&quot;,&quot;timestamp&quot;:1438111638,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:36726,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:255968}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_255968_menu' class='ipsComment_ellipsis' id='elControls_255968' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-255968_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_255968_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=reportComment&amp;comment=255968' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255968' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_255968_menu' data-ipsDialog-title="Share this post" id='elSharePost_255968' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255968' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T19:27:18Z' title='07/28/15 07:27  PM' data-short='9 yr'>July 28, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>When you copy file and redis write data simultaneously to file, your backup rdb file will become incompleted and corrupted.</p>
+<p> </p>
+<p>This is default config from debian package of redis</p>
+<pre class="ipsCode prettyprint">
+save 900 1
+save 300 10
+save 60 10000</pre>
+<p>Redis will save db to disk:</p>
+<p>every 900 seconds when 1 key have been changed or have been created</p>
+<p>every 300 seconds when10 keys have been changed or have been created</p>
+<p>every 60 seconds when 10000 keys have been changed or have been created</p>
+<p> </p>
+<p>You can calculate <span><span>probability of copying corrupted file.</span></span></p>
+
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_255968_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255968' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255968" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255968" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255968&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment%26comment=255968&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='When you copy file and redis write data simultaneously to file, your backup rdb file will become incompleted and corrupted. 
+  
+This is default config from debian package of redis 
+
+save 900 1
+save 300 10
+save 60 10000
+Redis will save db to disk: 
+every 900 seconds when 1 key have been changed or have been created 
+every 300 seconds when10 keys have been changed or have been created 
+every 60 seconds when 10000 keys have been changed or have been created 
+  
+You can calculate probability of copying corrupted file. 
+' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255968'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-255974'></a>
+<article  id='elComment_255974' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/10011-halvhjearne/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break"><span style='color:#'>Halvhjearne</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255974' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T19:46:30Z' title='07/28/15 07:46  PM' data-short='9 yr'>July 28, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/10011-halvhjearne/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Halvhjearne's profile" class="ipsType_break">Halvhjearne</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/10011-halvhjearne/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Halvhjearne's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='Halvhjearne' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Collaborator</span></li>
+				
+					<li data-role='group-icon'><img src='https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png' alt='' class='cAuthorGroupIcon'></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/10011-halvhjearne/content/" rel="nofollow" title="1479 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 1.5k
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+	
+	<li data-role='custom-field' class='ipsResponsive_hidePhone ipsType_break'>
+		
+<span class='ft'>Location</span><span class='fc'>DK</span>
+	</li>
+	
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-255974_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="255974" data-quoteData='{&quot;userid&quot;:10011,&quot;username&quot;:&quot;Halvhjearne&quot;,&quot;timestamp&quot;:1438112790,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:36726,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:255974}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+						<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_255974_menu' class='ipsComment_ellipsis' id='elControls_255974' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-255974_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_255974_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=reportComment&amp;comment=255974' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255974' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_255974_menu' data-ipsDialog-title="Share this post" id='elSharePost_255974' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255974' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T19:46:30Z' title='07/28/15 07:46  PM' data-short='9 yr'>July 28, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<blockquote data-ipsquote="" class="ipsQuote" data-ipsquote-contentcommentid="255968" data-ipsquote-contenttype="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentid="36726" data-ipsquote-username="slayer" data-cite="slayer" data-ipsquote-timestamp="1438111638"><div>
+<div>
+<p>When you copy file and redis write data simultaneously to file, your backup rdb file will become incompleted and corrupted.</p>
+<p> </p>
+<p>This is default config from debian package of redis</p>
+<pre class="ipsCode prettyprint">
+save 900 1
+save 300 10
+save 60 10000</pre>
+<p>Redis will save db to disk:</p>
+<p>every 900 seconds when 1 key have been changed or have been created</p>
+<p>every 300 seconds when10 keys have been changed or have been created</p>
+<p>every 60 seconds when 10000 keys have been changed or have been created</p>
+<p> </p>
+<p>You can calculate probability of copying corrupted file.</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>i would love to see that calculation.</p>
+<p> </p>
+<p>considdering that you will not actually change a file that is in use on a linux system, then i doubt it will happend very often that a copy of the database will be corrupt.</p>
+<p> </p>
+<p>nevertheless i have now been using this for a couple of days and i wont mind checking at some point how many is corrupted (if any), whenever i get some time.</p>
+
+
+			
+		</div>
+
+		
+
+		
+			
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_255974_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255974' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255974" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255974" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D255974&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment%26comment=255974&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='i would love to see that calculation. 
+  
+considdering that you will not actually change a file that is in use on a linux system, then i doubt it will happend very often that a copy of the database will be corrupt. 
+  
+nevertheless i have now been using this for a couple of days and i wont mind checking at some point how many is corrupted (if any), whenever i get some time. 
+' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=255974'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-256014'></a>
+<article  id='elComment_256014' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/17839-slayer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17839-slayer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to slayer's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48f%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='slayer' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/17839-slayer/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/17839-slayer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17839-slayer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to slayer's profile" class="ipsType_break"><span style='color:#'>slayer</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=256014' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T22:56:38Z' title='07/28/15 10:56  PM' data-short='9 yr'>July 28, 2015</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/17839-slayer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/17839-slayer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to slayer's profile" class="ipsType_break">slayer</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/17839-slayer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/17839-slayer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to slayer's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48f%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='slayer' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/17839-slayer/content/" rel="nofollow" title="22 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 22
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-256014_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="256014" data-quoteData='{&quot;userid&quot;:17839,&quot;username&quot;:&quot;slayer&quot;,&quot;timestamp&quot;:1438124198,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:36726,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:256014}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_256014_menu' class='ipsComment_ellipsis' id='elControls_256014' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-256014_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_256014_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=reportComment&amp;comment=256014' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=256014' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_256014_menu' data-ipsDialog-title="Share this post" id='elSharePost_256014' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=256014' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2015-07-28T22:56:38Z' title='07/28/15 10:56  PM' data-short='9 yr'>July 28, 2015</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>Sorry i am wrong about data corruption, redis devs changed algorithm of saving rdb file in some version and data corruption is not possible. Redis saves database not directly to /var/lib/redis. It creates new temp file and after database fully flushed to disk, it moves new file to /var/lib/redis/. I use redis from early versions in web development and <span><span>the problem with data corruption existed <span><span>in the past</span></span><span><span> </span></span></span></span></p>
+
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_256014_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=256014' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D256014" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D256014" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F%3Fdo%3DfindComment%26comment%3D256014&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment%26comment=256014&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='Sorry i am wrong about data corruption, redis devs changed algorithm of saving rdb file in some version and data corruption is not possible. Redis saves database not directly to /var/lib/redis. It creates new temp file and after database fully flushed to disk, it moves new file to /var/lib/redis/. I use redis from early versions in web development and the problem with data corruption existed in the past  
+' data-webShareUrl='https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/?do=findComment&amp;comment=256014'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+			
+			
+<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3" />
+
+
+		</form>
+	</div>
+
+	
+	
+	
+	
+	
+		<a id="replyForm"></a>
+	<div data-role="replyArea" class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" >
+			
+				
+				
+
+<div>
+	<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3">
+	
+		<div class='ipsType_center ipsPad'>
+			<h2 class='ipsType_pageTitle'>Please sign in to comment</h2>
+			<p class='ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half'>You will be able to leave a comment after signing in</p>
+			<br>
+			<br>
+			<a href='https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9lcG9jaG1vZC5jb20vZm9ydW0vdG9waWMvMzY3MjYtcmVkaXMtYmFja3VwLWxpbnV4LXNoZWxsLXNjcmlwdC8jcmVwbHlGb3Jt' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-remoteVerify="false" data-ipsDialog-title="Sign In Now" class='ipsButton ipsButton_alternate ipsButton_large'>Sign In Now</a>
+		</div>
+	
+</div>
+			
+		</div>
+	
+
+	
+		<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+			<div class="ipsShareLinks">
+				
+					
+
+
+    <a href='#elShareItem_567406754_menu' id='elShareItem_567406754' data-ipsMenu class='ipsShareButton ipsButton ipsButton_verySmall ipsButton_light '>
+        <span><i class='fa fa-share-alt'></i></span> &nbsp;Share
+    </a>
+
+    <div class='ipsPadding ipsMenu ipsMenu_auto ipsHide' id='elShareItem_567406754_menu' data-controller="core.front.core.sharelink">
+        <ul class='ipsList_inline'>
+            
+                <li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F36726-redis-backup-linux-shell-script%2F&amp;title=Redis+backup+-+linux+shell+script" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+            
+                <li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+            
+        </ul>
+        
+            <hr class='ipsHr'>
+            <button class='ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='Redis backup - linux shell script' data-webShareText='Redis backup - linux shell script' data-webShareUrl='index.html'>More sharing options...</button>
+        
+    </div>
+
+				
+					
+
+<div data-followApp='forums' data-followArea='topic' data-followID='36726' data-controller='core.front.core.followButton'>
+	
+
+	<a href='../../login/index.html' rel="nofollow" class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall " data-role="followButton" data-ipsTooltip title='Sign in to follow this'>
+		<span>Followers</span>
+		<span class='ipsCommentCount'>1</span>
+	</a>
+
+</div>
+				
+			</div>
+		</div>
+	
+</div>
+
+
+
+<div class="ipsPager ipsSpacer_top">
+	<div class="ipsPager_prev">
+		
+			<a href="../../forum/65-tools/index.html" title="Go to Tools" rel="parent">
+				<span class="ipsPager_type">Go to topic listing</span>
+			</a>
+		
+	</div>
+	
+</div>
+
+
+						
+
+
+	<div class='cWidgetContainer '  data-role='widgetReceiver' data-orientation='horizontal' data-widgetArea='footer'>
+		<ul class='ipsList_reset'>
+			
+				
+					
+					<li class='ipsWidget ipsWidget_horizontal ipsBox  ' data-blockID='app_core_relatedContent_sido2emh4' data-blockConfig="true" data-blockTitle="Similar Content" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+
+<h3 class='ipsWidget_title ipsType_reset'>Similar Content</h3>
+
+
+	<div class='ipsWidget_inner'>
+		<ul class='ipsDataList'>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/?preview=1' data-ipsHover-timeout='1.5' >
+									How to set up and manage multiple DayZ SA Servers responsibly 2021
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='../../profile/22784-harkness/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Harkness's profile" class="ipsType_break">Harkness</a>,  <time datetime='2021-08-11T01:28:21Z' title='08/11/21 01:28  AM' data-short='3 yr'>August 11, 2021</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/set%20up/index.html" class='ipsTag' title="Find other content tagged with 'set up'" rel="tag" data-tag-label="set up"><span>set up</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/guide/index.html" class='ipsTag' title="Find other content tagged with 'guide'" rel="tag" data-tag-label="guide"><span>guide</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_1335708777'>(and 19 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_1335708777_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/set%20up/index.html" class='ipsTag' title="Find other content tagged with 'set up'" rel="tag" data-tag-label="set up"><span>set up</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/guide/index.html" class='ipsTag' title="Find other content tagged with 'guide'" rel="tag" data-tag-label="guide"><span>guide</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/tutorial/index.html" class='ipsTag' title="Find other content tagged with 'tutorial'" rel="tag" data-tag-label="tutorial"><span>tutorial</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/dayz/index.html" class='ipsTag' title="Find other content tagged with 'dayz'" rel="tag" data-tag-label="dayz"><span>dayz</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/standalone/index.html" class='ipsTag' title="Find other content tagged with 'standalone'" rel="tag" data-tag-label="standalone"><span>standalone</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/server/index.html" class='ipsTag' title="Find other content tagged with 'server'" rel="tag" data-tag-label="server"><span>server</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/how/index.html" class='ipsTag' title="Find other content tagged with 'how'" rel="tag" data-tag-label="how"><span>how</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/manage/index.html" class='ipsTag' title="Find other content tagged with 'manage'" rel="tag" data-tag-label="manage"><span>manage</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/multiple/index.html" class='ipsTag' title="Find other content tagged with 'multiple'" rel="tag" data-tag-label="multiple"><span>multiple</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/game/index.html" class='ipsTag' title="Find other content tagged with 'game'" rel="tag" data-tag-label="game"><span>game</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/restart/index.html" class='ipsTag' title="Find other content tagged with 'restart'" rel="tag" data-tag-label="restart"><span>restart</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/backup/index-2.html" class='ipsTag' title="Find other content tagged with 'backup'" rel="tag" data-tag-label="backup"><span>backup</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/archive/index.html" class='ipsTag' title="Find other content tagged with 'archive'" rel="tag" data-tag-label="archive"><span>archive</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/bec/index.html" class='ipsTag' title="Find other content tagged with 'bec'" rel="tag" data-tag-label="bec"><span>bec</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/battleye/index.html" class='ipsTag' title="Find other content tagged with 'battleye'" rel="tag" data-tag-label="battleye"><span>battleye</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/battleye%20extended%20controls/index.html" class='ipsTag' title="Find other content tagged with 'battleye extended controls'" rel="tag" data-tag-label="battleye extended controls"><span>battleye extended controls</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/warning/index.html" class='ipsTag' title="Find other content tagged with 'warning'" rel="tag" data-tag-label="warning"><span>warning</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/message/index.html" class='ipsTag' title="Find other content tagged with 'message'" rel="tag" data-tag-label="message"><span>message</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/player/index.html" class='ipsTag' title="Find other content tagged with 'player'" rel="tag" data-tag-label="player"><span>player</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/walkthrough/index.html" class='ipsTag' title="Find other content tagged with 'walkthrough'" rel="tag" data-tag-label="walkthrough"><span>walkthrough</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/2021/index.html" class='ipsTag' title="Find other content tagged with '2021'" rel="tag" data-tag-label="2021"><span>2021</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>0</span>
+								<span class='ipsDataItem_stats_type'> replies</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1358</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/22784-harkness/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to Harkness's profile">
+		<img src='../../uploads/monthly_2020_09/224236537_69223110_10212121577993051_3324963234439495680_n(1)(1)(1)(1)(1).thumb.jpg.2c25a9fd8dfc519e71c8ffa92d07a93c.jpg' alt='Harkness' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/22784-harkness/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Harkness's profile" class="ipsType_break">Harkness</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2021-08-11T01:28:21Z' title='08/11/21 01:28  AM' data-short='3 yr'>August 11, 2021</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='../33927-taxi-bus-transport-for-arma/index.html' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/?preview=1' data-ipsHover-timeout='1.5' >
+									Taxi &amp; Bus   |   Transport for Arma
+								</a>
+							</span>
+							
+								
+
+	<span class='ipsPagination ipsPagination_mini' id='elPagination_642210129e563b6e03b9b2ee752354c5'>
+		
+			<span class='ipsPagination_page'><a href='../33927-taxi-bus-transport-for-arma/index.html#comments' data-ipsTooltip title='Go to page 1'>1</a></span>
+		
+			<span class='ipsPagination_page'><a href='../33927-taxi-bus-transport-for-arma/page/2/index.html#comments' data-ipsTooltip title='Go to page 2'>2</a></span>
+		
+			<span class='ipsPagination_page'><a href='../33927-taxi-bus-transport-for-arma/page/3/index.html#comments' data-ipsTooltip title='Go to page 3'>3</a></span>
+		
+			<span class='ipsPagination_page'><a href='../33927-taxi-bus-transport-for-arma/page/4/index.html#comments' data-ipsTooltip title='Go to page 4'>4</a></span>
+		
+		
+			<span class='ipsPagination_last'><a href='../33927-taxi-bus-transport-for-arma/page/9/index.html#comments' data-ipsTooltip title='Last page'>9 <i class='fa fa-caret-right'></i></a></span>
+		
+	</span>
+
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='../../profile/16852-mgm/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to mgm's profile" class="ipsType_break">mgm</a>,  <time datetime='2015-04-02T00:18:36Z' title='04/02/15 12:18  AM' data-short='10 yr'>April 2, 2015</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/script/index.html" class='ipsTag' title="Find other content tagged with 'script'" rel="tag" data-tag-label="script"><span>script</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/public%20transport/index.html" class='ipsTag' title="Find other content tagged with 'public transport'" rel="tag" data-tag-label="public transport"><span>public transport</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_795785639'>(and 6 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_795785639_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/script/index.html" class='ipsTag' title="Find other content tagged with 'script'" rel="tag" data-tag-label="script"><span>script</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/public%20transport/index.html" class='ipsTag' title="Find other content tagged with 'public transport'" rel="tag" data-tag-label="public transport"><span>public transport</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/transport/index.html" class='ipsTag' title="Find other content tagged with 'transport'" rel="tag" data-tag-label="transport"><span>transport</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/bus/index.html" class='ipsTag' title="Find other content tagged with 'bus'" rel="tag" data-tag-label="bus"><span>bus</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/buses/index.html" class='ipsTag' title="Find other content tagged with 'buses'" rel="tag" data-tag-label="buses"><span>buses</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/taxis/index.html" class='ipsTag' title="Find other content tagged with 'taxis'" rel="tag" data-tag-label="taxis"><span>taxis</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/taxi/index.html" class='ipsTag' title="Find other content tagged with 'taxi'" rel="tag" data-tag-label="taxi"><span>taxi</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/wip/index.html" class='ipsTag' title="Find other content tagged with 'wip'" rel="tag" data-tag-label="wip"><span>wip</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>201</span>
+								<span class='ipsDataItem_stats_type'> replies</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>36833</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/16852-mgm/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to mgm's profile">
+		<img src='../../uploads/profile/photo-thumb-16852.jpg' alt='mgm' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/16852-mgm/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to mgm's profile" class="ipsType_break">mgm</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='../33927-taxi-bus-transport-for-arma/index.html' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2021-01-21T22:22:22Z' title='01/21/21 10:22  PM' data-short='4 yr'>January 21, 2021</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+								<span>
+
+	<a href="../../tags/script/index.html" title="Find other content tagged with 'script'" class='ipsTag_prefix' rel="tag" data-tag-label='script'><span>script</span></a>
+</span>
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/45150-safeslockboxes-with-eyescan-option/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/45150-safeslockboxes-with-eyescan-option/?preview=1' data-ipsHover-timeout='1.5' >
+									Safe&#039;s/Lockboxe&#039;s with Eyescan option!
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='https://epochmod.com/forum/profile/39234-tyrant50187/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39234-tyrant50187/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to tyrant50187's profile" class="ipsType_break">tyrant50187</a>,  <time datetime='2018-06-13T08:38:31Z' title='06/13/18 08:38  AM' data-short='7 yr'>June 13, 2018</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/dayz/index.html" class='ipsTag' title="Find other content tagged with 'dayz'" rel="tag" data-tag-label="dayz"><span>dayz</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/eyescan/" class='ipsTag' title="Find other content tagged with 'eyescan'" rel="tag" data-tag-label="eyescan"><span>eyescan</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_1970133358'>(and 2 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_1970133358_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/dayz/index.html" class='ipsTag' title="Find other content tagged with 'dayz'" rel="tag" data-tag-label="dayz"><span>dayz</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/eyescan/" class='ipsTag' title="Find other content tagged with 'eyescan'" rel="tag" data-tag-label="eyescan"><span>eyescan</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/retina/" class='ipsTag' title="Find other content tagged with 'retina'" rel="tag" data-tag-label="retina"><span>retina</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/oa/" class='ipsTag' title="Find other content tagged with 'oa'" rel="tag" data-tag-label="oa"><span>oa</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>0</span>
+								<span class='ipsDataItem_stats_type'> answers</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1044</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="https://epochmod.com/forum/profile/39234-tyrant50187/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39234-tyrant50187/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to tyrant50187's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23ad62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ET%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='tyrant50187' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='https://epochmod.com/forum/profile/39234-tyrant50187/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39234-tyrant50187/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to tyrant50187's profile" class="ipsType_break">tyrant50187</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/45150-safeslockboxes-with-eyescan-option/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2018-06-13T08:38:31Z' title='06/13/18 08:38  AM' data-short='7 yr'>June 13, 2018</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/45073-new-arma-2-overpoch-server-need-assistance/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/45073-new-arma-2-overpoch-server-need-assistance/?preview=1' data-ipsHover-timeout='1.5' >
+									New Arma 2 Overpoch Server, Need Assistance
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='https://epochmod.com/forum/profile/39180-bloodthirsty/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39180-bloodthirsty/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to Bloodthirsty's profile" class="ipsType_break">Bloodthirsty</a>,  <time datetime='2018-04-19T02:28:20Z' title='04/19/18 02:28  AM' data-short='7 yr'>April 19, 2018</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/overpoch/index.html" class='ipsTag' title="Find other content tagged with 'overpoch'" rel="tag" data-tag-label="overpoch"><span>overpoch</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/arma%202/index.html" class='ipsTag' title="Find other content tagged with 'arma 2'" rel="tag" data-tag-label="arma 2"><span>arma 2</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_1087264501'>(and 5 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_1087264501_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/overpoch/index.html" class='ipsTag' title="Find other content tagged with 'overpoch'" rel="tag" data-tag-label="overpoch"><span>overpoch</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/arma%202/index.html" class='ipsTag' title="Find other content tagged with 'arma 2'" rel="tag" data-tag-label="arma 2"><span>arma 2</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/script help/" class='ipsTag' title="Find other content tagged with 'script help'" rel="tag" data-tag-label="script help"><span>script help</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/scripting/" class='ipsTag' title="Find other content tagged with 'scripting'" rel="tag" data-tag-label="scripting"><span>scripting</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/coding/" class='ipsTag' title="Find other content tagged with 'coding'" rel="tag" data-tag-label="coding"><span>coding</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/script/index.html" class='ipsTag' title="Find other content tagged with 'script'" rel="tag" data-tag-label="script"><span>script</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/scripts/index.html" class='ipsTag' title="Find other content tagged with 'scripts'" rel="tag" data-tag-label="scripts"><span>scripts</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1</span>
+								<span class='ipsDataItem_stats_type'> answer</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>2042</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/36459-jasontm/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/36459-jasontm/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to JasonTM's profile">
+		<img src='../../uploads/monthly_2017_06/Beavis-1.thumb.png.b0246a6a6bc425610528f875120ee18c.png' alt='JasonTM' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/36459-jasontm/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/36459-jasontm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to JasonTM's profile" class="ipsType_break">JasonTM</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/45073-new-arma-2-overpoch-server-need-assistance/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2018-04-19T03:15:36Z' title='04/19/18 03:15  AM' data-short='7 yr'>April 19, 2018</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/44958-loot-spawn-cycling-issue/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/44958-loot-spawn-cycling-issue/?preview=1' data-ipsHover-timeout='1.5' >
+									Loot spawn cycling issue
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='https://epochmod.com/forum/profile/16775-randall421/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/16775-randall421/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to randall421's profile" class="ipsType_break">randall421</a>,  <time datetime='2018-03-05T23:03:10Z' title='03/05/18 11:03  PM' data-short='7 yr'>March 5, 2018</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/loot/index.html" class='ipsTag' title="Find other content tagged with 'loot'" rel="tag" data-tag-label="loot"><span>loot</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/cycling/" class='ipsTag' title="Find other content tagged with 'cycling'" rel="tag" data-tag-label="cycling"><span>cycling</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_1247916140'>(and 9 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_1247916140_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/loot/index.html" class='ipsTag' title="Find other content tagged with 'loot'" rel="tag" data-tag-label="loot"><span>loot</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/cycling/" class='ipsTag' title="Find other content tagged with 'cycling'" rel="tag" data-tag-label="cycling"><span>cycling</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/lootspawn/" class='ipsTag' title="Find other content tagged with 'lootspawn'" rel="tag" data-tag-label="lootspawn"><span>lootspawn</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/spawn/index.html" class='ipsTag' title="Find other content tagged with 'spawn'" rel="tag" data-tag-label="spawn"><span>spawn</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/custom/index.html" class='ipsTag' title="Find other content tagged with 'custom'" rel="tag" data-tag-label="custom"><span>custom</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/script/index.html" class='ipsTag' title="Find other content tagged with 'script'" rel="tag" data-tag-label="script"><span>script</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/looting/" class='ipsTag' title="Find other content tagged with 'looting'" rel="tag" data-tag-label="looting"><span>looting</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/respawn/index.html" class='ipsTag' title="Find other content tagged with 'respawn'" rel="tag" data-tag-label="respawn"><span>respawn</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/check/" class='ipsTag' title="Find other content tagged with 'check'" rel="tag" data-tag-label="check"><span>check</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/sqf/index.html" class='ipsTag' title="Find other content tagged with 'sqf'" rel="tag" data-tag-label="sqf"><span>sqf</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/jj/" class='ipsTag' title="Find other content tagged with 'jj'" rel="tag" data-tag-label="jj"><span>jj</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1</span>
+								<span class='ipsDataItem_stats_type'> answer</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>1159</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="../../profile/36515-salival/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/36515-salival/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to salival's profile">
+		<img src='../../uploads/monthly_2016_05/b84cf4d1aa73b74e143305e7172d6a3dd39385f4_full.jpg.90d0dacf6cbf51d45b1157f2febc3297.thumb.jpg.a08b1d9294bccac33e8059e83ea7d415.jpg' alt='salival' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='../../profile/36515-salival/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/36515-salival/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F36726-redis-backup-linux-shell-script%252F' title="Go to salival's profile" class="ipsType_break">salival</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/44958-loot-spawn-cycling-issue/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2018-03-06T01:24:03Z' title='03/06/18 01:24  AM' data-short='7 yr'>March 6, 2018</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+</li>
+				
+					
+					<li class='ipsWidget ipsWidget_horizontal ipsBox  ' data-blockID='app_cms_Blocks_mtkskjhzs' data-blockConfig="true" data-blockTitle="Custom Blocks" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+Advertisement
+
+
+</li>
+				
+			
+		</ul>
+	</div>
+
+					</div>
+					
+
+
+	<div id='ipsLayout_sidebar' class='ipsLayout_sidebarright ' data-controller='core.front.widgets.sidebar'>
+		
+		
+		
+		
+
+
+	<div class='cWidgetContainer '  data-role='widgetReceiver' data-orientation='vertical' data-widgetArea='sidebar'>
+		<ul class='ipsList_reset'>
+			
+				
+					
+					<li class='ipsWidget ipsWidget_vertical ipsBox  ' data-blockID='app_cms_Wysiwyg_hbjjvq53w' data-blockConfig="true" data-blockTitle="WYSIWYG Editor" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+<div class='ipsWidget_inner ipsPad ipsType_richText' data-controller='core.front.core.lightboxedImages'>
+	<p>
+	<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;" /></a>
+</p>
+</div>
+</li>
+				
+			
+		</ul>
+	</div>
+
+	</div>
+
+					
+<nav class='ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover'>
+	
+		
+
+
+	
+
+	<ul class='ipsList_inline ipsPos_right'>
+		
+		<li >
+			<a data-action="defaultStream" class='ipsType_light '  href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>All Activity</span></a>
+		</li>
+		
+	</ul>
+
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href='../../index.html'>
+				<span>Home <i class='fa fa-angle-right'></i></span>
+			</a>
+		</li>
+		
+		
+			<li>
+				
+					<a href='../../forum/41-arma-3/index.html'>
+						<span>ArmA 3 <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/67-community-projects/index.html'>
+						<span>Community Projects <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/65-tools/index.html'>
+						<span>Tools <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					Redis backup - linux shell script
+				
+			</li>
+		
+	</ul>
+</nav>
+				</div>
+			</div>
+			
+		</main>
+		<footer id='ipsLayout_footer' class='ipsClearfix'>
+			<div class='ipsLayout_container'>
+				
+				
+
+<ul id='elFooterSocialLinks' class='ipsList_inline ipsType_center ipsSpacer_top'>
+	
+
+	
+		<li class='cUserNav_icon'>
+			<a href='https://facebook.com/EpochMod' target='_blank' class='cShareLink cShareLink_facebook' rel='noopener noreferrer'><i class='fa fa-facebook'></i></a>
+		</li>
+	
+		<li class='cUserNav_icon'>
+			<a href='https://twitter.com/EpochMod' target='_blank' class='cShareLink cShareLink_twitter' rel='noopener noreferrer'><i class='fa fa-twitter'></i></a>
+		</li>
+	
+		<li class='cUserNav_icon'>
+			<a href='https://github.com/EpochModTeam/' target='_blank' class='cShareLink cShareLink_github' rel='noopener noreferrer'><i class='fa fa-github'></i></a>
+		</li>
+	
+
+</ul>
+
+
+<ul class='ipsList_inline ipsType_center ipsSpacer_top' id="elFooterLinks">
+	
+	
+	
+	
+	
+	
+		<li><a rel="nofollow" href='../../contact/index.html' data-ipsdialog data-ipsDialog-remoteSubmit data-ipsDialog-flashMessage='Thanks, your message has been sent to the administrators.' data-ipsdialog-title="Contact Us">Contact Us</a></li>
+	
+</ul>	
+
+
+<p id='elCopyright'>
+	<span id='elCopyright_userLine'>Copyright © 2019 Epoch Mod Team</span>
+	<a rel='nofollow' title='Invision Community' href='https://www.invisioncommunity.com/'>Powered by Invision Community</a>
+</p>
+			</div>
+		</footer>
+		
+<div id='elMobileDrawer' class='ipsDrawer ipsHide'>
+	<div class='ipsDrawer_menu'>
+		<a href='#' class='ipsDrawer_close' data-action='close'><span>&times;</span></a>
+		<div class='ipsDrawer_content ipsFlex ipsFlex-fd:column'>
+			
+				<div class='ipsPadding ipsBorder_bottom'>
+					<ul class='ipsToolList ipsToolList_vertical'>
+						<li>
+							<a href='../../login/index.html' id='elSigninButton_mobile' class='ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth'>Existing user? Sign In</a>
+						</li>
+						
+					</ul>
+				</div>
+			
+
+			
+
+			<ul class='ipsDrawer_list ipsFlex-flex:11'>
+				
+
+				
+				
+				
+				
+					
+						
+						
+							<li><a href="https://epochmod.com/">Home</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../projects/index.html' >Downloads</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../index.html' >Forums</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='http://epochmod.gamepedia.com/' target='_blank' rel="noopener">Wiki</a></li>
+						
+					
+				
+					
+						
+						
+							<li class='ipsDrawer_itemParent'>
+								<h4 class='ipsDrawer_title'><a href='#'>Browse</a></h4>
+								<ul class='ipsDrawer_list'>
+									<li data-action="back"><a href='#'>Back</a></li>
+									
+									
+										
+										
+										
+											
+										
+											
+												
+											
+										
+											
+												
+											
+										
+									
+													
+									
+									
+									
+										
+
+
+	
+
+	
+		
+			<li>
+				<a href='../../staff/index.html' >
+					Staff
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../online/index.html' >
+					Online Users
+				</a>
+			</li>
+		
+	
+
+										
+								</ul>
+							</li>
+						
+					
+				
+					
+						
+						
+							<li class='ipsDrawer_itemParent'>
+								<h4 class='ipsDrawer_title'><a href='#'>Activity</a></h4>
+								<ul class='ipsDrawer_list'>
+									<li data-action="back"><a href='#'>Back</a></li>
+									
+									
+										
+										
+										
+											
+												
+													
+													
+									
+													
+									
+									
+									
+										
+
+
+	
+		
+			<li>
+				<a href='../../discover/index.html' >
+					All Activity
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='#' >
+					My Activity Streams
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../discover/unread/index.html' >
+					Unread Content
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../discover/content-started/index.html' >
+					Content I Started
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../search/index.html' >
+					Search
+				</a>
+			</li>
+		
+	
+
+										
+								</ul>
+							</li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../leaderboard/index.html' >Leaderboard</a></li>
+						
+					
+				
+					
+				
+					
+				
+				
+			</ul>
+
+			
+		</div>
+	</div>
+</div>
+
+<div id='elMobileCreateMenuDrawer' class='ipsDrawer ipsHide'>
+	<div class='ipsDrawer_menu'>
+		<a href='#' class='ipsDrawer_close' data-action='close'><span>&times;</span></a>
+		<div class='ipsDrawer_content ipsSpacer_bottom ipsPad'>
+			<ul class='ipsDrawer_list'>
+				<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+		
+		
+
+	
+	<script type='text/javascript'>
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = '../../applications/core/interface/ckeditor/ckeditor/index.html';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "36ed90c8cc4fe240ad7ebf7ca30612f3",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+
+
+
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_library0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_js_lang_10673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_framework0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_core/global_global_core0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_front0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_core/front_front_core0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_forums/front_front_topic0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_map0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+
+	<script type='text/javascript'>
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+
+
+
+<script type='application/ld+json'>
+{
+    "name": "Redis backup - linux shell script",
+    "headline": "Redis backup - linux shell script",
+    "text": "i just threw this together, cause i wanted to backup my database once in a while, however i do not want be held responsible for anything you do to your system. \n\u00a0 \npls remeber to backup anything you hold dearly before using this and NEVER use this with root permissions! \n\u00a0 \nhttp://pastebin.com/iBiZkvUb \n\u00a0 \nif setup correctly the script will backup the database to a folder named the day of the week, database name/folder will be something like: \n\n/whatever/dayoftheweek/dump_2015_26-07_14.00-01.rdb\n\nIf you do not plan to use the same user, that runs redis-server to run the backup script, then you will need to make sure the dump.rdb is written with permissions to allow this. \n\u00a0 \nby default redis-server will be starting with --umask 007 flag, to change it you need to change the redis-server init script (mine was located at /etc/init.d/redis-server). \n\u00a0 \nfind the line that starts like this: \n\nif start-stop-daemon --start --quiet --umask 003\n\nthis is whats important: \n\n--umask 007\n\nwe will need to change this to something like: \n\n--umask 003\n\nnow it will write the file with read permissions for all users (-rw-rw-r--). \n\u00a0 \nnow make sure to restart redis-server: \n\nservice redis-server restart\n\nchange the path\u0027s on top of the script to determin where the database is located: \n\n# set path to where your redis.rdb file is located\nREDISDBDIR=/var/lib/redis\n\nand where you want the files to end up: \n\n# set path to where you want the db file to end up\nDBBACKUPDIR=/media/9c2af2c6-2d7e-4383-9255-6fa2b6d58a28/SysDisk/armabackup\n\nif you want it to delete or show you old database files you can use/uncomment the lines on the bottom: \n\n##########################################################\n# Change how long you want to save a database copy below #\n##########################################################\n \n#show old db\u0027s, uncomment to use:\n                            #-mmin = +minutes\n#find ${DBBACKUPDIR} -type f -mmin +240\n                            #-mtime = +days\n#find ${DBBACKUPDIR} -type f -mtime +3\n################## IMPORTANT: ############################\n# delete db\u0027s older than 7days, change the 7 below       #\n# or comment out with a # infront of the line to disable #\n##########################################################\n#find $DBBACKUPDIR -type f -mtime +7 -delete\n\nhave fun \n\u00a0 \nRegards \nHalv \n",
+    "dateCreated": "2015-07-26T12:49:41+0000",
+    "datePublished": "2015-07-26T12:49:41+0000",
+    "dateModified": "2015-07-28T22:56:38+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "Halvhjearne",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/10011-halvhjearne/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 4467
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 5
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "Halvhjearne",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/10011-halvhjearne/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/",
+    "discussionUrl": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255877",
+            "url": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255877",
+            "author": {
+                "@type": "Person",
+                "name": "slayer",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/17839-slayer/"
+            },
+            "dateCreated": "2015-07-28T12:25:04+0000",
+            "text": "This is incorrect practice of doing backup of redis. \n\u00a0 \nYou need to call \n\nredis-cli bgsave \nto force redis write database from memory to disk, then wait 10-15 minutes and copy rdb file to your backup directory. If you just copy rdb file from redis directory it may be corrupted or mistimed. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255880",
+            "url": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255880",
+            "author": {
+                "@type": "Person",
+                "name": "Halvhjearne",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/10011-halvhjearne/"
+            },
+            "dateCreated": "2015-07-28T12:47:41+0000",
+            "text": "i doubt it would become corrupted, but you are right it might be a good idea to save the db before you copy it. \n\u00a0 \nhowever, if enough keys has been changed recently (wich will usually happend right before a restart) and you setup redis to save correctly, then i dont see a problem with using just this. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255968",
+            "url": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255968",
+            "author": {
+                "@type": "Person",
+                "name": "slayer",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/17839-slayer/"
+            },
+            "dateCreated": "2015-07-28T19:27:18+0000",
+            "text": "When you copy file and redis write data simultaneously to file, your backup rdb file will become incompleted and corrupted. \n\u00a0 \nThis is default config from debian package of redis \n\nsave 900 1\nsave 300 10\nsave 60 10000\nRedis will save db to disk: \nevery 900 seconds when 1 key have been changed or have been created \nevery 300 seconds when10 keys have been changed or have been created \nevery 60 seconds when 10000 keys have been changed or have been created \n\u00a0 \nYou can calculate probability of copying corrupted file. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255974",
+            "url": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-255974",
+            "author": {
+                "@type": "Person",
+                "name": "Halvhjearne",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/10011-halvhjearne/"
+            },
+            "dateCreated": "2015-07-28T19:46:30+0000",
+            "text": "i would love to see that calculation. \n\u00a0 \nconsiddering that you will not actually change a file that is in use on a linux system, then i doubt it will happend very often that a copy of the database will be corrupt. \n\u00a0 \nnevertheless i have now been using this for a couple of days and i wont mind checking at some point how many is corrupted (if any), whenever i get some time. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-256014",
+            "url": "https://epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/#comment-256014",
+            "author": {
+                "@type": "Person",
+                "name": "slayer",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/17839-slayer/"
+            },
+            "dateCreated": "2015-07-28T22:56:38+0000",
+            "text": "Sorry i am wrong about data corruption, redis devs changed algorithm of saving rdb file in some version and data corruption is not possible. Redis saves database not directly to /var/lib/redis. It creates new temp file and after database fully flushed to disk, it moves new file to /var/lib/redis/. I use redis from early versions in web development and the problem with data corruption existed in the past  \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/67-community-projects/",
+                "name": "Community Projects"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/65-tools/",
+                "name": "Tools"
+            }
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+
+
+
+<script type='text/javascript'>
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+
+		
+		<!--ipsQueryLog-->
+		<!--ipsCachingLog-->
+		
+		
+		
+        
+	</body>
+
+<!-- Mirrored from epochmod.com/forum/topic/36726-redis-backup-linux-shell-script/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Jul 2025 05:49:44 GMT -->
+</html>

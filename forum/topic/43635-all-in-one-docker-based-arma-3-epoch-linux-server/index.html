@@ -1,0 +1,3840 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	
+<!-- Mirrored from epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Jul 2025 05:50:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        
+		<title>All-In-One Docker based Arma 3 Epoch Linux Server - Tutorials - Epoch Mod Community</title>
+		
+			<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		
+		
+		
+		
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	
+	
+		<meta property="og:image" content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png">
+	
+
+
+	<meta name="twitter:card" content="summary_large_image" />
+
+
+	
+		<meta name="twitter:site" content="@EpochMod" />
+	
+
+
+	
+		
+			
+				<meta property="og:title" content="All-In-One Docker based Arma 3 Epoch Linux Server">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:type" content="website">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:url" content="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/">
+			
+		
+	
+
+	
+		
+			
+				<meta name="description" content="The goal of this Docker image is to automate the install and setup of a Linux based Arma 3 server with the latest stable version of Epoch. First, install docker: https://www.docker.com/. Next, Start by pulling the docker image: docker pull epochmodteam/arma3epochserver https://hub.docker.com/r/ep...">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:description" content="The goal of this Docker image is to automate the install and setup of a Linux based Arma 3 server with the latest stable version of Epoch. First, install docker: https://www.docker.com/. Next, Start by pulling the docker image: docker pull epochmodteam/arma3epochserver https://hub.docker.com/r/ep...">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:updated_time" content="2018-05-10T03:02:12Z">
+			
+		
+	
+
+	
+		
+			
+				<meta name="keywords" content="docker">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:site_name" content="Epoch Mod Community">
+			
+		
+	
+
+	
+		
+			
+				<meta property="og:locale" content="en_US">
+			
+		
+	
+
+
+	
+		<link rel="canonical" href="index.html" />
+	
+
+
+
+
+<link rel="manifest" href="../../manifest.webmanifest/index.html">
+<meta name="msapplication-config" content="https://epochmod.com/forum/browserconfig.xml/">
+<meta name="msapplication-starturl" content="/">
+<meta name="application-name" content="Epoch Mod Community">
+<meta name="apple-mobile-web-app-title" content="Epoch Mod Community">
+
+	<meta name="theme-color" content="#000000">
+
+
+
+
+
+
+
+
+
+
+<link rel="preload" href="../../applications/core/interface/font/fontawesome-webfont3e6e.woff2?v=4.7.0" as="font" crossorigin="anonymous">
+		
+
+
+
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_frameworkc11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_corec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forumsc11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsivec11f.css?v=7f6edac1d51681449780' media='all'>
+
+	<link rel='stylesheet' href='../../uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topicsc11f.css?v=7f6edac1d51681449780' media='all'>
+
+
+
+
+
+<link rel='stylesheet' href='../../uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_customc11f.css?v=7f6edac1d51681449780' media='all'>
+
+
+
+
+		
+		
+
+	
+	<link rel='shortcut icon' href='../../uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico' type="image/x-icon">
+
+	</head>
+	<body class='ipsApp ipsApp_front ipsJS_none ipsClearfix' data-controller='core.front.core.app' data-message="" data-pageApp='forums' data-pageLocation='front' data-pageModule='forums' data-pageController='topic' data-pageID='43635'  >
+		
+        
+
+        
+
+		<a href='#ipsLayout_mainArea' class='ipsHide' title='Go to main content on this page' accesskey='m'>Jump to content</a>
+		
+
+
+
+
+
+		<div id='ipsLayout_header' class='ipsClearfix'>
+			<header>
+				<div class='ipsLayout_container'>
+					
+
+
+<a href='../../index.html' id='elLogo' accesskey='1'><img src="../../uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png" alt='Epoch Mod Community'></a>
+
+					
+						
+
+	<ul id='elUserNav' class='ipsList_inline cSignedOut ipsResponsive_showDesktop'>
+		
+        
+		
+        
+        
+            
+            <li id='elSignInLink'>
+                <a href='../../login/index.html' data-ipsMenu-closeOnClick="false" data-ipsMenu id='elUserSignIn'>
+                    Existing user? Sign In &nbsp;<i class='fa fa-caret-down'></i>
+                </a>
+                
+<div id='elUserSignIn_menu' class='ipsMenu ipsMenu_auto ipsHide'>
+	<form accept-charset='utf-8' method='post' action='https://epochmod.com/forum/login/'>
+		<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3">
+		<input type="hidden" name="ref" value="aHR0cHM6Ly9lcG9jaG1vZC5jb20vZm9ydW0vdG9waWMvNDM2MzUtYWxsLWluLW9uZS1kb2NrZXItYmFzZWQtYXJtYS0zLWVwb2NoLWxpbnV4LXNlcnZlci8=">
+		<div data-role="loginForm">
+			
+			
+			
+				
+<div class="ipsPad ipsForm ipsForm_vertical">
+	<h4 class="ipsType_sectionHead">Sign In</h4>
+	<br><br>
+	<ul class='ipsList_reset'>
+		<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+			
+			
+				<input type="text" placeholder="Display Name or Email Address" name="auth" autocomplete="email">
+			
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+			<input type="password" placeholder="Password" name="password" autocomplete="current-password">
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+			<span class="ipsCustomInput">
+				<input type="checkbox" name="remember_me" id="remember_me_checkbox" value="1" checked aria-checked="true">
+				<span></span>
+			</span>
+			<div class="ipsFieldRow_content">
+				<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+				<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+			</div>
+		</li>
+		<li class="ipsFieldRow ipsFieldRow_fullWidth">
+			<button type="submit" name="_processLogin" value="usernamepassword" class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit">Sign In</button>
+			
+				<p class="ipsType_right ipsType_small">
+					
+						<a href='../../lostpassword/index.html' data-ipsDialog data-ipsDialog-title='Forgot your password?'>
+					
+					Forgot your password?</a>
+				</p>
+			
+		</li>
+	</ul>
+</div>
+			
+		</div>
+	</form>
+</div>
+            </li>
+            
+        
+		
+	</ul>
+
+						
+<ul class='ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop'>
+	<li data-ipsDrawer data-ipsDrawer-drawerElem='#elMobileDrawer'>
+		<a href='#'>
+			
+			
+				
+			
+			
+			
+			<i class='fa fa-navicon'></i>
+		</a>
+	</li>
+</ul>
+					
+				</div>
+			</header>
+			
+
+	<nav data-controller='core.front.core.navBar' class=' ipsResponsive_showDesktop'>
+		<div class='ipsNavBar_primary ipsLayout_container '>
+			<ul data-role="primaryNavBar" class='ipsClearfix'>
+				
+
+
+	
+		
+		
+		<li  id='elNavSecondary_18' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="https://epochmod.com/" data-navItem-id="18">
+					Home<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_12' data-role="navBarItem" data-navApp="cms" data-navExt="Pages">
+			
+			
+				<a href="../../projects/index.html"  data-navItem-id="12" >
+					Downloads<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+			
+		
+		<li class='ipsNavBar_active' data-active id='elNavSecondary_8' data-role="navBarItem" data-navApp="forums" data-navExt="Forums">
+			
+			
+				<a href="../../index.html"  data-navItem-id="8" data-navDefault>
+					Forums<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_13' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="http://epochmod.gamepedia.com/" target='_blank' rel="noopener" data-navItem-id="13" >
+					Wiki<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_1' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="../../index.html"  data-navItem-id="1" >
+					Browse<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+				<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+					
+
+
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_10' data-role="navBarItem" data-navApp="core" data-navExt="StaffDirectory">
+			
+			
+				<a href="../../staff/index.html"  data-navItem-id="10" >
+					Staff<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_11' data-role="navBarItem" data-navApp="core" data-navExt="OnlineUsers">
+			
+			
+				<a href="../../online/index.html"  data-navItem-id="11" >
+					Online Users<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+					<li class='ipsHide' id='elNavigationMore_1' data-role='navMore'>
+						<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_1' id='elNavigationMore_1_dropdown'>More <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_1_dropdown_menu' data-role='moreDropdown'></ul>
+					</li>
+				</ul>
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_2' data-role="navBarItem" data-navApp="core" data-navExt="CustomItem">
+			
+			
+				<a href="../../discover/index.html"  data-navItem-id="2" >
+					Activity<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+				<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+					
+
+
+	
+		
+		
+		<li  id='elNavSecondary_3' data-role="navBarItem" data-navApp="core" data-navExt="AllActivity">
+			
+			
+				<a href="../../discover/index.html"  data-navItem-id="3" >
+					All Activity<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_4' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreams">
+			
+			
+				<a href="#"  data-navItem-id="4" >
+					My Activity Streams<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_5' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreamsItem">
+			
+			
+				<a href="../../discover/unread/index.html"  data-navItem-id="5" >
+					Unread Content<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_6' data-role="navBarItem" data-navApp="core" data-navExt="YourActivityStreamsItem">
+			
+			
+				<a href="../../discover/content-started/index.html"  data-navItem-id="6" >
+					Content I Started<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_7' data-role="navBarItem" data-navApp="core" data-navExt="Search">
+			
+			
+				<a href="../../search/index.html"  data-navItem-id="7" >
+					Search<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+					<li class='ipsHide' id='elNavigationMore_2' data-role='navMore'>
+						<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_2' id='elNavigationMore_2_dropdown'>More <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_2_dropdown_menu' data-role='moreDropdown'></ul>
+					</li>
+				</ul>
+			
+		</li>
+	
+	
+
+	
+		
+		
+		<li  id='elNavSecondary_19' data-role="navBarItem" data-navApp="core" data-navExt="Leaderboard">
+			
+			
+				<a href="../../leaderboard/index.html"  data-navItem-id="19" >
+					Leaderboard<span class='ipsNavBar_active__identifier'></span>
+				</a>
+			
+			
+		</li>
+	
+	
+
+	
+	
+
+	
+	
+
+				<li class='ipsHide' id='elNavigationMore' data-role='navMore'>
+					<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore' id='elNavigationMore_dropdown'>More</a>
+					<ul class='ipsNavBar_secondary ipsHide' data-role='secondaryNavBar'>
+						<li class='ipsHide' id='elNavigationMore_more' data-role='navMore'>
+							<a href='#' data-ipsMenu data-ipsMenu-appendTo='#elNavigationMore_more' id='elNavigationMore_more_dropdown'>More <i class='fa fa-caret-down'></i></a>
+							<ul class='ipsHide ipsMenu ipsMenu_auto' id='elNavigationMore_more_dropdown_menu' data-role='moreDropdown'></ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+
+	<div id="elSearchWrapper">
+		<div id='elSearch' data-controller="core.front.core.quickSearch">
+			<form accept-charset='utf-8' action='http://epochmod.com/forum/search/?do=quicksearch' method='post'>
+                <input type='search' id='elSearchField' placeholder='Search...' name='q' autocomplete='off' aria-label='Search'>
+                <details class='cSearchFilter'>
+                    <summary class='cSearchFilter__text'></summary>
+                    <ul class='cSearchFilter__menu'>
+                        
+                        <li><label><input type="radio" name="type" value="all" ><span class='cSearchFilter__menuText'>Everywhere</span></label></li>
+                        
+                            
+                                <li><label><input type="radio" name="type" value='contextual_{&quot;type&quot;:&quot;forums_topic&quot;,&quot;nodes&quot;:77}' checked><span class='cSearchFilter__menuText'>This Forum</span></label></li>
+                            
+                                <li><label><input type="radio" name="type" value='contextual_{&quot;type&quot;:&quot;forums_topic&quot;,&quot;item&quot;:43635}' checked><span class='cSearchFilter__menuText'>This Topic</span></label></li>
+                            
+                        
+                        
+                            <li><label><input type="radio" name="type" value="core_statuses_status"><span class='cSearchFilter__menuText'>Status Updates</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="forums_topic"><span class='cSearchFilter__menuText'>Topics</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="cms_pages_pageitem"><span class='cSearchFilter__menuText'>Pages</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="cms_records1"><span class='cSearchFilter__menuText'>Article</span></label></li>
+                        
+                            <li><label><input type="radio" name="type" value="core_members"><span class='cSearchFilter__menuText'>Members</span></label></li>
+                        
+                    </ul>
+                </details>
+				<button class='cSearchSubmit' type="submit" aria-label='Search'><i class="fa fa-search"></i></button>
+			</form>
+		</div>
+	</div>
+
+		</div>
+	</nav>
+
+			
+<ul id='elMobileNav' class='ipsResponsive_hideDesktop' data-controller='core.front.core.mobileNav'>
+	
+		
+			
+			
+				
+				
+			
+				
+				
+			
+				
+					<li id='elMobileBreadcrumb'>
+						<a href='../../forum/77-tutorials/index.html'>
+							<span>Tutorials</span>
+						</a>
+					</li>
+				
+				
+			
+				
+				
+			
+		
+	
+	
+	
+	<li >
+		<a data-action="defaultStream" href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+	</li>
+
+	
+
+	
+		<li class='ipsJS_show'>
+			<a href='../../search/index.html'><i class='fa fa-search'></i></a>
+		</li>
+	
+</ul>
+		</div>
+		<main id='ipsLayout_body' class='ipsLayout_container'>
+			<div id='ipsLayout_contentArea'>
+				<div id='ipsLayout_contentWrapper'>
+					
+<nav class='ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover'>
+	
+
+	<ul class='ipsList_inline ipsPos_right'>
+		
+		<li >
+			<a data-action="defaultStream" class='ipsType_light '  href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>All Activity</span></a>
+		</li>
+		
+	</ul>
+
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href='../../index.html'>
+				<span>Home <i class='fa fa-angle-right'></i></span>
+			</a>
+		</li>
+		
+		
+			<li>
+				
+					<a href='../../forum/41-arma-3/index.html'>
+						<span>ArmA 3 <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/130-resources/index.html'>
+						<span>Resources <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/77-tutorials/index.html'>
+						<span>Tutorials <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					All-In-One Docker based Arma 3 Epoch Linux Server
+				
+			</li>
+		
+	</ul>
+</nav>
+					
+					<div id='ipsLayout_mainArea'>
+						
+						
+						
+						
+
+	
+
+
+
+
+						
+
+
+
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+		
+	
+	<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+		<div class="ipsFlex-flex:11">
+			<h1 class="ipsType_pageTitle ipsContained_container">
+				
+
+				
+				
+					<span class="ipsType_break ipsContained">
+						<span>All-In-One Docker based Arma 3 Epoch Linux Server</span>
+					</span>
+				
+			</h1>
+			
+			
+				
+
+
+	
+		<ul class='ipsTags ipsList_inline ' >
+			
+				
+					
+
+<li >
+	
+	<a href="../../tags/docker/index.html" class='ipsTag' title="Find other content tagged with 'docker'" rel="tag" data-tag-label="docker"><span>docker</span></a>
+	
+</li>
+				
+			
+			
+		</ul>
+		
+	
+
+			
+		</div>
+		
+	</div>
+	<hr class="ipsHr">
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+		<div class="ipsFlex-flex:11">
+			<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+				
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_mini" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+				<div>
+					<p class="ipsType_reset ipsType_blendLinks">
+						<span class="ipsType_normal">
+						
+							<strong>By 
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break">vbawol</a></strong><br><span class="ipsType_light"><time datetime='2017-03-30T20:52:07Z' title='03/30/17 08:52  PM' data-short='8 yr'>March 30, 2017</time> in <a href="../../forum/77-tutorials/index.html">Tutorials</a></span>
+						
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+			<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+				<div class="ipsShareLinks">
+					
+						
+
+
+    <a href='#elShareItem_270886391_menu' id='elShareItem_270886391' data-ipsMenu class='ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light'>
+        <span><i class='fa fa-share-alt'></i></span> &nbsp;Share
+    </a>
+
+    <div class='ipsPadding ipsMenu ipsMenu_auto ipsHide' id='elShareItem_270886391_menu' data-controller="core.front.core.sharelink">
+        <ul class='ipsList_inline'>
+            
+                <li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+            
+                <li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+            
+        </ul>
+        
+            <hr class='ipsHr'>
+            <button class='ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/'>More sharing options...</button>
+        
+    </div>
+
+					
+					
+
+
+
+					
+
+<div data-followApp='forums' data-followArea='topic' data-followID='43635' data-controller='core.front.core.followButton'>
+	
+
+	<a href='../../login/index.html' rel="nofollow" class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-role="followButton" data-ipsTooltip title='Sign in to follow this'>
+		<span>Followers</span>
+		<span class='ipsCommentCount'>0</span>
+	</a>
+
+</div>
+				</div>
+			</div>
+					
+	</div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+<div class="ipsClearfix">
+	<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+		
+		
+		
+	</ul>
+</div>
+
+<div id="comments" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-autopoll data-baseurl="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/" data-lastpage data-feedid="topic-43635" class="cTopic ipsClear ipsSpacer_top">
+	
+			
+	
+
+	
+
+<div data-controller='core.front.core.recommendedComments' data-url='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?recommended=comments' class='ipsRecommendedComments ipsHide'>
+	<div data-role="recommendedComments">
+		<h2 class='ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom'>Recommended Posts</h2>
+		
+	</div>
+</div>
+	
+	<div id="elPostFeed" data-role="commentFeed" data-controller="core.front.core.moderation" >
+		<form action="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?csrfKey=36ed90c8cc4fe240ad7ebf7ca30612f3&amp;do=multimodComment" method="post" data-ipspageaction data-role="moderationTools">
+			
+			
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-289946'></a>
+<article  id='elComment_289946' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+				
+				<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipsTooltip title="vbawol is a moderator"></span>
+				
+				
+					<a href="https://epochmod.com/forum/profile/1-vbawol/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break"><span style='color:red;'>vbawol</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=289946' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-03-30T20:52:07Z' title='03/30/17 08:52  PM' data-short='8 yr'>March 30, 2017</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break">vbawol</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+					
+						<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipsTooltip title="vbawol is a moderator"></span>
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:red;'>Administrator</span></li>
+				
+					<li data-role='group-icon'><img src='https://epochmod.com/forum/uploads/monthly_2016_12/admins_icon.png.73135500c40c59b34f1db50c02d3235a.png' alt='' class='cAuthorGroupIcon'></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/1-vbawol/content/" rel="nofollow" title="2853 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 2.9k
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-289946_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="289946" data-quoteData='{&quot;userid&quot;:1,&quot;username&quot;:&quot;vbawol&quot;,&quot;timestamp&quot;:1490907127,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:43635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:289946}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_289946_menu' class='ipsComment_ellipsis' id='elControls_289946' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-289946_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_289946_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=reportComment&amp;comment=289946' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='index.html' title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_289946_menu' data-ipsDialog-title="Share this post" id='elSharePost_289946' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=289946' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-03-30T20:52:07Z' title='03/30/17 08:52  PM' data-short='8 yr'>March 30, 2017</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>
+	The goal of this Docker image is to automate the install and setup of a Linux based Arma 3 server with the latest stable version of Epoch.
+</p>
+
+<ol style="color:#555555;"><li>
+		<p>
+			First, install docker:<span> </span><a href="https://www.docker.com/" rel="external nofollow" style="color:#22b8eb;">https://www.docker.com/</a>.
+		</p>
+	</li>
+	<li>
+		<p>
+			Next, Start by pulling the docker image:<span> </span>
+		</p>
+
+		<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">docker pull epochmodteam/arma3epochserver</span></pre>
+
+		<p>
+			<code style="color:#333333;"> </code><a href="https://hub.docker.com/r/epochmodteam/arma3epochserver/" rel="external nofollow" style="color:#22b8eb;">https://hub.docker.com/r/epochmodteam/arma3epochserver/</a>
+		</p>
+	</li>
+	<li>
+		Then start the server:
+		<pre class="ipsCode">
+docker run --rm -e STEAM_USERNAME='<a href="https://epochmod.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8b1a7bdba88ada5a9a1a4e6a6adbc">[email&#160;protected]</a>' -e STEAM_PASSWORD='YourPassW0rd' --privileged -p 2302-2306:2302-2306/udp -it epochmodteam/arma3epochserver</pre>
+
+		<p>
+			<em>Note: the --</em><em>rm</em><em> here removes the server when stopped</em>
+		</p>
+	</li>
+</ol><p style="color:#555555;">
+	Change the STEAM_USERNAME and STEAM_PASSWORD before running, as you must login to be able to download Arma 3 server files and workshop mods.<br /><br />
+	You can alternatively add a "credentials" file to the location you are running the command from and instead of specifying<span> </span><code style="color:#333333;">-e STEAM_USERNAME='<a href="https://epochmod.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4831273d3a082d2529212466262d3c">[email&#160;protected]</a>' -e STEAM_PASSWORD='YourPassW0rd'</code><span> </span>via command line use:<br /><strong>--</strong><strong>env</strong><strong>-file credentials</strong>
+</p>
+
+<pre class="ipsCode">
+<a href="https://epochmod.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dc8f88999d9183898f998e929d9199e1a5b3a9ae9cb9b1bdb5b0f2b2b9a8">[email&#160;protected]</a>
+STEAM_PASSWORD=YourPassW0rd</pre>
+
+<pre style="color:#555555;">
+ </pre>
+
+<p style="color:#555555;">
+	If you want to persist data add the<span> </span><code style="color:#333333;">-v C:\Docker\data:/data</code><span> </span>option below and change the folder "C:\Docker\data" to a location you want to store the redis database. (Note: You will need to setup the Shared Drive in Docker &gt; Settings.)
+</p>
+
+<pre class="ipsCode">
+docker run --rm -e --env-file credentials --privileged -v C:\Docker\data:/data -p 2302-230:2302-2306/udp -it epochmodteam/arma3epochserver</pre>
+
+<p>
+	 <br />
+	Also, Epoch Experimental can be installed using: <strong>epochmodteam</strong><strong>/arma3epochserver:experimental</strong>
+</p>
+
+<p>
+	 
+</p>
+
+
+			
+		</div>
+
+		
+			<div class='ipsItemControls'>
+				
+					
+						
+
+	<div data-controller='core.front.core.reaction' class='ipsItemControls_right ipsClearfix '>	
+		<div class='ipsReact ipsPos_right'>
+			
+				
+				<div class='ipsReact_blurb ' data-role='reactionBlurb'>
+					
+						
+
+	
+	<ul class='ipsReact_reactions'>
+		
+			<li class="ipsReact_overview ipsType_blendLinks">
+				
+<a href='../../profile/26778-dirtysanchez/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/26778-dirtysanchez/?do=hovercard' title="Go to DirtySanchez's profile" class="ipsType_break">DirtySanchez</a>, 
+<a href='../../profile/33657-sneer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/33657-sneer/?do=hovercard' title="Go to Sneer's profile" class="ipsType_break">Sneer</a>, 
+<a href='../../profile/14295-raymix/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/14295-raymix/?do=hovercard' title="Go to raymix's profile" class="ipsType_break">raymix</a> and 
+
+<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=289946' data-ipsDialog data-ipsDialog-destructOnClose data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label='[&quot;RC_Robio&quot;]' data-ipsTooltip-json data-ipsTooltip-safe>1 other</a>
+
+			</li>
+		
+		
+			
+				
+				<li class='ipsReact_reactCount'>
+					
+						<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=289946&amp;reaction=1' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label="<strong>Like</strong><br>Loading..." data-ipsTooltip-ajax="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=289946&amp;reaction=1&amp;tooltip=1" data-ipsTooltip-safe title="See who reacted &quot;Like&quot;">
+					
+							<span>
+								<img src='../../uploads/reactions/react_like.png' alt="Like" loading="lazy">
+							</span>
+							<span>
+								4
+							</span>
+					
+						</a>
+					
+				</li>
+			
+		
+	</ul>
+
+					
+				</div>
+			
+			
+			
+		</div>
+	</div>
+
+					
+				
+				<ul class='ipsComment_controls ipsClearfix ipsItemControls_left' data-role="commentControls">
+					
+						
+						
+						
+												
+					
+					<li class='ipsHide' data-role='commentLoading'>
+						<span class='ipsLoading ipsLoading_tiny ipsLoading_noAnim'></span>
+					</li>
+				</ul>
+			</div>
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_289946_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D289946" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D289946" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D289946&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment%26comment=289946&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='The goal of this Docker image is to automate the install and setup of a Linux based Arma 3 server with the latest stable version of Epoch.
+ 
+
+
+		
+			First, install docker: https://www.docker.com/.
+		 
+	 
+	
+		
+			Next, Start by pulling the docker image: 
+		 
+
+		
+docker pull epochmodteam/arma3epochserver
+
+		
+			 https://hub.docker.com/r/epochmodteam/arma3epochserver/
+		 
+	 
+	
+		Then start the server:
+		
+docker run --rm -e STEAM_USERNAME=&#039;your@email.net&#039; -e STEAM_PASSWORD=&#039;YourPassW0rd&#039; --privileged -p 2302-2306:2302-2306/udp -it epochmodteam/arma3epochserver
+
+		
+			Note: the --rm here removes the server when stopped
+		 
+	 
+
+	Change the STEAM_USERNAME and STEAM_PASSWORD before running, as you must login to be able to download Arma 3 server files and workshop mods.  
+	You can alternatively add a &quot;credentials&quot; file to the location you are running the command from and instead of specifying -e STEAM_USERNAME=&#039;your@email.net&#039; -e STEAM_PASSWORD=&#039;YourPassW0rd&#039; via command line use: --env-file credentials
+ 
+
+
+STEAM_USERNAME=your@email.net
+STEAM_PASSWORD=YourPassW0rd
+
+
+ 
+
+
+	If you want to persist data add the -v C:\Docker\data:/data option below and change the folder &quot;C:\Docker\data&quot; to a location you want to store the redis database. (Note: You will need to setup the Shared Drive in Docker &gt; Settings.)
+ 
+
+
+docker run --rm -e --env-file credentials --privileged -v C:\Docker\data:/data -p 2302-230:2302-2306/udp -it epochmodteam/arma3epochserver
+
+
+	  
+	Also, Epoch Experimental can be installed using: epochmodteam/arma3epochserver:experimental
+ 
+
+
+	 
+ 
+' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=289946'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+						<ul class="ipsTopicMeta">
+							
+							
+								<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									6 months later...
+								</li>
+							
+						</ul>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-298921'></a>
+<article  id='elComment_298921' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/33657-sneer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/33657-sneer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Sneer's profile">
+		<img src='../../uploads/monthly_2016_08/gillie.jpg.f49916c95dddd8ade3b1f1d2563dc959.thumb.jpg.c2464f8a3462a4a047815895f11a39ca.jpg' alt='Sneer' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/33657-sneer/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/33657-sneer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/33657-sneer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to Sneer's profile" class="ipsType_break"><span style='color:#'>Sneer</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=298921' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-10-16T22:22:07Z' title='10/16/17 10:22  PM' data-short='7 yr'>October 16, 2017</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/33657-sneer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/33657-sneer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to Sneer's profile" class="ipsType_break">Sneer</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/33657-sneer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/33657-sneer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Sneer's profile">
+		<img src='../../uploads/monthly_2016_08/gillie.jpg.f49916c95dddd8ade3b1f1d2563dc959.thumb.jpg.c2464f8a3462a4a047815895f11a39ca.jpg' alt='Sneer' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/33657-sneer/content/" rel="nofollow" title="292 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 292
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-298921_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="298921" data-quoteData='{&quot;userid&quot;:33657,&quot;username&quot;:&quot;Sneer&quot;,&quot;timestamp&quot;:1508192527,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:43635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:298921}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_298921_menu' class='ipsComment_ellipsis' id='elControls_298921' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-298921_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_298921_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=reportComment&amp;comment=298921' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=298921' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_298921_menu' data-ipsDialog-title="Share this post" id='elSharePost_298921' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=298921' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-10-16T22:22:07Z' title='10/16/17 10:22  PM' data-short='7 yr'>October 16, 2017</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>
+	Does this still work? I tried it and it looks like it doesn't see the epoch mod.
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			22:20:25 Steam Manager initialized.<br />
+			22:20:25 ============================================================================================= List of mods ===============================================================================================<br />
+			22:20:25 modsReadOnly = true<br />
+			22:20:25 safeModsActivated = false<br />
+			22:20:25 customMods = true<br />
+			22:20:25 hash = '4C53D41D213DCEBDB8E625F89D05BE091E03CBD8'<br />
+			22:20:25 hashShort = '1eb3a3e'<br />
+			22:20:25                                               name |               modDir |    default |               origin |                                     hash | hashShort | fullPath<br />
+			22:20:25 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br />
+			22:20:25                                             @epoch |               @epoch |      false |            NOT FOUND |                                          |           |<br />
+			22:20:25                                Arma 3 DLC Bundle 2 |           dlcbundle2 |       true |            NOT FOUND |                                          |           |<br />
+			22:20:25                                Arma 3 DLC Bundle 1 |            dlcbundle |       true |            NOT FOUND |                                          |           |<br />
+			22:20:25                                 Arma 3 Laws of War |               orange |       true |             GAME DIR | 7e920f8e3406b3afda01f707343b50e0dd863223 |  d8424fb9 | /arma3/orange<br />
+			22:20:25                                      Arma 3 Malden |                 argo |       true |             GAME DIR | 2c7f31fc1da4a8ab70e1ee4ddeda7346a07966a8 |  e6b32192 | /arma3/argo<br />
+			22:20:25                                        Arma 3 Jets |                 jets |       true |             GAME DIR | f20c53ebf56568e6db8fe4af12e8be24082aed8f |  2a31e008 | /arma3/jets<br />
+			22:20:25                                        Arma 3 Apex |            expansion |       true |             GAME DIR | d74ba67e9d350ac1a7c1cd8f3d9cb090f4d93bfa |  4b654910 | /arma3/expansion<br />
+			22:20:25                                    Arma 3 Marksmen |                 mark |       true |             GAME DIR | 45d1dd5383cf3b0fbea17a0fd8bcaeacf94d35d0 |  c29e927e | /arma3/mark<br />
+			22:20:25                                 Arma 3 Helicopters |                 heli |       true |             GAME DIR | 4c9d33812524dd6667e778324eca8c03dcd45a58 |  26915ff6 | /arma3/heli<br />
+			22:20:25                                       Arma 3 Karts |                 kart |       true |             GAME DIR | f23d62c84533cd2e072b9df19e13f2946db7c9a5 |  ce467b7a | /arma3/kart<br />
+			22:20:25                                        Arma 3 Zeus |              curator |       true |             GAME DIR | c0fc624e3e7d3fa797929d3e19aaabe812299497 |  57f48148 | /arma3/curator<br />
+			22:20:25                                             Arma 3 |                   A3 |       true |            NOT FOUND |                                          |           |<br />
+			22:20:25                                         @epochhive |           @epochhive |      false |            NOT FOUND |                                          |           |<br />
+			22:20:25 ==========================================================================================================================================================================================================<br />
+			22:20:25 InitSound ...<br />
+			22:20:25 InitSound - complete<br />
+			22:20:25 Dedicated host created.<br />
+			22:20:25 PhysX3 SDK Init started ...<br />
+			22:20:25 PhysX3 SDK Init ended.<br />
+			22:20:28 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.<br />
+			a3_characters_f<br />
+			22:20:28 Loading movesType CfgGesturesMale<br />
+			22:20:28 MovesType CfgGesturesMale load time 73 ms<br />
+			22:20:28 Loading movesType CfgMovesMaleSdr<br />
+			22:20:37 MovesType CfgMovesMaleSdr load time 8900 ms<br />
+			22:20:37 BattlEye server updated to version: 217<br />
+			22:20:37 BattlEye Server: Initialized (v1.217)<br />
+			22:20:37 Autoinit is supported only for persistent missions!<br />
+			Server creation failed : 2302
+		</p>
+
+		<p>
+			 
+		</p>
+	</div>
+</div>
+
+<p>
+	 
+</p>
+
+
+			
+		</div>
+
+		
+			<div class='ipsItemControls'>
+				
+					
+						
+
+	<div data-controller='core.front.core.reaction' class='ipsItemControls_right ipsClearfix '>	
+		<div class='ipsReact ipsPos_right'>
+			
+				
+				<div class='ipsReact_blurb ' data-role='reactionBlurb'>
+					
+						
+
+	
+	<ul class='ipsReact_reactions'>
+		
+			<li class="ipsReact_overview ipsType_blendLinks">
+				
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard' title="Go to vbawol's profile" class="ipsType_break">vbawol</a>
+			</li>
+		
+		
+			
+				
+				<li class='ipsReact_reactCount'>
+					
+						<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=298921&amp;reaction=1' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label="<strong>Like</strong><br>Loading..." data-ipsTooltip-ajax="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=298921&amp;reaction=1&amp;tooltip=1" data-ipsTooltip-safe title="See who reacted &quot;Like&quot;">
+					
+							<span>
+								<img src='../../uploads/reactions/react_like.png' alt="Like" loading="lazy">
+							</span>
+							<span>
+								1
+							</span>
+					
+						</a>
+					
+				</li>
+			
+		
+	</ul>
+
+					
+				</div>
+			
+			
+			
+		</div>
+	</div>
+
+					
+				
+				<ul class='ipsComment_controls ipsClearfix ipsItemControls_left' data-role="commentControls">
+					
+						
+						
+						
+												
+					
+					<li class='ipsHide' data-role='commentLoading'>
+						<span class='ipsLoading ipsLoading_tiny ipsLoading_noAnim'></span>
+					</li>
+				</ul>
+			</div>
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_298921_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=298921' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D298921" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D298921" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D298921&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment%26comment=298921&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='Does this still work? I tried it and it looks like it doesn&#039;t see the epoch mod.
+ 
+
+
+
+
+	 
+ 
+' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=298921'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+						<ul class="ipsTopicMeta">
+							
+							
+								<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									3 weeks later...
+								</li>
+							
+						</ul>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-299517'></a>
+<article  id='elComment_299517' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+				
+				<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipsTooltip title="vbawol is a moderator"></span>
+				
+				
+					<a href="https://epochmod.com/forum/profile/1-vbawol/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break"><span style='color:red;'>vbawol</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299517' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-11-07T17:26:33Z' title='11/07/17 05:26  PM' data-short='7 yr'>November 7, 2017</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break">vbawol</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+					
+						<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipsTooltip title="vbawol is a moderator"></span>
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:red;'>Administrator</span></li>
+				
+					<li data-role='group-icon'><img src='https://epochmod.com/forum/uploads/monthly_2016_12/admins_icon.png.73135500c40c59b34f1db50c02d3235a.png' alt='' class='cAuthorGroupIcon'></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/1-vbawol/content/" rel="nofollow" title="2853 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 2.9k
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-299517_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="299517" data-quoteData='{&quot;userid&quot;:1,&quot;username&quot;:&quot;vbawol&quot;,&quot;timestamp&quot;:1510075593,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:43635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:299517}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+						<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_299517_menu' class='ipsComment_ellipsis' id='elControls_299517' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-299517_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_299517_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=reportComment&amp;comment=299517' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299517' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_299517_menu' data-ipsDialog-title="Share this post" id='elSharePost_299517' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299517' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-11-07T17:26:33Z' title='11/07/17 05:26  PM' data-short='7 yr'>November 7, 2017</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>
+	<a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33657-sneer/?do=hovercard" data-mentionid="33657" href="../../profile/33657-sneer/index.html" rel="D">@Sneer</a> It seems that the steamcmd mod download path changed since I wrote these scripts. Updated both latest and experimental to the current path and confirmed working.
+</p>
+
+<p>
+	<a href="https://github.com/EpochModTeam/docker-Arma3EpochServer/commit/184c4cb01b4ea7e0da6c0b59d42400218919fc12" rel="external nofollow">https://github.com/EpochModTeam/docker-Arma3EpochServer/commit/184c4cb01b4ea7e0da6c0b59d42400218919fc12</a>
+</p>
+
+
+			
+		</div>
+
+		
+			<div class='ipsItemControls'>
+				
+					
+						
+
+	<div data-controller='core.front.core.reaction' class='ipsItemControls_right ipsClearfix '>	
+		<div class='ipsReact ipsPos_right'>
+			
+				
+				<div class='ipsReact_blurb ' data-role='reactionBlurb'>
+					
+						
+
+	
+	<ul class='ipsReact_reactions'>
+		
+			<li class="ipsReact_overview ipsType_blendLinks">
+				
+<a href='../../profile/10485-rc_robio/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/10485-rc_robio/?do=hovercard' title="Go to RC_Robio's profile" class="ipsType_break">RC_Robio</a>
+			</li>
+		
+		
+			
+				
+				<li class='ipsReact_reactCount'>
+					
+						<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=299517&amp;reaction=1' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label="<strong>Like</strong><br>Loading..." data-ipsTooltip-ajax="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=299517&amp;reaction=1&amp;tooltip=1" data-ipsTooltip-safe title="See who reacted &quot;Like&quot;">
+					
+							<span>
+								<img src='../../uploads/reactions/react_like.png' alt="Like" loading="lazy">
+							</span>
+							<span>
+								1
+							</span>
+					
+						</a>
+					
+				</li>
+			
+		
+	</ul>
+
+					
+				</div>
+			
+			
+			
+		</div>
+	</div>
+
+					
+				
+				<ul class='ipsComment_controls ipsClearfix ipsItemControls_left' data-role="commentControls">
+					
+						
+						
+						
+												
+					
+					<li class='ipsHide' data-role='commentLoading'>
+						<span class='ipsLoading ipsLoading_tiny ipsLoading_noAnim'></span>
+					</li>
+				</ul>
+			</div>
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_299517_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299517' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299517" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299517" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299517&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment%26comment=299517&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='@Sneer It seems that the steamcmd mod download path changed since I wrote these scripts. Updated both latest and experimental to the current path and confirmed working.
+ 
+
+
+	https://github.com/EpochModTeam/docker-Arma3EpochServer/commit/184c4cb01b4ea7e0da6c0b59d42400218919fc12
+ 
+' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299517'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-299526'></a>
+<article  id='elComment_299526' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/33657-sneer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/33657-sneer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Sneer's profile">
+		<img src='../../uploads/monthly_2016_08/gillie.jpg.f49916c95dddd8ade3b1f1d2563dc959.thumb.jpg.c2464f8a3462a4a047815895f11a39ca.jpg' alt='Sneer' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/33657-sneer/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/33657-sneer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/33657-sneer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to Sneer's profile" class="ipsType_break"><span style='color:#'>Sneer</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299526' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-11-08T16:59:55Z' title='11/08/17 04:59  PM' data-short='7 yr'>November 8, 2017</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/33657-sneer/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/33657-sneer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to Sneer's profile" class="ipsType_break">Sneer</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/33657-sneer/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/33657-sneer/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to Sneer's profile">
+		<img src='../../uploads/monthly_2016_08/gillie.jpg.f49916c95dddd8ade3b1f1d2563dc959.thumb.jpg.c2464f8a3462a4a047815895f11a39ca.jpg' alt='Sneer' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/33657-sneer/content/" rel="nofollow" title="292 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 292
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-299526_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="299526" data-quoteData='{&quot;userid&quot;:33657,&quot;username&quot;:&quot;Sneer&quot;,&quot;timestamp&quot;:1510160395,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:43635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:299526}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_299526_menu' class='ipsComment_ellipsis' id='elControls_299526' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-299526_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_299526_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=reportComment&amp;comment=299526' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299526' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_299526_menu' data-ipsDialog-title="Share this post" id='elSharePost_299526' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299526' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-11-08T16:59:55Z' title='11/08/17 04:59  PM' data-short='7 yr'>November 8, 2017</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			<p>
+	Ok great. Thank you!
+</p>
+
+			
+		</div>
+
+		
+			<div class='ipsItemControls'>
+				
+					
+						
+
+	<div data-controller='core.front.core.reaction' class='ipsItemControls_right ipsClearfix '>	
+		<div class='ipsReact ipsPos_right'>
+			
+				
+				<div class='ipsReact_blurb ' data-role='reactionBlurb'>
+					
+						
+
+	
+	<ul class='ipsReact_reactions'>
+		
+			<li class="ipsReact_overview ipsType_blendLinks">
+				
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard' title="Go to vbawol's profile" class="ipsType_break">vbawol</a>
+			</li>
+		
+		
+			
+				
+				<li class='ipsReact_reactCount'>
+					
+						<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=299526&amp;reaction=1' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label="<strong>Like</strong><br>Loading..." data-ipsTooltip-ajax="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=299526&amp;reaction=1&amp;tooltip=1" data-ipsTooltip-safe title="See who reacted &quot;Like&quot;">
+					
+							<span>
+								<img src='../../uploads/reactions/react_like.png' alt="Like" loading="lazy">
+							</span>
+							<span>
+								1
+							</span>
+					
+						</a>
+					
+				</li>
+			
+		
+	</ul>
+
+					
+				</div>
+			
+			
+			
+		</div>
+	</div>
+
+					
+				
+				<ul class='ipsComment_controls ipsClearfix ipsItemControls_left' data-role="commentControls">
+					
+						
+						
+						
+												
+					
+					<li class='ipsHide' data-role='commentLoading'>
+						<span class='ipsLoading ipsLoading_tiny ipsLoading_noAnim'></span>
+					</li>
+				</ul>
+			</div>
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_299526_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299526' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299526" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299526" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299526&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment%26comment=299526&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='Ok great. Thank you!
+ ' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299526'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-299602'></a>
+<article  id='elComment_299602' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+				
+				<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipsTooltip title="vbawol is a moderator"></span>
+				
+				
+					<a href="https://epochmod.com/forum/profile/1-vbawol/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break"><span style='color:red;'>vbawol</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299602' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-11-14T16:59:34Z' title='11/14/17 04:59  PM' data-short='7 yr'>November 14, 2017</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/1-vbawol/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to vbawol's profile" class="ipsType_break">vbawol</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/1-vbawol/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to vbawol's profile">
+		<img src='../../uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg' alt='vbawol' loading="lazy">
+	</a>
+
+					
+						<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipsTooltip title="vbawol is a moderator"></span>
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:red;'>Administrator</span></li>
+				
+					<li data-role='group-icon'><img src='https://epochmod.com/forum/uploads/monthly_2016_12/admins_icon.png.73135500c40c59b34f1db50c02d3235a.png' alt='' class='cAuthorGroupIcon'></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/1-vbawol/content/" rel="nofollow" title="2853 posts" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 2.9k
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-299602_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="299602" data-quoteData='{&quot;userid&quot;:1,&quot;username&quot;:&quot;vbawol&quot;,&quot;timestamp&quot;:1510678774,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:43635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:299602}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+						<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_299602_menu' class='ipsComment_ellipsis' id='elControls_299602' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-299602_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_299602_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=reportComment&amp;comment=299602' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299602' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_299602_menu' data-ipsDialog-title="Share this post" id='elSharePost_299602' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299602' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2017-11-14T16:59:34Z' title='11/14/17 04:59  PM' data-short='7 yr'>November 14, 2017</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			<p>
+	Looks like the Linux port is now on Arma 3 version 1.76:<br /><a href="https://forums.bistudio.com/forums/topic/188937-experimental-ports-release-announcements/?tab=comments#comment-3249129" rel="external nofollow">https://forums.bistudio.com/forums/topic/188937-experimental-ports-release-announcements/?tab=comments#comment-3249129</a>
+</p>
+
+			
+		</div>
+
+		
+			<div class='ipsItemControls'>
+				
+					
+						
+
+	<div data-controller='core.front.core.reaction' class='ipsItemControls_right ipsClearfix '>	
+		<div class='ipsReact ipsPos_right'>
+			
+				
+				<div class='ipsReact_blurb ' data-role='reactionBlurb'>
+					
+						
+
+	
+	<ul class='ipsReact_reactions'>
+		
+			<li class="ipsReact_overview ipsType_blendLinks">
+				
+<a href='../../profile/10485-rc_robio/index.html' rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target='https://epochmod.com/forum/profile/10485-rc_robio/?do=hovercard' title="Go to RC_Robio's profile" class="ipsType_break">RC_Robio</a>
+			</li>
+		
+		
+			
+				
+				<li class='ipsReact_reactCount'>
+					
+						<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=299602&amp;reaction=1' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-title='See who reacted to this' data-ipsTooltip data-ipsTooltip-label="<strong>Like</strong><br>Loading..." data-ipsTooltip-ajax="https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=showReactionsComment&amp;comment=299602&amp;reaction=1&amp;tooltip=1" data-ipsTooltip-safe title="See who reacted &quot;Like&quot;">
+					
+							<span>
+								<img src='../../uploads/reactions/react_like.png' alt="Like" loading="lazy">
+							</span>
+							<span>
+								1
+							</span>
+					
+						</a>
+					
+				</li>
+			
+		
+	</ul>
+
+					
+				</div>
+			
+			
+			
+		</div>
+	</div>
+
+					
+				
+				<ul class='ipsComment_controls ipsClearfix ipsItemControls_left' data-role="commentControls">
+					
+						
+						
+						
+												
+					
+					<li class='ipsHide' data-role='commentLoading'>
+						<span class='ipsLoading ipsLoading_tiny ipsLoading_noAnim'></span>
+					</li>
+				</ul>
+			</div>
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_299602_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299602' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299602" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299602" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D299602&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment%26comment=299602&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='Looks like the Linux port is now on Arma 3 version 1.76: https://forums.bistudio.com/forums/topic/188937-experimental-ports-release-announcements/?tab=comments#comment-3249129
+ ' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=299602'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+						<ul class="ipsTopicMeta">
+							
+							
+								<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									5 months later...
+								</li>
+							
+						</ul>
+					
+					
+					
+				
+
+					
+
+					
+					
+
+
+
+<a id='comment-303276'></a>
+<article  id='elComment_303276' class='cPost ipsBox ipsResponsive_pull  ipsComment  ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone    '>
+	
+
+	
+
+	<div class='cAuthorPane_mobile ipsResponsive_showPhone'>
+		<div class='cAuthorPane_photo'>
+			<div class='cAuthorPane_photoWrap'>
+				
+
+
+	<a href="../../profile/39198-jesterxiii/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39198-jesterxiii/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to jesterxiii's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4a6%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='jesterxiii' loading="lazy">
+	</a>
+
+				
+				
+					<a href="https://epochmod.com/forum/profile/39198-jesterxiii/badges/" rel="nofollow">
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					</a>
+				
+			</div>
+		</div>
+		<div class='cAuthorPane_content'>
+			<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center'>
+				
+
+
+<a href='../../profile/39198-jesterxiii/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39198-jesterxiii/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to jesterxiii's profile" class="ipsType_break"><span style='color:#'>jesterxiii</span></a>
+			</h3>
+			<div class='ipsType_light ipsType_reset'>
+				<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=303276' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2018-05-10T03:02:12Z' title='05/10/18 03:02  AM' data-short='7 yr'>May 10, 2018</time></a>
+				
+			</div>
+		</div>
+	</div>
+	<aside class='ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone'>
+		<h3 class='ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break'><strong>
+
+
+<a href='../../profile/39198-jesterxiii/index.html' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/39198-jesterxiii/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to jesterxiii's profile" class="ipsType_break">jesterxiii</a></strong>
+			
+		</h3>
+		<ul class='cAuthorPane_info ipsList_reset'>
+			<li data-role='photo' class='cAuthorPane_photo'>
+				<div class='cAuthorPane_photoWrap'>
+					
+
+
+	<a href="../../profile/39198-jesterxiii/index.html" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/39198-jesterxiii/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_large" title="Go to jesterxiii's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4a6%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='jesterxiii' loading="lazy">
+	</a>
+
+					
+					
+						
+<img src='../../uploads/monthly_2023_04/1_Newbie.svg' loading="lazy" alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipsTooltip title="Rank: Newbie (1/14)">
+					
+				</div>
+			</li>
+			
+				<li data-role='group'><span style='color:#'>Member</span></li>
+				
+			
+			
+				<li data-role='stats' class='ipsMargin_top'>
+					<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+						<li>
+							
+								<a href="https://epochmod.com/forum/profile/39198-jesterxiii/content/" rel="nofollow" title="1 post" data-ipsTooltip class="ipsType_blendLinks">
+							
+								<i class="fa fa-comment"></i> 1
+							
+								</a>
+							
+						</li>
+						
+					</ul>
+				</li>
+			
+			
+				
+
+			
+		</ul>
+	</aside>
+	<div class='ipsColumn ipsColumn_fluid ipsMargin:none'>
+		
+
+<div id='comment-303276_wrap' data-controller='core.front.core.comment' data-commentApp='forums' data-commentType='forums' data-commentID="303276" data-quoteData='{&quot;userid&quot;:39198,&quot;username&quot;:&quot;jesterxiii&quot;,&quot;timestamp&quot;:1525921332,&quot;contentapp&quot;:&quot;forums&quot;,&quot;contenttype&quot;:&quot;forums&quot;,&quot;contentid&quot;:43635,&quot;contentclass&quot;:&quot;forums_Topic&quot;,&quot;contentcommentid&quot;:303276}' class='ipsComment_content ipsType_medium'>
+
+	<div class='ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse'>
+		<div class='ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap'>
+			<div class='ipsResponsive_hidePhone ipsComment_badges'>
+				<ul class='ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1'>
+					
+					
+					
+					
+					
+				</ul>
+			</div>
+			<ul class='ipsList_reset ipsComment_tools'>
+				<li>
+					<a href='#elControls_303276_menu' class='ipsComment_ellipsis' id='elControls_303276' title='More options...' data-ipsMenu data-ipsMenu-appendTo='#comment-303276_wrap'><i class='fa fa-ellipsis-h'></i></a>
+					<ul id='elControls_303276_menu' class='ipsMenu ipsMenu_narrow ipsHide'>
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=reportComment&amp;comment=303276' data-ipsDialog data-ipsDialog-remoteSubmit data-ipsDialog-size='medium' data-ipsDialog-flashMessage='Thanks for your report.' data-ipsDialog-title="Report post" data-action='reportComment' title='Report this content'>Report</a></li>
+						
+						
+							<li class='ipsMenu_item'><a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=303276' rel="nofollow" title='Share this post' data-ipsDialog data-ipsDialog-size='narrow' data-ipsDialog-content='#elShareComment_303276_menu' data-ipsDialog-title="Share this post" id='elSharePost_303276' data-role='shareComment'>Share</a></li>
+						
+                        
+						
+						
+						
+							
+								
+							
+							
+							
+							
+							
+							
+						
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class='ipsType_reset ipsResponsive_hidePhone'>
+			<a href='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=303276' rel="nofollow" class='ipsType_blendLinks'>Posted <time datetime='2018-05-10T03:02:12Z' title='05/10/18 03:02  AM' data-short='7 yr'>May 10, 2018</time></a>
+			
+			<span class='ipsResponsive_hidePhone'>
+				
+				
+			</span>
+		</div>
+	</div>
+
+	
+
+    
+
+	<div class='cPost_contentWrap'>
+		
+		<div data-role='commentContent' class='ipsType_normal ipsType_richText ipsPadding_bottom ipsContained' data-controller='core.front.core.lightboxedImages'>
+			
+<p>
+	Thanks so much!
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	Is there a way for us to add scripts and other addons after install?  Changing the map in the server conf maybe?  I tried mounting a volume to store arma3 locally so I could modify files to run again, but the validation overwrites with vanilla.
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	Thanks!
+</p>
+
+
+			
+		</div>
+
+		
+
+		
+	</div>
+
+	
+
+	
+
+
+
+<div class='ipsPadding ipsHide cPostShareMenu' id='elShareComment_303276_menu'>
+	<h5 class='ipsType_normal ipsType_reset'>Link to comment</h5>
+	
+		
+	
+	
+	<input type='text' value='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=303276' class='ipsField_fullWidth'>
+
+	
+	<h5 class='ipsType_normal ipsType_reset ipsSpacer_top'>Share on other sites</h5>
+	
+
+	<ul class='ipsList_inline ipsList_noSpacing ipsClearfix' data-controller="core.front.core.sharelink">
+		
+			<li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D303276" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D303276" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+		
+			<li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F%3Fdo%3DfindComment%26comment%3D303276&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+		
+			<li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment%26comment=303276&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+		
+	</ul>
+
+
+	<hr class='ipsHr'>
+	<button class='ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='Thanks so much!
+ 
+
+
+	 
+ 
+
+
+	Is there a way for us to add scripts and other addons after install?  Changing the map in the server conf maybe?  I tried mounting a volume to store arma3 locally so I could modify files to run again, but the validation overwrites with vanilla.
+ 
+
+
+	 
+ 
+
+
+	Thanks!
+ 
+' data-webShareUrl='https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/?do=findComment&amp;comment=303276'>More sharing options...</button>
+
+	
+</div>
+</div>
+	</div>
+</article>
+					
+					
+					
+				
+			
+			
+<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3" />
+
+
+		</form>
+	</div>
+
+	
+	
+	
+	
+	
+		<a id="replyForm"></a>
+	<div data-role="replyArea" class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" >
+			
+				
+				
+
+<div>
+	<input type="hidden" name="csrfKey" value="36ed90c8cc4fe240ad7ebf7ca30612f3">
+	
+		<div class='ipsType_center ipsPad'>
+			<h2 class='ipsType_pageTitle'>Please sign in to comment</h2>
+			<p class='ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half'>You will be able to leave a comment after signing in</p>
+			<br>
+			<br>
+			<a href='https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9lcG9jaG1vZC5jb20vZm9ydW0vdG9waWMvNDM2MzUtYWxsLWluLW9uZS1kb2NrZXItYmFzZWQtYXJtYS0zLWVwb2NoLWxpbnV4LXNlcnZlci8jcmVwbHlGb3Jt' data-ipsDialog data-ipsDialog-size='medium' data-ipsDialog-remoteVerify="false" data-ipsDialog-title="Sign In Now" class='ipsButton ipsButton_alternate ipsButton_large'>Sign In Now</a>
+		</div>
+	
+</div>
+			
+		</div>
+	
+
+	
+		<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+			<div class="ipsShareLinks">
+				
+					
+
+
+    <a href='#elShareItem_972245283_menu' id='elShareItem_972245283' data-ipsMenu class='ipsShareButton ipsButton ipsButton_verySmall ipsButton_light '>
+        <span><i class='fa fa-share-alt'></i></span> &nbsp;Share
+    </a>
+
+    <div class='ipsPadding ipsMenu ipsMenu_auto ipsHide' id='elShareItem_972245283_menu' data-controller="core.front.core.sharelink">
+        <ul class='ipsList_inline'>
+            
+                <li>
+<a href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F" class="cShareLink cShareLink_twitter" target="_blank" data-role="shareLink" title='Share on Twitter' data-ipsTooltip rel='nofollow noopener'>
+	<i class="fa fa-twitter"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F" class="cShareLink cShareLink_facebook" target="_blank" data-role="shareLink" title='Share on Facebook' data-ipsTooltip rel='noopener nofollow'>
+	<i class="fa fa-facebook"></i>
+</a></li>
+            
+                <li>
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43635-all-in-one-docker-based-arma-3-epoch-linux-server%2F&amp;title=All-In-One+Docker+based+Arma+3+Epoch+Linux+Server" rel="nofollow noopener" class="cShareLink cShareLink_reddit" target="_blank" title='Share on Reddit' data-ipsTooltip>
+	<i class="fa fa-reddit"></i>
+</a></li>
+            
+                <li>
+<a href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" class="cShareLink cShareLink_pinterest" rel="nofollow noopener" target="_blank" data-role="shareLink" title='Share on Pinterest' data-ipsTooltip>
+	<i class="fa fa-pinterest"></i>
+</a></li>
+            
+        </ul>
+        
+            <hr class='ipsHr'>
+            <button class='ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half' data-controller='core.front.core.webshare' data-role='webShare' data-webShareTitle='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareText='All-In-One Docker based Arma 3 Epoch Linux Server' data-webShareUrl='index.html'>More sharing options...</button>
+        
+    </div>
+
+				
+					
+
+<div data-followApp='forums' data-followArea='topic' data-followID='43635' data-controller='core.front.core.followButton'>
+	
+
+	<a href='../../login/index.html' rel="nofollow" class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-role="followButton" data-ipsTooltip title='Sign in to follow this'>
+		<span>Followers</span>
+		<span class='ipsCommentCount'>0</span>
+	</a>
+
+</div>
+				
+			</div>
+		</div>
+	
+</div>
+
+
+
+<div class="ipsPager ipsSpacer_top">
+	<div class="ipsPager_prev">
+		
+			<a href="../../forum/77-tutorials/index.html" title="Go to Tutorials" rel="parent">
+				<span class="ipsPager_type">Go to topic listing</span>
+			</a>
+		
+	</div>
+	
+</div>
+
+
+						
+
+
+	<div class='cWidgetContainer '  data-role='widgetReceiver' data-orientation='horizontal' data-widgetArea='footer'>
+		<ul class='ipsList_reset'>
+			
+				
+					
+					<li class='ipsWidget ipsWidget_horizontal ipsBox  ' data-blockID='app_core_relatedContent_sido2emh4' data-blockConfig="true" data-blockTitle="Similar Content" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+
+<h3 class='ipsWidget_title ipsType_reset'>Similar Content</h3>
+
+
+	<div class='ipsWidget_inner'>
+		<ul class='ipsDataList'>
+			
+				<li class="ipsDataItem ipsDataItem_responsivePhoto ">
+					<div class='ipsDataItem_main'>
+						<h4 class='ipsDataItem_title ipsContained_container'>
+							
+															
+								
+								
+								
+							
+							
+							
+							<span class='ipsType_break ipsContained'>
+								<a href='https://epochmod.com/forum/topic/28488-i-will-dockerise-arma3-epoch/' data-ipsHover data-ipsHover-target='https://epochmod.com/forum/topic/28488-i-will-dockerise-arma3-epoch/?preview=1' data-ipsHover-timeout='1.5' >
+									I will dockerise arma3 epoch
+								</a>
+							</span>
+							
+						</h4>
+						
+						<p class='ipsType_reset ipsType_medium ipsType_light'>
+							By 
+
+
+<a href='https://epochmod.com/forum/profile/11495-airtonix/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/11495-airtonix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to airtonix's profile" class="ipsType_break">airtonix</a>,  <time datetime='2014-11-14T10:26:19Z' title='11/14/14 10:26  AM' data-short='10 yr'>November 14, 2014</time>
+						</p>
+						
+							&nbsp;&nbsp;
+							
+
+
+	
+		<ul class='ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0'>
+			
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/linux/index.html" class='ipsTag' title="Find other content tagged with 'linux'" rel="tag" data-tag-label="linux"><span>linux</span></a>
+	
+</li>
+					
+				
+					
+						
+
+<li >
+	
+	<a href="../../tags/docker/index.html" class='ipsTag' title="Find other content tagged with 'docker'" rel="tag" data-tag-label="docker"><span>docker</span></a>
+	
+</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+			
+			
+				<li class='ipsType_small'>
+					<span class='ipsType_light ipsCursor_pointer' data-ipsMenu id='elTags_1848328343'>(and 5 more) <i class='fa fa-caret-down ipsJS_show'></i></span>
+					<div class='ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup' id='elTags_1848328343_menu'>
+						<p class='ipsType_medium ipsType_reset ipsType_light'>Tagged with:</p>
+						<ul class='ipsTags ipsList_inline ipsGap:1'>
+							
+								
+
+<li >
+	
+	<a href="../../tags/linux/index.html" class='ipsTag' title="Find other content tagged with 'linux'" rel="tag" data-tag-label="linux"><span>linux</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="../../tags/docker/index.html" class='ipsTag' title="Find other content tagged with 'docker'" rel="tag" data-tag-label="docker"><span>docker</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/deployment/" class='ipsTag' title="Find other content tagged with 'deployment'" rel="tag" data-tag-label="deployment"><span>deployment</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/automation/" class='ipsTag' title="Find other content tagged with 'automation'" rel="tag" data-tag-label="automation"><span>automation</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/devops/" class='ipsTag' title="Find other content tagged with 'devops'" rel="tag" data-tag-label="devops"><span>devops</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/orchestration/" class='ipsTag' title="Find other content tagged with 'orchestration'" rel="tag" data-tag-label="orchestration"><span>orchestration</span></a>
+	
+</li>
+							
+								
+
+<li >
+	
+	<a href="https://epochmod.com/forum/tags/horizontal-scalability/" class='ipsTag' title="Find other content tagged with 'horizontal-scalability'" rel="tag" data-tag-label="horizontal-scalability"><span>horizontal-scalability</span></a>
+	
+</li>
+							
+						</ul>
+					</div>
+				</li>
+			
+		</ul>
+	
+
+						
+					</div>
+					<ul class='ipsDataItem_stats'>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>7</span>
+								<span class='ipsDataItem_stats_type'> replies</span>
+							</li>
+						
+							<li >
+								<span class='ipsDataItem_stats_number'>3614</span>
+								<span class='ipsDataItem_stats_type'> views</span>
+							</li>
+						
+					</ul>
+					<ul class='ipsDataItem_lastPoster ipsDataItem_withPhoto'>
+						<li>
+							
+								
+
+
+	<a href="https://epochmod.com/forum/profile/27610-elbabar/" rel="nofollow" data-ipsHover data-ipsHover-width="370" data-ipsHover-target="https://epochmod.com/forum/profile/27610-elbabar/?do=hovercard" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to elbabar's profile">
+		<img src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23be62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E' alt='elbabar' loading="lazy">
+	</a>
+
+							
+						</li>
+						<li>
+							
+								
+
+
+<a href='https://epochmod.com/forum/profile/27610-elbabar/' rel="nofollow" data-ipsHover data-ipsHover-width='370' data-ipsHover-target='https://epochmod.com/forum/profile/27610-elbabar/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43635-all-in-one-docker-based-arma-3-epoch-linux-server%252F' title="Go to elbabar's profile" class="ipsType_break">elbabar</a>
+							
+						</li>
+						<li class="ipsType_light">
+							<a href='https://epochmod.com/forum/topic/28488-i-will-dockerise-arma3-epoch/' title='Go to last post' class='ipsType_blendLinks'>
+								<time datetime='2015-03-05T12:33:33Z' title='03/05/15 12:33  PM' data-short='10 yr'>March 5, 2015</time>
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+</li>
+				
+					
+					<li class='ipsWidget ipsWidget_horizontal ipsBox  ' data-blockID='app_cms_Blocks_mtkskjhzs' data-blockConfig="true" data-blockTitle="Custom Blocks" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+Advertisement
+
+
+</li>
+				
+			
+		</ul>
+	</div>
+
+					</div>
+					
+
+
+	<div id='ipsLayout_sidebar' class='ipsLayout_sidebarright ' data-controller='core.front.widgets.sidebar'>
+		
+		
+		
+		
+
+
+	<div class='cWidgetContainer '  data-role='widgetReceiver' data-orientation='vertical' data-widgetArea='sidebar'>
+		<ul class='ipsList_reset'>
+			
+				
+					
+					<li class='ipsWidget ipsWidget_vertical ipsBox  ' data-blockID='app_cms_Wysiwyg_hbjjvq53w' data-blockConfig="true" data-blockTitle="WYSIWYG Editor" data-blockErrorMessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page."  data-controller='core.front.widgets.block'>
+<div class='ipsWidget_inner ipsPad ipsType_richText' data-controller='core.front.core.lightboxedImages'>
+	<p>
+	<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;" /></a>
+</p>
+</div>
+</li>
+				
+			
+		</ul>
+	</div>
+
+	</div>
+
+					
+<nav class='ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover'>
+	
+		
+
+
+	
+
+	<ul class='ipsList_inline ipsPos_right'>
+		
+		<li >
+			<a data-action="defaultStream" class='ipsType_light '  href='../../discover/index.html'><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span>All Activity</span></a>
+		</li>
+		
+	</ul>
+
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href='../../index.html'>
+				<span>Home <i class='fa fa-angle-right'></i></span>
+			</a>
+		</li>
+		
+		
+			<li>
+				
+					<a href='../../forum/41-arma-3/index.html'>
+						<span>ArmA 3 <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/130-resources/index.html'>
+						<span>Resources <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					<a href='../../forum/77-tutorials/index.html'>
+						<span>Tutorials <i class='fa fa-angle-right' aria-hidden="true"></i></span>
+					</a>
+				
+			</li>
+		
+			<li>
+				
+					All-In-One Docker based Arma 3 Epoch Linux Server
+				
+			</li>
+		
+	</ul>
+</nav>
+				</div>
+			</div>
+			
+		</main>
+		<footer id='ipsLayout_footer' class='ipsClearfix'>
+			<div class='ipsLayout_container'>
+				
+				
+
+<ul id='elFooterSocialLinks' class='ipsList_inline ipsType_center ipsSpacer_top'>
+	
+
+	
+		<li class='cUserNav_icon'>
+			<a href='https://facebook.com/EpochMod' target='_blank' class='cShareLink cShareLink_facebook' rel='noopener noreferrer'><i class='fa fa-facebook'></i></a>
+		</li>
+	
+		<li class='cUserNav_icon'>
+			<a href='https://twitter.com/EpochMod' target='_blank' class='cShareLink cShareLink_twitter' rel='noopener noreferrer'><i class='fa fa-twitter'></i></a>
+		</li>
+	
+		<li class='cUserNav_icon'>
+			<a href='https://github.com/EpochModTeam/' target='_blank' class='cShareLink cShareLink_github' rel='noopener noreferrer'><i class='fa fa-github'></i></a>
+		</li>
+	
+
+</ul>
+
+
+<ul class='ipsList_inline ipsType_center ipsSpacer_top' id="elFooterLinks">
+	
+	
+	
+	
+	
+	
+		<li><a rel="nofollow" href='../../contact/index.html' data-ipsdialog data-ipsDialog-remoteSubmit data-ipsDialog-flashMessage='Thanks, your message has been sent to the administrators.' data-ipsdialog-title="Contact Us">Contact Us</a></li>
+	
+</ul>	
+
+
+<p id='elCopyright'>
+	<span id='elCopyright_userLine'>Copyright © 2019 Epoch Mod Team</span>
+	<a rel='nofollow' title='Invision Community' href='https://www.invisioncommunity.com/'>Powered by Invision Community</a>
+</p>
+			</div>
+		</footer>
+		
+<div id='elMobileDrawer' class='ipsDrawer ipsHide'>
+	<div class='ipsDrawer_menu'>
+		<a href='#' class='ipsDrawer_close' data-action='close'><span>&times;</span></a>
+		<div class='ipsDrawer_content ipsFlex ipsFlex-fd:column'>
+			
+				<div class='ipsPadding ipsBorder_bottom'>
+					<ul class='ipsToolList ipsToolList_vertical'>
+						<li>
+							<a href='../../login/index.html' id='elSigninButton_mobile' class='ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth'>Existing user? Sign In</a>
+						</li>
+						
+					</ul>
+				</div>
+			
+
+			
+
+			<ul class='ipsDrawer_list ipsFlex-flex:11'>
+				
+
+				
+				
+				
+				
+					
+						
+						
+							<li><a href="https://epochmod.com/">Home</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../projects/index.html' >Downloads</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../index.html' >Forums</a></li>
+						
+					
+				
+					
+						
+						
+							<li><a href='http://epochmod.gamepedia.com/' target='_blank' rel="noopener">Wiki</a></li>
+						
+					
+				
+					
+						
+						
+							<li class='ipsDrawer_itemParent'>
+								<h4 class='ipsDrawer_title'><a href='#'>Browse</a></h4>
+								<ul class='ipsDrawer_list'>
+									<li data-action="back"><a href='#'>Back</a></li>
+									
+									
+										
+										
+										
+											
+										
+											
+												
+											
+										
+											
+												
+											
+										
+									
+													
+									
+									
+									
+										
+
+
+	
+
+	
+		
+			<li>
+				<a href='../../staff/index.html' >
+					Staff
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../online/index.html' >
+					Online Users
+				</a>
+			</li>
+		
+	
+
+										
+								</ul>
+							</li>
+						
+					
+				
+					
+						
+						
+							<li class='ipsDrawer_itemParent'>
+								<h4 class='ipsDrawer_title'><a href='#'>Activity</a></h4>
+								<ul class='ipsDrawer_list'>
+									<li data-action="back"><a href='#'>Back</a></li>
+									
+									
+										
+										
+										
+											
+												
+													
+													
+									
+													
+									
+									
+									
+										
+
+
+	
+		
+			<li>
+				<a href='../../discover/index.html' >
+					All Activity
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='#' >
+					My Activity Streams
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../discover/unread/index.html' >
+					Unread Content
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../discover/content-started/index.html' >
+					Content I Started
+				</a>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				<a href='../../search/index.html' >
+					Search
+				</a>
+			</li>
+		
+	
+
+										
+								</ul>
+							</li>
+						
+					
+				
+					
+						
+						
+							<li><a href='../../leaderboard/index.html' >Leaderboard</a></li>
+						
+					
+				
+					
+				
+					
+				
+				
+			</ul>
+
+			
+		</div>
+	</div>
+</div>
+
+<div id='elMobileCreateMenuDrawer' class='ipsDrawer ipsHide'>
+	<div class='ipsDrawer_menu'>
+		<a href='#' class='ipsDrawer_close' data-action='close'><span>&times;</span></a>
+		<div class='ipsDrawer_content ipsSpacer_bottom ipsPad'>
+			<ul class='ipsDrawer_list'>
+				<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+		
+		
+
+	
+	<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type='text/javascript'>
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = '../../applications/core/interface/ckeditor/ckeditor/index.html';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "36ed90c8cc4fe240ad7ebf7ca30612f3",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+
+
+
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_library0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_js_lang_10673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_framework0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_core/global_global_core0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_front0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_core/front_front_core0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_forums/front_front_topic0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+<script type='text/javascript' src='../../uploads/javascript_global/root_map0673.js?v=7f6edac1d51727923486' data-ips></script>
+
+
+
+	<script type='text/javascript'>
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+
+
+
+<script type='application/ld+json'>
+{
+    "name": "All-In-One Docker based Arma 3 Epoch Linux Server",
+    "headline": "All-In-One Docker based Arma 3 Epoch Linux Server",
+    "text": "The goal of this Docker image is to automate the\u00a0install and setup of a Linux based\u00a0Arma 3 server\u00a0with the latest stable version of Epoch.\n \n\n\n\t\t\n\t\t\tFirst, install docker:\u00a0https://www.docker.com/.\n\t\t \n\t \n\t\n\t\t\n\t\t\tNext, Start by pulling the docker image:\u00a0\n\t\t \n\n\t\t\ndocker pull epochmodteam/arma3epochserver\n\n\t\t\n\t\t\t\u00a0https://hub.docker.com/r/epochmodteam/arma3epochserver/\n\t\t \n\t \n\t\n\t\tThen start the server:\n\t\t\ndocker run --rm -e STEAM_USERNAME=\u0027your@email.net\u0027 -e STEAM_PASSWORD=\u0027YourPassW0rd\u0027 --privileged -p 2302-2306:2302-2306/udp -it epochmodteam/arma3epochserver\n\n\t\t\n\t\t\tNote: the --rm here removes the server when stopped\n\t\t \n\t \n\n\tChange the STEAM_USERNAME and STEAM_PASSWORD before running, as you must login to be able to download Arma 3 server files and workshop mods.  \n\tYou can alternatively add a \"credentials\" file to the location you are running the command from and instead of specifying\u00a0-e STEAM_USERNAME=\u0027your@email.net\u0027 -e STEAM_PASSWORD=\u0027YourPassW0rd\u0027\u00a0via command line use: --env-file credentials\n \n\n\nSTEAM_USERNAME=your@email.net\nSTEAM_PASSWORD=YourPassW0rd\n\n\n\u00a0\n\n\n\tIf you want to persist data add the\u00a0-v C:\\Docker\\data:/data\u00a0option below and change the folder \"C:\\Docker\\data\" to a location you want to store the redis database. (Note: You will need to setup the Shared Drive\u00a0in Docker \u0026gt; Settings.)\n \n\n\ndocker run --rm -e --env-file credentials --privileged -v C:\\Docker\\data:/data -p 2302-230:2302-2306/udp -it epochmodteam/arma3epochserver\n\n\n\t\u00a0 \n\tAlso, Epoch Experimental can be installed using:\u00a0epochmodteam/arma3epochserver:experimental\n \n\n\n\t\u00a0\n \n",
+    "dateCreated": "2017-03-30T20:52:07+0000",
+    "datePublished": "2017-03-30T20:52:07+0000",
+    "dateModified": "2018-05-10T03:02:12+0000",
+    "image": "https://epochmod.com/forum/uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "vbawol",
+        "image": "https://epochmod.com/forum/uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg",
+        "url": "https://epochmod.com/forum/profile/1-vbawol/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 4656
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 5
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "vbawol",
+            "image": "https://epochmod.com/forum/uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg",
+            "url": "https://epochmod.com/forum/profile/1-vbawol/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/",
+    "discussionUrl": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-298921",
+            "url": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-298921",
+            "author": {
+                "@type": "Person",
+                "name": "Sneer",
+                "image": "https://epochmod.com/forum/uploads/monthly_2016_08/gillie.jpg.f49916c95dddd8ade3b1f1d2563dc959.thumb.jpg.c2464f8a3462a4a047815895f11a39ca.jpg",
+                "url": "https://epochmod.com/forum/profile/33657-sneer/"
+            },
+            "dateCreated": "2017-10-16T22:22:07+0000",
+            "text": "Does this still work? I tried it and it looks like it doesn\u0027t see the epoch mod.\n \n\n\n\n\n\t\u00a0\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-299517",
+            "url": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-299517",
+            "author": {
+                "@type": "Person",
+                "name": "vbawol",
+                "image": "https://epochmod.com/forum/uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg",
+                "url": "https://epochmod.com/forum/profile/1-vbawol/"
+            },
+            "dateCreated": "2017-11-07T17:26:33+0000",
+            "text": "@Sneer\u00a0It seems that the steamcmd mod download path changed since I wrote these scripts. Updated both latest and experimental to the current path and confirmed working.\n \n\n\n\thttps://github.com/EpochModTeam/docker-Arma3EpochServer/commit/184c4cb01b4ea7e0da6c0b59d42400218919fc12\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-299526",
+            "url": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-299526",
+            "author": {
+                "@type": "Person",
+                "name": "Sneer",
+                "image": "https://epochmod.com/forum/uploads/monthly_2016_08/gillie.jpg.f49916c95dddd8ade3b1f1d2563dc959.thumb.jpg.c2464f8a3462a4a047815895f11a39ca.jpg",
+                "url": "https://epochmod.com/forum/profile/33657-sneer/"
+            },
+            "dateCreated": "2017-11-08T16:59:55+0000",
+            "text": "Ok great. Thank you!\n ",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-299602",
+            "url": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-299602",
+            "author": {
+                "@type": "Person",
+                "name": "vbawol",
+                "image": "https://epochmod.com/forum/uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg",
+                "url": "https://epochmod.com/forum/profile/1-vbawol/"
+            },
+            "dateCreated": "2017-11-14T16:59:34+0000",
+            "text": "Looks like the Linux port is now on\u00a0Arma 3 version 1.76: https://forums.bistudio.com/forums/topic/188937-experimental-ports-release-announcements/?tab=comments#comment-3249129\n ",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-303276",
+            "url": "https://epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/#comment-303276",
+            "author": {
+                "@type": "Person",
+                "name": "jesterxiii",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/39198-jesterxiii/"
+            },
+            "dateCreated": "2018-05-10T03:02:12+0000",
+            "text": "Thanks so much!\n \n\n\n\t\u00a0\n \n\n\n\tIs there a way for us to add scripts and other addons after install?\u00a0 Changing the map in the server conf maybe?\u00a0 I tried mounting a volume to store arma3 locally so I could modify files to run again, but the validation overwrites with vanilla.\n \n\n\n\t\u00a0\n \n\n\n\tThanks!\n \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/130-resources/",
+                "name": "Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/77-tutorials/",
+                "name": "Tutorials"
+            }
+        }
+    ]
+}	
+</script>
+
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+
+
+
+<script type='text/javascript'>
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+
+		
+		<!--ipsQueryLog-->
+		<!--ipsCachingLog-->
+		
+		
+		
+        
+	</body>
+
+<!-- Mirrored from epochmod.com/forum/topic/43635-all-in-one-docker-based-arma-3-epoch-linux-server/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Jul 2025 05:50:04 GMT -->
+</html>
