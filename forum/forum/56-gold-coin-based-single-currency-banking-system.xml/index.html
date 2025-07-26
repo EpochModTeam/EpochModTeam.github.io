@@ -1,0 +1,2259 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title><![CDATA[Gold Coin based Single Currency & Banking System Latest Topics]]></title><link>https://epochmod.com/forum/forum/56-gold-coin-based-single-currency-banking-system/</link><description><![CDATA[Gold Coin based Single Currency & Banking System Latest Topics]]></description><language>en</language><item><title>[Outdated] ZSC for Epoch 1.0.6.2 (And OverWatch 0.25)</title><link>https://epochmod.com/forum/topic/43331-outdated-zsc-for-epoch-1062-and-overwatch-025/</link><description><![CDATA[
+<h1>
+	<a href="https://github.com/oiad/ZSC#outdated-already-built-into-epoch-107" rel="external nofollow"></a>Outdated, already built into Epoch 1.0.7
+</h1>
+
+<p>
+	Hi,
+</p>
+
+<p>
+	This is my modified version of Zupas single currency framework. This drops into an Epoch 1.0.6.1+ server and just "works".
+</p>
+
+<p>
+	Credits to Zupa for his amazing work, There's quite a few fixes mentioned in his original release thread in this version to make it more secure.
+</p>
+
+<p>
+	GitHub link with install instructions: <a href="https://github.com/oiad/ZSC" rel="external nofollow">https://github.com/oiad/ZSC</a>
+</p>
+
+<ul><li>
+		Tested as working on a blank Epoch 1.0.6.1+ and OverWatch 0.25 server.
+	</li>
+	<li>
+		Designed to minimize duping/glitching of bank related saving with nearby players (checkWallet etc).
+	</li>
+	<li>
+		Lots of code snippets taken from the original Zupa release thread to stop multiple people checking wallet/depositing into the same safe etc.
+	</li>
+	<li>
+		Supports multiple configuration types, Safes/lockboxes only, vehicles only, safes/lockboxes AND vehicles.
+	</li>
+	<li>
+		Supports any map, currently only has server_traders files for Chernarus (default), napf and tavi.
+	</li>
+	<li>
+		To install global banking: https://github.com/oiad/ZSC#changing-to-global-banking
+	</li>
+</ul><h1 style="font-size:2em;margin:24px 0px 16px;font-weight:600;line-height:1.25;padding-bottom:.3em;border-bottom:1px solid rgb(238,238,238);color:rgb(51,51,51);font-family:'-apple-system', BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-style:normal;letter-spacing:normal;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">
+	Install:
+</h1>
+
+<ul style="padding-left:2em;margin-top:0px;margin-bottom:16px;color:rgb(51,51,51);font-family:'-apple-system', BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size:16px;font-style:normal;font-weight:normal;letter-spacing:normal;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;"><li>
+		This install basically assumes you have NO custom variables.sqf or compiles.sqf or fn_selfActions.sqf, I would recommend diffmerging where possible. 
+	</li>
+	<li>
+		This has all the config traders set up for epoch 1.0.6 items and OverWatch guns/items. You will need to install the specific version you want to use, See install notes further down.
+	</li>
+</ul>]]></description><guid isPermaLink="false">43331</guid><pubDate>Sun, 19 Feb 2017 02:49:47 +0000</pubDate></item><item><title>[Tutorial] Give Coins to player - Using Infistar</title><link>https://epochmod.com/forum/topic/15328-tutorial-give-coins-to-player-using-infistar/</link><description><![CDATA[
+<p>Hello,</p>
+<p> </p>
+<p>Alot of you guys use infistar for testing and for donations. You can use this tutorial for giving coins to your self or to other players for testing or donations. Customize it to your liking.</p>
+<p> </p>
+<p>This Script will add 2 menus to your Infistar Admin menu</p>
+<ul><li>Give Player +10000 Coins</li>
+<li>Give +10000 Coins to Players Bank</li>
+<li>Remove 10000 Coins from player</li>
+<li>Remove 10000 from players Bank</li>
+</ul><p> </p>
+<p>Open <strong>AH.sqf</strong></p>
+<p> </p>
+<p>Search (2 times):</p>
+<pre class="ipsCode prettyprint">
+adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
+</pre>
+<p>Add Below:</p>
+<pre class="ipsCode prettyprint">
+adminadd = adminadd + [" Give +10000 Coins",adminGiveCoins,"0","0","0","1",[0,0.8,1,1]]; // [GG] Give Coins to player
+adminadd = adminadd + [" Transfer +10000 Coins To Bank",adminGiveCoinsToBank,"0","0","0","1",[0,0.8,1,1]]; // [GG] Give Coins to Bank
+adminadd = adminadd + [" Remove +10000 Coins",adminTakeCoins,"0","0","0","1",[0,0.8,1,1]]; // [GG] Remove Coins to player
+adminadd = adminadd + [" Remove +10000 Coins From Bank",adminTakeCoinsFromBank,"0","0","0","1",[0,0.8,1,1]]; // [GG] Remove Coins to Bank</pre>
+<p>Search:</p>
+<pre class="ipsCode prettyprint">
+adminHumanityMinus =
+    {
+        {
+            if (name _x == _this select 0) then
+            {
+                _humanity = _x getVariable["humanity",0];
+                _x setVariable["humanity",_humanity-2500,true];
+                hint format["Gave %1 -2500 Humanity!",_this select 0];
+                
+                _sl = format["%1 minus 2500 Humanity to %2",name player,_this select 0];
+                PVAH_WriteLogReq = [player,_sl];
+                publicVariableServer "PVAH_WriteLogReq";
+            };
+        } forEach playableUnits;
+    };</pre>
+<p>Add Below:</p>
+<pre class="ipsCode prettyprint">
+    // [GG] Give Coins to player
+adminGiveCoins =
+    {
+        {
+            if (name _x == _this select 0) then
+            {
+                _cashMoney = _x getVariable["cashMoney",0];
+                _x setVariable["cashMoney",_cashMoney+10000,true];
+                hint format ["Gave %1 +10000 Coins!",_this select 0];
+                
+                _sl = format["%1 plus 10000 Coins to %2",name player,_this select 0];
+                PVAH_WriteLogReq = [player,_sl];
+                publicVariableServer "PVAH_WriteLogReq";
+            };
+        } forEach playableUnits;
+    };
+
+// [GG] give Coins to bank
+adminGiveCoinsToBank =
+    {
+        {
+            if (name _x == _this select 0) then
+                {
+                    _bankMoney = _x getVariable["bankMoney",0];
+                    _x setVariable["bankMoney",_bankMoney+10000,true];
+                    hint format ["Gave %1 +10000 Coins!",_this select 0];
+                                     
+                    _sl = format["%1 plus 10000 Coins to %2",name player,_this select 0];
+                    PVAH_WriteLogReq = [player,_sl];
+                    publicVariableServer "PVAH_WriteLogReq";
+                };
+        } forEach playableUnits;
+    };
+       // [GG] Remove Coins From player
+    adminTakeCoins =
+    {
+        {
+            if (name _x == _this select 0) then
+            {
+                _cashMoney = _x getVariable["cashMoney",0];
+                _x setVariable["cashMoney",_cashMoney-10000,true];
+                hint format ["Removed %1 +10000 Coins!",_this select 0];
+                
+                _sl = format["%1 minus 10000 Coins from %2",name player,_this select 0];
+                PVAH_WriteLogReq = [player,_sl];
+                publicVariableServer "PVAH_WriteLogReq";
+            };
+        } forEach playableUnits;
+    };
+
+    // [GG] Remove Coins From bank
+    adminTakeCoinsFromBank =
+    {
+        {
+            if (name _x == _this select 0) then
+                {
+                    _bankMoney = _x getVariable["bankMoney",0];
+                    _x setVariable["bankMoney",_bankMoney-10000,true];
+                    hint format ["Removed %1 -10000 Coins!",_this select 0];
+                                     
+                    _sl = format["%1 minus 10000 Coins from %2",name player,_this select 0];
+                    PVAH_WriteLogReq = [player,_sl];
+                    publicVariableServer "PVAH_WriteLogReq";
+                };
+        } forEach playableUnits;
+    };
+
+</pre>
+<p>Customize it to your liking.</p>
+<p> </p>
+<p><strong>Credits:</strong></p>
+<ul><li>Zupa (for the awesome single currency script)</li>
+<li>Infistar (for an awesome Antihack)</li>
+<li>ghostzgamerz.com (for test server)</li>
+<li>Jun (for testing)</li>
+<li>Storm (extra options)</li>
+</ul>]]></description><guid isPermaLink="false">15328</guid><pubDate>Sat, 09 Aug 2014 05:34:03 +0000</pubDate></item><item><title><![CDATA[[Tutorial] See Players Money & Bank Balance - Using Infistar]]></title><link>https://epochmod.com/forum/topic/15435-tutorial-see-players-money-bank-balance-using-infistar/</link><description><![CDATA[
+<p><span style="font-size:14px;"><strong>Simple Peace Of Code But Alot Of Help </strong><br>
+ <br><strong>Reason For :</strong><br><strong>Catch People Who Duplicate</strong><br>
+ <br><strong>Install :</strong></span><br><span style="font-size:14px;"><strong>Open AH.sqf</strong><br>
+ <br><strong>Find :</strong></span></p>
+<pre class="ipsCode prettyprint lang-auto">
+_log2 = format['Blood: %1    Humanity: %2',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0])];</pre>
+<p><span style="font-size:14px;"><strong>Replace With :</strong></span></p>
+<pre class="ipsCode prettyprint lang-auto">
+_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['headShots',0]),(_unit getVariable['bank',0])];</pre>
+<p><span style="font-size:14px;"><strong>Replace With This If You Have </strong></span><strong><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">Soul's</span></strong><span style="font-size:14px;"><strong> Edits :</strong></span></p>
+<pre class="ipsCode prettyprint lang-auto">
+_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['CashMoney',0]),(_unit getVariable['bankMoney',0])];</pre>
+<p><span style="font-size:14px;"><strong>Image :</strong></span><br><br><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="B2JGnO4.jpg" data-src="http://i.imgur.com/B2JGnO4.jpg"></p>
+]]></description><guid isPermaLink="false">15435</guid><pubDate>Mon, 11 Aug 2014 19:17:33 +0000</pubDate></item><item><title>ZSC-master are working on 1.0.6.2?</title><link>https://epochmod.com/forum/topic/44830-zsc-master-are-working-on-1062/</link><description><![CDATA[
+<p>
+	Alright!
+</p>
+
+<p>
+	i tried to instal this five times. clean installation without other scripts. I see this work without battleye, but with it I get three restrictions. I tried to fix this with bfe.marma.io because I'm noob. but I get another constraint that I can not fix.
+</p>
+
+<p>
+	this log are pure clean install without my modifications: i have edited for not showing my useless data.     .  
+</p>
+
+<p>
+	RPT.log 
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			 9:21:11 "PRELOAD_ Functions\init [[&lt;No group&gt;:0 (FunctionsManager)],any]"<br />
+			 9:21:11 "MPframework inited"<br />
+			 9:21:12 "dayz_preloadFinished reset"<br />
+			 9:21:13 Client: Remote object 2:12 not found<br />
+			 9:21:21 "Loading custom server compiles"<br />
+			 9:21:24 "HIVE: Starting"<br />
+			 9:21:24 "z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."<br />
+			 9:21:24 ["TIME SYNC: Local Time set to:",[2012,8,2,13,21],"Fullmoon:",true,"Date given by HiveExt.dll:",[2018,1,16,13,21]]<br />
+			 9:21:24 "HIVE: trying to get objects"<br />
+			 9:21:25 "SERVER FPS: 8  PLAYERS: 0"<br />
+			 9:21:25 "HIVE: found 283 objects"<br />
+			 9:21:25 "HIVE: Request sent"<br />
+			 9:21:25 "HIVE: Streamed 283 objects"<br />
+			 9:21:25 "All clients disconnected. Server_monitor.sqf is exiting."
+		</p>
+	</div>
+</div>
+
+<p>
+	script.log
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			16.01.2018 09:21:12: MessiGamer (//////) ////// - #15 "#line 1 "mpmissions\__CUR_MP.Chernarus\dayz_code\init\compiles.sqf"<br />
+			if (isServer) then {<br />
+			diag_log "Loading custom server compile"<br />
+			16.01.2018 09:21:13: MessiGamer (//////) ////// - #15 "#line 1 "mpmissions\__CUR_MP.Chernarus\dayz_code\compile\remote_message.sqf"<br />
+			fnc_remote_message = {<br />
+			private ["_type","_message"]"<br />
+			16.01.2018 09:21:13: MessiGamer (//////) ////// - #36 "== "global")            exitWith {systemChat _message;};<br />
+			if (_type == "hint")            exitWith {hint _message;};<br />
+			if (_type == "titleCut")        exit"
+		</p>
+	</div>
+</div>
+
+<p>
+	server.log
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			9:20:46 Roles assigned.<br />
+			 9:20:46 Reading mission ...<br />
+			 9:21:12 Mission read.<br />
+			 9:21:13 Game started.<br />
+			 9:21:13 Player MessiGamer kicked off by BattlEye: Script Restriction #36<br />
+			 9:21:13 Player MessiGamer disconnected.
+		</p>
+	</div>
+</div>
+
+<p>
+	script.txt
+</p>
+
+<pre class="ipsCode prettyprint lang-lua prettyprinted">
+<span class="com">//new2</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> addAction </span><span class="pun">!</span><span class="pln">raddAction </span><span class="pun">!</span><span class="str">"\"addAction\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">", \"\\z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"],DZE_build_vector_file,[vectorActionState,"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> addBackpack </span><span class="pun">!</span><span class="str">"addBackpackCargoGlobal [_x,(_objWpnQty select _counter)];\n_counter = _counter + 1;\n} count _objWpnTypes;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addBackpack _item;\n};\n};\nformat[localize \"str_c"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"case 3: {_holder addBackpackCargoGlobal [_item,_amount];};\n};\n\n\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"}) then {\n_newUnit addBackpack _newBackpackType;\n\nd"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(_this select 0)) then\n{\n(_this select 0) addBackpack (_x select 1);\n};\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(_this select 0) addBackpackCargoGlobal [_x select 1, 1];\n};\n};\n} cou"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addBackpack _backpackType; \ndayz_myBackpack =	unitBackpack player;\n\n\n\n_backpackWpnT"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"};\n} count _wpns;\n\nif (_bcpk != \"\") then {\nplayer addBackpack"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"1 == \"trade_backpacks\") then {\nDZE_myVehicle addBackpack"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"7 addBackpackCargoGlobal  [_create,_qty];\n};\nif (surfaceIsWater"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"case 5: {_item addBackpackCargoGlobal [_itemOut,_countOut]};\n};\n} else"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> addMagazine </span><span class="pun">!</span><span class="pln">raddMagazine </span><span class="pun">!</span><span class="str">"\"addMagazine\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (isClass (configfile &gt;&gt; \"cfgmagazines\" &gt;&gt; (_item))) then {_unit addMagazine _item;};\n};\n};\n};\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_vehicle addMagazineTurret [_ammo,_turret];\nplayer removeMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (dayz_actionInProgress) exitWith {"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _x;\n};\n} foreach _items;\nformat[loc"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine 'Hatchet_Swing'"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine \"ItemAntibiotic\" + str(_remain"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"sumeDrop\") == 0) then\n{\nplayer addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ion) do {\ncase \"CfgWeapons\":\n{\nplayer addWeapon _item;\n};\ncase \"CfgMagazines\":\n{\nplayer addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine [\"12Rnd_Quiver_Wood\",_qty_quiv"</span><span class="pln"> </span><span class="pun">!</span><span class="str">" &gt;&gt; \"containerEmpty\")"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"plant) select 1;\n{\n_item addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazineCargoGlobal [_itemtodrop,1];\n\nformat[localize \"str_f"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _attachment;\n\n\n(findDisplay 10"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine getText (configFile &gt;&gt; \"CfgMagazines\" &gt;&gt; _x &gt;&gt; _water"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"};\n};\n\n\nswitch _type do {\ncase 1: {_holder addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"do {\n_animalbody addMagazine _rawfoodtype"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _item;\n};\n};\n_idc = _idc"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_newUnit addMagazine [_x select 0,_x select 1]"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _x } count MeleeMagazines;\n} e"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_meleeNum &lt; 1) then {\nplayer addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _qtyRemaining;\n};\n};\ntrue"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"bag\";\n};\n};\n(_this select 0) addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazineCargoGlobal [_item, 1];\nif (surfaceIsWater (_this s"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine \"wholeBloodBagBNEG\";\n};\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_qty &gt; 0) then {\n_firePlace addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ONEG\" }; \n};\ndayz_myBackpack addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _x;\n_countmags = _countmags  +1;\n};\n} count _gmag"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"E\"];\n_lootpile addMagazineCargoGlobal [\"TrapBear\", 1]"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"With\n{\nplayer addMagazine (_this select 1"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lder addMagazineCargoGlobal [_x,(_objWpnQty select _counter)];\n_counter = _counter + 1;\n};\n} co"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"soldItem\"];\n{\n_object addMagazine"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"systemChat localize \"STR_EPOCH_TRADE_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (_silver_1oz &gt; 0) then {\nif (_silver_1oz == 1) then {\nplayer addMagazine"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> addWeapon </span><span class="pun">!</span><span class="pln">raddWeapon </span><span class="pun">!</span><span class="str">"\"addWeapon\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (isClass (configfile &gt;&gt; \"cfgweapons\" &gt;&gt; (_item))) then {_unit addWeapon _item;}\nelse"</span><span class="pln"> </span><span class="pun">!</span><span class="str">",0]] call dayz_NutritionSystem;\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"Remove) == 1}) then {\nplayer addWeapon _create;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"Display 0;\n\n\nif (_weaponInUse) then\n{\n_muz"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"failChance) then {\nswitch (_selection) do {\ncase \"CfgWeapons\":\n{\nplayer addWeapon"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addWeapon _fixedItem;\nformat[localize \"str_f"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_wepcounts = (getWeaponCargo _plant) select 1;\n{\n_item addWeapon"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addWeapon _repair;\n} else {\n\n[_repair"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"player addWeapon dayz_onBack\n] select 0;\n};\n\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"player addWeapon _addWeapon;\n\nif (vehicle player != player) then {\n_display = find"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"};\n};\n\n\nswitch _type do {\ncase 1: {_holder addMagazineCargoGlobal [_item,_amount];};\ncase 2: {_holder addWeapon"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"l fn_chance) then {\nplayer removeWeapon _x;\nplayer addWeapon _rem"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"else {\n_body addWeapon dayz_onBack;\n};\n};\n\n\n_infect"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\" &gt;&gt; _x)) then {\nplayer addWeapon _x;\n};\n} count _wpns;\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lder addWeaponCargoGlobal [_x,(_objWpnQty select _counter)];\n_counter = _counter + 1;\n} co"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"WpnQtys = [];\nif (count _backpackWpn &gt; 0) then {\n_backpackWpnTypes = _backpackWpn sel"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addWeapon (\"Item\"+str(_remain)+\"Matchbox"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"{\nswitch (_x select 0) do\n{\ncase 		2:\n{\n(_this select 0) addWeapon"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"E\"];\n_vehicle addWeaponCargoGlobal [_lootInfo select 1, 1"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addWeaponCargoGlobal [_bcpkWpn, 1];\n};\n};\n};\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"s;\n};\n\n\nplayer addWeapon \"Loot"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"With\n{\nplayer addWeapon (_this select 1"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\") then {\n_newUnit addWeapon _secweapon;\n};\n\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"soldItem\"];\n{\n_object addWeapon"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"then {\nsystemChat format[localize \"STR_EPOCH_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"DuplicateTool;\n} else {\nplayer addWeapon"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> allDead </span><span class="pun">!</span><span class="str">"} count allDead;\n\n\nif (dayz_oldBodyCount &gt; _bodyCount) then {"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> allGroups </span><span class="pun">!</span><span class="str">"publicVariableServer \"PVDZ_Server_UpdateGroup\";\n};\n} count allGroups;"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> allMissionObjects </span><span class="pun">!</span><span class="str">"[_x,2,0,false,false] spawn BIS_Effects_Burn;\n};\n} count allMissionObjects \"SpawnableWreck\";"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> allowDammage
+</span><span class="lit">5</span><span class="pln"> allUnits </span><span class="pun">!</span><span class="str">"} count allUnits;\nlbSort _playerList;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (getPlayerUID _x == _this) exitWith {\n_player = _x;\n};\n} count allUnits;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"owner _x publicVariableClient \"PVDZ_groupInvite\";\n};\n} count allUnits;"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> attachTo </span><span class="pun">!</span><span class="str">"(_variation * 2)) - _variation)];\n_bolt attachTo [_hitObject,_val,_hitMemoryPt];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"player playActionNow \"PutDown\";\nuiSleep 2;\n_flare attachTo [player,[0,0,0],\"granat2\"];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"tchmove \"ainjpfalmstpsnonwrfldnon_carried_still\";\n_dragee attachto [_unit,[-0.2, 0.2, 0]];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_source setDropInterval 0.02;\n_point attachTo [_unit,_modelPos,_wound];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">" attachto [_v,[0,0,0],\"destructionEffect"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"publicVariable \"PVDZ_drg_RaDrag\";\n\n_dragee attachto [_unit,[0.1, 1.01, 0]];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_l1 attachTo [_lh,[0,0,0],\"light\"];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_objectHelper attachTo [player,_offset];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_object attachTo [player,_offset];\n\n_position = getPosATL _object;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_vehicle attachTo [_liftHeli,[0,0,-7]];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_obj attachTo [_axis];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_objectSnapGizmo attachTo [_object,[_x select 0,_x select 1,_x select 2]];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_vehicle attachTo [_towTruck,[1.3,-2,2.3]];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"localize \"STR_EPOCH_ACTIONS_ATTACHTOHELI\","</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> buttonSetAction
+</span><span class="lit">5</span><span class="pln"> callExtension
+</span><span class="lit">5</span><span class="pln"> camCreate </span><span class="pun">!</span><span class="str">"camCreate (player modeltoWorld [0,0,2]);\n0.2 fadeSound 0.1;\nDayz_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_body;\n_playerID = getPlayerUID player;\n\n\n_camera = \"camera\" camCreate _death"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_camera = \"camera\" camCreate  [12222.323, 3415.7791, -0.059190542]"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> cameraEffect </span><span class="pun">!</span><span class="str">"0.2 fadeSound 0.1;\nDayz_BuildCamera cameraeffect [\"External\", \"TOP\"];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"cameraEffect [\"Internal\",\"TOP\"];\n_camera camSetTarget _deathPos;\n_camera camSetPos [_deathPos select"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"r_Simulation\";\n\n_camera cameraEffect [\"Terminate"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"cameraEffect [\"internal\",\"back\"]\n\n_camera camPrepareTarget [6433.5"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> closeDisplay </span><span class="pun">!</span><span class="str">"'closeDisplay'"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"closeDisplay 0"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"closeDisplay 2"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (!isNil \"closeDisplay\") then {"</span><span class="pln">
+</span><span class="lit">1</span><span class="pln"> compile </span><span class="pun">!</span><span class="str">"ca\\communityconfiguration"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ca\\Data\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ca\\missions"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ca\\modules"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ca\\ui\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ca\\Warfare2\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"scriptName \"Functions\\systems\\fn_inv"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"scriptName \"MP\\data\\script"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"code = compile preprocessFileLineNumbers (BIS_PathMPscriptCommands"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"t = missionConfigFile &gt;&gt; \"onMinimapScript"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_this call (call compile GetText (configFile &gt;&gt; \"CfgAmmo\" &gt;&gt; _amm &gt;&gt; \"muzzleEffect\"));"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_menu ctrlSetEventHandler [\"ButtonClick\",_compile];\n};\n_pos set [3"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"{ _x set [1, compile (_x select 1)]; }"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"silver_1oz_b);\n\n{ \nif (!isNil {call compile"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"Var = compile format[\"epoch_death_board_record_"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> createAgent </span><span class="pun">!=</span><span class="str">"_agent = createAgent [_type, _position, [], _radius, \"CAN_COLLIDE\"];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_agent = if (_type == \"Pastor\") then {createAgent [_type, _Pos, [], 0, \"NONE\"]} else {createAgent [_type, _Pos, [], 0, \"FORM\"]};"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_dog = createAgent [_type, _Pos, [], 0, \"NONE\"];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> createDialog </span><span class="pun">!=</span><span class="str">"_region = createDialog \"RscDisplaySpawnSelecter\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_gender = createDialog 'RscDisplayGenderSelect';"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_dialog = createDialog \"bloodTest\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"createDialog 'RscDisplayCraftingMenu';"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"createDialog \"DAYZ_PADLOCK\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"createDialog 'horde_journal_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"Z_ResetContainer = true;\ncreateDialog \"AdvancedTrading\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"createDialog \"DoorManagement\";\ncall DoorNearbyHumans;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"createDialog \"ComboLockUI\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"createdialog \"PlotManagement\";\ncall PlotNearbyHumans;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_trader_data = (_this select 3);\n\n_dialog = createdialog \"TraderDialog\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_ok = createdialog \"KeypadUI\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"EpochDeathBoardLoad = {\ncreatedialog \"EpochDeathBoardDialog\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"if(DZE_doorManagement) then {createdialog \"DoorAccess\";} else {createdialog \"ComboLockUI\";};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\ndisableSerialization;\ncreateDialog \"DZ_GroupDialog\";"</span><span class="pun">!</span><span class="str">"createDialog \"atmDialog\";"</span><span class="pun">!=</span><span class="str">"createDialog \"BankDialog\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"createDialog \"GivePlayerDialog\";"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> createDisplay
+</span><span class="lit">5</span><span class="pln"> createMarker </span><span class="pun">!</span><span class="str">"\"createMarkerLocal\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"rcreateMarkerLocal"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (isnil 'BIS_GITA_fnc_createMarkers' || false) then {"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_marker = createMarkerLocal [format[\"groupMember"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> createUnit </span><span class="pun">!=</span><span class="str">"_newUnit = _group createUnit [_class,respawn_west_original,[],0,\"NONE\"];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"BIS_MPF_logic = BIS_MPF_dummygroup createUnit [\"Logic\", [1000,10,0], [], 0, \"NONE\"];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> createVehicleLocal </span><span class="pun">!=</span><span class="str">"_object = (_x select 1) createVehicleLocal [0,0,0];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_plant = _x createVehicleLocal (getMarkerPos \"center\");"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_point = \"Logic\" createVehicleLocal getPosATL _unit;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_object = _type createVehicleLocal [0,0,0];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_obj = _class createVehicleLocal (getMarkerpos \"respawn_west\");"</span><span class="pln"> </span><span class="pun">!</span><span class="str">" = \"#lightpoint\" createVehicleLocal "</span><span class="pln"> </span><span class="pun">!</span><span class="str">" = \"#particlesource\" createVehicleLocal "</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_object = _ghost createVehicleLocal getMarkerpos \"respawn_west\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_cursorTarget = _upgrade createVehicleLocal getMarkerpos \"respawn_west\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_para = \"ParachuteWest\" createVehicleLocal [0,0,0];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_sign = \"Sign_arrow_down_large_EP1\" createVehicleLocal [0,0,0];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_obj = \"Sign_sphere10cm_EP1\" createVehicleLocal [0,0,0];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_objectSnapGizmo = \"Sign_sphere10cm_EP1\" createVehicleLocal [0,0,0];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_object2 = _ghost2 createVehicleLocal [0,0,0];\nhideObject _object;"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> ctrlAddEventHandler
+</span><span class="lit">5</span><span class="pln"> ctrlSetPosition </span><span class="pun">!=</span><span class="str">"_control ctrlSetPosition [_posX, _posY];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"3,_h]};\n_control ctrlsetposition _pos;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_control ctrlSetPosition [0, (_y + _deltaY)];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_disp_ctrl ctrlSetPosition [_posX, _posY];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_control ctrlSetPosition _grpPos;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_group ctrlSetPosition _pos;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_control ctrlSetPosition [_controlPos select 0, _controlPos select 1, _controlPos select 2, 0.03921 * _lines];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"((uiNamespace getVariable 'DAYZ_GUI_waiting') displayCtrl 1400) ctrlSetPosition _sandLevel;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_delayControl ctrlSetPosition [0, _pos];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_icon ctrlSetPosition [(_screen select 0),(_screen select 1),.99,.65];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> cutText </span><span class="pun">!</span><span class="str">"_layer cuttext [\"\",\"plain\"];\n};\nmissionnamespace"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\n\n\n3100 cuttext [\"\",\"plain\"];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"} else {\n16 cutText [\"\",\"PLAIN\"];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"exitWith {\n1 cutText [localize \""</span><span class="pln"> </span><span class="pun">!</span><span class="str">"progress_monitor.sqf\";\n0 cutText ['','BLACK',0]"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"8 cutText [\"\",\"PLAIN\"];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> deleteMarker </span><span class="pun">!</span><span class="str">"} count allDead;\n\n\nif (dayz_oldBodyCount &gt; _bodyCount) then {"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> displayAddEventHandler </span><span class="pun">!</span><span class="str">"bis_fnc_halo_keydown_eh = (finddisplay 46) displayaddeventhandler [\"keydown\",\"_this call bis_fnc_halo_keydown;\"];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> displaySetEventHandler
+</span><span class="lit">5</span><span class="pln"> enableEnvironment
+</span><span class="lit">5</span><span class="pln"> endMission </span><span class="pun">!</span><span class="pln">rendMission </span><span class="pun">!</span><span class="str">"clearWeaponCargo\",\n\"endMission\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"enablesimulation\", \"endMission\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lize \"str_player_login_timeout\", \"PLAIN DOWN\"];\nuiSleep 5;\nendMission"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\npublicVariableServer \"PVDZ_sec_atp\";\nendMission \"LOSER\";\n};\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"Terminate\",\"BACK\"];\ncamDestroy _camera;\n\nendMission"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"endMission \"END1\";\n\n\ndayz_authed = true"</span><span class="pln">
+</span><span class="lit">1</span><span class="pln"> execVM </span><span class="pun">!</span><span class="pln">rexecVM </span><span class="pun">!</span><span class="str">"\"execVM\", "</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"[] execVM \"initJIPcompatible.sqf\";"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_script = [] execVM (BIS_MP_Path + BIS_PATH_SQF + \"JIPWaitFor.sqf\");"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM \"\\ca\\Data\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM '\\ca\\Data\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM \"\\ca\\missions"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM 'ca\\modules\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM \"ca\\modules\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"'\\ca\\ui\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"\\ca\\ui\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"scriptName \"MP\\data\\script"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_handle\"];\n_handle = [_display] execVM _script;\n}"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM '\\z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM 'z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM \"z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM \"\\z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM (\"\\z\\addons\\dayz_code\\"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"dayz_rulesHandle = execVM \"rules.sqf\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execvm '\\ASC\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\\usec_ch53\\scripts\\"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"execVM (_actionDir + \"warn.sqf"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> failMission </span><span class="pun">!</span><span class="pln">rfailMission </span><span class="pun">!</span><span class="str">"failMission\",\n\"titleCut\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"fadeSound\", \"failMission\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (_debug == 1) then {\ndiag_log (\"End Mission\");\n};\n\nfailMission"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> forceEnd
+</span><span class="lit">5</span><span class="pln"> groupIcon
+</span><span class="lit">5</span><span class="pln"> </span><span>HelicopterExplo</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(isNull _who) then {\nif (_ammo != \"\" &amp;&amp; _ammo isKindOf \"HelicopterExplo"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_v = thisTrigger getVariable [\"obj\", objNull];\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_v = thisTrigger getVariable [\"\"obj\"\", objNull];\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\n\n\nremoveallweapons _v;\n\nif (local _v) then {_expl=\"HelicopterExplo"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> hideObject </span><span class="pun">!</span><span class="pln">rhideObject </span><span class="pun">!</span><span class="str">"\"hideObject\""</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(_x select 0) nearestObject (_x select 1);\n_object hideObject"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_object2 = _ghost2 createVehicleLocal [0,0,0];\nhideObject _object;"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> hint </span><span class="pun">!</span><span class="str">", \"_postFix\""</span><span class="pln"> </span><span class="pun">!</span><span class="pln">rhint </span><span class="pun">!</span><span class="pln">rtaskHint </span><span class="pun">!</span><span class="str">"\"hint\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"hintC\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"taskHint\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_controlHintButton ctrlSettext \"Objectives\";"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"hint (localize \"strwf"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"'BIS_fnc_hints'"</span><span class="pln"> </span><span class="pun">!</span><span class="pln">sched_planthint </span><span class="pun">!</span><span class="str">"call ui_initDisplay;\nhintSilent \"\""</span><span class="pln"> </span><span class="pun">!</span><span class="str">"hintSilent localize \"str_player_low"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> lbCurSel </span><span class="pun">!</span><span class="str">"_selectedUserIndex = lbCurSel _lbUsersControl;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"profileNamespace setVariable ['statusUI',(lbCurSel (_this select 0))];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"profileNamespace setVariable ['streamerMode',(lbCurSel (_this select 0))];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_index = lbCurSel _lbcontrol;\n_selectedItem"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_selected = lbCurSel _list;\n_classname = _list lnbData [_selected, 2];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_friendName = _userList lbText (lbCurSel _userList);"</span><span class="pln"> </span><span class="pun">!</span><span class="str">")] call Z_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(lbCurSel 7421) call Z_fillCategoryList"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"] call Door"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"] call Plot"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"[(lbCurSel 12001)] "</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"[(lbCurSel 21000), ((ctrlParent (_this select 0)) displayCtrl 21001)] spawn EpochDeathBoardClick;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"((ctrlParent (_this select 0)) closeDisplay 2);"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_uid = _playerList lbData (lbCurSel _playerList);"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_myGroup lbData (lbCurSel _myGroup);"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> lbSet </span><span class="pun">!</span><span class="str">"_lbUsersControl lbSetColor [_x, [1,0,0,1]];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\n_control lbSetColor [_x, _color];\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_weaponsLBSetFocus"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"(_this select 0) displayCtrl _idc lbSetCurSel (profileNamespace getVariable [_var,_default]);"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"(_display displayCtrl 105) lbSetColor [_i, [0.06, 0.05, 0.03, 1]];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">" [7421,"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lbSetPicture [7422, _index"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lbSetPicture [7402, _index"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lbSetPicture [7401, _index"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_userList lbSetData [(lbSize _userList) -1,_friendUID];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">" [TraderDialogItemList, _index, "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_myGroup lbSetData [_index,getPlayerUID _x];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> loadFile
+</span><span class="lit">5</span><span class="pln"> menu </span><span class="pun">!</span><span class="str">",\"MenuSelected\",\"Draw\",\"VideoStop"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_menu = _parent displayCtrl (1600 + _i);\n_menu ctrlShow "</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"createDialog 'RscDisplayCraftingMenu';"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"BIS_fnc_commsMenu"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"BIS_fnc_kbMenu"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"call gear_ui_offMenu;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"dayz_inflame_showMenu"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"showCommandingMenu\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"rshowCommandingMenu"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"menu_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"use action menu to "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"_menu\",\"_menu1\""</span><span class="pln"> </span><span class="pun">!</span><span class="str">"PVDZE_plr_TradeMenu"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"fn_gearMenuChecks"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"fn_pauseMenuChecks"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> onMapSingleClick
+</span><span class="lit">5</span><span class="pln"> player_humanityMorph </span><span class="pun">!</span><span class="str">"fn_surfaceNoise.sqf\";\nplayer_humanityMorph = compile preprocessFileLineNumbers \"\\z"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addMagazine _itemNew;\n_morphHandle = [dayz_playerUID,dayz_characterID,_model] spawn player_humanityMorph;\n}"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"&lt;= -2000) then {\nif (_isMen || _isMenH) then {\n[dayz_playerUID,dayz_characterID,\"Bandit1_DZ\"] spawn player_humanityMorph"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"#line 1 \"z\\addons\\dayz_code\\compile\\player_humanityMorph.sqf"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> playableUnits </span><span class="pun">!</span><span class="str">"for [{_y=0},{_y &lt; count(playableUnits)},{_y=_y+1}] do {"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"typeName player == \"OBJECT\" &amp;&amp; {(player in playableUnits"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"AND {((alive _x) AND {((vehicle _x) distance _obj &lt; 150)})}} count playableUnits)}) then {"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_local = { _unit distance _x &lt; _dis; } count playableUnits &lt;= 1;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (!_isOk) exitWith {false};\nuiSleep 0.001;\n} forEach playableUnits;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"ManagementMustBeClose) then { player nearEntities [\"CAManBase\", 10] } else { playableUnits };"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> positionCameraToWorld
+</span><span class="lit">5</span><span class="pln"> removeAllEventHandlers </span><span class="pun">!</span><span class="str">"_WarnFuel = false;\n};\n\n};\n\n_vehicle removeAllEventHandlers \"IncomingMissile"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"leep _wait;} else {sleep (_wait * 4);};\n};\n\n_vehicle removeAllEventHandlers \"Dammaged"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"lse\"];\n{\n(findDisplay 12) displayCtrl 51 ctrlRemoveAllEventHandlers"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"select 1,0] nearestObject (_x select 2);\n_building removeAllEventHandlers"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\n\n\n\nif (_this isKindOf \"AllVehicles\") then {\n\n_this removeAllEventHandlers"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"With {};\n\n_old = player;\n_old removeAllEventHandlers \"FiredN"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\npublicVariableServer \"PVDZ_veh_Save\";\n};\n};\n\n\n_unit removeAllEventHandlers"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> selectPlayer </span><span class="pun">!</span><span class="str">"addSwitchableUnit dayz_originalPlayer;\nsetPlayable dayz_originalPlayer;\nselectPlayer dayz_originalPlayer;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"addSwitchableUnit _newUnit;\nsetPlayable _newUnit;\nselectPlayer _newUnit;"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> serverCommand </span><span class="pun">!=</span><span class="str">"_character = if (serverCommandAvailable \"#kick\") then { call sched_tg_follow } else { player };"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"serverCommand (\"#vote kick \" + _selectedName);"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setAperture </span><span class="pun">!</span><span class="str">"select 1);\n\nif(_NVOn == \"ON\") exitwith\n{\nsetaperture -1"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"+_inc;\n\n_NVOn = (_NV select 0);\n\nif(_NVOn == \"ON\") then {\n\nsetAperture"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setCamUseTI
+</span><span class="lit">5</span><span class="pln"> setDamage </span><span class="pun">!</span><span class="str">"if (_entity isKindOf \"Animal\") then {\n_entity setDamage 1;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"player setDamage 1;\n};\n\nif (dayz_onBack != \"\") then {\nif (dayz_onBack in w"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (_ent isKindOf \"Animal\" || _ent isKindOf \"zZombie_base\") then {\n_ent setDamage 1;"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setDammage
+</span><span class="lit">5</span><span class="pln"> setDate </span><span class="pun">!</span><span class="pln">rsetDate </span><span class="pun">!</span><span class="str">"\"setDate\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\n\n\nif (!isDedicated) then {\n\"dayzSetDate\" addPublicVariableEventHandler {"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (_x != _newdate select _forEachIndex) exitWith {\nsetDate _newdate"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"plr_Login1]; \nPVDZ_send = [player,\"dayzSetDate\",[player]];\npublicVariableServer"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"!isNil \"dayzSetDate\""</span><span class="pln"> </span><span class="pun">!</span><span class="str">"diag_log ['Date &amp; time received:', dayzSetDate];\nsetDate dayzSetDate;\ndiag"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> </span><span>SetEventHandler</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\n_menu ctrlSetEventHandler [\"ButtonClick\",_compile];\n};"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"inGameUISetEventHandler [\"Action\",\"false\"];"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setMarkerAlpha
+</span><span class="lit">5</span><span class="pln"> setMarkerBrush
+</span><span class="lit">5</span><span class="pln"> setMarkerColor </span><span class="pun">!</span><span class="str">",if (_vehicle == _x) then {name _x} else {_vehicle call dayz_getCrew}];\n_marker setMarkerColorLocal \"ColorGreen\";"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setMarkerDir
+</span><span class="lit">5</span><span class="pln"> setMarkerPos </span><span class="pun">!</span><span class="str">"\"setMarkerPosLocal\","</span><span class="pln"> </span><span class="pun">!</span><span class="str">"rsetMarkerPosLocal"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setMarkerShape
+</span><span class="lit">5</span><span class="pln"> setMarkerSize
+</span><span class="lit">5</span><span class="pln"> setMarkerText </span><span class="pun">!</span><span class="str">",if (_vehicle == _x) then {name _x} else {_vehicle call dayz_getCrew}];\n_marker setMarkerColorLocal \"ColorGreen\";"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setMarkerType </span><span class="pun">!</span><span class="str">",if (_vehicle == _x) then {name _x} else {_vehicle call dayz_getCrew}];\n_marker setMarkerColorLocal \"ColorGreen\";"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setPosASL </span><span class="pun">!=</span><span class="str">"_unit setPosAsl [(_position select 0), (_position select 1), (LHA_height+1)];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_flame setPosASL [_pos select 0,_pos select 1,(_pos select 2)+0.2];"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_fire setPosASL _location;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_objectHelper setPosASL _position;\n} else {"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_b0x1337 setPosASL (getPosASL player);\n} else {"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_obj setPosASL [_center select 0, _a, _b];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_objectSnapGizmo setPosASL "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_para setposasl [\n"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_thingy setPosASL (ATLToASL _pos);\n} else {"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setTerrainGrid </span><span class="pun">!</span><span class="str">"if (dayz_REsec == 1) then {call compile preprocessFileLineNumbers \""</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setUnitRecoilCoefficient
+</span><span class="lit">5</span><span class="pln"> setVehicle </span><span class="pun">!</span><span class="str">"if(_status) then {\n_vehicle setVehicleLock \"LOCKED\";\n} else {\n_vehicle setVehicleLock \"UNLOCKED\";\n};"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> setViewDistance
+</span><span class="lit">5</span><span class="pln"> sideLogic </span><span class="pun">!</span><span class="str">"publicVariable \"BIS_MPF_logic\";"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> switchCamera </span><span class="pun">!</span><span class="str">"\"switchCamera\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"rswitchCamera"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"player switchCamera (Dayz_constructionContext select 2);"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"player switchCamera _currentCamera;\nif (_currentWpn !="</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> systemChat </span><span class="pun">!=</span><span class="str">"systemChat format[localize \"str_missing_to_do_this\", _x];"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"systemChat (localize "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"systemChat format[localize \"STR_EPOCH_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"systemChat localize \"STR_EPOCH_"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"case \"system\": {systemChat _message;};"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> title </span><span class="pun">!</span><span class="str">"titleCut [\"\", \"BLACK "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"titleCut\", "</span><span class="pln"> </span><span class="pun">!</span><span class="str">"\"titleText\""</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"rtitleCut = 'titleCut'"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"rtitleCutc"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"rtitleText = 'titleText'"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"rtitleTextc"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(_missionTextListPath &gt;&gt; \"titles\")"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"(_display displayCtrl _titleIDC) ctrlShow false;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"titleText [format[localize \"str_return_lobby\", _x"</span><span class="pln"> </span><span class="pun">!</span><span class="str">",\"_titleText\""</span><span class="pln"> </span><span class="pun">!</span><span class="str">"localize 'STR_UI_GENDER_TITLE';\n_timeNem"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"scriptName \"MP\\data\\scriptCommands\\titleText.sqf\";"</span><span class="pln"> </span><span class="pun">!</span><span class="pln">_fillTradeTitle </span><span class="pun">!</span><span class="pln">_bldTxtStringTitle </span><span class="pun">!</span><span class="str">"localize \"str_halo_altitude_speed"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> toString </span><span class="pun">!</span><span class="str">"_animCheck = toString ([(_animStateArray select 0),(_animStateArray select 1)"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_skinToModel = toString (_finalArray);"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"{_textArrayTemp = _textArrayTemp + [tostring [_x]]} foreach _line;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_cmpt = toString _cmpt;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_objName = toLower(toString(_objName));"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (toString _hayArr != _needle) then {"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_type = toString _typeA;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_anim4 = toString _anim4;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"{(count _stance&gt;17)}) then {toString [_stance select 17]}"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"BIS_fnc_timeToString"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"02, if (typeName _name == \"ARRAY\") then {toString _name} else {_name}];"</span><span class="pun">!</span><span class="str">"_input = parseNumber (toString (_input));"</span><span class="pln">
+</span><span class="lit">5</span><span class="pln"> worldTo </span><span class="pun">!=</span><span class="str">"_relPos = _building worldToModel _point;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"if (_isPlayer) then {\n_x = _pos worldToModel _new;"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_w2m = _x worldToModel (getPosATL player);\n_bb = (boundingbox _x) select 1;"</span><span class="pln"> </span><span class="pun">!=</span><span class="str">"_h = _offset + ((_o worldToModel (getPosATL _o)) select 2);"</span><span class="pln"> </span><span class="pun">!</span><span class="str">"_pos set [2,(_pos select 2) + 1.5];\n_screen = worldToScreen _pos;\n_text = composeText [image"</span><span class="pln">
+
+
+</span><span class="com">//The best use of this file is filtering commonly used scripting commands, because they are always the same when compiled and executed. See: https://community.bistudio.com/wiki/Category:Scripting_Commands_ArmA2</span><span class="pln">
+</span><span class="com">//Filtering strings, variable names and code snippets is less effective because they can easily be changed or obfuscated in a near infinite number of ways</span><span class="pln">
+
+</span><span class="com">//Always test after modifying by executing code on yourself. Ensure you are kicked or logged appropriately. One error in this file can break functionality of all filters and exceptions beyond that point.</span><span class="pln">
+
+</span><span class="com">//Note ! and != currently behave identically in scripts.txt, there is no advantage to using one over the other</span><span class="pln">
+</span><span class="com">//Note currently scripts.txt does not support regex, so the only characters that need to be escaped are literal double quotes " and literal backslash \</span><span class="pln">
+</span><span class="com">//Note tabs and spaces used as indents are stripped out automatically and do not need to be included in exceptions</span><span class="pln">
+</span><span class="com">//Note code is filtered as it appears when it is executed. Macros in scripts and % in formats will be replaced with their real values. Double quotes ""x"" or ''x'' nested in strings will appear as single quotes. Formatting characters will be stripped from FSMs.</span></pre>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">44830</guid><pubDate>Tue, 16 Jan 2018 11:51:22 +0000</pubDate></item><item><title><![CDATA[[Alpha Release] Single Currency 3.0 & Storage DEFAULT HIVE ( No global banking).]]></title><link>https://epochmod.com/forum/topic/28493-alpha-release-single-currency-30-storage-default-hive-no-global-banking/</link><description><![CDATA[
+<p><em><span style="font-family:georgia, serif;"><span style="font-size:18px;"><strong><span style="color:#000080;">Single Currency 3.0 &amp; Storage DEFAULT HIVE ( No global banking).</span></strong></span></span></em></p>
+<p> </p>
+<p><em><span style="font-family:georgia, serif;"><span style="font-size:18px;"><span style="color:#000080;"><strong>AKA: ZSC </strong></span></span></span></em></p>
+<p> </p>
+<p> </p>
+<p style="margin-left:40px;">RELEASE 1: <strong>INDEPENDENT RELEASE ( No converting script yet to convert old SC money to this version).</strong></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>        REQUEST: If someone is good with MYSQL can he complete the qyuery on the bottom of this post? ^^ limited time here ^^.</p>
+<p> </p>
+<p> </p>
+<p style="margin-left:40px;"><em><span style="font-family:georgia, serif;"><strong>What is it?</strong></span></em></p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:80px;"><em><span style="font-family:georgia, serif;">This script replaces gold,silver,tin,copper,briefcases by 1 virtual currency with a configurable name. You can buy,sell, give, receive, take (from dead bodies) and STORE this money like it was a normal inventory item. ( It will work with a different dialog then your gear dialog.) </span></em></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><em><span style="font-family:georgia, serif;">No more smelting gold into silver or anything related to that. Everything is in one currency ( For example "ZupasticiumCoins"). </span></em></p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"><em><span style="font-family:georgia, serif;"><strong>Features.</strong></span></em></p>
+<p style="margin-left:80px;"> </p>
+<ul>
+<li>
+<em><span style="font-family:georgia, serif;">Store Money in storage objects and vehicles ( max money in 1 storage depends on the size). </span></em>
+</li>
+<li><em><span style="font-family:georgia, serif;">No global access to your money.</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Anyone can take the money out ( for vault/lockbox it must be open of course).</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Trade with this currency for cars/items.</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Give money to other players.</span></em></li>
+<li><em><span style="font-family:georgia, serif;">NO inventory issues with gold!  </span></em></li>
+</ul>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"><em><span style="font-family:georgia, serif;"><strong>Whats the difference with your other single currency scripts?</strong></span></em></p>
+<p style="margin-left:80px;"> </p>
+<ul>
+<li>
+<em><span style="font-family:georgia, serif;">You can use the default hive!</span></em>
+</li>
+<li><em><span style="font-family:georgia, serif;">No global bank! Back to normal epoch danger to lose cash! </span></em></li>
+<li><em><span style="font-family:georgia, serif;">Cleaned up code</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Very low changes to default saving system. (DB friendly)</span></em></li>
+<li><em><span style="font-family:georgia, serif;">NO database changes needed.</span></em></li>
+<li><em><span style="font-family:georgia, serif;">NO ATMs, Safezones, atms in trader whatsoever...</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Store money in vehicles.</span></em></li>
+</ul>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"><em><span style="font-family:georgia, serif;"><strong>Technical data:</strong></span></em></p>
+<ul>
+<li>
+<em><span style="font-family:georgia, serif;">Storage money is saved in the gear section of the object in the Database</span></em>
+</li>
+<li><em><span style="font-family:georgia, serif;">Player Money is added to gear section of the player in the Database ( Again thanks to maca for pointing this out for me).</span></em></li>
+</ul>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"><em><span style="font-family:georgia, serif;"><strong>Extra</strong></span></em></p>
+<p style="margin-left:40px;"> </p>
+<ul>
+<li>
+<em><span style="font-family:georgia, serif;">This build will have all of the fixes on errors out there ( Build on peterbeers all in on packages with the bugfixes).</span></em>
+</li>
+<li><em><span style="font-family:georgia, serif;">Reworked the  transfering money between players to be sure trade goes to the right object/player.</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Store money in vehicles</span></em></li>
+</ul>
+<p style="margin-left:40px;font-size:14.4444446563721px;"><em><span style="font-family:georgia, serif;"><strong>Credits</strong></span></em></p>
+<p style="margin-left:40px;font-size:14.4444446563721px;"> </p>
+<ul>
+<li>
+<em><span style="font-family:georgia, serif;">Maca - Original private single currency.</span></em>
+</li>
+<li><em><span style="font-family:georgia, serif;">Peterbeer -  for putting all fixes together in 1 pack.</span></em></li>
+<li><em><span style="font-family:georgia, serif;">Soul - Hives modifications and code changes for it. ( not applied on this script, jsut credited for hard work).</span></em></li>
+<li>Rocu - Great help on forums and fixes.</li>
+<li>DraftKid - Testing and screenshots</li>
+</ul>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"> </p>
+<p><span style="font-size:17.7777786254883px;"><b><i>Please report bugs so I can solve them!</i></b></span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">The config located IN</span></p>
+<pre class="ipsCode prettyprint">
+ZSC/gold/ZSCconfig.sqf</pre>
+<pre class="ipsCode prettyprint">
+/* Single Currency 3.0 uses storages to store money which can be accessed by anyone if open of course (safe,lockbox). Each storage has his own money, so no global access. */
+
+// Name of your currency
+CurrencyName = "Coins"; 
+
+// Objects that can hold money. Vehicles are added automaticly. Size of  money capacity is depended on ammount of magazines the object can hold.
+ZSC_MoneyStorage = ["VaultStorage","LockboxStorage","StorageShed_DZ","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","GunRack_DZ","WoodCrate_DZ","TentStorage","TentStorageDomed","TentStorageDomed2"];
+
+// Multiplier how much money an object can hold. This number X ammount of magazines it can hold. ( so URAL -&gt; 500 items * 1000 = 5 MIL cash).
+ZSC_MaxMoneyInStorageMultiplier = 1000;
+
+// (True = No Animation / False = Animation)
+InstantTrading = false; 
+
+// If TRUE: overwrite yours player_switchmodel with mine. | IF False: Change content yourself @ step D
+ZSC_Overwrite_SwitchModel = true; 
+
+ // if TRUE: Overwrites yours fn_selfactions with default 1 + edits. | IF False: Change content yourself @ step D
+ZSC_Overwrite_SelfActions = true;
+
+ // if TRUE: Overwrites yours fn_selfactions with default 1 + edits. | IF False: Change content yourself @ step D
+ZSC_Overwrite_UnLockVault = true;
+
+ // if TRUE: Overwrites yours fn_selfactions with default 1 + edits. | IF False: Change content yourself @ step D
+ZSC_Overwrite_LockVault = true;
+
+/* IF YOU USE different mods like P4L it's recommended to do changes yourself or it wont work */
+</pre>
+<p><span style="font-family:georgia, serif;">There are pbo's provided for cherno 11. Or follow the installation instructions</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><a href="https://github.com/EpochSC/SingleCurrencyStorage" rel="external nofollow">https://github.com/EpochSC/SingleCurrencyStorage</a></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><span style="color:#000080;"><span style="font-size:18px;"><strong>Installation instructions. ( TRIED TO KEEP IT NOOB FRIENDLY ^^)</strong></span></span></span></p>
+<p> </p>
+<p> </p>
+<p><b>If u are going to use the full pbo?!</b></p>
+<p> </p>
+<p>The missions.sqm is build for OVERPOCH. Delete the overwatch addons if you are just using it for Epoch. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><strong>MISSION PBO</strong></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><b>A ) In your init.sqf:</b></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">A 1) You must have </span></p>
+<pre class="ipsCode prettyprint">
+/*ZSC*/
+DZE_ConfigTrader = true;
+/*ZSC*/
+</pre>
+<p><span style="font-family:georgia, serif;">in the top section ( for example right above "EpochEvents"); Place if you do not have it yet. ZSC requires Config traders, It will also help your server reduce lag!</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">A 2) PLACE</span></p>
+<pre class="ipsCode prettyprint">
+/*ZSC*/	
+call compile preprocessFileLineNumbers "ZSC\gold\ZSCinit.sqf";
+/*ZSC*/			
+</pre>
+<p><span style="font-family:georgia, serif;">ABOVE</span></p>
+<pre class="ipsCode prettyprint">
+progressLoadingScreen 0.5;
+</pre>
+<p><span style="font-family:georgia, serif;">A 3) PLACE</span></p>
+<pre class="ipsCode prettyprint">
+execVM "ZSC\compiles\playerHud.sqf";
+</pre>
+<p><span style="font-family:georgia, serif;">RIGHT UNDER</span></p>
+<pre class="ipsCode prettyprint">
+_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
+</pre>
+<p><span style="font-family:georgia, serif;">A 4 )</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">Change</span></p>
+<pre class="ipsCode prettyprint">
+call compile preprocessFileLineNumbers "server_traders.sqf";	
+</pre>
+<p><span style="font-family:georgia, serif;">to</span></p>
+<pre class="ipsCode prettyprint">
+call compile preprocessFileLineNumbers "server_traders_cherno_11.sqf";	
+</pre>
+<p><span style="font-family:georgia, serif;">ON THE BOTTOM OF THIS TOPIC THERE WILL BE AN EXPLANATION FOR OTHER MAPS / INSTANCES.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">A 5 ) MAKE SURE </span></p>
+<pre class="ipsCode prettyprint">
+_serverMonitor = 	[] execVM "\z\addons\dayz_server\system\server_monitor.sqf";
+</pre>
+<p><span style="font-family:georgia, serif;">this line is custom and doesnt have dayz_code in it. It should point at dayz_server or if u use another script to where ever that places it.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">B ) In your description.ext</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">B 1) Place </span></p>
+<pre class="ipsCode prettyprint">
+#include "ZSC\config\cfgServerTrader.hpp"
+</pre>
+<p><span style="font-family:georgia, serif;">on the complete top.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">B 2 ) Add if you do not have a RscTitles yet!</span></p>
+<pre class="ipsCode prettyprint">
+class RscTitles
+{
+#include "ZSC\config\ZSChud.hpp"
+};
+</pre>
+<p><span style="font-family:georgia, serif;">at the bottom.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">IF U ALREADY HAVE IT just add</span></p>
+<pre class="ipsCode prettyprint">
+#include "ZSC\config\ZSChud.hpp"
+</pre>
+<p><span style="font-family:georgia, serif;">behind whatever is in there.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">B 3 ) JUST ADD AT THE COMPLETE BOTTOM</span></p>
+<pre class="ipsCode prettyprint">
+#include "ZSC\config\ZSCdefines.hpp"
+#include "ZSC\config\ZSCdialogs.hpp"
+</pre>
+<p><span style="font-family:georgia, serif;">B 4 ) If you come from another currency, u can remove the shit that was extra added in that one  :).</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">C )  COPY FILES</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">C 1 ) Place the ZSC folder in your mission pbo ( take it out of the github's missions pbo).</span></p>
+<p><span style="font-family:georgia, serif;">C 2 ) Place server_traders_cherno_11.sqf in your missions pbo. ( If other map/instance check bottom of the topic.).</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">D ) fn_selfactions ( IF you use my overwrite, u do not have to to this step.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">D 1 )PLACE</span></p>
+<pre class="ipsCode prettyprint">
+	if(_typeOfCursorTarget in ZSC_MoneyStorage &amp;&amp; (player distance _cursorTarget &lt; 5)) then {
+		if (s_bank_dialog &lt; 0) then {
+				s_bank_dialog = player addAction ["Money Storage", "ZSC\actions\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];	
+		};
+	} else {
+     	player removeAction s_bank_dialog;
+		s_bank_dialog = -1;
+	};
+
+	// cars 
+	if( _isVehicle &amp;&amp; !_isMan &amp;&amp;_isAlive &amp;&amp; !_isMan &amp;&amp; !locked _cursorTarget &amp;&amp; !(_cursorTarget isKindOf "Bicycle") &amp;&amp; (player distance _cursorTarget &lt; 5)) then {		
+		if (s_bank_dialog2 &lt; 0) then {
+			s_bank_dialog2 = player addAction ["Money Storage", "ZSC\actions\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
+		};			
+	} else {		
+		player removeAction s_bank_dialog2;
+		s_bank_dialog2 = -1;
+	};
+</pre>
+<div>
+<p> </p>
+</div>
+<p><span style="font-family:georgia, serif;">AFTER</span></p>
+<pre class="ipsCode prettyprint">
+} else {
+	{player removeAction _x} count s_player_combi;s_player_combi = [];
+	s_player_unlockvault = -1;
+};
+
+</pre>
+<p><span style="font-family:georgia, serif;">D 2 )</span></p>
+<pre class="ipsCode prettyprint">
+if (_isMan and _isAlive and !_isZombie and !_isAnimal and !(_traderType in serverTraders)) then {
+	if (s_givemoney_dialog &lt; 0) then {
+		s_givemoney_dialog = player addAction [format["Give Money to %1", (name _cursorTarget)], "ZSC\actions\give_player_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
+	};
+} else {
+	player removeAction s_givemoney_dialog;
+	s_givemoney_dialog = -1;
+};
+</pre>
+<p><span style="font-family:georgia, serif;">ABOVE</span></p>
+<pre class="ipsCode prettyprint">
+if(_typeOfCursorTarget in dayz_fuelpumparray) then {
+	
+</pre>
+<p><span style="font-family:georgia, serif;">D 3 ) CHANGE</span></p>
+<pre class="ipsCode prettyprint">
+if (_player_studybody) then {
+		if (s_player_studybody &lt; 0) then {
+			s_player_studybody = player addAction [localize "str_action_studybody", "\z\addons\dayz_code\actions\study_body.sqf",_cursorTarget, 0, false, true, "",""];
+		};
+	} else {
+		player removeAction s_player_studybody;
+		s_player_studybody = -1;
+	};
+</pre>
+<p><span style="font-family:georgia, serif;">INTO</span></p>
+<pre class="ipsCode prettyprint">
+if (_player_studybody) then {
+	if (s_player_studybody &lt; 0) then {
+		s_player_studybody = player addAction [("&lt;t color=""#FF0000""&gt;"+("Check Wallet") + "&lt;/t&gt;"), "ZSC\actions\check_wallet.sqf",_cursorTarget, 0, false, true, "",""];
+	};
+} else {
+	player removeAction s_player_studybody;
+	s_player_studybody = -1;
+};
+
+</pre>
+<p><span style="font-family:georgia, serif;">D 4 ) </span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">ADD </span></p>
+<pre class="ipsCode prettyprint">
+player removeAction s_givemoney_dialog;
+s_givemoney_dialog = -1;
+player removeAction s_bank_dialog;
+s_bank_dialog = -1;
+player removeAction s_bank_dialog2;
+s_bank_dialog2 = -1;
+
+</pre>
+<p><span style="font-family:georgia, serif;">BEHIND</span></p>
+<pre class="ipsCode prettyprint">
+	player removeAction s_player_towing;
+	s_player_towing = -1;
+	player removeAction s_player_fuelauto;
+	s_player_fuelauto = -1;
+	player removeAction s_player_fuelauto2;
+	s_player_fuelauto2 = -1;
+</pre>
+<p><span style="font-family:georgia, serif;">D 5 )  TO remove the client side errors u getting add in your <span style="color:#ff0000;">VARIABLES.SQF</span></span></p>
+<pre class="ipsCode prettyprint">
+s_givemoney_dialog = -1;
+s_bank_dialog = -1;
+s_bank_dialog2 = -1;</pre>
+<p><span style="font-family:georgia, serif;">TO</span></p>
+<pre class="ipsCode prettyprint">
+dayz_resetSelfActions = {
+
+</pre>
+<p><span style="font-family:georgia, serif;">E ) player_switchModel.sqf again, if u overwriten with mine in first step, u can skip.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">E 1 ) add </span></p>
+<pre class="ipsCode prettyprint">
+_cashMoney = player getVariable["cashMoney",0];</pre>
+<p><span style="font-family:georgia, serif;">behind</span></p>
+<pre class="ipsCode prettyprint">
+_weapons = weapons player;
+_countMags = call player_countMagazines; 
+_magazines = _countMags select 0;
+</pre>
+<p><span style="font-family:georgia, serif;">E 2 ) Add</span></p>
+<pre class="ipsCode prettyprint">
+player setVariable ["cashMoney",_cashMoney,true];
+</pre>
+<p><span style="font-family:georgia, serif;">on the BOTTOM</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">E 3 ) CHANGE</span></p>
+<pre class="ipsCode prettyprint">
+//Create New Character
+_group 		= createGroup west;
+_newUnit 	= _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
+
+_newUnit 	setPosATL _position;
+_newUnit 	setDir _dir;
+</pre>
+<p><span style="font-family:georgia, serif;">into</span></p>
+<pre class="ipsCode prettyprint">
+_group = createGroup west;
+_newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
+[_newUnit] joinSilent createGroup WEST;
+_newUnit setPosATL _position;
+_newUnit setDir _dir;
+_newUnit setVariable ["cashMoney",_cashMoney,true];
+
+</pre>
+<p>F) You can use my unclockVault in ZSCinit, If u got a custom one, do the following changes:</p>
+<p> </p>
+<p>F1)</p>
+<p> </p>
+<p>place </p>
+<pre class="ipsCode prettyprint">
+_objMoney	= _obj getVariable["bankMoney",0];
+</pre>
+<p>behind</p>
+<pre class="ipsCode prettyprint">
+_dir = direction _obj;
+_pos	= _obj getVariable["OEMPos",(getposATL _obj)];
+_objectID 	= _obj getVariable["ObjectID","0"];
+_objectUID	= _obj getVariable["ObjectUID","0"];
+	
+</pre>
+<p>F 2)</p>
+<p>place</p>
+<pre class="ipsCode prettyprint">
+_holder setVariable ["bankMoney", _objMoney, true];
+</pre>
+<p>behind</p>
+<pre class="ipsCode prettyprint">
+_holder setVariable["CharacterID",_ownerID,true];
+_holder setVariable["ObjectID",_objectID,true];
+_holder setVariable["ObjectUID",_objectUID,true];
+_holder setVariable ["OEMPos", _pos, true];
+</pre>
+<p>E) in LockVault.sqf if u got a custom one, otherwise use mine and set true in config:</p>
+<p> </p>
+<p>E1 ) place) </p>
+<pre class="ipsCode prettyprint">
+_objMoney	= _obj getVariable["bankMoney",0];
+</pre>
+<p>behind</p>
+<pre class="ipsCode prettyprint">
+_ownerID = _obj getVariable["CharacterID","0"];
+_objectID 	= _obj getVariable["ObjectID","0"];
+_objectUID	= _obj getVariable["ObjectUID","0"];
+</pre>
+<p>E2 ) </p>
+<p> </p>
+<p>place</p>
+<pre class="ipsCode prettyprint">
+_holder setVariable ["bankMoney", _objMoney, true];
+</pre>
+<p>behind</p>
+<pre class="ipsCode prettyprint">
+	_holder setVariable["CharacterID",_ownerID,true];
+	_holder setVariable["ObjectID",_objectID,true];
+	_holder setVariable["ObjectUID",_objectUID,true];
+	_holder setVariable ["OEMPos", _pos, true];
+</pre>
+<p><span style="font-family:georgia, serif;"><strong>SERVER PBO</strong></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">A ) REPLACE your "compiles/server_tradeObject.sqf"  With my one ( not other script uses that anyways).</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">B )  IN compiles/server_updateObject.sqf</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">Change </span></p>
+<pre class="ipsCode prettyprint">
+		_inventory = [
+			getWeaponCargo _object,
+			getMagazineCargo _object,
+			getBackpackCargo _object
+		];
+</pre>
+<p><span style="font-family:georgia, serif;">into</span></p>
+<pre class="ipsCode prettyprint">
+		_inventory = [
+			getWeaponCargo _object,
+			getMagazineCargo _object,
+			getBackpackCargo _object
+			/*ZSC*/
+			, _object getVariable["bankMoney",0]
+			/*ZSC*/
+		];
+</pre>
+<p><span style="font-family:georgia, serif;">C ) In your server_monitor.sqf ( NOTE: the " _intentory' variable can be called "_inventory" at your files, so change my code to that, if it's the case).</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">Add</span></p>
+<pre class="ipsCode prettyprint">
+/*ZSC*/
+       if( count (_intentory) &gt; 3)then{
+		_object setVariable ["bankMoney", _intentory select 3, true];
+	}else{
+	        _object setVariable ["bankMoney", 0, true];
+	};
+/*ZSC*/
+</pre>
+<p><span style="font-family:georgia, serif;">ABOVE</span></p>
+<pre class="ipsCode prettyprint">
+if (_type in DZE_LockedStorage) then {
+// Fill variables with loot
+_object setVariable ["WeaponCargo", (_intentory select 0),true];
+_object setVariable ["MagazineCargo", (_intentory select 1),true];
+_object setVariable ["BackpackCargo", (_intentory select 2),true];
+} else {
+
+</pre>
+<p><span style="font-family:georgia, serif;">D) in compiles/server_playerSync.sqf</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">Change</span></p>
+<pre class="ipsCode prettyprint">
+_playerGear = [weapons _character,_magazines]; </pre>
+<p><span style="font-family:georgia, serif;">into</span></p>
+<pre class="ipsCode prettyprint">
+_playerGear = [weapons _character,_magazines, _character getVariable["cashMoney",0]]; </pre>
+<p><span style="font-family:georgia, serif;"><u><em><strong>NOTE:</strong></em></u></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><b><i><u>in the gold init i use a custom gearSet.sqf</u></i></b></span></p>
+<p><span style="font-family:georgia, serif;">If u would have a custom one, it's defined in the ZSCinit.sqf. Only differnecy will be the top where it checks for the money in your gear sections.</span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em><strong><span style="color:#ff0000;"><span style="font-size:24px;">FAQ!</span></span></strong></em></span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em><span style="font-size:18px;"><strong><span style="color:#000080;">I use a different instance/map to play one! What do i do?</span></strong></span></em></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><span style="font-size:14px;"><em>The only things that difference between maps where u need to worrie about is the server_traders.sqf. I included them for 4 maps, if your map is NOT in there u will have to change your original one.</em></span></span></p>
+<p><span style="font-family:georgia, serif;"><span style="font-size:14px;"><em>FAIR SIMPLE:</em></span></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><span style="font-size:14px;"><em>1) Take your original server_traders</em></span></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><span style="font-size:14px;"><em>2) Open one of mine</em></span></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><span style="font-size:14px;"><em>3) Copy my categories with the correct numbes to your traders. You can choose also which traders sells what then ^^.</em></span></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><span style="font-size:14px;"><em>4) Share your file to me so i can put it in the list</em></span></span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em><span style="font-size:18px;"><strong><span style="color:rgb(0,0,128);">Does it work with Overpoch(ins).</span></strong></span></em></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em>Simple: Yes, Everything with epoch as base</em>.</span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">Overwatch items or included in traders, remove the categories if you do not use them.</span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em><span style="font-size:18px;"><strong><span style="color:rgb(0,0,128);">Can i convert from the older system?</span></strong></span></em></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em><span style="font-size:14px;">You will have to revert your database to the default structure and maybe transfer money. Banks added to the players cash is the best solution.</span></em></span></p>
+<p> </p>
+<p><em><strong><span style="color:#000080;"><span style="font-size:18px;">How do i see my money and bank?</span></span></strong></em></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;"><em>1 - Bank will not be visible cus their is none. You store money in storages like other items ( but in a different dialog). So the money can be accessed by anyone that has access to that storage.</em></span></p>
+<p><span style="font-family:georgia, serif;"><em>2- Money is visisble with a money icon on the right side of the screen. Feel free to add it to other places aswell.</em></span></p>
+<p> </p>
+<p><span style="font-family:georgia, serif;">This will return your money:</span></p>
+<pre class="ipsCode prettyprint">
+player getVariable["cashMoney",0];
+</pre>
+<p style="font-size:14.4444446563721px;"><span style="font-family:georgia, serif;"><em><strong><span style="color:rgb(0,0,128);"><span style="font-size:18px;">Can I use it with database traders?</span></span></strong></em></span></p>
+<p style="font-size:14.4444446563721px;"> </p>
+<p style="font-size:14.4444446563721px;"><i>No, this build is made for config traders. No support (Yet).</i></p>
+<p style="font-size:14.4444446563721px;"> </p>
+<p style="font-size:14.4444446563721px;"> </p>
+<p style="font-size:14.4444446563721px;"><span style="color:#000080;"><em><span style="font-family:'comic sans ms', cursive;"><strong><span style="font-size:24px;">Screenshots</span></strong></span></em></span></p>
+<p style="font-size:14.4444446563721px;"> </p>
+<p style="font-size:14.4444446563721px;"> </p>
+<p style="font-size:14.4444446563721px;"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="rBVpE6C.jpg" data-src="http://i.imgur.com/rBVpE6C.jpg"></p>
+<p style="font-size:14.4444446563721px;"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="yPqjeR5.jpg" data-src="http://i.imgur.com/yPqjeR5.jpg"></p>
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="zdSqCOq.jpg" data-src="http://i.imgur.com/zdSqCOq.jpg"></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p style="font-size:14.4444446563721px;color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"><strong>I probably will code this inthe default epoch code and send a merge request to Epoch Devs with an option to do </strong></p>
+<pre class="ipsCode prettyprint">
+DZE_SingleCurrency = true/false;</pre>
+<p style="font-size:14.4444446563721px;"><strong>And if they accept it , it might be in 1.6 ^^</strong></p>
+]]></description><guid isPermaLink="false">28493</guid><pubDate>Fri, 14 Nov 2014 13:02:39 +0000</pubDate></item><item><title>How to give the zombie gold&#xFF1F;</title><link>https://epochmod.com/forum/topic/28667-how-to-give-the-zombie-gold%EF%BC%9F/</link><description><![CDATA[
+<p>
+	Put coins on <span>zombie</span><span>?</span>
+</p><p> </p>
+<p> </p>
+<p> </p>
+<p><span style="color:rgb(51,51,51);font-family:arial;font-size:18px;background-color:rgb(255,255,0);">I need help.</span></p>
+]]></description><guid isPermaLink="false">28667</guid><pubDate>Sun, 23 Nov 2014 09:21:48 +0000</pubDate></item><item><title>[Release] Admin Tools view/add/remove currency from players</title><link>https://epochmod.com/forum/topic/16454-release-admin-tools-viewaddremove-currency-from-players/</link><description><![CDATA[
+<p>So here it is, as requested. An addon for NoxSicarius's Admin Tools V1.9.1</p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:24px;">What does this script do?</span></p>
+<ul>
+<li>View player's cash &amp; bank balance</li>
+<li>Add/Remove player's cash currency</li>
+<li>Add/Remove player's bank currency</li>
+</ul>
+<p>Simple as that. Saves you a lot of time when testing/compensating/rewarding or whatever.</p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:24px;">What do I need for this addon?</span></p>
+<ul>
+<li>Zupa's <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15177-release-single-currency-banking-11/&amp;do=embed"></iframe> + Soul's <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15341-custom-hiveextdll-release/&amp;do=embed"></iframe>
+</li>
+<li>NoxSicarius's <iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/7501-release-epoch-admin-tools-v182/&amp;do=embed"></iframe>
+</li>
+</ul>
+<p>Note: this script uses the same hud files as Zupa's Single Currency script. You must have those files in order for this addon to work.</p>
+<p> </p>
+<p> </p>
+<p><strong><span style="font-size:24px;">Download</span></strong></p>
+<p> </p>
+<p><a href="https://github.com/Rocu/SC_AdminTools_addon" rel="external nofollow">Download available here!</a> [GitHub]</p>
+<p> </p>
+<p><a href="http://www.upload.ee/download/4245700/a9cbb2849668c8f5d96/SingleCurrency_AdminTools_addon.rar" rel="external nofollow">Mirror link available here!</a> [upload.ee]</p>
+<p> </p>
+<p> </p>
+<p><strong><span style="font-size:24px;">Installation</span></strong></p>
+<p> </p>
+<ol>
+<li>Download and extract the files from link provided above<br>
+	 </li>
+	<li>UnPbo/extract your mission's .pbo file<br>
+	 </li>
+	<li>Copy the <strong>Currency </strong>folder to: \{YOUR EXTRACTED MISSION FOLDER}\admintools\tools\<br>
+	The full path should look something like this: C:\Program Files (x86)\Steam\steamapps\common\Arma 2 Operation Arrowhead\MPMissions\DayZ_Overpoch_2.Tavi\admintools\tools\Currency\<br>
+	 </li>
+	<li>Open file <strong>description.ext</strong> from your mission's root folder<br><br>
+	Add to the <strong>bottom</strong> of the file:<br><pre class="ipsCode prettyprint">
+//Single Currency manipulation addon by Rocu
+#include "admintools\tools\Currency\currency_dialog.hpp"
+</pre>
+	<p>Close &amp; save description.ext<br>
+	 </p>
+	</li>
+<li>
+	<p>Open file <strong>admintools\AdminToolsMain.sqf</strong> from your mission's root folder<br><br>
+	Find:</p>
+	<pre class="ipsCode prettyprint">
+_EXECscript8 = 'player execVM "admintools\tools\AdminBuild\%1"';
+</pre>
+	<p>Add <strong>below</strong>:</p>
+	<pre class="ipsCode prettyprint">
+//Single Currency manipulation addon by Rocu
+[] execVM "admintools\tools\Currency\currency_functions.sqf";
+</pre>
+	<p>Find:</p>
+	<pre class="ipsCode prettyprint">
+["Humanity Menu &gt;&gt;",[],"#USER:HumanityMenu", -5, [["expression", ""]], "1", "1"],
+</pre>
+	<p>Add <strong>below</strong>:</p>
+	<pre class="ipsCode prettyprint">
+["Currency", [],"", -5, [["expression", format[_EXECscript1,"Currency\currency.sqf"]]], "1", "1"],
+</pre>
+	<p>Save &amp; close <strong>AdminToolsMain.sqf</strong><br><br>
+	 </p>
+	</li>
+	<li>
+	<p>Re-pack your mission folder <br>
+	 </p>
+	</li>
+	<li>
+	<p><strong>That's it! You're done.</strong></p>
+	</li>
+</ol>
+<p> </p>
+<p><span style="font-size:24px;">Screenshots</span></p>
+<p> </p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="currency_navigate.jpg" data-src="http://www.upload.ee/image/4245651/currency_navigate.jpg"></p>
+<p> </p>
+<p> </p>
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="currency_menu.jpg" data-src="http://www.upload.ee/image/4245654/currency_menu.jpg"></p>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:24px;">Additional notes</span></p>
+<p> </p>
+<p>Note that removing more money than someone actually has just makes the target's currency go to 0 instead of a negative value. However if you have bank limit activated it does NOT listen to that. It will just go above bank limit. This is just to give the admins more 'play room' with this addon if they want to test with values above the limit whereas a negative value will just cause errors.</p>
+<p> </p>
+<p><span style="color:#ff0000;"><strong>Warning!</strong></span> Before applying this script make sure to backup EVERYTHING (including database). I have not tested this script with every single patch/mod/script that there is so the outcome might be different if you have drastically different mod files than the original.</p>
+<p> </p>
+<p>This has been tested on:</p>
+<p>Epoch Chernarus 1.0.5.1 / Arma Patch 1.63.125548</p>
+<p>Overpoch Chernarus / Arma Patch 1.63.125548</p>
+<p>Overpoch Taviana 2.0 / Arma Patch 1.63.125548</p>
+<p> </p>
+<p>I have NOT tested this script with Soul's other DLL versions. If people other than Soul's V1 DLL can test this out let me know how it turns out. But I know for a fact that it won't work with Zupa's 999 DLL. If people demand I can make a separate version for that (not really that hard) but I think that DLL is obsolete and should not be used at all.</p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:24px;">Credits</span></p>
+<p> </p>
+<p><strong>Zupa </strong>for making the Single Currency script of course</p>
+<p><strong>Soul</strong> for marvelous dll files</p>
+<p><strong>NoxSicarius</strong> for Admin Tools</p>
+<p><strong>mgm </strong>for requesting this script</p>
+<p>All the helpful people @ Epoch forums</p>
+]]></description><guid isPermaLink="false">16454</guid><pubDate>Thu, 04 Sep 2014 19:57:36 +0000</pubDate></item><item><title>DELETED</title><link>https://epochmod.com/forum/topic/44260-deleted/</link><description><![CDATA[<p>
+	DELETED
+</p>]]></description><guid isPermaLink="false">44260</guid><pubDate>Wed, 05 Jul 2017 22:48:47 +0000</pubDate></item><item><title>Global Banking</title><link>https://epochmod.com/forum/topic/44029-global-banking/</link><description><![CDATA[
+<p>
+	 Hello,
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	So i have just installed the coin system and it is running great however, i have just installed Global Banking &amp; the bankers, however the bankers do not have a scroll wheel option for "Bank" Or "Banker". I have followed all the step on; <a href="https://github.com/oiad/ZSC#mission-folder-install" rel="external nofollow">https://github.com/oiad/ZSC#mission-folder-install</a>; but nothing seems to be different apart from there is now a banker here. Anyhelp?
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	Thanks,
+</p>
+
+<p>
+	Wizz
+</p>
+]]></description><guid isPermaLink="false">44029</guid><pubDate>Wed, 31 May 2017 18:34:21 +0000</pubDate></item><item><title>Put coins on AI?</title><link>https://epochmod.com/forum/topic/15737-put-coins-on-ai/</link><description><![CDATA[
+<p>Would it be possible to put coins on AI for missions?</p>
+]]></description><guid isPermaLink="false">15737</guid><pubDate>Tue, 19 Aug 2014 05:48:55 +0000</pubDate></item><item><title>Check wallet dupe</title><link>https://epochmod.com/forum/topic/29822-check-wallet-dupe/</link><description><![CDATA[
+<p>Edit</p>
+]]></description><guid isPermaLink="false">29822</guid><pubDate>Fri, 12 Dec 2014 21:02:19 +0000</pubDate></item><item><title>Add / Remove coins with infistar - help</title><link>https://epochmod.com/forum/topic/43450-add-remove-coins-with-infistar-help/</link><description><![CDATA[
+<p>
+	Can anyone update this to work with 1.0.6.1? I have seen the other ones that give a specific amount that is predefined in infistar but I prefer this version as you can pick the amount.
+</p>
+<iframe data-embedcontent="" frameborder="0" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" data-embed-src="https://epochmod.com/forum/topic/16454-release-admin-tools-viewaddremove-currency-from-players/?do=embed"></iframe>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">43450</guid><pubDate>Fri, 10 Mar 2017 00:59:36 +0000</pubDate></item><item><title>[SOLVED] - 1.0.6.1 Starting money for new players.</title><link>https://epochmod.com/forum/topic/43458-solved-1061-starting-money-for-new-players/</link><description><![CDATA[
+<p>
+	<s>Is there someone out there that could update this for 1.0.6.1 Single Currency?</s>
+</p>
+
+<p>
+	*edit*
+</p>
+
+<p>
+	Solution posted below
+</p>
+]]></description><guid isPermaLink="false">43458</guid><pubDate>Fri, 10 Mar 2017 20:44:49 +0000</pubDate></item><item><title>[FIX] Coins Dupe</title><link>https://epochmod.com/forum/topic/27376-fix-coins-dupe/</link><description><![CDATA[
+<p>This is a major glitch in giving players money. When both players have equal amount of money, and they give money to each other at the same time. The money duplicates. Then Use the duplicated money to dupe again, then it double duplicates. Keep going to be a millionaire in seconds</p>
+<p> </p>
+<p>Lets say i got 500, you got 500. We both give our 500 coins to each other at the same time. It duplicates</p>
+<p> </p>
+<p>There is an easy fix:</p>
+<p> </p>
+<p>In your <strong>Gold/init.sqf</strong></p>
+<p> </p>
+<p>Find:</p>
+<pre class="ipsCode prettyprint">
+GivePlayerAmount = {
+..
+..
+..
+..
+};</pre>
+<p>Replace the whole block with this:</p>
+<pre class="ipsCode prettyprint">
+GivePlayerAmount = {
+private ["_amount","_target","_wealth"];
+_amount = parseNumber (_this select 0);
+_target = cursorTarget;
+_wealth = player getVariable["cashMoney",0];
+_twealth = _target getVariable["cashMoney",0];
+_InTrd = _target getVariable ["TrBsy",false];
+_isMan = _target isKindOf "Man";
+if (_amount &lt; 1 or _amount &gt; _wealth) exitWith {
+cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
+};
+if (!_isMan) exitWith {
+cutText ["You are not facing anyone.", "PLAIN DOWN"];
+};
+if (_InTrd) exitWith {
+cutText ["Other Player is busy, please wait.", "PLAIN DOWN"];
+};
+PVDZE_account_Doublecheck = [player];
+publicVariableServer "PVDZE_account_Doublecheck";
+player setVariable["cashMoney",_wealth - _amount, true];
+_target setVariable["cashMoney",_twealth + _amount, true];
+
+
+PVDZE_plr_Save = [player,(magazines player),true,true] ;
+publicVariableServer "PVDZE_plr_Save";
+PVDZE_plr_Save = [_target,(magazines _target),true,true] ;
+publicVariableServer "PVDZE_plr_Save";
+
+
+cutText [format["You gave %1 %2.", _amount, CurrencyName], "PLAIN DOWN"];
+};</pre>
+<p>Now Replace your <strong>bank_dialog.sqf </strong>and<strong> </strong><strong>give_player_dialog.sqf </strong>with these: </p>
+<p> </p>
+<p style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"><strong>bank_dialog.sqf</strong></p>
+<div style="margin:0px;color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">
+<pre class="ipsCode prettyprint">
+private ["_dialog"];
+player setVariable["TrBsy",true,0];
+_dialog = createdialog "BankDialog";
+call BankDialogUpdateAmounts;
+waitUntil { !dialog };
+uiSleep 3;
+player setVariable ["TrBsy",false,0];</pre>
+</div>
+<p style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"><strong>give_player_dialog.sqf</strong></p>
+<pre class="ipsCode prettyprint">
+private ["_dialog"];player setVariable["TrBsy",true,0];
+_dialog = createdialog "GivePlayerDialog";
+call GivePlayerDialogAmounts;
+waitUntil { !dialog };
+uiSleep 3;
+player setVariable ["TrBsy",false,0];</pre>
+]]></description><guid isPermaLink="false">27376</guid><pubDate>Thu, 30 Oct 2014 20:25:17 +0000</pubDate></item><item><title>[Single Currency Banking] What Files Are Altered In The dayz_server folder?</title><link>https://epochmod.com/forum/topic/43308-single-currency-banking-what-files-are-altered-in-the-dayz_server-folder/</link><description><![CDATA[
+<p>
+	I'm going to have a look at getting Single Currency Banking on 1.0.6, but I'm looking at the server files on github<br />
+	( <a href="https://github.com/EpochSC/SingleCurrencyBanking/tree/master/999_Hive_Version/Version%201.1/PBOs/dayz_server" rel="external nofollow">https://github.com/EpochSC/SingleCurrencyBanking/tree/master/999_Hive_Version/Version 1.1/PBOs/dayz_server )</a><br />
+	and it seems like it's all of the 1.0.5.1 files but with stuff added for handling the banks. Merging/checking every single file<br />
+	would take too long. I can't copy + paste then replace the old files because they're 1.0.5.1 files and too different to 1.0.6.<br />
+	(Merging the mission files is do-able.)
+</p>
+
+<p>
+	Anyone got any ideas/hints?<br />
+	(Sidenote: where I see "headShots" in the code, I need to replace that with "Coins", right? The new database layout has<br />
+	the extra column named "Coins", so we no longer need to read from the headShots value?)
+</p>
+
+<p>
+	Thanks.
+</p>
+]]></description><guid isPermaLink="false">43308</guid><pubDate>Mon, 13 Feb 2017 22:14:16 +0000</pubDate></item><item><title>Custom HiveExt.dll Release</title><link>https://epochmod.com/forum/topic/15341-custom-hiveextdll-release/</link><description><![CDATA[
+<p><strong>SHORTCODE LEGEND:</strong></p>
+<p><em>These shortcodes are used in the repo titles, this indicates what the specific repo is for.</em></p>
+<p>SC     &gt;&gt;&gt; SingleCurrency</p>
+<p>MC     &gt;&gt;&gt; MultiChar</p>
+<p>999    &gt;&gt;&gt; 998/999 custom query supported</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><strong><span style="font-size:18px;">Custom HiveExt.dll and needed sqf files + sql query file available on:</span></strong></p>
+<p> </p>
+<p> </p>
+<p><strong><em>Variant 1:<span>DayZ-Epoch_SCHiveExt</span></em></strong></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>- Single currency support</p>
+<p>- Admin rights support</p>
+<p> </p>
+<p><a href="https://github.com/UK431-Soul/DayZ-Epoch_SCHiveExt" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="GitHub.jpg" data-src="http://www.revive-adserver.com/media/GitHub.jpg"></a></p>
+<p></p>
+</blockquote>
+<p></p>
+<p><strong><em>Variant 2:</em></strong><strong><span> <em>Dayz-Epoch_SCMCHiveExt</em></span></strong></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>- Single currency support</p>
+<p>- Admin rights support</p>
+<p>- Multi Char mod support</p>
+<p> </p>
+<p><a href="https://github.com/UK431-Soul/Dayz-Epoch_SCMCHiveExt" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="GitHub.jpg" data-src="http://www.revive-adserver.com/media/GitHub.jpg"></a></p>
+<p></p>
+</blockquote>
+<p></p>
+<p><em><strong>Variant 3:<span> DayZ_epoch_SCMC999HiveExt</span></strong></em></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>- Single currency support</p>
+<p>- Admin rights support</p>
+<p>- Multi Char mod support</p>
+<p>- 999 call support</p>
+<p><a href="https://github.com/UK431-Soul/DayZ_epoch_SCMC999HiveExt" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="GitHub.jpg" data-src="http://www.revive-adserver.com/media/GitHub.jpg"></a></p>
+<p></p>
+</blockquote>
+<p></p>
+<p><em><strong>Variant 4:<span> DayZ_epoch_SC999HiveExt</span></strong></em></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>- Single currency support</p>
+<p>- Admin rights support</p>
+<p>- 999 call support</p>
+<p><a href="https://github.com/UK431-Soul/Dayz-Epoch_SC999HiveExt" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="GitHub.jpg" data-src="http://www.revive-adserver.com/media/GitHub.jpg"></a></p>
+<p></p>
+</blockquote>
+<p></p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>All 4 variants have the following in common.</strong></span></span></p>
+<p>- New CHILD:298 &gt;&gt;&gt; fetching player bank data, used while player joins server</p>
+<p>- New CHILD:299 &gt;&gt;&gt; updates player bank data, used when banking.</p>
+<p>- New CHILD:104 &gt;&gt;&gt; gets all adminuids + their adminlevel from the admin_data table. (can be used to restrict access to admin tools aswell as infiSTAR AH)</p>
+<p>- Updated CHILD: 101 &gt;&gt;&gt; checks if player exists in banking_data table and adds ifnot or updates playername if change detected</p>
+<p>- Updated CHILD:102 &gt;&gt;&gt; added selection of cashMoney field during retrieving survivor data on login.</p>
+<p>- Updated CHILD:201 &gt;&gt;&gt; added element to handle players cashmoney during updates to database.</p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>What is in variant 1?</strong></span></span></p>
+<p>Everything stated above.</p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>What is in variant 2?</strong></span></span></p>
+<p>Added support for AxeCop's multi char mod. and everything that you have in variant 1.</p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>What is in variant 3?</strong></span></span></p>
+<p>Added support for 999 database calls so you can do custom database queries and</p>
+<p>everything found in variant 1 &amp; 2. Only use this variant is you really want to use 998/999</p>
+<p>calls despite of the security risks attached to them.</p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>What is in variant 4?</strong></span></span></p>
+<p>Added support for 999 database calls so you can do custom database queries and</p>
+<p>everything found in variant 1. Only use this variant is you really want to use 998/999</p>
+<p>calls despite of the security risks attached to them.</p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>What else can i find on the github repo's?</strong></span></span></p>
+<p><em><strong>SCDBQuery.sql:</strong></em></p>
+<p>Run this file on your database by dragging and dropping</p>
+<p>It will add the field "CashMoney" to the character_data table and</p>
+<p>it will create a new table called "banking_data" with fields "PlayerUID,"PlayerName","BankSaldo"</p>
+<p> </p>
+<p><em><strong>SCDBQuery_TransferGoldCoins.sql:</strong></em></p>
+<p>Only run this file if you had Zupa's first release installed and you have players that have goldcoins stored in the headshots field.</p>
+<p>It will grab the value from "HeadShots" and put it in "CashMoney" for each row in your "character_data" table.</p>
+<p> </p>
+<p><em><strong>SCDBQuery_TransferGoldCoins2.sql:</strong></em></p>
+<p>Only run this file if you had Zupa's first release installed and you have players that have goldcoins stored in the "morality" field?</p>
+<p>It will make db entries for all players in "player_data" in the "banking_data" table and add the corresponding values from the "morality" field</p>
+<p>into the "banksaldo" field.</p>
+<p> </p>
+<p><em><strong>admin_data.sql:</strong></em></p>
+<p>This file will add a table called "admin_data", this can be used in combination with infiSTAR AH or any other tool you need restricted access</p>
+<p>to. Intended for advanced users.</p>
+<p> </p>
+<p><em><strong>Server folder:</strong></em></p>
+<p>Contains all files that where modified from Zupa's v1.1 version</p>
+<p>Take care and use a diffmerge tool like <a href="http://www.scootersoftware.com/" rel="external nofollow">BeyondCompare</a>, better safe then sorry.</p>
+<p> </p>
+<p><em><strong>Mission folder:</strong></em></p>
+<p>Contains all files that where modified from Zupa's v1.1 version.</p>
+<p>Take care and use a  diffmerge tool like <a href="http://www.scootersoftware.com/" rel="external nofollow">BeyondCompare</a>, better safe then sorry.</p>
+<p> </p>
+<p><em><strong>BE filters:</strong></em></p>
+<p>This needs to be added in the first line with !="" values inside the publicvarible.txt if using BE filters.</p>
+<p>Add it after the last !="" value. If using BE filters and you skip this step your players will get kicked for trying to send this PV to the server.</p>
+<pre class="ipsCode prettyprint">
+!="PVDZE_bank_Save"</pre>
+<p><em><strong>Before installing:</strong></em></p>
+<p><span style="font-size:18px;"><strong><span style="color:rgb(255,0,0);">Always make backups of everything!</span></strong></span></p>
+<p> </p>
+<p><span style="color:#3399cc;"><span style="font-size:24px;"><strong>Q&amp;A:</strong></span></span></p>
+<p>Q: Will support for AxeCops multi char mod be added in this hive?</p>
+<p>A: There is a 2nd version of the custom hiveext.dll that has support added for this mod.</p>
+<p> </p>
+<p>Q: Will there be 999 call support in this custom hiveext.dll</p>
+<p>A: There is a 3rd version of the custom hiveext.dll that has support for everything in version 1 &amp; 2 and added support for 999 calls.</p>
+<p> </p>
+<p>Q: Does this hive have support vanilla epoch base maintenance?</p>
+<p>A: Yes it has the required funtionality as this hive was build of the last version released by VB[Awol]</p>
+<p> </p>
+<p>Q: Why are there 4 different variants of this custom hive?</p>
+<p>A: More flavours to choose from really. It enables you to either use or stay away from the unsafe 999 calls and still use this custom hive for single currency.</p>
+<p> </p>
+<p>Got any more question? Leave a post and i'll add them to the main post's Q&amp;A section.</p>
+<p>Cheers Soul!</p>
+]]></description><guid isPermaLink="false">15341</guid><pubDate>Sat, 09 Aug 2014 14:39:00 +0000</pubDate></item><item><title><![CDATA[[Outdated] [Release] Single Currency & Banking 1.1]]></title><link>https://epochmod.com/forum/topic/15177-outdated-release-single-currency-banking-11/</link><description><![CDATA[
+<h1>
+	<a href="https://github.com/oiad/ZSC#outdated-already-built-into-epoch-107" rel="external nofollow"></a>Outdated, already built into Epoch 1.0.7
+</h1>
+
+<p>
+	 
+</p>
+
+<p>
+	<span style="font-size:24px;">Single Currency &amp; Banking</span>
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p>
+	<u>Releases:</u>
+</p>
+
+<ul><li>
+		<strong>999 Hive: </strong>1.1
+	</li>
+	<li>
+		<strong>Arme2Net: 0</strong>
+	</li>
+	<li>
+		<strong>ExtDB: 0</strong>
+	</li>
+	<li>
+		<strong>Own Hive: 2.0 (NEW)</strong>
+	</li>
+	<li>
+		<strong>DEFAULT HIVE: 3.0 recommended</strong> -&gt; <iframe data-embedcontent="" data-embedid="embed1285058152" frameborder="0" scrolling="no" style="height:409px;max-width:502px;" data-embed-src="https://epochmod.com/forum/index.php?/topic/28493-alpha-release-single-currency-30-storage-default-hive-no-global-banking/&amp;do=embed"></iframe>
+	</li>
+</ul><p>
+	<u><strong>EXCLUSIVE NEW</strong></u><br />
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	Loud has did the dll changes to have our own support ( Titan did this great work aswell, but Loud his ones are better since it will give a nicer support on axe multichar ( 1 bank for 3 chars). + the bank is seperate from the character, linked to PUID. If character data is corrupt in titans version you will loose your bank.
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p style="margin-left:40px;">
+	I will extend this post later ( i have to go in 10min). But find the Topic here already:
+</p>
+
+<p>
+	 
+</p>
+<iframe data-embedcontent="" data-embedid="embed4857057252" frameborder="0" scrolling="no" style="height:229px;max-width:502px;" data-embed-src="https://epochmod.com/forum/index.php?/topic/15341-custom-hiveextdll-release/&amp;do=embed"></iframe>
+
+<p>
+	 <br />
+	 <br /><u><span style="font-size:24px;"><span style="font-size:14px;">About:</span></span></u><br />
+	 <br />
+	 
+</p>
+
+<p style="margin-left:40px;">
+	This script adds virtual money on a players character. Next to that there is a global banking linked to your playerid. No more gold items in your precious inventory.
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<ul><li>
+		Trade with gold coins (not an item)
+	</li>
+	<li>
+		Give coins to other people
+	</li>
+	<li>
+		Take coins from dead bodies
+	</li>
+	<li>
+		Bank coins at ATM's
+	</li>
+	<li>
+		Bank coins at Open Safes/Lockboxes
+	</li>
+	<li>
+		Configurable currency name
+	</li>
+	<li>
+		Configurable limits on bank for normal/donators.
+	</li>
+</ul><p style="margin-left:40px;">
+	The current release will sacrefice your headshots coins for your money, other version releases will probably change this to an independent field. This option will stay for people not willing to change the database.
+</p>
+
+<p>
+	 <br /><u>PlayerMade Addons:</u><br />
+	 
+</p>
+
+<p style="margin-left:40px;">
+	Force Update on disconnect: (Soul)
+</p>
+<iframe data-embedcontent="" data-embedid="embed5083603918" frameborder="0" scrolling="no" style="height:185px;max-width:502px;" data-embed-src="https://epochmod.com/forum/index.php?/topic/15179-force-goldcoins-update-onplayerdisconnect/&amp;do=embed"></iframe>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p style="margin-left:40px;">
+	infiSTAR Anti-Hack Additions - Add Money to player (kaotix)
+</p>
+
+<p style="margin-left:40px;">
+	<a href="http://devzupa.be/forum/viewtopic.php?id=3" rel="external nofollow">http://devzupa.be/forum/viewtopic.php?id=3</a>
+</p>
+
+<p>
+	 <br /><u>Issues:</u><br />
+	 
+</p>
+
+<p style="margin-left:40px;">
+	Please make a new topic for every big/issue you want to report. We will get to you as soon as possible<u>.</u>
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p>
+	<u>Known Issues:</u><br />
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	No Maintaining with the 999 hive 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:80px;">
+	<em>We are going to revive axes maintain to solve this for the 999 version.</em>
+</p>
+
+<p style="margin-left:80px;">
+	 
+</p>
+
+<p>
+	<u>Download and instructions:</u><br />
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	Currently on an external website, will be made more clear later
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p style="margin-left:40px;">
+	<a href="http://devzupa.be/#/dayz/sc999" rel="external nofollow">http://devzupa.be/#/dayz/sc999</a>
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p>
+	<u>Changelog:</u><br />
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	1.1:
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<ul><li>
+		Fixed money duping
+	</li>
+	<li>
+		Configurable banks and Currency name
+	</li>
+</ul><p style="margin-left:40px;">
+	1.0
+</p>
+
+<p style="margin-left:40px;">
+	<em>Innitial release.</em>
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p>
+	<u>Future:</u><br />
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	<em>We are planning to release multiple versions with different backbones. We have 4 versions in mind who all be developped eventually. We know the 999 is the worst solution, but it works for now.</em>
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p>
+	<u>Credits:</u>
+</p>
+
+<ul><li>
+		Macca : Made the original single currency on ccg servers which is the skeleton of this project.
+	</li>
+	<li>
+		AsReMix: Making the innitial fancy debug.
+	</li>
+	<li>
+		MGM: Making a nice structured Thread and contacting people.
+	</li>
+	<li>
+		All the people helping on the project ( individually added later)
+	</li>
+</ul><p>
+	<u>Screenshots:</u><br />
+	 <br />
+	 
+</p>
+
+<blockquote class="ipsStyle_spoiler">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			<br /><u><img alt="Ezr7xWo.png" style="height:auto;" data-src="http://i.imgur.com/Ezr7xWo.png" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" /></u>
+		</p>
+	</div>
+</blockquote>
+
+<p>
+	<br />
+	 <br /><span style="font-size:18px;"><strong>If you still using 1.0, this is the duping fix</strong></span>
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:40px;">
+	 
+</p>
+
+<p>
+	 
+</p>
+
+<p style="margin-left:80px;">
+	 
+</p>
+
+<blockquote class="ipsStyle_spoiler">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			 
+		</p>
+	</div>
+</blockquote>
+
+<p style="margin-left:80px;">
+	Change the followig in your server pbo, compiles/server_playerSync.sqf
+</p>
+
+<p style="margin-left:80px;">
+	at line 117
+</p>
+
+<pre class="ipsCode prettyprint lang-auto prettyprinted">
+<span class="pln">_headShots </span><span class="pun">=</span><span class="pln">     </span><span class="pun">[</span><span class="str">"headShots"</span><span class="pun">,</span><span class="pln">_character</span><span class="pun">]</span><span class="pln"> call server_getDiff</span><span class="pun">;</span></pre>
+
+<p style="margin-left:80px;">
+	to
+</p>
+
+<pre class="ipsCode prettyprint lang-auto prettyprinted">
+<span class="pln">_headShots </span><span class="pun">=</span><span class="pln">     </span><span class="lit">0</span><span class="pun">;</span></pre>
+]]></description><guid isPermaLink="false">15177</guid><pubDate>Tue, 05 Aug 2014 21:03:07 +0000</pubDate></item><item><title>Coins disappear from all storage's and players on restart</title><link>https://epochmod.com/forum/topic/43317-coins-disappear-from-all-storages-and-players-on-restart/</link><description><![CDATA[
+<p>
+	I'm running Zupa coins on my dayz overpoch server. And whenever server restarts (and I assume when a player logs out) the player's coins disappear from their inventory .
+</p>
+
+<p>
+	If anyone could help, I would appreciate it.
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	Edit : I am missing banking_data in my db. How would I impliment it?
+</p>
+]]></description><guid isPermaLink="false">43317</guid><pubDate>Wed, 15 Feb 2017 20:06:01 +0000</pubDate></item><item><title>Playerhud problem!</title><link>https://epochmod.com/forum/topic/43300-playerhud-problem/</link><description><![CDATA[
+<p>
+	In debug on my server, ServerUpTime is not showing at all. Would like to know what is the reason for that.
+</p>
+
+<p>
+	Here is my playerhud.sqf
+</p>
+
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">disableSerialization;
+
+// player setVariable["AsReMixhud", true];//Variable Show/Hide HUD Support for control player hud
+
+AsReMixhud_Control = true; // player getVariable["AsReMixhud",true];
+
+
+while {true} do
+{
+    1000 cutRsc ["AsReMixhud","PLAIN"];
+    _wpui = uiNameSpace getVariable "AsReMixhud";
+    _vitals = _wpui displayCtrl 4900;
+	
+	_thePlayer = player;
+	
+	AsReMixhud_zombieKills 	= _thePlayer getVariable["zombieKills",0];
+	AsReMixhud_headshots 		= _thePlayer getVariable["headShots",0];
+	AsReMixhud_killsH 		= _thePlayer getVariable["humanKills",0];
+    Zupa_bank 		=  _thePlayer getVariable["bank",0];
+	AsReMixhud_killsB 		= _thePlayer getVariable["banditKills",0];
+	AsReMixhud_humanity 		= _thePlayer getVariable["humanity",0];
+	AsReMixhud_zombies 		= "";
+	AsReMixhud_zombiesAlive   = "";
+	AsReMixhud_blood			=  _thePlayer getVariable["USEC_BloodQty",12000];
+	AsReMixhud_pid			= "";
+	AsReMixhud_puid			= "";
+    AsReMixhud_hmnicon 		= "";
+	AsReMixhud_fps 			= (round diag_fps);
+	AsReMixhud_svrname		= "Amnesia";
+	
+	_stime = 0;
+	if(serverTime &gt; 36000)then{_stime = time;}else{_stime = serverTime;};
+	_hours = (_stime/60/60);
+	_hours = toArray (str _hours);
+	_hours resize 1;
+	_hours = toString _hours;
+	_hours = compile _hours;
+	_hours = call  _hours;
+	_minutes = floor(_stime/60);
+	_minutes2 = ((_minutes - (_hours*60)) min 60) max 0;if (_minutes2 &lt; 10) then {_minutes2 = format ['0%1',_minutes2];};
+    
+
+	//if(AsReMixhud_humanity &gt;= 5000) then { AsReMixhud_hmnicon = "</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_hmhero.paa'</span><span class="tag">/&gt;</span><span class="pln">"; };
+	//if((AsReMixhud_humanity &gt;= 200) &amp;&amp; (AsReMixhud_humanity &lt;= 4999)) then { AsReMixhud_hmnicon = "</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_hmcivil.paa'</span><span class="tag">/&gt;</span><span class="pln">"; };
+//	if(AsReMixhud_humanity &lt;= 199) then { AsReMixhud_hmnicon = "</span><span class="tag">&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_hmbandit.paa'</span><span class="tag">/&gt;</span><span class="pln">"; };
+	
+	_vitals ctrlSetStructuredText parseText format ["
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="tag">&gt;</span><span class="pln">Zupa - AsRemix</span><span class="tag">&lt;/t&gt;&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %1 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_health.paa'</span><span class="tag">/&gt;</span><span class="pln">  </span><span class="tag">&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %2 %5 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_humanity.paa'</span><span class="tag">/&gt;</span><span class="pln">  </span><span class="tag">&lt;br/&gt;</span><span class="pln"> 
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %3 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\dollars.paa'</span><span class="tag">/&gt;</span><span class="pln">   </span><span class="tag">&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %14 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\equip_safe_CA.paa'</span><span class="tag">/&gt;</span><span class="pln">   </span><span class="tag">&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %10 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_killh.paa'</span><span class="tag">/&gt;</span><span class="pln">  </span><span class="tag">&lt;br/&gt;</span><span class="pln"> 
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %9 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_killb.paa'</span><span class="tag">/&gt;</span><span class="pln">  </span><span class="tag">&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.9'</span><span class="tag">&gt;</span><span class="pln"> %4 </span><span class="tag">&lt;/t&gt;&lt;img</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="pln"> </span><span class="atn">image</span><span class="pun">=</span><span class="atv">'addons\playerhud\icons\As_zkill.paa'</span><span class="tag">/&gt;</span><span class="pln">  </span><span class="tag">&lt;br/&gt;</span><span class="pln">
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="tag">&gt;</span><span class="pln">%13 FPS</span><span class="tag">&lt;/t&gt;&lt;br/&gt;</span><span class="pln">	
+		</span><span class="tag">&lt;t</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">'0.8'</span><span class="pln"> </span><span class="atn">align</span><span class="pun">=</span><span class="atv">'right'</span><span class="tag">&gt;</span><span class="pln">%11h %12min UPTIME</span><span class="tag">&lt;/t&gt;&lt;br/&gt;</span><span class="pln">",
+	AsReMixhud_blood,   //1
+	AsReMixhud_humanity,//2
+	AsReMixhud_headshots,//3
+	AsReMixhud_zombiekills,//4
+	AsReMixhud_hmnicon,//5
+	name player,//6
+	AsReMixhud_zombiesAlive,//7
+	AsReMixhud_zombies,//8
+	AsReMixhud_killsB,//9
+	AsReMixhud_killsH,//10
+	_hours,//11
+	_minutes2,//12
+	AsReMixhud_fps,//13
+	Zupa_bank,//14
+	AsReMixhud_svrname//15
+	];
+	_vitals ctrlCommit 0;
+        
+    sleep 2;
+};</span></pre>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">43300</guid><pubDate>Thu, 09 Feb 2017 22:01:58 +0000</pubDate></item><item><title>Playerhud blood problem</title><link>https://epochmod.com/forum/topic/43291-playerhud-blood-problem/</link><description><![CDATA[
+<p>
+	I have a problem getting blood work in zupa - asremix debug monitor. <a href="http://i.imgur.com/XZVBiOj.png" rel="external nofollow">Debug ingame</a>
+</p>
+
+<p>
+	For somereason it shows humanity on blood.
+</p>
+
+<p>
+	Here is my <strong>playerhud.sqf</strong>
+</p>
+
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="pln">disableSerialization</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// player setVariable["AsReMixhud", true];//Variable Show/Hide HUD Support for control player hud</span><span class="pln">
+
+</span><span>AsReMixhud_Control</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln"> </span><span class="com">// player getVariable["AsReMixhud",true];</span><span class="pln">
+
+
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">{</span><span class="kwd">true</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="lit">1000</span><span class="pln"> cutRsc </span><span class="pun">[</span><span class="str">"AsReMixhud"</span><span class="pun">,</span><span class="str">"PLAIN"</span><span class="pun">];</span><span class="pln">
+    _wpui </span><span class="pun">=</span><span class="pln"> uiNameSpace getVariable </span><span class="str">"AsReMixhud"</span><span class="pun">;</span><span class="pln">
+    _vitals </span><span class="pun">=</span><span class="pln"> _wpui displayCtrl </span><span class="lit">4900</span><span class="pun">;</span><span class="pln">
+	
+	_thePlayer </span><span class="pun">=</span><span class="pln"> player</span><span class="pun">;</span><span class="pln">
+	
+	</span><span>AsReMixhud_zombieKills</span><span class="pln"> 	</span><span class="pun">=</span><span class="pln"> _thePlayer getVariable</span><span class="pun">[</span><span class="str">"zombieKills"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+	</span><span>AsReMixhud_headshots</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln"> _thePlayer getVariable</span><span class="pun">[</span><span class="str">"headShots"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+	</span><span>AsReMixhud_killsH</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln"> _thePlayer getVariable</span><span class="pun">[</span><span class="str">"humanKills"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+    </span><span>Zupa_bank</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln">  _thePlayer getVariable</span><span class="pun">[</span><span class="str">"bank"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+	</span><span>AsReMixhud_killsB</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln"> _thePlayer getVariable</span><span class="pun">[</span><span class="str">"banditKills"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+	</span><span>AsReMixhud_humanity</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln"> _thePlayer getVariable</span><span class="pun">[</span><span class="str">"humanity"</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+	</span><span>AsReMixhud_zombies</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+	</span><span>AsReMixhud_zombiesAlive</span><span class="pln">   </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+	</span><span>AsReMixhud_blood</span><span class="pln">			</span><span class="pun">=</span><span class="pln">  _thePlayer getVariable</span><span class="pun">[</span><span class="str">"USEC_BloodQty"</span><span class="pun">,</span><span class="lit">12000</span><span class="pun">];</span><span class="pln">
+	</span><span>AsReMixhud_pid</span><span class="pln">			</span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+	</span><span>AsReMixhud_puid</span><span class="pln">			</span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+    </span><span>AsReMixhud_hmnicon</span><span class="pln"> 		</span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+	</span><span>AsReMixhud_fps</span><span class="pln"> 			</span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">round diag_fps</span><span class="pun">);</span><span class="pln">
+	</span><span>AsReMixhud_svrname</span><span class="pln">		</span><span class="pun">=</span><span class="pln"> </span><span class="str">"Amnesia"</span><span class="pun">;</span><span class="pln">
+	
+	_stime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">serverTime </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">36000</span><span class="pun">)</span><span class="pln">then</span><span class="pun">{</span><span class="pln">_stime </span><span class="pun">=</span><span class="pln"> time</span><span class="pun">;}</span><span class="kwd">else</span><span class="pun">{</span><span class="pln">_stime </span><span class="pun">=</span><span class="pln"> serverTime</span><span class="pun">;};</span><span class="pln">
+	_hours </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_stime</span><span class="pun">/</span><span class="lit">60</span><span class="pun">/</span><span class="lit">60</span><span class="pun">);</span><span class="pln">
+	_hours </span><span class="pun">=</span><span class="pln"> toArray </span><span class="pun">(</span><span class="pln">str _hours</span><span class="pun">);</span><span class="pln">
+	_hours resize </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+	_hours </span><span class="pun">=</span><span class="pln"> toString _hours</span><span class="pun">;</span><span class="pln">
+	_hours </span><span class="pun">=</span><span class="pln"> compile _hours</span><span class="pun">;</span><span class="pln">
+	_hours </span><span class="pun">=</span><span class="pln"> call  _hours</span><span class="pun">;</span><span class="pln">
+	_minutes </span><span class="pun">=</span><span class="pln"> floor</span><span class="pun">(</span><span class="pln">_stime</span><span class="pun">/</span><span class="lit">60</span><span class="pun">);</span><span class="pln">
+	_minutes2 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">((</span><span class="pln">_minutes </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_hours</span><span class="pun">*</span><span class="lit">60</span><span class="pun">))</span><span class="pln"> min </span><span class="lit">60</span><span class="pun">)</span><span class="pln"> max </span><span class="lit">0</span><span class="pun">;</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_minutes2 </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">_minutes2 </span><span class="pun">=</span><span class="pln"> format </span><span class="pun">[</span><span class="str">'0%1'</span><span class="pun">,</span><span class="pln">_minutes2</span><span class="pun">];};</span><span class="pln">
+    
+
+	</span><span class="com">//if(AsReMixhud_humanity &gt;= 5000) then { AsReMixhud_hmnicon = "&lt;img size='0.8' image='addons\playerhud\icons\As_hmhero.paa'/&gt;"; };</span><span class="pln">
+	</span><span class="com">//if((AsReMixhud_humanity &gt;= 200) &amp;&amp; (AsReMixhud_humanity &lt;= 4999)) then { AsReMixhud_hmnicon = "&lt;img size='0.8' image='addons\playerhud\icons\As_hmcivil.paa'/&gt;"; };</span><span class="pln">
+</span><span class="com">//	if(AsReMixhud_humanity &lt;= 199) then { AsReMixhud_hmnicon = "&lt;img size='0.8' image='addons\playerhud\icons\As_hmbandit.paa'/&gt;"; };</span><span class="pln">
+	
+	_vitals ctrlSetStructuredText parseText format </span><span class="pun">[</span><span class="str">"</span><span class="pln">
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pun">&gt;</span><span>Zupa</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span>AsRemix</span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">2</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\As_health.paa'</span><span class="pun">/&gt;</span><span class="pln">  </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">2</span><span class="pln"> </span><span class="pun">%</span><span class="lit">5</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\As_humanity.paa'</span><span class="pun">/&gt;</span><span class="pln">  </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln"> 
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">3</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\dollars.paa'</span><span class="pun">/&gt;</span><span class="pln">   </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">14</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\equip_safe_CA.paa'</span><span class="pun">/&gt;</span><span class="pln">   </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">10</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\As_killh.paa'</span><span class="pun">/&gt;</span><span class="pln">  </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln"> 
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">9</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\As_killb.paa'</span><span class="pun">/&gt;</span><span class="pln">  </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">
+		</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.9'</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">%</span><span class="lit">4</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">img size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pln"> image</span><span class="pun">=</span><span class="str">'addons\playerhud\icons\As_zkill.paa'</span><span class="pun">/&gt;</span><span class="pln">  </span><span class="pun">&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">
+	</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pun">&gt;%</span><span class="lit">13</span><span class="pln"> FPS</span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="pln">	
+	</span><span class="pun">&lt;</span><span class="pln">t size</span><span class="pun">=</span><span class="str">'0.8'</span><span class="pln"> align</span><span class="pun">=</span><span class="str">'right'</span><span class="pun">&gt;%</span><span class="lit">11h</span><span class="pln"> </span><span class="pun">%</span><span class="lit">12min</span><span class="pln"> UPTIME</span><span class="pun">&lt;/</span><span class="pln">t</span><span class="pun">&gt;&lt;</span><span class="pln">br</span><span class="pun">/&gt;</span><span class="str">",</span><span class="pln">
+	</span><span>AsReMixhud_blood</span><span class="pun">,</span><span class="pln">   </span><span class="com">//1</span><span class="pln">
+	</span><span>AsReMixhud_humanity</span><span class="pun">,</span><span class="com">//2</span><span class="pln">
+	</span><span>AsReMixhud_headshots</span><span class="pun">,</span><span class="com">//3</span><span class="pln">
+	</span><span>AsReMixhud_zombiekills</span><span class="pun">,</span><span class="com">//4</span><span class="pln">
+	</span><span>AsReMixhud_hmnicon</span><span class="pun">,</span><span class="com">//5</span><span class="pln">
+	name player</span><span class="pun">,</span><span class="com">//6</span><span class="pln">
+	</span><span>AsReMixhud_zombiesAlive</span><span class="pun">,</span><span class="com">//7</span><span class="pln">
+	</span><span>AsReMixhud_zombies</span><span class="pun">,</span><span class="com">//8</span><span class="pln">
+	</span><span>AsReMixhud_killsB</span><span class="pun">,</span><span class="com">//9</span><span class="pln">
+	</span><span>AsReMixhud_killsH</span><span class="pun">,</span><span class="com">//10</span><span class="pln">
+	_hours</span><span class="pun">,</span><span class="com">//11</span><span class="pln">
+	_minutes2</span><span class="pun">,</span><span class="com">//12</span><span class="pln">
+	</span><span>AsReMixhud_fps</span><span class="pun">,</span><span class="com">//13</span><span class="pln">
+	</span><span>Zupa_bank</span><span class="pun">,</span><span class="com">//14</span><span class="pln">
+	</span><span>AsReMixhud_svrname</span><span class="com">//15</span><span class="pln">
+	</span><span class="pun">];</span><span class="pln">
+	_vitals ctrlCommit </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+        
+    sleep </span><span class="lit">2</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span></pre>
+
+<p>
+	Help me I have no idea :D
+</p>
+]]></description><guid isPermaLink="false">43291</guid><pubDate>Wed, 08 Feb 2017 12:13:12 +0000</pubDate></item><item><title>What script to use with what manual?</title><link>https://epochmod.com/forum/topic/42566-what-script-to-use-with-what-manual/</link><description><![CDATA[
+<p>
+	Yo,
+</p>
+
+<p>
+	I want to install Currency with Banking but I really have no idea what script to chose.
+</p>
+
+<p>
+	I tried isntalling some scripts but you just get a vanilla dayz server with the server without manual. Fcking great, now I have to diffmerge everything...
+</p>
+
+<p>
+	Please, someone must have made a manual/tutorial for this right?
+</p>
+
+<p>
+	Thanks for responding
+</p>
+]]></description><guid isPermaLink="false">42566</guid><pubDate>Mon, 15 Aug 2016 11:53:47 +0000</pubDate></item><item><title><![CDATA[[ALL] The Great Library Of Single Currency Scripts & Solutions]]></title><link>https://epochmod.com/forum/topic/16654-all-the-great-library-of-single-currency-scripts-solutions/</link><description><![CDATA[
+<p><span style="font-size:24px;"><strong>The following topic contains addons or rewritten scripts for single currency.</strong></span><br>
+ </p>
+<br><br><br><br><br><br><br><br><p style="margin-left:40px;"><em><strong><span style="color:#800000;"><span style="font-size:18px;">Core Scripts</span></span></strong></em></p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Single Currency 3.0 Storage</span><span style="color:#696969;"><em> </em><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><em>New independet release, RECOMMENDED</em></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/28493-alpha-release-single-currency-30-storage-default-hive-no-global-banking/&amp;do=embed"></iframe></p>
+<p> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Single Currency 1.1</span><span style="color:#696969;"><em> </em><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><em>The Scripts that makes this all happen. Currently always start installing the currency with this topic. It will set up your first version for you to choose to update to souls 2.0 updates (recommendend.)</em></p>
+<p style="margin-left:120px;"><em>In the close future i will make an officia SC 2.0 release.</em></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15177-release-single-currency-banking-11/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Single Currency 2.0 ( Extension) </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Soul</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:14px;"><em>The soon to be official release but currently only an update to 1.1. Install 1.1 and update to this version to enjoy the best performace and support on your server.</em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15341-custom-hiveextdll-release/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Single Currency Development functions </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">These functions provide easy implementation of adding and removing money in your script to support single currency. They should be in the 1.1 and 2.0 release but better check to be sure.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15463-devs-universal-removeadd-coins-function/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Single Currency Traders </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">This folder contains compatible traders with the cfgtraders provided. I'll try to extend it as soon as possible, if someone has working traders and is willing to share them to the list, please do contact me.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://github.com/EpochSC/SingleCurrencyBanking/tree/master/Traders" rel="external nofollow">SC Traders</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:40px;"><span style="color:#800000;"><span style="font-size:18px;"><strong><em>Script Extensions</em></strong></span></span></p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Maintain Single Currency (2.0 only) </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Mcgough</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">This script allows you maintain at a plotpole with cash.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15712-test-release-single-currency-base-maintenance/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Smelting Items-Coins </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Storm</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">This script allows you to smelt your coins into bars and the otherway arround next to a burning object.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/16592-request-smelting-feature/?p=126351&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Admins Tools &amp; Infistar AH Single Currency actions on players </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Rocu, Chunk</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">This script allows an admin to remove/give coins from a player.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/16454-release-admin-tools-viewaddremove-currency-from-players/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;"> Infistar AH Spectate players bank and cash </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- PeterBeer</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">This script allows an admin to see cash and bank while spectating a person.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15435-tutorial-see-players-money-bank-balance-using-infistar/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><br><span style="font-size:18px;"><strong><span style="color:#0000ff;"><span style="font-family:helvetica, arial, sans-serif;">Transfer Money from </span></span></strong></span><a href="null" rel="external nofollow"><span style="font-size:18px;"><strong><span style="color:#0000ff;">ATM - </span></strong></span><strong><span style="color:#0000ff;"><span style="font-family:helvetica, arial, sans-serif;"> </span></span><span style="font-family:helvetica, arial, sans-serif;"><span style="color:#696969;"><em>Rocu</em></span></span></strong></a></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><em>Allows you to transfer money form one account to antother one.</em></p>
+<p style="margin-left:120px;"><br><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/17124-release-transfer-money-from-atm/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:40px;"><span style="color:#800000;"><span style="font-size:18px;"><strong><em>Scripts made compatible with SC </em></strong></span></span></p>
+<p style="margin-left:40px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">JAEM Chopper Evac SC </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Changes to the original script to work with single currency.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/16348-release-jaem-chopper-evac-mod-v14/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Axe Cop Service Points SC </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Changes to the original script to work with single currency.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15464-release-single-currency-axe-cop-service-points-for-sc/">http://epochmod.com/forum/index.php?/topic/15464-release-single-currency-axe-cop-service-points-for-sc/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Advanced Alchemical Crafting SC </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Changes to the original script to work with single currency.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/16203-advanced-alchemical-crafting-v33/?p=126080">http://epochmod.com/forum/index.php?/topic/16203-advanced-alchemical-crafting-v33/?p=126080</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Axe Cop Multy Character Select SC </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Soul</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Changes to the original script to work with single currency.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15341-custom-hiveextdll-release/&amp;do=embed"></iframe></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:40px;"><span style="color:#800000;"><span style="font-size:18px;"><strong><em>Map Addons/Changes</em></strong></span></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Central Chernarus Bank </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Chunk, No Captain Chunk</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">A big bank in stary</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/16004-addon-central-chernarus-bank/">http://epochmod.com/forum/index.php?/topic/16004-addon-central-chernarus-bank/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Napf Banks </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- Pwn3dNexus</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Banks for Napf</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://github.com/pwn3dNexus/NapfBanks" rel="external nofollow">Napf Banks</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Banker NPC's </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- MGM</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">NPC's as bankers</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/16597-release-banker-npcs-to-replace-atm-objects/">http://epochmod.com/forum/index.php?/topic/16597-release-banker-npcs-to-replace-atm-objects/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Sahrani Banks &amp; Changes </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#999999;"><em><span style="font-family:'comic sans ms', cursive;"><span style="font-size:14px;">KingRaymond795</span></span></em></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Banks for Sahrani</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/28432-sahrani-map-addons/">http://epochmod.com/forum/index.php?/topic/28432-sahrani-map-addons/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:40px;"><span style="font-size:18px;"><span style="color:#800000;"><strong><em>Usefull Guides</em></strong></span></span></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Money on AI </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Allows you to put money on AI.</span></em></span></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15737-put-coins-on-ai/?p=117979">http://epochmod.com/forum/index.php?/topic/15737-put-coins-on-ai/?p=117979</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Freeze Objects &amp; Banks into place </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Soul, Storm</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Allows you to  make an item static, so it will never move. This stops players from knocking over banks.</span></em></span></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15485-how-to-stop-users-from-knocking-down-the-atm/?p=121203">http://epochmod.com/forum/index.php?/topic/15485-how-to-stop-users-from-knocking-down-the-atm/?p=121203</a></p>
+<p> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Custom Debug Monitor </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>PeterBeer</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Guide + files for a more detailed debug monitor.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15437-tutorial-custom-debug-stats/">http://epochmod.com/forum/index.php?/topic/15437-tutorial-custom-debug-stats/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Custom Default Ammount in Fields </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Allows you to change the default 1 in your bank and give player dialogs.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/16591-resolved-in-banking-menu-default-amount-is-prepopulated-with-1/">http://epochmod.com/forum/index.php?/topic/16591-resolved-in-banking-menu-default-amount-is-prepopulated-with-1/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Remove trade animations </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Peterbeer, Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Allows you remove the trading animation</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15911-tutorial-remove-animation-for-trading/">http://epochmod.com/forum/index.php?/topic/15911-tutorial-remove-animation-for-trading/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Add Traders and TradersItems with Single Currency </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Chunk</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><em>Guide how to make new traders and add items to traders.</em></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/16386-tutorial-adding-custom-traders-with-single-currency-extras/">http://epochmod.com/forum/index.php?/topic/16386-tutorial-adding-custom-traders-with-single-currency-extras/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:40px;"><span style="color:#800000;"><span style="font-size:18px;"><strong><em>Common Issues -&gt; Fixed</em></strong></span></span></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Bank Not Saving </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Rocu, Soul, Zupa</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Common Solution to fix bank value not saving to DB.</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15924-issue-banking-data-not-saving-for-new-players-fixed/">http://epochmod.com/forum/index.php?/topic/15924-issue-banking-data-not-saving-for-new-players-fixed/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"><strong><span style="font-size:18px;"><span style="color:#0000cd;">Fix Money And Bank after skin change </span></span></strong><strong><span style="font-size:18px;"><span style="color:#696969;"><em>- </em></span></span><span style="color:#696969;"><span style="font-size:18px;"><em>Soul</em></span></span></strong></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><em><span style="font-size:14px;">Fixes the reset of money and bank when you change clothes</span></em></span></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"><a href="https://epochmod.com/forum/index.php?/topic/15449-fix-cashmoney-bankmoney-loss-after-skinchangehumanity-morph/">http://epochmod.com/forum/index.php?/topic/15449-fix-cashmoney-bankmoney-loss-after-skinchangehumanity-morph/</a></p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:120px;"> </p>
+<p style="margin-left:80px;"><span style="font-size:18px;"><strong><span style="color:#0000ff;"><span style="font-family:helvetica, arial, sans-serif;">Fix -  Better trade files - </span></span><span style="font-family:helvetica, arial, sans-serif;"><span style="color:#696969;"><em>Rocu</em></span></span></strong></span></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><span style="font-size:18px;"><span style="font-family:helvetica, arial, sans-serif;"><span style="font-size:14px;"><em>Fixes the issue of the rpt logs when trading. Does bettter logging of trade activties</em></span></span></span></p>
+<p style="margin-left:120px;"><br><a href="https://epochmod.com/forum/index.php?/topic/16750-fix-better-trade-files-proper-logging-etc/">http://epochmod.com/forum/index.php?/topic/16750-fix-better-trade-files-proper-logging-etc/</a></p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:120px;"><br><br>
+ </p>
+<p style="margin-left:80px;"> </p>
+<p style="margin-left:80px;"> </p>
+<p><strong><span style="font-size:18px;">More added later</span></strong></p>
+<br><br><br><pre class="ipsCode prettyprint lang-auto">
+Do you think your scripts/addon/guide should get added? Give me a message and i will evaluate the possibility.
+</pre>
+]]></description><guid isPermaLink="false">16654</guid><pubDate>Tue, 09 Sep 2014 07:57:27 +0000</pubDate></item><item><title>Trade your briefcase with an rightclick option</title><link>https://epochmod.com/forum/topic/42539-trade-your-briefcase-with-an-rightclick-option/</link><description><![CDATA[
+<p>
+	Hello guys i reworked an script original published on opendayz.net (<a href="http://opendayz.net/threads/release-right-click-to-sell-brief.20739/" rel="external nofollow">http://opendayz.net/threads/release-right-click-to-sell-brief.20739/</a>)
+</p>
+
+<p>
+	so it works with the new singlecurrency version, that handles money as "cashMoney" and not "headshots"
+</p>
+
+<p>
+	if this in anyway inflicts with the copyright, then please remove this thread
+</p>
+
+<p>
+	first of all make a new file named <strong>SellBrief.sqf</strong>
+</p>
+
+<p>
+	and paste the following inside
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			// Sell briefcasescript by Nexus hellsplayground.us<br />
+			//Special thanks to Matt L for the frame for this. Used his carepackage script.<br />
+			//altered by Cherdenko for Zupa SC 3.0/4.0/Souls Hive
+		</p>
+
+		<p>
+			private ["_itemUse","_cost","_hasBriefs","_body", "_hisMoney", "_myMoney", "_killsH", "_test2", "_headShots", "_test","_playeridke","_humanity","_sellPrice"];<br />
+			//////////////////////////CONFIG//////////////////////////////////////S<br />
+			_cost = 1; //amount of item to take<br />
+			_itemUse = "ItemBriefCase100oz";// type of item<br />
+			_hasBriefs = {_itemUse == _x} count (magazines player); //no real use being here unless you make it require a tool, then change magazines to weapons
+		</p>
+
+		<p>
+			//END CONFIG
+		</p>
+
+		<p>
+			if (_hasBriefs &gt;= _cost) then {
+		</p>
+
+		<p>
+			for "_i" from 0 to _cost - 1 do {<br />
+			player removeMagazine _itemUse;<br />
+			};
+		</p>
+
+		<p>
+			_myMoney = player getVariable ["cashMoney",0];<br />
+			_myMoney = _myMoney + 50000;                           // Money trade value<br />
+			_body setVariable ["cashMoney", 0 , true];<br />
+			player setVariable ["cashMoney", _myMoney , true];
+		</p>
+
+		<p>
+			systemChat format ['You traded your brief for half price. Go to the trader next time for the full amount.'];<br />
+			sleep 2;
+		</p>
+
+		<p>
+			_cid =    player getVariable ["CharacterID","0"];
+		</p>
+
+		<p>
+			_cashmoneyZupa = player getVariable ["cashMoney",0];
+		</p>
+
+		<p>
+			<br />
+			            if(_cashmoneyZupa &gt; 0) then{<br />
+			                <br />
+			                }else{<br />
+			                _cashmoneyZupa = 0;<br />
+			                };
+		</p>
+
+		<p>
+			player setVariable ["moneychanged",1,true];    
+		</p>
+
+		<p>
+			} else {
+		</p>
+
+		<p>
+			};
+		</p>
+	</div>
+</div>
+
+<p>
+	after that add this
+</p>
+
+<div class="ipsSpoiler" data-ipsspoiler="">
+	<div class="ipsSpoiler_header">
+		<span>Spoiler</span>
+	</div>
+
+	<div class="ipsSpoiler_contents">
+		<p>
+			    class ItemBriefCase100oz {<br />
+			        class Coin {<br />
+			            text = "Sell for half value.";<br />
+			            script = "execVM 'custom\SellBrief.sqf'";<br />
+			        };<br />
+			    };
+		</p>
+	</div>
+</div>
+
+<p>
+	to your extra_rc.hpp
+</p>
+
+<p>
+	maybe someone can also set up the code for deploy anything(im not using it at the moment, so i don´t know the format)
+</p>
+
+<p>
+	 
+</p>
+
+<p>
+	 
+</p>
+]]></description><guid isPermaLink="false">42539</guid><pubDate>Mon, 08 Aug 2016 13:55:54 +0000</pubDate></item><item><title>[Issue] Players get negative sums in cashMoney across restarts</title><link>https://epochmod.com/forum/topic/15975-issue-players-get-negative-sums-in-cashmoney-across-restarts/</link><description><![CDATA[
+<p>Hi everyone,</p>
+<p> </p>
+<p>I have recently had issues where players are experiencing negative amounts in their cashMoney column, when picking up money from corpses or selling/buying from traders.  Generally this is something that players say they do within the last 5 minutes before restart.</p>
+<p> </p>
+<p>I have already stressed to them that they should log out sooner, but I am still seeing this issue. </p>
+<p> </p>
+<p>What I currently have is:</p>
+<p> </p>
+<p>Core:</p>
+<p>- Zupa 1.1 + Soul version 1,</p>
+<p> </p>
+<p>Addon:</p>
+<p>- Universal Remove/Add Coins</p>
+<p>- Single Currency Base Maintenance</p>
+<p>- Single Currency Service Points</p>
+<p> </p>
+<p>I have already reinstalled all files and dll's to test if I missed something (not appearing to be the issue).</p>
+<p> </p>
+<p>Any ideas?</p>
+]]></description><guid isPermaLink="false">15975</guid><pubDate>Sun, 24 Aug 2014 22:30:13 +0000</pubDate></item><item><title>[Issue] Players get negative sums in cashMoney after restart</title><link>https://epochmod.com/forum/topic/30389-issue-players-get-negative-sums-in-cashmoney-after-restart/</link><description><![CDATA[
+<p>Hey!</p>
+<p><span><span>I</span> <span>have on my</span> <span>DayZ</span> <span>Overpoch</span> <span>server</span> <span>that</span> <span>Coin Script from Souls</span> <span>installed</span></span>.</p>
+<p>But after restart other players have negative sums (Money).</p>
+<p>My Bank working without problems.</p>
+<p>Only the money at account.</p>
+<p> </p>
+<p>I found this:</p>
+<p><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/15975-issue-players-get-negative-sums-in-cashmoney-across-restarts/?p=154095&amp;do=embed"></iframe></p>
+<p> </p>
+<p>But i not working.</p>
+<p> </p>
+<p>(sry for my bad english... i hope u can understand it)</p>
+]]></description><guid isPermaLink="false">30389</guid><pubDate>Thu, 25 Dec 2014 11:47:28 +0000</pubDate></item></channel></rss>

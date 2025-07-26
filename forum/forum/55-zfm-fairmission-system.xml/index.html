@@ -1,0 +1,850 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>ZFM-FairMission System Latest Topics</title><link>https://epochmod.com/forum/forum/55-zfm-fairmission-system/</link><description>ZFM-FairMission System Latest Topics</description><language>en</language><item><title><![CDATA[[WIP] ZFM-FairMission System-Dynamic,Modular & Balanced (Alpha release 90% complete, Test builds frequently available) - Actively developed]]></title><link>https://epochmod.com/forum/topic/11709-wip-zfm-fairmission-system-dynamicmodular-balanced-alpha-release-90-complete-test-builds-frequently-available-actively-developed/</link><description><![CDATA[
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="mmt8O4u.jpg" data-src="http://i.imgur.com/mmt8O4u.jpg"></p>
+<p><em>ZFM is currently the first part of the FairServer project. ZFM provides a dynamic experience within DayZ like no other, and provides a set of easy-to-use functions for creating missions. </em></p>
+<p> </p>
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="bhoAYjc.jpg" data-src="http://i.imgur.com/bhoAYjc.jpg"></p>
+<p> </p>
+<p><strong>Translations</strong> <img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="german-flag-small.gif" data-src="http://www.protectassets.com/img/german-flag-small.gif"><iframe src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" data-embedcontent="" data-embed-src="https://epochmod.com/forum/index.php?/topic/11709-wip-zfm-dynamic-modular-mission-system-pre-alpha-release-available-not-production-ready-ger-translator-required-help-welcome/page-4&amp;do=embed&amp;embedComment=84377&amp;embedDo=findComment"></iframe></p>
+<p> </p>
+<p><strong>In development! For latest progress please see: <a href="http://www.bitbucket.org/bergstadeu/fairmission" rel="external nofollow">http://www.bitbucket.org/bergstadeu/fairmission</a></strong></p>
+<p> </p>
+<p><strong>What is it?</strong></p>
+<p>ZFM, or "Zambino Fair Mission", is an open-source, community-nurtured Mission System project developed by ZambinoBamboni and a community of wonderful people. It is dynamic, and provides an experience in DayZ with missions that is aimed to reduce the amount of boredom by making missions dynamic. By dynamic, we mean dynamic -- names, places, vehicles, titles, times, as much as possible. And more importantly, extendable -- you can code for ZFM in a snap.</p>
+<p> </p>
+<p><strong>Help support hard work -- donate :)</strong></p>
+<p> </p>
+<p>I have produced this software to make the game better, and to make your lives more enjoyable. It's free software, and it's developed out of love for you and for the game. However, if you feel that you've benefited a lot from my hard work and want to say thanks, a minor donation wouldn't go amiss. It's not essential, just a nice gesture :wub:  Either way, I hope you enjoy my software!</p>
+<p> </p>
+<p style="text-align:center;"><a href="http://www.paypal.com/cgi-bin/webscr?business=paypal@ymberlenis.com&amp;cmd=_xclick&amp;currency_code=EUR&amp;amount=9&amp;item_name=Zamboni%27s%20FairMission%20-%20Beer%20Fund%20THANK%20YOU%21" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="Paypal-Donate-Button-Image.png" data-src="http://www.afroinno.org/wp-content/uploads/sites/11/Paypal-Donate-Button-Image.png"></a></p>
+<p style="text-align:center;"><a href="https://www.paypal.com/cgi-bin/webscr?business=paypal@ymberlenis.com&amp;cmd=_xclick&amp;currency_code=EUR&amp;amount=9&amp;item_name=Zamboni%27s%20FairMission%20-%20Beer%20Fund%20THANK%20YOU%21" rel="external nofollow"><span style="font-size:18px;">DONATE - SUPPORT ZFM</span></a></p>
+<p> </p>
+<p> </p>
+<p><strong>Installing and testing pre-release-candidate debug version of ZFM</strong></p>
+<pre class="ipsCode prettyprint">
+// Add to server_monitor.sqf
+
+// Under this line..
+// (OR your existing [] ExecVM)
+allowConnection = true;   
+
+// Add these lines:
+
+    // Zambino FairMission
+    [] ExecVM "\z\addons\dayz_server\ZFM\ZFM_Initialize.sqf";
+</pre>
+<ol>
+<li>Latest version is currently under development -- all older versions are not supported.</li>
+	<li>Unpack your dayz_server.pbo</li>
+	<li>Paste/extract in the ZFM folder into the main part of the PBO. (i.e. So that you have the folder ZFM next to "init", "missions", etc. in the folder list)</li>
+	<li>Repack PBO.</li>
+</ol>
+<p> </p>
+<p><strong>Current features</strong></p>
+<p> </p>
+<p><u>Modular</u></p>
+<ul>
+<li>Developed so that new types of missions, or additions to existing missions can be done easily.</li>
+<li>Well-documented so that those looking at the code can understand its functions quickly.</li>
+<li>Open source, so you can get stuck in immediately.</li>
+</ul>
+<p><u>Detailed</u></p>
+<ul>
+<li>AI have multiple sub-classes
+<ul>
+<li>Commando</li>
+<li>Heavy</li>
+<li>Rifleman</li>
+<li>Sniper</li>
+</ul>
+</li>
+<li>AI and missions have difficulty settings:
+<ul>
+<li>Deadmeat (for newbies)</li>
+<li>Easy</li>
+<li>Medium</li>
+<li>Hard</li>
+<li>War Machine (for insane people)</li>
+</ul>
+</li>
+<li>Missions are tracked more precisely
+<ul>
+<li> Track a mission bandit kill by bandit kill, and even show the players who killed them.</li>
+<li>Missions only end once all bandits have been killed.</li>
+</ul>
+</li>
+</ul>
+<p><u>Dynamic</u></p>
+<ul>
+<li>Crashes are fully-animated, and can occur in any location, including towns, roads, hilltops, etc.</li>
+<li>Any vehicle (at present, aircraft) can be used as a crash, and will be animated, explode, then be replaced by a wreck if there is one for that vehicle class.</li>
+<li>Missions can be either defined by a user in an array, or the RANDOM misisons can be generated in which:
+<ul><li>Most aspects of missions have been randomised to increase their uniqueness. This includes vehicles, units, unit difficulties, unit bases, unit groups, unit equipment and my personal favourite, dynamic mission titles to keep you less bored.
+<ul>
+<li>A CH-47 en-route to Balota went off the radar and is presumed destroyed. It is suspected that well-trained mercenaries have secured the site.</li>
+<li>Fragments of the mission titles can be added so you can effectively have even more variation in your titles.</li>
+<li>I've included some fun names but commented them out so that those who want different titles to "well-trained mercenaries" or "opportunistic locals" can go for gangs with titles like "Balota Bastards Crew."</li>
+</ul>
+</li></ul>
+</li>
+<li>Loot is being revamped -- originally it was used as "probability" or "fixed", however, newer commits will feature variable loot. This will be basic at first, but will basically consist of guaranteed items but randomised, with the added chance of finding rare weapons in the loot.  (In progress)</li>
+<li>Grid-Based base generation - can be generated by 1 array in code, and be as large as you like. At present, this is only used to generate crash sites, however, it can be used to generate any level of layouts you want with great detail. (In Progress)</li>
+</ul>
+<p>And many more!</p>
+]]></description><guid isPermaLink="false">11709</guid><pubDate>Sat, 24 May 2014 01:21:40 +0000</pubDate></item><item><title>ZFM-FairMission System Help !!!</title><link>https://epochmod.com/forum/topic/36018-zfm-fairmission-system-help/</link><description><![CDATA[
+<p>how settings npc to attack zombies in spawning missions System FairMission ???</p>
+<p> </p>
+<p> </p>
+<p><span><span><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="dayz3.jpg" data-src="http://187.2.23.150/img/dayz3.jpg"></span></span></p>
+]]></description><guid isPermaLink="false">36018</guid><pubDate>Fri, 19 Jun 2015 22:16:36 +0000</pubDate></item><item><title>ZST - Zamboni Server Tools - Say goodbye to BEC</title><link>https://epochmod.com/forum/topic/30178-zst-zamboni-server-tools-say-goodbye-to-bec/</link><description><![CDATA[
+<p>Hi guys,</p>
+<p> </p>
+<p>Apologies for the sabbatical on ZFM, but I come bearing gifts. On our server, one thing I really found frustrating was the requirements of BattleEye Extended Controls, because quite frankly I felt it was a big heap of config files for something that was a pain in the ass to update, and that didn't always work smoothly. So, I created this; a simple solution for Windows servers for managing server restarts, server crashes, and messages. It requires knowledge of creating tasks.</p>
+<p> </p>
+<p><strong>What is it</strong><strong>? </strong></p>
+<p>ZST consists of three PowerShell scripts which are used to perform server restarting, sending messages to servers (i.e news, rules) and restarting servers in case of error/crash. The three scripts are:</p>
+<ul><li>ServerMonitor - If the arma2/arma3 server instance drops out, it will restart it. Also performs the following tasks:
+<ul><li>Backs up PBO if it's changed.</li>
+<li>Moves log files in BattlEye, InfiSTAR &amp; RPT to prevent them from growing huge.</li>
+<li>Performs optimisation of game databases.</li>
+<li>Performs backup of game databases.</li>
+<li>Supports backup to off-site location / cloud storage folder (We use SpiderOak as it's got good encryption)</li>
+<li>Backs up to WinRAR archives with password.</li>
+</ul></li><li>ServerMessenger - Simple application that will send messages to a server for informational purposes (i.e. rules, updates, news, etc).</li>
+<li>ServerKiller - Performs the "server will restart in X minutes" function, and restarts the server.</li>
+</ul><p><strong>What do I require to run it?</strong></p>
+<ul><li>mysqldump (Should be default with MySQL tools or MariaDB 10)</li>
+<li>mysqlcheck (Should be default with MySQL tools or MariaDB 10)</li>
+<li>WinRAR (For archiving of backups)</li>
+<li>BERcon (<a href="https://github.com/zambino/bercon/blob/master/bercon/bin/Release/bercon.exe?raw=true" rel="external nofollow">https://github.com/zambino/bercon/blob/master/bercon/bin/Release/bercon.exe?raw=true</a>)</li>
+<li>Knowledge of creating tasks on windows server :</li>
+</ul><p><strong>Where do I download it? </strong></p>
+<p> </p>
+<p>Download it HERE: <a href="https://github.com/zambino/servertools/archive/master.zip" rel="external nofollow">https://github.com/zambino/servertools/archive/master.zip</a></p>
+<p> </p>
+<p> </p>
+<p><strong>How do I use it?</strong></p>
+<ol><li>Download the latest archive from GitHub: <a href="https://github.com/zambino/servertools/" rel="external nofollow">https://github.com/zambino/servertools</a>
+	</li><li>Copy the files to your server in a location for an individual server instance (i.e Server1 or something)</li>
+	<li>Open all 3 of the files and edit the settings to match the locations of your Arma2/Arma3 server, provide Rcon passwords, and so on.</li>
+	<li>Open the windows tasks console, and create a task for each of the scripts listed above:
+	<ol><li>For the ServerMonitor (ZST_ServerMonitor.ps1), set the "run when" to "system startup" and then create another "run when" which says to run the script after a set time, and then set the time to the current time. This will allow the monitor to start up if your server restarts and start monitoring your arma2oaserver instance.</li>
+		<li>For the ServerMessenger (ZST_ServerMessenger.ps1), set the "run when" as with the script above. In the "action" dialog, set options so that the script runs every X minutes, indefinitely. This will allow the script to periodically open and send messages to your server.</li>
+		<li>For the ServerKiller (ZST_ServerKiller.ps1), set the "run when" as above, and set the "actions" dialog as follows. The script itself takes <u>10 minutes to run</u>, so suppose you have a restart every 3 hours, set the script to run every 170 minutes (i.e. 2 hours, 50 mins) and it will run the restarter 10 minutes before restart occurs to give players a countdown.</li>
+		<li>For each task, select "run a program" and point it to your location of Powershell.exe. This is located in C:/Windows/System32/WindowsPowershell/ in most instances.</li>
+		<li>For each task, in the "run a program" part, under "parameters" type in "-File &lt;path to script&gt;" and replace the "&lt;path to script&gt;" to the full path of the script you're creating a task for.</li>
+	</ol></li></ol><p>A more detailed install tutorial will be added in a short while. :)</p>
+]]></description><guid isPermaLink="false">30178</guid><pubDate>Sat, 20 Dec 2014 21:41:43 +0000</pubDate></item><item><title>ZCR Dev Library - SQF c-like/PHP-like functions - Making scripting easier</title><link>https://epochmod.com/forum/topic/33099-zcr-dev-library-sqf-c-likephp-like-functions-making-scripting-easier/</link><description><![CDATA[
+<p>Hi all,</p>
+<p> </p>
+<p>While re-developing ZFM I have found I need some useful tools which aren't really in one place at the moment. There are some existing tools for arrays, strings, and so on, which are useful, but their features are a bit haphazard and aren't consistent in what they offer. It's very annoying that SQF doesn't have any existing functions for doing things like string length, and all the rest, so I just thought "why not make one?" like I usually do.</p>
+<p> </p>
+<p>ZCR is a <strong>Common Runtime</strong>, meaning it's something you can include in your projects and use under an open-source license. ZCR brings PHP and c-like functions over to SQF for you to use and doesn't require including an additional module, just adding in a "call compile" at the top of your scripts.</p>
+<p> </p>
+<p><strong>Documentation</strong>:</p>
+<p><a href="https://github.com/zambino/zambinocommonruntime/wiki" rel="external nofollow">https://github.com/zambino/zambinocommonruntime/wiki</a></p>
+<p> </p>
+<p><strong>Where to get it:</strong></p>
+<p><a href="https://github.com/zambino/zambinocommonruntime" rel="external nofollow">https://github.com/zambino/zambinocommonruntime</a></p>
+<p> </p>
+<p><strong>How to install it</strong></p>
+<ol><li>Download the repo from the link above</li>
+	<li>Extract the "ZCR" folder into the main folder your scripts are in.</li>
+	<li>In the main init file/whichever file you want to use ZCR in, add in the following:
+	<pre class="ipsCode prettyprint">
+call compile preprocessFileLineNumbers "ZCR/ZCR_init.sqf";
+</pre>
+	</li><li>Happy trails..</li>
+</ol><p><strong>What it provides:</strong></p>
+<p> </p>
+<p>ZCR has the following functions as of 0.2:</p>
+<p> </p>
+<p><strong>Strings</strong>:</p>
+<ul><li>StrpBrk</li>
+<li>StrLen</li>
+<li>SubString</li>
+<li>StrPos</li>
+<li>Implode</li>
+</ul><p><strong>Arrays</strong></p>
+<ul><li>Array_Reduce (With callback)</li>
+<li>Array_Shuffle</li>
+<li>Array_Unique</li>
+<li>Array_Pop</li>
+<li>Array_Shift</li>
+<li>Array_Slice</li>
+<li>Array_Intersect</li>
+<li>Array_Chunk</li>
+<li>Array_Merge</li>
+<li>Array_Fill</li>
+</ul><p> </p>
+<p>I will be providing a @Mod version of the library too with more features as I require them in ZFM.</p>
+<p> </p>
+<p>Happy developing,</p>
+<p>Zamboni</p>
+]]></description><guid isPermaLink="false">33099</guid><pubDate>Mon, 09 Mar 2015 08:39:47 +0000</pubDate></item><item><title><![CDATA[[Im Gange] ZFM - GerechtAuftrag - Wir lieben die Deutschen <3]]></title><link>https://epochmod.com/forum/topic/14078-im-gange-zfm-gerechtauftrag-wir-lieben-die-deutschen-3/</link><description><![CDATA[
+<div>Hi Leute,</div>
+<div> </div>
+<div>Ich spiele schon eine Weile DayZ und war nicht ganz zufrieden mit den derzeiten Missions Systemen. Mit der Zeit wurde es langweilig immer die selben Crash Missions zu machen. Darum hab ich beschlossen selbst eines zu entwickeln. Ich weiß zwar, dass es schon viele vorhandene Systeme gibt, jedoch ohne den Features, welche ich in meinem inkludiert habe. Das Ganze baut auf dem bereits vorhandenen System von Epoch auf, jedoch mit einigen Extras und Erweiterungen damit wir noch lange eine abwechslungsreiche Spielerfahrung haben. Im Moment bin ich ca. mit 85% fertig - es fehlt nur noch das Mission Handling.</div>
+<div> </div>
+<div>Information: Diese Software ist im Moment noch nicht für laufende Server mit aktiven Spielern geeignet.</div>
+<div>Allerdings kann man schon eine Alpha Release herunterladen und die bereits vorhandenen Features auf dem eigenen Testserver testen.</div>
+<div> </div>
+<div><strong>Features</strong></div>
+<ul><li>ZFM ist dynamischer und bietet viel mehr Features als die herkömmlichen Missions Systeme - Crashes entstehen dynamisch und mit vielen Details, jedoch sind Crashs nocht nicht alles, da noch einige Missionen geplant sind. </li>
+<li> In Zukunft werden viele Features zu Verfügung stehen, welche die vorhandenen Systeme weit übertreffen werden</li>
+<li>Der Quellcode ist gut dokumentiert, modular und darauf ausgelegt leicht verändert werden zu können. Damit lassen sich leicht eigene Missionen AI Subklassen und neue Funktionen implementieren</li>
+<li>Für eine komplette Übersicht runterscrollen ;)</li>
+</ul><div><strong>GitHub</strong></div>
+<div><a href="https://github.com/zambino/fairserver" title="External link" rel="external nofollow">https://github.com/zambino/fairserver</a></div>
+<div> </div>
+<div><strong>Unterstütze das Projekt mit Donations</strong></div>
+<div><span style="font-family:helvetica, arial, sans-serif;color:rgb(40,40,40);">Ich habe die Software entwickelt um euch eine besser Spielerfahrung bieten zu können und das Spiel zu verbessern. Die Software ist gratis und wurde aus Liebe zum Spiel und zur Community entwickelt. Wenn dir mein System geholfen hat, es dir gut gefällt und du dich bedanken möchtest, würde ich mich über eine kleine Spende freuen. Es ist allerdings nicht notwendig und wäre nur eine nette Geste. Nichtsdestotrotz hoffe ich, dass dir meine Software gefällt.</span></div>
+<div> </div>
+<div><a href="https://www.paypal.com/cgi-bin/webscr?business=paypal@ymberlenis.com&amp;cmd=_xclick&amp;currency_code=USD&amp;amount=5&amp;item_name=Zamboni%27s%20FairMission%20-%20Beer%20Fund%20THANK%20YOU%21" title="External link" rel="external nofollow">https://www.paypal.c...Fund THANK YOU!</a></div>
+<div> </div>
+<div><strong>Informationen vor der Installation</strong></div>
+<div><span style="font-family:helvetica, arial, sans-serif;color:rgb(40,40,40);">Es ist darauf hinzuweisen, dass sich ZFM momentan in aktiver Entwicklung befindet und derzeit in der Alpha Phase ist. Es sind Releases verfügbar, jedoch sind diese nicht für den öffentlichen Betrieb gedacht. In diesem Zustand sind Features vorhanden, welche vielleicht zur Zeit noch nicht stable sind,noch verändert werden oder bis zum Release aus der Software entfernt werden. Im Moment ist es ausdrücklich nicht empfohlen das System auf einem live Server zu verwenden! Es muss auch noch gesagt werden, dass das System zum Verwalten der Mission Spawns noch nicht komplett ist. Bekannte Fehler, Stand 27/05/2014</span></div>
+<div> </div>
+<ul><li>Alle Karten werden unterstützt, wobei im Moment die Missions Titel auf Chernarus ausgelegt sind (wird zur Alpha Release angepasst)</li>
+<li>Missionen werden nicht beendet wenn alle Bots tot sind - das Kill-Tracking System ist buggy und wird in Kürze vervollständigt</li>
+<li>Missions Limits (z.B. maximal 5 Crashs auf einmal) sind bereits vorhanden, aber funktionierten nicht aufgrund des oben genannten Bugs</li>
+<li>Unterstützung von DZAI, WickedAI und SAR_AI is noch nicht gewährleistet. Das ist ein Post-Release Feature auf unserer Roadmap</li>
+<li>Loot Kisten haben eine Chance ohne Loot zu spawnen, da der Loot aufgrund im Programm berechneten Wahrscheinlichkeiten gespawnt wird (z.B. Wenn &gt;x% dann spawne Waffe y)</li>
+</ul><div>  </div>
+<div>Im Moment brauchen wir viele Code Tester um so viele Bugs wie möglich auszubessern und eine bessere Software zu produzieren!</div>
+<div> </div>
+<div><strong>Tester benötigt</strong></div>
+<div>Im Moment haben wir Folgenden Leute, die die Software testen:</div>
+<ul><li>BetterDeadThanZed</li>
+<li>freakystyle</li>
+<li>alleskapot</li>
+</ul><div>Mehr Leute sind immer willkommen und auch benötigt um Bugs zu beseitigen und Features zu verbessern! <u>Bitte helft uns!</u></div>
+<div> </div>
+<div><strong>Installieren und testen der pre-release debug Version von ZFM</strong></div>
+<div>Wenn du ZFM testen möchtest, steht dir im Repository eine testbare Version zu Verfügung. Das Mission Handling und Restricting System (bestimmt maximale Anzahl an Missions) funktioniert noch nicht. Darum behalte im Kopf, dass der Server alle 10000 Sekunden einen neuen CRASH, Einheiten, Waffen und Markers spawnen wird.</div>
+<div> </div>
+<div>
+<pre class="ipsCode prettyprint">
+// Add to server_monitor.sqf
+// Under this line..
+// (OR your existing [] ExecVM)
+allowConnection = true;   
+
+// Add these lines:
+    // Zambino FairMission
+    [] ExecVM "\z\addons\dayz_server\ZFM\ZFM_Initialize.sqf";
+
+
+</pre>
+</div>
+<div> </div>
+<div>1. Lade die neuste Version von <a href="https://github.com/zambino/fairserver/archive/master.zip" title="External link" rel="external nofollow">https://github.com/z...hive/master.zip</a> herunter</div>
+<div>2. Entpacke deine dayz_server.pbo</div>
+<div>3. Entpacke und Verschiebe den FZM Ordner in den Hauptordner von deiner PBO. (sodass er neben den Ordnern "init", "missions" etc in der Liste steht)</div>
+<div>4. Verpacke deine PBO wieder</div>
+<div> </div>
+<div><strong>Aktuelle Features</strong></div>
+<div>Modular</div>
+<ul><li>Entwickelt damit neue Missions Typen oder Zusätze zu den vorhandenen leicht eingefügt werden können</li>
+<li>Gut dokumentiert, damit sich der Betrachter leicht im Code zurecht findet</li>
+<li>Open Source</li>
+</ul><div> </div>
+<div><strong>Detailliert</strong></div>
+<ul><li>Bots haben folgende Sub-Klassen
+<ul><li>Commando</li>
+<li>Heavy</li>
+<li>Rifleman</li>
+<li>Sniper</li>
+</ul></li><li>Bots und Missions haben unterschiedliche Schwierigkeitsgrade
+<ul><li>Deadmeat (für Anfänger)</li>
+<li>Easy</li>
+<li>Medium</li>
+<li>Hard</li>
+<li>War Machine(für Profis)</li>
+</ul></li><li>Missions werden noch preziser verfolgt</li>
+<li>Die Missionen werden pro Bandit Kill verfolgt und zeigen sogar an welcher Spieler den Bot getötet hat</li>
+</ul><div> </div>
+<div><strong>Dynamisch</strong></div>
+<ul><li>Crashes sind komplett dynamisch und können überall Spawnen, auch in Städten, auf Straßen oder im Wald</li>
+<li>Jedes Fahrzeug kann für den Crash verwendet werden, dieses wird dann animiert, explodiert und wird mit einem Wrack der selben Fahrzeugs Klasse ersetzt</li>
+<li>Missionen können entweder in einem Array vom Benutzer definiert werden oder spawnen zufällig</li>
+<li>Die meisten Aspekte der Mission sind zufällig um eine einzigartige Vielfalt herzustellen. Dies inkludiert: Fahrzeuge, Bots, die Schwierigkeit der Bots, das Equipment und mein persönlicher Favorit - die Missions Titel.</li>
+<li>A CH-47 en-route to Balota went off the radar and is presumed destroyed. It is suspected that well-trained mercenaries have secured the site."</li>
+<li>Fargmente der Missions Titel können selbst hinzugefügt werden und bieten eine große Variation der Titel.</li>
+<li>Ich habe einige Fun Namen hinzugefügt, jedoch auskommentiert, für jeden der lieber "gut trainierte Söldner" oder "lokale Opportunisten" als die "Balota Bastards Crew" hat.</li>
+<li>Das Lootsystem unterstützt zwei Modelle:
+<ul><li>Wahrscheinlichkeitsabhängig - reguliert anhand der Loot Tables den Loot, damit Items die Rare sind nicht so oft spawnen</li>
+<li>Fix - Hier wird der Loot fix in einem Array angegeben und spawnt zu 100%</li>
+</ul></li><li>Und vieles mehr!</li>
+</ul><div> </div>
+<div><strong>Feature roadmap</strong></div>
+<div> </div>
+<div><u>Pre-alpha Debug Release</u></div>
+<ul><li>Bereits veröffentlicht. Start der Alpha am 25/05/2014</li>
+</ul><div> </div>
+<div><u>Alpha Release</u></div>
+<ul><li>Multi-Map-Support für Missions Titel</li>
+<li>Missions Verfolgungs System - ZFM verfolgt die Anzahl der vorhandenen Missionen und die zugehörigen Features
+<ul><li>Per-Bandit-Kill Verfolgung der Missionen - Hier sieht man wieviele Bandits getötet wurden und wieviele noch am Leben sind</li>
+<li>Per-Person-Kill Statistik - Hier sieht man wer was gekillt hat</li>
+<li>Humanity
+<ul><li>Per Bot Kill</li>
+<li>Auf Missionen basiert, jeder bekommt seinen Anzahl aus dem "Pot", je nach Anzahl der Bot Kills (Ich möchte das auch für den Loot implementieren)</li>
+</ul></li><li>Object-Tracking und Cleanup - Alle Objekte im Rahmen der Mission werden gelöscht um Speicher zu sparen und die Bandbreite zu schonen</li>
+<li>End-of-mission Ziele
+<ul><li>Alle Bots sind tot</li>
+<li><span style="color:#ff0000;">Der Spieler erreicht den Loot - Absichtlich NICHT inkludiert</span>
+</li><li><span style="color:#000000;">Post-mission Zusammenfassung</span>
+<ul><li>Listet die Bot Kills pro Person und andere Informationen über die Mission auf</li>
+<li>Lootverteilungs Mechanismus</li>
+<li>Entfernen der Marker</li>
+</ul></li></ul></li>
+<li>CRASH missions
+<ul><li>Einschränkung des Crash Standortes</li>
+<li>Matrix-basierte Erstellung des Crashes</li>
+<li>Vehicle-near-crash spawning Unterstützung</li>
+<li>On-floor-equipment spawning Unterstützung</li>
+</ul></li><li>Loot
+<ul><li>Minimum an garantiertem Loot</li>
+<li>Mehrere Loot Crates werden unterstützt</li>
+<li>Loot-in-Vehicle Unterstützung</li>
+<li>Fallschirm-Drops</li>
+</ul></li></ul></li>
+</ul><div> </div>
+<div><u>Beta Release</u></div>
+<div> </div>
+<ul><li>Missions Typen
+<ul><li>ZFM_MISSION_TYPE_LONE_SNIPER - Einsamer Sniper nimmt Stellung auf einem Hügel oder in einem Dachboden ein und treibt sein Unwesen</li>
+<li>ZFM_MISSION_TYPE_AMBUSH - Banditen bereiten einen Hinterhalt irgendwo auf der Map vor</li>
+</ul></li><li>Einheiten
+<ul><li>Grenadier - Wird mit RBG spawnen und anderen Explosives um die Fallen für den AMBUSH vorzubereiten</li>
+<li>Bots</li>
+<li>Patrollierende Bots</li>
+</ul></li><li>Und noch vieles mehr...</li>
+</ul>]]></description><guid isPermaLink="false">14078</guid><pubDate>Fri, 11 Jul 2014 13:08:28 +0000</pubDate></item><item><title>ZFM Development - Help Needed - Development Server</title><link>https://epochmod.com/forum/topic/20079-zfm-development-help-needed-development-server/</link><description><![CDATA[
+<p>Hi folks,</p>
+<p> </p>
+<p>I've come to the point now where I need to do some testing on a remote server rather than my local development server. If anyone would be able to loan the following:</p>
+<ul><li>RPT, battleye &amp; PBO access via FTP</li>
+<li>Password protection on server to prevent entrants</li>
+</ul><p>Doesn't require a lot of resources, but I would be eternally greatful to anyone able to provide as it would speed up the completion of the alpha release :-P</p>
+<p> </p>
+<p>Cheers,</p>
+<p>Zamboni</p>
+]]></description><guid isPermaLink="false">20079</guid><pubDate>Sun, 12 Oct 2014 11:48:04 +0000</pubDate></item><item><title>ZFM Development - Help Needed - Translations</title><link>https://epochmod.com/forum/topic/15818-zfm-development-help-needed-translations/</link><description><![CDATA[
+<p>Hola Community,</p>
+<p> </p>
+<p>Multi-language support is done in code in ZFM now, however, as a part of the Alpha release, ZFM will have the following languages:</p>
+<ul><li>English</li>
+<li>German</li>
+<li>Dutch</li>
+</ul><p>If you wish to translate for your own language, now's the chance. The English language file is located here on GitHub. Replace the strings in the arrays for your own pretty languages.</p>
+<p><a href="https://github.com/zambino/fairserver/blob/devel/ZFM/Languages/ZFM_Language_EN.sqf" rel="external nofollow">https://github.com/zambino/fairserver/blob/devel/ZFM/Languages/ZFM_Language_EN.sqf</a></p>
+<p> </p>
+<p>If you don't like GitHub, here's the sourcecode:</p>
+<pre class="ipsCode prettyprint">
+/*
+	ZFSS - Zambino's FairServer System v0.5
+	A Dayz Epoch server solution proving a dynamic mission system and fun, more interesting missions and a more equitable way of doing them. 
+	Not messing with the bandit/hero dynamic, just making the game a little less rage-inducing :)
+	Copyright (C) 2014 Jordan Ashley Craw
+
+	This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+ */
+ZFM_INFORMATION_STRINGS = [
+
+	// Join-In-Progress
+	"Creating Join-In-Progress marker - VehicleType [%1],Position [%2],Difficulty[%3].",
+
+	// Debug
+	"Debug parameters for _this are %1.",
+	"Debug null-value check for %1",
+	"DZMS or EMS is installed. Get rid, rebuild PBO, feel good.",
+	"AI scripts are not fully tested for ZFM Alpha. Use at your peril, landlubber. Y'arr.",
+
+
+	// Units
+	"Units - Creating Unit Group from Mission ID %1",
+	"Units - Creating Individual Unit %1 of %2 [Type: %3]",
+	"Units - Equipping Unit with Primary [%1], Magazines [%2], Backpack [%3],Unit [%4] and Magazine [%5]",
+
+	// Missions
+	"That bandit %1! Was killed by %2 [%3 / %4].", // User message
+	"All units were killed! [%1 / %2]", // User message
+	"Mission Debug [Purpose %1] %2",
+	"Mission GetMissionByID Debug %1 and %2",
+	"Mission %1 - MissionArray type %2",
+	"Mission %1 - All units have been killed, concluding mission.",
+	"Mission %1 - Conclude called with MissionArray %2.",
+	"Mission %1 - Mission objects removed are %2.",
+	"Mission %1 - Mission markers object %2 removed.",
+	"Mission %1 - Mission added.",
+	"Mission %1 - Mission removed.",
+	"Mission Handler - Initialized",
+	"Mission Handler - Startup Check Completed - Maximum concurrent missions not reached.",
+	"Mission Handler - Main loop started",
+	"Mission Handler - Current playable units %1",
+	"Mission Handler - Start Type %1, Random type %2",
+	"Mission Handler - Can Add New Mission? %1",
+	"Mission Handler - Waiting %1 seconds for next loop.",
+	"Mission Generation - Executed by method %1",
+	"Mission Generation - Loot Mode [%1], Type [%2], Variables [%3], Units [%4]",
+
+	// Crash missions
+	"Crashed %1",
+	"%1 [Difficulty: %2]",
+	"MissionType CRASH - Crash Mission Executing.",
+	"MissionType CRASH - Crash location found.",
+	"MissionType CRASH - Vehicle crashed has replacement model. Replacing model with non-burning model.",
+	"MissionType CRASH - Crash marker has been created at %1",
+
+	// Crash dynamic stuff
+	"A %1 %2 %3 %4. %5",
+];
+
+ZFM_ERROR_STRINGS =[
+	// Fatal errors (ex language ones)
+	"Fatal error! No mission types are defined or enabled! Please rectify this by ensuring ZFM_MISSION_TYPES_ENABLED or ZFM_MISSION_TYPES_SUPPORTED has the correct contents",
+
+	// Units
+	"Unknown unit type provided. Exiting unit creation.",
+	"Wrong format for EquipArray for unit. You need to restore ZFM defaults or fix what you broke.",	
+
+	// Missions
+	"Maximum concurrent missions is set to 0. You do want missions, right?",
+	"Only one instance of the mission handler can run at the same time. Exiting main loop.",
+	"Nobody is on the server and ZFM_MISSIONS_START_WHILE_SERVER_EMPTY is set to FALSE. Waiting for player to join.",
+];
+
+// Module-specific language strings 
+
+ZFM_CRASH_MISSION_OTWT =[
+	
+];
+
+ZFM_CRASH_MISSION_OTWT_PLACE =[
+
+];
+
+ZFM_CRASH_MISSION_OTWT_ACTION =[
+	
+];
+ZFM_CRASH_MISSION_OTWT_CONSEQUENCE =[
+	"It would appear that",
+	"Looks like",
+	"Unfortunately,",
+	"Regrettably,",
+	"Fuck, looks like",
+	"Oh shit,",
+	"Hot dawg,",
+	"Holy smokes,",
+];
+
+// Double formatting to replace a wildcard replaced by a wildcard.. ;-)
+ZFM_CRASH_MISSION_OTWT_CONSEQUENCE_CONCLUSION =[
+	"%1 took control of the area.",
+	"%1 are camped in the area.",
+	"%1 are patrolling nearby.",
+	"%1 are having an orgy in the vicinity.",
+	"%1 took up sniper positions nearby.",
+	"%1 are hidden nearby",
+	"%1 formed defensive positions.",
+	"%1 are now in control.",
+	"%1 are in command.",
+	"%1 are the big chiefs in town."
+];
+
+
+ZFM_CRASH_MISSION_OTWT_BG_NAMES_HERO =[
+	"My Hero Group Name",
+];
+ZFM_CRASH_MISSION_OTWT_BG_NAMES_BANDIT =[
+	"My Bandit Group Name"
+];
+</pre>
+<p>ZFM_CRASH_MISSION_OTWT refers to city names. These I will update for Napf, etc.</p>
+<p>ZFM_CRASH_MISSION_OTWT_PLACE refers to a type of place. Like, a hospital, or a camp, castle, field, or something like that.</p>
+<p>ZFM_CRASH_MISSION_OTWT_ACTION refers to what the crash mission was supposed to be doing in that place. Delivering medical supplies, dropping bombs, buying drugs, who cares.</p>
+<p>ZFM_CRASH_MISSION_OTWT_CONSEQUENCE refers to the first part of the last sentence. So "Oh fuck, looks like TEH_BANDITS are now in command."</p>
+<p>ZFM_CRASH_MISSION_OTWT_CONSEQUENCE_CONCLUSION is the end of that sentence. It uses the format[] function again. Ho ho ho, I am double clever.</p>
+<p> </p>
+<p>Anyway, lots of love, we're almost there. &lt;3</p>
+<p> </p>
+<p> </p>
+]]></description><guid isPermaLink="false">15818</guid><pubDate>Wed, 20 Aug 2014 22:12:57 +0000</pubDate></item><item><title>ZFM Development - Help Needed - Overpoch support</title><link>https://epochmod.com/forum/topic/15687-zfm-development-help-needed-overpoch-support/</link><description><![CDATA[
+<p>Hi community,</p>
+<p> </p>
+<p>With the Alpha release coming up shortly, I want to ensure that there is support for Overpoch in loot items, and also equipment for ZFM AI classes. I don't have any experience with Overpoch, and I need someone else who does to provide me with input on:</p>
+<p> </p>
+<ul><li>What kinds of loot should there be for each difficulty, for each type, for Overpoch-specific weapons? The Epoch-specific spawns are here: <a href="https://github.com/zambino/fairserver/blob/devel/ZFM/Config/ZFM_Loot_Config.sqf" rel="external nofollow">https://github.com/zambino/fairserver/blob/devel/ZFM/Config/ZFM_Loot_Config.sqf</a>
+</li><li>What kinds of overpoch weapons should units be equipped with? The Epoch-specific details are here: <a href="https://github.com/zambino/fairserver/blob/devel/ZFM/Config/ZFM_Units_Config.sqf" rel="external nofollow">https://github.com/zambino/fairserver/blob/devel/ZFM/Config/ZFM_Units_Config.sqf</a></li>
+</ul><p>If you don't know how to read code, then please just look at the lines which have "EASY", etc on them. Below those are a list of classnames that refer to epoch-only weapons, and not the kind of weapons available in Overpoch. What I need suggestions on is OverPoch loot examples and loadouts for each type of unit in ZFM, which as of Alpha is:</p>
+<ul><li>Sniper</li>
+<li>Heavy</li>
+<li>Rifleman</li>
+<li>Commando</li>
+</ul><p>Many thanks for your help, it's always appreciated! </p>
+<p> </p>
+]]></description><guid isPermaLink="false">15687</guid><pubDate>Sun, 17 Aug 2014 23:13:26 +0000</pubDate></item><item><title>Public message to those waiting for the release..</title><link>https://epochmod.com/forum/topic/14338-public-message-to-those-waiting-for-the-release/</link><description><![CDATA[
+<p><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="i-know-that-feel-bro-7070.jpg" data-src="http://memeguy.com/photos/images/i-know-that-feel-bro-7070.jpg"></p>
+<p>I know that feel, bro. :lol: Hang in there, breathe, you'll be fine. :D</p>
+]]></description><guid isPermaLink="false">14338</guid><pubDate>Thu, 17 Jul 2014 06:06:20 +0000</pubDate></item><item><title>ZFM Donations -  Your kindness is amazing!</title><link>https://epochmod.com/forum/topic/14819-zfm-donations-your-kindness-is-amazing/</link><description><![CDATA[
+<p>Hi everyone,</p>
+<p> </p>
+<p>I just wanted to say thank you to those who have donated. You have shown kindness and support, and I can't thank you enough! I didn't think that I would get any, as I just put it up there for the hell of it, but several of you have donated already, even before release (which is <em>so</em> soon, I assure you), and I just wanted to publicly say thank you. Donations aren't essential, in fact, you don't have to even read this if you don't want to. However, they dont go unnoticed, and they help support a great deal of work -- I've worked on ZFM for about 2 months now, and love it, and I guess you do too!</p>
+<p> </p>
+<p>Here's to a good relationship between me, the ZFM team and you, the great community. I'll pop the donate button here just in case you're crazy, but donations or no donations, I value everyone's input, support, guidance, honesty, and enthusiasm!</p>
+<p> </p>
+<p> </p>
+<p style="text-align:center;"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KCY33RA7QWPMY" rel="external nofollow"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="Paypal-Donate-Button-Image.png" data-src="http://www.afroinno.org/wp-content/uploads/sites/11/Paypal-Donate-Button-Image.png"></a></p>
+<p style="text-align:center;"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KCY33RA7QWPMY" rel="external nofollow"><span style="font-size:18px;">DONATE - SUPPORT ZFM</span></a></p>
+<p style="text-align:center;"> </p>
+<p>In addition, I would also like to ask that if you do feel generous, please also consider giving a donation to charity. Right now, people in Gaza are really in a desperate situation, and they need all the help they can get.</p>
+<p> </p>
+<blockquote data-ipsquote="" class="ipsQuote"><div>
+<p>The fighting has destroyed much of Gaza. Hundreds of thousands of people have fled their homes, with nowhere to go. UN schools where women and children were sheltering have been hit. Hospitals have been bombed. The public health system is on the verge of collapse.</p>
+<p>Injured survivors lie in hospital corridors or in the street, desperately hoping for help before it's too late. And every day, more dead bodies are pulled from the rubble. Many families are still searching for their dead.</p>
+<div>
+<div>
+<br><span>Read more at <a href="http://www.actionaid.org.uk/gaza-crisis-appeal#c5J1CrHbGAm6P264.99" rel="external nofollow">http://www.actionaid.org.uk/gaza-crisis-appeal#c5J1CrHbGAm6P264.99</a></span>
+</div>
+</div>
+<p> </p>
+</div></blockquote>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;"><a href="http://www.actionaid.org.uk/gaza-crisis-appeal?gclid=CJPg6OjcksACFXDKtAodFWoAtg" rel="external nofollow"><span style="font-size:18px;">Donate - help out Gaza</span></a></p>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;">Peace, love &amp; solidarity</p>
+<p style="text-align:center;">Jordan/ Zamboni / ZamboniBambino</p>
+]]></description><guid isPermaLink="false">14819</guid><pubDate>Mon, 28 Jul 2014 07:57:01 +0000</pubDate></item><item><title>ZFM Development - Help needed -Loot crates</title><link>https://epochmod.com/forum/topic/14097-zfm-development-help-needed-loot-crates/</link><description><![CDATA[
+<p>I need some help with what ideal loot boxes should contain. Would anyone be so kind as to help me by proposing some contents of loot boxes by difficulty? Also, if you're up for it, I would like to come up with an algorithm for how much loot should be given per person participating in a mission.</p>
+<p> </p>
+<p>Would you be able to help me create loot for the following difficulties:</p>
+<p> </p>
+<p>Deadmeat</p>
+<p>Easy</p>
+<p>Medium</p>
+<p>Hard</p>
+<p>War Machine</p>
+<p> </p>
+<p>And also, sub-categories for each difficulty (i.e. Snipers, machine guns, pistols, building materials, etc) are required.</p>
+<p> </p>
+<p>Please provide the list with headers, and make sure that classnames are used, and are correct. i.e. "DMR"</p>
+<p> </p>
+<p>If you are also feeling generous, please create these for both Overpoch and Vanilla Epoch.</p>
+<p> </p>
+<p>Many thanks for your help</p>
+]]></description><guid isPermaLink="false">14097</guid><pubDate>Fri, 11 Jul 2014 20:10:31 +0000</pubDate></item><item><title>ZFM FAQ</title><link>https://epochmod.com/forum/topic/14697-zfm-faq/</link><description><![CDATA[
+<p><strong>When will this motherfucker be released? I'm checking these forums all the time and I am an impatient person!</strong></p>
+<p>I'm glad you're so enthusiastic about this release! At the moment, I have to split development for ZFM between my personal life, and when my personal life gets busy, ZFM grinds to a halt due to other obligations. However, I will post when I'm developing again, and post updates where appropriate. I have given estimates before, but it's hard to judge when I will be busy and when I get paid work. Sometimes it looks like I have a free weekend, and then I don't! But, I love DayZ and developing ZFM, so I'm not going anywhere.</p>
+<p> </p>
+<p><strong>Aargh! The AI on ZFM aren't solid snake! Why aren't they making rockets out of debris, rapelling down buildings and hotwiring cars?</strong></p>
+<p>Yeah, there is no "AI" on ZFM yet, as such, like you would see from things like SARGE or WAI. At the moment, ZFM sets the skill level of the AI in ARMA based on difficulty, so at times you will see that AI will hide behind objects and seek out cover, or command others, but that's it. As of ZFM pre-alpha and alpha, there are no AI additions which you see in WAI, because ZFM is a mission system, and not an AI system and does not have any additions for controlling AI on ARMA above what ARMA does. What you see is what ARMA provides, not what ZFM provides -- there aren't any changes to the Finite-State Machine for AI or manual overrides which improve their reactiveness or proactiveness.</p>
+<p> </p>
+<p>There is planned support for DZAI and WAI in ZFM Beta, so if you want your AI to be more proactive, then wait for that.  When ZFM has been developed for a while, I do plan to create AI to accompany ZFM, called ZAI, which is primarily aimed at ARMA3. But, that's in the far future at present. I have to release ZFM first.. :lol:</p>
+<p> </p>
+<p><strong>I have downloaded from master on GitHub but there is &lt;x&gt; not working, or &lt;y&gt; doesn't work, but on the forums, I can see it working!</strong></p>
+<p>Bear in mind that the master release only contains <em>full releases</em>. The current release, as of 25/07/2014 is Pre-Alpha as Alpha is still in production. Once Alpha has been released, "master" will contain Alpha. During development, testing builds will be made available in the "testing" repository on GitHub, and bleeding-edge features will be made available in the "devel" repository.</p>
+<p> </p>
+<p><strong>I downloaded the devel repository but &lt;x&gt; isn't working!</strong></p>
+<p>Please bear in mind the devel repository is used by me (Zamboni) for hosting code on GitHub between computers, and is also provided for those <u>who have experience of SQF scripting and who will modify code themselves to test functions made available in these releases</u>. However, it is <u>not</u> recommended for those who don't know how to develop SQF scripts; Devel does not contain workable releases of ZFM, it contains pieces of code being tested in isolation.</p>
+<p> </p>
+<p><strong>I noticed "ZAT" in the Devel Repository! How do I use your admin tools?</strong></p>
+<p>Very perceptive of you! Yes, there is a lot of junk I forget to tidy from my development folder, and some of it gives a bit of a sneak preview as to what I'm doing. Yes, ZAT is a tool I developed for myself called "Zamboni Admin Tools" which is part of a proof of concept I created for having defined "commands" for administration which were configurable on the server, and required token authentication from the server, eventually based on SQL information stored by the hive. It's kinda complete, but just works enough to prove it works. I may release the source at some time, but once ZFM is released.</p>
+<p> </p>
+<p>For now, stick with the tools to which you are accustomed.</p>
+<p> </p>
+<p><strong>Does this support maps other than chernarus?</strong></p>
+<p>The way ZFM is coded it doesn't require map-specific configuration, so yeah, it works on any map. And on ARMA3 maps, too. Nifty!</p>
+<p> </p>
+<p><strong>Why does ZFM come with multiple languages? If English was good enough for Jesus, it's good enough for me, you heathen English bastard!</strong></p>
+<p>I love other languages, so I like to support them. When I played on Epoch servers, I could understand mostly what German players were saying, and they were usually quite inclusive of English players. Sadly, English players tended to have disparaging remarks about the Germans, who actually used to say nice things about them, and act in a more adult manor. Perhaps it's an isolated example, but I want to emphasise that <strong><u>your language is important!</u> </strong>And DayZ needs multi-lingualism; I mean, it's based in a non-English country (Chernarus), and English people tend not to be multi-lingual, whereas, non-English people tend to be.</p>
+<p> </p>
+<p>So, yeah. Love your language, and speak it! DayZ in German and Japanese? Why not. :wub:</p>
+]]></description><guid isPermaLink="false">14697</guid><pubDate>Fri, 25 Jul 2014 14:43:32 +0000</pubDate></item><item><title><![CDATA[ZFM Alpha Testing Thread - Bugs & quirks]]></title><link>https://epochmod.com/forum/topic/14343-zfm-alpha-testing-thread-bugs-quirks/</link><description><![CDATA[
+<p>Hi everyone,</p>
+<p> </p>
+<p>If you are testing the <strong>testing release</strong> of ZFM, I would like to ask kindly that those who find bugs:</p>
+<ol><li>Go to the GitHub page here: <a href="http://github.com/zambino/fairserver" rel="external nofollow">http://github.com/zambino/fairserver</a>
+	</li><li>Register an account if you have one.</li>
+	<li>Click on "Issues" and then fill in an issue. <u><em>Please check to make sure your bug has not already been raised in both closed and open issues</em></u><em>.</em></li>
+	<li>Set the "issue" options so that its category is "Bug" and the release is "Alpha release".</li>
+	<li>Please <strong>make sure to add any RPTs or screenshots of errors, bugs, or behaviour you think needs to be fixed</strong> along with <u>very clear details on who, what when, where and how.  </u></li>
+</ol><p>This will significantly reduce the amount of time required to debug ZFM and keep me very happy :D</p>
+<p> </p>
+<p>I am happy to <em>discuss</em> bugs in any threads, provided they've at least been raised to GitHub first! ^_^</p>
+]]></description><guid isPermaLink="false">14343</guid><pubDate>Thu, 17 Jul 2014 10:29:25 +0000</pubDate></item><item><title>ZFM - Vote for new missions, new content, new sexyness</title><link>https://epochmod.com/forum/topic/14033-zfm-vote-for-new-missions-new-content-new-sexyness/</link><description><![CDATA[
+<p>Hola DayZ community,</p>
+<p> </p>
+<p>ZFM is a community-driven project, and as such, we love getting requests for features and new missions to be added to our software. You can contribute in many ways, but if you just want to get a cool feature added into ZFM, you can just ask!  </p>
+<p> </p>
+<p><span style="font-size:18px;"><strong>Voting</strong></span></p>
+<p>We have a Trello page (link below) on which, features will be listed and new features can be requested. Go crazy and request whatever you want, however, bear in mind  <strong>all features for the alpha release are now frozen</strong>. Meaning, new feature requests can't be added to Alpha as we're currently developing it. Adding new features to it would mean Alpha could last forever as we would constantly be adding new features,and wouldn't make sense.</p>
+<p> </p>
+<p><a href="https://trello.com/b/EPg0YtXC/fairserver" rel="external nofollow">https://trello.com/b/EPg0YtXC/fairserver</a></p>
+<p> </p>
+<p><span style="font-size:18px;"><strong>Any request is fine!</strong></span></p>
+<p><span style="font-size:14px;">Even if you think your request may be outlandish or silly, please request it. The worst we can say is "no" or "we'll do it later!".</span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:14px;">Much love,</span></p>
+<p><span style="font-size:14px;">Zamboni</span></p>
+<p> </p>
+<p> </p>
+]]></description><guid isPermaLink="false">14033</guid><pubDate>Thu, 10 Jul 2014 08:13:57 +0000</pubDate></item><item><title>ZFM Development Progress Thread</title><link>https://epochmod.com/forum/topic/14077-zfm-development-progress-thread/</link><description><![CDATA[
+<p>This thead contains screenshots and code samples from updates that are being made to ZFM. It will also include details and updates to commits that have been made to Git source.</p>
+<p> </p>
+<p><span style="font-size:18px;">ZFM Layout Compositor</span></p>
+<p> </p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><strong>What it does</strong></span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Lays out vehicles, units, and loot in appealing, symmetical and ordered ways by arranging them in equally-spaced grids. </span></span></span></p>
+<p> </p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><strong>Where is it available?</strong></span></span></span></p>
+<ul>
+<li>ZFM devel builds</li>
+<li>
+<span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">ZFM Alpha release </span></span></span>
+</li>
+</ul>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><strong>Intended for use by</strong></span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Everyone! It's open source. Use it in or out of ZFM.</span></span></span></p>
+<p> </p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><strong>How to use it</strong></span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">The layout compositor only requires <u>two lines</u> of code to create layouts, and uses the following types: </span></span></span></p>
+<ul>
+<li>
+<span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Vehicles defined in CfgVehicles</span></span></span>
+</li>
+<li><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Arrays of ZFM unit types (i.e. ZFM_UNIT_TYPE_HEAVY)</span></span></span></li>
+<li><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Loot crates defined in ZFM</span></span></span></li>
+</ul>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Firstly, create a layout as an array. You can have as many rows and columns as possible. An easy example of a layout is a bandit base from the ZFM crash missions:</span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"> </span></span></span></p>
+<pre class="ipsCode prettyprint">
+// This is a single item in the layout array
+["NameOfVehicle",&lt;heading&gt;,parameters]
+
+// This is our layout array
+ZFM_Layouts_Array =[
+[["CampEast",0,[]],["CampEast",0,[]],["CampEast",0,[]]],
+[0,["Land_tent_east",0,[]],0]
+];
+
+/*
+This equates to:
+
+Tent    Tent    Tent
+SPC	Tent	SPC
+*/
+// 0 = The layout, 1 = Center of the layout, 2 = position of the layout, 3 = spacing of the layout
+[ZFM_Layouts_Array,[1,1],[4600,10160,0],20] call ZFM_Layout_Parse;</pre>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">To break this down, an individual cell of a layout array is an array itself with 3 elements. The first element is the name of the vehicle, unit or lootcrate type, the second is the degree heading, and the third is any parameters being passed when spawning this. At the moment, for alpha, no parameters will be passed as they're not required for crash missions, but in the future, they will be used to spawn items inside vehicles and so on. The "0"s in this are set as spacers, and won't spawn any vehicles or units in those spaces.</span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"> </span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"> </span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"> </span></span></span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="TGcLLfk.jpg" data-src="http://i.imgur.com/TGcLLfk.jpg"></span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">This is the result from the above code.</span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="aguMkqj.jpg" data-src="http://i.imgur.com/aguMkqj.jpg"></span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"> </span></span></span></p>
+<p><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;"><img src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" alt="Yi3dmxk.jpg" data-src="http://i.imgur.com/Yi3dmxk.jpg"></span></span></span></p>
+]]></description><guid isPermaLink="false">14077</guid><pubDate>Fri, 11 Jul 2014 13:01:28 +0000</pubDate></item><item><title><![CDATA[[Aan de gang] ZFM - EerlijkeMissie - Nederlands <3]]></title><link>https://epochmod.com/forum/topic/14080-aan-de-gang-zfm-eerlijkemissie-nederlands-3/</link><description><![CDATA[
+<p><em>ZFM is op het moment het eerste deel van het FairServer project. ZFM biedt een dynamische ervaring binnen DayZ als geen ander, en biedt een set van eenvoudig te gebruiken functies voor het maken van nieuwe missies.</em><br>
+ </p>
+<p><strong>Wat is het?</strong></p>
+<p>ZFM, of "Zambino Fair Mission", is een open-source, community gevoed misie systeem project ontwikkeld door ZambinoBamboni en een gemeenschap van prachtige mensen. Het is dynamisch en biedt een ervaring in DayZ met missies die gericht om verveling te verminderen door het maken van dynamische missies. Door dynamische bedoelen we dynamische - namen, plaatsen, voertuigen, titels, soms zoveel mogelijk. En nog belangrijker, uitbreidbaar - u kunt coderen voor ZFM in een handomdraai.</p>
+<p><strong>Waarom het gebruiken / waarom ons ondersteunen?</strong></p>
+<ul><li>ZFM is meer dynamisch en veelzijdig dan andere missie systemen - crashes zijn dynamisch en gedetailleerd, en meer dan alleen crashes zijn gepland als missies.</li>
+<li>Het heeft een meer uitgebreide functionaliteit gepland voor de release, en momenteel uitgebreider dan andere missie systemen.</li>
+<li>De code is goed gedocumenteerd, modulair, en bedoeld om eenvoudig te kunnen worden aangepast door anderen, zodat nieuwe soorten missies, nieuwe AI sub-klassen en nieuwe functionaliteit gemakkelijk toegevoegd kunnen worden.</li>
+<li>Voor de volledige specificatie lijst, blijf scrollen ...;)</li>
+</ul><p><strong>GitHub</strong><br>
+Lees hieronder voor een goed begrip van de releases van ZFM. Voor de beste gameplay-ervaring, is het raadzaam te wachten tot een Alpha versie.<br>
+Als u releases wilt testen, ga dan direct naar:<br><a href="https://github.com/zambino/fairserver" title="External link" rel="external nofollow"><span style="color:#0f72da;"><span style="font-family:helvetica, sans-serif;"><span style="font-size:10.5pt;">https://github.com/zambino/fairserver</span></span></span></a><br><br>
+De huidige meest up-to-date versies van FairServer zijn verkrijgbaar bij het ​​testen repository.<br><br><strong>Stem en suggereer nieuwe functies</strong><br>
+Wij houden van suggesties. Voeg ze HIER toe.<br><br><strong>Ontwikkelaars</strong><br><strong>ZamboniBambino </strong>- Lead Developer, oprichter en inzender van 99,97% van de huidige bestaande code (Nu ruig rond de 3000+ regels code).<br><strong>Darihon</strong> - Junior developer &amp; feature support.</p>
+<p><strong>Vertalers</strong><br><strong>Creep</strong> - Duitse vertaler<br><strong>freakystyle</strong> - Duitse vertaler<br><strong>Crckdns</strong> - Russische vertaler<br><strong>Darihon</strong> - Nederlandse vertaler<br><br><strong>Vooruitgang van de ontwikkeling</strong><br>
+Er zijn een heleboel functies die zijn toegevoegd, en zijn gepland voor ZFM. ZFM zit tussen de 75 - 85% voor de Alpha fase en ZFM is dus technisch in de pre-alpha fase. ZFM heeft alle functies van de andere missie systemen al, het is meer dynamischer en het zal meer hebben wanneer de Alpha versie uit is waar wij super hard aan werken. Wij ontwikkelen op zijn minst een paar keer per week en updates worden in een forum post geplaatst om je nieuwe, coole functies te laten zien die in ZFM zitten.</p>
+<p>ZFM heeft een pagina op GitHub en bestaat uit 3 categorieën:<br>
+                Master - Bevat grote releases van ZFM. Genoemde releases (bijv. ZFM Alpha, Beta ZFM etc.)<br>
+                Testing - Bevat test releases voor de ZFM testers om bugs te vinden voor de release. <strong>Niet          aanbevolen voor live-servers, maar u kunt veel plezier hebben op uw test server met deze          releases.</strong><br>
+                <span style="color:#282828;"><span style="font-family:helvetica, sans-serif;"><span style="font-size:10.5pt;">Devel  - Bevat nog niet afgeronde stukjes code<strong>. Niet aanbevolen voor een live                              systeem.             Niet aanbevolen voor andere dan ontwikkelaars of mensen die                         bekend zijn met SQF.</strong></span></span></span></p>
+<p>Het proces van ontwikkeling zal verhuizen van Alpha naar Beta, van Beta naar Release Candidate, vervolgens van Release Candidate (1,2,3) naar Release.</p>
+<p><strong>Na de release:</strong><br>
+                ZFM Community Versie: Dit zal de openbaar toegankelijke versie van ZFM waar belangrijke kenmerken overeengekomen voor releases zullen worden opgenomen. Dit zal worden ondersteund op lange termijn en we hopen dat er codeurs aan boord komen om ons te helpen.<br>
+                ZFM Premium Versie: Dit zal alle content van ZFM (dus zoals Capcom Day-One DLC doet .. ;)) niet achterhouden. Het is niet "koop me zodat ik achtergelaten functies krijg die express uit ZFM zijn gelaten". Het is een versie dat premium toevoegingen bevat voor een zeer redelijke prijs en de volgende functies bevat:</p>
+<ul><li>SQL oplag van missies zodat real-time informatie beschikbaar kan worden gesteld.</li>
+<li>Instrumenten voor het integreren van missie informatie op uw websites / forums / etc.</li>
+<li>Online bedieningspanelen voor het regelen en de wijziging van missies, het toevoegen van aangepaste missies via webinterface.</li>
+</ul><p><strong>Help mee met hard werken - doneren :)</strong><br><br>
+Ik heb deze software geproduceerd om het spel beter te maken, en om uw leven aangenamer te maken. Het is gratis, en het is ontwikkeld uit liefde voor u en voor het spel. Echter, als je het gevoel dat je veel hebt geprofiteerd van mijn harde werk en mij willen bedanken, dan zou een kleine donatie geen kwaad kunnen. Het is niet noodzakelijk, maar een aardig gebaar: wub: Hoe dan ook, ik hoop dat je geniet van mijn software!</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><strong>Installeren en testen van pre-release debug versie van ZFM</strong></p>
+<div>
+<p><span style="color:#880000;"><span style="font-family:'courier new';"><span style="font-size:10pt;">// Voeg toe aan je server_monitor.sqf</span></span></span></p>
+<p> </p>
+<p><span style="color:#880000;"><span style="font-family:'courier new';"><span style="font-size:10pt;">// Onder deze regel</span></span></span></p>
+<p><span style="color:#880000;"><span style="font-family:'courier new';"><span style="font-size:10pt;">// (Of je bestaande [] ExecVM)</span></span></span></p>
+<p><span style="color:#000000;"><span style="font-family:'courier new';"><span style="font-size:10pt;">allowConnection </span></span></span><span style="color:#666600;"><span style="font-family:'courier new';"><span style="font-size:10pt;">=</span></span></span> <span style="color:#000088;"><span style="font-family:'courier new';"><span style="font-size:10pt;">true</span></span></span><span style="color:#666600;"><span style="font-family:'courier new';"><span style="font-size:10pt;">;</span></span></span>  </p>
+<p> </p>
+<p><span style="color:#880000;"><span style="font-family:'courier new';"><span style="font-size:10pt;">// Voeg deze regels toe:</span></span></span></p>
+<p> </p>
+<p>    <span style="color:#880000;"><span style="font-family:'courier new';"><span style="font-size:10pt;">// Zambino FairMission</span></span></span></p>
+<p>    <span style="color:#666600;"><span style="font-family:'courier new';"><span style="font-size:10pt;">[]</span></span></span> <span style="color:#660066;"><span style="font-family:'courier new';"><span style="font-size:10pt;">ExecVM</span></span></span> <span style="color:#008800;"><span style="font-family:'courier new';"><span style="font-size:10pt;">"\z\addons\dayz_server\ZFM\ZFM_Initialize.sqf";</span></span></span><br><br>
+ </p>
+</div>
+<p>1. Download de laatste versie van:  <a href="https://github.com/zambino/fairserver/archive/master.zip" rel="external nofollow">https://github.com/zambino/fairserver/archive/master.zip</a><br>
+2. Pak je dayz_server.pbo uit<br>
+3. Plak / extract de ZFM folder in de hoofd folder van de .pbo.<br>
+4. Pak je PBO weer in.</p>
+<p><strong>Huidige Functies</strong><br><br><u>Modulair</u></p>
+<ul><li>Ontwikkeld zo dat nieuwe soort missies of addities aan bestaande missies makkelijk gedaan kunnen worden.</li>
+<li>Goed gedocumenteerd, zodat mensen die naar de code kijken makkelijk de functies begrijpen.</li>
+<li>Open source, zodat je gelijk kan beginnen.</li>
+</ul><p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><u>Gedetailleerd</u></p>
+<ul><li>AI hebben meerdere sub-klassen
+<ul><li>Commando</li>
+<li>Zwaar</li>
+<li><span style="color:#252525;"><span style="font-family:arial, sans-serif;"><span style="font-size:10.5pt;">Geweerschutter</span></span></span>
+</li><li>Sniper</li>
+</ul></li>
+</ul><p> </p>
+<p> </p>
+<p> </p>
+<ul><li>AI en missies hebben moeilijkheidsgraden:</li>
+</ul><p>                Deadmeat (voor beginners)<br>
+                Makkelijk<br>
+                Medium<br>
+                Hard<br>
+                War Machine (voor gekken)</p>
+<ul><li>Missies zijn nauwkeuriger bijgehouden<br>
+                Houd elke bandiet kill bij en zelfs de gebruiker die de bandiet vermoord.<br>
+                Missies eindigen alleen wanneer iedere bandiet is vermoord.</li>
+</ul><p><u>Dynamisch</u></p>
+<ul><li>Crashes zijn volledig geanimeerd en kunnen overal gebeuren, inclusief steden, wegen, bergen etc.</li>
+<li>Elk voertuig kan worden gebruikt als een crash en word geanimeerd, explodeert en word vervangen wanneer er een wrak van het huidige voertuig aanwezig is.</li>
+<li>Missies kunnen worden gedefinieerd bij de gebruiker in een array of een random missie kan worden gegenereerd:<br><br>
+De meeste aspecten van de missies zijn gerandomiseerd om hun eigenheid te verhogen.<br>
+Dit geldt ook voor voertuigen, eenheden, moeilijkheden,basissen, unitgroepen, unit apparatuur en mijn persoonlijke favoriet, dynamische missie titels.<br><br>
+                A CH-47 en-route to Balota went off the radar and is presumed destroyed. It is                 suspected that well-trained mercenaries have secured the site.<br><br>
+                Fragmenten van de missie titels kunnen worden toegevoegd, zodat u effectief nog        meer variatie in uw titels kunt creëren.<br><br>
+                Ik heb een aantal leuke namen ingevoegd, maar ik heb ze als aantekening genoteerd    voor mensen die andere titels willen, dan kunnen gaan voor bijvoorbeeld 'Balota                Bastards Crew'.</li>
+<li>Loot wordt vernieuwd - oorspronkelijk werd het gebruikt als '' of '', echter, nieuwere commits zullen voorzien worden van goede loot. Dit zal basis zijn op het begin, maar zal bestaan uit gerandomiseerde voorwerpen, met de extra kans op zeldzame wapens. (aan de gang)</li>
+<li>Grid-gebaseerde basis generatie - deze kunnen worden gegenereerd door 1 array in de code en het is zo groot als u wilt. Op het moment word het alleen gebruikt om de crash te genereren, maar het kan worden gebruikt om een niveau van layouts met detail te genereren.</li>
+</ul><p>En veel meer!<br><br><strong>Functie roadmap</strong></p>
+<p>Pre-alpha debug release</p>
+<ul><li>Al uitgegeven aan de community. Zie Alpha.</li>
+</ul><p> </p>
+<p><u>Alpha Release (in ontwikkeling)</u></p>
+<ul><li>Meerdere map support voor missie titels (aan de gang)</li>
+<li>Missie tracking systeem - ZFM volgt de missies die op dat moment aan de gang zijn en volgt dingen per missie voor de volgende functies (toegevoegd aan de code, testing aan de gang 02/06/2014)
+<ul><li>JIP tracking voor de missie markers etc. (toegevoegd op 09/06/2014)</li>
+<li>Bandit Kill tracking van de missies - Check hoeveel bandieten er nog zijn en hoeveel er zijn vermoord. (toegevoegd op 08/06/2014)</li>
+<li>Gebruik kill statistieken - Zie wie wat vermoorde (toegevoegd op 26/05/2014)</li>
+<li>Humanity (toegevoegd op 26/05/2014)
+<ul><li>Toegevoegd per AI kill (toegevoegd op 26/05/2014)</li>
+</ul></li><li>Object tracking en opruiming - Alle objecten zijn opgeslagen in de 'missie array' voor een missie. Wanneer een missie voltooid is dan worden ze verwijderd om server fouten te voorkomen. (toegevoegd op 09/06/2014)</li>
+<li>Einde van missie objectieven
+<ul><li>Alle bandieten door (normaal) - Missie eindigt wanneer alle bandieten dood zijn (toegevoegd op 08/06/2014)</li>
+<li><span style="color:#FF0000;">Gebruiker komt bij de loot - met opzet niet inbegrepen.</span>
+</li></ul></li>
+<li>Samenvatting
+<ul><li>Lijst van kills per persoon en andere informatie wanneer de missie eindigt (verplaatst naar Beta, vereist client-side en UI).</li>
+<li>Loot verdelingsmechanisme (verplaatst naar Beta).</li>
+<li>Verwijder missie marker (toegevoegd op 09/06/2014).</li>
+</ul></li></ul></li>
+<li>CRASH missies
+<ul><li>Beperking van crash locaties (aan de gang)
+<ul><li>Uitgesloten gebieden van de kaart</li>
+<li>Handmatige lijst  -- niet nodig</li>
+</ul></li><li>Matrix-gebaseerde basis generatie rond een crash. (toegevoegd op 05/06/2014).</li>
+<li>Support voor voertuigen dicht bij de crash (aan de gang)</li>
+<li>Support voor loot op de grond (aan de gang)</li>
+</ul></li>
+<li>Loot
+<ul><li>Minimumgarantie van loot gebaseerd op realisme. (aan de gang).</li>
+<li>Meerdere loot krat ondersteuning (aan de gang).</li>
+<li>Support voor loot in voertuigen (toegevoegd op 07/07/2014)</li>
+<li>Parachute drops (toegevoegd op 01/07/2014)</li>
+<li>FairShare systeem (niet voor niets FAIRserver genoemd!) - (verplaatst naar de Beta)</li>
+</ul></li><li>Lokalisatie systeem (aan de gang)
+<ul><li>Russische taal ondersteuning (nog niet compleet, aangeboden door crckdns) - (nog niet toegevoegd)</li>
+<li>Duitse taal ondersteuning (vrijwel compleet, veel dank aan freakystyle) - (nog niet toegevoegd, afgemaakt door freakystyle)</li>
+<li>Nederlandse taal ondersteuning (vrijwel compleet, veel dank aan Darihon) - (toegevoegd op 07/06/2014)</li>
+</ul></li></ul><p style="margin-left:72pt;"> </p>
+<ul><li>Ondersteuning voor andere batshit-gek maar leuke projecten (aan de gang)
+<ul><li>Ondersteuning voor Overpoch wapens (aan de gang)</li>
+</ul></li></ul><p><u>Beta release</u></p>
+<ul><li>Soorten missies
+<ul><li>ZFM_MISSION_TYPE_LONE_SNIPER - Eenzame sluipschutter neemt een heuveltop of een dak en gaat voor een killing spree.</li>
+<li>ZFM_MISSION_TYPE_AMBUSH - Bandieten hebben een val op een hoofdweg ergens op de map gelegd.</li>
+</ul></li><li>Eenheid types
+<ul><li>Grenadier - spawned met RPG's en andere explosieven voor het leggen van vallen voor de hinderlaag.</li>
+</ul></li><li>AI
+<ul><li>AI patrouilles</li>
+</ul></li></ul><p>Er komt nog veel meer.. </p>
+]]></description><guid isPermaLink="false">14080</guid><pubDate>Fri, 11 Jul 2014 13:13:14 +0000</pubDate></item><item><title>ZFM Development Team - Want to help develop, translate, expand ZFM? Important info here.</title><link>https://epochmod.com/forum/topic/14034-zfm-development-team-want-to-help-develop-translate-expand-zfm-important-info-here/</link><description><![CDATA[
+<p><span style="font-size:24px;">Our development team</span><br><strong><em> </em></strong><br><strong><strong>Release co-ordination &amp; management</strong></strong></p>
+<ul><li>
+<strong> </strong>Phobix<strong>  </strong>
+</li></ul>
+<p><strong>Developers</strong></p>
+<ul>
+<li>ZamboniBambino - Lead Developer, founder &amp; contributor of 99.97% of current existing code. (Now roughly around 3000+ LOC)</li>
+<li>Darihon - Junior developer &amp; feature support.</li>
+</ul>
+<p><strong>Translators</strong></p>
+<ul>
+<li>Creep - German translator</li>
+<li>freakystyle - German translator</li>
+<li>Crckdns - Russian translator</li>
+<li>Darihon - Dutch translator</li>
+</ul>
+<p><strong>Testers</strong></p>
+<ul>
+<li>BetterDeadThanZed - Lead tester</li>
+</ul>
+<p><span style="font-size:18px;">Offshoots, development &amp; "email me for permission" bullshit</span><br><span style="font-size:18px;"><span style="font-size:12px;"><span style="font-size:14px;">Firstly, if you want to use any part of the source code, use it. However, <u>if you want to improve ZFM, develop for it and submit patches rather than make your own spin-off of ZFM</u>. If you have features to suggest, things to add, things to change, or any concerns, <u>tell us</u>. We're friendly, we're approachable, and we prefer to work together -- forking and making a new ZFM means two teams are working against eachother. However, there is a level of code quality in ZFM that is expected, so if you submit patches, do not expect them to be accepted unquestioningly, and don't be mad if we ask questions or ask for a few changes to be made. </span></span></span><br>
+ <br>
+With that said, we will not accept whorishness over code. When you submit code to ZFM, it is open source and available for others to hack on, expand, improve, remove, or do as they see fit. We believe that code shared is code used, is benefit to the whole DayZ and software community. When you say "My code can only be used if you e-mail me", I would say first of all -- this is useless as people will still use or re-purpose your code, and secondly, this is a kind of "soft-DRM" which I'm opposed to. If you're concerned about someone stealing your work, then the <em>best</em> way is to <em>make clear what is your work</em> and then, with it published on GitHub, the <em>whole world</em> can see what you have done.<br>
+ <br>
+If you want to keep your work to yourself, keep it to yourself. If you want it made public, be a lovable little munchkin and open source it. Everyone will thank you.<br>
+ <br>
+ 
+</p>
+<div class="ipsEmbeddedVideo" contenteditable="false"><div><iframe width="480" height="270" src="https://epochmod.com/forum/applications/core/interface/js/spacer.png" frameborder="0" allowfullscreen="true" data-embed-src="https://www.youtube.com/embed/ZPPikY3uLIQ?feature=oembed"></iframe></div></div>
+<br>
+ <br><span style="font-size:24px;">Developing ZFM</span><br>
+There are a lot of features that have been added, and are planned for ZFM. At the moment, ZFM is between 85-95% done towards the <em>Alpha Release</em><em>, </em>and is technically in the pre-alpha phase. ZFM already has the features that other mission systems have, is more dynamic, and will have more when the Alpha release is out, which we're working super-hard to get done. Development is done at least a few times per week, and updates are placed in forum posts to let you see new, cool features appearing in ZFM.<br>
+ <br>
+ZFM has a page on GitHub, which has 3 forks:
+<ul>
+<li>Master - Contains major releases of ZFM. Named releases (i.e. ZFM Alpha, ZFM Beta, ZFM Release Candidate and ZFM-1.0) which are tested for use on live servers. The first production build will be for Alpha release.</li>
+<li>Testing - Contains testing releases build for ZFM testers to debug before release. <strong>Not recommended for live servers, but you can have major fun on a test server with these ;-)</strong>
+</li>
+<li>Devel - Contains bleeding-edge code which is not recommended on a live system<strong>. </strong><strong>Not recommended for anyone other than developers or people familiar with SQF.</strong>
+</li>
+</ul>
+<p>The process of development will move from Alpha to Beta, from Beta to Release Candidate, then from Release Candidate (1,2,3) to Release.<br>
+ <br><strong><u>After release</u></strong>:</p>
+<ul>
+<li>ZFM Community Version - This will be the publicly-available version of ZFM where major features agreed for releases will be included. This will be supported <em>long term</em> and it is hoped that capable coders will get on board to help us.</li>
+<li>ZFM Premium Version  - This will not <em>withhold</em> any content from ZFM at all (i.e. Like Capcom Day-One DLC does.. ;) ). It's not "buy me for stuff left out of ZFM on purpose", it will be a release which includes premium additions for a <u>very fair price</u> and the following features:
+<ul>
+<li>SQL storage of missions so that real-time mission information can be made available.</li>
+<li>Tools for integrating mission information into your websites/forums/etc</li>
+<li>Online control panels for controlling and altering missions, adding custom missions through web interface</li>
+</ul>
+</li>
+</ul>
+]]></description><guid isPermaLink="false">14034</guid><pubDate>Thu, 10 Jul 2014 08:42:06 +0000</pubDate></item></channel></rss>
