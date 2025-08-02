@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/" property="og:url"/>
+<meta content="Hey guys Finally went back and cleaned up my batch rebuild script. It's sitting at 100 actual lines and pretty basic. Just to be clear this script is intended for people doing script development on the local host. This is not for admins of 'normal' servers -- I know there is a better scheduled ba..." name="description"/>
+<meta content="Hey guys Finally went back and cleaned up my batch rebuild script. It's sitting at 100 actual lines and pretty basic. Just to be clear this script is intended for people doing script development on the local host. This is not for admins of 'normal' servers -- I know there is a better scheduled ba..." property="og:description"/>
+<meta content="2015-04-09T22:00:44Z" property="og:updated_time"/>
+<meta content="bat, batch, rebuild, source, relaunch" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="34092" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zNDA5Mi1iYXRjaC1zY3JpcHQtdG8tZGVsZXRlLXBib3MtcmVwYWNrLXBib3MtZnJvbS1zb3VyY2Uta2lsbC1hbmQtcmUtbGF1bmNoLXNlcnZlci1wcm9jZXNzZXMv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":78}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":34092}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/94-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="bat" href="https://epochmod.com/forum/tags/bat/" rel="tag" title="Find other content tagged with 'bat'"><span>bat</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch" href="https://epochmod.com/forum/tags/batch/" rel="tag" title="Find other content tagged with 'batch'"><span>batch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="rebuild" href="https://epochmod.com/forum/tags/rebuild/" rel="tag" title="Find other content tagged with 'rebuild'"><span>rebuild</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="source" href="https://epochmod.com/forum/tags/source/" rel="tag" title="Find other content tagged with 'source'"><span>source</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="relaunch" href="https://epochmod.com/forum/tags/relaunch/" rel="tag" title="Find other content tagged with 'relaunch'"><span>relaunch</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a>,</strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2015-04-06T13:02:16Z" title="04/06/15 01:02  PM">April 6, 2015</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F&amp;title=Batch+script+to+delete+PBOs%2C+repack+PBOs+from+source%2C+kill+and+re-launch+server+processes" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-websharetitle="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-webshareurl="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="34092">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-34092" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-226534"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226534">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<a href="../../profile/16852-mgm/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile"><span style="color:#">mgm</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226534" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-06T13:02:16Z" title="04/06/15 01:02  PM">April 6, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/16852-mgm/content/index.html" rel="nofollow" title="1150 posts">
+<i class="fa fa-comment"></i> 1.2k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226534" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":16852,"username":"mgm","timestamp":1428325336,"contentapp":"forums","contenttype":"forums","contentid":34092,"contentclass":"forums_Topic","contentcommentid":226534}' id="comment-226534_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226534_wrap" href="#elControls_226534_menu" id="elControls_226534" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226534_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=reportComment&amp;comment=226534" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226534_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_226534" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226534" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-06T13:02:16Z" title="04/06/15 01:02  PM">April 6, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Hey guys</p>
+<p> </p>
+<p>Finally went back and cleaned up my batch rebuild script. It's sitting at 100 actual lines and pretty basic.</p>
+<p>Just to be clear this script is intended for people doing script development on the local host.</p>
+<p>This is not for admins of 'normal' servers -- I know there is a better scheduled batch script somewhere in this forums (I think it's under Arma2Epoch sub-forum).</p>
+<p> </p>
+<p>The script below does the following:</p>
+<ol><li>Log the launch with a single line, to a log file.</li>
+<li>Delete existing server &amp; client side PBOs.</li>
+<li>Repack server &amp; client side PBOs from development sources.</li>
+<li>Kill arma3 dedicated server process in-between tasks 1 &amp; 2, so that files won't be in use.</li>
+<li>Confirm redis database is running (if not, it will launch it).</li>
+<li>Finally launches arma3 dedicated server processes to enjoy the new PBOs.</li>
+</ol><p>I am sure most scripters already has something similar (possibly better) in place. I'm sharing this below as it might help complete beginners to get started quickly.</p>
+<p>Would be good to improve if anybody has any suggestions...</p>
+<p> </p>
+<p>Cheers</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+@ECHO OFF
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: BEGIN:	CONFIGURATION ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: SETTINGS AND PATHS 
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: SERVERS, UTILITIES &amp; LOGS
+:: Command to launch the Arma3server
+SET ARMA3SERVER_LAUNCH_COMMAND="D:\root\Arma_3_DS\z03_Launch_A3_Epoch.org_before_stratis.bat"
+
+:: Command to launch redis server
+SET REDISSERVER_LAUNCH_COMMAND="D:\root\Arma_3_DS\DB\start-redis.cmd"
+
+:: Each run of this batch file is logged to the file configured below
+SET	LOGFILEFULLPATH="D:\root\Arma_3_DS\mpmissions\DEV_DOCS\box___[store_most_frequestly_accessed_stuff_in_this_box]\script.01.del_repack_launch_server.log"
+
+:: Application full path to pack directories in a PBO file
+SET PBOCOMMAND="L:\Software\arma_stuff\cPBO_[PBO_pack_unpack_tool]\cpbo.exe"
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: SERVER SIDE CODE
+:: Full path to SERVER-side code directory						(inside DEVELOPMENT_DIR)
+SET CODE__SERVER_SIDE_FULLPATH="D:\root\Arma_3_DS\mpmissions\mgmTfA__DEVELOPMENT_DIR\server-side\mgmTfA"
+
+:: Full path to save resulting SERVER-side code PBO file to			(under epochhive)
+SET PBO_FULLPATH_FOR_SERVER_SIDE="D:\root\Arma_3_DS\@epochhive\addons\mgmTfA.pbo"
+
+:: Full path resulting SERVER-side code PBO file extract directory		(under epochhive)		// in case you extract the PBO, check something in 'live PBO' and forget to delete it
+SET PBODIR_FULLPATH_FOR_SERVER_SIDE="D:\root\Arma_3_DS\@epochhive\addons\mgmTfA\"
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: CLIENT SIDE CODE
+:: Full path to CLIENT-side code directory 						(inside DEVELOPMENT_DIR)
+SET CODE__CLIENT_SIDE_FULLPATH="D:\root\Arma_3_DS\mpmissions\mgmTfA__DEVELOPMENT_DIR\client-side\mgmTfA.Altis"
+
+:: Full path to save resulting CLIENT-side code PBO file to			(under MPmissions)
+SET PBO_FULLPATH_FOR_CLIENT_SIDE="D:\root\Arma_3_DS\mpmissions\mgmTfA.Altis.pbo"
+
+:: Full path resulting SERVER-side code PBO file extract directory		(under epochhive)		// in case you extract the PBO, check something in 'live PBO' and forget to delete it
+SET PBODIR_FULLPATH_FOR_CLIENT_SIDE="D:\root\Arma_3_DS\mpmissions\mgmTfA.Altis"
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: END:	CONFIGURATION ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: BEGIN:	MAIN WORKFLOW ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+GOTO SUB__LOG_THIS_RUN
+	:CONTINUE_MAIN_WORKFLOW_FROM___LOG_THIS_RUN_FORK
+
+GOTO SUB__KILL_IF_RUNNING__ARMA3SERVER
+	:CONTINUE_MAIN_WORKFLOW_FROM___SUB__KILL_IF_RUNNING__ARMA3SERVER
+
+GOTO SUB__DELETE_EXISTING_PBOS__REPACK_CODE_AS_PBO__COPY_PBOS_TO_PATHS
+	:CONTINUE_MAIN_WORKFLOW_FROM___SUB__DELETE_EXISTING_PBOS__REPACK_CODE_AS_PBO__COPY_PBOS_TO_PATHS
+
+GOTO SUB__REDIS_SERVER__CHECK_AND_RELAUNCH_IF_NECESSARY
+	:CONTINUE_MAIN_WORKFLOW_FROM___SUB__REDIS_SERVER__CHECK_AND_RELAUNCH_IF_NECESSARY
+
+:: Launch Arma3server with Epoch mod using the newly packed code
+CALL %ARMA3SERVER_LAUNCH_COMMAND%
+
+TIMEOUT 10
+
+EXIT
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: END:	MAIN WORKFLOW ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: BEGIN:	SUBROUTINE DEFINITIONS ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::: SUBROUTINE: BEGIN ::::::::::::::::::::
+:SUB__LOG_THIS_RUN
+ECHO script.01.del_repack_launch_server.bat executed at:		%DATE%  -  %TIME% &gt;&gt; %LOGFILEFULLPATH%
+ECHO This execution logged to the log file.
+::TIMEOUT 99
+GOTO CONTINUE_MAIN_WORKFLOW_FROM___LOG_THIS_RUN_FORK
+:::::::::::::::::::: SUBROUTINE: END ::::::::::::::::::::
+
+
+
+:::::::::::::::::::: SUBROUTINE: BEGIN ::::::::::::::::::::
+:SUB__REDIS_SERVER__CHECK_AND_RELAUNCH_IF_NECESSARY
+TASKLIST /FI "IMAGENAME eq redis-server.exe" 2&gt;NUL | FIND /I /N "redis-server.exe"&gt;NUL
+IF "%ERRORLEVEL%"=="0" (
+	:: KILL code here
+	ECHO REDIS SERVER RUNNING. No action necessary at this time.
+) ELSE (
+	ECHO LAUNCHING REDIS SERVER as it was not running.
+	CALL %REDISSERVER_LAUNCH_COMMAND%
+)
+:: we are done here. return to the caller
+GOTO CONTINUE_MAIN_WORKFLOW_FROM___SUB__REDIS_SERVER__CHECK_AND_RELAUNCH_IF_NECESSARY
+:::::::::::::::::::: SUBROUTINE: END ::::::::::::::::::::
+
+
+
+:::::::::::::::::::: SUBROUTINE: BEGIN ::::::::::::::::::::
+:SUB__KILL_IF_RUNNING__ARMA3SERVER
+TASKLIST /FI "IMAGENAME eq arma3server.exe" 2&gt;NUL | FIND /I /N "arma3server.exe"&gt;NUL
+IF "%ERRORLEVEL%"=="0" (
+	:: KILL code here
+	ECHO arma3server found to be running. KILLING it now...
+	:: kill all instances of arma3server.exe
+	TASKKILL /F /IM arma3server.exe
+	:: Wait a second to allow kill to come in effect
+	TIMEOUT 1
+	:: Wait for file locks in the background to be released (as rePBO process will need to overwrite these)
+	TIMEOUT 4
+) ELSE (
+	ECHO ARMA3 server NOT RUNNING. No action necessary at this time.
+)
+:: we are done here. return to the caller
+GOTO CONTINUE_MAIN_WORKFLOW_FROM___SUB__KILL_IF_RUNNING__ARMA3SERVER
+:::::::::::::::::::: SUBROUTINE: END ::::::::::::::::::::
+
+
+
+:::::::::::::::::::: SUBROUTINE: BEGIN ::::::::::::::::::::
+:SUB__DELETE_EXISTING_PBOS__REPACK_CODE_AS_PBO__COPY_PBOS_TO_PATHS
+
+:::::::::::::::::::: If it exists:		DELETE the unpacked "Epoch Autostart Addon" directory for the mod 
+IF EXIST %PBODIR_FULLPATH_FOR_SERVER_SIDE% (
+	ECHO The directory %PBODIR_FULLPATH_FOR_SERVER_SIDE% exists -- I will delete it now.
+	rmdir %PBODIR_FULLPATH_FOR_SERVER_SIDE% /s /q
+) ELSE (
+	ECHO The directory %PBODIR_FULLPATH_FOR_SERVER_SIDE% does not exist -- nothing to be do at this time.
+)
+::TIMEOUT 99
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::: If it exists:		DELETE the unpacked "Epoch MPmission" directory for the mod 
+IF EXIST %PBODIR_FULLPATH_FOR_CLIENT_SIDE% (
+	ECHO The directory %PBODIR_FULLPATH_FOR_CLIENT_SIDE% exists -- I will delete it now.
+	rmdir %PBODIR_FULLPATH_FOR_CLIENT_SIDE% /s /q
+) ELSE (
+	ECHO The directory %PBODIR_FULLPATH_FOR_CLIENT_SIDE% does not exist -- nothing to be do at this time.
+)
+::TIMEOUT 99
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::: If it exists:		DELETE the packed "Epoch Autostart Addon" file the mod 
+IF EXIST %PBODIR_FULLPATH_FOR_SERVER_SIDE% (
+	ECHO The file %PBODIR_FULLPATH_FOR_SERVER_SIDE% does exist -- I will  delete it now.
+	DEL %PBODIR_FULLPATH_FOR_SERVER_SIDE%
+) ELSE (
+	ECHO The file %PBODIR_FULLPATH_FOR_SERVER_SIDE% does not exist -- nothing to be do at this time.
+)
+::TIMEOUT 99
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+::::::::::::::::::::BEGIN:	If it exists:		DELETE the packed "Epoch MPmissions client-side mission" file of the mod
+IF EXIST %PBO_FULLPATH_FOR_CLIENT_SIDE% (
+	ECHO The file %PBO_FULLPATH_FOR_CLIENT_SIDE% does exist -- I will  delete it now.
+	DEL %PBO_FULLPATH_FOR_CLIENT_SIDE%
+) ELSE (
+	ECHO The file %PBO_FULLPATH_FOR_CLIENT_SIDE% does not exist -- nothing to be do at this time.
+)
+::TIMEOUT 99
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::: Repack the SERVER code in DEVELOPMENT_DIR 			and place the resulting PBO file under Epoch's @epochhive\addons directory
+::cd /D "L:\Software\arma_stuff\cPBO_[PBO_pack_unpack_tool]"
+%PBOCOMMAND%	-y -p %CODE__SERVER_SIDE_FULLPATH%			%PBO_FULLPATH_FOR_SERVER_SIDE%
+ECHO Server-side file packed as:				%PBO_FULLPATH_FOR_SERVER_SIDE%
+::TIMEOUT 99
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::: Repack the CLIENT code in DEVELOPMENT_DIR 			and place the resulting PBO file under Epoch's MPmissions directory
+%PBOCOMMAND%	-y -p %CODE__CLIENT_SIDE_FULLPATH%		%PBO_FULLPATH_FOR_CLIENT_SIDE%
+ECHO Client-side MPmission file packed as:			%PBO_FULLPATH_FOR_CLIENT_SIDE%
+::TIMEOUT 99
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: we are done here. return to the caller
+GOTO CONTINUE_MAIN_WORKFLOW_FROM___SUB__DELETE_EXISTING_PBOS__REPACK_CODE_AS_PBO__COPY_PBOS_TO_PATHS
+:::::::::::::::::::: SUBROUTINE: END ::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: END:	SUBROUTINE DEFINITIONS ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: EOF
+</pre>
+<p></p></blockquote><p></p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15884-gr8/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/15884-gr8/index.html" rel="nofollow" title="Go to Gr8's profile">Gr8</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=showReactionsComment&amp;comment=226534&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=showReactionsComment&amp;comment=226534&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226534_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D226534" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D226534" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D226534&amp;title=Batch+script+to+delete+PBOs%2C+repack+PBOs+from+source%2C+kill+and+re-launch+server+processes" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment%26comment=226534&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hey guys 
+  
+Finally went back and cleaned up my batch rebuild script. It's sitting at 100 actual lines and pretty basic. 
+Just to be clear this script is intended for people doing script development on the local host. 
+This is not for admins of 'normal' servers -- I know there is a better scheduled batch script somewhere in this forums (I think it's under Arma2Epoch sub-forum). 
+  
+The script below does the following: 
+Log the launch with a single line, to a log file. 
+	Delete existing server &amp; client side PBOs. 
+	Repack server &amp; client side PBOs from development sources. 
+	Kill arma3 dedicated server process in-between tasks 1 &amp; 2, so that files won't be in use. 
+	Confirm redis database is running (if not, it will launch it). 
+	Finally launches arma3 dedicated server processes to enjoy the new PBOs. 
+I am sure most scripters already has something similar (possibly better) in place. I'm sharing this below as it might help complete beginners to get started quickly. 
+Would be good to improve if anybody has any suggestions... 
+  
+Cheers 
+  
+   
+" data-websharetitle="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-webshareurl="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226534">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">2 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-226710"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226710">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13562-1man/?do=hovercard" data-ipshover-width="370" href="../../profile/13562-1man/index.html" rel="nofollow" title="Go to 1Man's profile">
+<img alt="1Man" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4629e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3E1%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/13562-1man/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13562-1man/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/13562-1man/index.html" rel="nofollow" title="Go to 1Man's profile"><span style="color:#">1Man</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226710" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-06T21:46:58Z" title="04/06/15 09:46  PM">April 6, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13562-1man/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/13562-1man/index.html" rel="nofollow" title="Go to 1Man's profile">1Man</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13562-1man/?do=hovercard" data-ipshover-width="370" href="../../profile/13562-1man/index.html" rel="nofollow" title="Go to 1Man's profile">
+<img alt="1Man" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4629e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3E1%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/13562-1man/content/index.html" rel="nofollow" title="929 posts">
+<i class="fa fa-comment"></i> 929
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Hilliard Ohio</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226710" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":13562,"username":"1Man","timestamp":1428356818,"contentapp":"forums","contenttype":"forums","contentid":34092,"contentclass":"forums_Topic","contentcommentid":226710}' id="comment-226710_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226710_wrap" href="#elControls_226710_menu" id="elControls_226710" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226710_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=reportComment&amp;comment=226710" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226710_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226710" id="elSharePost_226710" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226710" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-06T21:46:58Z" title="04/06/15 09:46  PM">April 6, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Nice thanks for the share I may check this out</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226710_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226710"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D226710" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D226710" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D226710&amp;title=Batch+script+to+delete+PBOs%2C+repack+PBOs+from+source%2C+kill+and+re-launch+server+processes" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment%26comment=226710&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Nice thanks for the share I may check this out 
+" data-websharetitle="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-webshareurl="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=226710">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-228395"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_228395">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<a href="../../profile/16852-mgm/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile"><span style="color:#">mgm</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=228395" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-09T22:00:44Z" title="04/09/15 10:00  PM">April 9, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/16852-mgm/content/index.html" rel="nofollow" title="1150 posts">
+<i class="fa fa-comment"></i> 1.2k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="228395" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":16852,"username":"mgm","timestamp":1428616844,"contentapp":"forums","contenttype":"forums","contentid":34092,"contentclass":"forums_Topic","contentcommentid":228395}' id="comment-228395_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-228395_wrap" href="#elControls_228395_menu" id="elControls_228395" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_228395_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=reportComment&amp;comment=228395" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_228395_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=228395" id="elSharePost_228395" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=228395" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-09T22:00:44Z" title="04/09/15 10:00  PM">April 9, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I have now added a basic statistics collection, using cygwin environment.</p>
+<p>Each time batch file is executed on top of generating a new build (as per original 1st post above) script now also generates stats similar to what you see below.</p>
+<p> </p>
+<p>Stats are generated and logged in human-friendly &amp; machine-friendly formats. human-friendly format is also displayed on screen for a quick overview (timesout and auto closes after a threshold seconds - I use 15 seconds).</p>
+<p> </p>
+<p> </p>
+<blockquote class="ipsQuote" data-ipsquote=""><div>
+<strong>human-friendly output:                         &lt;== to be <span> </span><span> </span>used <span> </span><span> </span>for quick on-screen check (also logged to separate file)</strong><br/>
+CURRENT_TIMESTAMP_STRING    : 20150409_2314.12<br/>
+CURRENT_EPOCH_TIMESTAMP    : 1428617651<br/>
+LINES_ALL_TOTAL            : 11603<br/>
+LINES_ALL_EXCEPT_COMMENTS    : 7840<br/>
+LINES_COMMENTS            : 3763<br/>
+LINES_ALL_EXCEPT_COMMENTS_AND_BLANKS___THIS_IS_ACTUAL_CODE_DOES_NOT_EXCLUDE_TOBEEXCLUDED_FILES: 6137<br/>
+LINES_IN_TOBEEXCLUDED_FILES: 1210<br/>
+LINES_FINAL_ACTUAL_CODE    : 4927<br/>
+CODE_COMMENT_RATIO        : 76</div></blockquote>
+<p> </p>
+<blockquote class="ipsQuote" data-ipsquote=""><div>
+<p><strong>machine-friendly output:                         &lt;== to be used for gnuplot image generation</strong></p>
+<p>1428617651 11603 7840 3763 6137 1210 4927 76                </p>
+</div></blockquote>
+<p> </p>
+<p>Obviously requires some work but this is version 0.1 :)</p>
+<p>Stats collection is working as per above and I will share this after completing my work on the initial public alpha release of Transport for Arma</p>
+<p> </p>
+<p> </p>
+<p>Another function I've added is writing these data to a local log file in machine-friendly format.</p>
+<p> </p>
+<p> </p>
+<p>Once TfA initial release is done I will revisit this and the above machine-friendly data will be used to execute gnuplot to generate images from stats - output should look like the below examples.</p>
+<p>I will have to decide what exactly to plot and how to present it to make it immediately meaningful (and hopefully handsome).</p>
+<p> </p>
+<p><em><strong>Example Image 1</strong></em></p>
+<p><img alt="showcase_plot.1.png" data-src="http://gnuplot.sourceforge.net/demo_4.6/showcase_plot.1.png" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></p>
+<p> </p>
+<p> </p>
+<p><em><strong>Example Image 2</strong></em></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><img alt="weekly_boxes.png" data-src="http://psy.swansea.ac.uk/staff/carter/gnuplot/weekly_boxes.png" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></blockquote>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><em><strong>Example Image 3</strong></em></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><img alt="YPS4d.png" data-src="http://i.stack.imgur.com/YPS4d.png" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></blockquote>
+<p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><em><strong>Example Image 4</strong></em></p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><img alt="IPBhq.jpg" data-src="../../../../external.gif?link=http://ffmpeg-users.933282.n4.nabble.com/file/n2253252/IPBhq.jpg" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></blockquote>
+<p></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_228395_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=228395"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D228395" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D228395" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F%3Fdo%3DfindComment%26comment%3D228395&amp;title=Batch+script+to+delete+PBOs%2C+repack+PBOs+from+source%2C+kill+and+re-launch+server+processes" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment%26comment=228395&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I have now added a basic statistics collection, using cygwin environment. 
+Each time batch file is executed on top of generating a new build (as per original 1st post above) script now also generates stats similar to what you see below. 
+  
+Stats are generated and logged in human-friendly &amp; machine-friendly formats. human-friendly format is also displayed on screen for a quick overview (timesout and auto closes after a threshold seconds - I use 15 seconds). 
+  
+  
+
+  
+
+  
+Obviously requires some work but this is version 0.1 :) 
+Stats collection is working as per above and I will share this after completing my work on the initial public alpha release of Transport for Arma 
+  
+  
+Another function I've added is writing these data to a local log file in machine-friendly format. 
+  
+  
+Once TfA initial release is done I will revisit this and the above machine-friendly data will be used to execute gnuplot to generate images from stats - output should look like the below examples. 
+I will have to decide what exactly to plot and how to present it to make it immediately meaningful (and hopefully handsome). 
+  
+Example Image 1 
+ 
+  
+  
+Example Image 2 
+ 
+ 
+
+ 
+  
+  
+  
+  
+Example Image 3 
+ 
+ 
+
+ 
+  
+  
+  
+Example Image 4 
+ 
+ 
+
+ 
+" data-websharetitle="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-webshareurl="https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/?do=findComment&amp;comment=228395">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zNDA5Mi1iYXRjaC1zY3JpcHQtdG8tZGVsZXRlLXBib3MtcmVwYWNrLXBib3MtZnJvbS1zb3VyY2Uta2lsbC1hbmQtcmUtbGF1bmNoLXNlcnZlci1wcm9jZXNzZXMvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%2F&amp;title=Batch+script+to+delete+PBOs%2C+repack+PBOs+from+source%2C+kill+and+re-launch+server+processes" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-websharetitle="Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="34092">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/78-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/42995-release-serverbec-monitor-auto-restart-auto-backup-sql-db-script/?preview=1" data-ipshover-timeout="1.5" href="../42995-release-serverbec-monitor-auto-restart-auto-backup-sql-db-script/index.html">
+									[RELEASE] Server/Bec-Monitor-Auto Restart-Auto Backup Sql DB Script
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14798-tech_support/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/14798-tech_support/index.html" rel="nofollow" title="Go to Tech_Support's profile">Tech_Support</a>,  <time data-short="8 yr" datetime="2016-12-18T03:25:20Z" title="12/18/16 03:25  AM">December 18, 2016</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_971527328">(and 8 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_971527328_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="monitor" href="https://epochmod.com/forum/tags/monitor/" rel="tag" title="Find other content tagged with 'monitor'"><span>monitor</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dedi" href="https://epochmod.com/forum/tags/dedi/" rel="tag" title="Find other content tagged with 'dedi'"><span>dedi</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="vps" href="https://epochmod.com/forum/tags/vps/" rel="tag" title="Find other content tagged with 'vps'"><span>vps</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="windows" href="https://epochmod.com/forum/tags/windows/" rel="tag" title="Find other content tagged with 'windows'"><span>windows</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch" href="https://epochmod.com/forum/tags/batch/" rel="tag" title="Find other content tagged with 'batch'"><span>batch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">12</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">6610</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37261-_lance_/?do=hovercard" data-ipshover-width="370" href="../../profile/37261-_lance_/index.html" rel="nofollow" title="Go to _Lance_'s profile">
+<img alt="_Lance_" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_11/cv01650.thumb.jpg.5897ca419c797ed9911bcd9afce6df4c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37261-_lance_/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/37261-_lance_/index.html" rel="nofollow" title="Go to _Lance_'s profile">_Lance_</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../42995-release-serverbec-monitor-auto-restart-auto-backup-sql-db-script/index.html" title="Go to last post">
+<time data-short="7 yr" datetime="2017-09-08T20:04:48Z" title="09/08/17 08:04  PM">September 8, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="keepalive" href="https://epochmod.com/forum/tags/keepalive/" rel="tag" title="Find other content tagged with 'keepalive'"><span>keepalive</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/29149-release-server-keepalive-batch-tool/?preview=1" data-ipshover-timeout="1.5" href="../29149-release-server-keepalive-batch-tool/index.html">
+									[RELEASE] Server Keepalive Batch Tool
+								</a>
+</span>
+<span class="ipsPagination ipsPagination_mini" id="elPagination_a2a1048bebec5446c3ab6ebefc858538">
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/index.html#comments" title="Go to page 1">1</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/2/index.html#comments" title="Go to page 2">2</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/3/index.html#comments" title="Go to page 3">3</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/4/index.html#comments" title="Go to page 4">4</a></span>
+<span class="ipsPagination_last"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/5/index.html#comments" title="Last page">5 <i class="fa fa-caret-right"></i></a></span>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">uniflare</a>,  <time data-short="10 yr" datetime="2014-12-04T00:23:48Z" title="12/04/14 12:23  AM">December 4, 2014</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="epoch" href="https://epochmod.com/forum/tags/epoch/" rel="tag" title="Find other content tagged with 'epoch'"><span>epoch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1980279292">(and 7 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1980279292_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="epoch" href="https://epochmod.com/forum/tags/epoch/" rel="tag" title="Find other content tagged with 'epoch'"><span>epoch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="arma" href="https://epochmod.com/forum/tags/arma/" rel="tag" title="Find other content tagged with 'arma'"><span>arma</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch" href="https://epochmod.com/forum/tags/batch/" rel="tag" title="Find other content tagged with 'batch'"><span>batch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="auto" href="https://epochmod.com/forum/tags/auto/" rel="tag" title="Find other content tagged with 'auto'"><span>auto</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="program" href="https://epochmod.com/forum/tags/program/" rel="tag" title="Find other content tagged with 'program'"><span>program</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="uniflare" href="https://epochmod.com/forum/tags/uniflare/" rel="tag" title="Find other content tagged with 'uniflare'"><span>uniflare</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">107</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">28040</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">
+<img alt="uniflare" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c1c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">uniflare</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../29149-release-server-keepalive-batch-tool/index.html" title="Go to last post">
+<time data-short="8 yr" datetime="2016-11-07T20:12:07Z" title="11/07/16 08:12  PM">November 7, 2016</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/37590-trying-to-rebuild-a-community-not-a-plug/?preview=1" data-ipshover-timeout="1.5" href="../37590-trying-to-rebuild-a-community-not-a-plug/index.html">
+									Trying to rebuild a community (not a plug)
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5806-tobias-solem/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/5806-tobias-solem/index.html" rel="nofollow" title="Go to Tobias Solem's profile">Tobias Solem</a>,  <time data-short="9 yr" datetime="2015-09-19T11:01:36Z" title="09/19/15 11:01  AM">September 19, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="community" href="https://epochmod.com/forum/tags/community/" rel="tag" title="Find other content tagged with 'community'"><span>community</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="rebuild" href="https://epochmod.com/forum/tags/rebuild/" rel="tag" title="Find other content tagged with 'rebuild'"><span>rebuild</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1855338768">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1855338768_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="community" href="https://epochmod.com/forum/tags/community/" rel="tag" title="Find other content tagged with 'community'"><span>community</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="rebuild" href="https://epochmod.com/forum/tags/rebuild/" rel="tag" title="Find other content tagged with 'rebuild'"><span>rebuild</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="getting players" href="https://epochmod.com/forum/tags/getting players/" rel="tag" title="Find other content tagged with 'getting players'"><span>getting players</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">7</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">2214</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/23836-rvg/?do=hovercard" data-ipshover-width="370" href="../../profile/23836-rvg/index.html" rel="nofollow" title="Go to rvg?!'s profile">
+<img alt="rvg?!" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_05/tumblr_m6ifxq7yE81r8wjjfo1_500.jpg.b4cf5bd8d751f8ef8bbd455cc902d584.thumb.jpg.3fec7becda41c125d78ba37801e07439.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/23836-rvg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/23836-rvg/index.html" rel="nofollow" title="Go to rvg?!'s profile">rvg?!</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../37590-trying-to-rebuild-a-community-not-a-plug/index.html" title="Go to last post">
+<time data-short="9 yr" datetime="2016-03-11T10:55:00Z" title="03/11/16 10:55  AM">March 11, 2016</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/36261-redis-backup-with-batch-simple/?preview=1" data-ipshover-timeout="1.5" href="../36261-redis-backup-with-batch-simple/index.html">
+									Redis Backup with batch - simple
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18694-darthmard/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/18694-darthmard/index.html" rel="nofollow" title="Go to darthmard's profile">darthmard</a>,  <time data-short="10 yr" datetime="2015-07-02T04:07:46Z" title="07/02/15 04:07  AM">July 2, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="Redis Backup" href="https://epochmod.com/forum/tags/Redis Backup/" rel="tag" title="Find other content tagged with 'Redis Backup'"><span>Redis Backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="redis" href="https://epochmod.com/forum/tags/redis/" rel="tag" title="Find other content tagged with 'redis'"><span>redis</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1420934302">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1420934302_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="Redis Backup" href="https://epochmod.com/forum/tags/Redis Backup/" rel="tag" title="Find other content tagged with 'Redis Backup'"><span>Redis Backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="redis" href="https://epochmod.com/forum/tags/redis/" rel="tag" title="Find other content tagged with 'redis'"><span>redis</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch" href="https://epochmod.com/forum/tags/batch/" rel="tag" title="Find other content tagged with 'batch'"><span>batch</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">2</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">2609</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15364-caveman1/?do=hovercard" data-ipshover-width="370" href="../../profile/15364-caveman1/index.html" rel="nofollow" title="Go to Caveman1's profile">
+<img alt="Caveman1" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4a6%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EC%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15364-caveman1/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/15364-caveman1/index.html" rel="nofollow" title="Go to Caveman1's profile">Caveman1</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../36261-redis-backup-with-batch-simple/index.html" title="Go to last post">
+<time data-short="9 yr" datetime="2015-08-22T04:53:47Z" title="08/22/15 04:53  AM">August 22, 2015</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/34986-redis-dll-documentationsource/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/34986-redis-dll-documentationsource/">
+									Redis DLL Documentation/Source?
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/230-maca134/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/230-maca134/index.html" rel="nofollow" title="Go to maca134's profile">maca134</a>,  <time data-short="10 yr" datetime="2015-05-03T22:26:51Z" title="05/03/15 10:26  PM">May 3, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="redis" href="https://epochmod.com/forum/tags/redis/" rel="tag" title="Find other content tagged with 'redis'"><span>redis</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dll" href="https://epochmod.com/forum/tags/dll/" rel="tag" title="Find other content tagged with 'dll'"><span>dll</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_2010927164">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_2010927164_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="redis" href="https://epochmod.com/forum/tags/redis/" rel="tag" title="Find other content tagged with 'redis'"><span>redis</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dll" href="https://epochmod.com/forum/tags/dll/" rel="tag" title="Find other content tagged with 'dll'"><span>dll</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="source" href="https://epochmod.com/forum/tags/source/" rel="tag" title="Find other content tagged with 'source'"><span>source</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">2</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">995</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard" data-ipshover-width="370" href="../../profile/1-vbawol/index.html" rel="nofollow" title="Go to vbawol's profile">
+<img alt="vbawol" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_04/fdb68b490935f3db8b8f36ec28565ae1766258c7_full.jpg.a74d21c4e7c2fa0617c4dca4182f9249.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1-vbawol/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes%252F" data-ipshover-width="370" href="../../profile/1-vbawol/index.html" rel="nofollow" title="Go to vbawol's profile">vbawol</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34986-redis-dll-documentationsource/" title="Go to last post">
+<time data-short="10 yr" datetime="2015-05-04T15:32:38Z" title="05/04/15 03:32  PM">May 4, 2015</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/94-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes",
+    "headline": "Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes",
+    "text": "Hey guys \n\u00a0 \nFinally went back and cleaned up my batch rebuild script. It\u0027s sitting at 100 actual lines and pretty basic. \nJust to be clear this script is intended for people doing script development on the local host. \nThis is not for admins of \u0027normal\u0027 servers -- I know there is a better scheduled batch script somewhere in this forums (I think it\u0027s under Arma2Epoch sub-forum). \n\u00a0 \nThe script below does the following: \nLog the launch with a single line, to a log file. \n\tDelete existing server \u0026amp; client side PBOs. \n\tRepack server \u0026amp; client side PBOs from development sources. \n\tKill arma3 dedicated server process in-between tasks 1 \u0026amp; 2, so that files won\u0027t be in use. \n\tConfirm redis database is running (if not, it will launch it). \n\tFinally launches arma3 dedicated server processes to enjoy the new PBOs. \nI am sure most scripters already has something similar (possibly better) in place. I\u0027m sharing this below as it might help complete beginners to get started quickly. \nWould be good to improve if anybody has any suggestions... \n\u00a0 \nCheers \n\u00a0 \n   \n",
+    "dateCreated": "2015-04-06T13:02:16+0000",
+    "datePublished": "2015-04-06T13:02:16+0000",
+    "dateModified": "2015-04-09T22:00:44+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "mgm",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg",
+        "url": "https://epochmod.com/forum/profile/16852-mgm/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2217
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 2
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/",
+    "url": "https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Batch script to delete PBOs, repack PBOs from source, kill and re-launch server processes",
+        "text": "Hey guys \n\u00a0 \nFinally went back and cleaned up my batch rebuild script. It\u0027s sitting at 100 actual lines and pretty basic. \nJust to be clear this script is intended for people doing script development on the local host. \nThis is not for admins of \u0027normal\u0027 servers -- I know there is a better scheduled batch script somewhere in this forums (I think it\u0027s under Arma2Epoch sub-forum). \n\u00a0 \nThe script below does the following: \nLog the launch with a single line, to a log file. \n\tDelete existing server \u0026amp; client side PBOs. \n\tRepack server \u0026amp; client side PBOs from development sources. \n\tKill arma3 dedicated server process in-between tasks 1 \u0026amp; 2, so that files won\u0027t be in use. \n\tConfirm redis database is running (if not, it will launch it). \n\tFinally launches arma3 dedicated server processes to enjoy the new PBOs. \nI am sure most scripters already has something similar (possibly better) in place. I\u0027m sharing this below as it might help complete beginners to get started quickly. \nWould be good to improve if anybody has any suggestions... \n\u00a0 \nCheers \n\u00a0 \n   \n",
+        "answerCount": 2,
+        "dateCreated": "2015-04-06T13:02:16+0000",
+        "author": {
+            "@type": "Person",
+            "name": "mgm"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/#comment-226710",
+                "url": "https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/#comment-226710",
+                "author": {
+                    "@type": "Person",
+                    "name": "1Man",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/13562-1man/"
+                },
+                "dateCreated": "2015-04-06T21:46:58+0000",
+                "text": "Nice thanks for the share I may check this out \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/#comment-228395",
+                "url": "https://epochmod.com/forum/topic/34092-batch-script-to-delete-pbos-repack-pbos-from-source-kill-and-re-launch-server-processes/#comment-228395",
+                "author": {
+                    "@type": "Person",
+                    "name": "mgm",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg",
+                    "url": "https://epochmod.com/forum/profile/16852-mgm/"
+                },
+                "dateCreated": "2015-04-09T22:00:44+0000",
+                "text": "I have now added a basic statistics collection, using cygwin environment. \nEach time batch file is executed on top of generating a new build (as per original 1st post above) script now also generates stats similar to what you see below. \n\u00a0 \nStats are generated and logged in human-friendly \u0026amp; machine-friendly formats. human-friendly format is also displayed on screen for a quick overview (timesout and auto closes after a threshold seconds - I use 15 seconds). \n\u00a0 \n\u00a0 \n\n\u00a0 \n\n\u00a0 \nObviously requires some work but this is version 0.1 :) \nStats collection is working as per above and I will share this after completing my work on the initial public alpha release of Transport for Arma \n\u00a0 \n\u00a0 \nAnother function I\u0027ve added is writing these data to a local log file in machine-friendly format. \n\u00a0 \n\u00a0 \nOnce TfA initial release is done I will revisit this and the above machine-friendly data will be used to execute gnuplot to generate images from stats - output should look like the below examples. \nI will have to decide what exactly to plot and how to present it to make it immediately meaningful (and hopefully handsome). \n\u00a0 \nExample Image 1 \n \n\u00a0 \n\u00a0 \nExample Image 2 \n \n \n\n \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \nExample Image 3 \n \n \n\n \n\u00a0 \n\u00a0 \n\u00a0 \nExample Image 4 \n \n \n\n \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "mgm",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg",
+            "url": "https://epochmod.com/forum/profile/16852-mgm/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/94-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/78-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>porting from A2 to A3 - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="porting from A2 to A3" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/" property="og:url"/>
+<meta content='Hi All! Trying porting one script from a2 to a3. That script have a variable "dayz_serverObjectMonitor". What a variable i need for a3? Now I have an error: 22:38:01 Error in expression &lt;gineOn true; _aircraft flyInHeight 100; dayz_serverObjectMonitor set [count dayz&gt; 22:38:01 Error positio...' name="description"/>
+<meta content='Hi All! Trying porting one script from a2 to a3. That script have a variable "dayz_serverObjectMonitor". What a variable i need for a3? Now I have an error: 22:38:01 Error in expression &lt;gineOn true; _aircraft flyInHeight 100; dayz_serverObjectMonitor set [count dayz&gt; 22:38:01 Error positio...' property="og:description"/>
+<meta content="2018-02-14T10:14:57Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="44916" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80NDkxNi1wb3J0aW5nLWZyb20tYTItdG8tYTMv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":78}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":44916}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/94-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					porting from A2 to A3
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>porting from A2 to A3</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">WLF</a>,</strong><br/><span class="ipsType_light"><time data-short="7 yr" datetime="2018-02-12T20:01:53Z" title="02/12/18 08:01  PM">February 12, 2018</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="porting from A2 to A3" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="44916">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-44916" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-301895"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301895">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/36454-wlf/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile"><span style="color:#">WLF</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301895" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-12T20:01:53Z" title="02/12/18 08:01  PM">February 12, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">WLF</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/36454-wlf/content/index.html" rel="nofollow" title="129 posts">
+<i class="fa fa-comment"></i> 129
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Vorkuta, Russia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301895" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36454,"username":"WLF","timestamp":1518465713,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301895}' id="comment-301895_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301895_wrap" href="#elControls_301895_menu" id="elControls_301895" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301895_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301895" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301895_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_301895" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301895" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-12T20:01:53Z" title="02/12/18 08:01  PM">February 12, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Hi All!
+</p>
+<p>
+	Trying porting one script from a2 to a3. That script have a variable "dayz_serverObjectMonitor". What a variable i need for a3?
+</p>
+<p>
+	Now I have an error:
+</p>
+<pre class="ipsCode">
+22:38:01 Error in expression &lt;gineOn true;
+_aircraft	flyInHeight 100;
+dayz_serverObjectMonitor set [count dayz&gt;
+22:38:01   Error position: &lt;dayz_serverObjectMonitor set [count dayz&gt;
+22:38:01   Error Undefined variable in expression: dayz_serverobjectmonitor
+</pre>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301895_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301895" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301895" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301895&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301895&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Hi All!
+ 
+
+
+	Trying porting one script from a2 to a3. That script have a variable "dayz_serverObjectMonitor". What a variable i need for a3?
+ 
+
+
+	Now I have an error:
+ 
+
+
+22:38:01 Error in expression &lt;gineOn true;
+_aircraft	flyInHeight 100;
+dayz_serverObjectMonitor set [count dayz&gt;
+22:38:01   Error position: &lt;dayz_serverObjectMonitor set [count dayz&gt;
+22:38:01   Error Undefined variable in expression: dayz_serverobjectmonitor
+
+
+
+	 
+ 
+' data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301895">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">7 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-301897"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301897">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<a href="../../profile/33926-grahame/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile"><span style="color:#">Grahame</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301897" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T01:04:50Z" title="02/13/18 01:04  AM">February 13, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">Grahame</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/33926-grahame/content/index.html" rel="nofollow" title="742 posts">
+<i class="fa fa-comment"></i> 742
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">New York, NY</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301897" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":33926,"username":"Grahame","timestamp":1518483890,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301897}' id="comment-301897_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301897_wrap" href="#elControls_301897_menu" id="elControls_301897" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301897_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301897" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301897_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301897" id="elSharePost_301897" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301897" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T01:04:50Z" title="02/13/18 01:04  AM">February 13, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	There are pretty much no one to one equivalents between A2 DayZ/Epoch and A3 Epoch (for one, given the two ways I described them you might see that A3 Epoch does not use another mod). Would need to see the script and need to know what it is doing with that. No guarantees of an easy solution but post up the script... after all, I intend to <em>steal</em> all of <a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36515-salival/?do=hovercard" data-mentionid="36515" href="../../profile/36515-salival/index.html" rel="">@salival</a>s stuff and port it to ARMA3 <img alt=":ph34r:" data-emoticon="" data-src="https://epochmod.com/forum/uploads/emoticons/ph34r.png" height="20" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/ph34r@2x.png 2x" title=":ph34r:" width="20"/></p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard" data-ipshover-width="370" href="../../profile/25169-natoed/index.html" rel="nofollow" title="Go to natoed's profile">natoed</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36515-salival/?do=hovercard" data-ipshover-width="370" href="../../profile/36515-salival/index.html" rel="nofollow" title="Go to salival's profile">salival</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=showReactionsComment&amp;comment=301897&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=showReactionsComment&amp;comment=301897&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=showReactionsComment&amp;comment=301897&amp;reaction=3&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Haha&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=showReactionsComment&amp;comment=301897&amp;reaction=3" title='See who reacted "Haha"'>
+<span>
+<img alt="Haha" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_haha.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301897_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301897"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301897" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301897" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301897&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301897&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="There are pretty much no one to one equivalents between A2 DayZ/Epoch and A3 Epoch (for one, given the two ways I described them you might see that A3 Epoch does not use another mod). Would need to see the script and need to know what it is doing with that. No guarantees of an easy solution but post up the script... after all, I intend to steal all of @salivals stuff and port it to ARMA3  " data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301897">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-301903"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301903">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/36454-wlf/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile"><span style="color:#">WLF</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301903" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T10:44:12Z" title="02/13/18 10:44  AM">February 13, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">WLF</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/36454-wlf/content/index.html" rel="nofollow" title="129 posts">
+<i class="fa fa-comment"></i> 129
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Vorkuta, Russia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301903" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36454,"username":"WLF","timestamp":1518518652,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301903}' id="comment-301903_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301903_wrap" href="#elControls_301903_menu" id="elControls_301903" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301903_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301903" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301903_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301903" id="elSharePost_301903" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301903" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T10:44:12Z" title="02/13/18 10:44  AM">February 13, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	I'm trying to port this <span>simple script</span>:
+</p>
+<iframe allowfullscreen="" data-embed-src="https://epochmod.com/forum/topic/28685-release-flyby/?do=embed" data-embedcontent="" data-embedid="embed6437578967" scrolling="no" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" style="height:213px;max-width:502px;"></iframe>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301903_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301903"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301903" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301903" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301903&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301903&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I'm trying to port this simple script:
+ 
+
+
+
+	 
+ 
+" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301903">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-301904"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301904">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<a href="../../profile/33926-grahame/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile"><span style="color:#">Grahame</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301904" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T14:06:37Z" title="02/13/18 02:06  PM">February 13, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">Grahame</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/33926-grahame/content/index.html" rel="nofollow" title="742 posts">
+<i class="fa fa-comment"></i> 742
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">New York, NY</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301904" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":33926,"username":"Grahame","timestamp":1518530797,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301904}' id="comment-301904_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301904_wrap" href="#elControls_301904_menu" id="elControls_301904" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301904_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301904" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301904_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301904" id="elSharePost_301904" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301904" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T14:06:37Z" title="02/13/18 02:06  PM">February 13, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Ah yes, I like that script. The script itself should run just fine in ARMA3 with a change to the classnames for the aircraft and crew and a bit of a rewrite to the player choice/location code (BIS_fnc_selectRandom should <u>not </u>be used anymore and replaced with selectRandom) and aircraft/crew spawning logic to make it work better and remove the FNC_getpos() calls. 
+</p>
+<p>
+	I'm thinking that, after making those changes, you could add the script to the EpochEvents folder in epoch_server_settings and adding a line like:
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">    { 1200, "FlyBy", 0 , 1, -1, {} ,{"VR"}},</span></pre>
+<p>
+	in the server's epochconfig.hpp would probably get the script running. An alternative would be to use the new epoch_server_events mechanisms provided and create a new PBO based on the debris spawner to run all the old A2/DayZ/Epoch events. 
+</p>
+<p>
+	Now you have mean thinking I might check this out on my dev server myself after work. Would be really nice to port over several of the old A2 Epoch events. If I get it working before you then I will post the updated flyby here.
+</p>
+<p>
+	There may also be an infiSTAR change required if you use it - I remember having to prevent infiSTAR from deleting AI jets when I was playing with it on my DayZ/Epoch server. Not sure whether that is a problem in A3 (yet)
+</p>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301904_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301904"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301904" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301904" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301904&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301904&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Ah yes, I like that script. The script itself should run just fine in ARMA3 with a change to the classnames for the aircraft and crew and a bit of a rewrite to the player choice/location code (BIS_fnc_selectRandom should not be used anymore and replaced with selectRandom) and aircraft/crew spawning logic to make it work better and remove the FNC_getpos() calls. 
+ 
+
+
+	I'm thinking that, after making those changes, you could add the script to the EpochEvents folder in epoch_server_settings and adding a line like:
+ 
+
+
+    { 1200, &quot;FlyBy&quot;, 0 , 1, -1, {} ,{&quot;VR&quot;}},
+
+
+	in the server's epochconfig.hpp would probably get the script running. An alternative would be to use the new epoch_server_events mechanisms provided and create a new PBO based on the debris spawner to run all the old A2/DayZ/Epoch events. 
+ 
+
+
+	Now you have mean thinking I might check this out on my dev server myself after work. Would be really nice to port over several of the old A2 Epoch events. If I get it working before you then I will post the updated flyby here.
+ 
+
+
+	There may also be an infiSTAR change required if you use it - I remember having to prevent infiSTAR from deleting AI jets when I was playing with it on my DayZ/Epoch server. Not sure whether that is a problem in A3 (yet)
+ 
+
+
+	 
+ 
+" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301904">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-301915"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301915">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<a href="../../profile/33926-grahame/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile"><span style="color:#">Grahame</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301915" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T16:04:57Z" title="02/13/18 04:04  PM">February 13, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">Grahame</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/33926-grahame/content/index.html" rel="nofollow" title="742 posts">
+<i class="fa fa-comment"></i> 742
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">New York, NY</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301915" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":33926,"username":"Grahame","timestamp":1518537897,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301915}' id="comment-301915_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301915_wrap" href="#elControls_301915_menu" id="elControls_301915" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301915_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301915" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301915_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301915" id="elSharePost_301915" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301915" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T16:04:57Z" title="02/13/18 04:04  PM">February 13, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	So...
+</p>
+<p>
+<a href="../../../../external.gif?link=http://www.grahamecurtis.com/images/flyby.jpg" rel="external nofollow">http://www.grahamecurtis.com/images/flyby.jpg</a>
+</p>
+<p>
+	Still cannot upload images or add a link to an image... <img alt=":angry:" data-emoticon="" data-src="https://epochmod.com/forum/uploads/emoticons/angry.png" height="20" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/angry@2x.png 2x" title=":angry:" width="20"/></p>
+<p>
+	Will post the code soon. Works perfectly as far as I can tell so far! <img alt=":biggrin:" data-emoticon="" data-src="https://epochmod.com/forum/uploads/emoticons/biggrin.png" height="20" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" srcset="https://epochmod.com/forum/uploads/emoticons/biggrin@2x.png 2x" title=":biggrin:" width="20"/></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301915_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301915"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301915" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301915" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301915&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301915&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="So...
+ 
+
+
+	http://www.grahamecurtis.com/images/flyby.jpg
+ 
+
+
+	Still cannot upload images or add a link to an image...  
+
+
+	Will post the code soon. Works perfectly as far as I can tell so far!  
+" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301915">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-301934"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301934">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<a href="../../profile/33926-grahame/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile"><span style="color:#">Grahame</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301934" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T17:58:08Z" title="02/13/18 05:58  PM">February 13, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">Grahame</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/33926-grahame/content/index.html" rel="nofollow" title="742 posts">
+<i class="fa fa-comment"></i> 742
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">New York, NY</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301934" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":33926,"username":"Grahame","timestamp":1518544688,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301934}' id="comment-301934_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301934_wrap" href="#elControls_301934_menu" id="elControls_301934" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301934_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301934" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301934_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301934" id="elSharePost_301934" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301934" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T17:58:08Z" title="02/13/18 05:58  PM">February 13, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+<a href="../../../../external.gif?link=http://www.grahamecurtis.com/epochz/images/flyby2.jpg" rel="external nofollow">http://www.grahamecurtis.com/epochz/images/flyby2.jpg</a>
+</p>
+<p>
+<span>Okay, here we go. First copy the following code:</span>
+</p>
+<div class="ipsSpoiler" data-ipsspoiler="">
+<div class="ipsSpoiler_header">
+<span>Spoiler</span>
+</div>
+<div class="ipsSpoiler_contents">
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">private["_players","_model","_startpos","_endpos","_rand_player"];
+
+switch(toLower worldName)do {
+	case "altis": {
+		_model            = selectRandom ["O_Plane_CAS_02_F","O_T_VTOL_02_infantry_F","O_Plane_Fighter_02_F"];
+		_startpos        = selectRandom [[25225.678,0,30007.34],[15102.79,0,30040.641],[4214.0278,0,30007.34],[25392.17,0,1303.6249],[14902.994,0,1403.5199],[4313.9233,0,1436.8231],[29987.428,0,10027.956],[29987.428,0,20017.646],[30020.727,0,25578.576],[30020.729,0,5066.4092]];
+	};
+	case "chernarus": {
+		_model            = selectRandom ["O_Plane_CAS_02_F","O_T_VTOL_02_infantry_F","O_Plane_Fighter_02_F"];
+		_startpos        = selectRandom [[1000.0,2.0],[3500.0,2.0],[5000.0,2.0],[7500.0,2.0],[9712.0,663.067],[12304.0,1175.07],[14736.0,2500.0],[16240.0,5000.0],[16240.0,7500.0],[16240.0,10000.0]];
+	};
+	case "chernarusredux": {
+		_model            = selectRandom ["O_Plane_CAS_02_F","O_T_VTOL_02_infantry_F","O_Plane_Fighter_02_F"];
+		_startpos        = selectRandom [[1000.0,2.0],[3500.0,2.0],[5000.0,2.0],[7500.0,2.0],[9712.0,663.067],[12304.0,1175.07],[14736.0,2500.0],[16240.0,5000.0],[16240.0,7500.0],[16240.0,10000.0]];
+	};
+	default {
+		_model            = selectRandom ["O_Plane_CAS_02_F","O_T_VTOL_02_infantry_F","O_Plane_Fighter_02_F"];
+		_startpos        = selectRandom [[1000.0,2.0],[3500.0,2.0],[5000.0,2.0],[7500.0,2.0],[9712.0,663.067],[12304.0,1175.07],[14736.0,2500.0],[16240.0,5000.0],[16240.0,7500.0],[16240.0,10000.0]];
+	};
+};	
+
+_players = allPlayers select {alive _x};
+
+if !(_players isEqualTo []) then {
+	_rand_player = selectRandom _players;
+	
+	_rand_num = ceil(random 5);
+	_playerpos = getpos _rand_player;
+
+    _number            = 0;
+
+    for "_i" from 1 to _rand_num do {
+    
+        _number = (_number + 1);
+
+        [_number,_model,_startpos,_playerpos] spawn {
+
+            private["_aircraft","_aigroup","_pilot","_wp1","_wp2","_cor_y","_cor_x"];
+            
+            _number     = _this select 0;
+            _model         = _this select 1;
+            _startpos     = _this select 2;
+            _playerpos     = _this select 3;            
+     	    _endpos        = [0,16000,200];
+
+            call {
+                if(_number == 1) exitWith {
+                    _cor_y = 0;
+                    _cor_x = 0;
+                };
+
+                if(_number == 2) exitWith {
+                    _cor_y = -60;
+                    _cor_x = -60;
+                };
+
+                if(_number == 3) exitWith {
+                    _cor_y = -60;
+                    _cor_x = 60;
+                };
+
+                if(_number == 4) exitWith {
+                    _cor_y = -120;
+                    _cor_x = -120;
+                };
+
+                if(_number == 5) exitWith {
+                    _cor_y = -120;
+                    _cor_x = 120;
+                };
+            };
+
+            _aircraft     = createVehicle [_model,[((_startpos select 0) + _cor_y),((_startpos select 1) + _cor_x),200],[],0,"FLY"];
+            _aircraft     engineOn true;
+            _aircraft     flyInHeight 200;
+
+            _aigroup     = creategroup Civilian;
+
+            _pilot         = _aigroup createUnit ["C_man_pilot_F", getpos _aircraft, [], 0, "FORM"];
+            _pilot         setCombatMode "BLUE";
+            _pilot         moveindriver _aircraft;
+            _pilot         assignAsDriver _aircraft;
+
+            _wp1         = _aigroup addWaypoint [[((_playerpos select 0) + _cor_y),((_playerpos select 1) + _cor_x),200],0];
+            _wp1         setWaypointType "MOVE";
+            _wp1        setWaypointBehaviour "CARELESS";
+
+            _wp2         = _aigroup addWaypoint [[(_endpos select 0),(_endpos select 1),200],0];
+            _wp2         setWaypointType "MOVE";
+            _wp2         setWaypointBehaviour "CARELESS";
+
+            waitUntil { (_aircraft distance _endpos &lt; 500) };
+
+            deleteVehicle _aircraft;
+            deleteGroup _aigroup;
+            deleteVehicle _pilot;
+
+        };
+    };
+};</span></pre>
+<p>
+			 
+		</p>
+</div>
+</div>
+<p>
+	into a file called FlyBy.sqf and move that file into the EpochEvents folder in epoch_server_settings. RePBO epoch_server_settings and upload to your server again.
+</p>
+<p>
+	Add the following line to the events array in epochconfig.hpp in the @epochhive folder on your server:
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">    { 1800, "FlyBy", 0 , 1, -1, {} ,{"VR"}},</span></pre>
+<p>
+	Adjust the first number to the number of seconds you want between each time the script runs. That's it!
+</p>
+<p>
+	Play with the models used in the case statement at the top of FlyBy.sqf to meet your needs and add map names and adjust the initial spawn and end position if using a map other than Altis, Chernarus or Chernarus Redux...
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301934_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301934"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301934" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301934" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301934&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301934&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="http://www.grahamecurtis.com/epochz/images/flyby2.jpg
+ 
+
+
+	Okay, here we go. First copy the following code:
+ 
+
+
+
+
+	into a file called FlyBy.sqf and move that file into the EpochEvents folder in epoch_server_settings. RePBO epoch_server_settings and upload to your server again.
+ 
+
+
+	Add the following line to the events array in epochconfig.hpp in the @epochhive folder on your server:
+ 
+
+
+    { 1800, &quot;FlyBy&quot;, 0 , 1, -1, {} ,{&quot;VR&quot;}},
+
+
+	Adjust the first number to the number of seconds you want between each time the script runs. That's it!
+ 
+
+
+	Play with the models used in the case statement at the top of FlyBy.sqf to meet your needs and add map names and adjust the initial spawn and end position if using a map other than Altis, Chernarus or Chernarus Redux...
+ 
+" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301934">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-301935"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301935">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<a href="../../profile/33926-grahame/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile"><span style="color:#">Grahame</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301935" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T18:19:25Z" title="02/13/18 06:19  PM">February 13, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">Grahame</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33926-grahame/?do=hovercard" data-ipshover-width="370" href="../../profile/33926-grahame/index.html" rel="nofollow" title="Go to Grahame's profile">
+<img alt="Grahame" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/33926-grahame/content/index.html" rel="nofollow" title="742 posts">
+<i class="fa fa-comment"></i> 742
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">New York, NY</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301935" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":33926,"username":"Grahame","timestamp":1518545965,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301935}' id="comment-301935_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301935_wrap" href="#elControls_301935_menu" id="elControls_301935" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301935_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301935" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301935_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301935" id="elSharePost_301935" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301935" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-13T18:19:25Z" title="02/13/18 06:19  PM">February 13, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+<a href="../../../../external.gif?link=http://www.grahamecurtis.com/epochz/images/flyby3.jpg" rel="external nofollow">http://www.grahamecurtis.com/epochz/images/flyby3.jpg</a>
+</p>
+<p>
+<a href="../../../../external.gif?link=http://www.grahamecurtis.com/epochz/images/flyby4.jpg" rel="external nofollow">http://www.grahamecurtis.com/epochz/images/flyby4.jpg</a>
+</p>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301935_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301935"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301935" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301935" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301935&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301935&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="http://www.grahamecurtis.com/epochz/images/flyby3.jpg
+ 
+
+
+	http://www.grahamecurtis.com/epochz/images/flyby4.jpg
+ 
+
+
+	 
+ 
+" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301935">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-301953"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_301953">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/36454-wlf/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile"><span style="color:#">WLF</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301953" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-14T10:14:57Z" title="02/14/18 10:14  AM">February 14, 2018</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44916-porting-from-a2-to-a3%252F" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">WLF</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36454-wlf/?do=hovercard" data-ipshover-width="370" href="../../profile/36454-wlf/index.html" rel="nofollow" title="Go to WLF's profile">
+<img alt="WLF" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2378c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/36454-wlf/content/index.html" rel="nofollow" title="129 posts">
+<i class="fa fa-comment"></i> 129
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Vorkuta, Russia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="301953" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36454,"username":"WLF","timestamp":1518603297,"contentapp":"forums","contenttype":"forums","contentid":44916,"contentclass":"forums_Topic","contentcommentid":301953}' id="comment-301953_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-301953_wrap" href="#elControls_301953_menu" id="elControls_301953" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_301953_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=reportComment&amp;comment=301953" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_301953_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301953" id="elSharePost_301953" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301953" rel="nofollow">Posted <time data-short="7 yr" datetime="2018-02-14T10:14:57Z" title="02/14/18 10:14  AM">February 14, 2018</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="301904" data-ipsquote-contentid="44916" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1518530797" data-ipsquote-userid="33926" data-ipsquote-username="Grahame">
+<div class="ipsQuote_citation">
+		19 hours ago, Grahame said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Ah yes, I like that script. The script itself should run just fine in ARMA3 with a change to the classnames for the aircraft and crew and a bit of a rewrite to the player choice/location code (BIS_fnc_selectRandom should <u>not </u>be used anymore and replaced with selectRandom) and aircraft/crew spawning logic to make it work better and remove the FNC_getpos() calls. 
+		</p>
+</div>
+</blockquote>
+<p>
+	Yes, of course, first I changed the fighter's models, unit's model, selectRandom and getPos functions. But in my version of this script I have a line:
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_aircraft];</span></pre>
+<p>
+	...from this topic:
+</p>
+<iframe allowfullscreen="" data-embed-src="https://epochmod.com/forum/topic/28685-release-flyby/?do=embed&amp;comment=284876&amp;embedComment=284876&amp;embedDo=findComment" data-embedcontent="" data-embedid="embed2357802447" scrolling="no" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" style="height:233px;max-width:502px;"></iframe>
+<p>
+	So, in arma3 this script does not work.
+</p>
+<p>
+	But I commented that line and that's ok! :)
+</p>
+<p>
+	And I will use your worldName's choice. :)
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_301953_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301953"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301953" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301953" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F%3Fdo%3DfindComment%26comment%3D301953&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment%26comment=301953&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Yes, of course, first I changed the fighter's models, unit's model, selectRandom and getPos functions. But in my version of this script I have a line:
+ 
+
+
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_aircraft];
+
+
+	...from this topic:
+ 
+
+
+
+	So, in arma3 this script does not work.
+ 
+
+
+	But I commented that line and that's ok! :)
+ 
+
+
+	And I will use your worldName's choice. :)
+ 
+" data-websharetitle="porting from A2 to A3" data-webshareurl="https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/?do=findComment&amp;comment=301953">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80NDkxNi1wb3J0aW5nLWZyb20tYTItdG8tYTMvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44916-porting-from-a2-to-a3%2F&amp;title=porting+from+A2+to+A3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="porting from A2 to A3" data-websharetitle="porting from A2 to A3" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="44916">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/78-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/94-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					porting from A2 to A3
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "porting from A2 to A3",
+    "headline": "porting from A2 to A3",
+    "text": "Hi All!\n \n\n\n\tTrying porting one script from a2 to a3. That script\u00a0have a variable \"dayz_serverObjectMonitor\". What a variable i need for a3?\n \n\n\n\tNow I have an error:\n \n\n\n22:38:01 Error in expression \u0026lt;gineOn true;\n_aircraft\tflyInHeight 100;\ndayz_serverObjectMonitor set [count dayz\u0026gt;\n22:38:01   Error position: \u0026lt;dayz_serverObjectMonitor set [count dayz\u0026gt;\n22:38:01   Error Undefined variable in expression: dayz_serverobjectmonitor\n\n\n\n\t\u00a0\n \n",
+    "dateCreated": "2018-02-12T20:01:53+0000",
+    "datePublished": "2018-02-12T20:01:53+0000",
+    "dateModified": "2018-02-14T10:14:57+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "WLF",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/36454-wlf/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1094
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 7
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/",
+    "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "porting from A2 to A3",
+        "text": "Hi All!\n \n\n\n\tTrying porting one script from a2 to a3. That script\u00a0have a variable \"dayz_serverObjectMonitor\". What a variable i need for a3?\n \n\n\n\tNow I have an error:\n \n\n\n22:38:01 Error in expression \u0026lt;gineOn true;\n_aircraft\tflyInHeight 100;\ndayz_serverObjectMonitor set [count dayz\u0026gt;\n22:38:01   Error position: \u0026lt;dayz_serverObjectMonitor set [count dayz\u0026gt;\n22:38:01   Error Undefined variable in expression: dayz_serverobjectmonitor\n\n\n\n\t\u00a0\n \n",
+        "answerCount": 7,
+        "dateCreated": "2018-02-12T20:01:53+0000",
+        "author": {
+            "@type": "Person",
+            "name": "WLF"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301897",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301897",
+                "author": {
+                    "@type": "Person",
+                    "name": "Grahame",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg",
+                    "url": "https://epochmod.com/forum/profile/33926-grahame/"
+                },
+                "dateCreated": "2018-02-13T01:04:50+0000",
+                "text": "There are pretty much no one to one equivalents between A2 DayZ/Epoch and A3 Epoch (for one, given the two ways I described them you might see that A3 Epoch does not use another mod). Would need to see the script and need to know what it is doing with that. No guarantees of an easy solution but post up the script... after all, I intend to steal all of @salivals stuff and port it to ARMA3\u00a0 ",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301903",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301903",
+                "author": {
+                    "@type": "Person",
+                    "name": "WLF",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/36454-wlf/"
+                },
+                "dateCreated": "2018-02-13T10:44:12+0000",
+                "text": "I\u0027m trying to port this simple script:\n \n\n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301904",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301904",
+                "author": {
+                    "@type": "Person",
+                    "name": "Grahame",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg",
+                    "url": "https://epochmod.com/forum/profile/33926-grahame/"
+                },
+                "dateCreated": "2018-02-13T14:06:37+0000",
+                "text": "Ah yes, I like that script. The script itself should run just fine in ARMA3 with a change to the classnames for the aircraft and crew and a bit of a rewrite to the player choice/location code (BIS_fnc_selectRandom should not be used anymore and replaced with selectRandom) and aircraft/crew spawning logic to make it work better and remove the FNC_getpos() calls.\u00a0\n \n\n\n\tI\u0027m thinking that, after making those changes, you could\u00a0add the script to the EpochEvents folder in epoch_server_settings and adding a line like:\n \n\n\n    { 1200, \"FlyBy\", 0 , 1, -1, {} ,{\"VR\"}},\n\n\n\tin the server\u0027s epochconfig.hpp would probably get the script running. An alternative would be to use the new epoch_server_events mechanisms provided and create a new PBO based on the debris spawner to run all the old A2/DayZ/Epoch events.\u00a0\n \n\n\n\tNow you have mean thinking I might check this out on my dev server myself after work. Would be really nice to port over several of the old A2 Epoch events. If I get it working before you then I will post the updated flyby here.\n \n\n\n\tThere may also be an infiSTAR change required if you use it - I remember having to prevent infiSTAR from deleting AI jets when I was playing with it on my DayZ/Epoch server. Not sure whether that is a problem in A3 (yet)\n \n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301915",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301915",
+                "author": {
+                    "@type": "Person",
+                    "name": "Grahame",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg",
+                    "url": "https://epochmod.com/forum/profile/33926-grahame/"
+                },
+                "dateCreated": "2018-02-13T16:04:57+0000",
+                "text": "So...\n \n\n\n\thttp://www.grahamecurtis.com/images/flyby.jpg\n \n\n\n\tStill cannot upload images or add a link to an image...\u00a0 \n\n\n\tWill post the code soon. Works perfectly as far as I can tell so far!\u00a0 \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301934",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301934",
+                "author": {
+                    "@type": "Person",
+                    "name": "Grahame",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg",
+                    "url": "https://epochmod.com/forum/profile/33926-grahame/"
+                },
+                "dateCreated": "2018-02-13T17:58:08+0000",
+                "text": "http://www.grahamecurtis.com/epochz/images/flyby2.jpg\n \n\n\n\tOkay, here we go. First copy the following code:\n \n\n\n\n\n\tinto a file called FlyBy.sqf and move that file into the EpochEvents folder in epoch_server_settings. RePBO epoch_server_settings and upload to your server again.\n \n\n\n\tAdd the following line to the events array in epochconfig.hpp in the @epochhive folder on your server:\n \n\n\n    { 1800, \"FlyBy\", 0 , 1, -1, {} ,{\"VR\"}},\n\n\n\tAdjust the first number to the number of seconds you want between each time the script runs. That\u0027s it!\n \n\n\n\tPlay with the models used in the case statement at the top of FlyBy.sqf to meet your needs and add map names and adjust the initial spawn and end position if using a map other than Altis, Chernarus or Chernarus Redux...\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301935",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301935",
+                "author": {
+                    "@type": "Person",
+                    "name": "Grahame",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_03/epoch_profile.jpg.df5ac4c66f4657bec2a3d1433c3aaca3.thumb.jpg.2300f7cf602ab6ee19a9657722c92153.jpg",
+                    "url": "https://epochmod.com/forum/profile/33926-grahame/"
+                },
+                "dateCreated": "2018-02-13T18:19:25+0000",
+                "text": "http://www.grahamecurtis.com/epochz/images/flyby3.jpg\n \n\n\n\thttp://www.grahamecurtis.com/epochz/images/flyby4.jpg\n \n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301953",
+                "url": "https://epochmod.com/forum/topic/44916-porting-from-a2-to-a3/#comment-301953",
+                "author": {
+                    "@type": "Person",
+                    "name": "WLF",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/36454-wlf/"
+                },
+                "dateCreated": "2018-02-14T10:14:57+0000",
+                "text": "Yes, of course, first I changed the fighter\u0027s models, unit\u0027s model, selectRandom and getPos functions. But in my version of this\u00a0script I have a line:\n \n\n\ndayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_aircraft];\n\n\n\t...from this topic:\n \n\n\n\n\tSo, in arma3 this script does not work.\n \n\n\n\tBut I commented that line and that\u0027s ok! :)\n \n\n\n\tAnd I will use your worldName\u0027s choice. :)\n \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "WLF",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/36454-wlf/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/94-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/78-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

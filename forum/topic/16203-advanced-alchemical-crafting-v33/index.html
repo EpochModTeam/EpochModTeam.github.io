@@ -1,0 +1,3550 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Advanced Alchemical Crafting v3.3 - Gold Coin based Single Currency &amp; Banking System - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Advanced Alchemical Crafting v3.3" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/" property="og:url"/>
+<meta content='Anyone able to help me get this working with the coins, there is a part that wants to use the old currency which shows up in this file MT_Defines.hpp which has code in it that looks like this class DefaultAmethyst:Default { offset[]={0,3,1}; requiredtools[] = {"ItemToolbox"}; requiredmaterials[] ...' name="description"/>
+<meta content='Anyone able to help me get this working with the coins, there is a part that wants to use the old currency which shows up in this file MT_Defines.hpp which has code in it that looks like this class DefaultAmethyst:Default { offset[]={0,3,1}; requiredtools[] = {"ItemToolbox"}; requiredmaterials[] ...' property="og:description"/>
+<meta content="2015-10-14T09:38:10Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="16203" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xNjIwMy1hZHZhbmNlZC1hbGNoZW1pY2FsLWNyYWZ0aW5nLXYzMy8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":56}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":16203}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/63-a2-community-projects/index.html">
+<span>A2: Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Advanced Alchemical Crafting v3.3
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Advanced Alchemical Crafting v3.3</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">
+<img alt="orionjade" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">orionjade</a></strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2014-08-30T02:22:51Z" title="08/30/14 02:22  AM">August 30, 2014</time> in <a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">Gold Coin based Single Currency &amp; Banking System</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Advanced Alchemical Crafting v3.3" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="16203">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-16203" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-122432"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_122432">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">
+<img alt="orionjade" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png"/>
+</a>
+<a href="../../profile/12589-orionjade/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile"><span style="color:#">orionjade</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122432" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T02:22:51Z" title="08/30/14 02:22  AM">August 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">orionjade</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">
+<img alt="orionjade" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/12589-orionjade/content/index.html" rel="nofollow" title="58 posts">
+<i class="fa fa-comment"></i> 58
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="122432" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12589,"username":"orionjade","timestamp":1409365371,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":122432}' id="comment-122432_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-122432_wrap" href="#elControls_122432_menu" id="elControls_122432" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_122432_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=122432" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_122432_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_122432" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122432" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T02:22:51Z" title="08/30/14 02:22  AM">August 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Anyone able to help me get this working with the coins, there is a part that wants to use the old currency which shows up in this file MT_Defines.hpp which has code in it that looks like this</p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p>class DefaultAmethyst:Default {<br/>
+offset[]={0,3,1};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemAmethyst","ItemGoldBar10oz","ItemGoldBar10oz"};<br/>
+};<br/>
+class DefaultCitrine:Default {<br/>
+offset[]={0,2,1};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemCitrine","ItemGoldBar10oz","ItemGoldBar10oz"};<br/>
+};<br/>
+class DefaultEmerald:Default {<br/>
+offset[]={0,3,1};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemEmerald","ItemGoldBar10oz","ItemGoldBar10oz"};<br/>
+};<br/>
+class DefaultObsidian:Default {<br/>
+offset[]={0,3,1};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemObsidian","ItemGoldBar10oz","ItemGoldBar10oz"};<br/>
+};<br/>
+class DefaultRuby:Default {<br/>
+offset[]={0,3,1};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemRuby","ItemGoldBar10oz","ItemGoldBar10oz"};<br/>
+};<br/>
+class DefaultSapphire:Default {<br/>
+offset[]={0,5,4};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemSapphire","ItemGoldBar10oz","ItemGoldBar10oz"};<br/>
+};<br/>
+class DefaultTopaz:Default {<br/>
+offset[]={0,10,3};<br/>
+requiredtools[] = {"ItemToolbox"};<br/>
+requiredmaterials[] ={"ItemTopaz","ItemGoldBar10oz","ItemGoldBar10oz"};</p>
+<p></p></blockquote><p></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_122432_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D122432" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D122432" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D122432&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=122432&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Anyone able to help me get this working with the coins, there is a part that wants to use the old currency which shows up in this file MT_Defines.hpp which has code in it that looks like this 
+   
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122432">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-122581"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_122581">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">
+<img alt="Chunk. No Captain Chunk." loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462bf%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EC%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/10902-chunk-no-captain-chunk/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile"><span style="color:#">Chunk. No Captain Chunk.</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122581" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T11:55:22Z" title="08/30/14 11:55  AM">August 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">Chunk. No Captain Chunk.</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">
+<img alt="Chunk. No Captain Chunk." loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462bf%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EC%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/10902-chunk-no-captain-chunk/content/index.html" rel="nofollow" title="184 posts">
+<i class="fa fa-comment"></i> 184
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="122581" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10902,"username":"Chunk. No Captain Chunk.","timestamp":1409399722,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":122581}' id="comment-122581_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-122581_wrap" href="#elControls_122581_menu" id="elControls_122581" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_122581_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=122581" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_122581_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122581" id="elSharePost_122581" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122581" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T11:55:22Z" title="08/30/14 11:55  AM">August 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>You'd probably just have to buy the old currency from the traders for it to work. But then again. I don't know much about converting scripts.<br/><br/>
+The first place I'd check out would be the Service point Single currency test. That seems to be the way forward to adding single currency to scripts.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_122581_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122581"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D122581" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D122581" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D122581&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=122581&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="You'd probably just have to buy the old currency from the traders for it to work. But then again. I don't know much about converting scripts.  
+The first place I'd check out would be the Service point Single currency test. That seems to be the way forward to adding single currency to scripts. 
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=122581">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-124507"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_124507">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">
+<img alt="orionjade" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png"/>
+</a>
+<a href="../../profile/12589-orionjade/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile"><span style="color:#">orionjade</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124507" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-03T23:19:15Z" title="09/03/14 11:19  PM">September 3, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">orionjade</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12589-orionjade/?do=hovercard" data-ipshover-width="370" href="../../profile/12589-orionjade/index.html" rel="nofollow" title="Go to orionjade's profile">
+<img alt="orionjade" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/12589-orionjade/content/index.html" rel="nofollow" title="58 posts">
+<i class="fa fa-comment"></i> 58
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="124507" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12589,"username":"orionjade","timestamp":1409786355,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":124507}' id="comment-124507_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-124507_wrap" href="#elControls_124507_menu" id="elControls_124507" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_124507_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=124507" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_124507_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124507" id="elSharePost_124507" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124507" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-03T23:19:15Z" title="09/03/14 11:19  PM">September 3, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Yeah, I'm not very good at converting scripts either. Maybe Zupa or someone else could help with this.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_124507_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124507"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D124507" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D124507" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D124507&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=124507&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Yeah, I'm not very good at converting scripts either. Maybe Zupa or someone else could help with this. 
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124507">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-124547"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_124547">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">
+<img alt="Chunk. No Captain Chunk." loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462bf%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EC%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/10902-chunk-no-captain-chunk/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile"><span style="color:#">Chunk. No Captain Chunk.</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124547" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-04T02:31:21Z" title="09/04/14 02:31  AM">September 4, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">Chunk. No Captain Chunk.</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">
+<img alt="Chunk. No Captain Chunk." loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462bf%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EC%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/10902-chunk-no-captain-chunk/content/index.html" rel="nofollow" title="184 posts">
+<i class="fa fa-comment"></i> 184
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="124547" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10902,"username":"Chunk. No Captain Chunk.","timestamp":1409797881,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":124547}' id="comment-124547_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-124547_wrap" href="#elControls_124547_menu" id="elControls_124547" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_124547_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=124547" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_124547_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124547" id="elSharePost_124547" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124547" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-04T02:31:21Z" title="09/04/14 02:31  AM">September 4, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I'd put money on zupa to do it, but he's so busy recently. There's no one really in contact. So keep the post up here and maybe.. Just maybe zupa will fly on by :P</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_124547_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124547"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D124547" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D124547" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D124547&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=124547&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I'd put money on zupa to do it, but he's so busy recently. There's no one really in contact. So keep the post up here and maybe.. Just maybe zupa will fly on by :P 
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=124547">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-126080"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_126080">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<a href="../../profile/10391-zupa/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile"><span style="color:#">Zupa</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=126080" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-08T12:24:36Z" title="09/08/14 12:24  PM">September 8, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">Zupa</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/10391-zupa/content/index.html" rel="nofollow" title="1887 posts">
+<i class="fa fa-comment"></i> 1.9k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Belgium</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="126080" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10391,"username":"Zupa","timestamp":1410179076,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":126080}' id="comment-126080_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-126080_wrap" href="#elControls_126080_menu" id="elControls_126080" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_126080_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=126080" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_126080_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=126080" id="elSharePost_126080" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=126080" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-08T12:24:36Z" title="09/08/14 12:24  PM">September 8, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Try the following ( not tested, i'm at work)</p>
+<p> </p>
+<p>MT_Defines.hpp</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+class Custom_Buildables {
+	class Buildables{
+	class Default {
+		//This is a list of tools and materials used below if you wish to make new classes or edit ones already here
+		//
+		//,"ItemHatchet_DZE","ItemToolbox","ItemCrowbar","ItemKnife","ItemEtool","ItemSledge"
+		//,"bulk_ItemSandbag","bulk_PartGeneric","PartPlankPack","PartPlywoodPack","CinderBlocks","MortarBucket"
+		//,"PartFueltank","PartWoodPile","PartGlass","ItemFuelBarrel","ItemPole","metal_panel_kit","PartWoodLumber"
+		//,"ItemCanvas","ItemBurlap","ItemZombieParts","ItemSandbagExLarge","ItemSandbagExLarge5x","PartGeneric"
+		//,"ItemTankTrap","ItemWire"
+		//,"desert_large_net_kit","forest_large_net_kit"
+		offset[]={0,3,0};
+		requiredtools[] = {};
+		requiredmaterials[] ={};
+		requireplot = 1;
+		cost = 0;
+	};
+	class DefaultAmethyst:Default {
+		offset[]={0,3,1};	
+		requiredtools[] = {"ItemToolbox"};
+		requiredmaterials[] ={"ItemAmethyst"};
+		cost = 20000;
+	};	
+	class DefaultCitrine:Default {
+		offset[]={0,2,1};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemCitrine"};
+		cost = 20000;
+	};	
+	class DefaultEmerald:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemEmerald"};
+		cost = 20000;
+	};	
+	class DefaultObsidian:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemObsidian"};
+		cost = 20000;
+	};	
+	class DefaultRuby:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemRuby"};
+		cost = 20000;
+	};		
+	class DefaultSapphire:Default {
+		offset[]={0,5,4};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemSapphire"};
+		cost = 20000;
+	};	
+	class DefaultTopaz:Default {
+		offset[]={0,10,3};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemTopaz"};
+		cost = 20000;
+	};
+	class DefaultFlag:Default {
+		offset[]={0,5,4};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};		
+		requiredmaterials[] ={"ItemSapphire","ItemPole","ItemPole","ItemPole","ItemCanvas"};
+	};
+	class DefaultBeds:Default {
+		offset[]={0,2,0};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemKnife"};		
+		requiredmaterials[] ={"ItemRuby","PartPlankPack","PartPlankPack","PartPlywoodPack"};
+	};	
+	class DefaultBenches:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemKnife"};		
+		requiredmaterials[] ={"ItemRuby","PartPlankPack","PartPlankPack"};
+	};	
+	class DefaultCabinets:Default {
+		offset[]={0,2,0};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemKnife"};		
+		requiredmaterials[] ={"ItemRuby","PartPlywoodPack","PartPlywoodPack","PartPlankPack"};
+	};	
+	class DefaultChairs:Default {
+		offset[]={0,2,0};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemKnife"};		
+		requiredmaterials[] ={"ItemRuby","PartPlankPack"};
+	};	
+	class DefaultAppliances:Default {
+		offset[]={0,2,0};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};		
+		requiredmaterials[] ={"ItemCitrine","bulk_PartGeneric","bulk_PartGeneric"};
+	};
+	class DefaultBathroom:Default {
+		offset[]={0,2,0};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};		
+		requiredmaterials[] ={"ItemCitrine","bulk_PartGeneric"};
+	};
+	class DefaultElectronics:Default {
+		offset[]={0,2,1};
+		requiredtools[] = {"ItemToolbox"};		
+		requiredmaterials[] ={"ItemCitrine","PartGeneric","PartGeneric"};
+	};	
+	class DefaultFloorCoverings:Default {
+		offset[]={0,2,0};
+		requiredtools[] = {"ItemToolbox","ItemKnife"};		
+		requiredmaterials[] ={"ItemCitrine","ItemCanvas","ItemCanvas","ItemCanvas"};
+	};		
+	class DefaultPictures:Default {
+		offset[]={0,2,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemKnife"};		
+		requiredmaterials[] ={"ItemCitrine","PartPlankPack"};
+	};		
+	class DefaultLightbulbs:Default {
+		offset[]={0,2,1};
+		requiredtools[] = {"ItemToolbox"};
+		requiredmaterials[] ={"ItemLightBulb"}; // gold
+		cost = 10000;
+	};
+	class DefaultLightPoles:Default {
+		offset[]={0,3,5};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemLightBulb","bulk_PartGeneric","ItemPole","ItemPole","ItemPole"};
+	};
+	class DefaultLightFixtures:Default {
+		offset[]={0,2,1};
+		requiredtools[] = {"ItemToolbox"};
+		requiredmaterials[] ={"ItemLightBulb","PartGeneric","PartGeneric"};
+	};	
+	class DefaultDefensesConcrete:Default {
+		offset[]={0,5,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks"};
+	};
+	class DefaultDefensesMetal:Default {
+		offset[]={0,5,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","bulk_PartGeneric","bulk_PartGeneric"};
+	};	
+	class DefaultBushes:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian"};
+	};	
+	class DefaultSmallTrees:Default {
+	offset[]={0,10,4};	//-3	offset[]={0,10,7};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian"};
+	};
+	class DefaultMediumTrees:Default {
+		offset[]={0,10,7};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian"};
+	};	
+	class DefaultLargeTrees:Default {
+		offset[]={0,10,11};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian"};
+	};	
+	class DefaultWells:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemObsidian","ItemPole","PartGeneric","CinderBlocks","CinderBlocks","CinderBlocks","MortarBucket"};
+	};
+	class DefaultBillboards:Default {
+	offset[]={0,6,1};	
+	requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemEtool","ItemSledge"};		
+	requiredmaterials[] ={"ItemAmethyst","PartPlywoodPack","PartPlywoodPack","PartPlywoodPack","PartPlankPack","ItemPole","ItemPole","CinderBlocks"};
+	};
+	class DefaultBoards:Default {
+	offset[]={0,3,1};	
+	requiredtools[] = {"ItemToolbox","ItemHatchet_DZE"};		
+	requiredmaterials[] ={"ItemAmethyst","PartPlywoodPack"};
+	};	
+	class DefaultHelipads:Default {
+	offset[]={0,3,0};	
+	requiredtools[] = {"ItemToolbox"};		
+	requiredmaterials[] ={"ItemAmethyst"};
+	};	
+	class DefaultRoadMisc:Default {
+	offset[]={0,3,1};	
+	requiredtools[] = {"ItemToolbox","ItemSledge"};
+	requiredmaterials[] ={"ItemAmethyst","ItemPole","ItemPole","CinderBlocks"};
+	};
+	class DefaultSignsMisc:Default {
+	offset[]={0,3,1};	
+	requiredtools[] = {"ItemToolbox","ItemSledge"};
+	requiredmaterials[] ={"ItemAmethyst","ItemPole","ItemPole","PartGeneric"};
+	};	
+	class DefaultBarrel:Default {
+	offset[]={0,3,1};	
+	requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};
+	requiredmaterials[] ={"ItemEmerald","bulk_PartGeneric"};
+	};	
+	class DefaultBarrels:Default {
+	offset[]={0,3,1};	
+	requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};
+	requiredmaterials[] ={"ItemAmethyst","bulk_PartGeneric","bulk_PartGeneric","bulk_PartGeneric"};
+	};		
+	class DefaultCargoContainersS:Default {
+		offset[]={0,3,1};	
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};		
+		requiredmaterials[] ={"ItemEmerald","bulk_PartGeneric","metal_panel_kit"};
+	
+	};	
+	class DefaultCargoContainersM:Default {
+		offset[]={0,3,1};	
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};		
+		requiredmaterials[] ={"ItemEmerald","bulk_PartGeneric","metal_panel_kit","metal_panel_kit","metal_panel_kit"};
+	
+	};
+	class DefaultCargoContainersL:Default {
+		offset[]={0,5,2};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};		
+		requiredmaterials[] ={"ItemEmerald","bulk_PartGeneric","metal_panel_kit","metal_panel_kit","metal_panel_kit","metal_panel_kit","metal_panel_kit","metal_panel_kit"};
+	};	
+	class DefaultCargoContainersW:Default {
+		offset[]={0,3,1};	
+		requiredtools[] = {"ItemToolbox","ItemCrowbar"};		
+		requiredmaterials[] ={"ItemEmerald","PartPlankPack","PartPlankPack"};
+	};	
+	class DefaultSunshadesS:Default {
+		offset[]={0,2.5,2};
+		requiredtools[] = {"ItemToolbox","ItemKnife"};		
+		requiredmaterials[] ={"ItemEmerald","ItemPole","ItemPole","ItemPole","ItemCanvas","ItemCanvas"};
+	};
+	class DefaultSunshadesM:Default {
+		offset[]={0,6,2};
+		requiredtools[] = {"ItemToolbox","ItemKnife"};		
+		requiredmaterials[] ={"ItemEmerald","ItemPole","ItemPole","ItemPole","ItemPole","ItemCanvas","ItemCanvas","ItemCanvas"};
+	};	
+	class DefaultSunshadesL:Default {
+		offset[]={0,6,2};
+		requiredtools[] = {"ItemToolbox","ItemKnife"};		
+		requiredmaterials[] ={"ItemEmerald","ItemPole","ItemPole","ItemPole","ItemPole","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas"};
+	};
+	class DefaultSunshadesW:Default {
+		offset[]={0,3,2};
+		requiredtools[] = {"ItemToolbox","ItemKnife"};		
+		requiredmaterials[] ={"ItemEmerald","PartPlankPack","PartPlankPack","ItemCanvas","ItemCanvas"};
+	};	
+	class DefaultTentsS:Default {
+		offset[]={0,6,1};
+		requiredtools[] = {"ItemToolbox","ItemKnife"};		
+		requiredmaterials[] ={"ItemEmerald","PartPlankPack","PartPlankPack","ItemCanvas","ItemCanvas"};
+	};
+	class DefaultTentsM:Default {
+		offset[]={0,10,2};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemKnife","ItemHatchet_DZE"};		
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas"};
+	};	
+	class DefaultTentsL:Default {
+		offset[]={0,13,0};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemKnife","ItemHatchet_DZE"};		
+		requiredmaterials[] ={"ItemTopaz","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas","ItemCanvas"};
+	};	
+	
+	//Topaz - Base Defense
+	//48
+	class Defenses{			//26
+	class Hhedgehog_concrete:Default {
+		offset[]={0,7,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","MortarBucket","MortarBucket"};
+	};
+	class Hhedgehog_concreteBig:Default {
+		offset[]={0,7,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","MortarBucket","MortarBucket"};
+	};	
+	class Base_WarfareBBarrier10xTall:Default {
+ 		offset[]={0,6,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemTopaz","ItemSandbagExLarge5x","ItemSandbagExLarge5x","ItemSandbagExLarge5x","ItemSandbagExLarge5x","ItemSandbagExLarge5x"};
+		};	
+	class Fence_corrugated_plate:Default {
+		offset[]={0,6,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemPole","ItemPole","ItemTankTrap","ItemTankTrap","PartWoodLumber","PartWoodLumber"};
+	};
+	class Fence_Ind_long:Default {
+		offset[]={0,6,2};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemPole","ItemWire","PartWoodLumber"};
+		};
+	class Land_CncBlock:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks"};
+		};
+	class Land_CncBlock_D:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks"};
+		};
+	class Land_CncBlock_Stripes:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks"};
+		};
+	class Land_fort_artillery_nest_EP1:Default {
+		offset[]={0,15,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack","PartPlankPack","PartPlankPack"};
+		};
+	class MAP_fort_artillery_nest:Default {
+		offset[]={0,15,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack","PartPlankPack","PartPlankPack"};
+	};	
+	class Land_fort_rampart_EP1:Default {
+		offset[]={0,8,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack"};
+	};
+	class MAP_fort_rampart:Default {
+		offset[]={0,8,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack"};
+		};	
+	class MAP_Barbedwire:Default {
+		offset[]={0,5,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemTopaz","ItemTankTrap","ItemTankTrap","ItemWire"};
+		};
+	class MAP_concrete_block:Default {
+		offset[]={0,10,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"};
+		};
+	class MAP_Concrete_Ramp:Default {
+		offset[]={0,8,2};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"};
+		};
+	class MAP_Fort_Razorwire:DefaultTopaz {
+		offset[]={0,6,1};
+		requiredtools[] = {"ItemToolbox"};
+		requiredmaterials[] ={"ItemTopaz"};
+		};
+	class MAP_HBarrier5_round15:Default {
+		offset[]={0,6,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemTopaz","ItemSandbagExLarge5x"};
+		};
+	class MAP_plot_provizorni:Default {
+		offset[]={0,6,2};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemPole","ItemWire","PartWoodLumber"};
+		};
+	class MAP_prebehlavka:Default {
+		offset[]={0,7,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemCrowbar"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack","PartPlankPack","PartPlankPack"};
+		};
+	class MAP_prolejzacka:Default {
+		offset[]={0,6,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemCrowbar"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack"};
+		};
+	class MAP_ramp_concrete:Default {
+		offset[]={0,10,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"};
+			};
+	class MAP_woodenRamp:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemCrowbar"};
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack"};
+			};
+	class MAP_obstacle_get_over:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","bulk_PartGeneric","bulk_PartGeneric"};
+		};
+	class MAP_obstacle_prone:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","bulk_PartGeneric","bulk_PartGeneric"};
+	};
+	class MAP_obstacle_run_duck:Default {
+		offset[]={0,4,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","bulk_PartGeneric","bulk_PartGeneric"};
+	};			
+	};
+	class Forts{			//12
+	class Land_Fort_Watchtower_EP1:Default {
+		offset[]={0,10,2};
+        requiredtools[] = {"ItemEtool","ItemToolbox","ItemCrowbar","ItemSledge"};	
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","ItemBriefcase100oz","desert_large_net_kit","ItemSandbagExLarge5x","ItemSandbagExLarge5x","ItemSandbagExLarge5x","PartPlankPack","PartPlankPack","bulk_PartGeneric"};
+		};	
+	class MAP_fort_watchtower:Default {
+		offset[]={0,10,2};
+        requiredtools[] = {"ItemEtool","ItemToolbox","ItemCrowbar","ItemSledge"};	
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","ItemBriefcase100oz","ItemBriefcase100oz","ItemBriefcase100oz","forest_large_net_kit","ItemSandbagExLarge5x","ItemSandbagExLarge5x","PartPlankPack","PartPlankPack","bulk_PartGeneric"};
+ 	};
+	class CDF_WarfareBBarracks:Default {
+		offset[]={0,15,0};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","forest_large_net_kit","ItemSandbagExLarge5x","ItemSandbagExLarge5x","ItemSandbagExLarge5x","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack"};
+	};
+	class USMC_WarfareBBarracks:Default {
+		offset[]={0,15,0};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","forest_large_net_kit","ItemSandbagExLarge5x","ItemSandbagExLarge5x","ItemSandbagExLarge5x","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack"};
+		};	
+	class MAP_fortified_nest_big:Default {
+		offset[]={0,10,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","bulk_ItemSandbag","bulk_ItemSandbag","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack"};
+		};	
+	class MAP_fortified_nest_small:Default {
+		offset[]={0,8,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemHatchet_DZE"};
+		requiredmaterials[] ={"ItemTopaz","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack","ItemCanvas"};
+		};	
+	class MAP_Pristresek_mensi:Default {
+		offset[]={0,8,0};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemHatchet_DZE"};
+		requiredmaterials[] ={"ItemTopaz","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack","ItemCanvas"};
+		};	
+	class MAP_Mil_Mil_Guardhouse:Default {
+		offset[]={0,10,2};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","ItemBriefcase100oz","bulk_PartGeneric","PartPlywoodPack","PartPlankPack","PartPlankPack","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks"};				
+		};	
+	class MAP_GuardShed:Default {
+		offset[]={0,8,2};
+		requiredtools[] = {"ItemToolbox","ItemHatchet_DZE","ItemKnife"};		
+		requiredmaterials[] ={"ItemTopaz","PartPlankPack","PartPlankPack","PartPlankPack"};		
+	};	
+	class MAP_Fortress_02:Default {
+		offset[]={0,10,2};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","bulk_ItemSandbag","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","ItemCanvas","ItemCanvas"};
+		};	
+	class MAP_Fortress_01:Default {
+		offset[]={0,8,1};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","ItemCanvas"};
+		};	
+	class WarfareBDepot:Default {
+		offset[]={0,17,3};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemEtool","ItemSledge"};
+		requiredmaterials[] ={"ItemTopaz","ItemBriefcase100oz","ItemBriefcase100oz","ItemSandbagExLarge5x","ItemSandbagExLarge5x","bulk_ItemSandbag","bulk_ItemSandbag","bulk_ItemSandbag","bulk_ItemSandbag","bulk_ItemSandbag","PartPlankPack","PartPlankPack"};
+		};	
+	
+	};
+	class Tents{			//8
+	class MAP_MASH:DefaultTentsS {};
+	class MAP_Stan:DefaultTentsS {};
+	class MAP_tent_small_west:DefaultTentsS {};
+	class MAP_Stan_east:DefaultTentsM {};
+	class MAP_tent_east:DefaultTentsM {};
+	class MAP_tent2_west:DefaultTentsM {};
+	class CDF_WarfareBFieldhHospital:DefaultTentsL {};
+	class USMC_WarfareBFieldhHospital:DefaultTentsL {};		
+	};
+	class Towers{			//2
+		class MAP_vez:Default {
+		offset[]={0,5,4};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};		
+		requiredmaterials[] ={"ItemEmerald","bulk_PartGeneric","metal_panel_kit"};
+		};			
+	};
+	
+	//Emerald - Exterior Items
+	//119
+	class Barrels{				//13
+	class MAP_Barel1:DefaultBarrel {};
+	class MAP_Barel3:DefaultBarrel {};
+	class MAP_Barel4:DefaultBarrel {};
+	class MAP_Barel5:DefaultBarrel {};
+	class MAP_Barel6:DefaultBarrel {};
+	class MAP_Barel7:DefaultBarrel {};
+	class MAP_Barel8:DefaultBarrel {};
+	class MAP_Barels:DefaultBarrels {};
+	class MAP_Barels2:DefaultBarrels {};
+	class MAP_Barels3:DefaultBarrels {};
+	class MAP_barrel_empty:DefaultBarrel {};
+	class MAP_barrel_sand:DefaultBarrel {};
+	class MAP_barrel_water:DefaultBarrel {};
+	};
+	class CargoContainers{     	//16
+	class Land_Crates_EP1:DefaultCargoContainersS {}; //3 small plastic
+	class Land_Misc_Cargo1E_EP1:DefaultCargoContainersL {};
+	class Land_Misc_Cargo1Eo_EP1:DefaultCargoContainersL {};	
+	class Land_Misc_Cargo2E:DefaultCargoContainersL {};
+	class Land_Misc_Cargo2E_EP1:DefaultCargoContainersL {};
+	class Misc_Cargo1B_military:DefaultCargoContainersL {};	
+	class Land_transport_crates_EP1:DefaultCargoContainersW {}; //5 wooden
+	class MAP_drevena_bedna:DefaultCargoContainersW {}; //1 wooden
+	class MAP_metalcrate:DefaultCargoContainersS {}; //FSloot crate green
+	class MAP_metalcrate_02:DefaultCargoContainersS {}; //FSloot crate blue
+	class MAP_Misc_cargo_cont_net1:DefaultCargoContainersS {}; //1
+	class MAP_Misc_cargo_cont_net2:DefaultCargoContainersM {}; //3
+	class MAP_Misc_cargo_cont_net3:DefaultCargoContainersL {}; //7
+	class MAP_Misc_cargo_cont_small:DefaultCargoContainersS {}; //third cargo green
+	class MAP_Misc_cargo_cont_small2:DefaultCargoContainersS {}; //smaller white
+	class MAP_Misc_cargo_cont_tiny:DefaultCargoContainersS {}; //smaller white version 2
+
+	
+	};
+	class ConstructionSite{     //29  *
+	class Land_Ind_BoardsPack1:DefaultEmerald {};
+	class Land_Ind_BoardsPack2:DefaultEmerald {};
+	class Land_Misc_Coil_EP1:DefaultEmerald {};
+	class Land_Misc_ConcOutlet_EP1:DefaultEmerald {};
+	class Land_Misc_ConcPipeline_EP1:DefaultEmerald {};
+	class Land_Misc_GContainer_Big:DefaultEmerald {};
+	class Land_Wheel_cart_EP1:DefaultEmerald {};
+	class MAP_P_cihly1:DefaultEmerald {};
+	class MAP_P_cihly2:DefaultEmerald {};
+	class MAP_P_cihly3:DefaultEmerald {};
+	class MAP_P_cihly4:DefaultEmerald {};
+	class MAP_P_pipe_big:DefaultEmerald {};
+	class MAP_P_pipe_small:DefaultEmerald {};
+	class MAP_P_ytong:DefaultEmerald {};
+	class MAP_paletaA:DefaultEmerald {};
+	class MAP_paletyC:DefaultEmerald {};
+	class MAP_paletyD:DefaultEmerald {};
+	class MAP_Pallets_Column:DefaultEmerald {};
+	class MAP_Misc_G_Pipes:DefaultEmerald {};
+	class MAP_Misc_palletsfoiled:DefaultEmerald {};
+	class MAP_Misc_palletsfoiled_heap:DefaultEmerald {};
+	class Misc_concrete:DefaultEmerald {};
+	class MAP_Ind_Timbers:DefaultEmerald {};
+	class MAP_P_Stavebni_kozy:DefaultEmerald {};	
+	class MAP_P_bedna:DefaultEmerald {};	
+	class MAP_garbage_misc:DefaultEmerald {};
+	class MAP_garbage_paleta:DefaultEmerald {};
+	class MAP_Misc_TyreHeap:DefaultEmerald {};
+	class MAP_pneu:DefaultEmerald {};
+	};
+	class MiscLarge{           	//18  *
+	class Land_Ind_TankSmall:Default {
+		offset[]={0,5,1};	
+		requiredmaterials[] ={"ItemEmerald","ItemBriefcase100oz","PartFueltank","PartFueltank","PartFueltank","bulk_PartGeneric"};		
+		requiredtools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};	
+	};		
+	class Land_Misc_ConcBox_EP1:DefaultEmerald {};
+	class MAP_AirCond_big:DefaultEmerald {};
+	class MAP_AirCond_small:DefaultEmerald {};
+	class MAP_AirCondition_A:DefaultEmerald {};
+	class MAP_AirCondition_B:DefaultEmerald {};
+	class MAP_antenna_big_roof:DefaultEmerald {};
+	class MAP_antenna_small_roof:DefaultEmerald {};
+	class MAP_antenna_small_roof_1:DefaultEmerald {};
+	class MAP_bouda_plech:DefaultEmerald {};
+	class MAP_drevo_hromada:DefaultEmerald {};
+	class MAP_kasna_new:DefaultEmerald {};
+	class MAP_kulna:DefaultEmerald {};
+	class MAP_Misc_Greenhouse:DefaultEmerald {};
+	class MAP_Misc_Hutch:DefaultEmerald {};
+	class MAP_PowerGenerator:DefaultEmerald {};
+	class Pile_of_wood:DefaultEmerald {};
+	class MAP_Misc_WoodPile:DefaultEmerald {};
+	};
+	class MiscSmall{           	//25  *
+	class Axe_woodblock:DefaultEmerald {};
+	class Garbage_can:DefaultEmerald {};	
+	class Garbage_container:DefaultEmerald {};
+	class MAP_popelnice:DefaultEmerald {};
+	class Haystack_small:DefaultEmerald {};
+	class Land_cages_EP1:DefaultEmerald {};
+	class Land_Campfire_burning:DefaultEmerald {};
+	class Land_transport_cart_EP1:DefaultEmerald {};
+	class MAP_ChickenCoop:DefaultEmerald {};
+	class MAP_fire:DefaultEmerald {};
+	class MAP_GasMeterExt:DefaultEmerald {};	
+	class MAP_KBud:DefaultEmerald {};
+	class MAP_Misc_Boogieman:DefaultEmerald {};
+	class MAP_Misc_loudspeakers:DefaultEmerald {};
+	class MAP_Misc_PostBox:DefaultEmerald {};
+	class MAP_parabola_big:DefaultEmerald {};	
+	class MAP_phone_box:DefaultEmerald {};
+	class MAP_psi_bouda:DefaultEmerald {};
+	class MAP_snowman:DefaultEmerald {};
+	class MAP_Sphere:DefaultEmerald {};
+	class MAP_Sphere2:DefaultEmerald {};
+	class MAP_Toilet:DefaultEmerald {};
+	class MAP_Piskoviste:DefaultEmerald {};
+	class MAP_Houpacka:DefaultEmerald {};
+	class MAP_brana:DefaultEmerald {};	
+	};
+	class Scaffolding{         	//3
+	class MAP_leseni2x:Default {
+		offset[]={0,3,1.5};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar"};		
+		requiredmaterials[] ={"ItemEmerald","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","PartPlankPack","PartPlankPack"};
+		};
+	class MAP_leseni4x:Default {
+		offset[]={0,3,3.5};
+		requiredtools[] = {"ItemToolbox","ItemCrowbar"};		
+		requiredmaterials[] ={"ItemEmerald","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","PartPlankPack","PartPlankPack","PartPlankPack","PartPlankPack"};
+		};
+	class MAP_Misc_Scaffolding:Default {
+		offset[]={0,5,2.5};
+	    requiredtools[] = {"ItemToolbox","ItemCrowbar"};		
+		requiredmaterials[] ={"ItemEmerald","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","PartPlankPack","PartPlankPack"};
+			
+	};	
+	};
+	class Sunshades{           	//15
+	class Land_covering_hut_EP1:DefaultSunshadesW {};
+	class Land_covering_hut_big_EP1:DefaultSunshadesW {};
+	class Land_Market_shelter_EP1:DefaultSunshadesW {};		
+	class Land_sunshade_EP1:DefaultSunshadesW {};
+	class MAP_Camo_Box:DefaultSunshadesW {};
+	class MAP_CamoNet_EAST:DefaultSunshadesS {};
+	class MAP_CamoNet_EAST_var1:DefaultSunshadesM {};
+	class MAP_CamoNetB_EAST:DefaultSunshadesL {};
+	class MAP_CamoNet_NATO:DefaultSunshadesS {};
+	class MAP_CamoNet_NATO_var1:DefaultSunshadesM {};
+	class MAP_CamoNetB_NATO:DefaultSunshadesL {};
+	class MAP_Pristresek:DefaultSunshadesL {};
+	class MAP_stanek_3:DefaultSunshadesW {};
+	class MAP_stanek_3B:DefaultSunshadesW {};
+	class MAP_stanek_3_d:DefaultSunshadesW {};	
+	};
+
+ 	//Amethyst - Signage
+	//110
+	class Billboards{		//20
+	class MAP_Bilboard_alkohol:DefaultBillboards {};
+	class MAP_Bilboard_Beach:DefaultBillboards {};
+	class MAP_Bilboard_Bienvenudo:DefaultBillboards {};
+	class MAP_Bilboard_cibulka:DefaultBillboards {};
+	class MAP_Bilboard_cigara_chernomorky:DefaultBillboards {};
+	class MAP_Bilboard_Escape:DefaultBillboards {};
+	class MAP_Bilboard_Everon:DefaultBillboards {};
+	class MAP_Bilboard_hlinik:DefaultBillboards {};
+	class MAP_Bilboard_likery_bardak:DefaultBillboards {};
+	class MAP_Bilboard_Nogova:DefaultBillboards {};
+	class MAP_Bilboard_pizza_presto:DefaultBillboards {};
+	class MAP_Bilboard_Riviera:DefaultBillboards {};
+	class MAP_Bilboard_seci_stroje:DefaultBillboards {};
+	class MAP_Bilboard_smadny_maskrnik:DefaultBillboards {};
+	class MAP_Bilboard_strana_noveho_radu:DefaultBillboards {};
+	class MAP_Bilboard_toaletak_armasan:DefaultBillboards {};
+	class MAP_Bilboard_veterans_choice:DefaultBillboards {};
+	class MAP_Bilboard_volte_cernaruske_hnuti:DefaultBillboards {};
+	class MAP_Bilboard_vstup_do_CDF:DefaultBillboards {};
+	class MAP_Bilboard_zlute_zgrynda:DefaultBillboards {};
+	};
+	class Boards{			//7
+	class Sign_Checkpoint:DefaultBoards {};
+	class Sign_Checkpoint_TK_EP1:DefaultBoards {};
+	class Sign_Checkpoint_US_EP1:DefaultBoards {};
+	class Sign_Danger:DefaultBoards {};
+	class Sign_MP_blu_EP1:DefaultBoards {};
+	class Sign_MP_ind_EP1:DefaultBoards {};
+	class Sign_MP_op_EP1:DefaultBoards {};
+	};
+	class Helipads{			//6
+	class HeliH:DefaultHelipads {};
+	class HeliHCivil:DefaultHelipads {};
+	class HeliHRescue:DefaultHelipads {};
+	class MAP_Heli_H_army:DefaultHelipads {};	
+	class MAP_Heli_H_cross:DefaultHelipads {};
+	class Sr_border:DefaultHelipads {};
+	};
+	class Informational{	//15
+	class MAP_sign_accomodation:DefaultSignsMisc {};
+	class MAP_sign_bus:DefaultSignsMisc {};
+	class MAP_sign_food:DefaultSignsMisc {};
+	class MAP_sign_fuel_new:DefaultSignsMisc {};
+	class MAP_sign_hospital_new:DefaultSignsMisc {};
+	class MAP_sign_parking_new:DefaultSignsMisc {};
+	class MAP_sign_pedCrossing:DefaultSignsMisc {};
+	class MAP_sign_port:DefaultSignsMisc {};
+	class MAP_sign_service_new:DefaultSignsMisc {};
+	class MAP_sign_blindWay_new:DefaultSignsMisc {};
+	class MAP_sign_blindWay_left_new:DefaultSignsMisc {};
+	class MAP_sign_blindWay_right_new:DefaultSignsMisc {};
+	class MAP_sign_leftDirection_new:DefaultSignsMisc {};
+	class MAP_sign_oneWay:DefaultSignsMisc {};
+	class MAP_sign_rightDirection_new:DefaultSignsMisc {};
+	};
+	class RoadsMisc{		//12
+	class FlagCarrierChecked:DefaultSignsMisc {};	
+	class FlagCarrierSmall:DefaultSignsMisc {};
+	class Land_arrows_desk_R:DefaultRoadMisc {};
+	class Land_arrows_desk_L:DefaultRoadMisc {};	
+	class RoadCone:DefaultAmethyst {};	
+	class Land_coneLight:DefaultAmethyst {};		
+	class Land_RedWhiteBarrier:DefaultSignsMisc {};
+	class MAP_arrows_yellow_L:DefaultSignsMisc {};		
+	class MAP_arrows_yellow_R:DefaultSignsMisc {};	
+	class RoadBarrier_long:DefaultSignsMisc {};
+	class RoadBarrier_light:DefaultSignsMisc {};
+	class Sign_tape_redwhite:DefaultRoadMisc {};	
+	};
+	class SignsMisc{		//13
+	class MAP_rail_50km:DefaultSignsMisc {};
+	class MAP_rail_KoniecNastupista:DefaultSignsMisc {};
+	class MAP_rail_o25m_Priecestie:DefaultSignsMisc {};
+	class MAP_rail_Priecestie:DefaultSignsMisc {};
+	class MAP_Zastavka_cedule:DefaultSignsMisc {};
+	class MAP_Zastavka_stojan:DefaultSignsMisc {};
+	class MAP_sign_prejezd:DefaultSignsMisc {};
+	class MAP_sign_prejezd2:DefaultSignsMisc {};
+	class MAP_sign_prejezd3:DefaultSignsMisc {};
+	class MAP_sign_danger_mines:DefaultSignsMisc {};
+	class MAP_sign_danger1:DefaultSignsMisc {};
+	class Sign_1L_Firstaid:DefaultSignsMisc {};
+	class Sign_1L_Firstaid_EP1:DefaultSignsMisc {};
+	};
+	class TrafficSigns{		//37
+	class MAP_sign_airport_new:DefaultSignsMisc {};
+	class MAP_sign_badRoadside:DefaultSignsMisc {};
+	class MAP_sign_children_new:DefaultSignsMisc {};
+	class MAP_sign_cow_new:DefaultSignsMisc {};
+	class MAP_sign_crossRoad_new:DefaultSignsMisc {};
+	class MAP_sign_crossRoadMain_new:DefaultSignsMisc {};
+	class MAP_sign_danger:DefaultSignsMisc {};
+	class MAP_sign_deer_new:DefaultSignsMisc {};
+	class MAP_sign_downHill_new:DefaultSignsMisc {};
+	class MAP_sign_fallingStones_new:DefaultSignsMisc {};
+	class MAP_sign_flyAWayGrit:DefaultSignsMisc {};
+	class MAP_sign_left_new:DefaultSignsMisc {};
+	class MAP_sign_pass_new:DefaultSignsMisc {};
+	class MAP_sign_right_new:DefaultSignsMisc {};
+	class MAP_sign_roadworks_new:DefaultSignsMisc {};
+	class MAP_sign_serpentine_left_new:DefaultSignsMisc {};
+	class MAP_sign_serpentine_right_new:DefaultSignsMisc {};
+	class MAP_sign_train:DefaultSignsMisc {};
+	class MAP_sign_upHil_new:DefaultSignsMisc {};
+	class MAP_sign_snow_new:DefaultSignsMisc {};
+	class MAP_sign_snowChains:DefaultSignsMisc {};
+	class MAP_sign_snowChains_end:DefaultSignsMisc {};
+	class MAP_sign_heightLimit:DefaultSignsMisc {};
+	class MAP_sign_krizeni_s_trati:DefaultSignsMisc {};
+	class MAP_sign_main_new:DefaultSignsMisc {};
+	class MAP_sign_main_end_new:DefaultSignsMisc {};
+	class MAP_sign_noDriving_new:DefaultSignsMisc {};
+	class MAP_sign_noDrivingWronWay_new:DefaultSignsMisc {};
+	class MAP_sign_noOverTaking:DefaultSignsMisc {};
+	class MAP_sign_priority_new:DefaultSignsMisc {};
+	class MAP_sign_speed20:DefaultSignsMisc {};
+	class MAP_sign_speed50:DefaultSignsMisc {};
+	class MAP_sign_stop_new:DefaultSignsMisc {};
+	class MAP_sign_stopProhibited_new:DefaultSignsMisc {};
+	class MAP_sign_tractorProhibited:DefaultSignsMisc {};
+	class MAP_sign_wiatingProhibited_new:DefaultSignsMisc {};
+	class MAP_sign_widthLimit:DefaultSignsMisc {};
+	};
+		
+	//Obsidian - From the Ground
+	//78
+	class Bushes{			//10
+	class MAP_b_betulaHumilis:DefaultBushes {};		
+	class MAP_b_canina2s:DefaultBushes {};		
+	class MAP_b_corylus:DefaultBushes {};		
+	class MAP_b_corylus2s:DefaultBushes {};		
+	class MAP_b_craet1:DefaultBushes {};		
+	class MAP_b_craet2:DefaultBushes {};		
+	class MAP_b_pmugo:DefaultBushes {};		
+	class MAP_b_prunus:DefaultBushes {};		
+	class MAP_b_salix2s:DefaultBushes {};		
+	class MAP_b_sambucus:DefaultBushes {};		
+	};
+	class SmallPlants{		//29
+	class MAP_c_autumn_flowers:DefaultBushes {};
+	class MAP_c_blueBerry:DefaultBushes {};
+	class MAP_c_caluna:DefaultBushes {};
+	class MAP_c_fern:DefaultBushes {};
+	class MAP_c_fernTall:DefaultBushes {};
+	class MAP_c_GrassCrookedForest:DefaultBushes {};
+	class MAP_c_GrassCrookedGreen:DefaultBushes {};
+	class MAP_c_GrassDryLong:DefaultBushes {};
+	class MAP_c_GrassTall:DefaultBushes {};
+	class MAP_c_leaves:DefaultBushes {};
+	class MAP_c_MushroomBabka:DefaultBushes {};
+	class MAP_c_MushroomHorcak:DefaultBushes {};
+	class MAP_c_MushroomMuchomurka:DefaultBushes {};
+	class MAP_c_MushroomPrasivky:DefaultBushes {};
+	class MAP_c_picea:DefaultBushes {};
+	class MAP_c_PlantsAutumnForest:DefaultBushes {};
+	class MAP_c_raspBerry:DefaultBushes {};
+	class MAP_C_SmallLeafPlant:DefaultBushes {};
+	class MAP_c_wideLeafPlant:DefaultBushes {};
+	class MAP_flower_01:DefaultBushes {};
+	class MAP_flower_02:DefaultBushes {};
+	class MAP_p_articum:DefaultBushes {};
+	class MAP_p_carduus:DefaultBushes {};
+	class MAP_p_Helianthus:DefaultBushes {};
+	class MAP_p_heracleum:DefaultBushes {};
+	class MAP_p_Phragmites:DefaultBushes {};
+	class MAP_p_urtica:DefaultBushes {};
+	class MAP_pumpkin:DefaultBushes {};
+	class MAP_pumpkin2:DefaultBushes {};
+	};
+	class SmallTrees{		//13
+	class MAP_t_betula1f:DefaultSmallTrees {offset[]={0,10,2};	//-5
+	};
+	class MAP_t_betula2w:DefaultSmallTrees {offset[]={0,10,2};	//-5
+	};
+	class MAP_t_fagus2W:DefaultSmallTrees {};
+	class MAP_t_fraxinus2W:DefaultSmallTrees {};
+	class MAP_t_malus1s:DefaultSmallTrees {};
+	class MAP_t_picea1s:DefaultSmallTrees {};
+	class MAP_t_pinusN1s:DefaultSmallTrees {};
+	};
+	class MediumTrees{
+	class MAP_t_alnus2s:DefaultMediumTrees {};	
+	class MAP_t_carpinus2s:DefaultMediumTrees {offset[]={0,10,9};	//+2
+	};
+	class MAP_t_betula2s:DefaultMediumTrees {offset[]={0,10,11};	//+4
+	};
+	class MAP_t_fagus2s:DefaultMediumTrees {offset[]={0,10,8};		//+1
+	};
+	class MAP_t_pyrus2s:DefaultMediumTrees {};
+	class MAP_t_salix2s:DefaultMediumTrees {};
+	class MAP_t_sorbus2s:DefaultMediumTrees {};
+	};
+	class LargeTrees{		//14
+	class MAP_t_acer2s:DefaultLargeTrees {offset[]={0,10,9};	//-2
+	};
+	class MAP_t_betula2f:DefaultLargeTrees {};
+	class MAP_t_fagus2f:DefaultLargeTrees {offset[]={0,10,14};	//+3
+	};
+	class MAP_t_fraxinus2s:DefaultLargeTrees {offset[]={0,10,9}; //-2	
+	};
+	class MAP_t_larix3f:DefaultLargeTrees {offset[]={0,10,13}; //+2	
+	};
+	class MAP_t_larix3s:DefaultLargeTrees {};
+	class MAP_t_picea2s:DefaultLargeTrees {offset[]={0,10,8};	//-3
+	};
+	class MAP_t_picea3f:DefaultLargeTrees {offset[]={0,10,15};	//+4
+	};
+	class MAP_t_pinusN2s:DefaultLargeTrees {offset[]={0,10,9}; //-2		
+	};
+	class MAP_t_pinusS2f:DefaultLargeTrees {};
+	class MAP_t_populus3s:DefaultLargeTrees {offset[]={0,10,14};	//+3	
+	};
+	class MAP_t_quercus2f:DefaultLargeTrees {};
+	class MAP_t_quercus3s:DefaultLargeTrees {};
+	};
+	class TheDead{			//7
+	class Hanged:Default {
+        offset[]={0,3,3};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian","ItemZombieParts","ItemZombieParts","ItemCanvas"};
+			
+	};
+	class Hanged_MD:Default {
+        offset[]={0,3,4};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian","ItemZombieParts","ItemZombieParts","ItemCanvas"};	
+	};
+	class Body:Default {
+        offset[]={0,3,0};
+		requiredtools[] = {"ItemToolbox","ItemEtool"};
+		requiredmaterials[] ={"ItemObsidian","ItemZombieParts","ItemCanvas","ItemCanvas"};
+		};
+	class GraveCross1:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemHatchet_DZE"};
+		requiredmaterials[] ={"ItemObsidian","PartWoodLumber"};
+	};
+	class GraveCross2:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemHatchet_DZE"};
+		requiredmaterials[] ={"ItemObsidian","PartWoodLumber"};
+	};
+	class GraveCrossHelmet:Default {
+		offset[]={0,3,1};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemHatchet_DZE"};
+		requiredmaterials[] ={"ItemObsidian","PartWoodLumber"};
+	};
+	class Mass_grave:Default {
+		offset[]={0,6,0};
+		requiredtools[] = {"ItemToolbox","ItemEtool","ItemHatchet_DZE"};
+		requiredmaterials[] ={"ItemObsidian","ItemZombieParts","ItemZombieParts","ItemZombieParts","ItemZombieParts","ItemZombieParts","ItemZombieParts"};
+	};	
+	};
+	class Wells{			//5
+	class Land_Misc_Well_C_EP1:DefaultWells {};	
+	class Land_Misc_Well_L_EP1:DefaultWells {};	
+	class MAP_Misc_Well:DefaultWells {};	
+	class MAP_Misc_WellPump:DefaultWells {};	
+	class MAP_pumpa:DefaultWells {};	
+	};	  
+  	
+	
+	//Sapphire - Flags
+	//26
+	class FlagsNations{			    //6
+	class FlagCarrierBAF:DefaultFlag {};
+	class FlagCarrierCzechRepublic_EP1:DefaultFlag {};
+	class FlagCarrierGermany_EP1:DefaultFlag {};
+	class FlagCarrierTakistanKingdom_EP1:DefaultFlag {};
+	class FlagCarrierRU:DefaultFlag {};
+	class FlagCarrierUSA:DefaultFlag {};
+	};
+	class FlagsOrganizations{		//8
+	class FlagCarrierCDFEnsign_EP1:DefaultFlag {};
+	class FlagCarrierCDF_EP1:DefaultFlag {};
+	class FlagCarrierINS:DefaultFlag {};
+	class FlagCarrierNATO_EP1:DefaultFlag {};
+	class FlagCarrierTFKnight_EP1:DefaultFlag {};
+	class FlagCarrierTKMilitia_EP1:DefaultFlag {};
+	class FlagCarrierUNO_EP1:DefaultFlag {};
+	class FlagCarrierUSArmy_EP1:DefaultFlag {};	
+	};
+	class FlagsMedical{				//3
+	class FlagCarrierRedCrescent_EP1:DefaultFlag {};
+	class FlagCarrierRedCross_EP1:DefaultFlag {};
+	class FlagCarrierRedCrystal_EP1:DefaultFlag {};	
+	};
+	class FlagsPlain{				//4
+	class FlagCarrierBLUFOR_EP1:DefaultFlag {};	
+	class FlagCarrierINDFOR_EP1:DefaultFlag {};
+	class FlagCarrierOPFOR_EP1:DefaultFlag {};		
+	class FlagCarrierWhite_EP1:DefaultFlag {};	
+	};
+	class FlagsMisc{				//5
+	class FlagCarrierArmex_EP1:DefaultFlag {};	
+	class FlagCarrierBIS_EP1:DefaultFlag {};	
+	class FlagCarrierIONblack_PMC:DefaultFlag {};	
+	class FlagCarrierIONwhite_PMC:DefaultFlag {};	
+	class FlagCarrierPOWMIA_EP1:DefaultFlag {};		
+	};	
+ 
+	//Ruby - Interior Items - Furniture 
+	//69
+	class Beds{        			//7
+	class MAP_bed_husbands:DefaultBeds {};
+	class MAP_F_postel_manz_kov:DefaultBeds {};
+	class MAP_F_postel_panelak2:DefaultBeds {};
+	class MAP_F_Vojenska_palanda:DefaultBeds {};
+	class MAP_postel_manz_kov:DefaultBeds {};
+	class MAP_postel_panelak1:DefaultBeds {};
+	class MAP_vojenska_palanda:DefaultBeds {};	
+	};
+	class Benches{     			//8
+	class Bleacher_EP1:DefaultBenches {};
+	class Land_Bench_EP1:DefaultBenches {};
+	class MAP_Church_chair:DefaultBenches {};
+	class MAP_hospital_bench:DefaultBenches {};
+	class MAP_lavicka_1:DefaultBenches {};
+	class MAP_lavicka_2:DefaultBenches {};
+	class MAP_lavicka_3:DefaultBenches {};
+	class MAP_lavicka_4:DefaultBenches {};	
+	};
+	class Cabinets{    			//20
+	class Land_Cabinet_EP1:DefaultCabinets {};
+	class Land_Chest_EP1:DefaultCabinets {};	
+	class MAP_almara:DefaultCabinets {};
+	class MAP_case_a:DefaultCabinets {};
+	class MAP_case_bedroom_a:DefaultCabinets {};
+	class MAP_case_bedroom_b:DefaultCabinets {};
+	class MAP_case_cans_b:DefaultCabinets {};
+	class MAP_case_d:DefaultCabinets {};
+	class MAP_case_wall_unit_part_c:DefaultCabinets {};
+	class MAP_case_wall_unit_part_d:DefaultCabinets {};
+	class MAP_case_wooden_b:DefaultCabinets {};
+	class MAP_Dhangar_borwnskrin:DefaultCabinets {};
+	class MAP_Dhangar_brownskrin:DefaultCabinets {};
+	class MAP_Dhangar_knihovna:DefaultCabinets {};
+	class MAP_Dhangar_whiteskrin:DefaultCabinets {};	
+	class MAP_library_a:DefaultCabinets {};
+	class MAP_Skrin_bar:DefaultCabinets {};
+	class MAP_Skrin_opalena:DefaultCabinets {};
+	class MAP_Truhla_stara:DefaultCabinets {};	
+};	
+	class Chairs{     			//12
+	class FoldChair:DefaultChairs {};
+	class Land_Chair_EP1:DefaultChairs {};
+	class MAP_armchair:DefaultChairs {};
+	class MAP_ch_mod_c:DefaultChairs {};
+	class MAP_ch_mod_h:DefaultChairs {};
+	class MAP_ch_office_B:DefaultChairs {};
+	class MAP_F_ch_mod_c:DefaultChairs {};
+	class MAP_chair:DefaultChairs {};
+	class MAP_kitchen_chair_a:DefaultChairs {};
+	class MAP_lobby_chair:DefaultChairs {};
+	class MAP_office_chair:DefaultChairs {};
+	class WoodChair:DefaultChairs {};
+		};
+	class Desks{       			//4
+	class Desk:DefaultCabinets {};
+	class MAP_conference_table_a:DefaultCabinets {};
+	class MAP_Dhangar_psacistul:DefaultCabinets {};
+	class MAP_office_table_a:DefaultCabinets {};
+		};
+	class Shelves{     			//8
+		class Land_Rack_EP1:DefaultBeds {};
+		class Land_Shelf_EP1:DefaultBeds {};
+		class MAP_case_d:DefaultBeds {};
+		class MAP_case_wall_unit_part_c:DefaultBeds {};
+		class MAP_case_wall_unit_part_d:DefaultBeds {};
+		class MAP_F_skrin_bar:DefaultBeds {};
+		class MAP_Skrin_bar:DefaultBeds {};
+		class MAP_library_a:DefaultBeds {};	
+		};
+	class Tables{      			//10
+	class FoldTable:DefaultBeds {};	
+	class Land_Table_EP1:DefaultBeds {};
+	class Land_Table_small_EP1:DefaultBeds {};	
+	class MAP_kitchen_table_a:DefaultBeds {};		
+	class MAP_lobby_table:DefaultBeds {};	
+	class MAP_SmallTable:DefaultBeds {};	
+	class MAP_stul_hospoda:DefaultBeds {};	
+	class MAP_stul_kuch1:DefaultBeds {};	
+	class MAP_Table:DefaultBeds {};	
+	class MAP_table_drawer:DefaultBeds {};	
+	};
+
+	//Citrine - Interior Items - Other
+	//80
+	class Appliances{   	//6   
+	class MAP_Dkamna_bila:DefaultAppliances {};
+	class MAP_Dkamna_uhli:DefaultAppliances {};
+	class MAP_F_Dkamna_uhli:DefaultAppliances {};	
+	class MAP_fridge:DefaultAppliances {};
+	class MAP_Kitchenstove_Elec:DefaultAppliances {};
+	class MAP_washing_machine:DefaultAppliances {};	
+	};
+	class Bathroom{       	//7
+	class MAP_F_bath:DefaultBathroom {};
+	class MAP_lekarnicka:DefaultBathroom {};
+	class MAP_P_Basin_A:DefaultBathroom {};
+	class MAP_P_bath:DefaultBathroom {};
+	class MAP_P_sink:DefaultBathroom {};
+	class MAP_P_toilet_b_02:DefaultBathroom {};
+	class MAP_toilet_b:DefaultBathroom {};	
+	};
+	class Commercial{      	//10
+	class Land_Bag_EP1:DefaultCitrine {};	
+	class Land_bags_EP1:DefaultCitrine {};	
+	class Land_Basket_EP1:DefaultCitrine {};	
+	class Land_Sack_EP1:DefaultCitrine {};	
+	class Land_Wicker_basket_EP1:DefaultCitrine {};	
+	class MAP_icebox:DefaultBathroom {};	
+	class MAP_lobby_counter:DefaultBathroom {};	
+	class MAP_pultskasou:DefaultCitrine {};	
+	class MAP_shelf:DefaultBathroom {};	
+	class MAP_vending_machine:DefaultBathroom {};		
+	};
+	class Electronics{     	//11
+	class MAP_misc_videoprojector:DefaultElectronics {};
+	class MAP_misc_videoprojector_platno:DefaultElectronics {};
+	class MAP_mutt_vysilacka:DefaultElectronics {};
+	class MAP_notebook:DefaultElectronics {};
+	class MAP_pc:DefaultElectronics {};
+	class MAP_phonebox:DefaultElectronics {};
+	class MAP_radio_b:DefaultElectronics {};
+	class MAP_satelitePhone:DefaultElectronics {};
+	class MAP_tv_a:DefaultElectronics {};
+	class Radio:DefaultElectronics {};
+	class SmallTV:DefaultElectronics {};	
+	};
+	class FloorCoverings{  	//5
+	class Land_Blankets_EP1:DefaultFloorCoverings {};	
+	class Land_Carpet_2_EP1:DefaultFloorCoverings {};	
+	class Land_Carpet_EP1:DefaultFloorCoverings {};
+	class Land_Carpet_rack_EP1:DefaultFloorCoverings {};	
+	class Land_Pillow_EP1:DefaultFloorCoverings {};		
+	};
+	class MiscInterior{    	//21
+	class Can_small:DefaultCitrine {};	
+	class FloorMop:DefaultCitrine {};
+	class Land_Bowl_EP1:DefaultCitrine {};	
+	class Land_Bucket_EP1:DefaultCitrine {};
+	class Land_Canister_EP1:DefaultCitrine {};	
+	class Land_Teapot_EP1:DefaultCitrine {};
+	class Land_Urn_EP1:DefaultCitrine {};	
+	class Land_Vase_EP1:DefaultCitrine {};
+	class Land_Vase_loam_EP1:DefaultCitrine {};	
+	class Land_Vase_loam_2_EP1:DefaultCitrine {};
+	class Land_Vase_loam_3_EP1:DefaultCitrine {};	
+	class Land_Water_pipe_EP1:DefaultCitrine {};
+	class MAP_briefcase:DefaultCitrine {};	
+	class MAP_bucket:DefaultCitrine {};
+	class MAP_FuelCan:DefaultCitrine {};	
+	class MAP_MetalBucket:DefaultCitrine {};
+	class MAP_SmallObj_money:DefaultCitrine {};	
+	class MAP_SmallObj_spukayev_docs_WPN:DefaultCitrine {};
+	class MAP_drapes:DefaultCitrine {};
+	class MAP_drapes_long:DefaultCitrine {};	
+	class MAP_box_c:DefaultCitrine {};	
+	};
+	class Pictures{        	//20
+	class MAP_nastenka2:DefaultPictures {};
+	class MAP_nastenkaX:DefaultPictures {};	
+	class MAP_obraz_kancl4:DefaultPictures {};	
+	class MAP_picture_a:DefaultPictures {};
+	class MAP_picture_a_02:DefaultPictures {};
+	class MAP_picture_a_03:DefaultPictures {};
+	class MAP_picture_a_04:DefaultPictures {};
+	class MAP_picture_a_05:DefaultPictures {};
+	class MAP_picture_b:DefaultPictures {};
+	class MAP_picture_b_02:DefaultPictures {};
+	class MAP_picture_c:DefaultPictures {};
+	class MAP_picture_c_02:DefaultPictures {};
+	class MAP_picture_d:DefaultPictures {};
+	class MAP_picture_e:DefaultPictures {};
+	class MAP_picture_f:DefaultPictures {};
+	class MAP_picture_f_02:DefaultPictures {};
+	class MAP_picture_g:DefaultPictures {};
+	class MAP_wall_board:DefaultPictures {};
+	class MAP_wall_board_02:DefaultPictures {};
+	class MAP_wall_board_03:DefaultPictures {};
+	};
+	
+	//Lightbulb - Lightbulbs + Fixtures
+	//33
+	class Lightbulbs{     	//10
+	class ASC_EU_BulbBLUP:DefaultLightbulbs {};	
+	class ASC_EU_BulbGRNP:DefaultLightbulbs {};	
+	class ASC_EU_BulbPURP:DefaultLightbulbs {};	
+	class ASC_EU_BulbREDP:DefaultLightbulbs {};	
+	class ASC_EU_BulbYELP:DefaultLightbulbs {};	
+	class ASC_EU_BulbBLUB:DefaultLightbulbs {};	
+	class ASC_EU_BulbGRNB:DefaultLightbulbs {};	
+	class ASC_EU_BulbPURB:DefaultLightbulbs {};	
+	class ASC_EU_BulbREDB:DefaultLightbulbs {};	
+	class ASC_EU_BulbYELB:DefaultLightbulbs {};		
+    };
+	class LightPoles{      	//11
+	class ASC_EU_LHVIndE:DefaultLightPoles {};
+	class ASC_EU_LHVIndB:DefaultLightPoles {};
+	class ASC_EU_LHVIndZ:DefaultLightPoles {};
+	class ASC_EU_LHVInd:DefaultLightPoles {};
+	class ASC_EU_LHV_lampa_sidlconc:DefaultLightPoles {};
+	class ASC_EU_LHVSidl3:DefaultLightPoles {};
+	class ASC_EU_LHVSidl2:DefaultLightPoles {};
+	class ASC_EU_LHVSidl1:DefaultLightPoles {};
+	class ASC_EU_LHVStre2:DefaultLightPoles {};
+	class ASC_EU_LHVStre1:DefaultLightPoles {};
+	class ASC_EU_LHVOld:DefaultLightPoles {};	
+	};
+	class Fixtures{        	//12
+	class LAND_ASC_Wall_Lamp_New:DefaultLightFixtures {};	
+	class LAND_ASC_Wall_Lamp_Old:DefaultLightFixtures {};	
+	class LAND_ASC_runway_Bluelight:DefaultLightFixtures {};	
+	class ASC_runway_BluelightB:DefaultLightFixtures {};	
+	class LAND_ASC_runway_Yellowlight:DefaultLightFixtures {};	
+	class ASC_runway_YellowlightB:DefaultLightFixtures {};	
+	class MAP_fluor_lamp:DefaultLightFixtures {};	
+	class MAP_lantern:DefaultLightFixtures {};	
+	class MAP_Light_BathRoom:DefaultLightFixtures {};	
+	class MAP_light_kitchen_03:DefaultLightFixtures {};	
+	class Misc_Wall_lamp:DefaultLightFixtures {};	
+	class Red_Light_Blinking_EP1:DefaultLightFixtures {};	
+	};
+		
+ };
+};	
+
+</pre>
+<p></p></blockquote><p></p>
+<p> </p>
+<p>custom_builds.sqf</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+/*
+DayZ Custom Buildables
+Made for DayZ Epoch please ask permission to use/edit/distrubute email <a class="__cf_email__" data-cfemail="acdacecddbc3c0ecdac9d8c9decdc2cecddfd8cddec8df82cfc3c1" href="https://epochmod.com/cdn-cgi/l/email-protection">[email protected]</a>.
+ 
+Edits by Mike of http://www.petuniaserver.com/ - Original file &amp; all kudos to the EPOCH devs! http://www.dayzepoch.com
+Edits and re-writes by hogscraper:
+Added code to see if player has tools and materials required to build item
+Removed a lot of code referencing lockables, plot pole placement and construction multiplier since part of that code was already removed
+Cleaned up a lot of old code that wasn't needed any more for this custom crafting
+Removed irrelevant variables from private block
+This file is called with zero parameters
+*/
+private ["_HT_temp","_HM_temp","_location","_dir","_classname","_cancel","_reason","_isMedic","_dis","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_zheightchanged","_rotate","_zheightdirection","_isNear","_objHupDiff","_vehicle","_inVehicle","_requireplot","_objHDiff"];
+
+ _AdminCraft=false;
+ _PUID = getPlayerUID player;
+
+ 
+if(_PUID in Admin_Crafting) then {
+ _AdminCraft=true;
+ };
+
+_lbIndex = lbCurSel 3901;
+_classname = lbText [3901,_lbIndex];
+
+if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
+DZE_ActionInProgress = true;
+ 
+_onLadder = (getNumber (configFile &gt;&gt; "CfgMovesMaleSdr" &gt;&gt; "States" &gt;&gt; (animationState player) &gt;&gt; "onLadder")) == 1;
+_isWater =  dayz_isSwimming;
+_cancel = false;
+_reason = "";
+_canBuildOnPlot = false;
+ 
+ //create arrays for checking whether or not the player
+ //has the correct tools and materials to make the desired item
+_requiredtools = getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "requiredtools");
+_requiredmaterials = getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "requiredmaterials");
+_RT_temp=getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "requiredtools");
+_RM_temp=getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "requiredmaterials");
+_SC_Cost=getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "cost");
+_hastools = false;
+_hasmaterials = false;
+_weaps=[];
+_mags=[];
+
+_weaps=weapons player;
+_mags=magazines player;
+_tmp_Pos=0;
+_counter=0;
+
+{
+_tmp_Pos= _weaps find _x;
+if (_tmp_Pos &gt; -1) then {
+_requiredtools set [_counter,objNull];
+_weaps set [_tmp_Pos,objNull];
+};
+_counter = _counter + 1;
+} 
+forEach _RT_temp;
+
+_requiredtools=_requiredtools-[objNull];
+_weaps=_weaps-[objNull];
+
+_tmp_Pos=0;
+_counter=0;
+{
+_tmp_Pos= _mags find _x;
+if (_tmp_Pos &gt; -1) then {
+_requiredmaterials set [_counter,objNull];
+_mags set [_tmp_Pos,objNull];
+};
+_counter = _counter + 1;
+} 
+forEach _RM_temp;
+_requiredmaterials=_requiredmaterials-[objNull];
+_mags=_mags-[objNull];
+
+if(((count _requiredmaterials) == 0) or (_AdminCraft)) then {
+_hasmaterials=true;
+};
+if(((count _requiredtools) == 0) or (_AdminCraft)) then {
+_hastools=true;
+};
+
+//Create the message to display if player is missing any of the required tools
+if (!_hasTools) then{
+_HT_temp="You are missing the following tools:";
+{  
+_HT_temp=_HT_temp+" " + getText (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _x &gt;&gt; "displayName");
+}foreach _requiredtools;
+};
+
+//Create the message to display if player is missing any of the required materials
+if (!_hasMaterials) then{
+_HM_temp="You are missing the following materials:";
+{  
+if(getText (configFile &gt;&gt; "CfgMagazines" &gt;&gt; _x &gt;&gt; "displayName")=="Supply Crate") then{
+_HM_temp=_HM_temp+" " + getText (configFile &gt;&gt; "CfgMagazines" &gt;&gt; _x &gt;&gt; "descriptionShort");
+}else{
+_HM_temp=_HM_temp+" " + getText (configFile &gt;&gt; "CfgMagazines" &gt;&gt; _x &gt;&gt; "displayName");
+};
+}foreach _requiredmaterials;
+};
+
+_vehicle = vehicle player;
+_inVehicle = (_vehicle != player);
+ 
+DZE_Q = false;
+DZE_Z = false;
+ 
+DZE_Q_alt = false;
+DZE_Z_alt = false;
+ 
+DZE_Q_ctrl = false;
+DZE_Z_ctrl = false;
+ 
+DZE_5 = false;
+DZE_4 = false;
+DZE_6 = false;
+ 
+DZE_cancelBuilding = false;
+ 
+call gear_ui_init;
+closeDialog 1;
+ 
+if (_isWater) exitWith {DZE_ActionInProgress = false; cutText [localize "str_player_26", "PLAIN DOWN"];};
+if (_inVehicle) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_42"), "PLAIN DOWN"];};
+if (_onLadder) exitWith {DZE_ActionInProgress = false; cutText [localize "str_player_21", "PLAIN DOWN"];};
+if (player getVariable["combattimeout", 0] &gt;= time) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_43"), "PLAIN DOWN"];};
+if (!_hasTools) exitWith {DZE_ActionInProgress = false; cutText [format["%1",_HT_temp], "PLAIN DOWN"];}; 
+if (!_hasMaterials) exitWith {DZE_ActionInProgress = false; cutText [format["%1",_HM_temp], "PLAIN DOWN"];}; 
+ 
+_text =  getText (configFile &gt;&gt; "CfgVehicles" &gt;&gt; _classname &gt;&gt; "displayName");
+ 
+_requireplot = DZE_requireplot;
+if(isNumber (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "requireplot")) then {
+_requireplot = getNumber(missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "requireplot");
+};
+if(_AdminCraft) then {
+_requireplot=0;
+};
+ 
+_offset =  getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "offset");
+if((count _offset) &lt;= 0) then {
+_offset = [0,3,0];
+};
+ 
+_distance = DZE_PlotPole select 0;
+ 
+// check for near plot
+_findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
+_findNearestPole = [];
+ 
+{
+if (alive _x) then {
+_findNearestPole set [(count _findNearestPole),_x];
+};
+} foreach _findNearestPoles;
+ 
+_IsNearPlot = count (_findNearestPole);
+
+// check nearby plot's ownership and then for friend status
+//if plot does not belong to player
+_nearestPole = _findNearestPole select 0;
+ 
+_ownerID = _nearestPole getVariable["CharacterID","0"];
+
+if(dayz_characterID == _ownerID) then {  //Keep ownership
+	_canBuildOnPlot = true;
+} else {
+
+/*
+_friendlies	= player getVariable ["friendlyTo",[]];
+if(_ownerID in _friendlies) then {
+	_canBuildOnPlot = true;
+	};	
+*/	
+	
+};
+//if plotpole is needed and none are within range or if what's in range does belong
+//to the player or a friendly we need to exit now
+
+if((_requireplot&gt;0) and ((_IsNearPlot==0)||(!_canBuildOnPlot))) exitWith {DZE_ActionInProgress = false; cutText ["Building of this item requires a plot pole within range!" , "PLAIN DOWN"]; }; 
+
+if( ([player, _SC_Cost] call SC_fnc_removeCoins)) exitWith {
+DZE_ActionInProgress = false; 
+cutText [format["You need %1 %2 to build this.",_SC_Cost, CurrencyName] , "PLAIN DOWN"];
+};
+
+_location = [0,0,0];
+_isOk = true;
+ 
+// get inital players position
+_location1 = getPosATL player;
+_dir = getDir player;
+ 
+_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+_object attachTo [player,_offset];
+
+if(_AdminCraft) then{
+} else {
+{
+player removeMagazine _x;
+} foreach _RM_temp;
+};
+
+
+
+_position = getPosATL _object;
+ cutText [(localize "str_epoch_player_45"), "PLAIN DOWN"];
+_objHDiff = 0;
+ 
+while {_isOk} do {
+
+_zheightchanged = false;
+_zheightdirection = "";
+_rotate = false;
+ 
+if (DZE_Q) then {
+DZE_Q = false;
+_zheightdirection = "up";
+_zheightchanged = true;
+};
+if (DZE_Z) then {
+DZE_Z = false;
+_zheightdirection = "down";
+_zheightchanged = true;
+};
+if (DZE_Q_alt) then {
+DZE_Q_alt = false;
+_zheightdirection = "up_alt";
+_zheightchanged = true;
+};
+if (DZE_Z_alt) then {
+DZE_Z_alt = false;
+_zheightdirection = "down_alt";
+_zheightchanged = true;
+};
+if (DZE_Q_ctrl) then {
+DZE_Q_ctrl = false;
+_zheightdirection = "up_ctrl";
+_zheightchanged = true;
+};
+if (DZE_Z_ctrl) then {
+DZE_Z_ctrl = false;
+_zheightdirection = "down_ctrl";
+_zheightchanged = true;
+};
+if (DZE_4) then {
+_rotate = true;
+DZE_4 = false;
+_dir = 180;
+};
+if (DZE_6) then {
+_rotate = true;
+DZE_6 = false;
+_dir = 0;
+};
+//Number keys above qwerty
+//1=turn clockwise 1/16th of a circle
+//2=detaches object from player - OBJECT MUST BE COMPLETELY ABOVE GROUND OR IT WILL DISAPPEAR!!
+//3=turn counter clockwise 1/16th of a circle
+if (AAC_1) then {
+_rotate = true;
+AAC_1 = false;
+_dir = _dir + 22.5;;
+};
+
+if (AAC_3) then {
+_rotate = true;
+AAC_3 = false;
+_dir = _dir - 22.5;
+};
+ 
+if(_rotate) then {
+_object setDir _dir;
+_object setPosATL _position;
+};
+ 
+if(_zheightchanged) then {
+detach _object;
+ 
+_position = getPosATL _object;
+ 
+if(_zheightdirection == "up") then {
+_position set [2,((_position select 2)+0.1)];
+_objHDiff = _objHDiff + 0.1;
+};
+if(_zheightdirection == "down") then {
+_position set [2,((_position select 2)-0.1)];
+_objHDiff = _objHDiff - 0.1;
+};
+ 
+if(_zheightdirection == "up_alt") then {
+_position set [2,((_position select 2)+1)];
+_objHupDiff = _objHupDiff + 1;
+};
+if(_zheightdirection == "down_alt") then {
+_position set [2,((_position select 2)-1)];
+_objHDiff = _objHDiff - 1;
+};
+ 
+if(_zheightdirection == "up_ctrl") then {
+_position set [2,((_position select 2)+0.01)];
+_objHupDiff = _objHupDiff + 0.01;
+};
+if(_zheightdirection == "down_ctrl") then {
+_position set [2,((_position select 2)-0.01)];
+_objHDiff = _objHDiff - 0.01;
+};
+ 
+_object setDir (getDir _object);
+_object setPosATL _position;
+_object attachTo [player];
+};
+ 
+sleep 0.5;
+ 
+_location2 = getPosATL player;
+ 
+if(DZE_5) exitWith {
+_isOk = false;
+detach _object;
+_dir = getDir _object;
+_position = getPosATL _object;
+deleteVehicle _object;
+};
+ 
+if(_location1 distance _location2 &gt; 5) exitWith {
+_isOk = false;
+_cancel = true;
+_reason = "You've moved to far away from where you started building (within 5 meters)";
+detach _object;
+deleteVehicle _object;
+};
+ 
+if(abs(_objHDiff) &gt; 5) exitWith {
+_isOk = false;
+_cancel = true;
+_reason = "Cannot move up or down more than 5 meters";
+detach _object;
+deleteVehicle _object;
+};
+ 
+if (player getVariable["combattimeout", 0] &gt;= time) exitWith {
+_isOk = false;
+_cancel = true;
+_reason = (localize "str_epoch_player_43");
+detach _object;
+deleteVehicle _object;
+};
+ 
+if (DZE_cancelBuilding) exitWith {
+_isOk = false;
+_cancel = true;
+_reason = "Cancelled building.";
+detach _object;
+deleteVehicle _object;
+};
+};
+ 
+//No building on roads unless toggled
+if (!DZE_BuildOnRoads) then {
+if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
+};
+ 
+// No building in trader zones
+if(!canbuild) then { _cancel = true; _reason = "Cannot build in a trader zone."; };
+ 
+if(!_cancel) then {
+
+// Start Build
+_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+ 
+_tmpbuilt setdir _dir;
+ 
+// Get position based on object
+_location = _position;
+ 
+_tmpbuilt setPosATL _location;
+
+cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
+ 
+player playActionNow "Medic";
+[player,"repair",0,false,10] call dayz_zombieSpeak;
+[player,10,true,(getPosATL player)] spawn player_alertZombies;
+
+ cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
+ 
+_tmpbuilt setVariable ["OEMPos",_location,true];
+_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
+ 
+_charID = dayz_characterID;
+_activatingPlayer = player;
+ 
+PVDZE_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
+publicVariableServer "PVDZE_obj_Publish";
+ 
+cutText [format["Your build was successful!"], "PLAIN DOWN",3];
+ 
+player reveal _tmpbuilt;
+DZE_ActionInProgress = false;
+ 
+} else {
+cutText [format[(localize "str_epoch_player_47"),_text,_reason], "PLAIN DOWN"];
+DZE_ActionInProgress = false;
+if(_AdminCraft) then {
+} else {
+{
+//Since player had items removed we need to give them back
+player addMagazine _x;
+} foreach _RM_temp;
+[player, _SC_Cost] call SC_fnc_addCoins;
+//give back money
+
+};
+};
+ 
+DZE_ActionInProgress = false;
+</pre>
+<p></p></blockquote><p></p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3155-tnt/?do=hovercard" data-ipshover-width="370" href="../../profile/3155-tnt/index.html" rel="nofollow" title="Go to TNT's profile">TNT</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/?do=hovercard" data-ipshover-width="370" href="../../profile/10902-chunk-no-captain-chunk/index.html" rel="nofollow" title="Go to Chunk. No Captain Chunk.'s profile">Chunk. No Captain Chunk.</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=showReactionsComment&amp;comment=126080&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=showReactionsComment&amp;comment=126080&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_126080_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=126080"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D126080" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D126080" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D126080&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=126080&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Try the following ( not tested, i'm at work) 
+  
+MT_Defines.hpp 
+  
+   
+  
+custom_builds.sqf 
+  
+   
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=126080">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									1 month later...
+								</li>
+</ul>
+<a id="comment-147215"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_147215">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile">
+<img alt="JayOnSpeed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-19136.jpg"/>
+</a>
+<a href="../../profile/19136-jayonspeed/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile"><span style="color:#">JayOnSpeed</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147215" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-10-15T00:17:29Z" title="10/15/14 12:17  AM">October 15, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile">JayOnSpeed</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile">
+<img alt="JayOnSpeed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-19136.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/19136-jayonspeed/content/index.html" rel="nofollow" title="93 posts">
+<i class="fa fa-comment"></i> 93
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="147215" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":19136,"username":"JayOnSpeed","timestamp":1413332249,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":147215}' id="comment-147215_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-147215_wrap" href="#elControls_147215_menu" id="elControls_147215" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_147215_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=147215" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_147215_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147215" id="elSharePost_147215" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147215" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-10-15T00:17:29Z" title="10/15/14 12:17  AM">October 15, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>This doesnt work for when the thing im trying to craft costs money.</p>
+<p> </p>
+<p>error:</p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<div>Error in expression &lt;etVariable["cashMoney",0];  </div>
+<div>if(_amount &gt; 0)then{</div>
+<div>if (_wealth &lt; _amount) then {</div>
+<div>&gt;</div>
+<div>  Error position: &lt;&gt; 0)then{</div>
+<div>if (_wealth &lt; _amount) then {</div>
+<div>&gt;</div>
+<div>  Error &gt;: Type Array, expected Number</div>
+<div>File mpmissions\__CUR_MP.Lingor\custom\compiles.sqf, line 689 </div>
+<div><p></p></div></blockquote>
+<div> </div>
+<div>Its in this function</div>
+<div> </div>
+<div><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<div>
+<div>SC_fnc_removeCoins=</div>
+<div>    {</div>
+<div>                private ["_player","_amount","_wealth","_newwealth", "_result"];</div>
+<div>                _player = _this select 0;</div>
+<div>                _amount = _this select 1;</div>
+<div>                _result = false;</div>
+<div>                _wealth = _player getVariable["cashMoney",0];  </div>
+<div>                if(_amount &gt; 0)then{</div>
+<div>                if (_wealth &lt; _amount) then {</div>
+<div>                    _result = false;</div>
+<div>                } else {                         </div>
+<div>                _newwealth = _wealth - _amount;</div>
+<div>                _player setVariable["cashMoney",_newwealth, true];</div>
+<div>                _player setVariable ["moneychanged",1,true];    </div>
+<div>                _result = true;</div>
+<div>                PVDZE_plr_Save = [_player,(magazines _player),true,true] ;</div>
+<div>                publicVariableServer "PVDZE_plr_Save";            </div>
+<div>                };</div>
+<div>                }else{</div>
+<div>                _result = true;</div>
+<div>                };</div>
+<div>                _result</div>
+<div>    };</div>
+<div><p></p></div>
+<div> </div>
+<div>Its called here in the custom_builds.sqf</div>
+<div> </div>
+<div><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""></blockquote></div>
+<div>
+<div>if( ([player, _SC_Cost] call SC_fnc_removeCoins)) exitWith {</div>
+<div>DZE_ActionInProgress = false; </div>
+<div>cutText [format["You need %1 %2 to build this.",_SC_Cost, CurrencyName] , "PLAIN DOWN"];</div>
+<div>};</div>
+<div><p></p></div>
+<div> </div>
+<div>Does anybody have this fixed?</div>
+<div>I'll try to sort it out anyway and add the cost to the menus but if anyone already made this it saves me the work :)</div>
+</div>
+</div></blockquote></div>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_147215_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147215"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D147215" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D147215" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D147215&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=147215&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="This doesnt work for when the thing im trying to craft costs money. 
+  
+error: 
+  
+ 
+Its in this function
+ 
+ 
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147215">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-147764"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_147764">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile">
+<img alt="JayOnSpeed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-19136.jpg"/>
+</a>
+<a href="../../profile/19136-jayonspeed/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile"><span style="color:#">JayOnSpeed</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147764" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-10-16T00:57:50Z" title="10/16/14 12:57  AM">October 16, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile">JayOnSpeed</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19136-jayonspeed/?do=hovercard" data-ipshover-width="370" href="../../profile/19136-jayonspeed/index.html" rel="nofollow" title="Go to JayOnSpeed's profile">
+<img alt="JayOnSpeed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-19136.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/19136-jayonspeed/content/index.html" rel="nofollow" title="93 posts">
+<i class="fa fa-comment"></i> 93
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="147764" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":19136,"username":"JayOnSpeed","timestamp":1413421070,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":147764}' id="comment-147764_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-147764_wrap" href="#elControls_147764_menu" id="elControls_147764" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_147764_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=147764" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_147764_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147764" id="elSharePost_147764" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147764" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-10-16T00:57:50Z" title="10/16/14 12:57  AM">October 16, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Lol i'm an Jackass, the answer almost hit me in the face.</p>
+<p> </p>
+<p>In the custom_builds.sqf file where it reads:</p>
+<p> </p>
+<p><span style="color:rgb(0,136,0);">_SC_Cost=getArray (missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "cost");</span></p>
+<p> </p>
+<p>Should be </p>
+<p> </p>
+<p><span style="color:rgb(0,136,0);">_SC_Cost=getNumber(missionConfigFile &gt;&gt; "Custom_Buildables" &gt;&gt; "Buildables" &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; "cost");</span></p>
+<p> </p>
+<p>Meanwhile found another thing.</p>
+<p> </p>
+<p>Where it reads:</p>
+<p> </p>
+<p><span style="color:rgb(0,0,136);">if</span><span style="color:rgb(102,102,0);">(</span><span> </span><span style="color:rgb(102,102,0);">([</span><span>player</span><span style="color:rgb(102,102,0);">,</span><span> _SC_Cost</span><span style="color:rgb(102,102,0);">]</span><span> call SC_fnc_removeCoins</span><span style="color:rgb(102,102,0);">))</span><span> exitWith </span><span style="color:rgb(102,102,0);">{</span><br/><span>DZE_ActionInProgress </span><span style="color:rgb(102,102,0);">=</span><span> </span><span style="color:rgb(0,0,136);">false</span><span style="color:rgb(102,102,0);">;</span><br/><span>cutText </span><span style="color:rgb(102,102,0);">[</span><span>format</span><span style="color:rgb(102,102,0);">[</span><span style="color:rgb(0,136,0);">"You need %1 %2 to build this."</span><span style="color:rgb(102,102,0);">,</span><span>_SC_Cost</span><span style="color:rgb(102,102,0);">,</span><span> </span><span style="color:rgb(102,0,102);">CurrencyName</span><span style="color:rgb(102,102,0);">]</span><span> </span><span style="color:rgb(102,102,0);">,</span><span> </span><span style="color:rgb(0,136,0);">"PLAIN DOWN"</span><span style="color:rgb(102,102,0);">];</span><br/><span style="color:rgb(102,102,0);">};</span></p>
+<p> </p>
+<p>Should be:</p>
+<p> </p>
+<p><span style="color:rgb(0,0,136);">if</span><span style="color:rgb(102,102,0);">(</span><span> !</span><span style="color:rgb(102,102,0);">([</span><span>player</span><span style="color:rgb(102,102,0);">,</span><span> _SC_Cost</span><span style="color:rgb(102,102,0);">]</span><span> call SC_fnc_removeCoins</span><span style="color:rgb(102,102,0);">))</span><span> exitWith </span><span style="color:rgb(102,102,0);">{</span></p>
+<p><span>DZE_ActionInProgress </span><span style="color:rgb(102,102,0);">=</span><span> </span><span style="color:rgb(0,0,136);">false</span><span style="color:rgb(102,102,0);">;</span><br/><span>cutText </span><span style="color:rgb(102,102,0);">[</span><span>format</span><span style="color:rgb(102,102,0);">[</span><span style="color:rgb(0,136,0);">"You need %1 %2 to build this."</span><span style="color:rgb(102,102,0);">,</span><span>_SC_Cost</span><span style="color:rgb(102,102,0);">,</span><span> </span><span style="color:rgb(102,0,102);">CurrencyName</span><span style="color:rgb(102,102,0);">]</span><span> </span><span style="color:rgb(102,102,0);">,</span><span> </span><span style="color:rgb(0,136,0);">"PLAIN DOWN"</span><span style="color:rgb(102,102,0);">];</span><br/><span style="color:rgb(102,102,0);">};</span></p>
+<p> </p>
+<p>The way it was if you have the money it wont let you build and if you dont and cancel the craft process he returns the cost to the player ( even though he didnt have the money in the first place) </p>
+<p> </p>
+<p> </p>
+<p>Still have to add the cost to the dialog and make the dialog only show cost when there is an actual money cost.</p>
+<p> </p>
+<p>Zupa , when is your own project for advanced buildables coming out? Cant wait :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_147764_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147764"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D147764" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D147764" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D147764&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=147764&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Lol i'm an Jackass, the answer almost hit me in the face. 
+  
+In the custom_builds.sqf file where it reads: 
+  
+_SC_Cost=getArray (missionConfigFile &gt;&gt; &quot;Custom_Buildables&quot; &gt;&gt; &quot;Buildables&quot; &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; &quot;cost&quot;); 
+  
+Should be  
+  
+_SC_Cost=getNumber(missionConfigFile &gt;&gt; &quot;Custom_Buildables&quot; &gt;&gt; &quot;Buildables&quot; &gt;&gt; ComboBoxResult &gt;&gt; _classname &gt;&gt; &quot;cost&quot;); 
+  
+Meanwhile found another thing. 
+  
+Where it reads: 
+  
+if( ([player, _SC_Cost] call SC_fnc_removeCoins)) exitWith { DZE_ActionInProgress = false; cutText [format[&quot;You need %1 %2 to build this.&quot;,_SC_Cost, CurrencyName] , &quot;PLAIN DOWN&quot;]; }; 
+  
+Should be: 
+  
+if( !([player, _SC_Cost] call SC_fnc_removeCoins)) exitWith { 
+DZE_ActionInProgress = false; cutText [format[&quot;You need %1 %2 to build this.&quot;,_SC_Cost, CurrencyName] , &quot;PLAIN DOWN&quot;]; }; 
+  
+The way it was if you have the money it wont let you build and if you dont and cancel the craft process he returns the cost to the player ( even though he didnt have the money in the first place)  
+  
+  
+Still have to add the cost to the dialog and make the dialog only show cost when there is an actual money cost. 
+  
+Zupa , when is your own project for advanced buildables coming out? Cant wait :) 
+" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=147764">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									11 months later...
+								</li>
+</ul>
+<a id="comment-264355"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_264355">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16484-rss_adm/?do=hovercard" data-ipshover-width="370" href="../../profile/16484-rss_adm/index.html" rel="nofollow" title="Go to rss_adm's profile">
+<img alt="rss_adm" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2368c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/16484-rss_adm/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16484-rss_adm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/16484-rss_adm/index.html" rel="nofollow" title="Go to rss_adm's profile"><span style="color:#">rss_adm</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=264355" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-14T09:38:10Z" title="10/14/15 09:38  AM">October 14, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16484-rss_adm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F16203-advanced-alchemical-crafting-v33%252F" data-ipshover-width="370" href="../../profile/16484-rss_adm/index.html" rel="nofollow" title="Go to rss_adm's profile">rss_adm</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16484-rss_adm/?do=hovercard" data-ipshover-width="370" href="../../profile/16484-rss_adm/index.html" rel="nofollow" title="Go to rss_adm's profile">
+<img alt="rss_adm" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2368c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/16484-rss_adm/content/index.html" rel="nofollow" title="48 posts">
+<i class="fa fa-comment"></i> 48
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="264355" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":16484,"username":"rss_adm","timestamp":1444815490,"contentapp":"forums","contenttype":"forums","contentid":16203,"contentclass":"forums_Topic","contentcommentid":264355}' id="comment-264355_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-264355_wrap" href="#elControls_264355_menu" id="elControls_264355" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_264355_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=reportComment&amp;comment=264355" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_264355_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=264355" id="elSharePost_264355" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=264355" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-14T09:38:10Z" title="10/14/15 09:38  AM">October 14, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<div><blockquote class="ipsQuote" data-cite="Zupa" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="126080" data-ipsquote-contentid="16203" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1410179076" data-ipsquote-userid="10391" data-ipsquote-username="Zupa"><p>Try the following ( not tested, i'm at work)</p><p> </p><p>MT_Defines.hpp</p><p> </p><p> </p><p> </p><p><em>Hidden Content</em></p><p> </p><p> </p><p>custom_builds.sqf</p><p> </p><p> </p><p> </p><p><em>Hidden Content</em></p><p> </p></blockquote></div><p><span>Hello Zupa! </span></p><p><span>I have question..</span></p><p><span>How add </span>_SC_Cost to crafting dialog and labeling "Required Money"?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_264355_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=264355"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D264355" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D264355" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F%3Fdo%3DfindComment%26comment%3D264355&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment%26comment=264355&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Hello Zupa!  I have question.. How add _SC_Cost to crafting dialog and labeling "Required Money"? 
+' data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/?do=findComment&amp;comment=264355">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xNjIwMy1hZHZhbmNlZC1hbGNoZW1pY2FsLWNyYWZ0aW5nLXYzMy8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F16203-advanced-alchemical-crafting-v33%2F&amp;title=Advanced+Alchemical+Crafting+v3.3" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Advanced Alchemical Crafting v3.3" data-websharetitle="Advanced Alchemical Crafting v3.3" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="16203">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html" rel="parent" title="Go to Gold Coin based Single Currency &amp; Banking System">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/63-a2-community-projects/index.html">
+<span>A2: Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Advanced Alchemical Crafting v3.3
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="https://epochmod.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Advanced Alchemical Crafting v3.3",
+    "headline": "Advanced Alchemical Crafting v3.3",
+    "text": "Anyone able to help me get this working with the coins, there is a part that wants to use the old currency which shows up in this file MT_Defines.hpp which has code in it that looks like this \n   \n",
+    "dateCreated": "2014-08-30T02:22:51+0000",
+    "datePublished": "2014-08-30T02:22:51+0000",
+    "dateModified": "2015-10-14T09:38:10+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png",
+    "author": {
+        "@type": "Person",
+        "name": "orionjade",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png",
+        "url": "https://epochmod.com/forum/profile/12589-orionjade/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 3673
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 7
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "orionjade",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png",
+            "url": "https://epochmod.com/forum/profile/12589-orionjade/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/",
+    "discussionUrl": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-122581",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-122581",
+            "author": {
+                "@type": "Person",
+                "name": "Chunk. No Captain Chunk.",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/"
+            },
+            "dateCreated": "2014-08-30T11:55:22+0000",
+            "text": "You\u0027d probably just have to buy the old currency from the traders for it to work. But then again. I don\u0027t know much about converting scripts.  \nThe first place I\u0027d check out would be the Service point Single currency test. That seems to be the way forward to adding single currency to scripts. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-124507",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-124507",
+            "author": {
+                "@type": "Person",
+                "name": "orionjade",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12589.png",
+                "url": "https://epochmod.com/forum/profile/12589-orionjade/"
+            },
+            "dateCreated": "2014-09-03T23:19:15+0000",
+            "text": "Yeah, I\u0027m not very good at converting scripts either. Maybe Zupa or someone else could help with this. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-124547",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-124547",
+            "author": {
+                "@type": "Person",
+                "name": "Chunk. No Captain Chunk.",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/10902-chunk-no-captain-chunk/"
+            },
+            "dateCreated": "2014-09-04T02:31:21+0000",
+            "text": "I\u0027d put money on zupa to do it, but he\u0027s so busy recently. There\u0027s no one really in contact. So keep the post up here and maybe.. Just maybe zupa will fly on by :P \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-126080",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-126080",
+            "author": {
+                "@type": "Person",
+                "name": "Zupa",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png",
+                "url": "https://epochmod.com/forum/profile/10391-zupa/"
+            },
+            "dateCreated": "2014-09-08T12:24:36+0000",
+            "text": "Try the following ( not tested, i\u0027m at work) \n\u00a0 \nMT_Defines.hpp \n\u00a0 \n   \n\u00a0 \ncustom_builds.sqf \n\u00a0 \n   \n",
+            "upvoteCount": 2
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-147215",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-147215",
+            "author": {
+                "@type": "Person",
+                "name": "JayOnSpeed",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-19136.jpg",
+                "url": "https://epochmod.com/forum/profile/19136-jayonspeed/"
+            },
+            "dateCreated": "2014-10-15T00:17:29+0000",
+            "text": "This doesnt work for when the thing im trying to craft costs money. \n\u00a0 \nerror: \n  \n\u00a0\nIts in this function\n\u00a0\n \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-147764",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-147764",
+            "author": {
+                "@type": "Person",
+                "name": "JayOnSpeed",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-19136.jpg",
+                "url": "https://epochmod.com/forum/profile/19136-jayonspeed/"
+            },
+            "dateCreated": "2014-10-16T00:57:50+0000",
+            "text": "Lol i\u0027m an Jackass, the answer almost hit me in the face. \n\u00a0 \nIn the custom_builds.sqf file where it reads: \n\u00a0 \n_SC_Cost=getArray (missionConfigFile \u0026gt;\u0026gt; \"Custom_Buildables\" \u0026gt;\u0026gt; \"Buildables\" \u0026gt;\u0026gt; ComboBoxResult \u0026gt;\u0026gt; _classname \u0026gt;\u0026gt; \"cost\"); \n\u00a0 \nShould be\u00a0 \n\u00a0 \n_SC_Cost=getNumber(missionConfigFile \u0026gt;\u0026gt; \"Custom_Buildables\" \u0026gt;\u0026gt; \"Buildables\" \u0026gt;\u0026gt; ComboBoxResult \u0026gt;\u0026gt; _classname \u0026gt;\u0026gt; \"cost\"); \n\u00a0 \nMeanwhile found another thing. \n\u00a0 \nWhere it reads: \n\u00a0 \nif( ([player, _SC_Cost] call SC_fnc_removeCoins)) exitWith { DZE_ActionInProgress = false; cutText [format[\"You need %1 %2 to build this.\",_SC_Cost, CurrencyName] , \"PLAIN DOWN\"]; }; \n\u00a0 \nShould be: \n\u00a0 \nif(\u00a0!([player, _SC_Cost] call SC_fnc_removeCoins)) exitWith { \nDZE_ActionInProgress = false; cutText [format[\"You need %1 %2 to build this.\",_SC_Cost, CurrencyName] , \"PLAIN DOWN\"]; }; \n\u00a0 \nThe way it was if you have the money it wont let you build and if you dont and cancel the craft process he returns the cost to the player ( even though he didnt have the money in the first place)\u00a0 \n\u00a0 \n\u00a0 \nStill have to add the cost to the dialog and make the dialog only show cost when there is an actual money cost. \n\u00a0 \nZupa , when is your own project for advanced buildables coming out? Cant wait :) \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-264355",
+            "url": "https://epochmod.com/forum/topic/16203-advanced-alchemical-crafting-v33/#comment-264355",
+            "author": {
+                "@type": "Person",
+                "name": "rss_adm",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/16484-rss_adm/"
+            },
+            "dateCreated": "2015-10-14T09:38:10+0000",
+            "text": "Hello Zupa!\u00a0 I have question.. How add\u00a0_SC_Cost\u00a0to crafting dialog and labeling \"Required Money\"? \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/63-a2-community-projects/",
+                "name": "A2: Community Projects"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/56-gold-coin-based-single-currency-banking-system/",
+                "name": "Gold Coin based Single Currency &amp; Banking System"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

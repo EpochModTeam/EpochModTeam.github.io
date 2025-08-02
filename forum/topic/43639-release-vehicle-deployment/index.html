@@ -1,0 +1,3036 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[Release] Vehicle Deployment - A2: Epoch Mods - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[Release] Vehicle Deployment" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/" property="og:url"/>
+<meta content="I needed a nice deploy script that was minimal but did everything I needed it to do. So I made my own :) I need to do some optimizing with this code (change the config into arrays - other small things) but it works great :) What it does: Allows players to deploy a Bike, ATV, or a Mozzie (by defau..." name="description"/>
+<meta content="I needed a nice deploy script that was minimal but did everything I needed it to do. So I made my own :) I need to do some optimizing with this code (change the config into arrays - other small things) but it works great :) What it does: Allows players to deploy a Bike, ATV, or a Mozzie (by defau..." property="og:description"/>
+<meta content="2017-04-29T16:20:43Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="43639" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80MzYzOS1yZWxlYXNlLXZlaGljbGUtZGVwbG95bWVudC8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":123}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":43639}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/123-a2-epoch-mods/index.html">
+<span>A2: Epoch Mods</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/122-resources/index.html">
+<span>Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/123-a2-epoch-mods/index.html">
+<span>A2: Epoch Mods <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[Release] Vehicle Deployment
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[Release] Vehicle Deployment</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong><br/><span class="ipsType_light"><time data-short="8 yr" datetime="2017-03-31T05:57:08Z" title="03/31/17 05:57  AM">March 31, 2017</time> in <a href="../../forum/123-a2-epoch-mods/index.html">A2: Epoch Mods</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[Release] Vehicle Deployment" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="43639">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-43639" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-289964"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_289964">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<a href="../../profile/31579-bigegg/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile"><span style="color:#">BigEgg</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289964" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T05:57:08Z" title="03/31/17 05:57  AM">March 31, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31579-bigegg/content/index.html" rel="nofollow" title="362 posts">
+<i class="fa fa-comment"></i> 362
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United States of America</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="289964" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31579,"username":"BigEgg","timestamp":1490939828,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":289964}' id="comment-289964_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-289964_wrap" href="#elControls_289964_menu" id="elControls_289964" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_289964_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=289964" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_289964_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_289964" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289964" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T05:57:08Z" title="03/31/17 05:57  AM">March 31, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+<span style="font-size:18px;">I needed a nice deploy script that was minimal but did everything I needed it to do. So I made my own :)</span>
+</p>
+<p>
+	 
+</p>
+<p>
+<span style="font-size:18px;">I need to do some optimizing with this code (change the config into arrays - other small things) but it works great :)</span>
+</p>
+<p>
+	 
+</p>
+<p>
+<span style="font-size:18px;">What it does:</span>
+</p>
+<ul><li>
+<p>
+<span style="font-size:18px;">Allows players to deploy a Bike, ATV, or a Mozzie (by default).</span>
+</p>
+</li>
+<li>
+<p>
+<span style="font-size:18px;">Compatible with almost all (if not all) vehicles.</span>
+</p>
+</li>
+<li>
+<p>
+<span style="font-size:18px;">Required parts can include both magazines and toolbelt items (or weapons in general if needed).</span>
+</p>
+</li>
+<li>
+<p>
+<span style="font-size:18px;">Vehicles can be deployed on high buildings, bases, or bridges without issue.</span>
+</p>
+</li>
+<li>
+<p>
+<span style="font-size:18px;">The server owner can:</span>
+</p>
+<ul><li>
+<span style="font-size:18px;">Configure what vehicles players can deploy</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the player will go through an animation while deploying the vehicle</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the player can deploy the vehicle while within someone else's plot area</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the player can deploy the vehicle while in combat</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the vehicle can be sold at traders</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the player can deploy the vehicle while in a vehicle</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the vehicle should have it's ammo removed when deployed</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide if the player can deploy the vehicle on a ladder</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide what parts each vehicle needs to be deployed</span>
+</li>
+<li>
+<span style="font-size:18px;">Decide what the display name of the vehicle will be on all messages that appear during the process</span>
+</li>
+</ul></li>
+</ul><p>
+	 
+</p>
+<p>
+<span style="font-size:18px;">I have made the files more configurable (I normally don't have all of the config options - I put them there for other people to be easily able to configure it in whatever way they like), so there might be a bug or two I am unaware of, so please post if you find one :)</span>
+</p>
+<p>
+	 
+</p>
+<p>
+<span style="font-size:18px;">Download and install instructions on my github:</span>
+</p>
+<p>
+<span style="font-size:18px;"><a href="https://github.com/BigEgg17/Vehicle-Deployment#installation" rel="external nofollow">https://github.com/BigEgg17/Vehicle-Deployment#installation</a></span>
+</p>
+<p>
+	 
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/33999-hooty/?do=hovercard" data-ipshover-width="370" href="../../profile/33999-hooty/index.html" rel="nofollow" title="Go to Hooty's profile">Hooty</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18754-mg-maximus/?do=hovercard" data-ipshover-width="370" href="../../profile/18754-mg-maximus/index.html" rel="nofollow" title="Go to MG-Maximus's profile">MG-Maximus</a> and 
+
+<a data-ipsdialog="" data-ipsdialog-destructonclose="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-json="" data-ipstooltip-label='["Michal.esl94","S4M","Bricktop","salival"]' data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289964" title="See who reacted to this">4 others</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289964&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289964&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								7
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_289964_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289964" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289964" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289964&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=289964&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I needed a nice deploy script that was minimal but did everything I needed it to do. So I made my own :)
+ 
+
+
+	 
+ 
+
+
+	I need to do some optimizing with this code (change the config into arrays - other small things) but it works great :)
+ 
+
+
+	 
+ 
+
+
+	What it does:
+ 
+
+
+		
+			Allows players to deploy a Bike, ATV, or a Mozzie (by default).
+		 
+	 
+	
+		
+			Compatible with almost all (if not all) vehicles.
+		 
+	 
+	
+		
+			Required parts can include both magazines and toolbelt items (or weapons in general if needed).
+		 
+	 
+	
+		
+			Vehicles can be deployed on high buildings, bases, or bridges without issue.
+		 
+	 
+	
+		
+			The server owner can:
+		 
+
+		
+				Configure what vehicles players can deploy
+			 
+			
+				Decide if the player will go through an animation while deploying the vehicle
+			 
+			
+				Decide if the player can deploy the vehicle while within someone else's plot area
+			 
+			
+				Decide if the player can deploy the vehicle while in combat
+			 
+			
+				Decide if the vehicle can be sold at traders
+			 
+			
+				Decide if the player can deploy the vehicle while in a vehicle
+			 
+			
+				Decide if the vehicle should have it's ammo removed when deployed
+			 
+			
+				Decide if the player can deploy the vehicle on a ladder
+			 
+			
+				Decide what parts each vehicle needs to be deployed
+			 
+			
+				Decide what the display name of the vehicle will be on all messages that appear during the process
+			 
+		 
+
+	 
+ 
+
+
+	I have made the files more configurable (I normally don't have all of the config options - I put them there for other people to be easily able to configure it in whatever way they like), so there might be a bug or two I am unaware of, so please post if you find one :)
+ 
+
+
+	 
+ 
+
+
+	Download and install instructions on my github:
+ 
+
+
+	https://github.com/BigEgg17/Vehicle-Deployment#installation
+ 
+
+
+	 
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289964">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-289973"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_289973">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<a href="../../profile/31579-bigegg/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile"><span style="color:#">BigEgg</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289973" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T07:09:14Z" title="03/31/17 07:09  AM">March 31, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31579-bigegg/content/index.html" rel="nofollow" title="362 posts">
+<i class="fa fa-comment"></i> 362
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United States of America</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="289973" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31579,"username":"BigEgg","timestamp":1490944154,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":289973}' id="comment-289973_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-289973_wrap" href="#elControls_289973_menu" id="elControls_289973" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_289973_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=289973" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_289973_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289973" id="elSharePost_289973" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289973" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T07:09:14Z" title="03/31/17 07:09  AM">March 31, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Reserved
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_289973_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289973"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289973" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289973" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289973&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=289973&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Reserved
+ " data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289973">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-289975"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_289975">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37615-michalesl94/?do=hovercard" data-ipshover-width="370" href="../../profile/37615-michalesl94/index.html" rel="nofollow" title="Go to Michal.esl94's profile">
+<img alt="Michal.esl94" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/37615-michalesl94/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37615-michalesl94/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/37615-michalesl94/index.html" rel="nofollow" title="Go to Michal.esl94's profile"><span style="color:#">Michal.esl94</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289975" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T07:11:02Z" title="03/31/17 07:11  AM">March 31, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37615-michalesl94/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/37615-michalesl94/index.html" rel="nofollow" title="Go to Michal.esl94's profile">Michal.esl94</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37615-michalesl94/?do=hovercard" data-ipshover-width="370" href="../../profile/37615-michalesl94/index.html" rel="nofollow" title="Go to Michal.esl94's profile">
+<img alt="Michal.esl94" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/37615-michalesl94/content/" rel="nofollow" title="13 posts">
+<i class="fa fa-comment"></i> 13
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="289975" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":37615,"username":"Michal.esl94","timestamp":1490944262,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":289975}' id="comment-289975_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-289975_wrap" href="#elControls_289975_menu" id="elControls_289975" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_289975_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=289975" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_289975_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289975" id="elSharePost_289975" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289975" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T07:11:02Z" title="03/31/17 07:11  AM">March 31, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Thats what i am looking for ! Thank you BigEGG! Tested and Works great for me. :)
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289975&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289975&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_289975_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289975"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289975" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289975" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289975&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=289975&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thats what i am looking for ! Thank you BigEGG! Tested and Works great for me. :)
+ " data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289975">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-289979"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_289979">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<a href="../../profile/31579-bigegg/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile"><span style="color:#">BigEgg</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289979" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T08:28:52Z" title="03/31/17 08:28  AM">March 31, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31579-bigegg/content/index.html" rel="nofollow" title="362 posts">
+<i class="fa fa-comment"></i> 362
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United States of America</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="289979" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31579,"username":"BigEgg","timestamp":1490948932,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":289979}' id="comment-289979_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-289979_wrap" href="#elControls_289979_menu" id="elControls_289979" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_289979_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=289979" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_289979_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289979" id="elSharePost_289979" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289979" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T08:28:52Z" title="03/31/17 08:28  AM">March 31, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="289975" data-ipsquote-contentid="43639" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1490944262" data-ipsquote-userid="37615" data-ipsquote-username="Michal.esl94">
+<div class="ipsQuote_citation">
+		1 hour ago, Michal.esl94 said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Thats what i am looking for ! Thank you BigEGG! Tested and Works great for me. :)
+		</p>
+</div>
+</blockquote>
+<p>
+<a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37615-michalesl94/?do=hovercard" data-mentionid="37615" href="../../profile/37615-michalesl94/index.html" rel="">@Michal.esl94</a> - I have made a couple small fixes if you would like to re-download and apply the fixes :)
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37615-michalesl94/?do=hovercard" data-ipshover-width="370" href="../../profile/37615-michalesl94/index.html" rel="nofollow" title="Go to Michal.esl94's profile">Michal.esl94</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289979&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=289979&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_289979_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289979"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289979" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289979" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D289979&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=289979&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="@Michal.esl94 - I have made a couple small fixes if you would like to re-download and apply the fixes :)
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=289979">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-290042"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_290042">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+<a href="../../profile/36144-juandayz/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile"><span style="color:#">juandayz</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290042" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T22:48:54Z" title="03/31/17 10:48  PM">March 31, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/36144-juandayz/content/index.html" rel="nofollow" title="2098 posts">
+<i class="fa fa-comment"></i> 2.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Buenos Aires,Argentina</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="290042" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36144,"username":"juandayz","timestamp":1491000534,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":290042}' id="comment-290042_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-290042_wrap" href="#elControls_290042_menu" id="elControls_290042" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_290042_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=290042" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_290042_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290042" id="elSharePost_290042" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290042" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-03-31T22:48:54Z" title="03/31/17 10:48  PM">March 31, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<div>
+<div>
+<div>
+<pre dir="ltr" style="text-align:left;height:48px;">
+<strong><span style="font-family:Georgia, serif;">The configs features that the script offers are great! well done</span></strong>.........................<strong>AGAIN!</strong>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=290042&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=290042&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_290042_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290042"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D290042" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D290042" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D290042&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=290042&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="The configs features that the script offers are great! well done.........................AGAIN!
+
+		
+	
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290042">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-290071"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_290071">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37482-anhor/?do=hovercard" data-ipshover-width="370" href="../../profile/37482-anhor/index.html" rel="nofollow" title="Go to Anhor's profile">
+<img alt="Anhor" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_11/nero.thumb.jpg.a95ed38b57eec3ab0cb451c83b62dec0.jpg"/>
+</a>
+<a href="../../profile/37482-anhor/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37482-anhor/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/37482-anhor/index.html" rel="nofollow" title="Go to Anhor's profile"><span style="color:#">Anhor</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290071" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-01T09:18:22Z" title="04/01/17 09:18  AM">April 1, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37482-anhor/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/37482-anhor/index.html" rel="nofollow" title="Go to Anhor's profile">Anhor</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37482-anhor/?do=hovercard" data-ipshover-width="370" href="../../profile/37482-anhor/index.html" rel="nofollow" title="Go to Anhor's profile">
+<img alt="Anhor" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_11/nero.thumb.jpg.a95ed38b57eec3ab0cb451c83b62dec0.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/37482-anhor/content/index.html" rel="nofollow" title="387 posts">
+<i class="fa fa-comment"></i> 387
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany, Bavaria</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="290071" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":37482,"username":"Anhor","timestamp":1491038302,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":290071}' id="comment-290071_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-290071_wrap" href="#elControls_290071_menu" id="elControls_290071" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_290071_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=290071" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_290071_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290071" id="elSharePost_290071" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290071" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-01T09:18:22Z" title="04/01/17 09:18  AM">April 1, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Is it not the same with DEPLOY ANYTHING? Bike and mozzie allready in. By myself added a old motorcycle (1 scrap meatl. 1 fuel tank, 1 engine parts and 2 wheels), a old tractor (2 scrap metal, 1 fuel tank, 1 engine parts and 4 wheels).
+</p>
+<p>
+	Next I will add is a yellow pook ;)
+</p>
+<p>
+	 
+</p>
+<p>
+	 
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=290071&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=290071&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_290071_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290071"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D290071" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D290071" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D290071&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=290071&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Is it not the same with DEPLOY ANYTHING? Bike and mozzie allready in. By myself added a old motorcycle (1 scrap meatl. 1 fuel tank, 1 engine parts and 2 wheels), a old tractor (2 scrap metal, 1 fuel tank, 1 engine parts and 4 wheels).
+ 
+
+
+	Next I will add is a yellow pook ;)
+ 
+
+
+	 
+ 
+
+
+	 
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=290071">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									3 weeks later...
+								</li>
+</ul>
+<a id="comment-291098"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291098">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/29891-dietanx/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile"><span style="color:#">DieTanx</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291098" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-20T02:06:06Z" title="04/20/17 02:06  AM">April 20, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">DieTanx</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/29891-dietanx/content/index.html" rel="nofollow" title="122 posts">
+<i class="fa fa-comment"></i> 122
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291098" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":29891,"username":"DieTanx","timestamp":1492653966,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291098}' id="comment-291098_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291098_wrap" href="#elControls_291098_menu" id="elControls_291098" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291098_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291098" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291098_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291098" id="elSharePost_291098" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291098" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-20T02:06:06Z" title="04/20/17 02:06  AM">April 20, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<div class="ipsSpoiler" data-ipsspoiler="">
+<div class="ipsSpoiler_header">
+<span>Spoiler</span>
+</div>
+<div class="ipsSpoiler_contents">
+<p>
+			Error in expression &lt;ernarus\vehicle_deploy\config.sqf"<br>
+			if !(_deployInCombat) then {<br>
+			if (player getVa&gt;<br>
+			  Error position: &lt;_deployInCombat) then {<br/>
+			if (player getVa&gt;<br/>
+			  Error Undefined variable in expression: _deployincombat<br/>
+			File mpmissions\__CUR_MP.Chernarus\vehicle_deploy\config.sqf, line 1
+		</br></br></br></p>
+</div>
+</div>
+<p>
+	I get a Client side error with this.
+</p>
+<p>
+	 
+</p>
+<p>
+	I am still able to craft/pack without issues even with error.
+</p>
+<p>
+	    _combat = false; is set like this for all vehicles i have for crafting.
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291098_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291098"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291098" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291098" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291098&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291098&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I get a Client side error with this.
+ 
+
+
+	 
+ 
+
+
+	I am still able to craft/pack without issues even with error.
+ 
+
+
+	    _combat = false; is set like this for all vehicles i have for crafting.
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291098">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-291130"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291130">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<a href="../../profile/31579-bigegg/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile"><span style="color:#">BigEgg</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291130" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-20T22:33:51Z" title="04/20/17 10:33  PM">April 20, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31579-bigegg/content/index.html" rel="nofollow" title="362 posts">
+<i class="fa fa-comment"></i> 362
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United States of America</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291130" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31579,"username":"BigEgg","timestamp":1492727631,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291130}' id="comment-291130_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291130_wrap" href="#elControls_291130_menu" id="elControls_291130" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291130_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291130" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291130_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291130" id="elSharePost_291130" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291130" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-20T22:33:51Z" title="04/20/17 10:33  PM">April 20, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="291098" data-ipsquote-contentid="43639" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1492653966" data-ipsquote-userid="29891" data-ipsquote-username="DieTanx">
+<div class="ipsQuote_citation">
+		20 hours ago, DieTanx said:
+	</div>
+<div class="ipsQuote_contents">
+<div class="ipsSpoiler" data-ipsspoiler="">
+<div class="ipsSpoiler_header">
+<a href="#" rel=""> </a> <span>Hide contents</span>
+</div>
+<div class="ipsSpoiler_contents">
+<p>
+					Error in expression &lt;ernarus\vehicle_deploy\config.sqf"<br/>
+					if !(_deployInCombat) then {<br/>
+					if (player getVa&gt;<br/>
+					  Error position: &lt;_deployInCombat) then {<br/>
+					if (player getVa&gt;<br/>
+					  Error Undefined variable in expression: _deployincombat<br/>
+					File mpmissions\__CUR_MP.Chernarus\vehicle_deploy\config.sqf, line 1
+				</p>
+</div>
+</div>
+<p>
+			I get a Client side error with this.
+		</p>
+<p>
+			 
+		</p>
+<p>
+			I am still able to craft/pack without issues even with error.
+		</p>
+<p>
+			    _combat = false; is set like this for all vehicles i have for crafting.
+		</p>
+</div>
+</blockquote>
+<p>
+	It appears that when I fixed this issue, it also pasted the fixed code at the top of the config file when I made the commit (I did it through github website so that might have messed up or I was just tired lol) - anyways the fix is located here:
+</p>
+<p>
+<a href="https://github.com/BigEgg17/Vehicle-Deployment/commit/7465feb33061322a907002ed693d622f5b767d25" rel="external nofollow">https://github.com/BigEgg17/Vehicle-Deployment/commit/7465feb33061322a907002ed693d622f5b767d25</a>
+</p>
+<p>
+	 
+</p>
+<p>
+	Or you can simply re-download the files :)
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">DieTanx</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=291130&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=291130&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291130_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291130"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291130" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291130" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291130&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291130&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="It appears that when I fixed this issue, it also pasted the fixed code at the top of the config file when I made the commit (I did it through github website so that might have messed up or I was just tired lol) - anyways the fix is located here:
+ 
+
+
+	https://github.com/BigEgg17/Vehicle-Deployment/commit/7465feb33061322a907002ed693d622f5b767d25
+ 
+
+
+	 
+ 
+
+
+	Or you can simply re-download the files :)
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291130">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-291286"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291286">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/29891-dietanx/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile"><span style="color:#">DieTanx</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291286" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-23T17:09:10Z" title="04/23/17 05:09  PM">April 23, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">DieTanx</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/29891-dietanx/content/index.html" rel="nofollow" title="122 posts">
+<i class="fa fa-comment"></i> 122
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291286" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":29891,"username":"DieTanx","timestamp":1492967350,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291286}' id="comment-291286_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291286_wrap" href="#elControls_291286_menu" id="elControls_291286" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291286_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291286" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291286_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291286" id="elSharePost_291286" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291286" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-23T17:09:10Z" title="04/23/17 05:09  PM">April 23, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Does this auto delete the vehicles at reset?
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291286_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291286"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291286" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291286" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291286&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291286&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Does this auto delete the vehicles at reset?
+ " data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291286">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-291287"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291287">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<a href="../../profile/31579-bigegg/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile"><span style="color:#">BigEgg</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291287" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-23T17:16:43Z" title="04/23/17 05:16  PM">April 23, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31579-bigegg/content/index.html" rel="nofollow" title="362 posts">
+<i class="fa fa-comment"></i> 362
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United States of America</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291287" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31579,"username":"BigEgg","timestamp":1492967803,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291287}' id="comment-291287_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291287_wrap" href="#elControls_291287_menu" id="elControls_291287" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291287_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291287" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291287_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291287" id="elSharePost_291287" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291287" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-23T17:16:43Z" title="04/23/17 05:16  PM">April 23, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="291286" data-ipsquote-contentid="43639" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1492967350" data-ipsquote-userid="29891" data-ipsquote-username="DieTanx">
+<div class="ipsQuote_citation">
+		7 minutes ago, DieTanx said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Does this auto delete the vehicles at reset?
+		</p>
+</div>
+</blockquote>
+<p>
+	Yes - the vehicles are not saved so they automatically delete.
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">DieTanx</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=291287&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=291287&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291287_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291287"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291287" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291287" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291287&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291287&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Yes - the vehicles are not saved so they automatically delete.
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291287">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-291289"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291289">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/29891-dietanx/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile"><span style="color:#">DieTanx</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291289" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-23T18:03:27Z" title="04/23/17 06:03  PM">April 23, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">DieTanx</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/29891-dietanx/content/index.html" rel="nofollow" title="122 posts">
+<i class="fa fa-comment"></i> 122
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291289" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":29891,"username":"DieTanx","timestamp":1492970607,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291289}' id="comment-291289_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291289_wrap" href="#elControls_291289_menu" id="elControls_291289" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291289_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291289" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291289_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291289" id="elSharePost_291289" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291289" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-23T18:03:27Z" title="04/23/17 06:03  PM">April 23, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Thank you sir
+</p>
+<p>
+	Thank you for all your hard work on all the things :)
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=291289&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=showReactionsComment&amp;comment=291289&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291289_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291289"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291289" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291289" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291289&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291289&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thank you sir
+ 
+
+
+	Thank you for all your hard work on all the things :)
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291289">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-291581"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291581">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/29891-dietanx/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile"><span style="color:#">DieTanx</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291581" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-28T03:11:28Z" title="04/28/17 03:11  AM">April 28, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">DieTanx</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29891-dietanx/?do=hovercard" data-ipshover-width="370" href="../../profile/29891-dietanx/index.html" rel="nofollow" title="Go to DieTanx's profile">
+<img alt="DieTanx" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4626b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ED%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/29891-dietanx/content/index.html" rel="nofollow" title="122 posts">
+<i class="fa fa-comment"></i> 122
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291581" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":29891,"username":"DieTanx","timestamp":1493349088,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291581}' id="comment-291581_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291581_wrap" href="#elControls_291581_menu" id="elControls_291581" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291581_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291581" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291581_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291581" id="elSharePost_291581" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291581" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-28T03:11:28Z" title="04/28/17 03:11  AM">April 28, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Question<br/>
+	_deployOnOtherPlots = false; // Allow players to deploy vehicles within an enemy players plot area?<br/>
+	_deployInVehicle = false; // Allow players to deploy vehicles while they are in a vehicle?<br/>
+	_deployOnLadder = false; // Allow players to deploy vehicles while they are on a ladder?<br/><br/><br/>
+	i have these all set to false, but i am still able to craft while being in enemy plot, any thoughts?
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291581_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291581"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291581" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291581" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291581&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291581&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Question 
+	_deployOnOtherPlots = false; // Allow players to deploy vehicles within an enemy players plot area? 
+	_deployInVehicle = false; // Allow players to deploy vehicles while they are in a vehicle? 
+	_deployOnLadder = false; // Allow players to deploy vehicles while they are on a ladder?   
+	i have these all set to false, but i am still able to craft while being in enemy plot, any thoughts?
+ " data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291581">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-291669"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_291669">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<a href="../../profile/31579-bigegg/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile"><span style="color:#">BigEgg</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291669" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-29T16:20:43Z" title="04/29/17 04:20  PM">April 29, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43639-release-vehicle-deployment%252F" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">BigEgg</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31579-bigegg/?do=hovercard" data-ipshover-width="370" href="../../profile/31579-bigegg/index.html" rel="nofollow" title="Go to BigEgg's profile">
+<img alt="BigEgg" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31579-bigegg/content/index.html" rel="nofollow" title="362 posts">
+<i class="fa fa-comment"></i> 362
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United States of America</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="291669" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31579,"username":"BigEgg","timestamp":1493482843,"contentapp":"forums","contenttype":"forums","contentid":43639,"contentclass":"forums_Topic","contentcommentid":291669}' id="comment-291669_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-291669_wrap" href="#elControls_291669_menu" id="elControls_291669" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_291669_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=reportComment&amp;comment=291669" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_291669_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291669" id="elSharePost_291669" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291669" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-04-29T16:20:43Z" title="04/29/17 04:20  PM">April 29, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="291581" data-ipsquote-contentid="43639" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1493349088" data-ipsquote-userid="29891" data-ipsquote-username="DieTanx">
+<div class="ipsQuote_citation">
+		On 4/27/2017 at 10:11 PM, DieTanx said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Question<br/>
+			_deployOnOtherPlots = false; // Allow players to deploy vehicles within an enemy players plot area?<br/>
+			_deployInVehicle = false; // Allow players to deploy vehicles while they are in a vehicle?<br/>
+			_deployOnLadder = false; // Allow players to deploy vehicles while they are on a ladder?<br/><br/><br/>
+			i have these all set to false, but i am still able to craft while being in enemy plot, any thoughts?
+		</p>
+</div>
+</blockquote>
+<p>
+	I am not being able to repeat this issue. The number of meters away is dependent upon the first number in DZE_PlotPole.
+</p>
+<p>
+	 
+</p>
+<p>
+	So, if you had DZE_PlotPole set like this:
+</p>
+<pre class="ipsCode prettyprint lang-javascript prettyprinted">
+<span class="pln">DZE_PlotPole </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">30</span><span class="pun">,</span><span class="lit">90</span><span class="pun">];</span></pre>
+<p>
+	The player wouldn't be able to build 30 meters from another person's plot pole.
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_291669_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291669"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291669" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291669" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F%3Fdo%3DfindComment%26comment%3D291669&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment%26comment=291669&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I am not being able to repeat this issue. The number of meters away is dependent upon the first number in DZE_PlotPole.
+ 
+
+
+	 
+ 
+
+
+	So, if you had DZE_PlotPole set like this:
+ 
+
+
+DZE_PlotPole = [30,90];
+
+
+	The player wouldn't be able to build 30 meters from another person's plot pole.
+ 
+" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="https://epochmod.com/forum/topic/43639-release-vehicle-deployment/?do=findComment&amp;comment=291669">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80MzYzOS1yZWxlYXNlLXZlaGljbGUtZGVwbG95bWVudC8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43639-release-vehicle-deployment%2F&amp;title=%5BRelease%5D+Vehicle+Deployment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43639-release-vehicle-deployment/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[Release] Vehicle Deployment" data-websharetitle="[Release] Vehicle Deployment" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="43639">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/123-a2-epoch-mods/index.html" rel="parent" title="Go to A2: Epoch Mods">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/122-resources/index.html">
+<span>Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/123-a2-epoch-mods/index.html">
+<span>A2: Epoch Mods <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[Release] Vehicle Deployment
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[Release] Vehicle Deployment",
+    "headline": "[Release] Vehicle Deployment",
+    "text": "I needed a nice deploy script that was minimal but did everything I needed it to do. So I made my own :)\n \n\n\n\t\u00a0\n \n\n\n\tI need to do some optimizing with this code (change the config into arrays - other small things) but it works great :)\n \n\n\n\t\u00a0\n \n\n\n\tWhat it does:\n \n\n\n\t\t\n\t\t\tAllows players to deploy a Bike, ATV, or a Mozzie (by default).\n\t\t \n\t \n\t\n\t\t\n\t\t\tCompatible with almost all (if not all) vehicles.\n\t\t \n\t \n\t\n\t\t\n\t\t\tRequired parts can include both magazines and toolbelt items (or weapons in general if needed).\n\t\t \n\t \n\t\n\t\t\n\t\t\tVehicles can be deployed on high buildings, bases, or bridges without issue.\n\t\t \n\t \n\t\n\t\t\n\t\t\tThe server owner can:\n\t\t \n\n\t\t\n\t\t\t\tConfigure what vehicles players can deploy\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the player will go through an animation while deploying the vehicle\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the player can deploy the vehicle while within someone else\u0027s plot area\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the player can deploy the vehicle while in combat\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the vehicle can be sold at traders\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the player can deploy the vehicle while in a vehicle\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the vehicle should have it\u0027s ammo removed when deployed\n\t\t\t \n\t\t\t\n\t\t\t\tDecide if the player can deploy the vehicle on a ladder\n\t\t\t \n\t\t\t\n\t\t\t\tDecide what parts each vehicle needs to be deployed\n\t\t\t \n\t\t\t\n\t\t\t\tDecide what the display name of the vehicle will be on all messages that appear during the process\n\t\t\t \n\t\t \n\n\t\u00a0\n \n\n\n\tI have made the files more configurable (I normally don\u0027t have all of the config options - I put them there for other people to be easily able to configure it in whatever way they like), so there might be a bug or two I am unaware of, so please post if you find one :)\n \n\n\n\t\u00a0\n \n\n\n\tDownload and install instructions on my github:\n \n\n\n\thttps://github.com/BigEgg17/Vehicle-Deployment#installation\n \n\n\n\t\u00a0\n \n",
+    "dateCreated": "2017-03-31T05:57:08+0000",
+    "datePublished": "2017-03-31T05:57:08+0000",
+    "dateModified": "2017-04-29T16:20:43+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "BigEgg",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+        "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2404
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 12
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 2
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "BigEgg",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+            "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/",
+    "discussionUrl": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-289973",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-289973",
+            "author": {
+                "@type": "Person",
+                "name": "BigEgg",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+                "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+            },
+            "dateCreated": "2017-03-31T07:09:14+0000",
+            "text": "Reserved\n ",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-289975",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-289975",
+            "author": {
+                "@type": "Person",
+                "name": "Michal.esl94",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/37615-michalesl94/"
+            },
+            "dateCreated": "2017-03-31T07:11:02+0000",
+            "text": "Thats what i am looking for ! Thank\u00a0you BigEGG! Tested and Works great for me. :)\n ",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-289979",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-289979",
+            "author": {
+                "@type": "Person",
+                "name": "BigEgg",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+                "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+            },
+            "dateCreated": "2017-03-31T08:28:52+0000",
+            "text": "@Michal.esl94\u00a0- I have made a couple small fixes if you would like to re-download and apply the fixes :)\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-290042",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-290042",
+            "author": {
+                "@type": "Person",
+                "name": "juandayz",
+                "image": "https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png",
+                "url": "https://epochmod.com/forum/profile/36144-juandayz/"
+            },
+            "dateCreated": "2017-03-31T22:48:54+0000",
+            "text": "The configs features that the script offers are great! well done.........................AGAIN!\n\n\t\t\n\t\n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-290071",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-290071",
+            "author": {
+                "@type": "Person",
+                "name": "Anhor",
+                "image": "https://epochmod.com/forum/uploads/monthly_2016_11/nero.thumb.jpg.a95ed38b57eec3ab0cb451c83b62dec0.jpg",
+                "url": "https://epochmod.com/forum/profile/37482-anhor/"
+            },
+            "dateCreated": "2017-04-01T09:18:22+0000",
+            "text": "Is it not the same with DEPLOY ANYTHING? Bike and mozzie allready in. By myself added a old motorcycle (1 scrap meatl. 1 fuel tank, 1 engine parts and 2 wheels), a old tractor (2 scrap metal, 1 fuel tank, 1 engine parts and 4 wheels).\n \n\n\n\tNext I will add is a yellow pook ;)\n \n\n\n\t\u00a0\n \n\n\n\t\u00a0\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291098",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291098",
+            "author": {
+                "@type": "Person",
+                "name": "DieTanx",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/29891-dietanx/"
+            },
+            "dateCreated": "2017-04-20T02:06:06+0000",
+            "text": "I get a Client side error with this.\n \n\n\n\t\u00a0\n \n\n\n\tI am still able to craft/pack without issues even with error.\n \n\n\n\t\u00a0\u00a0 \u00a0_combat = false; is set like this for all vehicles i have for crafting.\n \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291130",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291130",
+            "author": {
+                "@type": "Person",
+                "name": "BigEgg",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+                "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+            },
+            "dateCreated": "2017-04-20T22:33:51+0000",
+            "text": "It appears that when I fixed this issue, it also pasted the fixed code at the top of the config file when I made the commit (I did it through github website so that might have messed up or I was just tired lol) - anyways the fix is located here:\n \n\n\n\thttps://github.com/BigEgg17/Vehicle-Deployment/commit/7465feb33061322a907002ed693d622f5b767d25\n \n\n\n\t\u00a0\n \n\n\n\tOr you can simply re-download the files :)\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291286",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291286",
+            "author": {
+                "@type": "Person",
+                "name": "DieTanx",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/29891-dietanx/"
+            },
+            "dateCreated": "2017-04-23T17:09:10+0000",
+            "text": "Does this auto delete the vehicles at reset?\n ",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291287",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291287",
+            "author": {
+                "@type": "Person",
+                "name": "BigEgg",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+                "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+            },
+            "dateCreated": "2017-04-23T17:16:43+0000",
+            "text": "Yes - the vehicles are not saved so they automatically delete.\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291289",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291289",
+            "author": {
+                "@type": "Person",
+                "name": "DieTanx",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/29891-dietanx/"
+            },
+            "dateCreated": "2017-04-23T18:03:27+0000",
+            "text": "Thank you sir\n \n\n\n\tThank you for all your hard work on all the things :)\n \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291581",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291581",
+            "author": {
+                "@type": "Person",
+                "name": "DieTanx",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/29891-dietanx/"
+            },
+            "dateCreated": "2017-04-28T03:11:28+0000",
+            "text": "Question \n\t_deployOnOtherPlots = false; // Allow players to deploy vehicles within an enemy players plot area? \n\t_deployInVehicle = false; // Allow players to deploy vehicles while they are in a vehicle? \n\t_deployOnLadder = false; // Allow players to deploy vehicles while they are on a ladder?   \n\ti have these all set to false, but i am still able to craft while being in enemy plot, any thoughts?\n ",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291669",
+            "url": "https://epochmod.com/forum/topic/43639-release-vehicle-deployment/#comment-291669",
+            "author": {
+                "@type": "Person",
+                "name": "BigEgg",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-31579.jpg",
+                "url": "https://epochmod.com/forum/profile/31579-bigegg/"
+            },
+            "dateCreated": "2017-04-29T16:20:43+0000",
+            "text": "I am not being able to repeat this issue. The number of meters away is dependent upon the first number in\u00a0DZE_PlotPole.\n \n\n\n\t\u00a0\n \n\n\n\tSo, if you had DZE_PlotPole set like this:\n \n\n\nDZE_PlotPole = [30,90];\n\n\n\tThe player wouldn\u0027t be able to build 30 meters from another person\u0027s plot pole.\n \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/122-resources/",
+                "name": "Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/123-a2-epoch-mods/",
+                "name": "A2: Epoch Mods"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

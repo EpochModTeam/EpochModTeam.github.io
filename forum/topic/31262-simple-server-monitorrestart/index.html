@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Simple Server Monitor/Restart - Tools - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Simple Server Monitor/Restart" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/" property="og:url"/>
+<meta content="Hello, here are my files on how I run my start/restart and how I monitor the server. There are better ways to do it, but this has worked for me for the last year. I had also shared this on the ALRPG forums, you might have seen it there as i see some familiar names here. Anyways, I use a folder ca..." name="description"/>
+<meta content="Hello, here are my files on how I run my start/restart and how I monitor the server. There are better ways to do it, but this has worked for me for the last year. I had also shared this on the ALRPG forums, you might have seen it there as i see some familiar names here. Anyways, I use a folder ca..." property="og:description"/>
+<meta content="2015-05-18T22:01:39Z" property="og:updated_time"/>
+<meta content="simple, batch files, server restart, server monitor, keepalive, Tutorial" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="31262" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zMTI2Mi1zaW1wbGUtc2VydmVyLW1vbml0b3JyZXN0YXJ0Lw=="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":65}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":31262}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/65-tools/index.html">
+<span>Tools</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/67-community-projects/index.html">
+<span>Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/65-tools/index.html">
+<span>Tools <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Simple Server Monitor/Restart
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Simple Server Monitor/Restart</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="simple" href="https://epochmod.com/forum/tags/simple/" rel="tag" title="Find other content tagged with 'simple'"><span>simple</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch files" href="https://epochmod.com/forum/tags/batch files/" rel="tag" title="Find other content tagged with 'batch files'"><span>batch files</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server restart" href="https://epochmod.com/forum/tags/server restart/" rel="tag" title="Find other content tagged with 'server restart'"><span>server restart</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server monitor" href="https://epochmod.com/forum/tags/server monitor/" rel="tag" title="Find other content tagged with 'server monitor'"><span>server monitor</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="keepalive" href="https://epochmod.com/forum/tags/keepalive/" rel="tag" title="Find other content tagged with 'keepalive'"><span>keepalive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="Tutorial" href="https://epochmod.com/forum/tags/Tutorial/" rel="tag" title="Find other content tagged with 'Tutorial'"><span>Tutorial</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11041-midgetgrimm/?do=hovercard" data-ipshover-width="370" href="../../profile/11041-midgetgrimm/index.html" rel="nofollow" title="Go to midgetgrimm's profile">
+<img alt="midgetgrimm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11041.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11041-midgetgrimm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/11041-midgetgrimm/index.html" rel="nofollow" title="Go to midgetgrimm's profile">midgetgrimm</a></strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2015-01-12T17:37:43Z" title="01/12/15 05:37  PM">January 12, 2015</time> in <a href="../../forum/65-tools/index.html">Tools</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Simple Server Monitor/Restart" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="31262">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-31262" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-193607"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_193607">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11041-midgetgrimm/?do=hovercard" data-ipshover-width="370" href="../../profile/11041-midgetgrimm/index.html" rel="nofollow" title="Go to midgetgrimm's profile">
+<img alt="midgetgrimm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11041.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11041-midgetgrimm/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11041-midgetgrimm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/11041-midgetgrimm/index.html" rel="nofollow" title="Go to midgetgrimm's profile"><span style="color:#">midgetgrimm</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=193607" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-12T17:37:43Z" title="01/12/15 05:37  PM">January 12, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11041-midgetgrimm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/11041-midgetgrimm/index.html" rel="nofollow" title="Go to midgetgrimm's profile">midgetgrimm</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11041-midgetgrimm/?do=hovercard" data-ipshover-width="370" href="../../profile/11041-midgetgrimm/index.html" rel="nofollow" title="Go to midgetgrimm's profile">
+<img alt="midgetgrimm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11041.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11041-midgetgrimm/content/" rel="nofollow" title="12 posts">
+<i class="fa fa-comment"></i> 12
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">FLA</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="193607" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11041,"username":"midgetgrimm","timestamp":1421084263,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":193607}' id="comment-193607_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-193607_wrap" href="#elControls_193607_menu" id="elControls_193607" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_193607_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=193607" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_193607_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_193607" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=193607" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-12T17:37:43Z" title="01/12/15 05:37  PM">January 12, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Hello, here are my files on how I run my start/restart and how I monitor the server. There are better ways to do it, but this has worked for me for the last year. I had also shared this on the ALRPG forums, you might have seen it there as i see some familiar names here. Anyways, I use a folder called arma3serverconfig, not the one that EPOCH recommends, but all the same applies, its all about directory paths anyways</p>
+<p> </p>
+<p>In the folder where your battle and BEC are you'll want to create a few files. The first being</p>
+<p> </p>
+<p>restartserver.bat</p>
+<pre class="ipsCode prettyprint">
+@echo off
+
+taskkill /f /fi "status eq not responding" /im arma3server.exe
+taskkill /f /im arma3server.exe
+timeout 1
+
+taskkill /f /fi "status eq not responding" /im arma3.exe
+taskkill /f /im arma3.exe
+timeout 1
+
+taskkill /im Bec.exe
+taskkill /f /im cmd.exe /fi "windowtitle eq servermonitor.bat"
+timeout 2
+echo Kill all instances for safety
+
+timeout 6
+::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION
+set becpath="C:\arma3serverconfig\Bec\"
+cd /d %becpath%
+start "" /min "Bec.exe" -f Config.cfg
+timeout 1
+echo Battleye has started.. 
+timeout 1
+echo Starting ARMA 3 Server...
+::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION
+cd C:\Games\ArmA3\A3Master
+timeout 1
+start "arma3" /min /high "arma3server.exe" -port=2322 "-config=C:\arma3serverconfig\config.cfg" "-cfg=C:\arma3serverconfig\basic.cfg" "-profiles=C:\arma3serverconfig" -name=SC "-mod=@Epoch;@EpochHive;@AllInArmaTerrainPackLite;" -world=empty -nosplash -noSound -noPause -enableHT -malloc=system
+timeout 5
+echo ARMA 3 Server has started
+::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION
+set ServerMonitorPath="C:\arma3serverconfig\"
+cd /d %ServerMonitorPath%
+start "" "servermonitor.bat"
+echo Server Monitor has started. Have Fun
+timeout 3
+exit
+
+</pre>
+<p>Make sure you change your directory locations, then we need 3 more files</p>
+<p> </p>
+<p>servermonitor.bat</p>
+<pre class="ipsCode prettyprint">
+::Made by eRazeri - edited by [midgetgrimm]
+@echo off
+title servermonitor.bat
+:start
+C:\Windows\System32\tasklist /FI "IMAGENAME eq arma3server.exe" 2&gt;NUL | C:\Windows\System32\find /I /N "arma3server.exe"&gt;NUL
+if "%ERRORLEVEL%"=="0" goto loop
+echo Server is not running, will be started now 
+:: SET DIRECTORY TO PROPER LOCATION
+start "" /min /wait "C:\arma3serverconfig\restartserver.bat" 
+timeout 30
+echo Server started succesfully
+goto started
+:loop
+cls
+echo Server is already running, running monitoring loop
+:started
+:: THESE ARE WERFAULT AND TASK KILLS
+taskkill /f /im WerFault.exe /fi "WINDOWTITLE eq Arma 3"
+C:\Windows\System32\timeout /t 80
+C:\Windows\System32\tasklist /FI "IMAGENAME eq arma3server.exe" 2&gt;NUL | C:\Windows\System32\find /I /N "arma3server.exe"&gt;NUL
+if "%ERRORLEVEL%"=="0" goto loop
+goto start
+</pre>
+<p>Again make sure to chagne your file locations and all that noise... 2 more to go</p>
+<p> </p>
+<p>next is stopserver.bat</p>
+<pre class="ipsCode prettyprint">
+@echo off
+taskkill /f /fi "status eq not responding" /im arma3server.exe
+taskkill /f /im arma3server.exe
+timeout 1
+
+taskkill /f /fi "status eq not responding" /im arma3server.exe
+taskkill /f /im arma3server.exe
+timeout 1
+
+taskkill /im Bec.exe
+
+
+timeout 3
+exit
+</pre>
+<p>Now this we need to call via BEC through the scheduler, so make sure you add a task in the scheduler.xml, like this, make sure you set correct filepath and how many hours until it runs</p>
+<pre class="ipsCode prettyprint">
+
+	&lt;job id='8'&gt;
+		&lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+		&lt;start&gt;040000&lt;/start&gt;
+		&lt;runtime&gt;040000&lt;/runtime&gt;
+		&lt;loop&gt;0&lt;/loop&gt;
+		&lt;cmd&gt;C:\arma3serverconfig\stopserver.bat&lt;/cmd&gt;
+	&lt;/job&gt;
+</pre>
+<p>Now for the last is the log rotator. you can use the one Epoch kindly provides are use this</p>
+<p>rotate_logs.bat - I didn't write this one, but make sure you change and edit the file directory.</p>
+<pre class="ipsCode prettyprint">
+@echo off
+:: Based off of Server Launch Script by r4z0r49
+:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com
+::
+:: Usage: dayzsrv-log-rotater.bat servername
+:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat 
+:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \
+set arma2srvpath=D:
+
+:: Set your Default server profile name. This is the name of the directory that stores your server.cfg
+:: This will be used in the case that you don't launch this script without the server param.
+:: Example: cfgdayz, US6, Chicago13, ect
+:: DEFAULTPROFILE
+set srvname=arma3serverconfig
+
+:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.
+:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon's Pre/Post Service tab
+set deloriglogs=1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+
+:: Setting Server Profile to Use
+IF "%1"=="" (
+set servername=%srvname%
+) else (
+set servername=%1
+)
+
+TITLE  DayZ %servername% Server Log Rotater
+
+:: Set Debug Mode
+set debug=0
+:: Set Debug Timeout in seconds
+set dbsecs=10
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: Display Debug output
+if %debug% == 1 (
+echo Server Name = %servername%
+echo ArmaII Server Path = "%arma2srvpath%"
+timeout %dbsecs%
+)
+
+:: Set Time and Date
+SET HOUR=%time:~0,2%
+SET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%
+SET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%
+::Make Date Stamp
+if "%HOUR:~0,1%" == " " (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
+ECHO Todays Date and time (%date%)(%time%) / %dtStamp%
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+echo (%date%) (%time%) Starting Log Rotation.
+
+:: Make the Rotated Log Directorys
+if exist "D:\arma3serverconfig\RotatedLogs" goto maketsdir
+mkdir "D:\arma3serverconfig\RotatedLogs"
+:maketsdir
+if exist "D:\arma3serverconfig\RotatedLogs\%dtStamp%" goto makebedir
+mkdir "D:\arma3serverconfig\RotatedLogs\%dtStamp%"
+:makebedir
+if exist "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye" goto rotatelogs
+mkdir "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye"
+
+:rotatelogs
+:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.
+copy "%arma2srvpath%\%servername%\arma3server.RPT" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\arma3server.RPT"
+copy "%arma2srvpath%\%servername%\server_log.txt" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\server_log.txt"
+copy "%arma2srvpath%\%servername%\BattlEye\attachto.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\attachto.log"
+copy "%arma2srvpath%\%servername%\BattlEye\addbackpackcargo.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\addbackpackcargo.log"
+copy "%arma2srvpath%\%servername%\BattlEye\addweaponcargo.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\addweaponcargo.log"
+copy "%arma2srvpath%\%servername%\BattlEye\deletevehicle.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\deletevehicle.log"
+copy "%arma2srvpath%\%servername%\BattlEye\remotecontrol.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\remotecontrol.log"
+copy "%arma2srvpath%\%servername%\BattlEye\selectplayer.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\selectplayer.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setvariableval.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setvariableval.log"
+copy "%arma2srvpath%\%servername%\BattlEye\teamswitch.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\teamswitch.log"
+copy "%arma2srvpath%\%servername%\BattlEye\waypointcondition.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\waypointcondition.log"
+copy "%arma2srvpath%\%servername%\BattlEye\waypointstatement.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\waypointstatement.log"
+copy "%arma2srvpath%\%servername%\BattlEye\scripts.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\scripts.log"
+copy "%arma2srvpath%\%servername%\BattlEye\createvehicle.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\createvehicle.log"
+copy "%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\mpeventhandler.log"
+copy "%arma2srvpath%\%servername%\BattlEye\publicvariable.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\publicvariable.log"
+copy "%arma2srvpath%\%servername%\BattlEye\publicvariableval.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\publicvariableval.log"
+copy "%arma2srvpath%\%servername%\BattlEye\remoteexec.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\remoteexec.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setdamage.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setdamage.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setpos.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setpos.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setvariable.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setvariable.log"
+copy "%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log" "D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\addmagazinecargo.log"
+echo (%date%) (%time%) Logs are backed up now...
+echo (%date%) (%time%) Removing original log files.
+del /Q /F "%arma2srvpath%\%servername%\arma3server.RPT"
+del /Q /F "%arma2srvpath%\%servername%\server_log.txt"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\attachto.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\addbackpackcargo.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\addweaponcargo.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\deletevehicle.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\remotecontrol.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\selectplayer.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setvariableval.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\teamswitch.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\waypointcondition.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\waypointstatement.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\scripts.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\createvehicle.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\publicvariable.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\publicvariableval.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\remoteexec.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setdamage.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setpos.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setvariable.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log"
+
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+:: We're done here.
+exit
+</pre>
+<p>This is what I use and it works well. I saw 2 others on here that are nice too, but it's always nice to have options. Cheers</p>
+<p> </p>
+<p>Then just run the restartserver.bat and you should see your logs rotate, then BEC starts, then A3 starts. Once all started that closes and starts the server monitor and just keeps in check until restart. Try to never shut down the database as it takes a few to finish syncing. Thanks, really loving epoch now, can't wait until it gets completely opened up!</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22264-maddingamer/?do=hovercard" data-ipshover-width="370" href="../../profile/22264-maddingamer/index.html" rel="nofollow" title="Go to maddingamer's profile">maddingamer</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=showReactionsComment&amp;comment=193607&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=showReactionsComment&amp;comment=193607&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_193607_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D193607" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D193607" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D193607&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=193607&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hello, here are my files on how I run my start/restart and how I monitor the server. There are better ways to do it, but this has worked for me for the last year. I had also shared this on the ALRPG forums, you might have seen it there as i see some familiar names here. Anyways, I use a folder called arma3serverconfig, not the one that EPOCH recommends, but all the same applies, its all about directory paths anyways 
+  
+In the folder where your battle and BEC are you'll want to create a few files. The first being 
+  
+restartserver.bat 
+
+@echo off
+
+taskkill /f /fi &quot;status eq not responding&quot; /im arma3server.exe
+taskkill /f /im arma3server.exe
+timeout 1
+
+taskkill /f /fi &quot;status eq not responding&quot; /im arma3.exe
+taskkill /f /im arma3.exe
+timeout 1
+
+taskkill /im Bec.exe
+taskkill /f /im cmd.exe /fi &quot;windowtitle eq servermonitor.bat&quot;
+timeout 2
+echo Kill all instances for safety
+
+timeout 6
+::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION
+set becpath=&quot;C:\arma3serverconfig\Bec\&quot;
+cd /d %becpath%
+start &quot;&quot; /min &quot;Bec.exe&quot; -f Config.cfg
+timeout 1
+echo Battleye has started.. 
+timeout 1
+echo Starting ARMA 3 Server...
+::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION
+cd C:\Games\ArmA3\A3Master
+timeout 1
+start &quot;arma3&quot; /min /high &quot;arma3server.exe&quot; -port=2322 &quot;-config=C:\arma3serverconfig\config.cfg&quot; &quot;-cfg=C:\arma3serverconfig\basic.cfg&quot; &quot;-profiles=C:\arma3serverconfig&quot; -name=SC &quot;-mod=@Epoch;@EpochHive;@AllInArmaTerrainPackLite;&quot; -world=empty -nosplash -noSound -noPause -enableHT -malloc=system
+timeout 5
+echo ARMA 3 Server has started
+::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION
+set ServerMonitorPath=&quot;C:\arma3serverconfig\&quot;
+cd /d %ServerMonitorPath%
+start &quot;&quot; &quot;servermonitor.bat&quot;
+echo Server Monitor has started. Have Fun
+timeout 3
+exit
+
+
+Make sure you change your directory locations, then we need 3 more files 
+  
+servermonitor.bat 
+
+::Made by eRazeri - edited by [midgetgrimm]
+@echo off
+title servermonitor.bat
+:start
+C:\Windows\System32\tasklist /FI &quot;IMAGENAME eq arma3server.exe&quot; 2&gt;NUL | C:\Windows\System32\find /I /N &quot;arma3server.exe&quot;&gt;NUL
+if &quot;%ERRORLEVEL%&quot;==&quot;0&quot; goto loop
+echo Server is not running, will be started now 
+:: SET DIRECTORY TO PROPER LOCATION
+start &quot;&quot; /min /wait &quot;C:\arma3serverconfig\restartserver.bat&quot; 
+timeout 30
+echo Server started succesfully
+goto started
+:loop
+cls
+echo Server is already running, running monitoring loop
+:started
+:: THESE ARE WERFAULT AND TASK KILLS
+taskkill /f /im WerFault.exe /fi &quot;WINDOWTITLE eq Arma 3&quot;
+C:\Windows\System32\timeout /t 80
+C:\Windows\System32\tasklist /FI &quot;IMAGENAME eq arma3server.exe&quot; 2&gt;NUL | C:\Windows\System32\find /I /N &quot;arma3server.exe&quot;&gt;NUL
+if &quot;%ERRORLEVEL%&quot;==&quot;0&quot; goto loop
+goto start
+
+Again make sure to chagne your file locations and all that noise... 2 more to go 
+  
+next is stopserver.bat 
+
+@echo off
+taskkill /f /fi &quot;status eq not responding&quot; /im arma3server.exe
+taskkill /f /im arma3server.exe
+timeout 1
+
+taskkill /f /fi &quot;status eq not responding&quot; /im arma3server.exe
+taskkill /f /im arma3server.exe
+timeout 1
+
+taskkill /im Bec.exe
+
+
+timeout 3
+exit
+
+Now this we need to call via BEC through the scheduler, so make sure you add a task in the scheduler.xml, like this, make sure you set correct filepath and how many hours until it runs 
+
+
+	&lt;job id='8'&gt;
+		&lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+		&lt;start&gt;040000&lt;/start&gt;
+		&lt;runtime&gt;040000&lt;/runtime&gt;
+		&lt;loop&gt;0&lt;/loop&gt;
+		&lt;cmd&gt;C:\arma3serverconfig\stopserver.bat&lt;/cmd&gt;
+	&lt;/job&gt;
+
+Now for the last is the log rotator. you can use the one Epoch kindly provides are use this 
+rotate_logs.bat - I didn't write this one, but make sure you change and edit the file directory. 
+
+@echo off
+:: Based off of Server Launch Script by r4z0r49
+:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com
+::
+:: Usage: dayzsrv-log-rotater.bat servername
+:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat 
+:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \
+set arma2srvpath=D:
+
+:: Set your Default server profile name. This is the name of the directory that stores your server.cfg
+:: This will be used in the case that you don't launch this script without the server param.
+:: Example: cfgdayz, US6, Chicago13, ect
+:: DEFAULTPROFILE
+set srvname=arma3serverconfig
+
+:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.
+:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon's Pre/Post Service tab
+set deloriglogs=1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+
+:: Setting Server Profile to Use
+IF &quot;%1&quot;==&quot;&quot; (
+set servername=%srvname%
+) else (
+set servername=%1
+)
+
+TITLE  DayZ %servername% Server Log Rotater
+
+:: Set Debug Mode
+set debug=0
+:: Set Debug Timeout in seconds
+set dbsecs=10
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: Display Debug output
+if %debug% == 1 (
+echo Server Name = %servername%
+echo ArmaII Server Path = &quot;%arma2srvpath%&quot;
+timeout %dbsecs%
+)
+
+:: Set Time and Date
+SET HOUR=%time:~0,2%
+SET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%
+SET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%
+::Make Date Stamp
+if &quot;%HOUR:~0,1%&quot; == &quot; &quot; (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
+ECHO Todays Date and time (%date%)(%time%) / %dtStamp%
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+echo (%date%) (%time%) Starting Log Rotation.
+
+:: Make the Rotated Log Directorys
+if exist &quot;D:\arma3serverconfig\RotatedLogs&quot; goto maketsdir
+mkdir &quot;D:\arma3serverconfig\RotatedLogs&quot;
+:maketsdir
+if exist &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%&quot; goto makebedir
+mkdir &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%&quot;
+:makebedir
+if exist &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye&quot; goto rotatelogs
+mkdir &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye&quot;
+
+:rotatelogs
+:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.
+copy &quot;%arma2srvpath%\%servername%\arma3server.RPT&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\arma3server.RPT&quot;
+copy &quot;%arma2srvpath%\%servername%\server_log.txt&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\server_log.txt&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\attachto.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\attachto.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\addbackpackcargo.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\addbackpackcargo.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\addweaponcargo.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\addweaponcargo.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\deletevehicle.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\deletevehicle.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\remotecontrol.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\remotecontrol.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\selectplayer.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\selectplayer.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setvariableval.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setvariableval.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\teamswitch.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\teamswitch.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\waypointcondition.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\waypointcondition.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\waypointstatement.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\waypointstatement.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\scripts.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\scripts.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\createvehicle.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\createvehicle.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\mpeventhandler.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\publicvariable.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\publicvariable.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\publicvariableval.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\publicvariableval.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\remoteexec.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\remoteexec.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setdamage.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setdamage.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setpos.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setpos.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setvariable.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\setvariable.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log&quot; &quot;D:\arma3serverconfig\RotatedLogs\%dtStamp%\BattlEye\addmagazinecargo.log&quot;
+echo (%date%) (%time%) Logs are backed up now...
+echo (%date%) (%time%) Removing original log files.
+del /Q /F &quot;%arma2srvpath%\%servername%\arma3server.RPT&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\server_log.txt&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\attachto.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\addbackpackcargo.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\addweaponcargo.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\deletevehicle.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\remotecontrol.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\selectplayer.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setvariableval.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\teamswitch.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\waypointcondition.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\waypointstatement.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\scripts.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\createvehicle.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\publicvariable.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\publicvariableval.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\remoteexec.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setdamage.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setpos.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setvariable.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log&quot;
+
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+:: We're done here.
+exit
+
+This is what I use and it works well. I saw 2 others on here that are nice too, but it's always nice to have options. Cheers 
+  
+Then just run the restartserver.bat and you should see your logs rotate, then BEC starts, then A3 starts. Once all started that closes and starts the server monitor and just keeps in check until restart. Try to never shut down the database as it takes a few to finish syncing. Thanks, really loving epoch now, can't wait until it gets completely opened up! 
+" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=193607">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									4 weeks later...
+								</li>
+</ul>
+<a id="comment-203449"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_203449">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22264-maddingamer/?do=hovercard" data-ipshover-width="370" href="../../profile/22264-maddingamer/index.html" rel="nofollow" title="Go to maddingamer's profile">
+<img alt="maddingamer" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-22264.jpg"/>
+</a>
+<a href="../../profile/22264-maddingamer/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22264-maddingamer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/22264-maddingamer/index.html" rel="nofollow" title="Go to maddingamer's profile"><span style="color:#">maddingamer</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=203449" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-05T13:12:16Z" title="02/05/15 01:12  PM">February 5, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22264-maddingamer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/22264-maddingamer/index.html" rel="nofollow" title="Go to maddingamer's profile">maddingamer</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22264-maddingamer/?do=hovercard" data-ipshover-width="370" href="../../profile/22264-maddingamer/index.html" rel="nofollow" title="Go to maddingamer's profile">
+<img alt="maddingamer" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-22264.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/22264-maddingamer/content/index.html" rel="nofollow" title="180 posts">
+<i class="fa fa-comment"></i> 180
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany, SH</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="203449" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":22264,"username":"maddingamer","timestamp":1423141936,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":203449}' id="comment-203449_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-203449_wrap" href="#elControls_203449_menu" id="elControls_203449" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_203449_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=203449" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_203449_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=203449" id="elSharePost_203449" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=203449" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-05T13:12:16Z" title="02/05/15 01:12  PM">February 5, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Looks nice, (and similar to mine ^^ ) but you got a few things in it I could change in mine as well. Thank you for sharing :) </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_203449_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=203449"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D203449" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D203449" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D203449&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=203449&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Looks nice, (and similar to mine ^^ ) but you got a few things in it I could change in mine as well. Thank you for sharing :)  
+" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=203449">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 weeks later...
+								</li>
+</ul>
+<a id="comment-208245"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_208245">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26793-riddlez/?do=hovercard" data-ipshover-width="370" href="../../profile/26793-riddlez/index.html" rel="nofollow" title="Go to Riddlez's profile">
+<img alt="Riddlez" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-26793.jpg"/>
+</a>
+<a href="../../profile/26793-riddlez/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26793-riddlez/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26793-riddlez/index.html" rel="nofollow" title="Go to Riddlez's profile"><span style="color:#">Riddlez</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=208245" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-18T16:57:59Z" title="02/18/15 04:57  PM">February 18, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26793-riddlez/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26793-riddlez/index.html" rel="nofollow" title="Go to Riddlez's profile">Riddlez</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26793-riddlez/?do=hovercard" data-ipshover-width="370" href="../../profile/26793-riddlez/index.html" rel="nofollow" title="Go to Riddlez's profile">
+<img alt="Riddlez" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-26793.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/26793-riddlez/content/index.html" rel="nofollow" title="37 posts">
+<i class="fa fa-comment"></i> 37
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Western Canada</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="208245" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":26793,"username":"Riddlez","timestamp":1424278679,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":208245}' id="comment-208245_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-208245_wrap" href="#elControls_208245_menu" id="elControls_208245" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_208245_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=208245" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_208245_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=208245" id="elSharePost_208245" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=208245" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-18T16:57:59Z" title="02/18/15 04:57  PM">February 18, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>no more bec now....</p>
+<p> </p>
+<p><a href="http://ibattle.org/" rel="external nofollow">http://ibattle.org/</a></p>
+<p> </p>
+<p>its down...</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_208245_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=208245"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D208245" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D208245" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D208245&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=208245&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="no more bec now.... 
+  
+http://ibattle.org/ 
+  
+its down... 
+" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=208245">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 weeks later...
+								</li>
+</ul>
+<a id="comment-212263"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_212263">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">
+<img alt="uniflare" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c1c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/26513-uniflare/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile"><span style="color:#">uniflare</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=212263" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-03-01T18:07:54Z" title="03/01/15 06:07  PM">March 1, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">uniflare</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">
+<img alt="uniflare" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c1c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/26513-uniflare/content/index.html" rel="nofollow" title="201 posts">
+<i class="fa fa-comment"></i> 201
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="212263" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":26513,"username":"uniflare","timestamp":1425233274,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":212263}' id="comment-212263_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-212263_wrap" href="#elControls_212263_menu" id="elControls_212263" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_212263_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=212263" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_212263_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=212263" id="elSharePost_212263" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=212263" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-03-01T18:07:54Z" title="03/01/15 06:07  PM">March 1, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I know and the reason is brash and without fore-thought, he feels this "allows" monitization, rather, it "Regulates" it... Respect lost from this developer.</p>
+<p> </p>
+<p>Anyway,</p>
+<p>Just FYI,</p>
+<blockquote class="ipsQuote" data-ipsquote=""><div>
+<p> </p>
+<p><b>All you have to do is block any request done to ibattle.org by Bec. either in your sw firewall (windows firewall) or on your router</b><br/>
+Bec will work normally after that. with the exception of the reporter account and version checking.</p>
+</div></blockquote>
+<p> </p>
+<p>There are some alternative BE Clients being prepared, hopefully one will surface soon before any arma 3 updates break this one seeing as there will not be any more updates.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_212263_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=212263"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D212263" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D212263" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D212263&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=212263&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='I know and the reason is brash and without fore-thought, he feels this "allows" monitization, rather, it "Regulates" it... Respect lost from this developer. 
+  
+Anyway, 
+Just FYI, 
+
+  
+There are some alternative BE Clients being prepared, hopefully one will surface soon before any arma 3 updates break this one seeing as there will not be any more updates. 
+' data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=212263">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									3 weeks later...
+								</li>
+</ul>
+<a id="comment-218798"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_218798">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30297-gerekross/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/30297-gerekross/" rel="nofollow" title="Go to GerekRoss's profile">
+<img alt="GerekRoss" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c47c62%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EG%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/30297-gerekross/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30297-gerekross/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/30297-gerekross/" rel="nofollow" title="Go to GerekRoss's profile"><span style="color:#">GerekRoss</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218798" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-03-18T06:54:36Z" title="03/18/15 06:54  AM">March 18, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30297-gerekross/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/30297-gerekross/" rel="nofollow" title="Go to GerekRoss's profile">GerekRoss</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30297-gerekross/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/30297-gerekross/" rel="nofollow" title="Go to GerekRoss's profile">
+<img alt="GerekRoss" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c47c62%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EG%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/30297-gerekross/content/" rel="nofollow" title="1 post">
+<i class="fa fa-comment"></i> 1
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="218798" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":30297,"username":"GerekRoss","timestamp":1426661676,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":218798}' id="comment-218798_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-218798_wrap" href="#elControls_218798_menu" id="elControls_218798" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_218798_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=218798" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_218798_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218798" id="elSharePost_218798" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218798" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-03-18T06:54:36Z" title="03/18/15 06:54  AM">March 18, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Guys, how to correct it? <img alt="d75ebe74960f.jpg" data-src="../../../../external.gif?link=http://i038.radikal.ru/1503/6d/d75ebe74960f.jpg" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></p>
+<p>And prompt me configuration on a start server Arma 3 epochAltis bat.</p>
+<p>ps: Sorry to my bad English)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_218798_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218798"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D218798" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D218798" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D218798&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=218798&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Guys, how to correct it?  
+And prompt me configuration on a start server Arma 3 epochAltis bat. 
+ps: Sorry to my bad English) 
+" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218798">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-218813"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_218813">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">
+<img alt="uniflare" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c1c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/26513-uniflare/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile"><span style="color:#">uniflare</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218813" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-03-18T09:02:17Z" title="03/18/15 09:02  AM">March 18, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">uniflare</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">
+<img alt="uniflare" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c1c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/26513-uniflare/content/index.html" rel="nofollow" title="201 posts">
+<i class="fa fa-comment"></i> 201
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="218813" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":26513,"username":"uniflare","timestamp":1426669337,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":218813}' id="comment-218813_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-218813_wrap" href="#elControls_218813_menu" id="elControls_218813" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_218813_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=218813" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_218813_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218813" id="elSharePost_218813" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218813" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-03-18T09:02:17Z" title="03/18/15 09:02  AM">March 18, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>add --dsc to BEC command line</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_218813_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218813"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D218813" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D218813" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D218813&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=218813&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="add --dsc to BEC command line 
+" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=218813">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 months later...
+								</li>
+</ul>
+<a id="comment-241137"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_241137">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17623-ertatu/?do=hovercard" data-ipshover-width="370" href="../../profile/17623-ertatu/index.html" rel="nofollow" title="Go to ertatu's profile">
+<img alt="ertatu" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a962c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/17623-ertatu/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17623-ertatu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/17623-ertatu/index.html" rel="nofollow" title="Go to ertatu's profile"><span style="color:#">ertatu</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=241137" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-05-18T22:01:39Z" title="05/18/15 10:01  PM">May 18, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17623-ertatu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/17623-ertatu/index.html" rel="nofollow" title="Go to ertatu's profile">ertatu</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17623-ertatu/?do=hovercard" data-ipshover-width="370" href="../../profile/17623-ertatu/index.html" rel="nofollow" title="Go to ertatu's profile">
+<img alt="ertatu" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a962c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/17623-ertatu/content/index.html" rel="nofollow" title="39 posts">
+<i class="fa fa-comment"></i> 39
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="241137" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17623,"username":"ertatu","timestamp":1431986499,"contentapp":"forums","contenttype":"forums","contentid":31262,"contentclass":"forums_Topic","contentcommentid":241137}' id="comment-241137_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-241137_wrap" href="#elControls_241137_menu" id="elControls_241137" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_241137_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=reportComment&amp;comment=241137" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_241137_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=241137" id="elSharePost_241137" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=241137" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-05-18T22:01:39Z" title="05/18/15 10:01  PM">May 18, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Fow download BEC is easy:</p>
+<p> </p>
+<div style="margin:0px;color:rgb(40,40,40);">
+<p><u><em><strong>Program.</strong></em></u></p>
+<p><a href="http://ibattle.org/Downloads/Bec.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Bec.zip</a></p>
+<p> </p>
+<p><u><em><strong>Plugins.</strong></em></u></p>
+<p><a href="http://ibattle.org/Downloads/Plugins/ConnectionLimiter.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/ConnectionLimiter.zip</a><br/><a href="http://ibattle.org/Downloads/Plugins/Rss.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/Rss.zip</a><br/><a href="http://ibattle.org/Downloads/Plugins/ScriptBan.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/ScriptBan.zip</a><br/><a href="http://ibattle.org/Downloads/Plugins/StaffNames.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/StaffNames.zip</a><br/><a href="http://ibattle.org/Downloads/Plugins/WatchDog.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/WatchDog.zip</a><br/><a href="http://ibattle.org/Downloads/Plugins/Ts3.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/Ts3.zip</a><br/><a href="http://ibattle.org/Downloads/Plugins/Plugin-dev-example.zip" rel="external nofollow" title="External link">ibattle.org/Downloads/Plugins/Plugin-dev-example.zi</a>p</p>
+</div>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_241137_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=241137"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D241137" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D241137" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F%3Fdo%3DfindComment%26comment%3D241137&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment%26comment=241137&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Fow download BEC is easy: 
+  
+
+Program. 
+ibattle.org/Downloads/Bec.zip 
+  
+Plugins. 
+ibattle.org/Downloads/Plugins/ConnectionLimiter.zip ibattle.org/Downloads/Plugins/Rss.zip ibattle.org/Downloads/Plugins/ScriptBan.zip ibattle.org/Downloads/Plugins/StaffNames.zip ibattle.org/Downloads/Plugins/WatchDog.zip ibattle.org/Downloads/Plugins/Ts3.zip ibattle.org/Downloads/Plugins/Plugin-dev-example.zip 
+
+" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/?do=findComment&amp;comment=241137">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zMTI2Mi1zaW1wbGUtc2VydmVyLW1vbml0b3JyZXN0YXJ0LyNyZXBseUZvcm0=">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31262-simple-server-monitorrestart%2F&amp;title=Simple+Server+Monitor%2FRestart" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Simple Server Monitor/Restart" data-websharetitle="Simple Server Monitor/Restart" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="31262">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/65-tools/index.html" rel="parent" title="Go to Tools">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/?preview=1" data-ipshover-timeout="1.5" href="../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html">
+									How to set up and manage multiple DayZ SA Servers responsibly 2021
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>,  <time data-short="3 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_146002673">(and 19 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_146002673_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="standalone" href="https://epochmod.com/forum/tags/standalone/" rel="tag" title="Find other content tagged with 'standalone'"><span>standalone</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="how" href="https://epochmod.com/forum/tags/how/" rel="tag" title="Find other content tagged with 'how'"><span>how</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="manage" href="https://epochmod.com/forum/tags/manage/" rel="tag" title="Find other content tagged with 'manage'"><span>manage</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="multiple" href="https://epochmod.com/forum/tags/multiple/" rel="tag" title="Find other content tagged with 'multiple'"><span>multiple</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="game" href="https://epochmod.com/forum/tags/game/" rel="tag" title="Find other content tagged with 'game'"><span>game</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="restart" href="https://epochmod.com/forum/tags/restart/" rel="tag" title="Find other content tagged with 'restart'"><span>restart</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="archive" href="https://epochmod.com/forum/tags/archive/" rel="tag" title="Find other content tagged with 'archive'"><span>archive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye" href="https://epochmod.com/forum/tags/battleye/" rel="tag" title="Find other content tagged with 'battleye'"><span>battleye</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye extended controls" href="https://epochmod.com/forum/tags/battleye extended controls/" rel="tag" title="Find other content tagged with 'battleye extended controls'"><span>battleye extended controls</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="warning" href="https://epochmod.com/forum/tags/warning/" rel="tag" title="Find other content tagged with 'warning'"><span>warning</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="message" href="https://epochmod.com/forum/tags/message/" rel="tag" title="Find other content tagged with 'message'"><span>message</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="player" href="https://epochmod.com/forum/tags/player/" rel="tag" title="Find other content tagged with 'player'"><span>player</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="walkthrough" href="https://epochmod.com/forum/tags/walkthrough/" rel="tag" title="Find other content tagged with 'walkthrough'"><span>walkthrough</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="2021" href="https://epochmod.com/forum/tags/2021/" rel="tag" title="Find other content tagged with '2021'"><span>2021</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1358</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">
+<img alt="Harkness" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_09/224236537_69223110_10212121577993051_3324963234439495680_n(1)(1)(1)(1)(1).thumb.jpg.2c25a9fd8dfc519e71c8ffa92d07a93c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html" title="Go to last post">
+<time data-short="3 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44695-editing-gui-in-1061/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/44695-editing-gui-in-1061/">
+									Editing GUI in 1.0.6.1
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38952-rust/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/38952-rust/index.html" rel="nofollow" title="Go to Rust's profile">Rust</a>,  <time data-short="7 yr" datetime="2017-11-27T04:01:06Z" title="11/27/17 04:01  AM">November 27, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1138579320">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1138579320_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="gui" href="https://epochmod.com/forum/tags/gui/" rel="tag" title="Find other content tagged with 'gui'"><span>gui</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">4</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1512</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38952-rust/?do=hovercard" data-ipshover-width="370" href="../../profile/38952-rust/index.html" rel="nofollow" title="Go to Rust's profile">
+<img alt="Rust" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46268%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38952-rust/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/38952-rust/index.html" rel="nofollow" title="Go to Rust's profile">Rust</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44695-editing-gui-in-1061/" title="Go to last post">
+<time data-short="7 yr" datetime="2017-12-01T16:55:56Z" title="12/01/17 04:55  PM">December 1, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="keepalive" href="https://epochmod.com/forum/tags/keepalive/" rel="tag" title="Find other content tagged with 'keepalive'"><span>keepalive</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/29149-release-server-keepalive-batch-tool/?preview=1" data-ipshover-timeout="1.5" href="../29149-release-server-keepalive-batch-tool/index.html">
+									[RELEASE] Server Keepalive Batch Tool
+								</a>
+</span>
+<span class="ipsPagination ipsPagination_mini" id="elPagination_a2a1048bebec5446c3ab6ebefc858538">
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/index.html#comments" title="Go to page 1">1</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/2/index.html#comments" title="Go to page 2">2</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/3/index.html#comments" title="Go to page 3">3</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/4/index.html#comments" title="Go to page 4">4</a></span>
+<span class="ipsPagination_last"><a data-ipstooltip="" href="../29149-release-server-keepalive-batch-tool/page/5/index.html#comments" title="Last page">5 <i class="fa fa-caret-right"></i></a></span>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">uniflare</a>,  <time data-short="10 yr" datetime="2014-12-04T00:23:48Z" title="12/04/14 12:23  AM">December 4, 2014</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="epoch" href="https://epochmod.com/forum/tags/epoch/" rel="tag" title="Find other content tagged with 'epoch'"><span>epoch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1686193245">(and 7 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1686193245_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="epoch" href="https://epochmod.com/forum/tags/epoch/" rel="tag" title="Find other content tagged with 'epoch'"><span>epoch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="arma" href="https://epochmod.com/forum/tags/arma/" rel="tag" title="Find other content tagged with 'arma'"><span>arma</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch" href="https://epochmod.com/forum/tags/batch/" rel="tag" title="Find other content tagged with 'batch'"><span>batch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="auto" href="https://epochmod.com/forum/tags/auto/" rel="tag" title="Find other content tagged with 'auto'"><span>auto</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="program" href="https://epochmod.com/forum/tags/program/" rel="tag" title="Find other content tagged with 'program'"><span>program</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="uniflare" href="https://epochmod.com/forum/tags/uniflare/" rel="tag" title="Find other content tagged with 'uniflare'"><span>uniflare</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">107</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">28040</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">
+<img alt="uniflare" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c1c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EU%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26513-uniflare/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/26513-uniflare/index.html" rel="nofollow" title="Go to uniflare's profile">uniflare</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../29149-release-server-keepalive-batch-tool/index.html" title="Go to last post">
+<time data-short="8 yr" datetime="2016-11-07T20:12:07Z" title="11/07/16 08:12  PM">November 7, 2016</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/">
+									[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+Guest,  <time data-short="10 yr" datetime="2015-04-06T20:27:54Z" title="04/06/15 08:27  PM">April 6, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="Tutorial" href="https://epochmod.com/forum/tags/Tutorial/" rel="tag" title="Find other content tagged with 'Tutorial'"><span>Tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1559302264">(and 2 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1559302264_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="Tutorial" href="https://epochmod.com/forum/tags/Tutorial/" rel="tag" title="Find other content tagged with 'Tutorial'"><span>Tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="functions" href="https://epochmod.com/forum/tags/functions/" rel="tag" title="Find other content tagged with 'functions'"><span>functions</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server_updateObject.sqf" href="https://epochmod.com/forum/tags/server_updateObject.sqf/" rel="tag" title="Find other content tagged with 'server_updateObject.sqf'"><span>server_updateObject.sqf</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">9</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">4005</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17609-bigcrazycat/?do=hovercard" data-ipshover-width="370" href="../../profile/17609-bigcrazycat/index.html" rel="nofollow" title="Go to BigCrazyCat's profile">
+<img alt="BigCrazyCat" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17609.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17609-bigcrazycat/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/17609-bigcrazycat/index.html" rel="nofollow" title="Go to BigCrazyCat's profile">BigCrazyCat</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/" title="Go to last post">
+<time data-short="10 yr" datetime="2015-06-26T09:47:31Z" title="06/26/15 09:47  AM">June 26, 2015</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/32855-how-to-sqf-pdf-tutorial-scripting-resources/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/32855-how-to-sqf-pdf-tutorial-scripting-resources/">
+									[How To] SQF PDF Tutorial &amp; Scripting Resources
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14798-tech_support/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/14798-tech_support/index.html" rel="nofollow" title="Go to Tech_Support's profile">Tech_Support</a>,  <time data-short="10 yr" datetime="2015-03-02T20:06:52Z" title="03/02/15 08:06  PM">March 2, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="sqf" href="https://epochmod.com/forum/tags/sqf/" rel="tag" title="Find other content tagged with 'sqf'"><span>sqf</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1925378155">(and 2 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1925378155_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="sqf" href="https://epochmod.com/forum/tags/sqf/" rel="tag" title="Find other content tagged with 'sqf'"><span>sqf</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="scripting" href="https://epochmod.com/forum/tags/scripting/" rel="tag" title="Find other content tagged with 'scripting'"><span>scripting</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="resources" href="https://epochmod.com/forum/tags/resources/" rel="tag" title="Find other content tagged with 'resources'"><span>resources</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">6503</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14798-tech_support/?do=hovercard" data-ipshover-width="370" href="../../profile/14798-tech_support/index.html" rel="nofollow" title="Go to Tech_Support's profile">
+<img alt="Tech_Support" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362a0c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ET%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14798-tech_support/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31262-simple-server-monitorrestart%252F" data-ipshover-width="370" href="../../profile/14798-tech_support/index.html" rel="nofollow" title="Go to Tech_Support's profile">Tech_Support</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32855-how-to-sqf-pdf-tutorial-scripting-resources/" title="Go to last post">
+<time data-short="10 yr" datetime="2015-03-02T20:06:52Z" title="03/02/15 08:06  PM">March 2, 2015</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/67-community-projects/index.html">
+<span>Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/65-tools/index.html">
+<span>Tools <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Simple Server Monitor/Restart
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Simple Server Monitor/Restart",
+    "headline": "Simple Server Monitor/Restart",
+    "text": "Hello, here are my files on how I run my start/restart and how I monitor the server. There are better ways to do it, but this has worked for me for the last year. I had also shared this on the ALRPG forums, you might have seen it there as i see some familiar names here. Anyways, I use a folder called arma3serverconfig, not the one that EPOCH recommends, but all the same applies, its all about directory paths anyways \n\u00a0 \nIn the folder where your battle and BEC are you\u0027ll want to create a few files. The first being \n\u00a0 \nrestartserver.bat \n\n@echo off\n\ntaskkill /f /fi \"status eq not responding\" /im arma3server.exe\ntaskkill /f /im arma3server.exe\ntimeout 1\n\ntaskkill /f /fi \"status eq not responding\" /im arma3.exe\ntaskkill /f /im arma3.exe\ntimeout 1\n\ntaskkill /im Bec.exe\ntaskkill /f /im cmd.exe /fi \"windowtitle eq servermonitor.bat\"\ntimeout 2\necho Kill all instances for safety\n\ntimeout 6\n::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION\nset becpath=\"C:\\arma3serverconfig\\Bec\\\"\ncd /d %becpath%\nstart \"\" /min \"Bec.exe\" -f Config.cfg\ntimeout 1\necho Battleye has started.. \ntimeout 1\necho Starting ARMA 3 Server...\n::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION\ncd C:\\Games\\ArmA3\\A3Master\ntimeout 1\nstart \"arma3\" /min /high \"arma3server.exe\" -port=2322 \"-config=C:\\arma3serverconfig\\config.cfg\" \"-cfg=C:\\arma3serverconfig\\basic.cfg\" \"-profiles=C:\\arma3serverconfig\" -name=SC \"-mod=@Epoch;@EpochHive;@AllInArmaTerrainPackLite;\" -world=empty -nosplash -noSound -noPause -enableHT -malloc=system\ntimeout 5\necho ARMA 3 Server has started\n::CHANGE THE DIRECTORY BELOW TO THE PROPER LOCATION\nset ServerMonitorPath=\"C:\\arma3serverconfig\\\"\ncd /d %ServerMonitorPath%\nstart \"\" \"servermonitor.bat\"\necho Server Monitor has started. Have Fun\ntimeout 3\nexit\n\n\nMake sure you change your directory locations, then we need 3 more files \n\u00a0 \nservermonitor.bat \n\n::Made by eRazeri - edited by [midgetgrimm]\n@echo off\ntitle servermonitor.bat\n:start\nC:\\Windows\\System32\\tasklist /FI \"IMAGENAME eq arma3server.exe\" 2\u0026gt;NUL | C:\\Windows\\System32\\find /I /N \"arma3server.exe\"\u0026gt;NUL\nif \"%ERRORLEVEL%\"==\"0\" goto loop\necho Server is not running, will be started now \n:: SET DIRECTORY TO PROPER LOCATION\nstart \"\" /min /wait \"C:\\arma3serverconfig\\restartserver.bat\" \ntimeout 30\necho Server started succesfully\ngoto started\n:loop\ncls\necho Server is already running, running monitoring loop\n:started\n:: THESE ARE WERFAULT AND TASK KILLS\ntaskkill /f /im WerFault.exe /fi \"WINDOWTITLE eq Arma 3\"\nC:\\Windows\\System32\\timeout /t 80\nC:\\Windows\\System32\\tasklist /FI \"IMAGENAME eq arma3server.exe\" 2\u0026gt;NUL | C:\\Windows\\System32\\find /I /N \"arma3server.exe\"\u0026gt;NUL\nif \"%ERRORLEVEL%\"==\"0\" goto loop\ngoto start\n\nAgain make sure to chagne your file locations and all that noise... 2 more to go \n\u00a0 \nnext is stopserver.bat \n\n@echo off\ntaskkill /f /fi \"status eq not responding\" /im arma3server.exe\ntaskkill /f /im arma3server.exe\ntimeout 1\n\ntaskkill /f /fi \"status eq not responding\" /im arma3server.exe\ntaskkill /f /im arma3server.exe\ntimeout 1\n\ntaskkill /im Bec.exe\n\n\ntimeout 3\nexit\n\nNow this we need to call via BEC through the scheduler, so make sure you add a task in the scheduler.xml, like this, make sure you set correct filepath and how many hours until it runs \n\n\n\t\u0026lt;job id=\u00278\u0027\u0026gt;\n\t\t\u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n\t\t\u0026lt;start\u0026gt;040000\u0026lt;/start\u0026gt;\n\t\t\u0026lt;runtime\u0026gt;040000\u0026lt;/runtime\u0026gt;\n\t\t\u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n\t\t\u0026lt;cmd\u0026gt;C:\\arma3serverconfig\\stopserver.bat\u0026lt;/cmd\u0026gt;\n\t\u0026lt;/job\u0026gt;\n\nNow for the last is the log rotator. you can use the one Epoch kindly provides are use this \nrotate_logs.bat - I didn\u0027t write this one, but make sure you change and edit the file directory. \n\n@echo off\n:: Based off of Server Launch Script by r4z0r49\n:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com\n::\n:: Usage: dayzsrv-log-rotater.bat servername\n:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat \n:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6\n\n:::::::::::::: CONFIG ::::::::::::::::::\n\n:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \\\nset arma2srvpath=D:\n\n:: Set your Default server profile name. This is the name of the directory that stores your server.cfg\n:: This will be used in the case that you don\u0027t launch this script without the server param.\n:: Example: cfgdayz, US6, Chicago13, ect\n:: DEFAULTPROFILE\nset srvname=arma3serverconfig\n\n:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.\n:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon\u0027s Pre/Post Service tab\nset deloriglogs=1\n\n::::::::::: ADVANCED CONFIG ::::::::::::\n:: Don\u0027t touch anything below this point unless you know what your doing.\n\n:: Setting Server Profile to Use\nIF \"%1\"==\"\" (\nset servername=%srvname%\n) else (\nset servername=%1\n)\n\nTITLE  DayZ %servername% Server Log Rotater\n\n:: Set Debug Mode\nset debug=0\n:: Set Debug Timeout in seconds\nset dbsecs=10\n\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n:: Display Debug output\nif %debug% == 1 (\necho Server Name = %servername%\necho ArmaII Server Path = \"%arma2srvpath%\"\ntimeout %dbsecs%\n)\n\n:: Set Time and Date\nSET HOUR=%time:~0,2%\nSET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%\nSET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%\n::Make Date Stamp\nif \"%HOUR:~0,1%\" == \" \" (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)\nECHO Todays Date and time (%date%)(%time%) / %dtStamp%\nif %debug% == 1 (\ntimeout %dbsecs%\n)\n\necho (%date%) (%time%) Starting Log Rotation.\n\n:: Make the Rotated Log Directorys\nif exist \"D:\\arma3serverconfig\\RotatedLogs\" goto maketsdir\nmkdir \"D:\\arma3serverconfig\\RotatedLogs\"\n:maketsdir\nif exist \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\" goto makebedir\nmkdir \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\"\n:makebedir\nif exist \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\" goto rotatelogs\nmkdir \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\"\n\n:rotatelogs\n:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.\ncopy \"%arma2srvpath%\\%servername%\\arma3server.RPT\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\arma3server.RPT\"\ncopy \"%arma2srvpath%\\%servername%\\server_log.txt\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\server_log.txt\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\attachto.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\attachto.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\addbackpackcargo.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\addbackpackcargo.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\addweaponcargo.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\addweaponcargo.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\deletevehicle.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\deletevehicle.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\remotecontrol.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\remotecontrol.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\selectplayer.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\selectplayer.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setvariableval.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\setvariableval.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\teamswitch.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\teamswitch.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\waypointcondition.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\waypointcondition.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\waypointstatement.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\waypointstatement.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\scripts.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\scripts.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\createvehicle.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\createvehicle.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\mpeventhandler.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\mpeventhandler.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariable.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\publicvariable.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariableval.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\publicvariableval.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\remoteexec.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\remoteexec.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setdamage.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\setdamage.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setpos.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\setpos.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setvariable.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\setvariable.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\addmagazinecargo.log\" \"D:\\arma3serverconfig\\RotatedLogs\\%dtStamp%\\BattlEye\\addmagazinecargo.log\"\necho (%date%) (%time%) Logs are backed up now...\necho (%date%) (%time%) Removing original log files.\ndel /Q /F \"%arma2srvpath%\\%servername%\\arma3server.RPT\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\server_log.txt\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\attachto.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\addbackpackcargo.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\addweaponcargo.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\deletevehicle.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\remotecontrol.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\selectplayer.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setvariableval.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\teamswitch.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\waypointcondition.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\waypointstatement.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\scripts.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\createvehicle.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\mpeventhandler.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariable.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariableval.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\remoteexec.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setdamage.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setpos.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setvariable.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\addmagazinecargo.log\"\n\nif %debug% == 1 (\ntimeout %dbsecs%\n)\n\n:: We\u0027re done here.\nexit\n\nThis is what I use and it works well. I saw 2 others on here that are nice too, but it\u0027s always nice to have options. Cheers \n\u00a0 \nThen just run the restartserver.bat and you should see your logs rotate, then BEC starts, then A3 starts. Once all started that closes and starts the server monitor and just keeps in check until restart. Try to never shut down the database as it takes a few to finish syncing. Thanks, really loving epoch now, can\u0027t wait until it gets completely opened up! \n",
+    "dateCreated": "2015-01-12T17:37:43+0000",
+    "datePublished": "2015-01-12T17:37:43+0000",
+    "dateModified": "2015-05-18T22:01:39+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11041.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "midgetgrimm",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11041.jpg",
+        "url": "https://epochmod.com/forum/profile/11041-midgetgrimm/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 12276
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 6
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "midgetgrimm",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11041.jpg",
+            "url": "https://epochmod.com/forum/profile/11041-midgetgrimm/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/",
+    "discussionUrl": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-203449",
+            "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-203449",
+            "author": {
+                "@type": "Person",
+                "name": "maddingamer",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-22264.jpg",
+                "url": "https://epochmod.com/forum/profile/22264-maddingamer/"
+            },
+            "dateCreated": "2015-02-05T13:12:16+0000",
+            "text": "Looks nice, (and similar to mine ^^ ) but you got a few things in it I could change in mine as well. Thank you for sharing :)\u00a0 \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-208245",
+            "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-208245",
+            "author": {
+                "@type": "Person",
+                "name": "Riddlez",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-26793.jpg",
+                "url": "https://epochmod.com/forum/profile/26793-riddlez/"
+            },
+            "dateCreated": "2015-02-18T16:57:59+0000",
+            "text": "no more bec now.... \n\u00a0 \nhttp://ibattle.org/ \n\u00a0 \nits down... \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-212263",
+            "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-212263",
+            "author": {
+                "@type": "Person",
+                "name": "uniflare",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/26513-uniflare/"
+            },
+            "dateCreated": "2015-03-01T18:07:54+0000",
+            "text": "I know and the reason is brash and without fore-thought, he feels this \"allows\" monitization, rather, it \"Regulates\" it... Respect lost from this developer. \n\u00a0 \nAnyway, \nJust FYI, \n\n\u00a0 \nThere are some alternative BE Clients being prepared, hopefully one will surface soon before any arma 3 updates break this one seeing as there will not be any more updates. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-218798",
+            "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-218798",
+            "author": {
+                "@type": "Person",
+                "name": "GerekRoss",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/30297-gerekross/"
+            },
+            "dateCreated": "2015-03-18T06:54:36+0000",
+            "text": "Guys, how to correct it?\u00a0 \nAnd prompt me configuration on a start server Arma 3 epochAltis bat. \nps:\u00a0Sorry to my bad English) \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-218813",
+            "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-218813",
+            "author": {
+                "@type": "Person",
+                "name": "uniflare",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/26513-uniflare/"
+            },
+            "dateCreated": "2015-03-18T09:02:17+0000",
+            "text": "add --dsc to BEC command line \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-241137",
+            "url": "https://epochmod.com/forum/topic/31262-simple-server-monitorrestart/#comment-241137",
+            "author": {
+                "@type": "Person",
+                "name": "ertatu",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/17623-ertatu/"
+            },
+            "dateCreated": "2015-05-18T22:01:39+0000",
+            "text": "Fow download BEC is easy: \n\u00a0 \n\nProgram. \nibattle.org/Downloads/Bec.zip \n\u00a0 \nPlugins. \nibattle.org/Downloads/Plugins/ConnectionLimiter.zip ibattle.org/Downloads/Plugins/Rss.zip ibattle.org/Downloads/Plugins/ScriptBan.zip ibattle.org/Downloads/Plugins/StaffNames.zip ibattle.org/Downloads/Plugins/WatchDog.zip ibattle.org/Downloads/Plugins/Ts3.zip ibattle.org/Downloads/Plugins/Plugin-dev-example.zip \n\n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/67-community-projects/",
+                "name": "Community Projects"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/65-tools/",
+                "name": "Tools"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

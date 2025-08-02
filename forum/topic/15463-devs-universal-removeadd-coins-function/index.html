@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[DEVS] Universal remove/add Coins function - Gold Coin based Single Currency &amp; Banking System - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[DEVS] Universal remove/add Coins function" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/" property="og:url"/>
+<meta content="Universal Develoment functions for script developers, also included in the compiles of the singel currency. Updated 28-08-2014 Always succes when removing 0 coins. 999 Headshot system: // usage // _removed = [player, 5000] call SC_fnc_removeCoins; // if(_removed = true)then{ GREAT SUCCES }else{ I..." name="description"/>
+<meta content="Universal Develoment functions for script developers, also included in the compiles of the singel currency. Updated 28-08-2014 Always succes when removing 0 coins. 999 Headshot system: // usage // _removed = [player, 5000] call SC_fnc_removeCoins; // if(_removed = true)then{ GREAT SUCCES }else{ I..." property="og:description"/>
+<meta content="2016-02-02T08:00:56Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="15463" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xNTQ2My1kZXZzLXVuaXZlcnNhbC1yZW1vdmVhZGQtY29pbnMtZnVuY3Rpb24v"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":56}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":15463}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/63-a2-community-projects/index.html">
+<span>A2: Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[DEVS] Universal remove/add Coins function
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[DEVS] Universal remove/add Coins function</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">Zupa</a></strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2014-08-12T13:37:40Z" title="08/12/14 01:37  PM">August 12, 2014</time> in <a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">Gold Coin based Single Currency &amp; Banking System</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[DEVS] Universal remove/add Coins function" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="15463">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-15463" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-115501"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_115501">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<a href="../../profile/10391-zupa/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile"><span style="color:#">Zupa</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=115501" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-12T13:37:40Z" title="08/12/14 01:37  PM">August 12, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">Zupa</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/10391-zupa/content/index.html" rel="nofollow" title="1887 posts">
+<i class="fa fa-comment"></i> 1.9k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Belgium</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="115501" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10391,"username":"Zupa","timestamp":1407850660,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":115501}' id="comment-115501_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-115501_wrap" href="#elControls_115501_menu" id="elControls_115501" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_115501_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=115501" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_115501_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_115501" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=115501" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-12T13:37:40Z" title="08/12/14 01:37  PM">August 12, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p><span style="font-size:18px;"><strong>Universal Develoment functions for script developers, also included in the compiles of the singel currency.</strong></span></p>
+<p> </p>
+<p style="margin-left:40px;"><em>Updated 28-08-2014</em></p>
+<p style="margin-left:80px;"><em><span style="font-size:14px;">Always succes when removing 0 coins.</span></em></p>
+<p style="margin-left:40px;"> </p>
+<p><u>999 Headshot system:</u></p>
+<pre class="ipsCode prettyprint">
+// usage
+// _removed = [player, 5000] call SC_fnc_removeCoins;
+// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};
+
+SC_fnc_removeCoins=
+    {
+                private ["_player","_amount","_wealth","_newwealth", "_result"];
+                _player = _this select 0;
+                _amount = _this select 1;
+                _result = false;
+                _wealth = _player getVariable["headShots",0];  
+                if(_amount &gt; 0)then{
+                if (_wealth &lt; _amount) then {
+                    _result = false;
+                } else {                         
+                _newwealth = _wealth - _amount;
+                _player setVariable["headShots",_newwealth, true];
+                _player setVariable ["moneychanged",1,true];    
+                _result = true;
+                PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+                publicVariableServer "PVDZE_plr_Save";            
+                };
+                }else{
+                _result = true;
+                };
+                _result
+    };
+
+// usage
+// _added = [player, 5000] call SC_fnc_addCoins;
+// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};
+	
+SC_fnc_addCoins = 
+{
+	private ["_player","_amount","_wealth","_newwealth", "_result"];			
+			_player =  _this select  0;
+			_amount =  _this select  1;
+			_result = false;	
+			_wealth = _player getVariable["headShots",0];
+			_player setVariable["headShots",_wealth + _amount, true];
+			PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+			publicVariableServer "PVDZE_plr_Save";
+			_player setVariable ["moneychanged",1,true];					
+			_newwealth = _player getVariable["headShots",0];		
+			if (_newwealth &gt;= _wealth) then { _result = true; };			
+			_result
+};	
+
+</pre>
+<p><u>2.0 Cashmoney system (Soul):</u></p>
+<pre class="ipsCode prettyprint">
+// usage
+// _removed = [player, 5000] call SC_fnc_removeCoins;
+// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};
+
+SC_fnc_removeCoins=
+    {
+                private ["_player","_amount","_wealth","_newwealth", "_result"];
+                _player = _this select 0;
+                _amount = _this select 1;
+                _result = false;
+                _wealth = _player getVariable["cashMoney",0];  
+                if(_amount &gt; 0)then{
+                if (_wealth &lt; _amount) then {
+                    _result = false;
+                } else {                         
+                _newwealth = _wealth - _amount;
+                _player setVariable["cashMoney",_newwealth, true];
+                _player setVariable ["moneychanged",1,true];    
+                _result = true;
+                PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+                publicVariableServer "PVDZE_plr_Save";            
+                };
+                }else{
+                _result = true;
+                };
+                _result
+    };
+
+// usage
+// _added = [player, 5000] call SC_fnc_addCoins;
+// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};
+	
+SC_fnc_addCoins = 
+{
+	private ["_player","_amount","_wealth","_newwealth", "_result"];			
+			_player =  _this select  0;
+			_amount =  _this select  1;
+			_result = false;	
+			_wealth = _player getVariable["cashMoney",0];
+			_player setVariable["cashMoney",_wealth + _amount, true];
+			PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+			publicVariableServer "PVDZE_plr_Save";
+			_player setVariable ["moneychanged",1,true];					
+			_newwealth = _player getVariable["cashMoney",0];		
+			if (_newwealth &gt;= _wealth) then { _result = true; };			
+			_result
+};	
+</pre>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18780-31_d4b10/?do=hovercard" data-ipshover-width="370" href="../../profile/18780-31_d4b10/index.html" rel="nofollow" title="Go to 31_D!4b10's profile">31_D!4b10</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=showReactionsComment&amp;comment=115501&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=showReactionsComment&amp;comment=115501&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_115501_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D115501" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D115501" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D115501&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=115501&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Universal Develoment functions for script developers, also included in the compiles of the singel currency. 
+  
+Updated 28-08-2014 
+Always succes when removing 0 coins. 
+  
+999 Headshot system: 
+
+// usage
+// _removed = [player, 5000] call SC_fnc_removeCoins;
+// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};
+
+SC_fnc_removeCoins=
+    {
+                private ["_player","_amount","_wealth","_newwealth", "_result"];
+                _player = _this select 0;
+                _amount = _this select 1;
+                _result = false;
+                _wealth = _player getVariable["headShots",0];  
+                if(_amount &gt; 0)then{
+                if (_wealth &lt; _amount) then {
+                    _result = false;
+                } else {                         
+                _newwealth = _wealth - _amount;
+                _player setVariable["headShots",_newwealth, true];
+                _player setVariable ["moneychanged",1,true];    
+                _result = true;
+                PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+                publicVariableServer "PVDZE_plr_Save";            
+                };
+                }else{
+                _result = true;
+                };
+                _result
+    };
+
+// usage
+// _added = [player, 5000] call SC_fnc_addCoins;
+// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};
+	
+SC_fnc_addCoins = 
+{
+	private ["_player","_amount","_wealth","_newwealth", "_result"];			
+			_player =  _this select  0;
+			_amount =  _this select  1;
+			_result = false;	
+			_wealth = _player getVariable["headShots",0];
+			_player setVariable["headShots",_wealth + _amount, true];
+			PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+			publicVariableServer "PVDZE_plr_Save";
+			_player setVariable ["moneychanged",1,true];					
+			_newwealth = _player getVariable["headShots",0];		
+			if (_newwealth &gt;= _wealth) then { _result = true; };			
+			_result
+};	
+
+
+2.0 Cashmoney system (Soul): 
+
+// usage
+// _removed = [player, 5000] call SC_fnc_removeCoins;
+// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};
+
+SC_fnc_removeCoins=
+    {
+                private ["_player","_amount","_wealth","_newwealth", "_result"];
+                _player = _this select 0;
+                _amount = _this select 1;
+                _result = false;
+                _wealth = _player getVariable["cashMoney",0];  
+                if(_amount &gt; 0)then{
+                if (_wealth &lt; _amount) then {
+                    _result = false;
+                } else {                         
+                _newwealth = _wealth - _amount;
+                _player setVariable["cashMoney",_newwealth, true];
+                _player setVariable ["moneychanged",1,true];    
+                _result = true;
+                PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+                publicVariableServer "PVDZE_plr_Save";            
+                };
+                }else{
+                _result = true;
+                };
+                _result
+    };
+
+// usage
+// _added = [player, 5000] call SC_fnc_addCoins;
+// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};
+	
+SC_fnc_addCoins = 
+{
+	private ["_player","_amount","_wealth","_newwealth", "_result"];			
+			_player =  _this select  0;
+			_amount =  _this select  1;
+			_result = false;	
+			_wealth = _player getVariable["cashMoney",0];
+			_player setVariable["cashMoney",_wealth + _amount, true];
+			PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+			publicVariableServer "PVDZE_plr_Save";
+			_player setVariable ["moneychanged",1,true];					
+			_newwealth = _player getVariable["cashMoney",0];		
+			if (_newwealth &gt;= _wealth) then { _result = true; };			
+			_result
+};	
+
+' data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=115501">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-116347"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_116347">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<a href="../../profile/16852-mgm/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile"><span style="color:#">mgm</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=116347" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-14T16:33:37Z" title="08/14/14 04:33  PM">August 14, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/16852-mgm/content/index.html" rel="nofollow" title="1150 posts">
+<i class="fa fa-comment"></i> 1.2k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="116347" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":16852,"username":"mgm","timestamp":1408034017,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":116347}' id="comment-116347_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-116347_wrap" href="#elControls_116347_menu" id="elControls_116347" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_116347_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=116347" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_116347_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=116347" id="elSharePost_116347" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=116347" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-14T16:33:37Z" title="08/14/14 04:33  PM">August 14, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Zupa" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="115501" data-ipsquote-contentid="15463" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1407850660" data-ipsquote-username="Zupa"><div>
+<div>
+<p> </p>
+<p>OK guys, i got limited time, i wrote these compile functions that will make adding and removing coins universal and easy: ( So easy to edit scripts where u have to pay quick.)</p>
+<p> </p>
+<p>On top of your <strong>compiles.sqf</strong> (best outside of the isDedi):</p>
+<p> </p>
+<p><strong>THIS ISNT TESTED, so would be great if a experience guy can test it first. ( i'm leaving like soon to a festival).</strong></p>
+<p> </p>
+<p><strong>THIS IS FOR 999: 1.1 version</strong></p>
+<pre class="ipsCode prettyprint">
+// usage
+// _removed = [player, 5000] call SC_fnc_removeCoins;
+// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};
+
+SC_fnc_removeCoins=
+	{
+				private ["_player","_amount","_wealth","_newwealth", "_result"];
+				_player =  _this select  0;
+				_amount =  _this select  1;
+				_result = false;
+				_wealth = _player getVariable["headShots",0];		
+				if (_wealth &lt;= _amount) then { 
+					_result = false;
+				} else { 						
+				_newwealth = _wealth - _amount;
+				_player setVariable["headShots",_newwealth, true];
+				_player setVariable ["moneychanged",1,true];	
+				_result = true;
+				PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+				publicVariableServer "PVDZE_plr_Save";			
+				};
+				_result
+	};
+
+// usage
+// _added = [player, 5000] call SC_fnc_addCoins;
+// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};
+	
+SC_fnc_addCoins = 
+{
+	private ["_player","_amount","_wealth","_newwealth", "_result"];			
+			_player =  _this select  0;
+			_amount =  _this select  1;
+			_result = false;	
+			_wealth = _player getVariable["headShots",0];
+			_player setVariable["headShots",_wealth + _amount, true];
+			PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
+			publicVariableServer "PVDZE_plr_Save";
+			_player setVariable ["moneychanged",1,true];					
+			_newwealth = _player getVariable["headShots",0];		
+			if (_newwealth &gt;= _wealth) then { _result = true; };			
+			_result
+};	
+</pre>
+</div>
+</div></blockquote>
+<p>Nice one Zupa. Have a good time!</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2857-calamity/?do=hovercard" data-ipshover-width="370" href="../../profile/2857-calamity/index.html" rel="nofollow" title="Go to calamity's profile">calamity</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=showReactionsComment&amp;comment=116347&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=showReactionsComment&amp;comment=116347&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_116347_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=116347"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D116347" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D116347" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D116347&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=116347&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Nice one Zupa. Have a good time! 
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=116347">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-117915"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_117915">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18913-rocu/?do=hovercard" data-ipshover-width="370" href="../../profile/18913-rocu/index.html" rel="nofollow" title="Go to Rocu's profile">
+<img alt="Rocu" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-18913.jpg"/>
+</a>
+<a href="../../profile/18913-rocu/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18913-rocu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/18913-rocu/index.html" rel="nofollow" title="Go to Rocu's profile"><span style="color:#">Rocu</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=117915" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-19T00:55:43Z" title="08/19/14 12:55  AM">August 19, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18913-rocu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/18913-rocu/index.html" rel="nofollow" title="Go to Rocu's profile">Rocu</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18913-rocu/?do=hovercard" data-ipshover-width="370" href="../../profile/18913-rocu/index.html" rel="nofollow" title="Go to Rocu's profile">
+<img alt="Rocu" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-18913.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/18913-rocu/content/index.html" rel="nofollow" title="337 posts">
+<i class="fa fa-comment"></i> 337
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Estonia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="117915" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":18913,"username":"Rocu","timestamp":1408409743,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":117915}' id="comment-117915_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-117915_wrap" href="#elControls_117915_menu" id="elControls_117915" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_117915_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=117915" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_117915_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=117915" id="elSharePost_117915" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=117915" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-19T00:55:43Z" title="08/19/14 12:55  AM">August 19, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>This is useful, but there's a minor error in it. When trying to SC_fnc_removeCoins it won't remove player's coins when you have the exact amount.</p>
+<p>For example when trying to buy something for 2000 and you have exactly 2000, most scripts reply with: You need another 0 coins. Easy fix for that.</p>
+<p> </p>
+<p>Find:</p>
+<pre class="ipsCode prettyprint">
+if (_wealth &lt;= _amount) then { 
+</pre>
+<p>Replace with:</p>
+<pre class="ipsCode prettyprint">
+if (_wealth &lt; _amount) then { 
+</pre>
+<p><strong>Edit//</strong> This is now fixed on the 1st post</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_117915_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=117915"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D117915" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D117915" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D117915&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=117915&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="This is useful, but there's a minor error in it. When trying to SC_fnc_removeCoins it won't remove player's coins when you have the exact amount. 
+For example when trying to buy something for 2000 and you have exactly 2000, most scripts reply with: You need another 0 coins. Easy fix for that. 
+  
+Find: 
+
+if (_wealth &lt;= _amount) then { 
+
+Replace with: 
+
+if (_wealth &lt; _amount) then { 
+
+Edit// This is now fixed on the 1st post 
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=117915">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-119375"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_119375">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2979-kimzer/?do=hovercard" data-ipshover-width="370" href="../../profile/2979-kimzer/index.html" rel="nofollow" title="Go to Kimzer's profile">
+<img alt="Kimzer" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462c2%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EK%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/2979-kimzer/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2979-kimzer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/2979-kimzer/index.html" rel="nofollow" title="Go to Kimzer's profile"><span style="color:#">Kimzer</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=119375" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-22T17:10:39Z" title="08/22/14 05:10  PM">August 22, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2979-kimzer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/2979-kimzer/index.html" rel="nofollow" title="Go to Kimzer's profile">Kimzer</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2979-kimzer/?do=hovercard" data-ipshover-width="370" href="../../profile/2979-kimzer/index.html" rel="nofollow" title="Go to Kimzer's profile">
+<img alt="Kimzer" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462c2%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EK%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/2979-kimzer/content/index.html" rel="nofollow" title="209 posts">
+<i class="fa fa-comment"></i> 209
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Norway</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="119375" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2979,"username":"Kimzer","timestamp":1408727439,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":119375}' id="comment-119375_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-119375_wrap" href="#elControls_119375_menu" id="elControls_119375" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_119375_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=119375" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_119375_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=119375" id="elSharePost_119375" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=119375" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-22T17:10:39Z" title="08/22/14 05:10  PM">August 22, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Trying to get the Skin trader script to use this. But i am struggling. (Not my field this.)</p>
+<p> </p>
+<p>Currently its looking like this. </p>
+<p>It works if i remove the if(_removed = true) then { line, but it will let you buy skins regardless of how many coins you have.</p>
+<p>If i keep the if(_removed = true) then { line, then it wont do anything.</p>
+<p> </p>
+<p>Link to original script: <iframe data-embed-src="https://epochmod.com/forum/index.php?/topic/12378-release-skin-trader-06-buy-any-arma-skin/&amp;do=embed" data-embedcontent="" frameborder="0" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"></iframe></p>
+<p> </p>
+<p>I hope someone can assist me here as im sure there are more people who want to use this with coins. :)</p>
+<p> </p>
+<p></p>
+<p></p>
+<blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<div>if(not local player) exitWith{};</div>
+<div>#include "dialog\definitions.sqf"</div>
+<div>disableSerialization;</div>
+<div>_display = findDisplay SKINS_DIALOG;</div>
+<div>_listbox = _display displayCtrl SKINS_UNITLIST;</div>
+<div>_sel = lbCurSel _listbox; if(_sel &lt; 0) exitWith{};</div>
+<div>_unittype = Men_Clothing select _sel;</div>
+<div>_typename = lbtext [sKINS_UNITLIST,_sel];</div>
+<div>_hasGPS = false;</div>
+<div>_hasCompass = false;</div>
+<div>_hasRadio = false;</div>
+<div>_hasWatch = false;</div>
+<div>_hasMap = false;</div>
+<div> </div>
+<div>/********************* Buy Skin ********************/<span> </span>
+</div>
+<div>_cash = 5000;</div>
+<div>_removed = [player, _cash] call SC_fnc_removeCoins;<span> </span>
+</div>
+<div>if(_removed = true) then {</div>
+<div>_msg = format ["Payed %1 %2. Skin Change incoming!",_cash, DNCurrency];</div>
+<div>systemChat ("(DayZNorway.com): "+str _msg+"");</div>
+<div>_msg spawn AH_fnc_dynTextMsg;</div>
+<div> </div>
+<div> </div>
+<div>if (player hasWeapon "ItemCompass") then {</div>
+<div>_hasCompass = true;</div>
+<div>};</div>
+<div>if (player hasWeapon "ItemRadio") then {</div>
+<div>_hasRadio = true;</div>
+<div>};</div>
+<div>if (player hasWeapon "ItemGPS") then {</div>
+<div>_hasGPS = true;</div>
+<div>};</div>
+<div>if (player hasWeapon "ItemWatch") then {</div>
+<div>_hasWatch = true;</div>
+<div>};</div>
+<div>if (player hasWeapon "ItemMap") then {</div>
+<div>_hasMap = true;</div>
+<div>};<span> </span>
+</div>
+<div>player playActionNow "Medic";</div>
+<div>sleep 7;</div>
+<div>CloseDialog 0;</div>
+<div>sleep 1;</div>
+<div>[dayz_playerUID,dayz_characterID,_unittype] spawn player_humanityMorph;</div>
+<div>sleep 0.2;</div>
+<div>vehicle player switchCamera 'EXTERNAL';</div>
+<div>sleep 3;</div>
+<div>if (!_hasCompass) then {</div>
+<div>player removeWeapon "ItemCompass";</div>
+<div>};</div>
+<div>if (!_hasRadio) then {</div>
+<div>player removeWeapon "ItemRadio";</div>
+<div>};<span> </span>
+</div>
+<div>if (!_hasGPS) then {</div>
+<div>player removeWeapon "ItemGPS";</div>
+<div>};<span> </span>
+</div>
+<div>if (!_hasWatch) then {</div>
+<div>player removeWeapon "ItemWatch";</div>
+<div>};</div>
+<div>if (!_hasMap) then {</div>
+<div>player removeWeapon "ItemMap";</div>
+<div>};</div>
+<div>}else{</div>
+<div>_msg = format ["You need another %1 %2.",_cash, DNCurrency];</div>
+<div>systemChat ("(DayZNorway.com): "+str _msg+"");</div>
+<div>_msg spawn AH_fnc_dynTextMsg;</div>
+<div>};</div>
+<div>};</div>
+<div>/*******************************************************/</div>
+<div><p></p></div>
+</blockquote>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_119375_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=119375"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D119375" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D119375" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D119375&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=119375&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Trying to get the Skin trader script to use this. But i am struggling. (Not my field this.) 
+  
+Currently its looking like this.  
+It works if i remove the if(_removed = true) then { line, but it will let you buy skins regardless of how many coins you have. 
+If i keep the if(_removed = true) then { line, then it wont do anything. 
+  
+Link to original script:  
+  
+I hope someone can assist me here as im sure there are more people who want to use this with coins. :) 
+  
+ 
+ 
+
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=119375">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-121562"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_121562">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<a href="../../profile/10391-zupa/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile"><span style="color:#">Zupa</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=121562" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-28T07:19:25Z" title="08/28/14 07:19  AM">August 28, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">Zupa</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">
+<img alt="Zupa" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/10391-zupa/content/index.html" rel="nofollow" title="1887 posts">
+<i class="fa fa-comment"></i> 1.9k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Belgium</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="121562" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10391,"username":"Zupa","timestamp":1409210365,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":121562}' id="comment-121562_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-121562_wrap" href="#elControls_121562_menu" id="elControls_121562" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_121562_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=121562" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_121562_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=121562" id="elSharePost_121562" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=121562" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-28T07:19:25Z" title="08/28/14 07:19  AM">August 28, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Bump updated:</p>
+<p> </p>
+<ul><li>Both systems.</li>
+<li>Always succes when removing 0 coins.</li>
+</ul>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11508-tehtrk/?do=hovercard" data-ipshover-width="370" href="../../profile/11508-tehtrk/index.html" rel="nofollow" title="Go to tehtrk's profile">tehtrk</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13997-ttkrickjames/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/13997-ttkrickjames/" rel="nofollow" title="Go to ttkrickjames's profile">ttkrickjames</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=showReactionsComment&amp;comment=121562&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=showReactionsComment&amp;comment=121562&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								3
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_121562_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=121562"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D121562" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D121562" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D121562&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=121562&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Bump updated: 
+  
+Both systems. 
+Always succes when removing 0 coins. 
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=121562">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									4 months later...
+								</li>
+</ul>
+<a id="comment-189232"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_189232">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10153-flakvest/?do=hovercard" data-ipshover-width="370" href="../../profile/10153-flakvest/index.html" rel="nofollow" title="Go to flakvest's profile">
+<img alt="flakvest" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a662c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EF%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/10153-flakvest/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10153-flakvest/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10153-flakvest/index.html" rel="nofollow" title="Go to flakvest's profile"><span style="color:#">flakvest</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=189232" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-03T21:24:35Z" title="01/03/15 09:24  PM">January 3, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10153-flakvest/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/10153-flakvest/index.html" rel="nofollow" title="Go to flakvest's profile">flakvest</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10153-flakvest/?do=hovercard" data-ipshover-width="370" href="../../profile/10153-flakvest/index.html" rel="nofollow" title="Go to flakvest's profile">
+<img alt="flakvest" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a662c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EF%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/10153-flakvest/content/index.html" rel="nofollow" title="79 posts">
+<i class="fa fa-comment"></i> 79
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">TN</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="189232" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10153,"username":"flakvest","timestamp":1420320275,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":189232}' id="comment-189232_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-189232_wrap" href="#elControls_189232_menu" id="elControls_189232" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_189232_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=189232" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_189232_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=189232" id="elSharePost_189232" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=189232" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-03T21:24:35Z" title="01/03/15 09:24  PM">January 3, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Is there a way for this to work with SC 3.0?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_189232_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=189232"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D189232" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D189232" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D189232&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=189232&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Is there a way for this to work with SC 3.0? 
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=189232">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									3 months later...
+								</li>
+</ul>
+<a id="comment-228185"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_228185">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">
+<img alt="bFe" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-3416.jpeg"/>
+</a>
+<a href="../../profile/3416-bfe/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile"><span style="color:#">bFe</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=228185" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-09T15:07:29Z" title="04/09/15 03:07  PM">April 9, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">bFe</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">
+<img alt="bFe" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-3416.jpeg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/3416-bfe/content/index.html" rel="nofollow" title="586 posts">
+<i class="fa fa-comment"></i> 586
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Norway</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="228185" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3416,"username":"bFe","timestamp":1428592049,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":228185}' id="comment-228185_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-228185_wrap" href="#elControls_228185_menu" id="elControls_228185" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_228185_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=228185" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_228185_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=228185" id="elSharePost_228185" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=228185" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-09T15:07:29Z" title="04/09/15 03:07  PM">April 9, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="flakvest" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="189232" data-ipsquote-contentid="15463" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1420320275" data-ipsquote-username="flakvest"><div>
+<div>
+<p>Is there a way for this to work with SC 3.0?</p>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_228185_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=228185"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D228185" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D228185" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D228185&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=228185&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=228185">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									1 month later...
+								</li>
+</ul>
+<a id="comment-239784"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_239784">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4615-p0k3r_of_sm0t/?do=hovercard" data-ipshover-width="370" href="../../profile/4615-p0k3r_of_sm0t/index.html" rel="nofollow" title="Go to P0k3r_OF_Sm0t's profile">
+<img alt="P0k3r_OF_Sm0t" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a062c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EP%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/4615-p0k3r_of_sm0t/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4615-p0k3r_of_sm0t/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/4615-p0k3r_of_sm0t/index.html" rel="nofollow" title="Go to P0k3r_OF_Sm0t's profile"><span style="color:#">P0k3r_OF_Sm0t</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=239784" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-05-13T14:50:26Z" title="05/13/15 02:50  PM">May 13, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4615-p0k3r_of_sm0t/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/4615-p0k3r_of_sm0t/index.html" rel="nofollow" title="Go to P0k3r_OF_Sm0t's profile">P0k3r_OF_Sm0t</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4615-p0k3r_of_sm0t/?do=hovercard" data-ipshover-width="370" href="../../profile/4615-p0k3r_of_sm0t/index.html" rel="nofollow" title="Go to P0k3r_OF_Sm0t's profile">
+<img alt="P0k3r_OF_Sm0t" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a062c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EP%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/4615-p0k3r_of_sm0t/content/index.html" rel="nofollow" title="92 posts">
+<i class="fa fa-comment"></i> 92
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="239784" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":4615,"username":"P0k3r_OF_Sm0t","timestamp":1431528626,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":239784}' id="comment-239784_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-239784_wrap" href="#elControls_239784_menu" id="elControls_239784" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_239784_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=239784" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_239784_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=239784" id="elSharePost_239784" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=239784" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-05-13T14:50:26Z" title="05/13/15 02:50  PM">May 13, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="bFe" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="228185" data-ipsquote-contentid="15463" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1428592049" data-ipsquote-username="bFe"><div>
+<div>
+<p> </p>
+<p> </p>
+</div>
+</div></blockquote>
+<p>Works for me with SC 3.0</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_239784_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=239784"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D239784" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D239784" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D239784&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=239784&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Works for me with SC 3.0 
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=239784">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									1 month later...
+								</li>
+</ul>
+<a id="comment-249797"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_249797">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">
+<img alt="Thug" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png"/>
+</a>
+<a href="../../profile/12942-thug/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile"><span style="color:#">Thug</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=249797" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-06-27T13:32:18Z" title="06/27/15 01:32  PM">June 27, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">Thug</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">
+<img alt="Thug" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/12942-thug/content/index.html" rel="nofollow" title="710 posts">
+<i class="fa fa-comment"></i> 710
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Florida USA</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="249797" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12942,"username":"Thug","timestamp":1435411938,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":249797}' id="comment-249797_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-249797_wrap" href="#elControls_249797_menu" id="elControls_249797" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_249797_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=249797" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_249797_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=249797" id="elSharePost_249797" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=249797" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-06-27T13:32:18Z" title="06/27/15 01:32  PM">June 27, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>With the help of <span style="color:#ffa500;"><span style="font-family:Helvetica, Arial, sans-serif;font-size:26px;"><span style="font-size:14px;">Affraid</span></span></span><span style="color:rgb(50,50,50);font-family:Helvetica, Arial, sans-serif;font-size:26px;"><span style="font-size:14px;"> and this script, we now have the refuel working on our taviana map. </span></span><span style="color:#00ff00;"><span style="font-family:Helvetica, Arial, sans-serif;font-size:26px;"><span style="font-size:14px;">Thank you for your work</span></span></span><span style="color:rgb(50,50,50);font-family:Helvetica, Arial, sans-serif;font-size:26px;">. :D</span><span style="color:rgb(50,50,50);font-family:Helvetica, Arial, sans-serif;font-size:26px;"> </span></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_249797_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=249797"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D249797" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D249797" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D249797&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=249797&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="With the help of Affraid and this script, we now have the refuel working on our taviana map. Thank you for your work. :D  
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=249797">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 weeks later...
+								</li>
+</ul>
+<a id="comment-251269"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_251269">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12673-johnw7392/?do=hovercard" data-ipshover-width="370" href="../../profile/12673-johnw7392/index.html" rel="nofollow" title="Go to Johnw7392's profile">
+<img alt="Johnw7392" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/12673-johnw7392/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12673-johnw7392/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/12673-johnw7392/index.html" rel="nofollow" title="Go to Johnw7392's profile"><span style="color:#">Johnw7392</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=251269" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-07-05T18:53:58Z" title="07/05/15 06:53  PM">July 5, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12673-johnw7392/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/12673-johnw7392/index.html" rel="nofollow" title="Go to Johnw7392's profile">Johnw7392</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12673-johnw7392/?do=hovercard" data-ipshover-width="370" href="../../profile/12673-johnw7392/index.html" rel="nofollow" title="Go to Johnw7392's profile">
+<img alt="Johnw7392" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c48b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/12673-johnw7392/content/index.html" rel="nofollow" title="24 posts">
+<i class="fa fa-comment"></i> 24
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Florida</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="251269" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12673,"username":"Johnw7392","timestamp":1436122438,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":251269}' id="comment-251269_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-251269_wrap" href="#elControls_251269_menu" id="elControls_251269" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_251269_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=251269" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_251269_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=251269" id="elSharePost_251269" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=251269" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-07-05T18:53:58Z" title="07/05/15 06:53  PM">July 5, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I am using the SC 3.0 on my Overpoch server and am wanting to use SC rearm/refuel by axe cop so I do need this in my ZSC compiles right?</p>
+<p> </p>
+<p>How would I put this into my ZSC Compiles? Do I replace what is currently in there or just paste this underneath?</p>
+<p> </p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p> Current SC_fnc_removeCoins</p>
+<p> </p>
+<div>private ["_player","_amount","_wealth","_newwealth", "_result"];</div>
+<div>_player = _this select 0;</div>
+<div>_amount = _this select 1;</div>
+<div>_result = false;</div>
+<div>_wealth = _player getVariable["cashMoney",0];  </div>
+<div>if(_amount &gt; 0)then{</div>
+<div>if (_wealth &lt; _amount) then {</div>
+<div>_result = false;</div>
+<div>} else {                         </div>
+<div>_newwealth = _wealth - _amount;</div>
+<div>_player setVariable["cashMoney",_newwealth, true];</div>
+<div>_player setVariable ["moneychanged",1,true];    </div>
+<div>_result = true;</div>
+<div>PVDZE_plr_Save = [_player,(magazines _player),true,true] ;</div>
+<div>publicVariableServer "PVDZE_plr_Save";            </div>
+<div>};</div>
+<div>}else{</div>
+<div>_result = true;</div>
+<div>};</div>
+<div>_result</div>
+<p> </p>
+<p> </p></blockquote><p></p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p> Current SC_fnc_addCoins</p>
+<p> </p>
+<div>private ["_player","_amount","_wealth","_newwealth", "_result"];<span> </span></div>
+<div>_player =  _this select  0;</div>
+<div>_amount =  _this select  1;</div>
+<div>_result = false;<span> </span></div>
+<div>_wealth = _player getVariable["cashMoney",0];</div>
+<div>_player setVariable["cashMoney",_wealth + _amount, true];</div>
+<div>PVDZE_plr_Save = [_player,(magazines _player),true,true] ;</div>
+<div>publicVariableServer "PVDZE_plr_Save";</div>
+<div>_player setVariable ["moneychanged",1,true];<span> </span></div>
+<div>_newwealth = _player getVariable["cashMoney",0];<span> </span></div>
+<div>if (_newwealth &gt;= _wealth) then { _result = true; };<span> </span></div>
+<div>_result</div>
+<p> </p>
+<p></p></blockquote><p></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_251269_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=251269"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D251269" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D251269" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D251269&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=251269&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I am using the SC 3.0 on my Overpoch server and am wanting to use SC rearm/refuel by axe cop so I do need this in my ZSC compiles right? 
+  
+How would I put this into my ZSC Compiles? Do I replace what is currently in there or just paste this underneath? 
+  
+  
+   
+  
+   
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=251269">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									6 months later...
+								</li>
+</ul>
+<a id="comment-271906"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_271906">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36028-aiidynbrus/?do=hovercard" data-ipshover-width="370" href="../../profile/36028-aiidynbrus/index.html" rel="nofollow" title="Go to AiiDynBrus's profile">
+<img alt="AiiDynBrus" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_05/ab.jpg.32daa5d1ab0a1523e0140894811ae9ff.thumb.jpg.d173eba09fca8726481bcd5022e42843.jpg"/>
+</a>
+<a href="../../profile/36028-aiidynbrus/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36028-aiidynbrus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/36028-aiidynbrus/index.html" rel="nofollow" title="Go to AiiDynBrus's profile"><span style="color:#">AiiDynBrus</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=271906" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-02T08:00:56Z" title="02/02/16 08:00  AM">February 2, 2016</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36028-aiidynbrus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15463-devs-universal-removeadd-coins-function%252F" data-ipshover-width="370" href="../../profile/36028-aiidynbrus/index.html" rel="nofollow" title="Go to AiiDynBrus's profile">AiiDynBrus</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36028-aiidynbrus/?do=hovercard" data-ipshover-width="370" href="../../profile/36028-aiidynbrus/index.html" rel="nofollow" title="Go to AiiDynBrus's profile">
+<img alt="AiiDynBrus" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_05/ab.jpg.32daa5d1ab0a1523e0140894811ae9ff.thumb.jpg.d173eba09fca8726481bcd5022e42843.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/36028-aiidynbrus/content/index.html" rel="nofollow" title="71 posts">
+<i class="fa fa-comment"></i> 71
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="271906" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36028,"username":"AiiDynBrus","timestamp":1454400056,"contentapp":"forums","contenttype":"forums","contentid":15463,"contentclass":"forums_Topic","contentcommentid":271906}' id="comment-271906_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-271906_wrap" href="#elControls_271906_menu" id="elControls_271906" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_271906_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=reportComment&amp;comment=271906" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_271906_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=271906" id="elSharePost_271906" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=271906" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-02T08:00:56Z" title="02/02/16 08:00  AM">February 2, 2016</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="115501" data-ipsquote-contentid="15463" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1407850660" data-ipsquote-userid="10391" data-ipsquote-username="Zupa">
+<div class="ipsQuote_citation">
+		On 12/08/2014 at 11:37 PM, Zupa said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+<span style="font-size:18px;"><strong>Universal Develoment functions for script developers, also included in the compiles of the singel currency.</strong></span>
+</p>
+<p>
+			 
+		</p>
+<p style="margin-left:40px;">
+<em>Updated 28-08-2014</em>
+</p>
+<p style="margin-left:80px;">
+<em><span style="font-size:14px;">Always succes when removing 0 coins.</span></em>
+</p>
+<p style="margin-left:40px;">
+			 
+		</p>
+<p>
+<u>999 Headshot system:</u>
+</p>
+<pre class="ipsCode prettyprint prettyprinted">
+
+<span>// usage</span><span>
+</span><span>// _removed = [player, 5000] call SC_fnc_removeCoins;</span><span>
+</span><span>// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};</span><span>
+
+SC_fnc_removeCoins</span><span>=</span><span>
+    </span><span>{</span><span>
+                </span><span>private</span><span> </span><span>[</span><span>"_player"</span><span>,</span><span>"_amount"</span><span>,</span><span>"_wealth"</span><span>,</span><span>"_newwealth"</span><span>,</span><span> </span><span>"_result"</span><span>];</span><span>
+                _player </span><span>=</span><span> _this </span><span>select</span><span> </span><span>0</span><span>;</span><span>
+                _amount </span><span>=</span><span> _this </span><span>select</span><span> </span><span>1</span><span>;</span><span>
+                _result </span><span>=</span><span> </span><span>false</span><span>;</span><span>
+                _wealth </span><span>=</span><span> _player getVariable</span><span>[</span><span>"headShots"</span><span>,</span><span>0</span><span>];</span><span>  
+                </span><span>if</span><span>(</span><span>_amount </span><span>&gt;</span><span> </span><span>0</span><span>)</span><span>then</span><span>{</span><span>
+                </span><span>if</span><span> </span><span>(</span><span>_wealth </span><span>&lt;</span><span> _amount</span><span>)</span><span> </span><span>then</span><span> </span><span>{</span><span>
+                    _result </span><span>=</span><span> </span><span>false</span><span>;</span><span>
+                </span><span>}</span><span> </span><span>else</span><span> </span><span>{</span><span>                         
+                _newwealth </span><span>=</span><span> _wealth </span><span>-</span><span> _amount</span><span>;</span><span>
+                _player setVariable</span><span>[</span><span>"headShots"</span><span>,</span><span>_newwealth</span><span>,</span><span> </span><span>true</span><span>];</span><span>
+                _player setVariable </span><span>[</span><span>"moneychanged"</span><span>,</span><span>1</span><span>,</span><span>true</span><span>];</span><span>    
+                _result </span><span>=</span><span> </span><span>true</span><span>;</span><span>
+                PVDZE_plr_Save </span><span>=</span><span> </span><span>[</span><span>_player</span><span>,(</span><span>magazines _player</span><span>),</span><span>true</span><span>,</span><span>true</span><span>]</span><span> </span><span>;</span><span>
+                publicVariableServer </span><span>"PVDZE_plr_Save"</span><span>;</span><span>            
+                </span><span>};</span><span>
+                </span><span>}</span><span>else</span><span>{</span><span>
+                _result </span><span>=</span><span> </span><span>true</span><span>;</span><span>
+                </span><span>};</span><span>
+                _result
+    </span><span>};</span><span>
+
+</span><span>// usage</span><span>
+</span><span>// _added = [player, 5000] call SC_fnc_addCoins;</span><span>
+</span><span>// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};</span><span>
+	
+SC_fnc_addCoins </span><span>=</span><span> 
+</span><span>{</span><span>
+	</span><span>private</span><span> </span><span>[</span><span>"_player"</span><span>,</span><span>"_amount"</span><span>,</span><span>"_wealth"</span><span>,</span><span>"_newwealth"</span><span>,</span><span> </span><span>"_result"</span><span>];</span><span>			
+			_player </span><span>=</span><span>  _this </span><span>select</span><span>  </span><span>0</span><span>;</span><span>
+			_amount </span><span>=</span><span>  _this </span><span>select</span><span>  </span><span>1</span><span>;</span><span>
+			_result </span><span>=</span><span> </span><span>false</span><span>;</span><span>	
+			_wealth </span><span>=</span><span> _player getVariable</span><span>[</span><span>"headShots"</span><span>,</span><span>0</span><span>];</span><span>
+			_player setVariable</span><span>[</span><span>"headShots"</span><span>,</span><span>_wealth </span><span>+</span><span> _amount</span><span>,</span><span> </span><span>true</span><span>];</span><span>
+			PVDZE_plr_Save </span><span>=</span><span> </span><span>[</span><span>_player</span><span>,(</span><span>magazines _player</span><span>),</span><span>true</span><span>,</span><span>true</span><span>]</span><span> </span><span>;</span><span>
+			publicVariableServer </span><span>"PVDZE_plr_Save"</span><span>;</span><span>
+			_player setVariable </span><span>[</span><span>"moneychanged"</span><span>,</span><span>1</span><span>,</span><span>true</span><span>];</span><span>					
+			_newwealth </span><span>=</span><span> _player getVariable</span><span>[</span><span>"headShots"</span><span>,</span><span>0</span><span>];</span><span>		
+			</span><span>if</span><span> </span><span>(</span><span>_newwealth </span><span>&gt;=</span><span> _wealth</span><span>)</span><span> </span><span>then</span><span> </span><span>{</span><span> _result </span><span>=</span><span> </span><span>true</span><span>;</span><span> </span><span>};</span><span>			
+			_result
+</span><span>};</span><span>	
+</span></pre>
+<p>
+<u>2.0 Cashmoney system (Soul):</u>
+</p>
+<pre class="ipsCode prettyprint prettyprinted">
+
+<span>// usage</span><span>
+</span><span>// _removed = [player, 5000] call SC_fnc_removeCoins;</span><span>
+</span><span>// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};</span><span>
+
+SC_fnc_removeCoins</span><span>=</span><span>
+    </span><span>{</span><span>
+                </span><span>private</span><span> </span><span>[</span><span>"_player"</span><span>,</span><span>"_amount"</span><span>,</span><span>"_wealth"</span><span>,</span><span>"_newwealth"</span><span>,</span><span> </span><span>"_result"</span><span>];</span><span>
+                _player </span><span>=</span><span> _this </span><span>select</span><span> </span><span>0</span><span>;</span><span>
+                _amount </span><span>=</span><span> _this </span><span>select</span><span> </span><span>1</span><span>;</span><span>
+                _result </span><span>=</span><span> </span><span>false</span><span>;</span><span>
+                _wealth </span><span>=</span><span> _player getVariable</span><span>[</span><span>"cashMoney"</span><span>,</span><span>0</span><span>];</span><span>  
+                </span><span>if</span><span>(</span><span>_amount </span><span>&gt;</span><span> </span><span>0</span><span>)</span><span>then</span><span>{</span><span>
+                </span><span>if</span><span> </span><span>(</span><span>_wealth </span><span>&lt;</span><span> _amount</span><span>)</span><span> </span><span>then</span><span> </span><span>{</span><span>
+                    _result </span><span>=</span><span> </span><span>false</span><span>;</span><span>
+                </span><span>}</span><span> </span><span>else</span><span> </span><span>{</span><span>                         
+                _newwealth </span><span>=</span><span> _wealth </span><span>-</span><span> _amount</span><span>;</span><span>
+                _player setVariable</span><span>[</span><span>"cashMoney"</span><span>,</span><span>_newwealth</span><span>,</span><span> </span><span>true</span><span>];</span><span>
+                _player setVariable </span><span>[</span><span>"moneychanged"</span><span>,</span><span>1</span><span>,</span><span>true</span><span>];</span><span>    
+                _result </span><span>=</span><span> </span><span>true</span><span>;</span><span>
+                PVDZE_plr_Save </span><span>=</span><span> </span><span>[</span><span>_player</span><span>,(</span><span>magazines _player</span><span>),</span><span>true</span><span>,</span><span>true</span><span>]</span><span> </span><span>;</span><span>
+                publicVariableServer </span><span>"PVDZE_plr_Save"</span><span>;</span><span>            
+                </span><span>};</span><span>
+                </span><span>}</span><span>else</span><span>{</span><span>
+                _result </span><span>=</span><span> </span><span>true</span><span>;</span><span>
+                </span><span>};</span><span>
+                _result
+    </span><span>};</span><span>
+
+</span><span>// usage</span><span>
+</span><span>// _added = [player, 5000] call SC_fnc_addCoins;</span><span>
+</span><span>// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};</span><span>
+	
+SC_fnc_addCoins </span><span>=</span><span> 
+</span><span>{</span><span>
+	</span><span>private</span><span> </span><span>[</span><span>"_player"</span><span>,</span><span>"_amount"</span><span>,</span><span>"_wealth"</span><span>,</span><span>"_newwealth"</span><span>,</span><span> </span><span>"_result"</span><span>];</span><span>			
+			_player </span><span>=</span><span>  _this </span><span>select</span><span>  </span><span>0</span><span>;</span><span>
+			_amount </span><span>=</span><span>  _this </span><span>select</span><span>  </span><span>1</span><span>;</span><span>
+			_result </span><span>=</span><span> </span><span>false</span><span>;</span><span>	
+			_wealth </span><span>=</span><span> _player getVariable</span><span>[</span><span>"cashMoney"</span><span>,</span><span>0</span><span>];</span><span>
+			_player setVariable</span><span>[</span><span>"cashMoney"</span><span>,</span><span>_wealth </span><span>+</span><span> _amount</span><span>,</span><span> </span><span>true</span><span>];</span><span>
+			PVDZE_plr_Save </span><span>=</span><span> </span><span>[</span><span>_player</span><span>,(</span><span>magazines _player</span><span>),</span><span>true</span><span>,</span><span>true</span><span>]</span><span> </span><span>;</span><span>
+			publicVariableServer </span><span>"PVDZE_plr_Save"</span><span>;</span><span>
+			_player setVariable </span><span>[</span><span>"moneychanged"</span><span>,</span><span>1</span><span>,</span><span>true</span><span>];</span><span>					
+			_newwealth </span><span>=</span><span> _player getVariable</span><span>[</span><span>"cashMoney"</span><span>,</span><span>0</span><span>];</span><span>		
+			</span><span>if</span><span> </span><span>(</span><span>_newwealth </span><span>&gt;=</span><span> _wealth</span><span>)</span><span> </span><span>then</span><span> </span><span>{</span><span> _result </span><span>=</span><span> </span><span>true</span><span>;</span><span> </span><span>};</span><span>			
+			_result
+</span><span>};</span><span>	</span></pre>
+</div>
+</blockquote>
+<p>
+	Ummm so where do you put this code? in compiles.sqf or?
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_271906_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=271906"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D271906" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D271906" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F%3Fdo%3DfindComment%26comment%3D271906&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment%26comment=271906&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Ummm so where do you put this code? in compiles.sqf or?
+ 
+" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/?do=findComment&amp;comment=271906">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xNTQ2My1kZXZzLXVuaXZlcnNhbC1yZW1vdmVhZGQtY29pbnMtZnVuY3Rpb24vI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15463-devs-universal-removeadd-coins-function%2F&amp;title=%5BDEVS%5D+Universal+remove%2Fadd+Coins+function" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[DEVS] Universal remove/add Coins function" data-websharetitle="[DEVS] Universal remove/add Coins function" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="15463">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html" rel="parent" title="Go to Gold Coin based Single Currency &amp; Banking System">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/63-a2-community-projects/index.html">
+<span>A2: Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[DEVS] Universal remove/add Coins function
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[DEVS] Universal remove/add Coins function",
+    "headline": "[DEVS] Universal remove/add Coins function",
+    "text": "Universal Develoment functions for script developers, also included in the compiles of the singel currency. \n\u00a0 \nUpdated 28-08-2014 \nAlways succes when removing 0 coins. \n\u00a0 \n999 Headshot system: \n\n// usage\n// _removed = [player, 5000] call SC_fnc_removeCoins;\n// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};\n\nSC_fnc_removeCoins=\n\u00a0\u00a0\u00a0\u00a0{\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0private [\"_player\",\"_amount\",\"_wealth\",\"_newwealth\", \"_result\"];\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_player = _this select 0;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_amount = _this select 1;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_result = false;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_wealth = _player getVariable[\"headShots\",0];\u00a0\u00a0\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0          if(_amount \u0026gt; 0)then{\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0if (_wealth \u0026lt; _amount) then {\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_result = false;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0} else { \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_newwealth = _wealth - _amount;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_player setVariable[\"headShots\",_newwealth, true];\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_player setVariable [\"moneychanged\",1,true];\u00a0\u00a0\u00a0\u00a0\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_result = true;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0PVDZE_plr_Save = [_player,(magazines _player),true,true] ;\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0publicVariableServer \"PVDZE_plr_Save\";\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0};\n                }else{\n                _result = true;\n                };\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0_result\n\u00a0\u00a0\u00a0\u00a0};\n\n// usage\n// _added = [player, 5000] call SC_fnc_addCoins;\n// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};\n\t\nSC_fnc_addCoins = \n{\n\tprivate [\"_player\",\"_amount\",\"_wealth\",\"_newwealth\", \"_result\"];\t\t\t\n\t\t\t_player =  _this select  0;\n\t\t\t_amount =  _this select  1;\n\t\t\t_result = false;\t\n\t\t\t_wealth = _player getVariable[\"headShots\",0];\n\t\t\t_player setVariable[\"headShots\",_wealth + _amount, true];\n\t\t\tPVDZE_plr_Save = [_player,(magazines _player),true,true] ;\n\t\t\tpublicVariableServer \"PVDZE_plr_Save\";\n\t\t\t_player setVariable [\"moneychanged\",1,true];\t\t\t\t\t\n\t\t\t_newwealth = _player getVariable[\"headShots\",0];\t\t\n\t\t\tif (_newwealth \u0026gt;= _wealth) then { _result = true; };\t\t\t\n\t\t\t_result\n};\t\n\n\n2.0 Cashmoney system (Soul): \n\n// usage\n// _removed = [player, 5000] call SC_fnc_removeCoins;\n// if(_removed = true)then{  GREAT SUCCES  }else{ IT FAILED, not enoguh money};\n\nSC_fnc_removeCoins=\n    {\n                private [\"_player\",\"_amount\",\"_wealth\",\"_newwealth\", \"_result\"];\n                _player = _this select 0;\n                _amount = _this select 1;\n                _result = false;\n                _wealth = _player getVariable[\"cashMoney\",0];  \n                if(_amount \u0026gt; 0)then{\n                if (_wealth \u0026lt; _amount) then {\n                    _result = false;\n                } else {                         \n                _newwealth = _wealth - _amount;\n                _player setVariable[\"cashMoney\",_newwealth, true];\n                _player setVariable [\"moneychanged\",1,true];    \n                _result = true;\n                PVDZE_plr_Save = [_player,(magazines _player),true,true] ;\n                publicVariableServer \"PVDZE_plr_Save\";            \n                };\n                }else{\n                _result = true;\n                };\n                _result\n    };\n\n// usage\n// _added = [player, 5000] call SC_fnc_addCoins;\n// if(_added = true)then{ GREAT SUCCES }else{ IT FAILED, Something went wrong};\n\t\nSC_fnc_addCoins = \n{\n\tprivate [\"_player\",\"_amount\",\"_wealth\",\"_newwealth\", \"_result\"];\t\t\t\n\t\t\t_player =  _this select  0;\n\t\t\t_amount =  _this select  1;\n\t\t\t_result = false;\t\n\t\t\t_wealth = _player getVariable[\"cashMoney\",0];\n\t\t\t_player setVariable[\"cashMoney\",_wealth + _amount, true];\n\t\t\tPVDZE_plr_Save = [_player,(magazines _player),true,true] ;\n\t\t\tpublicVariableServer \"PVDZE_plr_Save\";\n\t\t\t_player setVariable [\"moneychanged\",1,true];\t\t\t\t\t\n\t\t\t_newwealth = _player getVariable[\"cashMoney\",0];\t\t\n\t\t\tif (_newwealth \u0026gt;= _wealth) then { _result = true; };\t\t\t\n\t\t\t_result\n};\t\n\n",
+    "dateCreated": "2014-08-12T13:37:40+0000",
+    "datePublished": "2014-08-12T13:37:40+0000",
+    "dateModified": "2016-02-02T08:00:56+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png",
+    "author": {
+        "@type": "Person",
+        "name": "Zupa",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png",
+        "url": "https://epochmod.com/forum/profile/10391-zupa/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 7393
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 10
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 2
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "Zupa",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png",
+            "url": "https://epochmod.com/forum/profile/10391-zupa/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/",
+    "discussionUrl": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-116347",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-116347",
+            "author": {
+                "@type": "Person",
+                "name": "mgm",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg",
+                "url": "https://epochmod.com/forum/profile/16852-mgm/"
+            },
+            "dateCreated": "2014-08-14T16:33:37+0000",
+            "text": "Nice one Zupa. Have a good time! \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-117915",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-117915",
+            "author": {
+                "@type": "Person",
+                "name": "Rocu",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-18913.jpg",
+                "url": "https://epochmod.com/forum/profile/18913-rocu/"
+            },
+            "dateCreated": "2014-08-19T00:55:43+0000",
+            "text": "This is useful, but there\u0027s a minor error in it. When trying to SC_fnc_removeCoins it won\u0027t remove player\u0027s coins when you have the exact amount. \nFor example when trying to buy something for 2000 and you have exactly 2000, most scripts reply with: You need another 0 coins. Easy fix for that. \n\u00a0 \nFind: \n\nif (_wealth \u0026lt;= _amount) then { \n\nReplace with: \n\nif (_wealth \u0026lt; _amount) then { \n\nEdit// This is now fixed on the 1st post \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-119375",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-119375",
+            "author": {
+                "@type": "Person",
+                "name": "Kimzer",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/2979-kimzer/"
+            },
+            "dateCreated": "2014-08-22T17:10:39+0000",
+            "text": "Trying to get the Skin trader script to use this. But i am struggling. (Not my field this.) \n\u00a0 \nCurrently its looking like this.\u00a0 \nIt works if i remove the\u00a0if(_removed = true) then { line, but it will let you buy skins regardless of how many coins you have. \nIf i keep the\u00a0if(_removed = true) then { line, then it wont do anything. \n\u00a0 \nLink to original script:\u00a0 \n\u00a0 \nI hope someone can assist me here as im sure there are more people who want to use this with coins. :) \n\u00a0 \n \n \n\n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-121562",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-121562",
+            "author": {
+                "@type": "Person",
+                "name": "Zupa",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10391.png",
+                "url": "https://epochmod.com/forum/profile/10391-zupa/"
+            },
+            "dateCreated": "2014-08-28T07:19:25+0000",
+            "text": "Bump updated: \n\u00a0 \nBoth systems. \nAlways succes when removing 0 coins. \n",
+            "upvoteCount": 3
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-189232",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-189232",
+            "author": {
+                "@type": "Person",
+                "name": "flakvest",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/10153-flakvest/"
+            },
+            "dateCreated": "2015-01-03T21:24:35+0000",
+            "text": "Is there a way for this to work with SC 3.0? \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-239784",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-239784",
+            "author": {
+                "@type": "Person",
+                "name": "P0k3r_OF_Sm0t",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/4615-p0k3r_of_sm0t/"
+            },
+            "dateCreated": "2015-05-13T14:50:26+0000",
+            "text": "Works for me with SC 3.0 \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-249797",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-249797",
+            "author": {
+                "@type": "Person",
+                "name": "Thug",
+                "image": "https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png",
+                "url": "https://epochmod.com/forum/profile/12942-thug/"
+            },
+            "dateCreated": "2015-06-27T13:32:18+0000",
+            "text": "With the help of\u00a0Affraid and this script, we now have the refuel working on our taviana map. Thank you for your work. :D\u00a0 \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-251269",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-251269",
+            "author": {
+                "@type": "Person",
+                "name": "Johnw7392",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/12673-johnw7392/"
+            },
+            "dateCreated": "2015-07-05T18:53:58+0000",
+            "text": "I am using the SC 3.0 on my Overpoch server and am wanting to use SC rearm/refuel by axe cop so I do need this in my ZSC compiles right? \n\u00a0 \nHow would I put this into my ZSC Compiles? Do I replace what is currently in there or just paste this underneath? \n\u00a0 \n\u00a0 \n   \n\u00a0 \n   \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-271906",
+            "url": "https://epochmod.com/forum/topic/15463-devs-universal-removeadd-coins-function/#comment-271906",
+            "author": {
+                "@type": "Person",
+                "name": "AiiDynBrus",
+                "image": "https://epochmod.com/forum/uploads/monthly_2016_05/ab.jpg.32daa5d1ab0a1523e0140894811ae9ff.thumb.jpg.d173eba09fca8726481bcd5022e42843.jpg",
+                "url": "https://epochmod.com/forum/profile/36028-aiidynbrus/"
+            },
+            "dateCreated": "2016-02-02T08:00:56+0000",
+            "text": "Ummm so where do you put this code? in compiles.sqf or?\n \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/63-a2-community-projects/",
+                "name": "A2: Community Projects"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/56-gold-coin-based-single-currency-banking-system/",
+                "name": "Gold Coin based Single Currency &amp; Banking System"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

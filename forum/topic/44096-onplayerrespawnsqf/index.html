@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>onPlayerRespawn.sqf - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="onPlayerRespawn.sqf" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/" property="og:url"/>
+<meta content="Hi, I used to be able to use onPlayerRespawn.sqf to load a loadout scripts. But now it's as if that file is not loaded at all when a player connect/respawn. Is there anything i am missing here ? Been trying different way but it just doesn't want to load the loadout called from onPlayerRespawn.sqf..." name="description"/>
+<meta content="Hi, I used to be able to use onPlayerRespawn.sqf to load a loadout scripts. But now it's as if that file is not loaded at all when a player connect/respawn. Is there anything i am missing here ? Been trying different way but it just doesn't want to load the loadout called from onPlayerRespawn.sqf..." property="og:description"/>
+<meta content="2017-06-10T08:51:11Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="44096" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80NDA5Ni1vbnBsYXllcnJlc3Bhd25zcWYv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":78}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":44096}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/94-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					onPlayerRespawn.sqf
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>onPlayerRespawn.sqf</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">
+<img alt="TolH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">TolH</a>,</strong><br/><span class="ipsType_light"><time data-short="8 yr" datetime="2017-06-09T20:05:53Z" title="06/09/17 08:05  PM">June 9, 2017</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="onPlayerRespawn.sqf" data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="44096">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-44096" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-294436"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294436">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">
+<img alt="TolH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg"/>
+</a>
+<a href="../../profile/1745-tolh/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile"><span style="color:#">TolH</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294436" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-09T20:05:54Z" title="06/09/17 08:05  PM">June 9, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">TolH</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">
+<img alt="TolH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/1745-tolh/content/index.html" rel="nofollow" title="73 posts">
+<i class="fa fa-comment"></i> 73
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294436" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1745,"username":"TolH","timestamp":1497038754,"contentapp":"forums","contenttype":"forums","contentid":44096,"contentclass":"forums_Topic","contentcommentid":294436}' id="comment-294436_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294436_wrap" href="#elControls_294436_menu" id="elControls_294436" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294436_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=reportComment&amp;comment=294436" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294436_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_294436" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294436" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-09T20:05:54Z" title="06/09/17 08:05  PM">June 9, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Hi,
+</p>
+<p>
+	I used to be able to use onPlayerRespawn.sqf to load a loadout scripts. But now it's as if that file is not loaded at all when a player connect/respawn.
+</p>
+<p>
+	Is there anything i am missing here ? Been trying different way but it just doesn't want to load the loadout called from onPlayerRespawn.sqf
+</p>
+<p>
+	my onPlayerRespawn.sqf
+</p>
+<div class="ipsSpoiler" data-ipsspoiler="">
+<div class="ipsSpoiler_header">
+<span>Spoiler</span>
+</div>
+<div class="ipsSpoiler_contents">
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+
+<span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">hasInterface </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">isDedicated</span><span class="pun">)</span><span class="pln"> exitWith </span><span class="pun">{};</span><span class="pln">
+</span><span class="com">//============================================////============================================//</span><span class="pln">
+	</span><span class="com">//BLACK SCREEN</span><span class="pln">
+		titleText </span><span class="pun">[</span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="str">"BLACK"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+</span><span class="com">//============================================////============================================//</span><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">isDedicated and hasInterface</span><span class="pun">)</span><span class="pln"> then 
+</span><span class="pun">{</span><span class="pln">
+	waitUntil </span><span class="pun">{</span><span class="pln">alive vehicle player</span><span class="pun">};</span><span class="pln">
+	</span><span class="com">//waituntil {!isnull (finddisplay 46)};</span><span class="pln">
+	waitUntil </span><span class="pun">{</span><span class="pln">typeOF player </span><span class="pun">!=</span><span class="pln"> </span><span class="str">"VirtualMan_EPOCH"</span><span class="pun">};</span><span class="pln">
+	</span><span class="pun">[]</span><span class="pln"> execVM </span><span class="str">"custom\loadout.sqf"</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span></pre>
+<p>
+			 
+		</p>
+</div>
+</div>
+<p>
+	my loadout.sqf
+</p>
+<div class="ipsSpoiler" data-ipsspoiler="">
+<div class="ipsSpoiler_header">
+<span>Spoiler</span>
+</div>
+<div class="ipsSpoiler_contents">
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+
+<span class="com">//============================================////============================================//</span><span class="pln">
+		waitUntil </span><span class="pun">{</span><span class="pln">alive vehicle player</span><span class="pun">};</span><span class="pln">
+		</span><span class="com">//waituntil {!isnull (finddisplay 46)};</span><span class="pln">
+		waitUntil </span><span class="pun">{</span><span class="pln">typeOF player </span><span class="pun">!=</span><span class="pln"> </span><span class="str">"VirtualMan_EPOCH"</span><span class="pun">};</span><span class="pln">
+</span><span class="com">//============================================////============================================//</span><span class="pln">
+	</span><span class="com">//PLAYER RESPAWN POSITIONS</span><span class="pln">
+		</span><span class="com">//_pos1 = [14625.8, 16771, 0.00143814];    //MAIN AIRPORT</span><span class="pln">
+		_pos1 </span><span class="pun">=</span><span class="pln"> getMarkerPos </span><span class="str">"respawn_west"</span><span class="pun">;</span><span class="pln">
+		_pos2 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">8935.1592</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7494.0469</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.378685</span><span class="pun">];</span><span class="pln"> </span><span class="com">//ALTIS CHURCH SPAWN</span><span class="pln">
+	</span><span class="com">//RADIUS RANDOMISATION FOR PLAYER SPAWN</span><span class="pln">
+		</span><span class="com">//_spawnRandomisation=5; //5m RADIUS</span><span class="pln">
+		</span><span class="com">//_spwnposNew = [(_pos1),random _spawnRandomisation, random 360] call BIS_fnc_relPos;</span><span class="pln">
+</span><span class="com">//============================================////============================================//</span><span class="pln">
+	</span><span class="com">//if ((EPOCH_playerAliveTime &lt; 0.1) &amp;&amp; (EPOCH_playerCrypto &lt; 1)) then</span><span class="pln">
+	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">player distance _pos1 </span><span class="pun">&lt;</span><span class="lit">5</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">(</span><span class="pln">EPOCH_playerCrypto </span><span class="pun">&lt;</span><span class="lit">1</span><span class="pun">))</span><span class="pln"> then
+	</span><span class="pun">{</span><span class="pln">
+	</span><span class="com">//NEW PLAYER SPAWNNING CONFIG</span><span class="pln">
+		</span><span class="com">//SCREEN COMING BACK SLOWLY</span><span class="pln">
+		titleText </span><span class="pun">[</span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="str">"BLACK IN"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">15</span><span class="pun">];</span><span class="pln">
+		</span><span class="com">//playerfog = 1;</span><span class="pln">
+		</span><span class="com">//player setDamage 0.30;</span><span class="pln">
+		player setpos _pos2</span><span class="pun">;</span><span class="pln">
+		player setDir </span><span class="lit">270</span><span class="pun">;</span><span class="pln">
+		</span><span class="com">//player enableFatigue false;</span><span class="pln">
+		waitUntil</span><span class="pun">{!</span><span class="pln">isNull </span><span class="pun">(</span><span class="pln">findDisplay </span><span class="lit">46</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">dialog </span><span class="pun">&amp;&amp;</span><span class="pln"> cameraOn isEqualTo player </span><span class="pun">&amp;&amp;</span><span class="pln"> cameraView </span><span class="pun">==</span><span class="pln"> </span><span class="str">"INTERNAL"</span><span class="pun">};</span><span class="pln">
+		player switchCamera </span><span class="str">"EXTERNAL"</span><span class="pun">;</span><span class="pln">
+		uiSleep </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+        </span><span>_PistolANDmag</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">"Rollins_F"</span><span class="pun">,</span><span class="str">"5Rnd_rollins_mag"</span><span class="pun">];</span><span class="pln">
+		_riffle </span><span class="pun">=</span><span class="pln"> </span><span>_PistolANDmag</span><span class="pln"> select </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+        _mag </span><span class="pun">=</span><span class="pln"> </span><span>_PistolANDmag</span><span class="pln"> select </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+		player addWeapon _riffle</span><span class="pun">;</span><span class="pln">
+        player addMagazine _mag</span><span class="pun">;</span><span class="pln">
+		player addMagazine _mag</span><span class="pun">;</span><span class="pln">
+		player addWeapon </span><span class="str">"EpochRadio0"</span><span class="pun">;</span><span class="pln">
+		player addItem </span><span class="str">"FirstAidKit"</span><span class="pun">;</span><span class="pln">
+		player addPrimaryWeaponItem </span><span class="str">"acc_flashlight"</span><span class="pun">;</span><span class="pln">
+		</span><span class="com">//player action ["GunLightOn", player];</span><span class="pln">
+		HALV_takegive </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">player</span><span class="pun">,</span><span class="lit">100</span><span class="pun">];</span><span class="pln">
+		publicVariableServer </span><span class="str">"HALV_takegive"</span><span class="pun">;</span><span class="pln">
+		uiSleep </span><span class="lit">3</span><span class="pun">;</span><span class="pln">
+		systemchat format </span><span class="pun">[</span><span class="str">"Welcome -=(%1)=-"</span><span class="pun">,</span><span class="pln"> name player</span><span class="pun">];</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	</span><span class="kwd">else</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+	</span><span class="com">//OLD PLAYER SPAWNNING CONFIG</span><span class="pln">
+		</span><span class="com">//SCREEN COMING BACK SLOWLY</span><span class="pln">
+		titleText </span><span class="pun">[</span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="str">"BLACK IN"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">12</span><span class="pun">];</span><span class="pln">
+		</span><span class="com">//player enableFatigue false;</span><span class="pln">
+		waitUntil</span><span class="pun">{!</span><span class="pln">isNull </span><span class="pun">(</span><span class="pln">findDisplay </span><span class="lit">46</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">dialog </span><span class="pun">&amp;&amp;</span><span class="pln"> cameraOn isEqualTo player </span><span class="pun">&amp;&amp;</span><span class="pln"> cameraView </span><span class="pun">==</span><span class="pln"> </span><span class="str">"INTERNAL"</span><span class="pun">};</span><span class="pln">
+		player switchCamera </span><span class="str">"EXTERNAL"</span><span class="pun">;</span><span class="pln">
+		uiSleep </span><span class="lit">3</span><span class="pun">;</span><span class="pln">
+		systemchat format </span><span class="pun">[</span><span class="str">"Welcome back -=(%1)=-"</span><span class="pun">,</span><span class="pln"> name player</span><span class="pun">];</span><span class="pln">
+	</span><span class="pun">};</span><span class="pln">
+</span><span class="com">//============================================////============================================//</span></pre>
+<p>
+			 
+		</p>
+</div>
+</div>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294436_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294436" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294436" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294436&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment%26comment=294436&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hi,
+ 
+
+
+	I used to be able to use onPlayerRespawn.sqf to load a loadout scripts. But now it's as if that file is not loaded at all when a player connect/respawn.
+ 
+
+
+	Is there anything i am missing here ? Been trying different way but it just doesn't want to load the loadout called from onPlayerRespawn.sqf
+ 
+
+
+	my onPlayerRespawn.sqf
+ 
+
+
+
+
+	my loadout.sqf
+ 
+
+
+
+
+	 
+ 
+" data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294436">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">4 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-294441"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294441">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="1" title=" vote">1</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30106-brian-soanes/?do=hovercard" data-ipshover-width="370" href="../../profile/30106-brian-soanes/index.html" rel="nofollow" title="Go to Brian Soanes's profile">
+<img alt="Brian Soanes" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_07/ttm.thumb.jpg.518c9d702c782c8fc80f9a88e8c2c1c1.jpg"/>
+</a>
+<a href="../../profile/30106-brian-soanes/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30106-brian-soanes/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/30106-brian-soanes/index.html" rel="nofollow" title="Go to Brian Soanes's profile"><span style="color:#">Brian Soanes</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294441" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-09T22:31:20Z" title="06/09/17 10:31  PM">June 9, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30106-brian-soanes/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/30106-brian-soanes/index.html" rel="nofollow" title="Go to Brian Soanes's profile">Brian Soanes</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30106-brian-soanes/?do=hovercard" data-ipshover-width="370" href="../../profile/30106-brian-soanes/index.html" rel="nofollow" title="Go to Brian Soanes's profile">
+<img alt="Brian Soanes" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_07/ttm.thumb.jpg.518c9d702c782c8fc80f9a88e8c2c1c1.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/30106-brian-soanes/content/index.html" rel="nofollow" title="494 posts">
+<i class="fa fa-comment"></i> 494
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294441" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":30106,"username":"Brian Soanes","timestamp":1497047480,"contentapp":"forums","contenttype":"forums","contentid":44096,"contentclass":"forums_Topic","contentcommentid":294441}' id="comment-294441_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294441_wrap" href="#elControls_294441_menu" id="elControls_294441" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294441_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=reportComment&amp;comment=294441" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294441_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294441" id="elSharePost_294441" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294441" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-09T22:31:20Z" title="06/09/17 10:31  PM">June 9, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Make sure in sandbox_config in your mission file, you have respawnOnStart = 0; and not = -1
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31595-he-man/?do=hovercard" data-ipshover-width="370" href="../../profile/31595-he-man/index.html" rel="nofollow" title="Go to He-Man's profile">He-Man</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">TolH</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294441&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294441&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294441_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294441"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294441" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294441" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294441&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment%26comment=294441&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Make sure in sandbox_config in your mission file, you have respawnOnStart = 0; and not = -1
+ " data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294441">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-294446"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294446">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">
+<img alt="TolH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg"/>
+</a>
+<a href="../../profile/1745-tolh/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile"><span style="color:#">TolH</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294446" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-09T23:30:09Z" title="06/09/17 11:30  PM">June 9, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">TolH</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">
+<img alt="TolH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/1745-tolh/content/index.html" rel="nofollow" title="73 posts">
+<i class="fa fa-comment"></i> 73
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294446" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1745,"username":"TolH","timestamp":1497051009,"contentapp":"forums","contenttype":"forums","contentid":44096,"contentclass":"forums_Topic","contentcommentid":294446}' id="comment-294446_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294446_wrap" href="#elControls_294446_menu" id="elControls_294446" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294446_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=reportComment&amp;comment=294446" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294446_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294446" id="elSharePost_294446" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294446" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-09T23:30:09Z" title="06/09/17 11:30  PM">June 9, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="294441" data-ipsquote-contentid="44096" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1497047480" data-ipsquote-userid="30106" data-ipsquote-username="Brian Soanes">
+<div class="ipsQuote_citation">
+		53 minutes ago, Brian Soanes said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Make sure in sandbox_config in your mission file, you have respawnOnStart = 0; and not = -1
+		</p>
+</div>
+</blockquote>
+<p>
+	A big thanks to you sir. Working great now, was about to give up after hours of trying and nothing at all was happening. Can't beleive it was this simple :D
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/30106-brian-soanes/?do=hovercard" data-ipshover-width="370" href="../../profile/30106-brian-soanes/index.html" rel="nofollow" title="Go to Brian Soanes's profile">Brian Soanes</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294446&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294446&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294446_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294446"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294446" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294446" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294446&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment%26comment=294446&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="A big thanks to you sir. Working great now, was about to give up after hours of trying and nothing at all was happening. Can't beleive it was this simple :D
+ 
+" data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294446">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-294451"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294451">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard" data-ipshover-width="370" href="../../profile/25169-natoed/index.html" rel="nofollow" title="Go to natoed's profile">
+<img alt="natoed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-25169.jpg"/>
+</a>
+<a href="../../profile/25169-natoed/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/25169-natoed/index.html" rel="nofollow" title="Go to natoed's profile"><span style="color:#">natoed</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294451" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-10T00:45:42Z" title="06/10/17 12:45  AM">June 10, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/25169-natoed/index.html" rel="nofollow" title="Go to natoed's profile">natoed</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard" data-ipshover-width="370" href="../../profile/25169-natoed/index.html" rel="nofollow" title="Go to natoed's profile">
+<img alt="natoed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-25169.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/25169-natoed/content/index.html" rel="nofollow" title="360 posts">
+<i class="fa fa-comment"></i> 360
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294451" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":25169,"username":"natoed","timestamp":1497055542,"contentapp":"forums","contenttype":"forums","contentid":44096,"contentclass":"forums_Topic","contentcommentid":294451}' id="comment-294451_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294451_wrap" href="#elControls_294451_menu" id="elControls_294451" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294451_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=reportComment&amp;comment=294451" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294451_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294451" id="elSharePost_294451" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294451" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-10T00:45:42Z" title="06/10/17 12:45  AM">June 10, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	also check out this the hard work has been done for us all sometime ago
+</p>
+<iframe data-embed-src="https://epochmod.com/forum/topic/43086-user-loadouts/?do=embed&amp;comment=284841&amp;embedComment=284841&amp;embedDo=findComment" data-embedcontent="" frameborder="0" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"></iframe>
+<p>
+	my epochconfig.hpp as an example below from line 33 to 81
+</p>
+<p>
+	 
+</p>
+<div class="ipsSpoiler" data-ipsspoiler="">
+<div class="ipsSpoiler_header">
+<span>Spoiler</span>
+</div>
+<div class="ipsSpoiler_contents">
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+
+<span class="pln">serverRestart         </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// true sends #shutdown command to server after the time specified in ForceRestartTime</span><span class="pln">
+forceRestartTime      </span><span class="pun">=</span><span class="pln"> </span><span class="lit">21600</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 4 hour restarts</span><span class="pln">
+
+</span><span>StorageSlotsLimit</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2000</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Max storage slots allowed. Warning! Higher the number lower performance.</span><span class="pln">
+</span><span>BuildingSlotsLimit</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Max building slots allowed. Warning! Higher the number lower performance.</span><span class="pln">
+
+</span><span class="com">// Time based</span><span class="pln">
+</span><span>StaticDateTime</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">9.30</span><span class="pun">,</span><span class="lit">0</span><span class="pun">};</span><span class="pln"> </span><span class="com">// {0,0,0,8,0} would forces the server to start at 8am each time it is started while allowing the year, month and day to stay real time. Any values left at 0 will result in no change.</span><span class="pln">
+timeDifference </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Server uses real time this will allow you to offset just the hour.</span><span class="pln">
+timeMultiplier </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Sets a time multiplier for in-game time. The command range is now capped at 0.1 - 120 to avoid performance problems.</span><span class="pln">
+lootMultiplier </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.4</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 1 = max loot bias. This controls how much loot can payout per Epoch loot container.</span><span class="pln">
+</span><span class="com">// Events</span><span class="pln">
+</span><span>WeatherStaticForecast</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{};</span><span class="pln"> </span><span class="com">// Default: {75.5,0,{0,0,0},0,{1,1}}; // Clear day; {19,1,{1,1,40},1,{5,5}}; // Cold Foggy Rainy Overcast Windy; Format: {temp &lt;scalar&gt;,rain &lt;scalar&gt;,fog &lt;array&gt;,overcast &lt;scalar&gt;,wind &lt;array&gt;}</span><span class="pln">
+events</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln"> </span><span class="lit">10000</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CarnivalSpawner"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln"> </span><span class="com">// SECOND &lt;scalar&gt;, EVENT &lt;string&gt;, INIT &lt;scalar&gt; 1 = run script at startup, 0 normal delay, PREPOSTFIX &lt;scalar&gt; 1 = use pre/postfix path (inside epoch settings pbo) 0 = use full file path</span><span class="pln">
+    </span><span class="com">// { 1800, "PaydayEvent", 0, 1},</span><span class="pln">
+    </span><span class="com">// { 1200, "MessageServer", 0, 1},</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln"> </span><span class="lit">2700</span><span class="pun">,</span><span class="pln"> </span><span class="str">"AirDrop"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln"> </span><span class="lit">2400</span><span class="pun">,</span><span class="pln"> </span><span class="str">"EarthQuake"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln">
+   </span><span class="com">// { 900, "ChangeWeather", 1 , 1},</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln"> </span><span class="lit">700</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ContainerSpawner"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">},</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln"> </span><span class="lit">300</span><span class="pun">,</span><span class="pln"> </span><span class="str">"PlantSpawner"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">}</span><span class="pln"> </span><span class="com">//No comma on last Entry</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="com">// Antagonists</span><span class="pln">
+antagonistChanceTrash </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">;</span><span class="pln"> </span><span class="com">//9% chance when player loot a trash object</span><span class="pln">
+antagonistChancePDeath </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.22</span><span class="pun">;</span><span class="pln"> </span><span class="com">//33% chance when player was killed from a other player (selfkill doesn't count)</span><span class="pln">
+antagonistChanceLoot </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">;</span><span class="pln"> </span><span class="com">//9% chance when player click "SEARCH" on a loot object</span><span class="pln">
+
+</span><span class="com">// Player Related</span><span class="pln">
+cloneCost </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span><span class="pln"> 					</span><span class="com">// debt incurred on player death</span><span class="pln">
+</span><span>MaxBankDebitforTrade</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">50000</span><span class="pun">;</span><span class="pln">		</span><span class="com">// If Player has less money on Bank, Crypto from Trade goes directly to Bank instead to Player</span><span class="pln">
+</span><span class="com">// Start Loadout</span><span class="pln">
+defaultUniformFemale </span><span class="pun">=</span><span class="pln">		</span><span class="str">"U_Test_uniform"</span><span class="pun">;</span><span class="pln">
+defaultVestFemale </span><span class="pun">=</span><span class="pln">			</span><span class="str">"V_F41_EPOCH"</span><span class="pun">;</span><span class="pln">
+defaultUniformMale </span><span class="pun">=</span><span class="pln">		</span><span class="str">"U_Test1_uniform"</span><span class="pun">;</span><span class="pln">
+defaultVestMale </span><span class="pun">=</span><span class="pln">			</span><span class="str">"V_41_EPOCH"</span><span class="pun">;</span><span class="pln">
+defaultGoggles </span><span class="pun">=</span><span class="pln">			</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+defaultHeadgear </span><span class="pun">=</span><span class="pln">			</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+defaultBackpack </span><span class="pun">=</span><span class="pln">			</span><span class="str">""</span><span class="pun">;</span><span class="pln">
+linkedItems</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln">				</span><span class="pun">{</span><span class="str">"ItemMap"</span><span class="pun">,</span><span class="str">"EpochRadio0"</span><span class="pun">};</span><span class="pln">		</span><span class="com">// {"Item1","Item2",...}; These Items will be linked to the Players Inventory</span><span class="pln">
+itemsInContainers</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln">		</span><span class="pun">{};</span><span class="pln">								</span><span class="com">// {"Item1","Item2",...}; These Items will be put in the Players Cargo(s)</span><span class="pln">
+weaponsInContainers</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> 	</span><span class="pun">{};</span><span class="pln">								</span><span class="com">// {"Weapon1","Weapon2",...}; These Weapons will be put in the Players Cargo(s)</span><span class="pln">
+normalMagazines</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> 		</span><span class="pun">{};</span><span class="pln">								</span><span class="com">// {{"Magazine1",Ammocount1},{"Magazine2",Ammocount2},...};</span><span class="pln">
+weaponsAndItems</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln">			</span><span class="pun">{</span><span class="pln">
+
+	</span><span class="str">"Rollins_F"</span><span class="pun">,</span><span class="pln">											</span><span class="com">// Active Weapon (in hand)</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">														</span><span class="com">// Full equipped Weapons (put here equipped Weapons that should be in the Weapons Slots)</span><span class="pln">
+		</span><span class="pun">{</span><span class="pln">
+			</span><span class="str">"Rollins_F"</span><span class="pun">,</span><span class="pln">									</span><span class="com">// Weapon 1</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Suppressor 1</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Laser 1</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Optics 1</span><span class="pln">
+			</span><span class="pun">{</span><span class="str">"5Rnd_rollins_mag"</span><span class="pun">,</span><span class="lit">5</span><span class="pun">},</span><span class="pln">							</span><span class="com">// Magtype + ammo count 1</span><span class="pln">
+			</span><span class="pun">{},</span><span class="pln">												</span><span class="com">// 2nd Magtype + ammo count 1 (Only needed for GL-Mags)</span><span class="pln">
+			</span><span class="str">""</span><span class="pln">												</span><span class="com">// Bipod 1</span><span class="pln">
+		</span><span class="pun">},</span><span class="pln">
+		</span><span class="pun">{</span><span class="pln">
+			</span><span class="str">"MeleeRod"</span><span class="pun">,</span><span class="pln">										</span><span class="com">// Weapon 2</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Suppressor 2</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Laser 2</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Optics 2</span><span class="pln">
+			</span><span class="pun">{</span><span class="str">"stick_swing"</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">},</span><span class="pln">							</span><span class="com">// Magtype + ammo count 2</span><span class="pln">
+			</span><span class="str">""</span><span class="pln">
+		</span><span class="pun">},</span><span class="pln">
+		</span><span class="pun">{</span><span class="pln">
+			</span><span class="str">"ruger_pistol_epoch"</span><span class="pun">,</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Suppressor 3</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Laser 3</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln">												</span><span class="com">// Optics 3</span><span class="pln">
+			</span><span class="pun">{</span><span class="str">"10rnd_22X44_magazine"</span><span class="pun">,</span><span class="lit">10</span><span class="pun">},</span><span class="pln">					</span><span class="com">// Magtype + ammo count 3</span><span class="pln">
+			</span><span class="str">""</span><span class="pln">												</span><span class="com">// Bipod 3</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+	</span><span class="pun">},</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="str">"Rollins_F"</span><span class="pun">,</span><span class="pln">										</span><span class="com">// Primary Weapon</span><span class="pln">
+		</span><span class="str">"MeleeRod"</span><span class="pun">,</span><span class="pln">											</span><span class="com">// Secondary Weapon</span><span class="pln">
+		</span><span class="str">"ruger_pistol_epoch"</span><span class="pln">								</span><span class="com">// Handgun Weapon</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="com">// vehicles - Max vehicle slots is calculated from per vehicle limits below. Warning! Higher the number lower the performance.</span><span class="pln">
+simulationHandlerOld </span><span class="pun">=</span><span class="pln"> </span><span class="str">"false"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// When enabled this feature disables simulation on vehicles that are not nea players. Can help improve client fps at the cost of server fps.</span><span class="pln">
+vehicleLockTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">604800</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Controls how many seconds it takes to allow another person/group to unlock vehicle.</span><span class="pln">
+</span><span class="com">/*
+removevehweapons[] = {			// remove these Weapons from spawned Vehicles
+	"missiles_DAR","gatling_30mm","gatling_20mm","missiles_DAGR","cannon_30mm_Plane_CAS_02_F","Missile_AA_03_Plane_CAS_02_F","Missile_AGM_01_Plane_CAS_02_F","Rocket_03_HE_Plane_CAS_02_F",
+	"Rocket_03_AP_Plane_CAS_02_F","Bomb_03_Plane_CAS_02_F","Bomb_04_Plane_CAS_01_F","Rocket_04_AP_Plane_CAS_01_F","Rocket_04_HE_Plane_CAS_01_F","Missile_AGM_02_Plane_CAS_01_F","Missile_AA_04_Plane_CAS_01_F",
+	"Gatling_30mm_Plane_CAS_01_F","GBU12BombLauncher_Plane_Fighter_03_F","missiles_ASRAAM","missiles_SCALPEL","Twin_Cannon_20mm","missiles_Zephyr","rockets_skyfire","gatling_30mm_vtol_02"
+};
+removevehmagazinesturret[] = {	// Remove these Magazines from the given Turret from spawned Vehicles
+	{"24Rnd_missiles",{-1}},
+	{"200Rnd_40mm_G_belt",{0}}
+};
+*/</span><span class="pln">
+
+</span><span class="com">// BaseBuilding</span><span class="pln">
+</span><span>UseIndestructible</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln">			</span><span class="com">// Enable / Disable Indestructible BaseObjects</span><span class="pln">
+</span><span>IndestructibleBaseObjects</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln">	</span><span class="pun">{</span><span class="pln">	</span><span class="com">// Can be Names or Classes</span><span class="pln">
+									</span><span class="str">"Constructions_static_F"</span><span class="pln">
+									</span><span class="com">//"Buildable_Storage",</span><span class="pln">
+									</span><span class="com">//"PlotPole_EPOCH",</span><span class="pln">
+									</span><span class="com">//"LockBox_EPOCH",</span><span class="pln">
+									</span><span class="com">//"Safe_EPOCH"</span><span class="pln">
+								</span><span class="pun">};</span><span class="pln">
+</span><span>ExceptedBaseObjects</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> 		</span><span class="pun">{</span><span class="pln">	</span><span class="com">// Not Indestructible, also if in a Class of IndestructibleBaseObjects</span><span class="pln">
+									</span><span class="str">"CinderWallGarage_EPOCH"</span><span class="pun">,</span><span class="pln">
+									</span><span class="str">"WoodLargeWallDoorL_EPOCH"</span><span class="pun">,</span><span class="pln">
+									</span><span class="str">"WoodLargeWallDoor_EPOCH"</span><span class="pun">,</span><span class="pln">
+									</span><span class="str">"PlotPole_EPOCH"</span><span class="pun">,</span><span class="pln">
+									</span><span class="str">"WoodWall4_EPOCH"</span><span class="pln">
+								</span><span class="pun">};</span><span class="pln">
+
+</span><span class="com">// Traders</span><span class="pln">
+taxRate </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0.9</span><span class="pun">;</span><span class="pln"> </span><span class="com">// controls the price increase for purchases</span><span class="pln">
+starterTraderItems</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="str">"ItemSodaBurst"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"meatballs_epoch"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"MortarBucket"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CinderBlocks"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"VehicleRepair"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CircuitParts"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ItemCorrugated"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"PartPlankPack"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ItemRock"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ItemRope"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"ItemStick"</span><span class="pln"> </span><span class="pun">},</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">};</span><span class="pln"> </span><span class="com">// Starter Items for fresh spawned trader first array is classnames second is quantity.</span><span class="pln">
+</span><span>NPCSlotsLimit</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Max number of traders static or dynamic. Warning! Higher the number lower performance.</span><span class="pln">
+forceStaticTraders </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// disables traders moving from work to home</span><span class="pln">
+
+</span><span class="com">// Markers</span><span class="pln">
+showEarthQuakes </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// show mineral viens caused by earthquakes</span><span class="pln">
+showShippingContainers </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Show location of events based loots (plants, shipping container, Carnival)</span><span class="pln">
+SHOW_TRADERS </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Show locations of traders</span><span class="pln">
+SHOW_JAMMERS </span><span class="pun">=</span><span class="pln"> </span><span class="str">"false"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Shows location of base jammers</span><span class="pln">
+SHOW_BOATLOOT </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Shows the location of shipwreck loot</span><span class="pln">
+DEBUG_VEH </span><span class="pun">=</span><span class="pln"> </span><span class="str">"false"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// DEBUG ONLY used to debug spawing of vehicles</span><span class="pln">
+
+</span><span class="com">// Hive Related</span><span class="pln">
+expiresBuilding </span><span class="pun">=</span><span class="pln"> </span><span class="str">"1209600"</span><span class="pun">;</span><span class="pln">  </span><span class="com">// expiration date in seconds for buildings</span><span class="pln">
+expiresPlayer </span><span class="pun">=</span><span class="pln"> </span><span class="str">"2592000"</span><span class="pun">;</span><span class="pln">  </span><span class="com">// expiration date in seconds for players</span><span class="pln">
+expiresBank </span><span class="pun">=</span><span class="pln"> </span><span class="str">"7776000"</span><span class="pun">;</span><span class="pln">  </span><span class="com">// expiration date in seconds for players bank</span><span class="pln">
+expiresVehicle </span><span class="pun">=</span><span class="pln"> </span><span class="str">"604800"</span><span class="pun">;</span><span class="pln">  </span><span class="com">// expiration date in seconds for vehicles</span><span class="pln">
+expiresAIdata </span><span class="pun">=</span><span class="pln"> </span><span class="str">"604800"</span><span class="pun">;</span><span class="pln">  </span><span class="com">// expiration date in seconds for NPC Trader inventory</span><span class="pln">
+
+</span><span class="com">// Admin Features</span><span class="pln">
+hiveAdminCmdExec </span><span class="pun">=</span><span class="pln"> </span><span class="str">"false"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// true = enables extra (To Be Released) feature to allow execution of code via hive.</span><span class="pln">
+hiveAdminSavePlayerList </span><span class="pun">=</span><span class="pln"> </span><span class="str">"true"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// true = enables saving of playerUID array to hive value PLAYERS:#InstanceID.</span><span class="pln">
+hiveAdminCmdTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> </span><span class="com">// how many seconds between each command queue call.</span><span class="pln">
+
+</span><span class="com">// DEBUG</span><span class="pln">
+useOldLoadVehicles </span><span class="pun">=</span><span class="pln"> </span><span class="str">"false"</span><span class="pun">;</span></pre>
+<p>
+			 
+		</p>
+</div>
+</div>
+<p>
+	 
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">TolH</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294451&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294451&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294451_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294451"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294451" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294451" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294451&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment%26comment=294451&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="also check out this the hard work has been done for us all sometime ago
+ 
+
+
+
+	my epochconfig.hpp as an example below from line 33 to 81
+ 
+
+
+	 
+ 
+
+
+
+
+	 
+ 
+" data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294451">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-294470"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294470">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31595-he-man/?do=hovercard" data-ipshover-width="370" href="../../profile/31595-he-man/index.html" rel="nofollow" title="Go to He-Man's profile">
+<img alt="He-Man" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/wallpaper16_1024-768__.JPG.04782be17a929a419292b16007d19ba0.thumb.JPG.0d9aed0d78b17bb4bd6298196203cdf4.JPG"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="He-Man is a moderator"></span>
+<a href="../../profile/31595-he-man/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31595-he-man/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/31595-he-man/index.html" rel="nofollow" title="Go to He-Man's profile">He-Man</a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294470" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-10T08:51:11Z" title="06/10/17 08:51  AM">June 10, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31595-he-man/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44096-onplayerrespawnsqf%252F" data-ipshover-width="370" href="../../profile/31595-he-man/index.html" rel="nofollow" title="Go to He-Man's profile">He-Man</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31595-he-man/?do=hovercard" data-ipshover-width="370" href="../../profile/31595-he-man/index.html" rel="nofollow" title="Go to He-Man's profile">
+<img alt="He-Man" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/wallpaper16_1024-768__.JPG.04782be17a929a419292b16007d19ba0.thumb.JPG.0d9aed0d78b17bb4bd6298196203cdf4.JPG"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="He-Man is a moderator"></span>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group">Developer</li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.8fdd81fad5028d3aa7ed27322981c592.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/31595-he-man/content/index.html" rel="nofollow" title="808 posts">
+<i class="fa fa-comment"></i> 808
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294470" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":31595,"username":"He-Man","timestamp":1497084671,"contentapp":"forums","contenttype":"forums","contentid":44096,"contentclass":"forums_Topic","contentcommentid":294470}' id="comment-294470_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294470_wrap" href="#elControls_294470_menu" id="elControls_294470" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294470_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=reportComment&amp;comment=294470" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294470_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294470" id="elSharePost_294470" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294470" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-10T08:51:11Z" title="06/10/17 08:51  AM">June 10, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	If you only want to change the loadout, you can add it to the config (Will also be added in the next Update):
+</p>
+<p>
+<a href="https://github.com/EpochModTeam/Epoch/commit/e3fb007cf402edd702d416e92ce7765729c15ef8" rel="external nofollow">https://github.com/EpochModTeam/Epoch/commit/e3fb007cf402edd702d416e92ce7765729c15ef8</a>
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1745-tolh/?do=hovercard" data-ipshover-width="370" href="../../profile/1745-tolh/index.html" rel="nofollow" title="Go to TolH's profile">TolH</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294470&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=showReactionsComment&amp;comment=294470&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294470_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294470"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294470" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294470" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F%3Fdo%3DfindComment%26comment%3D294470&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment%26comment=294470&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="If you only want to change the loadout, you can add it to the config (Will also be added in the next Update):
+ 
+
+
+	https://github.com/EpochModTeam/Epoch/commit/e3fb007cf402edd702d416e92ce7765729c15ef8
+ 
+" data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/?do=findComment&amp;comment=294470">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80NDA5Ni1vbnBsYXllcnJlc3Bhd25zcWYvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44096-onplayerrespawnsqf%2F&amp;title=onPlayerRespawn.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="onPlayerRespawn.sqf" data-websharetitle="onPlayerRespawn.sqf" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="44096">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/78-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/94-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/78-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					onPlayerRespawn.sqf
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "onPlayerRespawn.sqf",
+    "headline": "onPlayerRespawn.sqf",
+    "text": "Hi,\n \n\n\n\tI used to be able to use onPlayerRespawn.sqf to load a loadout scripts. But now it\u0027s as if that file is not loaded at all when a player connect/respawn.\n \n\n\n\tIs there anything i am missing here ? Been trying different way but it just doesn\u0027t want to load the loadout called from onPlayerRespawn.sqf\n \n\n\n\tmy onPlayerRespawn.sqf\n \n\n\n\n\n\tmy loadout.sqf\n \n\n\n\n\n\t\u00a0\n \n",
+    "dateCreated": "2017-06-09T20:05:53+0000",
+    "datePublished": "2017-06-09T20:05:53+0000",
+    "dateModified": "2017-06-10T08:51:11+0000",
+    "image": "https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "TolH",
+        "image": "https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg",
+        "url": "https://epochmod.com/forum/profile/1745-tolh/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2934
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 4
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/",
+    "url": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "onPlayerRespawn.sqf",
+        "text": "Hi,\n \n\n\n\tI used to be able to use onPlayerRespawn.sqf to load a loadout scripts. But now it\u0027s as if that file is not loaded at all when a player connect/respawn.\n \n\n\n\tIs there anything i am missing here ? Been trying different way but it just doesn\u0027t want to load the loadout called from onPlayerRespawn.sqf\n \n\n\n\tmy onPlayerRespawn.sqf\n \n\n\n\n\n\tmy loadout.sqf\n \n\n\n\n\n\t\u00a0\n \n",
+        "answerCount": 4,
+        "dateCreated": "2017-06-09T20:05:53+0000",
+        "author": {
+            "@type": "Person",
+            "name": "TolH"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294441",
+                "url": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294441",
+                "author": {
+                    "@type": "Person",
+                    "name": "Brian Soanes",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2018_07/ttm.thumb.jpg.518c9d702c782c8fc80f9a88e8c2c1c1.jpg",
+                    "url": "https://epochmod.com/forum/profile/30106-brian-soanes/"
+                },
+                "dateCreated": "2017-06-09T22:31:20+0000",
+                "text": "Make sure in sandbox_config in your mission file, you have respawnOnStart = 0; and not = -1\n ",
+                "upvoteCount": 1
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294446",
+                "url": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294446",
+                "author": {
+                    "@type": "Person",
+                    "name": "TolH",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg",
+                    "url": "https://epochmod.com/forum/profile/1745-tolh/"
+                },
+                "dateCreated": "2017-06-09T23:30:09+0000",
+                "text": "A big thanks to you sir. Working great now, was about to give up after hours of trying and nothing at all was happening. Can\u0027t beleive it was this simple :D\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294451",
+                "url": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294451",
+                "author": {
+                    "@type": "Person",
+                    "name": "natoed",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-25169.jpg",
+                    "url": "https://epochmod.com/forum/profile/25169-natoed/"
+                },
+                "dateCreated": "2017-06-10T00:45:42+0000",
+                "text": "also check out this the hard work has been done for us all sometime ago\n \n\n\n\n\tmy epochconfig.hpp as an example below from line 33 to 81\n \n\n\n\t\u00a0\n \n\n\n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294470",
+                "url": "https://epochmod.com/forum/topic/44096-onplayerrespawnsqf/#comment-294470",
+                "author": {
+                    "@type": "Person",
+                    "name": "He-Man",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_02/wallpaper16_1024-768__.JPG.04782be17a929a419292b16007d19ba0.thumb.JPG.0d9aed0d78b17bb4bd6298196203cdf4.JPG",
+                    "url": "https://epochmod.com/forum/profile/31595-he-man/"
+                },
+                "dateCreated": "2017-06-10T08:51:11+0000",
+                "text": "If you only want to change the loadout, you can add it to the config (Will also be added in the next Update):\n \n\n\n\thttps://github.com/EpochModTeam/Epoch/commit/e3fb007cf402edd702d416e92ce7765729c15ef8\n \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "TolH",
+            "image": "https://epochmod.com/forum/uploads/monthly_2023_01/gollum_395_3941.thumb.jpg.62b79035e348bee5e761506b3395aca5.jpg",
+            "url": "https://epochmod.com/forum/profile/1745-tolh/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/94-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/78-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

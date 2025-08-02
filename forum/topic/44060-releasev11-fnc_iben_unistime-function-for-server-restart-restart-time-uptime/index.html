@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime) - A2: Epoch Mods - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/" property="og:url"/>
+<meta content="Hello guys, currently I'm working on couple addons for my server and from time to time, when coding, some answers to your questions pops up in my head. Couple days ago I was asked about server restart time and uptime. Well, why not to share it - BUT... nothing bad about current solution you're pr..." name="description"/>
+<meta content="Hello guys, currently I'm working on couple addons for my server and from time to time, when coding, some answers to your questions pops up in my head. Couple days ago I was asked about server restart time and uptime. Well, why not to share it - BUT... nothing bad about current solution you're pr..." property="og:description"/>
+<meta content="2017-06-07T06:03:17Z" property="og:updated_time"/>
+<meta content="time, debug monitor, dev function" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="44060" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80NDA2MC1yZWxlYXNldjExLWZuY19pYmVuX3VuaXN0aW1lLWZ1bmN0aW9uLWZvci1zZXJ2ZXItcmVzdGFydC1yZXN0YXJ0LXRpbWUtdXB0aW1lLw=="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":123}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":44060}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/123-a2-epoch-mods/index.html">
+<span>A2: Epoch Mods</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/122-resources/index.html">
+<span>Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/123-a2-epoch-mods/index.html">
+<span>A2: Epoch Mods <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="time" href="https://epochmod.com/forum/tags/time/" rel="tag" title="Find other content tagged with 'time'"><span>time</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="debug monitor" href="https://epochmod.com/forum/tags/debug monitor/" rel="tag" title="Find other content tagged with 'debug monitor'"><span>debug monitor</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dev function" href="https://epochmod.com/forum/tags/dev function/" rel="tag" title="Find other content tagged with 'dev function'"><span>dev function</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">
+<img alt="iben" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a></strong><br/><span class="ipsType_light"><time data-short="8 yr" datetime="2017-06-04T14:15:20Z" title="06/04/17 02:15  PM">June 4, 2017</time> in <a href="../../forum/123-a2-epoch-mods/index.html">A2: Epoch Mods</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F&amp;title=%5BRELEASE%2Cv1.1%5D+%27fnc_IBEN_uniSTime%27+function+for+server+restart+%28Restart+time+%2B+Uptime%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-websharetitle="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-webshareurl="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="44060">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-44060" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-294174"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294174">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">
+<img alt="iben" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png"/>
+</a>
+<a href="../../profile/38414-iben/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile"><span style="color:#">iben</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294174" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-04T14:15:20Z" title="06/04/17 02:15  PM">June 4, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">
+<img alt="iben" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/38414-iben/content/index.html" rel="nofollow" title="100 posts">
+<i class="fa fa-comment"></i> 100
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294174" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":38414,"username":"iben","timestamp":1496585720,"contentapp":"forums","contenttype":"forums","contentid":44060,"contentclass":"forums_Topic","contentcommentid":294174}' id="comment-294174_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294174_wrap" href="#elControls_294174_menu" id="elControls_294174" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294174_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=reportComment&amp;comment=294174" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294174_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_294174" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294174" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-04T14:15:20Z" title="06/04/17 02:15  PM">June 4, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	 
+</p>
+<p>
+	 
+</p>
+<p>
+<span style="color:#2ecc71;"><strong>Hello guys,</strong></span>
+</p>
+<p>
+	currently I'm working on couple addons for my server and from time to time,<br/>
+	when coding, some answers to your questions pops up in my head.<br/>
+	Couple days ago I was asked about server restart time and uptime. Well,<br/>
+	why not to share it - BUT... nothing bad about current solution you're probably using!<br/>
+	In fact, the code for this is everywhere - that's right. I did it my way not because<br/>
+	I couldn't use common code - but <em><strong>just because I'm still learning a lot</strong></em> - and because I needed<br/>
+	restart time/uptime solution for my files.<br/>
+	So here is it... if you want to try, test it and let me know. The true is, I haven't time to test<br/>
+	it properly. So I'm gonna be happy to hear your thoughts...
+</p>
+<p>
+	===
+</p>
+<p>
+<strong>Big thanks always goes to:</strong>
+</p>
+<ul>
+<li>
+<strong>DayZ Epoch developers</strong>, collaborators and contributors (<a href="https://github.com/EpochModTeam/DayZ-Epoch" rel="external nofollow">thank you guys for your excellent work!</a>)
+	</li>
+</ul>
+<p>
+	===
+</p>
+<p>
+<u><strong><span style="color:#3498db;">Changelog:</span></strong></u>
+</p>
+<ul>
+<li>
+<span style="color:#3498db;">[2017-06-04], v1.0 | Initial release</span>
+</li>
+</ul>
+<p>
+	===
+</p>
+<p>
+<span style="color:#ff0000;"><span style="font-size:16px;"><strong>Read </strong></span></span><span style="font-size:16px;"><strong><span style="color:#2ecc71;">"</span><a href="https://epochmod.com/forum/topic/44743-goodbye/" rel="D"><span style="color:#2ecc71;">Goodbye</span></a></strong></span><span style="color:#ff0000;"><span style="font-size:16px;"><strong>". Wish you the best guys!</strong></span></span>
+</p>
+<p>
+	===
+</p>
+<p>
+<span style="font-size:14px;"><u><strong>How it looks like:</strong></u></span>
+</p>
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="com">// ===========================================================================</span><span class="pln">
+</span><span class="com">// FUNCTIONS LIBRARY &gt;&gt; Universal server timer function</span><span class="pln">
+</span><span class="com">// ===========================================================================</span><span class="pln">
+</span><span class="com">// @Function name: fnc_IBEN_uniSTime</span><span class="pln">
+</span><span class="com">// ===========================================================================</span><span class="pln">
+</span><span class="com">// @Remarks:</span><span class="pln">
+</span><span class="com">//  - Can be called 2 ways:</span><span class="pln">
+</span><span class="com">//    * Restart/Uptime with label</span><span class="pln">
+</span><span class="com">//    * Restart/Uptime without label</span><span class="pln">
+</span><span class="com">// @Parameters:</span><span class="pln">
+</span><span class="com">//  - Time for restart cycle in seconds                               | number</span><span class="pln">
+</span><span class="com">//  - Time mode (values: "restart"/"uptime")                          | string</span><span class="pln">
+</span><span class="com">//  - Label (example: "Restart in")                                   | string</span><span class="pln">
+</span><span class="com">// @Related files:</span><span class="pln">
+</span><span class="com">//  - none</span><span class="pln">
+</span><span class="com">// @Example:</span><span class="pln">
+</span><span class="com">//  - For server time we are using global var: SERV_RESTART = 10800; (3h)</span><span class="pln">
+</span><span class="com">//  - restart time with no label</span><span class="pln">
+</span><span class="com">//    * [SERV_RESTART,"restart"] call fnc_IBEN_uniSTime;</span><span class="pln">
+</span><span class="com">//  - restart time with label</span><span class="pln">
+</span><span class="com">//    * [SERV_RESTART,["restart","Restart in"]] call fnc_IBEN_uniSTime;</span><span class="pln">
+</span><span class="com">//  - uptime with no label</span><span class="pln">
+</span><span class="com">//    * [SERV_RESTART,"uptime"] call fnc_IBEN_uniSTime;</span><span class="pln">
+</span><span class="com">//  - uptime with label</span><span class="pln">
+</span><span class="com">//    * [SERV_RESTART,["uptime","Time from start"]] call fnc_IBEN_uniSTime;</span><span class="pln">
+</span><span class="com">// @Returns:</span><span class="pln">
+</span><span class="com">//  - time string in format: "h:mm", or "Restart in: h:mm"</span><span class="pln">
+</span><span class="com">// ===========================================================================</span><span class="pln">
+</span><span class="kwd">private</span><span class="pln"> </span><span class="pun">[</span><span class="str">"_serverCycle"</span><span class="pun">,</span><span class="str">"_timerParams"</span><span class="pun">,</span><span class="str">"_timerType"</span><span class="pun">,</span><span class="str">"_label"</span><span class="pun">,</span><span class="str">"_useLabel"</span><span class="pun">,</span><span class="str">"_minArr"</span><span class="pun">,</span><span class="pln">
+</span><span class="str">"_srvTime"</span><span class="pun">,</span><span class="str">"_goTime"</span><span class="pun">,</span><span class="str">"_leftTime"</span><span class="pun">,</span><span class="str">"_opTime"</span><span class="pun">,</span><span class="str">"_hours"</span><span class="pun">,</span><span class="str">"_y"</span><span class="pun">,</span><span class="str">"_minutes"</span><span class="pun">,</span><span class="str">"_key"</span><span class="pun">,</span><span class="str">"_sub"</span><span class="pun">,</span><span class="pln">
+</span><span class="str">"_notLabel"</span><span class="pun">,</span><span class="str">"_useLabel"</span><span class="pun">];</span><span class="pln">
+
+_label </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln"> </span><span class="com">// label reset</span><span class="pln">
+_useLabel </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+
+_serverCycle </span><span class="pun">=</span><span class="pln"> _this select </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+_timerParams </span><span class="pun">=</span><span class="pln"> _this select </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">typeName _timerParams </span><span class="pun">!=</span><span class="pln"> </span><span class="str">"ARRAY"</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+  _timerType </span><span class="pun">=</span><span class="pln"> _timerParams</span><span class="pun">;</span><span class="pln">
+  _useLabel </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  _timerType </span><span class="pun">=</span><span class="pln"> _timerParams select </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+  _label </span><span class="pun">=</span><span class="pln"> _timerParams select </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+  _useLabel </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+_minArr </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">6</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">8</span><span class="pun">,</span><span class="lit">9</span><span class="pun">,</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+_srvTime </span><span class="pun">=</span><span class="pln">  </span><span class="str">"0h 00min"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// @info: default time</span><span class="pln">
+_goTime </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+_goTime </span><span class="pun">=</span><span class="pln"> serverTime</span><span class="pun">;</span><span class="pln">
+_leftTime </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">round </span><span class="pun">(</span><span class="pln">_serverCycle </span><span class="pun">-</span><span class="pln"> _goTime</span><span class="pun">));</span><span class="pln">
+
+_opTime </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">_goTime</span><span class="pun">,</span><span class="pln">_leftTime</span><span class="pun">]</span><span class="pln"> select </span><span class="pun">(</span><span class="pln">_timerType </span><span class="pun">==</span><span class="pln"> </span><span class="str">"restart"</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_leftTime </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+  _hours </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">floor </span><span class="pun">((</span><span class="pln">_opTime </span><span class="pun">/</span><span class="pln"> </span><span class="lit">60</span><span class="pun">)</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">60</span><span class="pun">));</span><span class="pln">
+  _minutes </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">floor </span><span class="pun">((</span><span class="pln">_opTime </span><span class="pun">/</span><span class="pln"> </span><span class="lit">60</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_hours </span><span class="pun">*</span><span class="pln"> </span><span class="lit">60</span><span class="pun">)));</span><span class="pln">
+
+  _key </span><span class="pun">=</span><span class="pln"> _minutes</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">{</span><span class="pln">
+    _sub </span><span class="pun">=</span><span class="pln"> _minArr select _x</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_sub </span><span class="pun">==</span><span class="pln"> _key</span><span class="pun">)</span><span class="pln"> exitWith </span><span class="pun">{</span><span class="pln">
+      _minutes </span><span class="pun">=</span><span class="pln"> _sub</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln"> count _minArr</span><span class="pun">;</span><span class="pln">
+
+  _minutes </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">_minutes</span><span class="pun">,</span><span class="pln">format</span><span class="pun">[</span><span class="str">"0%1"</span><span class="pun">,</span><span class="pln">_minutes</span><span class="pun">]]</span><span class="pln"> select </span><span class="pun">(</span><span class="pln">_minutes </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span><span class="pln">
+  _notLabel </span><span class="pun">=</span><span class="pln"> format </span><span class="pun">[</span><span class="str">"%1h %2m"</span><span class="pun">,</span><span class="pln">_hours</span><span class="pun">,</span><span class="pln">_minutes</span><span class="pun">];</span><span class="pln">
+  _incLabel </span><span class="pun">=</span><span class="pln"> format </span><span class="pun">[</span><span class="str">"%1: %2h %3m"</span><span class="pun">,</span><span class="pln">_label</span><span class="pun">,</span><span class="pln">_hours</span><span class="pun">,</span><span class="pln">_minutes</span><span class="pun">];</span><span class="pln">
+  _srvTime </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">_notLabel</span><span class="pun">,</span><span class="pln">_incLabel</span><span class="pun">]</span><span class="pln"> select </span><span class="pun">(</span><span class="pln">_useLabel</span><span class="pun">);</span><span class="pln">
+
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  _srvTime
+</span><span class="pun">};</span><span class="pln">
+_srvTime
+
+
+</span><span class="com">// === :: fnc_IBEN_uniSTime END</span></pre>
+<p>
+	===
+</p>
+<p>
+<strong><span style="font-size:20px;"><a href="https://github.com/infobeny/fnc_IBEN_uniSTime/blob/master/MPMissions/DayZ_Epoch_11.Chernarus/dayz_code/compile/fnc_IBEN_uniSTime.sqf" rel="external nofollow"><span style="color:#27ae60;">Check source code (Github)</span></a></span></strong>
+</p>
+<p>
+	===
+</p>
+<p>
+<span style="font-size:14px;"><u><strong>FEATURES:</strong></u></span>
+</p>
+<ul>
+<li>
+<em>Not big deal, just small piece of code as output from my work to make things easier...</em>
+</li>
+<li>
+		Function is able <strong>to output Restart time or Uptime with single line code</strong> (see bellow) and can be easily integrated into your code.
+	</li>
+<li>
+		If you restart system fails (or you with settings :) and time is over, time stays formatted as: '0h:00min'
+	</li>
+<li>
+		Usage examples: debug monitor, log time (diag_log) etc.
+	</li>
+<li>
+<strong>It's a function - you can easily maintain your "time" code...</strong>
+</li>
+</ul>
+<p>
+	===
+</p>
+<p>
+<span style="font-size:14px;"><u><strong>How to install:</strong></u></span>
+</p>
+<p>
+	It's actually very easy: practical example is the best way to explain, what needs to be done. <strong>See repo structure and files.</strong>
+</p>
+<p>
+	Source files are available at Github repo.<span style="font-size:16px;"> <strong><a href="https://github.com/infobeny/fnc_IBEN_uniSTime" rel="external nofollow"><span style="color:#27ae60;">You can download them from here.</span></a></strong></span>
+</p>
+<p>
+	===
+</p>
+<p>
+<span style="font-size:14px;"><u><strong>How to use it:</strong></u></span>
+</p>
+<p>
+	= <span style="color:#27ae60;"><em><strong>General usage:</strong></em></span>
+</p>
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="com">// @Parameters:</span><span class="pln">
+</span><span class="com">//  - Time for restart cycle in seconds                               | number</span><span class="pln">
+</span><span class="com">//  - Time mode (values: "restart"/"uptime")                          | string</span><span class="pln">
+</span><span class="com">//  - Label (example: "Restart in")                                   | string</span><span class="pln">
+</span><span class="com">// ==========================================================</span><span class="pln">
+</span><span class="com">// @Scenario:</span><span class="pln">
+</span><span class="com">//  - First, we store our server restart time into global variable</span><span class="pln">
+</span><span class="com">//    so we can easily use it anywhere and change it at once later,</span><span class="pln">
+</span><span class="com">//    if we want to change time:</span><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">isNil SERV_RESTART</span><span class="pun">)</span><span class="pln"> then </span><span class="pun">{</span><span class="pln">
+  SERV_RESTART </span><span class="pun">=</span><span class="pln"> </span><span class="lit">10800</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+</span><span class="com">// @example 01: Restart time with no label</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">SERV_RESTART</span><span class="pun">,</span><span class="str">"restart"</span><span class="pun">]</span><span class="pln"> call fnc_IBEN_uniSTime</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// @example 02: Restart time with label</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">SERV_RESTART</span><span class="pun">,[</span><span class="str">"restart"</span><span class="pun">,</span><span class="str">"Restart in"</span><span class="pun">]]</span><span class="pln"> call fnc_IBEN_uniSTime</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// @example 03: Uptime with label</span><span class="pln">
+</span><span class="pun">[</span><span class="pln">SERV_RESTART</span><span class="pun">,[</span><span class="str">"uptime"</span><span class="pun">,</span><span class="str">"Time from start"</span><span class="pun">]]</span><span class="pln"> call fnc_IBEN_uniSTime</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// @Returns:</span><span class="pln">
+</span><span class="com">//  - Time string in format: "h:mm", or "Restart in: h:mm"</span></pre>
+<p>
+	===
+</p>
+<p>
+<em><strong>...easy enough, isn't it?</strong></em>
+</p>
+<p>
+	===
+</p>
+<p>
+	= <span style="color:#27ae60;"><em><strong>Specific usage:</strong></em></span>
+</p>
+<pre class="ipsCode prettyprint lang-c prettyprinted">
+<span class="com">// === Scenario 01:</span><span class="pln">
+
+</span><span class="com">// It's very easy to add it to your debug monitor code. In fact, we're not gonna to cover</span><span class="pln">
+</span><span class="com">// this specific scenario - just look around forum, there are plenty of releases.</span><span class="pln">
+</span><span class="com">// But... many time I heard question like: "How can I add restart time/uptime to the right</span><span class="pln">
+</span><span class="com">// bottom screen corner the way how watermark is?".</span><span class="pln">
+</span><span class="com">// Well, this is our first scenario:</span><span class="pln">
+
+</span><span class="com">// === What to do:</span><span class="pln">
+</span><span class="com">// It's actually pretty easy: just grab your files from my repo - how to implement you will</span><span class="pln">
+</span><span class="com">// easily find out from prepared files - just follow repo structure.</span><span class="pln">
+</span><span class="com">// Done? OK - so you integrated 'fnc_IBEN_uniSTime' into your compiled files and you can</span><span class="pln">
+</span><span class="com">// use it now.</span><span class="pln">
+</span><span class="com">// Everyone has some kind of debug monitor, right? So just add this piece of code:</span><span class="pln">
+
+
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">1</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">private</span><span class="pln"> </span><span class="pun">[</span><span class="str">"_Tinfo"</span><span class="pun">,</span><span class="str">"_Tval"</span><span class="pun">,...</span><span class="pln">some local vars</span><span class="pun">];</span><span class="pln">
+
+  </span><span class="com">// ... your debug monitor code</span><span class="pln">
+
+
+  </span><span class="com">// =======================================================================</span><span class="pln">
+  </span><span class="com">// GUI: RESTART TIMEOUT (see picture bellow)</span><span class="pln">
+  </span><span class="com">// (but you can add uptime with/withou label - look for examples above)</span><span class="pln">
+  </span><span class="com">// =======================================================================</span><span class="pln">
+  </span><span>_Tval</span><span class="pln">  </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">SERV_RESTART</span><span class="pun">,[</span><span class="str">"restart"</span><span class="pun">,</span><span class="str">"Restart in"</span><span class="pun">]]</span><span class="pln"> call fnc_IBEN_uniSTime</span><span class="pun">;</span><span class="pln">
+  </span><span>_Tinfo</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> format </span><span class="pun">[</span><span class="str">"&lt;t size='.35' align='right' font='TahomaB'&gt;%1&lt;/t&gt;"</span><span class="pun">,</span><span class="pln"> </span><span>_Tval</span><span class="pun">];</span><span class="pln">
+
+  </span><span class="pun">[</span><span class="pln">
+    </span><span>_Tinfo</span><span class="pln">
+    </span><span class="pun">,</span><span class="pln">safezoneX </span><span class="pun">*</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pln">
+    </span><span class="pun">,</span><span class="lit">0.98</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> safezoneH </span><span class="pun">+</span><span class="pln"> safezoneY
+    </span><span class="pun">,</span><span class="lit">9999</span><span class="pln">
+    </span><span class="pun">,</span><span class="lit">0</span><span class="pln">
+    </span><span class="pun">,</span><span class="lit">0</span><span class="pln">
+    </span><span class="pun">,</span><span class="lit">50009</span><span class="pln">
+  </span><span class="pun">]</span><span class="pln"> spawn BIS_fnc_dynamicText</span><span class="pun">;</span><span class="pln">
+
+  </span><span class="com">// your code for parsing text bellow</span><span class="pln">
+
+    uiSleep </span><span class="lit">2</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">
+
+</span><span class="com">// === Scenario 02:</span><span class="pln">
+</span><span class="com">// Let's implement formatted time info into your debug output (logs).</span><span class="pln">
+
+</span><span class="com">// === What to do:</span><span class="pln">
+</span><span class="com">// Just add:</span><span class="pln">
+diga_log format </span><span class="pun">[</span><span class="str">"=== [DEBUG] Player %1 (%2) just found your secret item. [%3]"</span><span class="pun">,</span><span class="pln">
+                 </span><span class="pun">(</span><span class="pln">name player</span><span class="pun">),</span><span class="pln">
+                 getPlayerUID player</span><span class="pun">,</span><span class="pln">
+                 </span><span class="pun">[</span><span class="pln">SERV_RESTART</span><span class="pun">,[</span><span class="str">"uptime"</span><span class="pun">,</span><span class="str">"Uptime"</span><span class="pun">]]</span><span class="pln"> call fnc_IBEN_uniSTime</span><span class="pun">)]];</span><span class="pln">
+</span><span class="com">// RPT output:</span><span class="pln">
+</span><span class="str">"=== [DEBUG] Player iben (8542514521...) just found your secret item. [Uptime: 1h:30min]"</span><span class="pln">
+
+</span><span class="com">// === Done!</span></pre>
+<p>
+	===
+</p>
+<p>
+<strong>Screen right bottom time watermark (showcase):</strong>
+</p>
+<p>
+<img alt="9134EAA3451FB1C398EE2B5CED387E48747B770F" class="ipsImage" data-src="https://steamuserimages-a.akamaihd.net/ugc/777281904897488037/9134EAA3451FB1C398EE2B5CED387E48747B770F/" height="562" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" width="1000"/></p>
+<p>
+	===
+</p>
+<p>
+<span style="color:#27ae60;"><em><strong>...that's all... Have Fun!!!</strong></em></span><br/><span style="color:#27ae60;"><em><strong>Cheers...</strong></em></span>
+</p>
+<p>
+	===
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37108-nova/?do=hovercard" data-ipshover-width="370" href="../../profile/37108-nova/index.html" rel="nofollow" title="Go to nova's profile">nova</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14608-s4m/?do=hovercard" data-ipshover-width="370" href="../../profile/14608-s4m/index.html" rel="nofollow" title="Go to S4M's profile">S4M</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38217-relentless/?do=hovercard" data-ipshover-width="370" href="../../profile/38217-relentless/index.html" rel="nofollow" title="Go to Relentless's profile">Relentless</a> and 
+
+<a data-ipsdialog="" data-ipsdialog-destructonclose="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-json="" data-ipstooltip-label='["salival","juandayz"]' data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294174" title="See who reacted to this">2 others</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294174&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294174&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								5
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294174_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294174" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294174" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294174&amp;title=%5BRELEASE%2Cv1.1%5D+%27fnc_IBEN_uniSTime%27+function+for+server+restart+%28Restart+time+%2B+Uptime%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment%26comment=294174&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hello guys,
+ 
+
+
+	currently I'm working on couple addons for my server and from time to time, 
+	when coding, some answers to your questions pops up in my head. 
+	Couple days ago I was asked about server restart time and uptime. Well, 
+	why not to share it - BUT... nothing bad about current solution you're probably using! 
+	In fact, the code for this is everywhere - that's right. I did it my way not because 
+	I couldn't use common code - but just because I'm still learning a lot - and because I needed 
+	restart time/uptime solution for my files. 
+	So here is it... if you want to try, test it and let me know. The true is, I haven't time to test 
+	it properly. So I'm gonna be happy to hear your thoughts...
+ 
+
+
+	===
+ 
+
+
+	Big thanks always goes to:
+ 
+
+
+		DayZ Epoch developers, collaborators and contributors (thank you guys for your excellent work!)
+	 
+
+	===
+ 
+
+
+	Changelog:
+ 
+
+
+		[2017-06-04], v1.0 | Initial release
+	 
+
+	===
+ 
+
+
+	Read &quot;Goodbye&quot;. Wish you the best guys!
+ 
+
+
+	===
+ 
+
+
+	How it looks like:
+ 
+
+
+// ===========================================================================
+// FUNCTIONS LIBRARY &gt;&gt; Universal server timer function
+// ===========================================================================
+// @Function name: fnc_IBEN_uniSTime
+// ===========================================================================
+// @Remarks:
+//  - Can be called 2 ways:
+//    * Restart/Uptime with label
+//    * Restart/Uptime without label
+// @Parameters:
+//  - Time for restart cycle in seconds                               | number
+//  - Time mode (values: &quot;restart&quot;/&quot;uptime&quot;)                          | string
+//  - Label (example: &quot;Restart in&quot;)                                   | string
+// @Related files:
+//  - none
+// @Example:
+//  - For server time we are using global var: SERV_RESTART = 10800; (3h)
+//  - restart time with no label
+//    * [SERV_RESTART,&quot;restart&quot;] call fnc_IBEN_uniSTime;
+//  - restart time with label
+//    * [SERV_RESTART,[&quot;restart&quot;,&quot;Restart in&quot;]] call fnc_IBEN_uniSTime;
+//  - uptime with no label
+//    * [SERV_RESTART,&quot;uptime&quot;] call fnc_IBEN_uniSTime;
+//  - uptime with label
+//    * [SERV_RESTART,[&quot;uptime&quot;,&quot;Time from start&quot;]] call fnc_IBEN_uniSTime;
+// @Returns:
+//  - time string in format: &quot;h:mm&quot;, or &quot;Restart in: h:mm&quot;
+// ===========================================================================
+private [&quot;_serverCycle&quot;,&quot;_timerParams&quot;,&quot;_timerType&quot;,&quot;_label&quot;,&quot;_useLabel&quot;,&quot;_minArr&quot;,
+&quot;_srvTime&quot;,&quot;_goTime&quot;,&quot;_leftTime&quot;,&quot;_opTime&quot;,&quot;_hours&quot;,&quot;_y&quot;,&quot;_minutes&quot;,&quot;_key&quot;,&quot;_sub&quot;,
+&quot;_notLabel&quot;,&quot;_useLabel&quot;];
+
+_label = &quot;&quot;; // label reset
+_useLabel = false;
+
+_serverCycle = _this select 0;
+_timerParams = _this select 1;
+if (typeName _timerParams != &quot;ARRAY&quot;) then {
+  _timerType = _timerParams;
+  _useLabel = false;
+} else {
+  _timerType = _timerParams select 0;
+  _label = _timerParams select 1;
+  _useLabel = true;
+};
+
+_minArr = [1,2,3,4,5,6,7,8,9,0];
+_srvTime =  &quot;0h 00min&quot;; // @info: default time
+_goTime = 0;
+_goTime = serverTime;
+_leftTime = (round (_serverCycle - _goTime));
+
+_opTime = [_goTime,_leftTime] select (_timerType == &quot;restart&quot;);
+
+if (_leftTime &gt; 0) then {
+  _hours = (floor ((_opTime / 60) / 60));
+  _minutes = (floor ((_opTime / 60) - (_hours * 60)));
+
+  _key = _minutes;
+  {
+    _sub = _minArr select _x;
+    if (_sub == _key) exitWith {
+      _minutes = _sub;
+    };
+  } count _minArr;
+
+  _minutes = [_minutes,format[&quot;0%1&quot;,_minutes]] select (_minutes &lt; 10);
+  _notLabel = format [&quot;%1h %2m&quot;,_hours,_minutes];
+  _incLabel = format [&quot;%1: %2h %3m&quot;,_label,_hours,_minutes];
+  _srvTime = [_notLabel,_incLabel] select (_useLabel);
+
+} else {
+  _srvTime
+};
+_srvTime
+
+
+// === :: fnc_IBEN_uniSTime END
+
+
+	===
+ 
+
+
+	Check source code (Github)
+ 
+
+
+	===
+ 
+
+
+	FEATURES:
+ 
+
+
+		Not big deal, just small piece of code as output from my work to make things easier...
+	 
+	
+		Function is able to output Restart time or Uptime with single line code (see bellow) and can be easily integrated into your code.
+	 
+	
+		If you restart system fails (or you with settings :) and time is over, time stays formatted as: '0h:00min'
+	 
+	
+		Usage examples: debug monitor, log time (diag_log) etc.
+	 
+	
+		It's a function - you can easily maintain your &quot;time&quot; code...
+	 
+
+	===
+ 
+
+
+	How to install:
+ 
+
+
+	It's actually very easy: practical example is the best way to explain, what needs to be done. See repo structure and files.
+ 
+
+
+	Source files are available at Github repo. You can download them from here.
+ 
+
+
+	===
+ 
+
+
+	How to use it:
+ 
+
+
+	= General usage:
+ 
+
+
+// @Parameters:
+//  - Time for restart cycle in seconds                               | number
+//  - Time mode (values: &quot;restart&quot;/&quot;uptime&quot;)                          | string
+//  - Label (example: &quot;Restart in&quot;)                                   | string
+// ==========================================================
+// @Scenario:
+//  - First, we store our server restart time into global variable
+//    so we can easily use it anywhere and change it at once later,
+//    if we want to change time:
+if (isNil SERV_RESTART) then {
+  SERV_RESTART = 10800;
+};
+// @example 01: Restart time with no label
+[SERV_RESTART,&quot;restart&quot;] call fnc_IBEN_uniSTime;
+
+// @example 02: Restart time with label
+[SERV_RESTART,[&quot;restart&quot;,&quot;Restart in&quot;]] call fnc_IBEN_uniSTime;
+
+// @example 03: Uptime with label
+[SERV_RESTART,[&quot;uptime&quot;,&quot;Time from start&quot;]] call fnc_IBEN_uniSTime;
+
+// @Returns:
+//  - Time string in format: &quot;h:mm&quot;, or &quot;Restart in: h:mm&quot;
+
+
+	===
+ 
+
+
+	...easy enough, isn't it?
+ 
+
+
+	===
+ 
+
+
+	= Specific usage:
+ 
+
+
+// === Scenario 01:
+
+// It's very easy to add it to your debug monitor code. In fact, we're not gonna to cover
+// this specific scenario - just look around forum, there are plenty of releases.
+// But... many time I heard question like: &quot;How can I add restart time/uptime to the right
+// bottom screen corner the way how watermark is?&quot;.
+// Well, this is our first scenario:
+
+// === What to do:
+// It's actually pretty easy: just grab your files from my repo - how to implement you will
+// easily find out from prepared files - just follow repo structure.
+// Done? OK - so you integrated 'fnc_IBEN_uniSTime' into your compiled files and you can
+// use it now.
+// Everyone has some kind of debug monitor, right? So just add this piece of code:
+
+
+while {1 == 1} do {
+  private [&quot;_Tinfo&quot;,&quot;_Tval&quot;,...some local vars];
+
+  // ... your debug monitor code
+
+
+  // =======================================================================
+  // GUI: RESTART TIMEOUT (see picture bellow)
+  // (but you can add uptime with/withou label - look for examples above)
+  // =======================================================================
+  _Tval  = [SERV_RESTART,[&quot;restart&quot;,&quot;Restart in&quot;]] call fnc_IBEN_uniSTime;
+  _Tinfo = format [&quot;&lt;t size='.35' align='right' font='TahomaB'&gt;%1&lt;/t&gt;&quot;, _Tval];
+
+  [
+    _Tinfo
+    ,safezoneX * -1
+    ,0.98 * safezoneH + safezoneY
+    ,9999
+    ,0
+    ,0
+    ,50009
+  ] spawn BIS_fnc_dynamicText;
+
+  // your code for parsing text bellow
+
+    uiSleep 2;
+  };
+
+// === Scenario 02:
+// Let's implement formatted time info into your debug output (logs).
+
+// === What to do:
+// Just add:
+diga_log format [&quot;=== [DEBUG] Player %1 (%2) just found your secret item. [%3]&quot;,
+                 (name player),
+                 getPlayerUID player,
+                 [SERV_RESTART,[&quot;uptime&quot;,&quot;Uptime&quot;]] call fnc_IBEN_uniSTime)]];
+// RPT output:
+&quot;=== [DEBUG] Player iben (8542514521...) just found your secret item. [Uptime: 1h:30min]&quot;
+
+// === Done!
+
+
+	===
+ 
+
+
+	Screen right bottom time watermark (showcase):
+ 
+
+
+	 
+
+
+	===
+ 
+
+
+	...that's all... Have Fun!!! Cheers...
+ 
+
+
+	===
+ 
+" data-websharetitle="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-webshareurl="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294174">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-294186"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294186">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38217-relentless/?do=hovercard" data-ipshover-width="370" href="../../profile/38217-relentless/index.html" rel="nofollow" title="Go to Relentless's profile">
+<img alt="Relentless" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/Avatar.thumb.PNG.6b19d619aab85f5b4a9d09d7066ae933.PNG"/>
+</a>
+<a href="../../profile/38217-relentless/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38217-relentless/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38217-relentless/index.html" rel="nofollow" title="Go to Relentless's profile"><span style="color:#">Relentless</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294186" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-04T16:16:45Z" title="06/04/17 04:16  PM">June 4, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38217-relentless/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38217-relentless/index.html" rel="nofollow" title="Go to Relentless's profile">Relentless</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38217-relentless/?do=hovercard" data-ipshover-width="370" href="../../profile/38217-relentless/index.html" rel="nofollow" title="Go to Relentless's profile">
+<img alt="Relentless" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/Avatar.thumb.PNG.6b19d619aab85f5b4a9d09d7066ae933.PNG"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/38217-relentless/content/index.html" rel="nofollow" title="674 posts">
+<i class="fa fa-comment"></i> 674
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294186" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":38217,"username":"Relentless","timestamp":1496593005,"contentapp":"forums","contenttype":"forums","contentid":44060,"contentclass":"forums_Topic","contentcommentid":294186}' id="comment-294186_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294186_wrap" href="#elControls_294186_menu" id="elControls_294186" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294186_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=reportComment&amp;comment=294186" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294186_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294186" id="elSharePost_294186" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294186" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-04T16:16:45Z" title="06/04/17 04:16  PM">June 4, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	I am always a fan of functions to gain a better overview and they are a lot easier to use than inserting this kind of code in each script that restart time or uptime needs.
+</p>
+<p>
+	Nice release, keep it up!
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37108-nova/?do=hovercard" data-ipshover-width="370" href="../../profile/37108-nova/index.html" rel="nofollow" title="Go to nova's profile">nova</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294186&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294186&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294186_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294186"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294186" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294186" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294186&amp;title=%5BRELEASE%2Cv1.1%5D+%27fnc_IBEN_uniSTime%27+function+for+server+restart+%28Restart+time+%2B+Uptime%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment%26comment=294186&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I am always a fan of functions to gain a better overview and they are a lot easier to use than inserting this kind of code in each script that restart time or uptime needs.
+ 
+
+
+	Nice release, keep it up!
+ 
+" data-websharetitle="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-webshareurl="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294186">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-294277"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_294277">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37108-nova/?do=hovercard" data-ipshover-width="370" href="../../profile/37108-nova/index.html" rel="nofollow" title="Go to nova's profile">
+<img alt="nova" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23b2c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/37108-nova/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37108-nova/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/37108-nova/index.html" rel="nofollow" title="Go to nova's profile"><span style="color:#">nova</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294277" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-07T06:03:17Z" title="06/07/17 06:03  AM">June 7, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37108-nova/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/37108-nova/index.html" rel="nofollow" title="Go to nova's profile">nova</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37108-nova/?do=hovercard" data-ipshover-width="370" href="../../profile/37108-nova/index.html" rel="nofollow" title="Go to nova's profile">
+<img alt="nova" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23b2c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/37108-nova/content/index.html" rel="nofollow" title="141 posts">
+<i class="fa fa-comment"></i> 141
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="294277" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":37108,"username":"nova","timestamp":1496815397,"contentapp":"forums","contenttype":"forums","contentid":44060,"contentclass":"forums_Topic","contentcommentid":294277}' id="comment-294277_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-294277_wrap" href="#elControls_294277_menu" id="elControls_294277" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_294277_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=reportComment&amp;comment=294277" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_294277_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294277" id="elSharePost_294277" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294277" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-06-07T06:03:17Z" title="06/07/17 06:03  AM">June 7, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	this is simply amazing! nice clean ui 
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294277&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=showReactionsComment&amp;comment=294277&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_294277_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294277"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294277" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294277" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F%3Fdo%3DfindComment%26comment%3D294277&amp;title=%5BRELEASE%2Cv1.1%5D+%27fnc_IBEN_uniSTime%27+function+for+server+restart+%28Restart+time+%2B+Uptime%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment%26comment=294277&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="this is simply amazing! nice clean ui 
+ " data-websharetitle="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-webshareurl="https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/?do=findComment&amp;comment=294277">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80NDA2MC1yZWxlYXNldjExLWZuY19pYmVuX3VuaXN0aW1lLWZ1bmN0aW9uLWZvci1zZXJ2ZXItcmVzdGFydC1yZXN0YXJ0LXRpbWUtdXB0aW1lLyNyZXBseUZvcm0=">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%2F&amp;title=%5BRELEASE%2Cv1.1%5D+%27fnc_IBEN_uniSTime%27+function+for+server+restart+%28Restart+time+%2B+Uptime%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-websharetitle="[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="44060">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/123-a2-epoch-mods/index.html" rel="parent" title="Go to A2: Epoch Mods">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/43951-release-another-generic-debug-monitor-or-is-it-106/?preview=1" data-ipshover-timeout="1.5" href="../43951-release-another-generic-debug-monitor-or-is-it-106/index.html">
+									Release: Another Generic Debug Monitor| or is it? 1.0.6+
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36078-cherdenko/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/36078-cherdenko/index.html" rel="nofollow" title="Go to Cherdenko's profile">Cherdenko</a>,  <time data-short="8 yr" datetime="2017-05-22T10:15:02Z" title="05/22/17 10:15  AM">May 22, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="debug monitor" href="https://epochmod.com/forum/tags/debug monitor/" rel="tag" title="Find other content tagged with 'debug monitor'"><span>debug monitor</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="hud" href="https://epochmod.com/forum/tags/hud/" rel="tag" title="Find other content tagged with 'hud'"><span>hud</span></a>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">23</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">7848</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36028-aiidynbrus/?do=hovercard" data-ipshover-width="370" href="../../profile/36028-aiidynbrus/index.html" rel="nofollow" title="Go to AiiDynBrus's profile">
+<img alt="AiiDynBrus" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_05/ab.jpg.32daa5d1ab0a1523e0140894811ae9ff.thumb.jpg.d173eba09fca8726481bcd5022e42843.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36028-aiidynbrus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/36028-aiidynbrus/index.html" rel="nofollow" title="Go to AiiDynBrus's profile">AiiDynBrus</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../43951-release-another-generic-debug-monitor-or-is-it-106/index.html" title="Go to last post">
+<time data-short="Nov 5" datetime="2024-11-05T06:21:05Z" title="11/05/24 06:21  AM">November 5, 2024</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44006-re-release-v12-fn_sc_unicoins-dev-function-for-single-currency-rewritten-and-updated-for-epoch-1061/?preview=1" data-ipshover-timeout="1.5" href="../44006-re-release-v12-fn_sc_unicoins-dev-function-for-single-currency-rewritten-and-updated-for-epoch-1061/index.html">
+									[RE-RELEASE, v1.2] 'fn_SC_uniCoins' dev function for Single Currency (rewritten and updated for Epoch 1.0.6.1+)
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a>,  <time data-short="8 yr" datetime="2017-05-28T07:01:38Z" title="05/28/17 07:01  AM">May 28, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="single currency" href="https://epochmod.com/forum/tags/single currency/" rel="tag" title="Find other content tagged with 'single currency'"><span>single currency</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="zsc" href="https://epochmod.com/forum/tags/zsc/" rel="tag" title="Find other content tagged with 'zsc'"><span>zsc</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_538481635">(and 2 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_538481635_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="single currency" href="https://epochmod.com/forum/tags/single currency/" rel="tag" title="Find other content tagged with 'single currency'"><span>single currency</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="zsc" href="https://epochmod.com/forum/tags/zsc/" rel="tag" title="Find other content tagged with 'zsc'"><span>zsc</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dev function" href="https://epochmod.com/forum/tags/dev function/" rel="tag" title="Find other content tagged with 'dev function'"><span>dev function</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="money" href="https://epochmod.com/forum/tags/money/" rel="tag" title="Find other content tagged with 'money'"><span>money</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">4</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1808</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">
+<img alt="iben" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../44006-re-release-v12-fn_sc_unicoins-dev-function-for-single-currency-rewritten-and-updated-for-epoch-1061/index.html" title="Go to last post">
+<time data-short="8 yr" datetime="2017-05-31T00:17:04Z" title="05/31/17 12:17  AM">May 31, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44151-releasev10-fnc_iben_base_rooter-make-your-addon-portable-like/?preview=1" data-ipshover-timeout="1.5" href="../44151-releasev10-fnc_iben_base_rooter-make-your-addon-portable-like/index.html">
+									[RELEASE,v1.0] 'fnc_IBEN_base_ROOTer' : Make your addon portable like
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a>,  <time data-short="8 yr" datetime="2017-06-19T02:11:38Z" title="06/19/17 02:11  AM">June 19, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="dev function" href="https://epochmod.com/forum/tags/dev function/" rel="tag" title="Find other content tagged with 'dev function'"><span>dev function</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="function" href="https://epochmod.com/forum/tags/function/" rel="tag" title="Find other content tagged with 'function'"><span>function</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_672807827">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_672807827_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="dev function" href="https://epochmod.com/forum/tags/dev function/" rel="tag" title="Find other content tagged with 'dev function'"><span>dev function</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="function" href="https://epochmod.com/forum/tags/function/" rel="tag" title="Find other content tagged with 'function'"><span>function</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="paths" href="https://epochmod.com/forum/tags/paths/" rel="tag" title="Find other content tagged with 'paths'"><span>paths</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1145</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">
+<img alt="iben" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38414-iben/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/38414-iben/index.html" rel="nofollow" title="Go to iben's profile">iben</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../44151-releasev10-fnc_iben_base_rooter-make-your-addon-portable-like/index.html" title="Go to last post">
+<time data-short="8 yr" datetime="2017-06-19T02:11:38Z" title="06/19/17 02:11  AM">June 19, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44360-hiveext-file/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/44360-hiveext-file/">
+									HiveExt file
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">Thug</a>,  <time data-short="8 yr" datetime="2017-07-28T12:40:47Z" title="07/28/17 12:40  PM">July 28, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="hour" href="https://epochmod.com/forum/tags/hour/" rel="tag" title="Find other content tagged with 'hour'"><span>hour</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="static" href="https://epochmod.com/forum/tags/static/" rel="tag" title="Find other content tagged with 'static'"><span>static</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1056792369">(and 5 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1056792369_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="hour" href="https://epochmod.com/forum/tags/hour/" rel="tag" title="Find other content tagged with 'hour'"><span>hour</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="static" href="https://epochmod.com/forum/tags/static/" rel="tag" title="Find other content tagged with 'static'"><span>static</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="time of day" href="https://epochmod.com/forum/tags/time of day/" rel="tag" title="Find other content tagged with 'time of day'"><span>time of day</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="setting time" href="https://epochmod.com/forum/tags/setting time/" rel="tag" title="Find other content tagged with 'setting time'"><span>setting time</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="hive" href="https://epochmod.com/forum/tags/hive/" rel="tag" title="Find other content tagged with 'hive'"><span>hive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="time" href="https://epochmod.com/forum/tags/time/" rel="tag" title="Find other content tagged with 'time'"><span>time</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="offset" href="https://epochmod.com/forum/tags/offset/" rel="tag" title="Find other content tagged with 'offset'"><span>offset</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> answer</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">931</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11576-icomrade/?do=hovercard" data-ipshover-width="370" href="../../profile/11576-icomrade/index.html" rel="nofollow" title="Go to icomrade's profile">
+<img alt="icomrade" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4a362%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EI%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11576-icomrade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/11576-icomrade/index.html" rel="nofollow" title="Go to icomrade's profile">icomrade</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44360-hiveext-file/" title="Go to last post">
+<time data-short="8 yr" datetime="2017-07-30T03:51:55Z" title="07/30/17 03:51  AM">July 30, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/43022-make-food-and-drink-drop-slower-solved/?preview=1" data-ipshover-timeout="1.5" href="../43022-make-food-and-drink-drop-slower-solved/index.html">
+									Make Food and Drink drop slower? (Solved!)
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37613-kangawroon/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/37613-kangawroon/index.html" rel="nofollow" title="Go to kangawroon's profile">kangawroon</a>,  <time data-short="8 yr" datetime="2016-12-22T18:34:19Z" title="12/22/16 06:34  PM">December 22, 2016</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="hunger" href="https://epochmod.com/forum/tags/hunger/" rel="tag" title="Find other content tagged with 'hunger'"><span>hunger</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="up" href="https://epochmod.com/forum/tags/up/" rel="tag" title="Find other content tagged with 'up'"><span>up</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_673354318">(and 8 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_673354318_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="hunger" href="https://epochmod.com/forum/tags/hunger/" rel="tag" title="Find other content tagged with 'hunger'"><span>hunger</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="up" href="https://epochmod.com/forum/tags/up/" rel="tag" title="Find other content tagged with 'up'"><span>up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="down" href="https://epochmod.com/forum/tags/down/" rel="tag" title="Find other content tagged with 'down'"><span>down</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="faster" href="https://epochmod.com/forum/tags/faster/" rel="tag" title="Find other content tagged with 'faster'"><span>faster</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="slower" href="https://epochmod.com/forum/tags/slower/" rel="tag" title="Find other content tagged with 'slower'"><span>slower</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="speed" href="https://epochmod.com/forum/tags/speed/" rel="tag" title="Find other content tagged with 'speed'"><span>speed</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="drink" href="https://epochmod.com/forum/tags/drink/" rel="tag" title="Find other content tagged with 'drink'"><span>drink</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="food" href="https://epochmod.com/forum/tags/food/" rel="tag" title="Find other content tagged with 'food'"><span>food</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="thirst" href="https://epochmod.com/forum/tags/thirst/" rel="tag" title="Find other content tagged with 'thirst'"><span>thirst</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="time" href="https://epochmod.com/forum/tags/time/" rel="tag" title="Find other content tagged with 'time'"><span>time</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">5</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1558</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26687-viper179/?do=hovercard" data-ipshover-width="370" href="../../profile/26687-viper179/index.html" rel="nofollow" title="Go to viper179's profile">
+<img alt="viper179" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-26687.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26687-viper179/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime%252F" data-ipshover-width="370" href="../../profile/26687-viper179/index.html" rel="nofollow" title="Go to viper179's profile">viper179</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../43022-make-food-and-drink-drop-slower-solved/index.html" title="Go to last post">
+<time data-short="8 yr" datetime="2016-12-31T00:24:05Z" title="12/31/16 12:24  AM">December 31, 2016</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/122-resources/index.html">
+<span>Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/123-a2-epoch-mods/index.html">
+<span>A2: Epoch Mods <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[RELEASE,v1.1] 'fnc_IBEN_uniSTime' function for server restart (Restart time + Uptime)
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[RELEASE,v1.1] \u0027fnc_IBEN_uniSTime\u0027 function for server restart (Restart time + Uptime)",
+    "headline": "[RELEASE,v1.1] \u0027fnc_IBEN_uniSTime\u0027 function for server restart (Restart time + Uptime)",
+    "text": "Hello guys,\n \n\n\n\tcurrently I\u0027m working on couple addons for my server and from time to time, \n\twhen coding, some answers to your questions pops up in my head. \n\tCouple days ago I was asked about server restart time and uptime. Well, \n\twhy not to share it - BUT... nothing bad about current solution you\u0027re probably using! \n\tIn fact, the code for this is everywhere - that\u0027s right. I did it my way not because \n\tI couldn\u0027t use common code - but just because I\u0027m still learning a lot - and because I needed \n\trestart time/uptime solution for my files. \n\tSo here is it... if you want to try, test it and let me know. The true is, I haven\u0027t time to test \n\tit properly. So I\u0027m gonna be happy to hear your thoughts...\n \n\n\n\t===\n \n\n\n\tBig thanks always goes to:\n \n\n\n\t\tDayZ Epoch developers, collaborators and contributors (thank you guys for your excellent work!)\n\t \n\n\t===\n \n\n\n\tChangelog:\n \n\n\n\t\t[2017-06-04], v1.0 | Initial release\n\t \n\n\t===\n \n\n\n\tRead \"Goodbye\". Wish you the best guys!\n \n\n\n\t===\n \n\n\n\tHow it looks like:\n \n\n\n// ===========================================================================\n// FUNCTIONS LIBRARY \u0026gt;\u0026gt; Universal server timer function\n// ===========================================================================\n// @Function name: fnc_IBEN_uniSTime\n// ===========================================================================\n// @Remarks:\n//  - Can be called 2 ways:\n//    * Restart/Uptime with label\n//    * Restart/Uptime without label\n// @Parameters:\n//  - Time for restart cycle in seconds                               | number\n//  - Time mode (values: \"restart\"/\"uptime\")                          | string\n//  - Label (example: \"Restart in\")                                   | string\n// @Related files:\n//  - none\n// @Example:\n//  - For server time we are using global var: SERV_RESTART = 10800; (3h)\n//  - restart time with no label\n//    * [SERV_RESTART,\"restart\"] call fnc_IBEN_uniSTime;\n//  - restart time with label\n//    * [SERV_RESTART,[\"restart\",\"Restart in\"]] call fnc_IBEN_uniSTime;\n//  - uptime with no label\n//    * [SERV_RESTART,\"uptime\"] call fnc_IBEN_uniSTime;\n//  - uptime with label\n//    * [SERV_RESTART,[\"uptime\",\"Time from start\"]] call fnc_IBEN_uniSTime;\n// @Returns:\n//  - time string in format: \"h:mm\", or \"Restart in: h:mm\"\n// ===========================================================================\nprivate [\"_serverCycle\",\"_timerParams\",\"_timerType\",\"_label\",\"_useLabel\",\"_minArr\",\n\"_srvTime\",\"_goTime\",\"_leftTime\",\"_opTime\",\"_hours\",\"_y\",\"_minutes\",\"_key\",\"_sub\",\n\"_notLabel\",\"_useLabel\"];\n\n_label = \"\"; // label reset\n_useLabel = false;\n\n_serverCycle = _this select 0;\n_timerParams = _this select 1;\nif (typeName _timerParams != \"ARRAY\") then {\n  _timerType = _timerParams;\n  _useLabel = false;\n} else {\n  _timerType = _timerParams select 0;\n  _label = _timerParams select 1;\n  _useLabel = true;\n};\n\n_minArr = [1,2,3,4,5,6,7,8,9,0];\n_srvTime =  \"0h 00min\"; // @info: default time\n_goTime = 0;\n_goTime = serverTime;\n_leftTime = (round (_serverCycle - _goTime));\n\n_opTime = [_goTime,_leftTime] select (_timerType == \"restart\");\n\nif (_leftTime \u0026gt; 0) then {\n  _hours = (floor ((_opTime / 60) / 60));\n  _minutes = (floor ((_opTime / 60) - (_hours * 60)));\n\n  _key = _minutes;\n  {\n    _sub = _minArr select _x;\n    if (_sub == _key) exitWith {\n      _minutes = _sub;\n    };\n  } count _minArr;\n\n  _minutes = [_minutes,format[\"0%1\",_minutes]] select (_minutes \u0026lt; 10);\n  _notLabel = format [\"%1h %2m\",_hours,_minutes];\n  _incLabel = format [\"%1: %2h %3m\",_label,_hours,_minutes];\n  _srvTime = [_notLabel,_incLabel] select (_useLabel);\n\n} else {\n  _srvTime\n};\n_srvTime\n\n\n// === :: fnc_IBEN_uniSTime END\n\n\n\t===\n \n\n\n\tCheck source code (Github)\n \n\n\n\t===\n \n\n\n\tFEATURES:\n \n\n\n\t\tNot big deal, just small piece of code as output from my work to make things easier...\n\t \n\t\n\t\tFunction is able to output Restart time or Uptime with single line code (see bellow) and can be easily integrated into your code.\n\t \n\t\n\t\tIf you restart system fails (or you with settings :) and time is over, time stays formatted as: \u00270h:00min\u0027\n\t \n\t\n\t\tUsage examples: debug monitor, log time (diag_log) etc.\n\t \n\t\n\t\tIt\u0027s a function - you can easily maintain your \"time\" code...\n\t \n\n\t===\n \n\n\n\tHow to install:\n \n\n\n\tIt\u0027s actually very easy: practical example is the best way to explain, what needs to be done. See repo structure and files.\n \n\n\n\tSource files are available at Github repo. You can download them from here.\n \n\n\n\t===\n \n\n\n\tHow to use it:\n \n\n\n\t= General usage:\n \n\n\n// @Parameters:\n//  - Time for restart cycle in seconds                               | number\n//  - Time mode (values: \"restart\"/\"uptime\")                          | string\n//  - Label (example: \"Restart in\")                                   | string\n// ==========================================================\n// @Scenario:\n//  - First, we store our server restart time into global variable\n//    so we can easily use it anywhere and change it at once later,\n//    if we want to change time:\nif (isNil SERV_RESTART) then {\n  SERV_RESTART = 10800;\n};\n// @example 01: Restart time with no label\n[SERV_RESTART,\"restart\"] call fnc_IBEN_uniSTime;\n\n// @example 02: Restart time with label\n[SERV_RESTART,[\"restart\",\"Restart in\"]] call fnc_IBEN_uniSTime;\n\n// @example 03: Uptime with label\n[SERV_RESTART,[\"uptime\",\"Time from start\"]] call fnc_IBEN_uniSTime;\n\n// @Returns:\n//  - Time string in format: \"h:mm\", or \"Restart in: h:mm\"\n\n\n\t===\n \n\n\n\t...easy enough, isn\u0027t it?\n \n\n\n\t===\n \n\n\n\t= Specific usage:\n \n\n\n// === Scenario 01:\n\n// It\u0027s very easy to add it to your debug monitor code. In fact, we\u0027re not gonna to cover\n// this specific scenario - just look around forum, there are plenty of releases.\n// But... many time I heard question like: \"How can I add restart time/uptime to the right\n// bottom screen corner the way how watermark is?\".\n// Well, this is our first scenario:\n\n// === What to do:\n// It\u0027s actually pretty easy: just grab your files from my repo - how to implement you will\n// easily find out from prepared files - just follow repo structure.\n// Done? OK - so you integrated \u0027fnc_IBEN_uniSTime\u0027 into your compiled files and you can\n// use it now.\n// Everyone has some kind of debug monitor, right? So just add this piece of code:\n\n\nwhile {1 == 1} do {\n  private [\"_Tinfo\",\"_Tval\",...some local vars];\n\n  // ... your debug monitor code\n\n\n  // =======================================================================\n  // GUI: RESTART TIMEOUT (see picture bellow)\n  // (but you can add uptime with/withou label - look for examples above)\n  // =======================================================================\n  _Tval  = [SERV_RESTART,[\"restart\",\"Restart in\"]] call fnc_IBEN_uniSTime;\n  _Tinfo = format [\"\u0026lt;t size=\u0027.35\u0027 align=\u0027right\u0027 font=\u0027TahomaB\u0027\u0026gt;%1\u0026lt;/t\u0026gt;\", _Tval];\n\n  [\n    _Tinfo\n    ,safezoneX * -1\n    ,0.98 * safezoneH + safezoneY\n    ,9999\n    ,0\n    ,0\n    ,50009\n  ] spawn BIS_fnc_dynamicText;\n\n  // your code for parsing text bellow\n\n    uiSleep 2;\n  };\n\n// === Scenario 02:\n// Let\u0027s implement formatted time info into your debug output (logs).\n\n// === What to do:\n// Just add:\ndiga_log format [\"=== [DEBUG] Player %1 (%2) just found your secret item. [%3]\",\n                 (name player),\n                 getPlayerUID player,\n                 [SERV_RESTART,[\"uptime\",\"Uptime\"]] call fnc_IBEN_uniSTime)]];\n// RPT output:\n\"=== [DEBUG] Player iben (8542514521...) just found your secret item. [Uptime: 1h:30min]\"\n\n// === Done!\n\n\n\t===\n \n\n\n\tScreen right bottom time watermark (showcase):\n \n\n\n\t \n\n\n\t===\n \n\n\n\t...that\u0027s all... Have Fun!!! Cheers...\n \n\n\n\t===\n \n",
+    "dateCreated": "2017-06-04T14:15:20+0000",
+    "datePublished": "2017-06-04T14:15:20+0000",
+    "dateModified": "2017-06-07T06:03:17+0000",
+    "image": "https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png",
+    "author": {
+        "@type": "Person",
+        "name": "iben",
+        "image": "https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png",
+        "url": "https://epochmod.com/forum/profile/38414-iben/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1654
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 2
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "iben",
+            "image": "https://epochmod.com/forum/uploads/monthly_2017_04/squareLogoDarkTheme-240x240.thumb.png.4e86fbdcab410074bc2acf4a131e8fdd.png",
+            "url": "https://epochmod.com/forum/profile/38414-iben/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/",
+    "discussionUrl": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/#comment-294186",
+            "url": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/#comment-294186",
+            "author": {
+                "@type": "Person",
+                "name": "Relentless",
+                "image": "https://epochmod.com/forum/uploads/monthly_2017_03/Avatar.thumb.PNG.6b19d619aab85f5b4a9d09d7066ae933.PNG",
+                "url": "https://epochmod.com/forum/profile/38217-relentless/"
+            },
+            "dateCreated": "2017-06-04T16:16:45+0000",
+            "text": "I am always a fan of functions to gain a better overview and they are a lot easier to use than inserting this kind of code in each script that restart time or uptime needs.\n \n\n\n\tNice release, keep it up!\n \n",
+            "upvoteCount": 2
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/#comment-294277",
+            "url": "https://epochmod.com/forum/topic/44060-releasev11-fnc_iben_unistime-function-for-server-restart-restart-time-uptime/#comment-294277",
+            "author": {
+                "@type": "Person",
+                "name": "nova",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/37108-nova/"
+            },
+            "dateCreated": "2017-06-07T06:03:17+0000",
+            "text": "this is simply amazing! nice clean ui\u00a0\n ",
+            "upvoteCount": 2
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/122-resources/",
+                "name": "Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/123-a2-epoch-mods/",
+                "name": "A2: Epoch Mods"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment - A2: Epoch Tools (1.0.5.1) - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/" property="og:url"/>
+<meta content="What we are doing: Setting up an automated build process to compile the server and mission PBO on restart Why: Ever needed to make changes to your server but had to wait for server restart? Ever missed that window and had to wait another 3 - 4 hours till your next restart cycle? I hate that! Requ..." name="description"/>
+<meta content="What we are doing: Setting up an automated build process to compile the server and mission PBO on restart Why: Ever needed to make changes to your server but had to wait for server restart? Ever missed that window and had to wait another 3 - 4 hours till your next restart cycle? I hate that! Requ..." property="og:description"/>
+<meta content="2014-05-21T18:16:01Z" property="og:updated_time"/>
+<meta content="advanced, best practices, tutorial, automated" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="11577" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMTU3Ny1ob3ctdG8tc2V0LXVwLWFuLWF1dG9tYXRlZC1idWlsZC1wcm9jZXNzLWFuZC1ob3ctdG8tc2V0LXVwLWEtZGF5emVwb2NoLWRldi1lbnZpcm9ubWVudC8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":66}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":11577}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/66-a2-epoch-tools-1051/index.html">
+<span>A2: Epoch Tools (1.0.5.1)</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/66-a2-epoch-tools-1051/index.html">
+<span>A2: Epoch Tools (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="advanced" href="https://epochmod.com/forum/tags/advanced/" rel="tag" title="Find other content tagged with 'advanced'"><span>advanced</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="best practices" href="https://epochmod.com/forum/tags/best practices/" rel="tag" title="Find other content tagged with 'best practices'"><span>best practices</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="automated" href="https://epochmod.com/forum/tags/automated/" rel="tag" title="Find other content tagged with 'automated'"><span>automated</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/674-hambeast/?do=hovercard" data-ipshover-width="370" href="../../profile/674-hambeast/index.html" rel="nofollow" title="Go to hambeast's profile">
+<img alt="hambeast" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46270%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/674-hambeast/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/674-hambeast/index.html" rel="nofollow" title="Go to hambeast's profile">hambeast</a></strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-05-21T18:16:01Z" title="05/21/14 06:16  PM">May 21, 2014</time> in <a href="../../forum/66-a2-epoch-tools-1051/index.html">A2: Epoch Tools (1.0.5.1)</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F&amp;title=How+to+Set+Up+an+Automated+Build+Process+and+How+to+set+up+a+DayZEpoch+Dev+Environment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment" data-websharetitle="How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment" data-webshareurl="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="11577">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">3</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-11577" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-81065"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_81065">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/674-hambeast/?do=hovercard" data-ipshover-width="370" href="../../profile/674-hambeast/index.html" rel="nofollow" title="Go to hambeast's profile">
+<img alt="hambeast" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46270%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="../../profile/674-hambeast/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/674-hambeast/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/674-hambeast/index.html" rel="nofollow" title="Go to hambeast's profile"><span style="color:#">hambeast</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=findComment&amp;comment=81065" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-21T18:16:01Z" title="05/21/14 06:16  PM">May 21, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/674-hambeast/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/674-hambeast/index.html" rel="nofollow" title="Go to hambeast's profile">hambeast</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/674-hambeast/?do=hovercard" data-ipshover-width="370" href="../../profile/674-hambeast/index.html" rel="nofollow" title="Go to hambeast's profile">
+<img alt="hambeast" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46270%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/674-hambeast/content/index.html" rel="nofollow" title="462 posts">
+<i class="fa fa-comment"></i> 462
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">SoCal</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="81065" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":674,"username":"hambeast","timestamp":1400696161,"contentapp":"forums","contenttype":"forums","contentid":11577,"contentclass":"forums_Topic","contentcommentid":81065}' id="comment-81065_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-81065_wrap" href="#elControls_81065_menu" id="elControls_81065" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_81065_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=reportComment&amp;comment=81065" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_81065_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_81065" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=findComment&amp;comment=81065" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-21T18:16:01Z" title="05/21/14 06:16  PM">May 21, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>What we are doing: Setting up an automated build process to compile the server and mission PBO on restart</p>
+<p>Why: Ever needed to make changes to your server but had to wait for server restart?  Ever missed that window and had to wait another 3 - 4 hours till your next restart cycle? I hate that!</p>
+<p>Requirements: PBOmanager, notepad++, firedaemon(optional) or knowledge of editing your batch scripts, <strong>a dev environemnt</strong> (you do have a dev environment don't you?), a dedicated server</p>
+<p>Difficulty: Advanced</p>
+<p> </p>
+<p>Ok guys, as stated before it is a huge pain in the ass to have to wait till your server goes down to push changes.  Why not automate it so that you can make your changes and be done with them?</p>
+<p> </p>
+<p><span style="font-size:14px;">So to start off you really should have a dev environment that mirrors your production environment.  I'm talking about a dev server here people.  Quick and dirty, just copy and paste your folder containing the Arma2OA install (you know the folder with @DayZ_Epoch_Server in it) to another directory.  Doesn't matter what the name is but you need to make changes here before you make them on your production server so you can verify that you didn't break anything.</span></p>
+<p> </p>
+<p> </p>
+<p>Step 1: Install PBO manager if you have not.  you can get it here: <a href="http://www.armaholic.com/page.php?id=16369" rel="external nofollow">http://www.armaholic.com/page.php?id=16369</a></p>
+<p>Step 2: If you do not have unpacked folders of your PBO's living next to them in their proper directories, unpack your pbo's so that you have a folder with the same name in the same directory.  This is where you will make your changes.</p>
+<p>Step 3: Create a batch script to run BEFORE your server starts.  This PBO will automatically pack up the folder into a PBO overwriting your old one.</p>
+<p> </p>
+<p>Here is the content of my batch script "pbopack_dev.bat" (note that this is for the dev server, your path will not be the same"</p>
+<p> </p>
+<p> </p>
+<div>
+<pre class="ipsCode prettyprint">
+"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "D:\dayz\DEV_Epoch1\@DayZ_Epoch_Server\addons\dayz_server" "D:\dayz\DEV_Epoch1\@DayZ_Epoch_Server\addons\dayz_server.pbo"
+"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "D:\dayz\DEV_Epoch1\MPMissions\DayZ_Epoch_11.Chernarus" "D:\dayz\DEV_Epoch1\MPMissions\DayZ_Epoch_11.Chernarus.pbo"</pre>
+</div>
+<p> </p>
+<p> </p>
+<p><span style="font-size:14px;">Step 4: Integrate batch script into your current server restart method.  I use firedaemon, if you use a batch script, just make sure you run the previous batch before you start your server but after you have shut it down.  for firedaemon users, just add the batch script to the "pre-service programs".  Give it a nice 15 second timeout to ensure we didn't start the server too fast.</span></p>
+<p> </p>
+<p><span style="font-size:14px;">That's it.  Verify it works without breaking anything and you can implement this for your production servers.</span></p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:14px;">Development and Deployment strategy:</span></p>
+<p> </p>
+<p>Ok so I touched a little about this earlier but you MUST use a development environment.  Any programmer who has worked in a professional environment will know that you NEVER EVER EVER make changes to production code.  Firstly, its dangerous, secondly, it makes you look bad if you break a critical system because you were too lazy to test it properly.  Always make changes to your dev server first before you migrate those changes to the live prod environment!!!!!</p>
+<p> </p>
+<p>Ideally,  you would want to have an exact mirror of your production server so that you can accurately verify your changes don't break something.</p>
+<p> </p>
+<p>Here's how I do it.</p>
+<p> </p>
+<p>Initial Setup:</p>
+<p>1. Copy entire DayZ server directory to a new one (this only needs to be done once)</p>
+<p>2. Backup your DayZ database and insert it as a new one (I use "DayzEpoch_DEV" for this)</p>
+<p>3. Modify your hive.ini so it points to your dev database</p>
+<p>4. Make changes on dev server and verify results.</p>
+<p> </p>
+<p>After Setup:</p>
+<p>1. Delete "@DayZ_Epoch_Server" and "mpmissions" directories from the DEV server folder.</p>
+<p>2. Copy over "@DayZ_Epoch_Server" and "mpmissions" from your PROD server folder into the DEV server folder.</p>
+<p>3. Make changes you need to the folders (no need to recompile as our script above does that for us)</p>
+<p>4. Verify changes</p>
+<p> </p>
+<p>Migrating changes from DEV to PROD on a Live server:</p>
+<p>1. TEST YOUR CHANGES IN DEV</p>
+<p>2. Navigate to your PROD server directory and delete the PBO's unpacked folders you wish to modify</p>
+<p>3. Copy the unpacked folders from your DEV server to the PROD server</p>
+<p>4. Wait for server restart to automatically recompile the folders into PBOs</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10382-mates31cz/?do=hovercard" data-ipshover-width="370" href="../../profile/10382-mates31cz/index.html" rel="nofollow" title="Go to Mates31cz's profile">Mates31cz</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15275-zelik/?do=hovercard" data-ipshover-width="370" href="../../profile/15275-zelik/index.html" rel="nofollow" title="Go to Zelik's profile">Zelik</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=showReactionsComment&amp;comment=81065&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=showReactionsComment&amp;comment=81065&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								3
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_81065_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F%3Fdo%3DfindComment%26comment%3D81065" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F%3Fdo%3DfindComment%26comment%3D81065" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F%3Fdo%3DfindComment%26comment%3D81065&amp;title=How+to+Set+Up+an+Automated+Build+Process+and+How+to+set+up+a+DayZEpoch+Dev+Environment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=findComment%26comment=81065&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="What we are doing: Setting up an automated build process to compile the server and mission PBO on restart 
+Why: Ever needed to make changes to your server but had to wait for server restart?  Ever missed that window and had to wait another 3 - 4 hours till your next restart cycle? I hate that! 
+Requirements: PBOmanager, notepad++, firedaemon(optional) or knowledge of editing your batch scripts, a dev environemnt (you do have a dev environment don't you?), a dedicated server 
+Difficulty: Advanced 
+  
+Ok guys, as stated before it is a huge pain in the ass to have to wait till your server goes down to push changes.  Why not automate it so that you can make your changes and be done with them? 
+  
+So to start off you really should have a dev environment that mirrors your production environment.  I'm talking about a dev server here people.  Quick and dirty, just copy and paste your folder containing the Arma2OA install (you know the folder with @DayZ_Epoch_Server in it) to another directory.  Doesn't matter what the name is but you need to make changes here before you make them on your production server so you can verify that you didn't break anything. 
+  
+  
+Step 1: Install PBO manager if you have not.  you can get it here: http://www.armaholic.com/page.php?id=16369 
+Step 2: If you do not have unpacked folders of your PBO's living next to them in their proper directories, unpack your pbo's so that you have a folder with the same name in the same directory.  This is where you will make your changes. 
+Step 3: Create a batch script to run BEFORE your server starts.  This PBO will automatically pack up the folder into a PBO overwriting your old one. 
+  
+Here is the content of my batch script &quot;pbopack_dev.bat&quot; (note that this is for the dev server, your path will not be the same&quot; 
+  
+  
+
+
+&quot;C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe&quot; -pack &quot;D:\dayz\DEV_Epoch1\@DayZ_Epoch_Server\addons\dayz_server&quot; &quot;D:\dayz\DEV_Epoch1\@DayZ_Epoch_Server\addons\dayz_server.pbo&quot;
+&quot;C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe&quot; -pack &quot;D:\dayz\DEV_Epoch1\MPMissions\DayZ_Epoch_11.Chernarus&quot; &quot;D:\dayz\DEV_Epoch1\MPMissions\DayZ_Epoch_11.Chernarus.pbo&quot;
+
+  
+  
+Step 4: Integrate batch script into your current server restart method.  I use firedaemon, if you use a batch script, just make sure you run the previous batch before you start your server but after you have shut it down.  for firedaemon users, just add the batch script to the &quot;pre-service programs&quot;.  Give it a nice 15 second timeout to ensure we didn't start the server too fast. 
+  
+That's it.  Verify it works without breaking anything and you can implement this for your production servers. 
+  
+  
+Development and Deployment strategy: 
+  
+Ok so I touched a little about this earlier but you MUST use a development environment.  Any programmer who has worked in a professional environment will know that you NEVER EVER EVER make changes to production code.  Firstly, its dangerous, secondly, it makes you look bad if you break a critical system because you were too lazy to test it properly.  Always make changes to your dev server first before you migrate those changes to the live prod environment!!!!! 
+  
+Ideally,  you would want to have an exact mirror of your production server so that you can accurately verify your changes don't break something. 
+  
+Here's how I do it. 
+  
+Initial Setup: 
+1. Copy entire DayZ server directory to a new one (this only needs to be done once) 
+2. Backup your DayZ database and insert it as a new one (I use &quot;DayzEpoch_DEV&quot; for this) 
+3. Modify your hive.ini so it points to your dev database 
+4. Make changes on dev server and verify results. 
+  
+After Setup: 
+1. Delete &quot;@DayZ_Epoch_Server&quot; and &quot;mpmissions&quot; directories from the DEV server folder. 
+2. Copy over &quot;@DayZ_Epoch_Server&quot; and &quot;mpmissions&quot; from your PROD server folder into the DEV server folder. 
+3. Make changes you need to the folders (no need to recompile as our script above does that for us) 
+4. Verify changes 
+  
+Migrating changes from DEV to PROD on a Live server: 
+1. TEST YOUR CHANGES IN DEV 
+2. Navigate to your PROD server directory and delete the PBO's unpacked folders you wish to modify 
+3. Copy the unpacked folders from your DEV server to the PROD server 
+4. Wait for server restart to automatically recompile the folders into PBOs 
+" data-websharetitle="How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment" data-webshareurl="https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/?do=findComment&amp;comment=81065">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMTU3Ny1ob3ctdG8tc2V0LXVwLWFuLWF1dG9tYXRlZC1idWlsZC1wcm9jZXNzLWFuZC1ob3ctdG8tc2V0LXVwLWEtZGF5emVwb2NoLWRldi1lbnZpcm9ubWVudC8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%2F&amp;title=How+to+Set+Up+an+Automated+Build+Process+and+How+to+set+up+a+DayZEpoch+Dev+Environment" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment" data-websharetitle="How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="11577">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">3</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/66-a2-epoch-tools-1051/index.html" rel="parent" title="Go to A2: Epoch Tools (1.0.5.1)">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/?preview=1" data-ipshover-timeout="1.5" href="../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html">
+									How to set up and manage multiple DayZ SA Servers responsibly 2021
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>,  <time data-short="3 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_363060463">(and 19 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_363060463_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="standalone" href="https://epochmod.com/forum/tags/standalone/" rel="tag" title="Find other content tagged with 'standalone'"><span>standalone</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="how" href="https://epochmod.com/forum/tags/how/" rel="tag" title="Find other content tagged with 'how'"><span>how</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="manage" href="https://epochmod.com/forum/tags/manage/" rel="tag" title="Find other content tagged with 'manage'"><span>manage</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="multiple" href="https://epochmod.com/forum/tags/multiple/" rel="tag" title="Find other content tagged with 'multiple'"><span>multiple</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="game" href="https://epochmod.com/forum/tags/game/" rel="tag" title="Find other content tagged with 'game'"><span>game</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="restart" href="https://epochmod.com/forum/tags/restart/" rel="tag" title="Find other content tagged with 'restart'"><span>restart</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="archive" href="https://epochmod.com/forum/tags/archive/" rel="tag" title="Find other content tagged with 'archive'"><span>archive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye" href="https://epochmod.com/forum/tags/battleye/" rel="tag" title="Find other content tagged with 'battleye'"><span>battleye</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye extended controls" href="https://epochmod.com/forum/tags/battleye extended controls/" rel="tag" title="Find other content tagged with 'battleye extended controls'"><span>battleye extended controls</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="warning" href="https://epochmod.com/forum/tags/warning/" rel="tag" title="Find other content tagged with 'warning'"><span>warning</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="message" href="https://epochmod.com/forum/tags/message/" rel="tag" title="Find other content tagged with 'message'"><span>message</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="player" href="https://epochmod.com/forum/tags/player/" rel="tag" title="Find other content tagged with 'player'"><span>player</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="walkthrough" href="https://epochmod.com/forum/tags/walkthrough/" rel="tag" title="Find other content tagged with 'walkthrough'"><span>walkthrough</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="2021" href="https://epochmod.com/forum/tags/2021/" rel="tag" title="Find other content tagged with '2021'"><span>2021</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1358</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">
+<img alt="Harkness" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_09/224236537_69223110_10212121577993051_3324963234439495680_n(1)(1)(1)(1)(1).thumb.jpg.2c25a9fd8dfc519e71c8ffa92d07a93c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/index.html" title="Go to last post">
+<time data-short="3 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44695-editing-gui-in-1061/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/44695-editing-gui-in-1061/">
+									Editing GUI in 1.0.6.1
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38952-rust/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/38952-rust/index.html" rel="nofollow" title="Go to Rust's profile">Rust</a>,  <time data-short="7 yr" datetime="2017-11-27T04:01:06Z" title="11/27/17 04:01  AM">November 27, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_740091153">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_740091153_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="gui" href="https://epochmod.com/forum/tags/gui/" rel="tag" title="Find other content tagged with 'gui'"><span>gui</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">4</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1512</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38952-rust/?do=hovercard" data-ipshover-width="370" href="../../profile/38952-rust/index.html" rel="nofollow" title="Go to Rust's profile">
+<img alt="Rust" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46268%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38952-rust/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/38952-rust/index.html" rel="nofollow" title="Go to Rust's profile">Rust</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44695-editing-gui-in-1061/" title="Go to last post">
+<time data-short="7 yr" datetime="2017-12-01T16:55:56Z" title="12/01/17 04:55  PM">December 1, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/43529-help-trader-for-free/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/43529-help-trader-for-free/">
+									HELP! Trader for free
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36717-gabriel12237/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/36717-gabriel12237/index.html" rel="nofollow" title="Go to Gabriel12237's profile">Gabriel12237</a>,  <time data-short="8 yr" datetime="2017-03-19T09:19:06Z" title="03/19/17 09:19  AM">March 19, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="free" href="https://epochmod.com/forum/tags/free/" rel="tag" title="Find other content tagged with 'free'"><span>free</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="coins" href="https://epochmod.com/forum/tags/coins/" rel="tag" title="Find other content tagged with 'coins'"><span>coins</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_345524778">(and 11 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_345524778_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="free" href="https://epochmod.com/forum/tags/free/" rel="tag" title="Find other content tagged with 'free'"><span>free</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="coins" href="https://epochmod.com/forum/tags/coins/" rel="tag" title="Find other content tagged with 'coins'"><span>coins</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="coin" href="https://epochmod.com/forum/tags/coin/" rel="tag" title="Find other content tagged with 'coin'"><span>coin</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="currency" href="https://epochmod.com/forum/tags/currency/" rel="tag" title="Find other content tagged with 'currency'"><span>currency</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="custom currency" href="https://epochmod.com/forum/tags/custom currency/" rel="tag" title="Find other content tagged with 'custom currency'"><span>custom currency</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="999hive" href="https://epochmod.com/forum/tags/999hive/" rel="tag" title="Find other content tagged with '999hive'"><span>999hive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="zsc" href="https://epochmod.com/forum/tags/zsc/" rel="tag" title="Find other content tagged with 'zsc'"><span>zsc</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="zsc3.0" href="https://epochmod.com/forum/tags/zsc3.0/" rel="tag" title="Find other content tagged with 'zsc3.0'"><span>zsc3.0</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="trader" href="https://epochmod.com/forum/tags/trader/" rel="tag" title="Find other content tagged with 'trader'"><span>trader</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="trading" href="https://epochmod.com/forum/tags/trading/" rel="tag" title="Find other content tagged with 'trading'"><span>trading</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="advanced" href="https://epochmod.com/forum/tags/advanced/" rel="tag" title="Find other content tagged with 'advanced'"><span>advanced</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="advanced trading" href="https://epochmod.com/forum/tags/advanced trading/" rel="tag" title="Find other content tagged with 'advanced trading'"><span>advanced trading</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="free traders" href="https://epochmod.com/forum/tags/free traders/" rel="tag" title="Find other content tagged with 'free traders'"><span>free traders</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">12</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1739</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43529-help-trader-for-free/" title="Go to last post">
+<time data-short="8 yr" datetime="2017-03-19T18:43:56Z" title="03/19/17 06:43  PM">March 19, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/42465-advanced-alchemal-crafting/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/42465-advanced-alchemal-crafting/">
+									Advanced Alchemal Crafting
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1573-chi/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/1573-chi/index.html" rel="nofollow" title="Go to chi's profile">chi</a>,  <time data-short="9 yr" datetime="2016-07-20T21:32:16Z" title="07/20/16 09:32  PM">July 20, 2016</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="advanced" href="https://epochmod.com/forum/tags/advanced/" rel="tag" title="Find other content tagged with 'advanced'"><span>advanced</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="alchemal" href="https://epochmod.com/forum/tags/alchemal/" rel="tag" title="Find other content tagged with 'alchemal'"><span>alchemal</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1034201361">(and 5 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1034201361_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="advanced" href="https://epochmod.com/forum/tags/advanced/" rel="tag" title="Find other content tagged with 'advanced'"><span>advanced</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="alchemal" href="https://epochmod.com/forum/tags/alchemal/" rel="tag" title="Find other content tagged with 'alchemal'"><span>alchemal</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="crafting" href="https://epochmod.com/forum/tags/crafting/" rel="tag" title="Find other content tagged with 'crafting'"><span>crafting</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="menu" href="https://epochmod.com/forum/tags/menu/" rel="tag" title="Find other content tagged with 'menu'"><span>menu</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="list" href="https://epochmod.com/forum/tags/list/" rel="tag" title="Find other content tagged with 'list'"><span>list</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="drop" href="https://epochmod.com/forum/tags/drop/" rel="tag" title="Find other content tagged with 'drop'"><span>drop</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="down" href="https://epochmod.com/forum/tags/down/" rel="tag" title="Find other content tagged with 'down'"><span>down</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">4</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1496</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1573-chi/?do=hovercard" data-ipshover-width="370" href="../../profile/1573-chi/index.html" rel="nofollow" title="Go to chi's profile">
+<img alt="chi" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-1573.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1573-chi/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/1573-chi/index.html" rel="nofollow" title="Go to chi's profile">chi</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/42465-advanced-alchemal-crafting/" title="Go to last post">
+<time data-short="9 yr" datetime="2016-07-21T01:24:19Z" title="07/21/16 01:24  AM">July 21, 2016</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/20219-release-advanced-trading-21-updated/?preview=1" data-ipshover-timeout="1.5" href="../20219-release-advanced-trading-21-updated/index.html">
+									[Release] Advanced Trading 2.1 !UPDATED!
+								</a>
+</span>
+<span class="ipsPagination ipsPagination_mini" id="elPagination_e7ec0f693af8d0c849c0960a2193dfa2">
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../20219-release-advanced-trading-21-updated/index.html#comments" title="Go to page 1">1</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../20219-release-advanced-trading-21-updated/page/2/index.html#comments" title="Go to page 2">2</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../20219-release-advanced-trading-21-updated/page/3/index.html#comments" title="Go to page 3">3</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="../20219-release-advanced-trading-21-updated/page/4/index.html#comments" title="Go to page 4">4</a></span>
+<span class="ipsPagination_last"><a data-ipstooltip="" href="../20219-release-advanced-trading-21-updated/page/33/index.html#comments" title="Last page">33 <i class="fa fa-caret-right"></i></a></span>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10391-zupa/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/10391-zupa/index.html" rel="nofollow" title="Go to Zupa's profile">Zupa</a>,  <time data-short="10 yr" datetime="2014-10-14T18:40:30Z" title="10/14/14 06:40  PM">October 14, 2014</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="alot" href="https://epochmod.com/forum/tags/alot/" rel="tag" title="Find other content tagged with 'alot'"><span>alot</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="advanced" href="https://epochmod.com/forum/tags/advanced/" rel="tag" title="Find other content tagged with 'advanced'"><span>advanced</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_609865260">(and 7 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_609865260_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="alot" href="https://epochmod.com/forum/tags/alot/" rel="tag" title="Find other content tagged with 'alot'"><span>alot</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="advanced" href="https://epochmod.com/forum/tags/advanced/" rel="tag" title="Find other content tagged with 'advanced'"><span>advanced</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="trading" href="https://epochmod.com/forum/tags/trading/" rel="tag" title="Find other content tagged with 'trading'"><span>trading</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="zupa" href="https://epochmod.com/forum/tags/zupa/" rel="tag" title="Find other content tagged with 'zupa'"><span>zupa</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="trader" href="https://epochmod.com/forum/tags/trader/" rel="tag" title="Find other content tagged with 'trader'"><span>trader</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="coins" href="https://epochmod.com/forum/tags/coins/" rel="tag" title="Find other content tagged with 'coins'"><span>coins</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="single" href="https://epochmod.com/forum/tags/single/" rel="tag" title="Find other content tagged with 'single'"><span>single</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="currency" href="https://epochmod.com/forum/tags/currency/" rel="tag" title="Find other content tagged with 'currency'"><span>currency</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="mass" href="https://epochmod.com/forum/tags/mass/" rel="tag" title="Find other content tagged with 'mass'"><span>mass</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">819</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">151012</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../20219-release-advanced-trading-21-updated/index.html" title="Go to last post">
+<time data-short="8 yr" datetime="2017-03-28T02:35:51Z" title="03/28/17 02:35  AM">March 28, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/66-a2-epoch-tools-1051/index.html">
+<span>A2: Epoch Tools (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment",
+    "headline": "How to Set Up an Automated Build Process and How to set up a DayZEpoch Dev Environment",
+    "text": "What we are doing: Setting up an automated build process to compile the server and mission PBO on restart \nWhy: Ever needed to make changes to your server but had to wait for server restart? \u00a0Ever missed that window and had to wait another 3 - 4 hours till your next restart cycle? I hate that! \nRequirements: PBOmanager, notepad++, firedaemon(optional) or knowledge of editing your batch scripts, a dev environemnt (you do have a dev environment don\u0027t you?), a dedicated server \nDifficulty: Advanced \n\u00a0 \nOk guys, as stated before it is a huge pain in the ass to have to wait till your server goes down to push changes. \u00a0Why not automate it so that you can make your changes and be done with them? \n\u00a0 \nSo to start off you really should have a dev environment that mirrors your production environment. \u00a0I\u0027m talking about a dev server here people. \u00a0Quick and dirty, just copy and paste your folder containing the Arma2OA install (you know the folder with\u00a0@DayZ_Epoch_Server in it) to another directory. \u00a0Doesn\u0027t matter what the name is but you need to make changes here before you make them on your production server so you can verify that you didn\u0027t break anything. \n\u00a0 \n\u00a0 \nStep 1: Install PBO manager if you have not. \u00a0you can get it here:\u00a0http://www.armaholic.com/page.php?id=16369 \nStep 2: If you do not have unpacked folders of your PBO\u0027s living next to them in their proper directories, unpack your pbo\u0027s so that you have a folder with the same name in the same directory. \u00a0This is where you will make your changes. \nStep 3: Create a batch script to run BEFORE your server starts. \u00a0This PBO will automatically pack up the folder into a PBO overwriting your old one. \n\u00a0 \nHere is the content of my batch script \"pbopack_dev.bat\" (note that this is for the dev server, your path will not be the same\" \n\u00a0 \n\u00a0 \n\n\n\"C:\\Program Files\\PBO Manager v.1.4 beta\\PBOConsole.exe\" -pack \"D:\\dayz\\DEV_Epoch1\\@DayZ_Epoch_Server\\addons\\dayz_server\" \"D:\\dayz\\DEV_Epoch1\\@DayZ_Epoch_Server\\addons\\dayz_server.pbo\"\n\"C:\\Program Files\\PBO Manager v.1.4 beta\\PBOConsole.exe\" -pack \"D:\\dayz\\DEV_Epoch1\\MPMissions\\DayZ_Epoch_11.Chernarus\" \"D:\\dayz\\DEV_Epoch1\\MPMissions\\DayZ_Epoch_11.Chernarus.pbo\"\n\n\u00a0 \n\u00a0 \nStep 4: Integrate batch script into your current server restart method. \u00a0I use firedaemon, if you use a batch script, just make sure you run the previous batch before you start your server but after you have shut it down. \u00a0for firedaemon users, just add the batch script to the \"pre-service programs\". \u00a0Give it a nice 15 second timeout to ensure we didn\u0027t start the server too fast. \n\u00a0 \nThat\u0027s it. \u00a0Verify it works without breaking anything and you can implement this for your production servers. \n\u00a0 \n\u00a0 \nDevelopment and Deployment strategy: \n\u00a0 \nOk so I touched a little about this earlier but you MUST use a development environment. \u00a0Any programmer who has worked in a professional environment will know that you NEVER EVER EVER make changes to production code. \u00a0Firstly, its dangerous, secondly, it makes you look bad if you break a critical system because you were too lazy to test it properly. \u00a0Always make changes to your dev server first before you migrate those changes to the live prod environment!!!!! \n\u00a0 \nIdeally, \u00a0you would want to have an exact mirror of your production server so that you can accurately verify your changes don\u0027t break something. \n\u00a0 \nHere\u0027s how I do it. \n\u00a0 \nInitial Setup: \n1. Copy entire DayZ server directory to a new one (this only needs to be done once) \n2. Backup your DayZ database and insert it as a new one (I use \"DayzEpoch_DEV\" for this) \n3. Modify your hive.ini so it points to your dev database \n4. Make changes on dev server and verify results. \n\u00a0 \nAfter Setup: \n1. Delete \"@DayZ_Epoch_Server\" and \"mpmissions\" directories from the DEV server folder. \n2. Copy over \"@DayZ_Epoch_Server\" and \"mpmissions\" from your PROD server folder into the DEV server folder. \n3. Make changes you need to the folders (no need to recompile as our script above does that for us) \n4. Verify changes \n\u00a0 \nMigrating changes from DEV to PROD on a Live server: \n1. TEST YOUR CHANGES IN DEV \n2. Navigate to your PROD server directory and delete the PBO\u0027s unpacked folders you wish to modify \n3. Copy the unpacked folders from your DEV server to the PROD server \n4. Wait for server restart to automatically recompile the folders into PBOs \n",
+    "dateCreated": "2014-05-21T18:16:01+0000",
+    "datePublished": "2014-05-21T18:16:01+0000",
+    "dateModified": "2014-05-21T18:16:01+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "hambeast",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/674-hambeast/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 4614
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 0
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 3
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "hambeast",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/674-hambeast/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/",
+    "discussionUrl": "https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/11577-how-to-set-up-an-automated-build-process-and-how-to-set-up-a-dayzepoch-dev-environment/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/37-legacy-resources/",
+                "name": "Legacy Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/66-a2-epoch-tools-1051/",
+                "name": "A2: Epoch Tools (1.0.5.1)"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

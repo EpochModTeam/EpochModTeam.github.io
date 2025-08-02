@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Moving Files on Restarts Automatically Through Bat File - Tutorials - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Moving Files on Restarts Automatically Through Bat File" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/" property="og:url"/>
+<meta content="With plenty of headaches on forgetting to switch pbos and having to keep track of each and every restart so that you can put your updates in I began getting frustrated and needed an alternative. My buddy and I finally setup a easy and simple bat file that moves our files for us on restarts incase..." name="description"/>
+<meta content="With plenty of headaches on forgetting to switch pbos and having to keep track of each and every restart so that you can put your updates in I began getting frustrated and needed an alternative. My buddy and I finally setup a easy and simple bat file that moves our files for us on restarts incase..." property="og:description"/>
+<meta content="2015-04-20T03:33:31Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="34572" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zNDU3Mi1tb3ZpbmctZmlsZXMtb24tcmVzdGFydHMtYXV0b21hdGljYWxseS10aHJvdWdoLWJhdC1maWxlLw=="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":77}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":34572}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/77-tutorials/index.html">
+<span>Tutorials</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/130-resources/index.html">
+<span>Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/77-tutorials/index.html">
+<span>Tutorials <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Moving Files on Restarts Automatically Through Bat File
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Moving Files on Restarts Automatically Through Bat File</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">
+<img alt="Friendly" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34572-moving-files-on-restarts-automatically-through-bat-file%252F" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">Friendly</a></strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2015-04-19T14:57:57Z" title="04/19/15 02:57  PM">April 19, 2015</time> in <a href="../../forum/77-tutorials/index.html">Tutorials</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F&amp;title=Moving+Files+on+Restarts+Automatically+Through+Bat+File" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Moving Files on Restarts Automatically Through Bat File" data-websharetitle="Moving Files on Restarts Automatically Through Bat File" data-webshareurl="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="34572">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-34572" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-231977"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_231977">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">
+<img alt="Friendly" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png"/>
+</a>
+<a href="../../profile/9459-friendly/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34572-moving-files-on-restarts-automatically-through-bat-file%252F" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile"><span style="color:#">Friendly</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=231977" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-19T14:57:57Z" title="04/19/15 02:57  PM">April 19, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34572-moving-files-on-restarts-automatically-through-bat-file%252F" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">Friendly</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">
+<img alt="Friendly" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/9459-friendly/content/index.html" rel="nofollow" title="502 posts">
+<i class="fa fa-comment"></i> 502
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">California</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="231977" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":9459,"username":"Friendly","timestamp":1429455477,"contentapp":"forums","contenttype":"forums","contentid":34572,"contentclass":"forums_Topic","contentcommentid":231977}' id="comment-231977_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-231977_wrap" href="#elControls_231977_menu" id="elControls_231977" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_231977_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=reportComment&amp;comment=231977" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_231977_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_231977" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=231977" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-19T14:57:57Z" title="04/19/15 02:57  PM">April 19, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>With plenty of headaches on forgetting to switch pbos and having to keep track of each and every restart so that you can put your updates in I began getting frustrated and needed an alternative. My buddy and I finally setup a easy and simple bat file that moves our files for us on restarts incase we have to push updates like antihack, scripts, etc. Hope you guys find this as useful as we do :P</p>
+<p> </p>
+<p>You might find the way we setup this up kinda weird but it is just how we prefer it so that folders appear at the top of our lists for neatness.</p>
+<p> </p>
+<p>First we need you to create an @newFiles folder in the main directory of your arma server.</p>
+<p> </p>
+<p>Next create an @newFiles folder in your @EpochHive folder where you see the addons folder located.</p>
+<p> </p>
+<p>You also need to create an addons folder inside your @newFiles folder that you just put in the @EpochHive Folder so that you can organize which files are moving where.</p>
+<p> </p>
+<p>In your MPMissions folder where your pbo's are located create a folder named newFiles in there as well so that you keep your edited mission files separate.</p>
+<p> </p>
+<p>Now in your startup.bat or whatever you have named it paste the following code in your startup.bat, or whatever .bat file you use to start your server.</p>
+<div> </div>
+<div>
+<pre class="ipsCode prettyprint">
+::Set the path to your servers main directory, usally your Arma 3 directory
+set serverdir="D:\Arma 3\"
+::=========================================================================================================================
+::The name of the Hive path
+set hive=@EpochHive
+::=========================================================================================================================
+::The name of the Map you are using/Name on your pbo Example: epoch.Altis.pbo Altis would be the name provided below
+set hive=Altis
+::=========================================================================================================================
+
+::=========================================================================================================================
+echo Coping over new files 
+cd /d %serverdir%
+move %hive%\newFiles\epochah.hpp %hive%
+move %hive%\newFiles\epochconfig.hpp %hive%
+move %hive%\newFiles\EpochServer.ini %hive%
+move %hive%\newFiles\EpochServer.dll %hive%
+move %hive%\newFiles\addons\*.* %hive%\addons
+move @newFiles\run.sqf %serverdir%
+move @newFiles\A3AH.sqf %serverdir%
+move @newFiles\A3AT.sqf %serverdir%
+move MPMissions\newFiles\epoch.%map%.pbo MPMissions
+::=========================================================================================================================
+</pre>
+</div>
+<div> </div>
+<p>The code above might need a few changes for you depending on what map you are using or folder names and I have made that easily editable.</p>
+<p> </p>
+<p>Ok, here on is just to explain how this works.</p>
+<p>It only moves the files that you define in the code above. It also only moves pbos and text files so you are allowed to have a folder in there and then pack the pbo and it will move that pbo out. I have it setup so that it will move anything that is located in the @EpochHive\newFiles\addons folder directly to @EpochHive/addons and it currently only moves the epochah.hpp/epochconfig.hpp/EpochServer.ini/EpochServer.dll in @EpochHive/newFiles to @EpochHive but you can add more files to that if needed. If you have anymore questions please just ask as it is hard to explain it all and I will add more to this post if needed.</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/24652-par4na/?do=hovercard" data-ipshover-width="370" href="../../profile/24652-par4na/index.html" rel="nofollow" title="Go to PAR4NA's profile">PAR4NA</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=showReactionsComment&amp;comment=231977&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=showReactionsComment&amp;comment=231977&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_231977_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F%3Fdo%3DfindComment%26comment%3D231977" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F%3Fdo%3DfindComment%26comment%3D231977" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F%3Fdo%3DfindComment%26comment%3D231977&amp;title=Moving+Files+on+Restarts+Automatically+Through+Bat+File" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment%26comment=231977&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="With plenty of headaches on forgetting to switch pbos and having to keep track of each and every restart so that you can put your updates in I began getting frustrated and needed an alternative. My buddy and I finally setup a easy and simple bat file that moves our files for us on restarts incase we have to push updates like antihack, scripts, etc. Hope you guys find this as useful as we do :P 
+  
+You might find the way we setup this up kinda weird but it is just how we prefer it so that folders appear at the top of our lists for neatness. 
+  
+First we need you to create an @newFiles folder in the main directory of your arma server. 
+  
+Next create an @newFiles folder in your @EpochHive folder where you see the addons folder located. 
+  
+You also need to create an addons folder inside your @newFiles folder that you just put in the @EpochHive Folder so that you can organize which files are moving where. 
+  
+In your MPMissions folder where your pbo's are located create a folder named newFiles in there as well so that you keep your edited mission files separate. 
+  
+Now in your startup.bat or whatever you have named it paste the following code in your startup.bat, or whatever .bat file you use to start your server. 
+ 
+
+
+::Set the path to your servers main directory, usally your Arma 3 directory
+set serverdir=&quot;D:\Arma 3\&quot;
+::=========================================================================================================================
+::The name of the Hive path
+set hive=@EpochHive
+::=========================================================================================================================
+::The name of the Map you are using/Name on your pbo Example: epoch.Altis.pbo Altis would be the name provided below
+set hive=Altis
+::=========================================================================================================================
+
+::=========================================================================================================================
+echo Coping over new files 
+cd /d %serverdir%
+move %hive%\newFiles\epochah.hpp %hive%
+move %hive%\newFiles\epochconfig.hpp %hive%
+move %hive%\newFiles\EpochServer.ini %hive%
+move %hive%\newFiles\EpochServer.dll %hive%
+move %hive%\newFiles\addons\*.* %hive%\addons
+move @newFiles\run.sqf %serverdir%
+move @newFiles\A3AH.sqf %serverdir%
+move @newFiles\A3AT.sqf %serverdir%
+move MPMissions\newFiles\epoch.%map%.pbo MPMissions
+::=========================================================================================================================
+
+
+ 
+The code above might need a few changes for you depending on what map you are using or folder names and I have made that easily editable. 
+  
+Ok, here on is just to explain how this works. 
+It only moves the files that you define in the code above. It also only moves pbos and text files so you are allowed to have a folder in there and then pack the pbo and it will move that pbo out. I have it setup so that it will move anything that is located in the @EpochHive\newFiles\addons folder directly to @EpochHive/addons and it currently only moves the epochah.hpp/epochconfig.hpp/EpochServer.ini/EpochServer.dll in @EpochHive/newFiles to @EpochHive but you can add more files to that if needed. If you have anymore questions please just ask as it is hard to explain it all and I will add more to this post if needed. 
+" data-websharetitle="Moving Files on Restarts Automatically Through Bat File" data-webshareurl="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=231977">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-232199"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_232199">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/939-darth_rogue/?do=hovercard" data-ipshover-width="370" href="../../profile/939-darth_rogue/index.html" rel="nofollow" title="Go to Darth_Rogue's profile">
+<img alt="Darth_Rogue" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-939.jpg"/>
+</a>
+<a href="../../profile/939-darth_rogue/badges/index.html" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/939-darth_rogue/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34572-moving-files-on-restarts-automatically-through-bat-file%252F" data-ipshover-width="370" href="../../profile/939-darth_rogue/index.html" rel="nofollow" title="Go to Darth_Rogue's profile"><span style="color:#">Darth_Rogue</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=232199" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-20T03:33:31Z" title="04/20/15 03:33  AM">April 20, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/939-darth_rogue/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34572-moving-files-on-restarts-automatically-through-bat-file%252F" data-ipshover-width="370" href="../../profile/939-darth_rogue/index.html" rel="nofollow" title="Go to Darth_Rogue's profile">Darth_Rogue</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/939-darth_rogue/?do=hovercard" data-ipshover-width="370" href="../../profile/939-darth_rogue/index.html" rel="nofollow" title="Go to Darth_Rogue's profile">
+<img alt="Darth_Rogue" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-939.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="../../profile/939-darth_rogue/content/index.html" rel="nofollow" title="1913 posts">
+<i class="fa fa-comment"></i> 1.9k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Nadezhdino, Chernarus</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="232199" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":939,"username":"Darth_Rogue","timestamp":1429500811,"contentapp":"forums","contenttype":"forums","contentid":34572,"contentclass":"forums_Topic","contentcommentid":232199}' id="comment-232199_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-232199_wrap" href="#elControls_232199_menu" id="elControls_232199" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_232199_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=reportComment&amp;comment=232199" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_232199_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=232199" id="elSharePost_232199" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=232199" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-20T03:33:31Z" title="04/20/15 03:33  AM">April 20, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I incorporated something similar into the server restart batch.  It automatically updates files placed in a specified folder to the production server on a restart cycle.  It's a huge time saver and also helps make sure you don't copy the wrong files to the wrong place.  </p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+@echo off
+ping 127.0.0.1 -n 15 &gt;NUL
+
+
+::=====================================================================================================================================
+:: close the running apps
+::=====================================================================================================================================
+
+taskkill /IM HCServer.exe /f /t
+taskkill /IM arma3server.exe /f /t
+::taskkill /IM ArmaServerMonitor.exe /f /t
+taskkill /IM Bec.exe /f /t
+::taskkill /IM networx.exe /f /t
+::taskkill /IM redis-server.exe
+ping 127.0.0.1 -n 5 &gt;NUL
+
+::=====================================================================================================================================
+:: Backup and Delete Logs
+::=====================================================================================================================================
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:: Set your Arma3 Epoch Base installation directory. LEAVE OFF THE ENDING \
+set arma3srvpath=C:\Game_Servers\Epoch_Bornholm
+
+:: Set your Default server profile name. This is the name of the directory that stores your server.cfg
+:: This will be used in the case that you don't launch this script without the server param.
+:: Example: SC, US6, Chicago13, ect
+:: DEFAULTPROFILE
+set srvname=Bornholm
+:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.
+:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon's Pre/Post Service tab
+set deloriglogs=1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+
+:: Setting Server Profile to Use
+IF "%1"=="" (
+set servername=%srvname%
+) else (
+set servername=%1
+)
+
+TITLE  ArmaIII Epoch %servername% Server Log Rotater
+
+:: Set Debug Mode
+set debug=0
+:: Set Debug Timeout in seconds
+set dbsecs=10
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: Display Debug output
+if %debug% == 1 (
+echo Server Name = %servername%
+echo ArmaIII Server Path = "%arma3srvpath%"
+timeout %dbsecs%
+)
+
+:: Set Time and Date
+SET HOUR=%time:~0,2%
+SET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%
+SET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%
+::Make Date Stamp
+if "%HOUR:~0,1%" == " " (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
+ECHO Todays Date and time (%date%)(%time%) / %dtStamp%
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+echo (%date%) (%time%) Starting Log Rotation.
+
+:: Make the Rotated Log Directorys
+if exist "%arma3srvpath%\%servername%\RotatedLogs" goto maketsdir
+mkdir "%arma3srvpath%\%servername%\RotatedLogs"
+:maketsdir
+if exist "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%" goto makebedir
+mkdir "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%"
+:makebedir
+if exist "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye" goto rotatelogs
+mkdir "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye"
+
+if exist "%arma3srvpath%\%servername%\RotatedLogs\DBbackups\%dtStamp%" goto rotatelogs
+mkdir "%arma3srvpath%\%servername%\RotatedLogs\DBbackups\%dtStamp%"
+
+:rotatelogs
+:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the variables.
+copy "%arma3srvpath%\%servername%\BattlEye\scripts.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\scripts.log"
+copy "%arma3srvpath%\%servername%\BattlEye\createvehicle.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\createvehicle.log"
+copy "%arma3srvpath%\%servername%\BattlEye\deletevehicle.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\deletevehicle.log"
+copy "%arma3srvpath%\%servername%\BattlEye\attachto.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\attachto.log"
+copy "%arma3srvpath%\%servername%\BattlEye\publicvariable.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariable.log"
+copy "%arma3srvpath%\%servername%\BattlEye\remoteexec.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\remoteexec.log"
+copy "%arma3srvpath%\%servername%\BattlEye\selectplayer.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\selectplayer.log"
+copy "%arma3srvpath%\%servername%\BattlEye\setpos.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setpos.log"
+copy "%arma3srvpath%\%servername%\BattlEye\setvariable.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setvariable.log"
+copy "%arma3srvpath%\%servername%\BattlEye\setdamage.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setdamage.log"
+copy "%arma3srvpath%\%servername%\BattlEye\addmagazinecargo.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\addmagazinecargo.log"
+copy "%arma3srvpath%\%servername%\BattlEye\addbackpackcargo.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\addbackpackcargo.log"
+copy "%arma3srvpath%\%servername%\BattlEye\addweaponcargo.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\addweaponcargo.log"
+copy "%arma3srvpath%\%servername%\BattlEye\mpeventhandler.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\mpeventhandler.log"
+::copy "%arma3srvpath%\dump.rdb" "%arma3srvpath%\DBbackups2\RotatedLogs\%dtStamp%\DBbackups\dump.rdb"
+::copy "C:\Game_Servers\REDIS\Bornholm\dump.rdb" "%arma3srvpath%\%servername%\RotatedLogs\DBbackups\%dtStamp%\dump.rdb"
+copy "%arma3srvpath%\%servername%\A3Master_*.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\A3Master_*.log"
+copy "%arma3srvpath%\%servername%\arma3server_*.rpt" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\arma3server_*.rpt"
+copy "%arma3srvpath%\a3_adminlog*.txt" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\a3_adminlog.txt"
+copy "%arma3srvpath%\a3_hacklog*.txt" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\a3_hacklog.txt"
+copy "%arma3srvpath%\a3_surveillancelog*.txt" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\a3_surveillancelog.txt"
+copy "%arma3srvpath%\malloc_*.log" "%arma3srvpath%\%servername%\RotatedLogs\%dtStamp%\malloc_*.log"
+
+echo (%date%) (%time%) Logs are backed up now...
+echo (%date%) (%time%) Removing original log files.
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\scripts.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\createvehicle.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\attachto.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\deletevehicle.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\selectplayer.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\publicvariable.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\remoteexec.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\setpos.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\setvariable.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\addmagazinecargo.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\addbackpackcargo.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\addweaponcargo.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\mpeventhandler.log"
+del /Q /F "%arma3srvpath%\%servername%\BattlEye\setdamage.log"
+del /Q /F "%arma3srvpath%\%servername%\A3Master_*.log"
+del /Q /F "%arma3srvpath%\%servername%\arma3server_*.rpt"
+del /Q /F "%arma3srvpath%\a3_adminlog*.txt"
+del /Q /F "%arma3srvpath%\a3_hacklog*.txt"
+del /Q /F "%arma3srvpath%\a3_surveillancelog*.txt"
+del /Q /F "%arma3srvpath%\malloc_*.log"
+
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+:: Done
+
+
+::=====================================================================================================================================
+::Copy updates to live folders before restarting server
+::=====================================================================================================================================
+
+
+xcopy "C:\Game_Servers\Updates\a3_epoch_server.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_epoch_server.pbo" /Y
+xcopy "C:\Game_Servers\Updates\EpochServer.dll" "C:\Game_Servers\Epoch_Bornholm\@epochhive\EpochServer.dll" /Y
+::xcopy "C:\Game_Servers\Updates\BEServer.dll" "C:\Game_Servers\Epoch_Bornholm\Bornholm\BattlEye\BEServer.dll" /Y
+::xcopy "C:\Game_Servers\Updates\a3_epoch_server_building.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_epoch_server_building.pbo" /Y
+xcopy "C:\Game_Servers\Updates\a3_epoch_server_settings.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_epoch_server_settings.pbo" /Y
+::xcopy "C:\Game_Servers\Updates\a3_epoch_server_custom.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_epoch_server_custom.pbo" /Y
+xcopy "C:\Game_Servers\Updates\indestructible_buildings.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\indestructible_buildings.pbo" /Y
+xcopy "C:\Game_Servers\Updates\FuMS.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\FuMS.pbo" /Y
+xcopy "C:\Game_Servers\Updates\loot_addon.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\loot_addon.pbo" /Y
+::xcopy "C:\Game_Servers\Updates\a3_epoch_addons.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_epoch_addons.pbo" /Y
+::xcopy "C:\Game_Servers\Updates\a3_epoch_fixBornholm.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_epoch_fixBornholm.pbo" /Y
+xcopy "C:\Game_Servers\Updates\a3_sdrop.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_sdrop.pbo" /Y
+xcopy "C:\Game_Servers\Updates\a3_custom.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\a3_custom.pbo" /Y
+xcopy "C:\Game_Servers\Updates\A3EAI_config.sqf" "C:\Game_Servers\Epoch_Bornholm\@epochhive\A3EAI_config.sqf" /Y
+xcopy "C:\Game_Servers\Updates\A3EAI_custom_defs.sqf" "C:\Game_Servers\Epoch_Bornholm\@epochhive\A3EAI_custom_defs.sqf" /Y
+xcopy "C:\Game_Servers\Updates\A3EAI.pbo" "C:\Game_Servers\Epoch_Bornholm\@epochhive\addons\A3EAI.pbo" /Y
+xcopy "C:\Game_Servers\Updates\A3AH.sqf" "C:\Game_Servers\Epoch_Bornholm\A3AH.sqf" /Y
+xcopy "C:\Game_Servers\Updates\A3AT.sqf" "C:\Game_Servers\Epoch_Bornholm\A3AT.sqf" /Y
+xcopy "C:\Game_Servers\Updates\run.sqf" "C:\Game_Servers\Epoch_Bornholm\run.sqf" /Y
+::xcopy "C:\Game_Servers\Updates\infiSTARwriteBan.DLL" "C:\Game_Servers\Epoch_Bornholm\infiSTARwriteBan.DLL" /Y
+xcopy "C:\Game_Servers\Updates\config.cfg" "C:\Game_Servers\Epoch_Bornholm\Bornholm\config.cfg" /Y
+xcopy "C:\Game_Servers\Updates\basic.cfg" "C:\Game_Servers\Epoch_Bornholm\Bornholm\basic.cfg" /Y
+xcopy "C:\Game_Servers\Updates\DeAtHhOuSe_epoch.Bornholm.pbo" "C:\Game_Servers\Epoch_Bornholm\MPMissions\DeAtHhOuSe_epoch.Bornholm.pbo" /Y
+::xcopy "C:\Game_Servers\Updates\epoch.Altis.pbo" "C:\Users\Richard\AppData\Local\Arma 3\MPMissionsCache\epoch.Altis.pbo" /Y
+xcopy "C:\Game_Servers\Updates\epochah.hpp" "C:\Game_Servers\Epoch_Bornholm\@epochhive\epochah.hpp" /Y
+xcopy "C:\Game_Servers\Updates\epochconfig.hpp" "C:\Game_Servers\Epoch_Bornholm\@epochhive\epochconfig.hpp" /Y
+xcopy "C:\Game_Servers\Updates\basic.cfg" "C:\Game_Servers\Epoch_Bornholm\Bornholm\basic.cfg" /Y
+::xcopy "C:\Game_Servers\Updates\BEFilters\*.*" "C:\Game_Servers\Epoch_Bornholm\Bornholm\Battleye\" /Y
+
+
+
+::=====================================================================================================================================
+::Start ASM
+::=====================================================================================================================================
+
+::cd "C:\Game_Servers\Epoch_Bornholm\"
+::start "ASM" C:\Game_Servers\Epoch_Bornholm\ArmaServerMonitor.exe
+
+
+::=====================================================================================================================================
+:: start the server
+::=====================================================================================================================================
+
+cd "C:\Game_Servers\Epoch_Bornholm\"
+start "arma3server" "arma3server.exe" -mod=@ASM;@Bornholm13;@Epoch;@EpochHive; -profiles=Bornholm -name=Bornholm -port=2340 -config=C:\Game_Servers\Epoch_bornholm\bornholm\config.cfg -cfg=C:\Game_Servers\Epoch_bornholm\bornholm\basic.cfg -loadMissionToMemory -malloc=system -high -nosplash -nopause -noSound -autoinit -enableHT
+
+
+::=====================================================================================================================================
+:: start BEC
+::=====================================================================================================================================
+
+cd "C:\BEC\"
+start Bec.exe -f Arma_3_Epoch_Bornholm_Config.cfg
+
+
+::=====================================================================================================================================
+:: wait for server to start
+::=====================================================================================================================================
+
+ping 127.0.0.1 -n 15 &gt;NUL
+
+
+
+::=====================================================================================================================================
+:: start headless client
+::=====================================================================================================================================
+
+cd "C:\Game_Servers\Epoch_Bornholm\"
+start "arma3serverHC" "HCServer.exe" -client -connect=127.0.0.1 -port=2340 -mod=@A3EAI;@Epoch;@Bornholm13; -nosound -high -enableHT
+
+
+
+::  All Done!!
+
+exit
+</pre>
+<p></p></blockquote><p></p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19257-kingraymond795/?do=hovercard" data-ipshover-width="370" href="../../profile/19257-kingraymond795/index.html" rel="nofollow" title="Go to KingRaymond795's profile">KingRaymond795</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">Friendly</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=showReactionsComment&amp;comment=232199&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=showReactionsComment&amp;comment=232199&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_232199_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=232199"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F%3Fdo%3DfindComment%26comment%3D232199" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F%3Fdo%3DfindComment%26comment%3D232199" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F%3Fdo%3DfindComment%26comment%3D232199&amp;title=Moving+Files+on+Restarts+Automatically+Through+Bat+File" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment%26comment=232199&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I incorporated something similar into the server restart batch.  It automatically updates files placed in a specified folder to the production server on a restart cycle.  It's a huge time saver and also helps make sure you don't copy the wrong files to the wrong place.   
+  
+   
+" data-websharetitle="Moving Files on Restarts Automatically Through Bat File" data-webshareurl="https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/?do=findComment&amp;comment=232199">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zNDU3Mi1tb3ZpbmctZmlsZXMtb24tcmVzdGFydHMtYXV0b21hdGljYWxseS10aHJvdWdoLWJhdC1maWxlLyNyZXBseUZvcm0=">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34572-moving-files-on-restarts-automatically-through-bat-file%2F&amp;title=Moving+Files+on+Restarts+Automatically+Through+Bat+File" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Moving Files on Restarts Automatically Through Bat File" data-websharetitle="Moving Files on Restarts Automatically Through Bat File" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="34572">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/77-tutorials/index.html" rel="parent" title="Go to Tutorials">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/41-arma-3/index.html">
+<span>ArmA 3 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/130-resources/index.html">
+<span>Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/77-tutorials/index.html">
+<span>Tutorials <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Moving Files on Restarts Automatically Through Bat File
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Moving Files on Restarts Automatically Through Bat File",
+    "headline": "Moving Files on Restarts Automatically Through Bat File",
+    "text": "With plenty of headaches on forgetting to switch pbos and having to keep track of each and every restart so that you can put your updates in I began getting frustrated and needed an alternative. My buddy and I finally setup a easy and simple bat file that moves our files for us on restarts incase we have to push updates like antihack, scripts, etc. Hope you guys find this as useful as we do :P \n\u00a0 \nYou might find the way we setup this up kinda weird but it is just how we prefer it so that folders appear at the top of our lists for neatness. \n\u00a0 \nFirst we need you to create an @newFiles folder in the main directory of your arma server. \n\u00a0 \nNext create an @newFiles folder in your @EpochHive folder where you see the addons folder located. \n\u00a0 \nYou also need to create an addons folder inside your @newFiles folder that you just put in the @EpochHive Folder so that you can organize which files are moving where. \n\u00a0 \nIn your MPMissions folder where your pbo\u0027s are located create a folder named\u00a0newFiles in there as well so that you keep your edited mission files separate. \n\u00a0 \nNow in your startup.bat or whatever you have named it paste the following code in your startup.bat, or whatever .bat file you use to start your server. \n\u00a0\n\n\n::Set the path to your servers main directory, usally your Arma 3 directory\nset serverdir=\"D:\\Arma 3\\\"\n::=========================================================================================================================\n::The name of the Hive path\nset hive=@EpochHive\n::=========================================================================================================================\n::The name of the Map you are using/Name on your pbo Example: epoch.Altis.pbo Altis would be the name provided below\nset hive=Altis\n::=========================================================================================================================\n\n::=========================================================================================================================\necho Coping over new files \ncd /d %serverdir%\nmove %hive%\\newFiles\\epochah.hpp %hive%\nmove %hive%\\newFiles\\epochconfig.hpp %hive%\nmove %hive%\\newFiles\\EpochServer.ini %hive%\nmove %hive%\\newFiles\\EpochServer.dll %hive%\nmove %hive%\\newFiles\\addons\\*.* %hive%\\addons\nmove @newFiles\\run.sqf %serverdir%\nmove @newFiles\\A3AH.sqf %serverdir%\nmove @newFiles\\A3AT.sqf %serverdir%\nmove MPMissions\\newFiles\\epoch.%map%.pbo MPMissions\n::=========================================================================================================================\n\n\n\u00a0\nThe code above might need a few changes for you depending on what map you are using or folder names and I have made that easily editable. \n\u00a0 \nOk, here on is just to explain how this works. \nIt only moves the files that you define in the code above. It also only moves pbos and text files so you are allowed to have a folder in there and then pack the pbo and it will move that pbo out. I have it setup so that it will move anything that is located in the @EpochHive\\newFiles\\addons folder directly to @EpochHive/addons and it currently only moves the epochah.hpp/epochconfig.hpp/EpochServer.ini/EpochServer.dll in @EpochHive/newFiles to @EpochHive but you can add more files to that if needed. If you have anymore questions please just ask as it is hard to explain it all and I will add more to this post if needed. \n",
+    "dateCreated": "2015-04-19T14:57:57+0000",
+    "datePublished": "2015-04-19T14:57:57+0000",
+    "dateModified": "2015-04-20T03:33:31+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png",
+    "author": {
+        "@type": "Person",
+        "name": "Friendly",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png",
+        "url": "https://epochmod.com/forum/profile/9459-friendly/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2085
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 1
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "Friendly",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png",
+            "url": "https://epochmod.com/forum/profile/9459-friendly/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/",
+    "discussionUrl": "https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/#comment-232199",
+            "url": "https://epochmod.com/forum/topic/34572-moving-files-on-restarts-automatically-through-bat-file/#comment-232199",
+            "author": {
+                "@type": "Person",
+                "name": "Darth_Rogue",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-939.jpg",
+                "url": "https://epochmod.com/forum/profile/939-darth_rogue/"
+            },
+            "dateCreated": "2015-04-20T03:33:31+0000",
+            "text": "I incorporated something similar into the server restart batch. \u00a0It automatically updates files placed in a specified folder to the production server on a restart cycle. \u00a0It\u0027s a huge time saver and also helps make sure you don\u0027t copy the wrong files to the wrong place. \u00a0 \n\u00a0 \n   \n",
+            "upvoteCount": 2
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/41-arma-3/",
+                "name": "ArmA 3"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/130-resources/",
+                "name": "Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/77-tutorials/",
+                "name": "Tutorials"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>
