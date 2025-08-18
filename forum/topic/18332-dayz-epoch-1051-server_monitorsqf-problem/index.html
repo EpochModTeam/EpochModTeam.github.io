@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>DayZ Epoch 1.0.5.1 server_monitor.sqf Problem - Server Install - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/" property="og:url"/>
+<meta content='Over the last couple of days, I have been attempting to create my own DayZ Epoch 1.0.5.1 server without any added scripts by following a tutorial video ( ). When I start the game and connect to my server, it gets stuck on "waiting for server to start authentication." I am inexperienced, but I hav...' name="description"/>
+<meta content='Over the last couple of days, I have been attempting to create my own DayZ Epoch 1.0.5.1 server without any added scripts by following a tutorial video ( ). When I start the game and connect to my server, it gets stuck on "waiting for server to start authentication." I am inexperienced, but I hav...' property="og:description"/>
+<meta content="2014-09-24T04:21:35Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="18332" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xODMzMi1kYXl6LWVwb2NoLTEwNTEtc2VydmVyX21vbml0b3JzcWYtcHJvYmxlbS8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":29}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":18332}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					DayZ Epoch 1.0.5.1 server_monitor.sqf Problem
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>DayZ Epoch 1.0.5.1 server_monitor.sqf Problem</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">Bloodmillion</a>,</strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2014-09-23T15:17:54Z" title="09/23/14 03:17  PM">September 23, 2014</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="18332">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-18332" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-134886"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_134886">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/22701-bloodmillion/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile"><span style="color:#">Bloodmillion</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134886" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T15:17:54Z" title="09/23/14 03:17  PM">September 23, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">Bloodmillion</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/22701-bloodmillion/content/" rel="nofollow" title="3 posts">
+<i class="fa fa-comment"></i> 3
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="134886" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":22701,"username":"Bloodmillion","timestamp":1411485474,"contentapp":"forums","contenttype":"forums","contentid":18332,"contentclass":"forums_Topic","contentcommentid":134886}' id="comment-134886_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-134886_wrap" href="#elControls_134886_menu" id="elControls_134886" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_134886_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=reportComment&amp;comment=134886" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_134886_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_134886" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134886" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T15:17:54Z" title="09/23/14 03:17  PM">September 23, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Over the last couple of days, I have been attempting to create my own DayZ Epoch 1.0.5.1 server without any added scripts by following a tutorial video (
+</p>
+<div class="ipsEmbeddedVideo" contenteditable="false"><div><iframe allowfullscreen="true" data-embed-src="https://www.youtube.com/embed/HlqcJxLCPTo?feature=oembed" frameborder="0" height="270" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png" width="480"></iframe></div></div>). When I start the game and connect to my server, it gets stuck on "waiting for server to start authentication." I am inexperienced, but I have been trying to look for solutions on the internet to my problem but I haven't found any that worked. I really can't figure out how to fix the problem; I am using the latest version of DayZ epoch (1.0.5.1) and the latest Arma II OA version (125548), and I am putting everything where it is supposed to go. I haven't edited any .pbo files or tried adding custom scripts or anything. Also, I can connect to other servers just fine without any problems.
+<p> </p>
+<p>I am using Windows 8.1 64-bit if it matters, and my DayZ Epoch server folder is just on my desktop</p>
+<p> </p>
+<p> </p>
+<div>arma2oaserver.RPT<br/><blockquote class="ipsQuote" data-ipsquote=""><div>
+<div>=====================================================================</div>
+<div>== C:\Users\James\Desktop\Epoch Server\arma2oaserver.exe</div>
+<div>== "arma2oaserver.exe"  -port=2302 "-config=instance_11_Chernarus\config.cfg" "-cfg=instance_11_Chernarus\basic.cfg" "-profiles=instance_11_Chernarus" -name=instance_11_Chernarus "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"</div>
+<div>=====================================================================</div>
+<div>Exe timestamp: 2014/09/23 12:27:04</div>
+<div>Current time:  2014/09/23 15:37:39</div>
+<div> </div>
+<div>Version 1.63.125548</div>
+<div>Item STR_EQUIP_NAME_41 listed twice</div>
+<div>Item STR_EQUIP_DESC_41 listed twice</div>
+<div>Updating base class -&gt;NonStrategic, by Ca\config.bin/CfgVehicles/HouseBase/</div>
+<div>Updating base class -&gt;HouseBase, by Ca\config.bin/CfgVehicles/Ruins/</div>
+<div>Updating base class -&gt;DestructionEffects, by Ca\config.bin/CfgVehicles/House/DestructionEffects/</div>
+<div>Updating base class -&gt;FlagCarrierCore, by ca\ca_pmc\config.bin/CfgVehicles/FlagCarrier/</div>
+<div>Updating base class -&gt;VehicleMagazine, by ca\weapons\config.bin/CfgMagazines/14Rnd_FFAR/</div>
+<div>Updating base class -&gt;PistolCore, by ca\weapons\config.bin/cfgWeapons/Pistol/</div>
+<div>Updating base class -&gt;LauncherCore, by ca\weapons\config.bin/cfgWeapons/RocketPods/</div>
+<div>Updating base class -&gt;RocketPods, by ca\weapons\config.bin/cfgWeapons/FFARLauncher/</div>
+<div>Updating base class -&gt;Default, by ca\weapons\config.bin/cfgWeapons/ItemCore/</div>
+<div>Updating base class -&gt;Citizen, by ca\characters2\config.bin/CfgVehicles/Citizen1/</div>
+<div>Updating base class -&gt;SkodaBase, by ca\wheeled\config.bin/CfgVehicles/car_sedan/</div>
+<div>Updating base class -&gt;UH60_Base, by ca\air\config.bin/CfgVehicles/MH60S/</div>
+<div>Updating base class -&gt;House, by ca\misc3\config.bin/CfgVehicles/Land_Fire/</div>
+<div>Updating base class -&gt;House, by ca\misc3\config.bin/CfgVehicles/Land_A_tent/</div>
+<div>Updating base class -&gt;Camp_base, by ca\misc3\config.bin/CfgVehicles/ACamp/</div>
+<div>Updating base class -&gt;Car, by ca\wheeled2\lada\config.bin/CfgVehicles/Lada_base/</div>
+<div>Updating base class StreetLamp_EP1-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Small_EP1/</div>
+<div>Updating base class StreetLamp_EP1-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street1_EP1/</div>
+<div>Updating base class StreetLamp_EP1-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lamp_Street2_EP1/</div>
+<div>Updating base class StreetLamp_EP1-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_Lampa_Ind_EP1/</div>
+<div>Updating base class StreetLamp_EP1-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_PowLines_Conc2L_EP1/</div>
+<div>Updating base class StreetLamp_BaseMediumOrange-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl/</div>
+<div>Updating base class StreetLamp_BaseMediumOrange-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_2/</div>
+<div>Updating base class StreetLamp_BaseMediumOrange-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_sidl_3/</div>
+<div>Updating base class StreetLamp_BaseWeakYellow-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind/</div>
+<div>Updating base class StreetLamp_BaseWeakYellow-&gt;StreetLamp, by z\addons\dayz_code\config.bin/CfgNonAIVehicles/Land_lampa_ind_zebr/</div>
+<div>Updating base class RscStandardDisplay-&gt;, by z\addons\dayz_code\config.bin/RscDisplayStart/</div>
+<div>Updating base class RscShortcutButton-&gt;RscShortcutButtonMain, by z\addons\dayz_code\config.bin/RscDisplayMain/controls/CA_Exit/</div>
+<div>Updating base class RscText-&gt;, by z\addons\dayz_code\config.bin/RscTitles/Default/</div>
+<div>Updating base class zZombie_Base-&gt;zZombie_new_Base, by z\addons\dayz_code\config.bin/CfgVehicles/z_villager1/</div>
+<div>Updating base class zZombie_Base-&gt;zZombie_new_Base, by z\addons\dayz_code\config.bin/CfgVehicles/z_worker1/</div>
+<div>Updating base class Soldier_Crew_PMC-&gt;Soldier_Bodyguard_M4_PMC, by z\addons\dayz_code\config.bin/CfgVehicles/SurvivorW2_DZ/</div>
+<div>Updating base class HighCommand-&gt;Logic, by z\addons\dayz_code\config.bin/CfgVehicles/HighCommandSubordinate/</div>
+<div>Updating base class -&gt;ViewOptics, by z\addons\dayz_code\config.bin/CfgVehicles/Mi17_base/Turrets/MainTurret/ViewOptics/</div>
+<div>Updating base class HouseBase-&gt;, by z\addons\dayz_code\config.bin/CfgVehicles/House/</div>
+<div>Updating base class NonStrategic-&gt;BuiltItems, by z\addons\dayz_code\config.bin/CfgVehicles/Fort_RazorWire/</div>
+<div>Updating base class MeleeHatchet-&gt;MeleeWeapon, by z\addons\dayz_code\config.bin/CfgWeapons/MeleeCrowbar/</div>
+<div>Updating base class Rifle-&gt;Crossbow, by z\addons\dayz_code\config.bin/CfgWeapons/Crossbow_DZ/</div>
+<div>Updating base class VehicleMagazine-&gt;CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/29Rnd_30mm_AGS30/</div>
+<div>Updating base class VehicleMagazine-&gt;CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/48Rnd_40mm_MK19/</div>
+<div>Updating base class 4000Rnd_762x51_M134-&gt;CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/2000Rnd_762x51_M134/</div>
+<div>Updating base class VehicleMagazine-&gt;CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/100Rnd_127x99_M2/</div>
+<div>Updating base class VehicleMagazine-&gt;CA_Magazine, by z\addons\dayz_code\config.bin/CfgMagazines/50Rnd_127x107_DSHKM/</div>
+<div>Updating base class Hatchet_Swing-&gt;Melee_Swing, by z\addons\dayz_code\config.bin/CfgMagazines/crowbar_swing/</div>
+<div>Updating base class CA_Magazine-&gt;Melee_Swing, by z\addons\dayz_code\config.bin/CfgMagazines/Hatchet_Swing/</div>
+<div>Updating base class Land_HouseV_1I2-&gt;House, by zero_buildings\config.cpp/CfgVehicles/Land_HouseV_1L2/</div>
+<div>Updating base class Land_HouseV_1I2-&gt;House, by zero_buildings\config.cpp/CfgVehicles/Land_HouseV_3I3/</div>
+<div>Updating base class -&gt;Plane, by ca\air2\mv22\config.bin/CfgVehicles/MV22/</div>
+<div>Updating base class ViewOptics-&gt;, by ca\air2\uh1y\config.bin/CfgVehicles/UH1_Base/Turrets/MainTurret/ViewOptics/</div>
+<div>Updating base class -&gt;HouseBase, by ca\misc_e\config.bin/CfgVehicles/House/</div>
+<div>Updating base class -&gt;Land_CamoNet_EAST, by ca\misc_e\config.bin/CfgVehicles/Land_CamoNet_EAST_EP1/</div>
+<div>Updating base class -&gt;Land_CamoNetB_EAST, by ca\misc_e\config.bin/CfgVehicles/Land_CamoNetB_EAST_EP1/</div>
+<div>Updating base class -&gt;Sign_1L_Noentry, by ca\misc_e\config.bin/CfgVehicles/Sign_1L_Noentry_EP1/</div>
+<div>Updating base class -&gt;Sign_circle, by ca\misc_e\config.bin/CfgVehicles/Helper_Base_EP1/</div>
+<div>Updating base class -&gt;Rifle, by ca\weapons_baf\config.bin/cfgWeapons/BAF_AS50_scoped/</div>
+<div>Updating base class -&gt;Rifle, by ca\weapons_e\config.bin/cfgWeapons/M60A4_EP1/</div>
+<div>Updating base class -&gt;M249, by ca\weapons_e\config.bin/cfgWeapons/M249_EP1/</div>
+<div>Updating base class -&gt;M249, by ca\weapons_e\config.bin/cfgWeapons/M249_m145_EP1/</div>
+<div>Updating base class -&gt;m107, by ca\weapons_e\m107\config.bin/CfgWeapons/m107_TWS_EP1/</div>
+<div>Updating base class -&gt;M240, by ca\weapons_e\m240\config.bin/CfgWeapons/m240_scoped_EP1/</div>
+<div>Updating base class -&gt;V3S_Base, by ca\wheeled_e\v3s\config.bin/CfgVehicles/V3S_Base_EP1/</div>
+<div>Updating base class -&gt;V3S_Base_EP1, by ca\wheeled_e\v3s\config.bin/CfgVehicles/V3S_Refuel_TK_GUE_EP1/</div>
+<div>Updating base class House-&gt;DZE_OpenHouse, by warehouse\config.bin/CfgVehicles/Land_Ind_Pec_03/</div>
+<div>Updating base class -&gt;C130J_base, by ca\air_e\config.bin/CfgVehicles/C130J_US_EP1/</div>
+<div>Updating base class -&gt;Helicopter, by ca\air_e\ah6j\config.bin/CfgVehicles/AH6_Base_EP1/</div>
+<div>Updating base class -&gt;Plane, by ca\air_e\an2\config.bin/CfgVehicles/An2_Base_EP1/</div>
+<div>Updating base class -&gt;CH47_base_EP1, by ca\air_e\ch47\config.bin/CfgVehicles/CH_47F_EP1/</div>
+<div>Updating base class ViewOptics-&gt;, by ca\air_e\uh1h\config.bin/CfgVehicles/UH1H_base/Turrets/MainTurret/ViewOptics/</div>
+<div>Updating base class -&gt;Soldier_Base_PMC, by ca\characters_pmc\config.bin/cfgVehicles/Soldier_Crew_PMC/</div>
+<div>Updating base class -&gt;Soldier_Base_PMC, by ca\characters_pmc\config.bin/cfgVehicles/Soldier_TL_PMC/</div>
+<div>Updating base class -&gt;Soldier_Base_PMC, by ca\characters_pmc\config.bin/cfgVehicles/Soldier_Bodyguard_M4_PMC/</div>
+<div>Updating base class -&gt;Soldier_Base_PMC, by ca\characters_pmc\config.bin/cfgVehicles/Soldier_Bodyguard_AA12_PMC/</div>
+<div>Updating base class -&gt;BAF_Soldier_MTP, by ca\characters_w_baf\config.bin/CfgVehicles/BAF_Soldier_W/</div>
+<div>Updating base class -&gt;BAF_Soldier_L_MTP, by ca\characters_w_baf\config.bin/CfgVehicles/BAF_Soldier_L_W/</div>
+<div>Updating base class -&gt;BAF_Soldier_Officer_MTP, by ca\characters_w_baf\config.bin/CfgVehicles/BAF_Soldier_Officer_W/</div>
+<div>Updating base class -&gt;BAF_Soldier_SniperH_MTP, by ca\characters_w_baf\config.bin/CfgVehicles/BAF_Soldier_SniperH_W/</div>
+<div>Updating base class -&gt;M113Ambul_Base, by ca\tracked_e\m113\config.bin/CfgVehicles/M113Ambul_UN_EP1/</div>
+<div>Updating base class -&gt;M113_Base, by ca\tracked_e\m113\config.bin/CfgVehicles/M113_UN_EP1/</div>
+<div>Updating base class -&gt;M113Ambul_Base, by ca\tracked_e\m113\config.bin/CfgVehicles/M113Ambul_TK_EP1/</div>
+<div>Updating base class -&gt;M113_Base, by ca\tracked_e\m113\config.bin/CfgVehicles/M113_TK_EP1/</div>
+<div>Updating base class -&gt;Helicopter, by ca\air_d_baf\config.bin/CfgVehicles/BAF_Merlin_HC3_D/</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:58 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:59 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:59 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:59 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:59 Server error: Player without identity James (id 1605753164)</div>
+<div>15:42:59 Server error: Player without identity James (id 1605753164)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:10 Server error: Player without identity James (id 1617477606)</div>
+<div>15:43:24 Strange convex component81 in zero_buildings\models\housev_3i3_i.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component288 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component289 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component290 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component291 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component292 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component293 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component294 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component295 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component296 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component297 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component298 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component299 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component300 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component301 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component302 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component303 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component304 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component305 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component306 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component307 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component308 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component309 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component310 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component311 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component312 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component313 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component314 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component315 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component316 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component317 in warehouse\models\warehouse.p3d:geometry</div>
+<div>15:43:25 Strange convex component252 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component253 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component254 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component255 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component256 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component257 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component258 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component259 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component260 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component261 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component262 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component263 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component264 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component265 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component266 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component267 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component268 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component269 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component270 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component271 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component272 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component273 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component274 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component275 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component276 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component277 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component278 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component279 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component280 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component281 in warehouse\models\warehouse.p3d:geometryFire</div>
+<div>15:43:25 Strange convex component249 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component250 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component251 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component252 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component253 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component254 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component255 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component256 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component257 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component258 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component259 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component260 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component261 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component262 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component263 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component264 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component265 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component266 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component267 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component268 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component269 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component270 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component271 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component272 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component273 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component274 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component275 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component276 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component277 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:25 Strange convex component278 in warehouse\models\warehouse.p3d:geometryView</div>
+<div>15:43:27 Warning: looped for animation: ca\anims\characters\data\anim\sdr\mov\erc\wlk\non\non\amovpercmwlksnonwnondf.rtm differs (looped now 0)! MoveName: amovpercmstpsnonwnondnon_amovpercmstpsraswpstdnon</div>
+<div>15:43:27 Warning: looped for animation: ca\anims\characters\data\anim\sdr\mov\erc\wlk\non\non\amovpercmwlksnonwnondf.rtm differs (looped now 1)! MoveName: amovpercmrunsnonwbindf_rfl</div>
+<div>15:43:28 "DayZ Epoch: PRELOAD Functions\init [[&lt;No group&gt;:0 (FunctionsManager)],any]"</div>
+<div>15:43:28 "DayZ Epoch: MPframework inited"</div>
+<div>15:43:28 Warning Message: Script z\addons\dayz_server\init\server_functions.sqf not found</div>
+<div>15:43:28 Warning Message: Script z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\dynamic_vehicle.sqf not found</div>
+<div>15:43:28 Warning Message: Script z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\mission.sqf not found</div>
+<div>15:43:28 "Res3tting B!S effects..."</div>
+<div>15:43:28 "\z\addons\dayz_code\system\REsec.sqf:Monitoring Remote Exe..."</div>
+<div>15:43:28 Warning Message: Script z\addons\dayz_server\system\server_monitor.sqf not found</div>
+<div>15:46:00 Client: Remote object 2:9 not found</div>
+<div>15:46:00 Client: Remote object 2:10 not found</div>
+<div>15:46:00 Client: Remote object 2:11 not found</div>
+<p> </p>
+</div></blockquote>
+<p> </p>
+<p>I noticed that a dayz_server.pbo doesn't even exist within any of the server or client files for DayZ or DayZ Epoch that I downloaded, but I don't know if it isn't supposed to be there anymore due to an update or if there is some other sort of problem.</p>
+<p> </p>
+</div>
+<div> </div>
+<div>config.cfg
+<div> </div>
+</div>
+<blockquote class="ipsQuote" data-ipsquote=""><div>
+<div>
+<div>steamport = 2312;</div>
+<div>steamqueryport = 2313;</div>
+<div>hostName = "Bloodmillion's DayZ Epoch Chernarus (1.0.5.1/125548)";</div>
+<div>password = "";</div>
+<div>passwordAdmin = "84960184930365!$";</div>
+<div>maxPlayers = 10;</div>
+<div>logFile = "server_log.txt";</div>
+<div>voteThreshold = 2;</div>
+<div>voteMissionPlayers = 3;</div>
+<div>reportingIP = "arma2oapc.master.gamespy.com";</div>
+<div>timeStampFormat = "short";</div>
+<div>motd[] = {"DayZ Epoch","Have fun!"};</div>
+<div>motdInterval = 0;</div>
+<div>vonCodecQuality = 11;</div>
+<div>disableVoN = 0;</div>
+<div>kickduplicate = 1;</div>
+<div>verifySignatures = 2;</div>
+<div>persistent = 1;</div>
+<div>BattlEye = 1;</div>
+<div>doubleIdDetected = "";</div>
+<div>onUserConnected = "";</div>
+<div>onUserDisconnected = "";</div>
+<div>onUnsignedData = "kick (_this select 0)";</div>
+<div>onHackedData = <span> </span>"kick (_this select 0)";</div>
+<div>onDifferentData = "";</div>
+<div>regularCheck = "";</div>
+<div>requiredBuild = 125548;</div>
+<div>requiredSecureId = 2;</div>
+<div> </div>
+<div>class Missions</div>
+<div>{</div>
+<div>    class Mission1</div>
+<div>    {</div>
+<div>    <span> </span>template = "DayZ_Epoch_11.Chernarus";</div>
+<div>    <span> </span>difficulty="regular";</div>
+<div>    };</div>
+<div> </div>
+<div>};</div>
+</div>
+<p> </p>
+<p> </p>
+</div></blockquote>
+<p> </p>
+<p>HiveExt.ini</p>
+<div>
+<blockquote class="ipsQuote" data-ipsquote=""><div>
+<div>;This is a comment</div>
+<div>;Comments above a certain setting will provide it's description</div>
+<div> </div>
+<div>;The format for a setting is </div>
+<div>;Variable = Value</div>
+<div> </div>
+<div>;If you see a commented line of that form, it means that the setting is optional, and the Value shows the default</div>
+<div>;To change from the default, simply uncomment the line and change the Value</div>
+<div> </div>
+<div>;This configuration file should be placed inside your server instance's configuration directory (like cfgdayz)</div>
+<div> </div>
+<div>[Time]</div>
+<div>;Possible values: Local, Custom, Static</div>
+<div>;You cannot use Static on OFFICIAL Hive, it will just revert to Local</div>
+<div>Type = Static</div>
+<div>;If using Custom type, offset from UTC in hours (can be negative as well)</div>
+<div>;Offset = -8</div>
+<div>;If using Static type (Hour value always the same on every server start), the value (0-24) to set the Hour to</div>
+<div>Hour = 13</div>
+<div> </div>
+<div>[Database]</div>
+<div>;Hostname or IP of the server to connect to</div>
+<div>;If you leave this line commented or blank, HiveExt will connect to the OFFICIAL Hive, which requires registration</div>
+<div>;See support.dayzmod.com for more information on what OFFICIAL Hive means, what are the rules, etc.</div>
+<div>;If using OFFICIAL hive, the rest of the settings in this section have no effect</div>
+<div>Host = localhost</div>
+<div> </div>
+<div>;Currently, only MySQL is supported</div>
+<div>Type = MySQL</div>
+<div> </div>
+<div>;Port to connect to. The default is the default listening port of a server of the selected Type</div>
+<div>;Instead of specifying Port, you can specify Socket and set Value to the socket name</div>
+<div>Port = 3306</div>
+<div> </div>
+<div>;Database name to connect to.</div>
+<div>Database = dayz_epoch</div>
+<div> </div>
+<div>;Username to connect with</div>
+<div>Username = root</div>
+<div>;Password to authenticate with (default is blank)</div>
+<div>Password = </div>
+<div> </div>
+<div>;If using OFFICIAL hive, the settings in this section have no effect, appropriate layout will be used</div>
+<div>[Characters]</div>
+<div>;The field name that Player's IDs are stored in (unique per game license)</div>
+<div>;Some table layouts have this as PlayerID, and some as PlayerUID, that's why this is configurable</div>
+<div>;IDField = PlayerUID</div>
+<div>;The field name that Player's World Position and rotation is stored in</div>
+<div>;Enables you to run multiple different maps (different instances) off the same character table</div>
+<div>;WSField = Worldspace</div>
+<div> </div>
+<div>;If using OFFICIAL hive, the settings in this section have no effect, as it will clean up by itself</div>
+<div>[Objects]</div>
+<div>;Which table should the objects be stored and fetched from ?</div>
+<div>;Table = Object_DATA</div>
+<div> </div>
+<div>;Negative values will disable this feature</div>
+<div>;0 means that ALL empty placed items will be deleted every server restart</div>
+<div>;A positive number is how old (in days) a placed empty item must be, in order for it to be deleted</div>
+<div>;CleanupPlacedAfterDays = 6</div>
+<div> </div>
+<div>;Flag indicating whether hiveext should detect vehicles out of map boundaries (X &lt; 0, or Y &gt; 15360) and reset their position to []</div>
+<div>;Note: YOU MUST have a proper dayz_server.pbo that supports this feature, otherwise you will get script errors</div>
+<div>;You can find that file under the SQF directory for your server version</div>
+<div>;ResetOOBVehicles = false</div>
+<div> </div>
+<div>;If using OFFICIAL hive, the settings in this section have no effect, it will manage objects on its own</div>
+<div>[ObjectDB]</div>
+<div>;Setting this to true separates the Object fetches from the Character fetches</div>
+<div>;That means that the Object Table must be on this other database</div>
+<div>;Use = false</div>
+<div> </div>
+<div>;The settings here have the same meaning as in [Database], and are only used if the setting above is set to true</div>
+<div>;Type = MySQL</div>
+<div>;Host = localhost</div>
+<div>;Port = 3306</div>
+<div>;Database = dayz</div>
+<div>;Username = root</div>
+<div>;Password = </div>
+<div> </div>
+<p> </p>
+</div></blockquote>
+<p> </p>
+</div>
+<div> </div>
+<div>Here are some solutions that I have tried:</div>
+<p> </p>
+<p>-Completely removed DayZ and DayZ Epoch and re-installed them (downloaded from epochmod.com)</p>
+<p>-Verified the game cache for Arma II and Arma II OA</p>
+<p>-Deleted everything and started over again</p>
+<p>-Tried connecting to my server through Arma II OA rather than DayZ Commander</p>
+<p> </p>
+<p> </p>
+<p>Any help would be greatly appreciated</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_134886_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134886" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134886" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134886&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment%26comment=134886&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Over the last couple of days, I have been attempting to create my own DayZ Epoch 1.0.5.1 server without any added scripts by following a tutorial video (
+ 
+). When I start the game and connect to my server, it gets stuck on &quot;waiting for server to start authentication.&quot; I am inexperienced, but I have been trying to look for solutions on the internet to my problem but I haven't found any that worked. I really can't figure out how to fix the problem; I am using the latest version of DayZ epoch (1.0.5.1) and the latest Arma II OA version (125548), and I am putting everything where it is supposed to go. I haven't edited any .pbo files or tried adding custom scripts or anything. Also, I can connect to other servers just fine without any problems.
+  
+I am using Windows 8.1 64-bit if it matters, and my DayZ Epoch server folder is just on my desktop 
+  
+  
+arma2oaserver.RPT 
+  
+I noticed that a dayz_server.pbo doesn't even exist within any of the server or client files for DayZ or DayZ Epoch that I downloaded, but I don't know if it isn't supposed to be there anymore due to an update or if there is some other sort of problem. 
+  
+
+ 
+config.cfg
+ 
+
+
+  
+HiveExt.ini 
+
+
+  
+
+ 
+Here are some solutions that I have tried:
+  
+-Completely removed DayZ and DayZ Epoch and re-installed them (downloaded from epochmod.com) 
+-Verified the game cache for Arma II and Arma II OA 
+-Deleted everything and started over again 
+-Tried connecting to my server through Arma II OA rather than DayZ Commander 
+  
+  
+Any help would be greatly appreciated 
+  
+  
+  
+  
+  
+  
+" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134886">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">4 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-134896"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_134896">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17926-osuapoc/?do=hovercard" data-ipshover-width="370" href="../../profile/17926-osuapoc/index.html" rel="nofollow" title="Go to OSUapoc's profile">
+<img alt="OSUapoc" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-17926.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/17926-osuapoc/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17926-osuapoc/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/17926-osuapoc/index.html" rel="nofollow" title="Go to OSUapoc's profile"><span style="color:#">OSUapoc</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134896" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T15:48:07Z" title="09/23/14 03:48  PM">September 23, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17926-osuapoc/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/17926-osuapoc/index.html" rel="nofollow" title="Go to OSUapoc's profile">OSUapoc</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17926-osuapoc/?do=hovercard" data-ipshover-width="370" href="../../profile/17926-osuapoc/index.html" rel="nofollow" title="Go to OSUapoc's profile">
+<img alt="OSUapoc" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-17926.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/17926-osuapoc/content/" rel="nofollow" title="39 posts">
+<i class="fa fa-comment"></i> 39
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="134896" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17926,"username":"OSUapoc","timestamp":1411487287,"contentapp":"forums","contenttype":"forums","contentid":18332,"contentclass":"forums_Topic","contentcommentid":134896}' id="comment-134896_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-134896_wrap" href="#elControls_134896_menu" id="elControls_134896" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_134896_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=reportComment&amp;comment=134896" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_134896_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134896" id="elSharePost_134896" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134896" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T15:48:07Z" title="09/23/14 03:48  PM">September 23, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>In your @dayz_epoch_server folder you should have a subfolder: /addons and within there should be your dayz_server.pbo. </p><p></p><p>
+What are your startup parameters for your server?</p><p></p><p>
+There is a detailed 70+ step guide in this subforum that yields a functional server, go through that instead of the video you used. If memory serves, that video is out of date by a bit. </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_134896_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134896"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134896" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134896" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134896&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment%26comment=134896&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="In your @dayz_epoch_server folder you should have a subfolder: /addons and within there should be your dayz_server.pbo.   
+What are your startup parameters for your server?  
+There is a detailed 70+ step guide in this subforum that yields a functional server, go through that instead of the video you used. If memory serves, that video is out of date by a bit.  
+" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134896">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-134942"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_134942">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/22701-bloodmillion/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile"><span style="color:#">Bloodmillion</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134942" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T17:07:38Z" title="09/23/14 05:07  PM">September 23, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">Bloodmillion</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/22701-bloodmillion/content/" rel="nofollow" title="3 posts">
+<i class="fa fa-comment"></i> 3
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="134942" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":22701,"username":"Bloodmillion","timestamp":1411492058,"contentapp":"forums","contenttype":"forums","contentid":18332,"contentclass":"forums_Topic","contentcommentid":134942}' id="comment-134942_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-134942_wrap" href="#elControls_134942_menu" id="elControls_134942" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_134942_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=reportComment&amp;comment=134942" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_134942_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134942" id="elSharePost_134942" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134942" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T17:07:38Z" title="09/23/14 05:07  PM">September 23, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I actually looked through that guide already to double check what the video had me do, and there were only a few minor differences. Also, I checked my Dayz_Epoch_Server folder and it does not contain dayz_server.pbo. I downloaded the epoch server files from epochmod.com and put them in there, and it didn't come with dayz_server.pbo.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_134942_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134942"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134942" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134942" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D134942&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment%26comment=134942&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I actually looked through that guide already to double check what the video had me do, and there were only a few minor differences. Also, I checked my Dayz_Epoch_Server folder and it does not contain dayz_server.pbo. I downloaded the epoch server files from epochmod.com and put them in there, and it didn't come with dayz_server.pbo. 
+" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=134942">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-135094"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_135094">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135094" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T21:53:48Z" title="09/23/14 09:53  PM">September 23, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="135094" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1411509228,"contentapp":"forums","contenttype":"forums","contentid":18332,"contentclass":"forums_Topic","contentcommentid":135094}' id="comment-135094_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-135094_wrap" href="#elControls_135094_menu" id="elControls_135094" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_135094_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=reportComment&amp;comment=135094" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_135094_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135094" id="elSharePost_135094" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135094" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-23T21:53:48Z" title="09/23/14 09:53  PM">September 23, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>well thats not true if you downloaded the server files there definately is a dayz_server.pbo ^^</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_135094_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135094"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D135094" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D135094" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D135094&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment%26comment=135094&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="well thats not true if you downloaded the server files there definately is a dayz_server.pbo ^^ 
+" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135094">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-135265"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_135265">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/22701-bloodmillion/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile"><span style="color:#">Bloodmillion</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135265" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-24T04:21:35Z" title="09/24/14 04:21  AM">September 24, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F18332-dayz-epoch-1051-server_monitorsqf-problem%252F" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">Bloodmillion</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22701-bloodmillion/?do=hovercard" data-ipshover-width="370" href="../../profile/22701-bloodmillion/index.html" rel="nofollow" title="Go to Bloodmillion's profile">
+<img alt="Bloodmillion" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4628a%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EB%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/22701-bloodmillion/content/" rel="nofollow" title="3 posts">
+<i class="fa fa-comment"></i> 3
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="135265" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":22701,"username":"Bloodmillion","timestamp":1411532495,"contentapp":"forums","contenttype":"forums","contentid":18332,"contentclass":"forums_Topic","contentcommentid":135265}' id="comment-135265_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-135265_wrap" href="#elControls_135265_menu" id="elControls_135265" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_135265_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=reportComment&amp;comment=135265" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_135265_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135265" id="elSharePost_135265" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135265" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-24T04:21:35Z" title="09/24/14 04:21  AM">September 24, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I checked the files again and managed to find it this time, it must have gotten deleted from my server folder. After placing it in addons, and fixing a few other problems that came up, my server now works. Thanks for the help</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_135265_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135265"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D135265" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D135265" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F%3Fdo%3DfindComment%26comment%3D135265&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment%26comment=135265&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I checked the files again and managed to find it this time, it must have gotten deleted from my server folder. After placing it in addons, and fixing a few other problems that came up, my server now works. Thanks for the help 
+" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/?do=findComment&amp;comment=135265">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xODMzMi1kYXl6LWVwb2NoLTEwNTEtc2VydmVyX21vbml0b3JzcWYtcHJvYmxlbS8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F18332-dayz-epoch-1051-server_monitorsqf-problem%2F&amp;title=DayZ+Epoch+1.0.5.1+server_monitor.sqf+Problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-websharetitle="DayZ Epoch 1.0.5.1 server_monitor.sqf Problem" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="18332">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/29-server-install/index.html" rel="parent" title="Go to Server Install">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					DayZ Epoch 1.0.5.1 server_monitor.sqf Problem
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "DayZ Epoch 1.0.5.1 server_monitor.sqf Problem",
+    "headline": "DayZ Epoch 1.0.5.1 server_monitor.sqf Problem",
+    "text": "Over the last couple of days, I have been attempting to create my own DayZ Epoch 1.0.5.1 server without any added scripts by following a tutorial video (\n \n). When I start the game and connect to my server, it gets stuck on \"waiting for server to start authentication.\" I am inexperienced, but I have been trying to look for solutions on the internet to my problem but I haven\u0027t found any that worked. I really can\u0027t figure out how to fix the problem; I am using the latest version of DayZ epoch (1.0.5.1) and the latest Arma II OA version (125548), and I am putting everything where it is supposed to go. I haven\u0027t edited any .pbo files or tried adding custom scripts or anything. Also, I can connect to other servers just fine without any problems.\n\u00a0 \nI am using Windows 8.1 64-bit if it matters, and my DayZ Epoch server folder is just on my desktop \n\u00a0 \n\u00a0 \narma2oaserver.RPT \n\u00a0 \nI noticed that a dayz_server.pbo doesn\u0027t even exist within any of the server or client files for DayZ or DayZ Epoch that I downloaded, but I don\u0027t know if it isn\u0027t supposed to be there anymore due to an update or if there is some other sort of problem. \n\u00a0 \n\n\u00a0\nconfig.cfg\n\u00a0\n\n\n\u00a0 \nHiveExt.ini \n\n\n\u00a0 \n\n\u00a0\nHere are some solutions that I have tried:\n\u00a0 \n-Completely removed DayZ and DayZ Epoch and re-installed them (downloaded from epochmod.com) \n-Verified the game cache for Arma II and Arma II OA \n-Deleted everything and started over again \n-Tried connecting to my server through Arma II OA rather than DayZ Commander \n\u00a0 \n\u00a0 \nAny help would be greatly appreciated \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n",
+    "dateCreated": "2014-09-23T15:17:54+0000",
+    "datePublished": "2014-09-23T15:17:54+0000",
+    "dateModified": "2014-09-24T04:21:35+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "Bloodmillion",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/22701-bloodmillion/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1625
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 4
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/",
+    "url": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "DayZ Epoch 1.0.5.1 server_monitor.sqf Problem",
+        "text": "Over the last couple of days, I have been attempting to create my own DayZ Epoch 1.0.5.1 server without any added scripts by following a tutorial video (\n \n). When I start the game and connect to my server, it gets stuck on \"waiting for server to start authentication.\" I am inexperienced, but I have been trying to look for solutions on the internet to my problem but I haven\u0027t found any that worked. I really can\u0027t figure out how to fix the problem; I am using the latest version of DayZ epoch (1.0.5.1) and the latest Arma II OA version (125548), and I am putting everything where it is supposed to go. I haven\u0027t edited any .pbo files or tried adding custom scripts or anything. Also, I can connect to other servers just fine without any problems.\n\u00a0 \nI am using Windows 8.1 64-bit if it matters, and my DayZ Epoch server folder is just on my desktop \n\u00a0 \n\u00a0 \narma2oaserver.RPT \n\u00a0 \nI noticed that a dayz_server.pbo doesn\u0027t even exist within any of the server or client files for DayZ or DayZ Epoch that I downloaded, but I don\u0027t know if it isn\u0027t supposed to be there anymore due to an update or if there is some other sort of problem. \n\u00a0 \n\n\u00a0\nconfig.cfg\n\u00a0\n\n\n\u00a0 \nHiveExt.ini \n\n\n\u00a0 \n\n\u00a0\nHere are some solutions that I have tried:\n\u00a0 \n-Completely removed DayZ and DayZ Epoch and re-installed them (downloaded from epochmod.com) \n-Verified the game cache for Arma II and Arma II OA \n-Deleted everything and started over again \n-Tried connecting to my server through Arma II OA rather than DayZ Commander \n\u00a0 \n\u00a0 \nAny help would be greatly appreciated \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n",
+        "answerCount": 4,
+        "dateCreated": "2014-09-23T15:17:54+0000",
+        "author": {
+            "@type": "Person",
+            "name": "Bloodmillion"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-134896",
+                "url": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-134896",
+                "author": {
+                    "@type": "Person",
+                    "name": "OSUapoc",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-17926.png",
+                    "url": "https://epochmod.com/forum/profile/17926-osuapoc/"
+                },
+                "dateCreated": "2014-09-23T15:48:07+0000",
+                "text": "In your @dayz_epoch_server folder you should have a subfolder: /addons and within there should be your dayz_server.pbo.   \nWhat are your startup parameters for your server?  \nThere is a detailed 70+ step guide in this subforum that yields a functional server, go through that instead of the video you used. If memory serves, that video is out of date by a bit.  \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-134942",
+                "url": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-134942",
+                "author": {
+                    "@type": "Person",
+                    "name": "Bloodmillion",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/22701-bloodmillion/"
+                },
+                "dateCreated": "2014-09-23T17:07:38+0000",
+                "text": "I actually looked through that guide already to double check what the video had me do, and there were only a few minor differences. Also, I checked my Dayz_Epoch_Server folder and it does not contain dayz_server.pbo. I downloaded the epoch server files from epochmod.com and put them in there, and it didn\u0027t come with dayz_server.pbo. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-135094",
+                "url": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-135094",
+                "author": {
+                    "@type": "Person",
+                    "name": "Guest",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+                },
+                "dateCreated": "2014-09-23T21:53:48+0000",
+                "text": "well thats not true if you downloaded the server files there definately is a dayz_server.pbo ^^ \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-135265",
+                "url": "https://epochmod.com/forum/topic/18332-dayz-epoch-1051-server_monitorsqf-problem/#comment-135265",
+                "author": {
+                    "@type": "Person",
+                    "name": "Bloodmillion",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/22701-bloodmillion/"
+                },
+                "dateCreated": "2014-09-24T04:21:35+0000",
+                "text": "I checked the files again and managed to find it this time, it must have gotten deleted from my server folder. After placing it in addons, and fixing a few other problems that came up, my server now works. Thanks for the help \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "Bloodmillion",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/22701-bloodmillion/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/29-server-install/",
+                "name": "Server Install"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

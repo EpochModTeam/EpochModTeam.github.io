@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Automatic Server Restart, Help! - Server Install - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Automatic Server Restart, Help!" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/" property="og:url"/>
+<meta content="So I am nearly done setting up my server, all i need to have in it to finish is some sort of automatic restart script. I've looked around and I can't figure out what to use. I'm hosting my own server so any direction or help is greatly appreciated! It's Epoch 1.0.6 I'm fairly new to this coding s..." name="description"/>
+<meta content="So I am nearly done setting up my server, all i need to have in it to finish is some sort of automatic restart script. I've looked around and I can't figure out what to use. I'm hosting my own server so any direction or help is greatly appreciated! It's Epoch 1.0.6 I'm fairly new to this coding s..." property="og:description"/>
+<meta content="2017-01-17T21:12:44Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="43157" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80MzE1Ny1hdXRvbWF0aWMtc2VydmVyLXJlc3RhcnQtaGVscC8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":29}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":43157}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Automatic Server Restart, Help!
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Automatic Server Restart, Help!</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">LostKaus</a>,</strong><br/><span class="ipsType_light"><time data-short="8 yr" datetime="2017-01-14T20:37:46Z" title="01/14/17 08:37  PM">January 14, 2017</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Automatic Server Restart, Help!" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="43157">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-43157" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-285524"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_285524">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/37790-lostkaus/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile"><span style="color:#">LostKaus</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285524" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-14T20:37:46Z" title="01/14/17 08:37  PM">January 14, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">LostKaus</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/37790-lostkaus/content/" rel="nofollow" title="8 posts">
+<i class="fa fa-comment"></i> 8
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sun Prairie, Wisconsin</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="285524" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":37790,"username":"LostKaus","timestamp":1484426266,"contentapp":"forums","contenttype":"forums","contentid":43157,"contentclass":"forums_Topic","contentcommentid":285524}' id="comment-285524_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-285524_wrap" href="#elControls_285524_menu" id="elControls_285524" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_285524_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=reportComment&amp;comment=285524" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_285524_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_285524" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285524" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-14T20:37:46Z" title="01/14/17 08:37  PM">January 14, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	So I am nearly done setting up my server, all i need to have in it to finish is some sort of automatic restart script. I've looked around and I can't figure out what to use. 
+</p>
+<p>
+	I'm hosting my own server so any direction or help is greatly appreciated! 
+</p>
+<p>
+	It's Epoch 1.0.6
+</p>
+<p>
+	I'm fairly new to this coding stuff so the easier it is the better. I just don't know where to start
+</p>
+<p>
+	Thanks!
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_285524_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285524" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285524" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285524&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment%26comment=285524&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="So I am nearly done setting up my server, all i need to have in it to finish is some sort of automatic restart script. I've looked around and I can't figure out what to use. 
+ 
+
+
+	I'm hosting my own server so any direction or help is greatly appreciated! 
+ 
+
+
+	It's Epoch 1.0.6
+ 
+
+
+	I'm fairly new to this coding stuff so the easier it is the better. I just don't know where to start
+ 
+
+
+	Thanks!
+ 
+" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285524">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">5 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-285527"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_285527">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36471-lwbuk/?do=hovercard" data-ipshover-width="370" href="../../profile/36471-lwbuk/index.html" rel="nofollow" title="Go to lwbuk's profile">
+<img alt="lwbuk" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_06/s.jpg.6880d2fa8fd4da9e0977db127d178d73.thumb.jpg.45a3db875a1841e6979f90751ec76675.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/36471-lwbuk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36471-lwbuk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/36471-lwbuk/index.html" rel="nofollow" title="Go to lwbuk's profile"><span style="color:#">lwbuk</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285527" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-14T21:11:37Z" title="01/14/17 09:11  PM">January 14, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36471-lwbuk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/36471-lwbuk/index.html" rel="nofollow" title="Go to lwbuk's profile">lwbuk</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36471-lwbuk/?do=hovercard" data-ipshover-width="370" href="../../profile/36471-lwbuk/index.html" rel="nofollow" title="Go to lwbuk's profile">
+<img alt="lwbuk" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_06/s.jpg.6880d2fa8fd4da9e0977db127d178d73.thumb.jpg.45a3db875a1841e6979f90751ec76675.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/36471-lwbuk/content/" rel="nofollow" title="630 posts">
+<i class="fa fa-comment"></i> 630
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">UK</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="285527" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36471,"username":"lwbuk","timestamp":1484428297,"contentapp":"forums","contenttype":"forums","contentid":43157,"contentclass":"forums_Topic","contentcommentid":285527}' id="comment-285527_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-285527_wrap" href="#elControls_285527_menu" id="elControls_285527" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_285527_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=reportComment&amp;comment=285527" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_285527_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285527" id="elSharePost_285527" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285527" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-14T21:11:37Z" title="01/14/17 09:11  PM">January 14, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	I do it like this.
+</p>
+<p>
+	You need BEC installed for the scheduler and then make 3  .bat files.
+</p>
+<p>
+	First called Server_Restart.bat
+</p>
+<p>
+	 
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">@echo off
+echo.
+echo KILL arma2oaserver.exe
+set serverkill="YOUR SERVER ROOT PATH"
+cd /d %serverkill%
+taskkill /im arma2oaserver.exe
+echo.
+echo Kill Bec.exe
+set beckill="YOUR BEC PATH"
+cd /d %beckill%
+taskkill /im bec.exe
+
+timeout 5
+
+echo.
+echo Rotate Logs
+start "start" "ROTATE LOGS .BAT PATH" 
+
+timeout 5
+
+
+echo.
+echo Starting Dayz Server
+:: start the server..
+set dayzpath="YOUR ROOT PATH\"
+cd /d %dayzpath%
+start "start" "Server_Start_New.bat"
+echo.
+echo Starting Bec
+timeout 20
+:: start bec
+set becpath="YOUR BEC PATH"
+cd /d %becpath%
+start "start" "bec.exe" -f Config.cfg
+echo.
+echo Server Started 100%
+
+cls
+@exit</span></pre>
+<p>
+	 
+</p>
+<p>
+	second called Server_Start_New.bat
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">timeout 5
+
+::Start Dayz Server::
+
+start "arma2" /HIGH /affinity 2  "arma2oaserver.exe" -ip=xx.xx.xxx.xx -port=xxxx -maxmem=2047 -noPause "-config=instance_11_Chernarus\config.cfg" "-cfg=instance_11_Chernarus\basic.cfg" "-profiles=instance_11_Chernarus" -name=instance_11_Chernarus "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
+
+cls
+
+@exit</span></pre>
+<p>
+	 
+</p>
+<p>
+	Third called rotate_logs.bat, this isnt necesary if you dont want it though.
+</p>
+<p>
+	 
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">@echo off
+:: Based off of Server Launch Script by r4z0r49
+:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com
+::
+:: Usage: dayzsrv-log-rotater.bat servername
+:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat 
+:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \
+set arma2srvpath=YOUR ROOT PATH
+
+:: Set your Default server profile name. This is the name of the directory that stores your server.cfg
+:: This will be used in the case that you don't launch this script without the server param.
+:: Example: cfgdayz, US6, Chicago13, ect
+:: DEFAULTPROFILE
+set srvname=instance_11_Chernarus
+
+:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.
+:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon's Pre/Post Service tab
+set deloriglogs=1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+
+:: Setting Server Profile to Use
+IF "%1"=="" (
+set servername=%srvname%
+) else (
+set servername=%1
+)
+
+TITLE  DayZ %servername% Server Log Rotater
+
+:: Set Debug Mode
+set debug=0
+:: Set Debug Timeout in seconds
+set dbsecs=10
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: Display Debug output
+if %debug% == 1 (
+echo Server Name = %servername%
+echo ArmaII Server Path = "%arma2srvpath%"
+timeout %dbsecs%
+)
+
+:: Set Time and Date
+SET HOUR=%time:~0,2%
+SET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%
+SET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%
+::Make Date Stamp
+if "%HOUR:~0,1%" == " " (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
+ECHO Todays Date and time (%date%)(%time%) / %dtStamp%
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+echo (%date%) (%time%) Starting Log Rotation.
+
+:: Make the Rotated Log Directorys
+if exist "%arma2srvpath%\%servername%\RotatedLogs" goto maketsdir
+mkdir "%arma2srvpath%\%servername%\RotatedLogs"
+:maketsdir
+if exist "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%" goto makebedir
+mkdir "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%"
+:makebedir
+if exist "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye" goto rotatelogs
+mkdir "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye"
+
+:rotatelogs
+:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.
+copy "%arma2srvpath%\%servername%\arma2oaserver.RPT" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.RPT"
+copy "%arma2srvpath%\%servername%\arma2oaserver.mdmp" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.mdmp"
+copy "%arma2srvpath%\%servername%\arma2oaserver.bidmp" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.bidmp"
+copy "%arma2srvpath%\%servername%\server_log.txt" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\server_log.txt"
+copy "%arma2srvpath%\%servername%\HiveExt.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\HiveExt.log"
+copy "%arma2srvpath%\%servername%\BattlEye\scripts.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\scripts.log"
+copy "%arma2srvpath%\%servername%\BattlEye\createvehicle.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\createvehicle.log"
+copy "%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\mpeventhandler.log"
+copy "%arma2srvpath%\%servername%\BattlEye\publicvariable.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariable.log"
+copy "%arma2srvpath%\%servername%\BattlEye\publicvariableval.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariableval.log"
+copy "%arma2srvpath%\%servername%\BattlEye\remoteexec.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\remoteexec.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setdamage.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setdamage.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setpos.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setpos.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setvariable.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setvariable.log"
+copy "%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\addmagazinecargo.log"
+
+echo (%date%) (%time%) Logs are backed up now...
+echo (%date%) (%time%) Removing original log files.
+del /Q /F "%arma2srvpath%\%servername%\arma2oaserver.RPT"
+del /Q /F "%arma2srvpath%\%servername%\arma2oaserver.mdmp"
+del /Q /F "%arma2srvpath%\%servername%\arma2oaserver.bidmp"
+del /Q /F "%arma2srvpath%\%servername%\server_console.log"
+del /Q /F "%arma2srvpath%\%servername%\runtime.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\scripts.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\createvehicle.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\publicvariable.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\publicvariableval.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\remoteexec.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setdamage.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setpos.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setvariable.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log"
+del /Q /F "%arma2srvpath%\%servername%\HiveExt.log"
+
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+:: We're done here.
+exit</span></pre>
+<p>
+	In your BEC scheduler.xml, the last two jobs should be
+</p>
+<p>
+	 
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln">
+    </span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"8"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+        </span><span class="tag">&lt;start&gt;</span><span class="pln">023000</span><span class="tag">&lt;/start&gt;</span><span class="pln">
+        </span><span class="tag">&lt;runtime&gt;</span><span class="pln">000000</span><span class="tag">&lt;/runtime&gt;</span><span class="pln">
+        </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+        </span><span class="tag">&lt;cmd&gt;</span><span class="pln">#shutdown</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/job&gt;</span><span class="pln">
+	
+	</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">'9'</span><span class="tag">&gt;</span><span class="pln">
+	</span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+	</span><span class="tag">&lt;start&gt;</span><span class="pln">023000</span><span class="tag">&lt;/start&gt;</span><span class="pln">
+	</span><span class="tag">&lt;runtime&gt;</span><span class="pln">000000</span><span class="tag">&lt;/runtime&gt;</span><span class="pln">
+	</span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+	</span><span class="tag">&lt;cmd&gt;</span><span class="pln">YOUR ROOT PATH\Server_Restart.bat</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+</span><span class="tag">&lt;/Scheduler&gt;</span></pre>
+<p>
+	 
+</p>
+<p>
+	There are other ways, incuding a monitor.bat file, which auto re opens if arma crashes, but I havent got around to doing that yet.
+</p>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_285527_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285527"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285527" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285527" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285527&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment%26comment=285527&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I do it like this.
+ 
+
+
+	You need BEC installed for the scheduler and then make 3  .bat files.
+ 
+
+
+	First called Server_Restart.bat
+ 
+
+
+	 
+ 
+
+
+@echo off
+echo.
+echo KILL arma2oaserver.exe
+set serverkill=&quot;YOUR SERVER ROOT PATH&quot;
+cd /d %serverkill%
+taskkill /im arma2oaserver.exe
+echo.
+echo Kill Bec.exe
+set beckill=&quot;YOUR BEC PATH&quot;
+cd /d %beckill%
+taskkill /im bec.exe
+
+timeout 5
+
+echo.
+echo Rotate Logs
+start &quot;start&quot; &quot;ROTATE LOGS .BAT PATH&quot; 
+
+timeout 5
+
+
+echo.
+echo Starting Dayz Server
+:: start the server..
+set dayzpath=&quot;YOUR ROOT PATH\&quot;
+cd /d %dayzpath%
+start &quot;start&quot; &quot;Server_Start_New.bat&quot;
+echo.
+echo Starting Bec
+timeout 20
+:: start bec
+set becpath=&quot;YOUR BEC PATH&quot;
+cd /d %becpath%
+start &quot;start&quot; &quot;bec.exe&quot; -f Config.cfg
+echo.
+echo Server Started 100%
+
+cls
+@exit
+
+
+	 
+ 
+
+
+	second called Server_Start_New.bat
+ 
+
+
+timeout 5
+
+::Start Dayz Server::
+
+start &quot;arma2&quot; /HIGH /affinity 2  &quot;arma2oaserver.exe&quot; -ip=xx.xx.xxx.xx -port=xxxx -maxmem=2047 -noPause &quot;-config=instance_11_Chernarus\config.cfg&quot; &quot;-cfg=instance_11_Chernarus\basic.cfg&quot; &quot;-profiles=instance_11_Chernarus&quot; -name=instance_11_Chernarus &quot;-mod=@DayZ_Epoch;@DayZ_Epoch_Server;&quot;
+
+cls
+
+@exit
+
+
+	 
+ 
+
+
+	Third called rotate_logs.bat, this isnt necesary if you dont want it though.
+ 
+
+
+	 
+ 
+
+
+@echo off
+:: Based off of Server Launch Script by r4z0r49
+:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com
+::
+:: Usage: dayzsrv-log-rotater.bat servername
+:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat 
+:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \
+set arma2srvpath=YOUR ROOT PATH
+
+:: Set your Default server profile name. This is the name of the directory that stores your server.cfg
+:: This will be used in the case that you don't launch this script without the server param.
+:: Example: cfgdayz, US6, Chicago13, ect
+:: DEFAULTPROFILE
+set srvname=instance_11_Chernarus
+
+:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.
+:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon's Pre/Post Service tab
+set deloriglogs=1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+
+:: Setting Server Profile to Use
+IF &quot;%1&quot;==&quot;&quot; (
+set servername=%srvname%
+) else (
+set servername=%1
+)
+
+TITLE  DayZ %servername% Server Log Rotater
+
+:: Set Debug Mode
+set debug=0
+:: Set Debug Timeout in seconds
+set dbsecs=10
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: Display Debug output
+if %debug% == 1 (
+echo Server Name = %servername%
+echo ArmaII Server Path = &quot;%arma2srvpath%&quot;
+timeout %dbsecs%
+)
+
+:: Set Time and Date
+SET HOUR=%time:~0,2%
+SET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%
+SET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%
+::Make Date Stamp
+if &quot;%HOUR:~0,1%&quot; == &quot; &quot; (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
+ECHO Todays Date and time (%date%)(%time%) / %dtStamp%
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+echo (%date%) (%time%) Starting Log Rotation.
+
+:: Make the Rotated Log Directorys
+if exist &quot;%arma2srvpath%\%servername%\RotatedLogs&quot; goto maketsdir
+mkdir &quot;%arma2srvpath%\%servername%\RotatedLogs&quot;
+:maketsdir
+if exist &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%&quot; goto makebedir
+mkdir &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%&quot;
+:makebedir
+if exist &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye&quot; goto rotatelogs
+mkdir &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye&quot;
+
+:rotatelogs
+:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.
+copy &quot;%arma2srvpath%\%servername%\arma2oaserver.RPT&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.RPT&quot;
+copy &quot;%arma2srvpath%\%servername%\arma2oaserver.mdmp&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.mdmp&quot;
+copy &quot;%arma2srvpath%\%servername%\arma2oaserver.bidmp&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.bidmp&quot;
+copy &quot;%arma2srvpath%\%servername%\server_log.txt&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\server_log.txt&quot;
+copy &quot;%arma2srvpath%\%servername%\HiveExt.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\HiveExt.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\scripts.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\scripts.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\createvehicle.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\createvehicle.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\mpeventhandler.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\publicvariable.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariable.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\publicvariableval.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariableval.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\remoteexec.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\remoteexec.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setdamage.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setdamage.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setpos.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setpos.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\setvariable.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setvariable.log&quot;
+copy &quot;%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log&quot; &quot;%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\addmagazinecargo.log&quot;
+
+echo (%date%) (%time%) Logs are backed up now...
+echo (%date%) (%time%) Removing original log files.
+del /Q /F &quot;%arma2srvpath%\%servername%\arma2oaserver.RPT&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\arma2oaserver.mdmp&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\arma2oaserver.bidmp&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\server_console.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\runtime.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\scripts.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\createvehicle.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\publicvariable.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\publicvariableval.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\remoteexec.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setdamage.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setpos.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\setvariable.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log&quot;
+del /Q /F &quot;%arma2srvpath%\%servername%\HiveExt.log&quot;
+
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+:: We're done here.
+exit
+
+
+	In your BEC scheduler.xml, the last two jobs should be
+ 
+
+
+	 
+ 
+
+
+
+    &lt;job id=&quot;8&quot;&gt;
+        &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+        &lt;start&gt;023000&lt;/start&gt;
+        &lt;runtime&gt;000000&lt;/runtime&gt;
+        &lt;loop&gt;0&lt;/loop&gt;
+        &lt;cmd&gt;#shutdown&lt;/cmd&gt;
+    &lt;/job&gt;
+	
+	&lt;job id='9'&gt;
+	&lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+	&lt;start&gt;023000&lt;/start&gt;
+	&lt;runtime&gt;000000&lt;/runtime&gt;
+	&lt;loop&gt;0&lt;/loop&gt;
+	&lt;cmd&gt;YOUR ROOT PATH\Server_Restart.bat&lt;/cmd&gt;
+&lt;/job&gt;
+&lt;/Scheduler&gt;
+
+
+	 
+ 
+
+
+	There are other ways, incuding a monitor.bat file, which auto re opens if arma crashes, but I havent got around to doing that yet.
+ 
+
+
+	 
+ 
+" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285527">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-285598"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_285598">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/37790-lostkaus/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile"><span style="color:#">LostKaus</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285598" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-16T23:56:28Z" title="01/16/17 11:56  PM">January 16, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">LostKaus</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/37790-lostkaus/content/" rel="nofollow" title="8 posts">
+<i class="fa fa-comment"></i> 8
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sun Prairie, Wisconsin</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="285598" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":37790,"username":"LostKaus","timestamp":1484610988,"contentapp":"forums","contenttype":"forums","contentid":43157,"contentclass":"forums_Topic","contentcommentid":285598}' id="comment-285598_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-285598_wrap" href="#elControls_285598_menu" id="elControls_285598" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_285598_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=reportComment&amp;comment=285598" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_285598_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285598" id="elSharePost_285598" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285598" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-16T23:56:28Z" title="01/16/17 11:56  PM">January 16, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="285527" data-ipsquote-contentid="43157" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1484428297" data-ipsquote-userid="36471" data-ipsquote-username="lwbuk">
+<div class="ipsQuote_citation">
+		On 1/14/2017 at 3:11 PM, lwbuk said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			I do it like this.
+		</p>
+<p>
+			You need BEC installed for the scheduler and then make 3  .bat files.
+		</p>
+<p>
+			First called Server_Restart.bat
+		</p>
+<p>
+			 
+		</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">@echo off
+echo.
+echo KILL arma2oaserver.exe
+set serverkill="YOUR SERVER ROOT PATH"
+cd /d %serverkill%
+taskkill /im arma2oaserver.exe
+echo.
+echo Kill Bec.exe
+set beckill="YOUR BEC PATH"
+cd /d %beckill%
+taskkill /im bec.exe
+
+timeout 5
+
+echo.
+echo Rotate Logs
+start "start" "ROTATE LOGS .BAT PATH" 
+
+timeout 5
+
+
+echo.
+echo Starting Dayz Server
+:: start the server..
+set dayzpath="YOUR ROOT PATH\"
+cd /d %dayzpath%
+start "start" "Server_Start_New.bat"
+echo.
+echo Starting Bec
+timeout 20
+:: start bec
+set becpath="YOUR BEC PATH"
+cd /d %becpath%
+start "start" "bec.exe" -f Config.cfg
+echo.
+echo Server Started 100%
+
+cls
+@exit</span></pre>
+<p>
+			 
+		</p>
+<p>
+			second called Server_Start_New.bat
+		</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">timeout 5
+
+::Start Dayz Server::
+
+start "arma2" /HIGH /affinity 2  "arma2oaserver.exe" -ip=xx.xx.xxx.xx -port=xxxx -maxmem=2047 -noPause "-config=instance_11_Chernarus\config.cfg" "-cfg=instance_11_Chernarus\basic.cfg" "-profiles=instance_11_Chernarus" -name=instance_11_Chernarus "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;"
+
+cls
+
+@exit</span></pre>
+<p>
+			 
+		</p>
+<p>
+			Third called rotate_logs.bat, this isnt necesary if you dont want it though.
+		</p>
+<p>
+			 
+		</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">@echo off
+:: Based off of Server Launch Script by r4z0r49
+:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com
+::
+:: Usage: dayzsrv-log-rotater.bat servername
+:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat 
+:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6
+
+:::::::::::::: CONFIG ::::::::::::::::::
+
+:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \
+set arma2srvpath=YOUR ROOT PATH
+
+:: Set your Default server profile name. This is the name of the directory that stores your server.cfg
+:: This will be used in the case that you don't launch this script without the server param.
+:: Example: cfgdayz, US6, Chicago13, ect
+:: DEFAULTPROFILE
+set srvname=instance_11_Chernarus
+
+:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.
+:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon's Pre/Post Service tab
+set deloriglogs=1
+
+::::::::::: ADVANCED CONFIG ::::::::::::
+:: Don't touch anything below this point unless you know what your doing.
+
+:: Setting Server Profile to Use
+IF "%1"=="" (
+set servername=%srvname%
+) else (
+set servername=%1
+)
+
+TITLE  DayZ %servername% Server Log Rotater
+
+:: Set Debug Mode
+set debug=0
+:: Set Debug Timeout in seconds
+set dbsecs=10
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:: Display Debug output
+if %debug% == 1 (
+echo Server Name = %servername%
+echo ArmaII Server Path = "%arma2srvpath%"
+timeout %dbsecs%
+)
+
+:: Set Time and Date
+SET HOUR=%time:~0,2%
+SET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%
+SET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%
+::Make Date Stamp
+if "%HOUR:~0,1%" == " " (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)
+ECHO Todays Date and time (%date%)(%time%) / %dtStamp%
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+echo (%date%) (%time%) Starting Log Rotation.
+
+:: Make the Rotated Log Directorys
+if exist "%arma2srvpath%\%servername%\RotatedLogs" goto maketsdir
+mkdir "%arma2srvpath%\%servername%\RotatedLogs"
+:maketsdir
+if exist "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%" goto makebedir
+mkdir "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%"
+:makebedir
+if exist "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye" goto rotatelogs
+mkdir "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye"
+
+:rotatelogs
+:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.
+copy "%arma2srvpath%\%servername%\arma2oaserver.RPT" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.RPT"
+copy "%arma2srvpath%\%servername%\arma2oaserver.mdmp" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.mdmp"
+copy "%arma2srvpath%\%servername%\arma2oaserver.bidmp" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\arma2oaserver.bidmp"
+copy "%arma2srvpath%\%servername%\server_log.txt" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\server_log.txt"
+copy "%arma2srvpath%\%servername%\HiveExt.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\HiveExt.log"
+copy "%arma2srvpath%\%servername%\BattlEye\scripts.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\scripts.log"
+copy "%arma2srvpath%\%servername%\BattlEye\createvehicle.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\createvehicle.log"
+copy "%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\mpeventhandler.log"
+copy "%arma2srvpath%\%servername%\BattlEye\publicvariable.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariable.log"
+copy "%arma2srvpath%\%servername%\BattlEye\publicvariableval.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\publicvariableval.log"
+copy "%arma2srvpath%\%servername%\BattlEye\remoteexec.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\remoteexec.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setdamage.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setdamage.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setpos.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setpos.log"
+copy "%arma2srvpath%\%servername%\BattlEye\setvariable.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\setvariable.log"
+copy "%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log" "%arma2srvpath%\%servername%\RotatedLogs\%dtStamp%\BattlEye\addmagazinecargo.log"
+
+echo (%date%) (%time%) Logs are backed up now...
+echo (%date%) (%time%) Removing original log files.
+del /Q /F "%arma2srvpath%\%servername%\arma2oaserver.RPT"
+del /Q /F "%arma2srvpath%\%servername%\arma2oaserver.mdmp"
+del /Q /F "%arma2srvpath%\%servername%\arma2oaserver.bidmp"
+del /Q /F "%arma2srvpath%\%servername%\server_console.log"
+del /Q /F "%arma2srvpath%\%servername%\runtime.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\scripts.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\createvehicle.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\mpeventhandler.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\publicvariable.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\publicvariableval.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\remoteexec.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setdamage.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setpos.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\setvariable.log"
+del /Q /F "%arma2srvpath%\%servername%\BattlEye\addmagazinecargo.log"
+del /Q /F "%arma2srvpath%\%servername%\HiveExt.log"
+
+if %debug% == 1 (
+timeout %dbsecs%
+)
+
+:: We're done here.
+exit</span></pre>
+<p>
+			In your BEC scheduler.xml, the last two jobs should be
+		</p>
+<p>
+			 
+		</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+
+<span class="pln">
+    </span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"8"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+        </span><span class="tag">&lt;start&gt;</span><span class="pln">023000</span><span class="tag">&lt;/start&gt;</span><span class="pln">
+        </span><span class="tag">&lt;runtime&gt;</span><span class="pln">000000</span><span class="tag">&lt;/runtime&gt;</span><span class="pln">
+        </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+        </span><span class="tag">&lt;cmd&gt;</span><span class="pln">#shutdown</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/job&gt;</span><span class="pln">
+	
+	</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">'9'</span><span class="tag">&gt;</span><span class="pln">
+	</span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+	</span><span class="tag">&lt;start&gt;</span><span class="pln">023000</span><span class="tag">&lt;/start&gt;</span><span class="pln">
+	</span><span class="tag">&lt;runtime&gt;</span><span class="pln">000000</span><span class="tag">&lt;/runtime&gt;</span><span class="pln">
+	</span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+	</span><span class="tag">&lt;cmd&gt;</span><span class="pln">YOUR ROOT PATH\Server_Restart.bat</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+</span><span class="tag">&lt;/Scheduler&gt;</span></pre>
+<p>
+			 
+		</p>
+<p>
+			There are other ways, incuding a monitor.bat file, which auto re opens if arma crashes, but I havent got around to doing that yet.
+		</p>
+<p>
+			 
+		</p>
+</div>
+</blockquote>
+<p>
+	Thanks for the help.<br>
+	I'm stuck somewhere though. When I go to run bec.exe i get an error in the command prompt that says it cannot locate the BEserver.cfg file. Now i looked around and I don't have that file in my battleye folder. Other people I see just made one and put some text in it.<br><span style="color:rgb(85,85,85);font-family:'dejavu sans mono', monaco, 'lucida console', 'courier new', monospace;font-size:x-small;font-style:normal;font-weight:normal;letter-spacing:normal;text-indent:0px;text-transform:none;word-spacing:0px;background-color:rgb(238,238,255);float:none;">RConPassword NotTellingYouLot</span><br style="margin:0px;padding:0px;color:rgb(85,85,85);font-family:'dejavu sans mono', monaco, 'lucida console', 'courier new', monospace;font-size:x-small;font-style:normal;font-weight:normal;letter-spacing:normal;text-indent:0px;text-transform:none;word-spacing:0px;"><span style="color:rgb(85,85,85);font-family:'dejavu sans mono', monaco, 'lucida console', 'courier new', monospace;font-size:x-small;font-style:normal;font-weight:normal;letter-spacing:normal;text-indent:0px;text-transform:none;word-spacing:0px;background-color:rgb(238,238,255);float:none;">MaxPing 250</span><br/>
+	That's what I found. <br/>
+	Any ideas why it wont load?
+</br></br></br></p>
+<p>
+	Thanks!
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_285598_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285598"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285598" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285598" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285598&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment%26comment=285598&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thanks for the help. 
+	I'm stuck somewhere though. When I go to run bec.exe i get an error in the command prompt that says it cannot locate the BEserver.cfg file. Now i looked around and I don't have that file in my battleye folder. Other people I see just made one and put some text in it. RConPassword NotTellingYouLotMaxPing 250 
+	That's what I found.  
+	Any ideas why it wont load?
+ 
+
+
+	Thanks!
+ 
+" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285598">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-285604"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_285604">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/36144-juandayz/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile"><span style="color:#">juandayz</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285604" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-17T03:06:03Z" title="01/17/17 03:06  AM">January 17, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/36144-juandayz/content/" rel="nofollow" title="2098 posts">
+<i class="fa fa-comment"></i> 2.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Buenos Aires,Argentina</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="285604" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36144,"username":"juandayz","timestamp":1484622363,"contentapp":"forums","contenttype":"forums","contentid":43157,"contentclass":"forums_Topic","contentcommentid":285604}' id="comment-285604_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-285604_wrap" href="#elControls_285604_menu" id="elControls_285604" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_285604_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=reportComment&amp;comment=285604" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_285604_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285604" id="elSharePost_285604" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285604" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-17T03:06:03Z" title="01/17/17 03:06  AM">January 17, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+<span><a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-mentionid="37790" href="../../profile/37790-lostkaus/index.html" rel="=">@LostKaus</a></span>
+</p>
+<p>
+	here you have my files: <a href="http://www.mediafire.com/file/6afp6inam56tfq2/autorestart.rar" rel="external nofollow">http://www.mediafire.com/file/6afp6inam56tfq2/autorestart.rar</a>
+</p>
+<p>
+<strong>1-</strong>Drop battleye folder into serverRoot\instance_11_Chernarus\
+</p>
+<p>
+<strong>2-</strong>The others 3 .bat files must be in your serverRoot-
+</p>
+<p>
+<strong>3-</strong>now you need change the paths in the files:
+</p>
+<p>
+<strong>A-</strong>open "monitor.bat" (located in your serverroot) and change the paths for your server route.<br/><strong>B-</strong>open "Premod_restart.bat" (located in your serverroot) and change the paths for your server route.<br/><strong>C-</strong>open "BEC_Control_Epoch.bat" (located in serverRoot\instance_11_Chernarus\BattlEye\Bec) and change the paths for your server route.<br/><strong>D-</strong>open "Config.cfg"(located in YourServerRoot\instance_11_Chernarus\BattlEye\Bec\Config\) and change the paths for your server route.
+</p>
+<p>
+<strong>E-</strong>open "Shedule.xml" (located in YourServerRoot\instance_11_Chernarus\BattlEye\Bec\Config\)<br/>
+	and  needs add this at each last shedule id job:
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="tag">&lt;cmd&gt;</span><span class="pln">C:\Users\Administrador\Desktop\Dayz Epoch Server\Premod_restart.bat</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">  </span></pre>
+<p>
+	 (change for ur server paths).
+</p>
+<p>
+	My example:
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span class="pln"> </span><span class="tag">&lt;Scheduler&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- 12:00 AM restart --&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"0"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;time&gt;</span><span class="pln">23:45:00</span><span class="tag">&lt;/time&gt;</span><span class="pln">
+    </span><span class="tag">&lt;delay&gt;</span><span class="pln">000000</span><span class="tag">&lt;/delay&gt;</span><span class="pln">
+    </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+    </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmd&gt;</span><span class="pln">say -1 This server will restart in 15 minutes</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmdtype&gt;</span><span class="pln">0</span><span class="tag">&lt;/cmdtype&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"1"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;time&gt;</span><span class="pln">23:55:00</span><span class="tag">&lt;/time&gt;</span><span class="pln">
+    </span><span class="tag">&lt;delay&gt;</span><span class="pln">000000</span><span class="tag">&lt;/delay&gt;</span><span class="pln">
+    </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+    </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmd&gt;</span><span class="pln">say -1 This server will restart in 5 minutes</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmdtype&gt;</span><span class="pln">0</span><span class="tag">&lt;/cmdtype&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"2"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;time&gt;</span><span class="pln">23:59:00</span><span class="tag">&lt;/time&gt;</span><span class="pln">
+    </span><span class="tag">&lt;delay&gt;</span><span class="pln">000000</span><span class="tag">&lt;/delay&gt;</span><span class="pln">
+    </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+    </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmd&gt;</span><span class="pln">say -1 This server will restart in 1 minute, Log out now!</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmdtype&gt;</span><span class="pln">0</span><span class="tag">&lt;/cmdtype&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"3"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;time&gt;</span><span class="pln">00:00:00</span><span class="tag">&lt;/time&gt;</span><span class="pln">
+    </span><span class="tag">&lt;delay&gt;</span><span class="pln">000000</span><span class="tag">&lt;/delay&gt;</span><span class="pln">
+    </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+    </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmd&gt;</span><span class="pln">#shutdown</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmdtype&gt;</span><span class="pln">0</span><span class="tag">&lt;/cmdtype&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;job</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"4"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;time&gt;</span><span class="pln">00:00:10</span><span class="tag">&lt;/time&gt;</span><span class="pln">
+    </span><span class="tag">&lt;delay&gt;</span><span class="pln">000000</span><span class="tag">&lt;/delay&gt;</span><span class="pln">
+    </span><span class="tag">&lt;day&gt;</span><span class="pln">1,2,3,4,5,6,7</span><span class="tag">&lt;/day&gt;</span><span class="pln">
+    </span><span class="tag">&lt;loop&gt;</span><span class="pln">0</span><span class="tag">&lt;/loop&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmd&gt;</span><span class="pln">C:\Users\Administrador\Desktop\Dayz Epoch Server\Premod_restart.bat</span><span class="tag">&lt;/cmd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;cmdtype&gt;</span><span class="pln">1</span><span class="tag">&lt;/cmdtype&gt;</span><span class="pln">
+</span><span class="tag">&lt;/job&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- End 12:00 AM restart --&gt;</span></pre>
+<p>
+	 
+</p>
+<p>
+	for now on,, start your server clicking on "monitor.bat".. the restart will be each 3hours. example 00:00hs , 03:00am, 06am, 09am, 12pm, 15pm, 18pm, 21pm, 00,00am.  To test it.. change the hour of your pc.. for example put 23:55am.  start your server with monitor.bat and when your pc clock shows 00:00hs server must be made the restart.
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5886-sideshowfreak/?do=hovercard" data-ipshover-width="370" href="../../profile/5886-sideshowfreak/index.html" rel="nofollow" title="Go to SideShowFreak's profile">SideShowFreak</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">LostKaus</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=showReactionsComment&amp;comment=285604&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=showReactionsComment&amp;comment=285604&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_285604_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285604"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285604" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285604" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285604&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment%26comment=285604&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='@LostKaus
+ 
+
+
+	here you have my files: http://www.mediafire.com/file/6afp6inam56tfq2/autorestart.rar
+ 
+
+
+	1-Drop battleye folder into serverRoot\instance_11_Chernarus\
+ 
+
+
+	2-The others 3 .bat files must be in your serverRoot-
+ 
+
+
+	3-now you need change the paths in the files:
+ 
+
+
+	A-open "monitor.bat" (located in your serverroot) and change the paths for your server route. B-open "Premod_restart.bat" (located in your serverroot) and change the paths for your server route. C-open "BEC_Control_Epoch.bat" (located in serverRoot\instance_11_Chernarus\BattlEye\Bec) and change the paths for your server route. D-open "Config.cfg"(located in YourServerRoot\instance_11_Chernarus\BattlEye\Bec\Config\) and change the paths for your server route.
+ 
+
+
+	E-open "Shedule.xml" (located in YourServerRoot\instance_11_Chernarus\BattlEye\Bec\Config\) 
+	and  needs add this at each last shedule id job:
+ 
+
+
+&lt;cmd&gt;C:\Users\Administrador\Desktop\Dayz Epoch Server\Premod_restart.bat&lt;/cmd&gt;  
+
+
+	 (change for ur server paths).
+ 
+
+
+	My example:
+ 
+
+
+ &lt;Scheduler&gt;
+
+&lt;!-- 12:00 AM restart --&gt;
+
+&lt;job id="0"&gt;
+    &lt;time&gt;23:45:00&lt;/time&gt;
+    &lt;delay&gt;000000&lt;/delay&gt;
+    &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+    &lt;loop&gt;0&lt;/loop&gt;
+    &lt;cmd&gt;say -1 This server will restart in 15 minutes&lt;/cmd&gt;
+    &lt;cmdtype&gt;0&lt;/cmdtype&gt;
+&lt;/job&gt;
+
+&lt;job id="1"&gt;
+    &lt;time&gt;23:55:00&lt;/time&gt;
+    &lt;delay&gt;000000&lt;/delay&gt;
+    &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+    &lt;loop&gt;0&lt;/loop&gt;
+    &lt;cmd&gt;say -1 This server will restart in 5 minutes&lt;/cmd&gt;
+    &lt;cmdtype&gt;0&lt;/cmdtype&gt;
+&lt;/job&gt;
+
+&lt;job id="2"&gt;
+    &lt;time&gt;23:59:00&lt;/time&gt;
+    &lt;delay&gt;000000&lt;/delay&gt;
+    &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+    &lt;loop&gt;0&lt;/loop&gt;
+    &lt;cmd&gt;say -1 This server will restart in 1 minute, Log out now!&lt;/cmd&gt;
+    &lt;cmdtype&gt;0&lt;/cmdtype&gt;
+&lt;/job&gt;
+
+&lt;job id="3"&gt;
+    &lt;time&gt;00:00:00&lt;/time&gt;
+    &lt;delay&gt;000000&lt;/delay&gt;
+    &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+    &lt;loop&gt;0&lt;/loop&gt;
+    &lt;cmd&gt;#shutdown&lt;/cmd&gt;
+    &lt;cmdtype&gt;0&lt;/cmdtype&gt;
+&lt;/job&gt;
+
+&lt;job id="4"&gt;
+    &lt;time&gt;00:00:10&lt;/time&gt;
+    &lt;delay&gt;000000&lt;/delay&gt;
+    &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+    &lt;loop&gt;0&lt;/loop&gt;
+    &lt;cmd&gt;C:\Users\Administrador\Desktop\Dayz Epoch Server\Premod_restart.bat&lt;/cmd&gt;
+    &lt;cmdtype&gt;1&lt;/cmdtype&gt;
+&lt;/job&gt;
+
+&lt;!-- End 12:00 AM restart --&gt;
+
+
+	 
+ 
+
+
+	for now on,, start your server clicking on "monitor.bat".. the restart will be each 3hours. example 00:00hs , 03:00am, 06am, 09am, 12pm, 15pm, 18pm, 21pm, 00,00am.  To test it.. change the hour of your pc.. for example put 23:55am.  start your server with monitor.bat and when your pc clock shows 00:00hs server must be made the restart.
+ 
+' data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285604">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-285617"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_285617">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/37790-lostkaus/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile"><span style="color:#">LostKaus</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285617" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-17T18:04:20Z" title="01/17/17 06:04  PM">January 17, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">LostKaus</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37790-lostkaus/?do=hovercard" data-ipshover-width="370" href="../../profile/37790-lostkaus/index.html" rel="nofollow" title="Go to LostKaus's profile">
+<img alt="LostKaus" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23a6c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/37790-lostkaus/content/" rel="nofollow" title="8 posts">
+<i class="fa fa-comment"></i> 8
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sun Prairie, Wisconsin</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="285617" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":37790,"username":"LostKaus","timestamp":1484676260,"contentapp":"forums","contenttype":"forums","contentid":43157,"contentclass":"forums_Topic","contentcommentid":285617}' id="comment-285617_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-285617_wrap" href="#elControls_285617_menu" id="elControls_285617" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_285617_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=reportComment&amp;comment=285617" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_285617_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285617" id="elSharePost_285617" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285617" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-17T18:04:20Z" title="01/17/17 06:04  PM">January 17, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+<a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-mentionid="36144" href="../../profile/36144-juandayz/index.html" rel="=">@juandayz</a>
+</p>
+<p>
+	 
+</p>
+<p>
+	Thank you very much! <br/>
+	Just went through and added all your files and went through my first restart perfectly. I really appreciate your help. That made it so easy. <br/>
+	 
+</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=showReactionsComment&amp;comment=285617&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=showReactionsComment&amp;comment=285617&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_285617_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285617"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285617" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285617" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285617&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment%26comment=285617&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="@juandayz
+ 
+
+
+	 
+ 
+
+
+	Thank you very much!  
+	Just went through and added all your files and went through my first restart perfectly. I really appreciate your help. That made it so easy.  
+	 
+ 
+" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285617">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-285622"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_285622">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/36144-juandayz/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile"><span style="color:#">juandayz</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285622" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-17T21:12:44Z" title="01/17/17 09:12  PM">January 17, 2017</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F43157-automatic-server-restart-help%252F" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">juandayz</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-ipshover-width="370" href="../../profile/36144-juandayz/index.html" rel="nofollow" title="Go to juandayz's profile">
+<img alt="juandayz" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/36144-juandayz/content/" rel="nofollow" title="2098 posts">
+<i class="fa fa-comment"></i> 2.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Buenos Aires,Argentina</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="285622" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":36144,"username":"juandayz","timestamp":1484687564,"contentapp":"forums","contenttype":"forums","contentid":43157,"contentclass":"forums_Topic","contentcommentid":285622}' id="comment-285622_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-285622_wrap" href="#elControls_285622_menu" id="elControls_285622" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_285622_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=reportComment&amp;comment=285622" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_285622_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285622" id="elSharePost_285622" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285622" rel="nofollow">Posted <time data-short="8 yr" datetime="2017-01-17T21:12:44Z" title="01/17/17 09:12  PM">January 17, 2017</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="285617" data-ipsquote-contentid="43157" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1484676260" data-ipsquote-userid="37790" data-ipsquote-username="LostKaus">
+<div class="ipsQuote_citation">
+		3 hours ago, LostKaus said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+<a contenteditable="false" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36144-juandayz/?do=hovercard" data-mentionid="36144" href="../../profile/36144-juandayz/index.html" rel="=">@juandayz</a>
+</p>
+<p>
+			 
+		</p>
+<p>
+			Thank you very much! <br/>
+			Just went through and added all your files and went through my first restart perfectly. I really appreciate your help. That made it so easy. <br/>
+			 
+		</p>
+</div>
+</blockquote>
+<p>
+	No problem mate. Glad to know you Get it working
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_285622_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285622"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285622" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285622" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F%3Fdo%3DfindComment%26comment%3D285622&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment%26comment=285622&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="No problem mate. Glad to know you Get it working
+ 
+" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="https://epochmod.com/forum/topic/43157-automatic-server-restart-help/?do=findComment&amp;comment=285622">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80MzE1Ny1hdXRvbWF0aWMtc2VydmVyLXJlc3RhcnQtaGVscC8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F43157-automatic-server-restart-help%2F&amp;title=Automatic+Server+Restart%2C+Help%21" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/43157-automatic-server-restart-help/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Automatic Server Restart, Help!" data-websharetitle="Automatic Server Restart, Help!" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="43157">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/29-server-install/index.html" rel="parent" title="Go to Server Install">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Automatic Server Restart, Help!
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Automatic Server Restart, Help!",
+    "headline": "Automatic Server Restart, Help!",
+    "text": "So I am nearly done setting up my server, all i need to have in it to finish is some sort of automatic restart script. I\u0027ve looked around and I can\u0027t figure out what\u00a0to use.\u00a0\n \n\n\n\tI\u0027m hosting my own server so any direction or help is greatly appreciated!\u00a0\n \n\n\n\tIt\u0027s Epoch 1.0.6\n \n\n\n\tI\u0027m fairly new to this coding stuff so the easier it is the better. I just don\u0027t know where to start\n \n\n\n\tThanks!\n \n",
+    "dateCreated": "2017-01-14T20:37:46+0000",
+    "datePublished": "2017-01-14T20:37:46+0000",
+    "dateModified": "2017-01-17T21:12:44+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "LostKaus",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/37790-lostkaus/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1794
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 5
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/",
+    "url": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Automatic Server Restart, Help!",
+        "text": "So I am nearly done setting up my server, all i need to have in it to finish is some sort of automatic restart script. I\u0027ve looked around and I can\u0027t figure out what\u00a0to use.\u00a0\n \n\n\n\tI\u0027m hosting my own server so any direction or help is greatly appreciated!\u00a0\n \n\n\n\tIt\u0027s Epoch 1.0.6\n \n\n\n\tI\u0027m fairly new to this coding stuff so the easier it is the better. I just don\u0027t know where to start\n \n\n\n\tThanks!\n \n",
+        "answerCount": 5,
+        "dateCreated": "2017-01-14T20:37:46+0000",
+        "author": {
+            "@type": "Person",
+            "name": "LostKaus"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285527",
+                "url": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285527",
+                "author": {
+                    "@type": "Person",
+                    "name": "lwbuk",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_06/s.jpg.6880d2fa8fd4da9e0977db127d178d73.thumb.jpg.45a3db875a1841e6979f90751ec76675.jpg",
+                    "url": "https://epochmod.com/forum/profile/36471-lwbuk/"
+                },
+                "dateCreated": "2017-01-14T21:11:37+0000",
+                "text": "I do it like this.\n \n\n\n\tYou need BEC installed for the scheduler and then make 3\u00a0 .bat files.\n \n\n\n\tFirst called Server_Restart.bat\n \n\n\n\t\u00a0\n \n\n\n@echo off\necho.\necho KILL arma2oaserver.exe\nset serverkill=\"YOUR SERVER ROOT PATH\"\ncd /d %serverkill%\ntaskkill /im arma2oaserver.exe\necho.\necho Kill Bec.exe\nset beckill=\"YOUR BEC PATH\"\ncd /d %beckill%\ntaskkill /im bec.exe\n\ntimeout 5\n\necho.\necho Rotate Logs\nstart \"start\" \"ROTATE LOGS .BAT PATH\" \n\ntimeout 5\n\n\necho.\necho Starting Dayz Server\n:: start the server..\nset dayzpath=\"YOUR ROOT PATH\\\"\ncd /d %dayzpath%\nstart \"start\" \"Server_Start_New.bat\"\necho.\necho Starting Bec\ntimeout 20\n:: start bec\nset becpath=\"YOUR BEC PATH\"\ncd /d %becpath%\nstart \"start\" \"bec.exe\" -f Config.cfg\necho.\necho Server Started 100%\n\ncls\n@exit\n\n\n\t\u00a0\n \n\n\n\tsecond called Server_Start_New.bat\n \n\n\ntimeout 5\n\n::Start Dayz Server::\n\nstart \"arma2\" /HIGH /affinity 2  \"arma2oaserver.exe\" -ip=xx.xx.xxx.xx -port=xxxx -maxmem=2047 -noPause \"-config=instance_11_Chernarus\\config.cfg\" \"-cfg=instance_11_Chernarus\\basic.cfg\" \"-profiles=instance_11_Chernarus\" -name=instance_11_Chernarus \"-mod=@DayZ_Epoch;@DayZ_Epoch_Server;\"\n\ncls\n\n@exit\n\n\n\t\u00a0\n \n\n\n\tThird called rotate_logs.bat, this isnt necesary if you dont want it though.\n \n\n\n\t\u00a0\n \n\n\n@echo off\n:: Based off of Server Launch Script by r4z0r49\n:: Script Modified and fixed by Sykotix - http://dayz.sykotix.com\n::\n:: Usage: dayzsrv-log-rotater.bat servername\n:: Example 1 - Will update using default profile: dayzsrv-log-rotater.bat \n:: Example 2 - Will update using profile for US6: dayzsrv-log-rotater.bat US6\n\n:::::::::::::: CONFIG ::::::::::::::::::\n\n:: Set your Arma2AO Base installation directory. LEAVE OFF THE ENDING \\\nset arma2srvpath=YOUR ROOT PATH\n\n:: Set your Default server profile name. This is the name of the directory that stores your server.cfg\n:: This will be used in the case that you don\u0027t launch this script without the server param.\n:: Example: cfgdayz, US6, Chicago13, ect\n:: DEFAULTPROFILE\nset srvname=instance_11_Chernarus\n\n:: Delete Original log files after they have been rotated? This keeps your logs more organized and saves space.\n:: This will not work unless the server is stopped first. This option works best set to 1 when using FireDaemon\u0027s Pre/Post Service tab\nset deloriglogs=1\n\n::::::::::: ADVANCED CONFIG ::::::::::::\n:: Don\u0027t touch anything below this point unless you know what your doing.\n\n:: Setting Server Profile to Use\nIF \"%1\"==\"\" (\nset servername=%srvname%\n) else (\nset servername=%1\n)\n\nTITLE  DayZ %servername% Server Log Rotater\n\n:: Set Debug Mode\nset debug=0\n:: Set Debug Timeout in seconds\nset dbsecs=10\n\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n:::::::::::::::::::::::::::  STOP EDITING ::::::::::::::::::::::::::::::::::::::\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n:: Display Debug output\nif %debug% == 1 (\necho Server Name = %servername%\necho ArmaII Server Path = \"%arma2srvpath%\"\ntimeout %dbsecs%\n)\n\n:: Set Time and Date\nSET HOUR=%time:~0,2%\nSET dtStamp9=%date:~-4%%date:~4,2%%date:~7,2%_0%time:~1,1%%time:~3,2%_%time:~6,2%\nSET dtStamp24=%date:~-4%%date:~4,2%%date:~7,2%_%time:~0,2%%time:~3,2%_%time:~6,2%\n::Make Date Stamp\nif \"%HOUR:~0,1%\" == \" \" (SET dtStamp=%dtStamp9%) else (SET dtStamp=%dtStamp24%)\nECHO Todays Date and time (%date%)(%time%) / %dtStamp%\nif %debug% == 1 (\ntimeout %dbsecs%\n)\n\necho (%date%) (%time%) Starting Log Rotation.\n\n:: Make the Rotated Log Directorys\nif exist \"%arma2srvpath%\\%servername%\\RotatedLogs\" goto maketsdir\nmkdir \"%arma2srvpath%\\%servername%\\RotatedLogs\"\n:maketsdir\nif exist \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\" goto makebedir\nmkdir \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\"\n:makebedir\nif exist \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\" goto rotatelogs\nmkdir \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\"\n\n:rotatelogs\n:: Starting Log Rotation. If there are any other logs, just follow the format below, and make sure to NOT touch any of the varibles.\ncopy \"%arma2srvpath%\\%servername%\\arma2oaserver.RPT\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\arma2oaserver.RPT\"\ncopy \"%arma2srvpath%\\%servername%\\arma2oaserver.mdmp\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\arma2oaserver.mdmp\"\ncopy \"%arma2srvpath%\\%servername%\\arma2oaserver.bidmp\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\arma2oaserver.bidmp\"\ncopy \"%arma2srvpath%\\%servername%\\server_log.txt\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\server_log.txt\"\ncopy \"%arma2srvpath%\\%servername%\\HiveExt.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\HiveExt.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\scripts.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\scripts.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\createvehicle.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\createvehicle.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\mpeventhandler.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\mpeventhandler.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariable.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\publicvariable.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariableval.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\publicvariableval.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\remoteexec.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\remoteexec.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setdamage.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\setdamage.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setpos.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\setpos.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\setvariable.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\setvariable.log\"\ncopy \"%arma2srvpath%\\%servername%\\BattlEye\\addmagazinecargo.log\" \"%arma2srvpath%\\%servername%\\RotatedLogs\\%dtStamp%\\BattlEye\\addmagazinecargo.log\"\n\necho (%date%) (%time%) Logs are backed up now...\necho (%date%) (%time%) Removing original log files.\ndel /Q /F \"%arma2srvpath%\\%servername%\\arma2oaserver.RPT\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\arma2oaserver.mdmp\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\arma2oaserver.bidmp\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\server_console.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\runtime.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\scripts.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\createvehicle.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\mpeventhandler.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariable.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\publicvariableval.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\remoteexec.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setdamage.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setpos.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\setvariable.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\BattlEye\\addmagazinecargo.log\"\ndel /Q /F \"%arma2srvpath%\\%servername%\\HiveExt.log\"\n\nif %debug% == 1 (\ntimeout %dbsecs%\n)\n\n:: We\u0027re done here.\nexit\n\n\n\tIn your BEC scheduler.xml, the last two jobs should be\n \n\n\n\t\u00a0\n \n\n\n\n    \u0026lt;job id=\"8\"\u0026gt;\n        \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n        \u0026lt;start\u0026gt;023000\u0026lt;/start\u0026gt;\n        \u0026lt;runtime\u0026gt;000000\u0026lt;/runtime\u0026gt;\n        \u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n        \u0026lt;cmd\u0026gt;#shutdown\u0026lt;/cmd\u0026gt;\n    \u0026lt;/job\u0026gt;\n\t\n\t\u0026lt;job id=\u00279\u0027\u0026gt;\n\t\u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n\t\u0026lt;start\u0026gt;023000\u0026lt;/start\u0026gt;\n\t\u0026lt;runtime\u0026gt;000000\u0026lt;/runtime\u0026gt;\n\t\u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n\t\u0026lt;cmd\u0026gt;YOUR ROOT PATH\\Server_Restart.bat\u0026lt;/cmd\u0026gt;\n\u0026lt;/job\u0026gt;\n\u0026lt;/Scheduler\u0026gt;\n\n\n\t\u00a0\n \n\n\n\tThere are other ways, incuding a monitor.bat file, which auto re opens if arma crashes, but I havent got around to doing that yet.\n \n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285598",
+                "url": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285598",
+                "author": {
+                    "@type": "Person",
+                    "name": "LostKaus",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/37790-lostkaus/"
+                },
+                "dateCreated": "2017-01-16T23:56:28+0000",
+                "text": "Thanks for the help. \n\tI\u0027m stuck somewhere though. When I go to run bec.exe i get an error in the command prompt that says it cannot locate the BEserver.cfg file. Now i looked around and I don\u0027t have that file in my battleye folder. Other people I see just made one and put some text in it. RConPassword NotTellingYouLotMaxPing 250 \n\tThat\u0027s what I found.\u00a0 \n\tAny ideas why it wont load?\n \n\n\n\tThanks!\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285604",
+                "url": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285604",
+                "author": {
+                    "@type": "Person",
+                    "name": "juandayz",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png",
+                    "url": "https://epochmod.com/forum/profile/36144-juandayz/"
+                },
+                "dateCreated": "2017-01-17T03:06:03+0000",
+                "text": "@LostKaus\n \n\n\n\there you have my files: http://www.mediafire.com/file/6afp6inam56tfq2/autorestart.rar\n \n\n\n\t1-Drop battleye folder into serverRoot\\instance_11_Chernarus\\\n \n\n\n\t2-The others 3 .bat files must be in your serverRoot-\n \n\n\n\t3-now you need change the paths in the files:\n \n\n\n\tA-open \"monitor.bat\" (located in your serverroot) and change the paths for your server route. B-open \"Premod_restart.bat\" (located in your serverroot) and change the paths for your server route. C-open \"BEC_Control_Epoch.bat\" (located in serverRoot\\instance_11_Chernarus\\BattlEye\\Bec) and change the paths for your server route. D-open \"Config.cfg\"(located in YourServerRoot\\instance_11_Chernarus\\BattlEye\\Bec\\Config\\) and change the paths for your server route.\n \n\n\n\tE-open \"Shedule.xml\" (located in YourServerRoot\\instance_11_Chernarus\\BattlEye\\Bec\\Config\\) \n\tand\u00a0 needs add this at each last shedule id job:\n \n\n\n\u0026lt;cmd\u0026gt;C:\\Users\\Administrador\\Desktop\\Dayz Epoch Server\\Premod_restart.bat\u0026lt;/cmd\u0026gt;  \n\n\n\t\u00a0(change for ur server paths).\n \n\n\n\tMy example:\n \n\n\n \u0026lt;Scheduler\u0026gt;\n\n\u0026lt;!-- 12:00 AM restart --\u0026gt;\n\n\u0026lt;job id=\"0\"\u0026gt;\n    \u0026lt;time\u0026gt;23:45:00\u0026lt;/time\u0026gt;\n    \u0026lt;delay\u0026gt;000000\u0026lt;/delay\u0026gt;\n    \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n    \u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n    \u0026lt;cmd\u0026gt;say -1 This server will restart in 15 minutes\u0026lt;/cmd\u0026gt;\n    \u0026lt;cmdtype\u0026gt;0\u0026lt;/cmdtype\u0026gt;\n\u0026lt;/job\u0026gt;\n\n\u0026lt;job id=\"1\"\u0026gt;\n    \u0026lt;time\u0026gt;23:55:00\u0026lt;/time\u0026gt;\n    \u0026lt;delay\u0026gt;000000\u0026lt;/delay\u0026gt;\n    \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n    \u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n    \u0026lt;cmd\u0026gt;say -1 This server will restart in 5 minutes\u0026lt;/cmd\u0026gt;\n    \u0026lt;cmdtype\u0026gt;0\u0026lt;/cmdtype\u0026gt;\n\u0026lt;/job\u0026gt;\n\n\u0026lt;job id=\"2\"\u0026gt;\n    \u0026lt;time\u0026gt;23:59:00\u0026lt;/time\u0026gt;\n    \u0026lt;delay\u0026gt;000000\u0026lt;/delay\u0026gt;\n    \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n    \u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n    \u0026lt;cmd\u0026gt;say -1 This server will restart in 1 minute, Log out now!\u0026lt;/cmd\u0026gt;\n    \u0026lt;cmdtype\u0026gt;0\u0026lt;/cmdtype\u0026gt;\n\u0026lt;/job\u0026gt;\n\n\u0026lt;job id=\"3\"\u0026gt;\n    \u0026lt;time\u0026gt;00:00:00\u0026lt;/time\u0026gt;\n    \u0026lt;delay\u0026gt;000000\u0026lt;/delay\u0026gt;\n    \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n    \u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n    \u0026lt;cmd\u0026gt;#shutdown\u0026lt;/cmd\u0026gt;\n    \u0026lt;cmdtype\u0026gt;0\u0026lt;/cmdtype\u0026gt;\n\u0026lt;/job\u0026gt;\n\n\u0026lt;job id=\"4\"\u0026gt;\n    \u0026lt;time\u0026gt;00:00:10\u0026lt;/time\u0026gt;\n    \u0026lt;delay\u0026gt;000000\u0026lt;/delay\u0026gt;\n    \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n    \u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt;\n    \u0026lt;cmd\u0026gt;C:\\Users\\Administrador\\Desktop\\Dayz Epoch Server\\Premod_restart.bat\u0026lt;/cmd\u0026gt;\n    \u0026lt;cmdtype\u0026gt;1\u0026lt;/cmdtype\u0026gt;\n\u0026lt;/job\u0026gt;\n\n\u0026lt;!-- End 12:00 AM restart --\u0026gt;\n\n\n\t\u00a0\n \n\n\n\tfor now on,, start your server clicking on \"monitor.bat\".. the restart will be each 3hours. example 00:00hs , 03:00am, 06am, 09am, 12pm, 15pm, 18pm, 21pm, 00,00am.\u00a0 To test it.. change the hour of your pc.. for example put 23:55am.\u00a0 start your server with monitor.bat and when your pc clock shows 00:00hs server must be made the restart.\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285617",
+                "url": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285617",
+                "author": {
+                    "@type": "Person",
+                    "name": "LostKaus",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/37790-lostkaus/"
+                },
+                "dateCreated": "2017-01-17T18:04:20+0000",
+                "text": "@juandayz\n \n\n\n\t\u00a0\n \n\n\n\tThank you very much!\u00a0 \n\tJust went through and added all your files and went through my first restart perfectly. I really appreciate your help. That made it so easy.\u00a0 \n\t\u00a0\n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285622",
+                "url": "https://epochmod.com/forum/topic/43157-automatic-server-restart-help/#comment-285622",
+                "author": {
+                    "@type": "Person",
+                    "name": "juandayz",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_02/04253e_argentina.png.f17f6197679f2e0442adc005f809e20c.thumb.png.c7c979620cd16868a1be8aaa62366db8.png",
+                    "url": "https://epochmod.com/forum/profile/36144-juandayz/"
+                },
+                "dateCreated": "2017-01-17T21:12:44+0000",
+                "text": "No problem mate. Glad to know you Get it working\n \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "LostKaus",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/37790-lostkaus/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/29-server-install/",
+                "name": "Server Install"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

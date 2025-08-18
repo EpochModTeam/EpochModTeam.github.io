@@ -1,0 +1,2876 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf - A2: Epoch Mods (1.0.5.1) - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/" property="og:url"/>
+<meta content="Introducion I was looking into a Problem, where the FPS drops, when players enter a City or any Place with a large amount of Objects placed. After fushing around a while i have noticed, that actually ALL Objects are being updated. This includes houses, cras cutters, bins and fences, as also Modul..." name="description"/>
+<meta content="Introducion I was looking into a Problem, where the FPS drops, when players enter a City or any Place with a large amount of Objects placed. After fushing around a while i have noticed, that actually ALL Objects are being updated. This includes houses, cras cutters, bins and fences, as also Modul..." property="og:description"/>
+<meta content="2015-06-26T09:47:31Z" property="og:updated_time"/>
+<meta content="Tutorial, server, functions, server_updateObject.sqf" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="34100" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zNDEwMC10dXQtcmVtb3ZpbmctdW5uZWNlc3NhcnktdXBkYXRlcy1hbmQtZnVuY3Rpb25zLWluLXNlcnZlcl91cGRhdGVvYmplY3RzcWYv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":34}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":34100}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1)</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="Tutorial" href="https://epochmod.com/forum/tags/Tutorial/" rel="tag" title="Find other content tagged with 'Tutorial'"><span>Tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="functions" href="https://epochmod.com/forum/tags/functions/" rel="tag" title="Find other content tagged with 'functions'"><span>functions</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server_updateObject.sqf" href="https://epochmod.com/forum/tags/server_updateObject.sqf/" rel="tag" title="Find other content tagged with 'server_updateObject.sqf'"><span>server_updateObject.sqf</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<span class="ipsUserPhoto ipsUserPhoto_mini">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+Guest</strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2015-04-06T20:27:54Z" title="04/06/15 08:27  PM">April 6, 2015</time> in <a href="../../forum/34-a2-epoch-mods-1051/index.html">A2: Epoch Mods (1.0.5.1)</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="34100">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">5</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-34100" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-226681"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226681">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226681" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-06T20:27:54Z" title="04/06/15 08:27  PM">April 6, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226681" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1428352074,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":226681}' id="comment-226681_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226681_wrap" href="#elControls_226681_menu" id="elControls_226681" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226681_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=226681" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226681_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_226681" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226681" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-06T20:27:54Z" title="04/06/15 08:27  PM">April 6, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p><span style="font-size:18px;">Introducion</span></p>
+<p> </p>
+<p>I was looking into a Problem, where the FPS drops, when players enter a City or any Place with a large amount of Objects placed. After fushing around a while i have noticed, that actually ALL Objects are being updated. This includes houses, cras cutters, bins and fences, as also Modular Buildings like Wooden Walls. So my thought was, that counting and updating all of those Objects may result in a massive Server Load. For testing purposes i made up an array with all arma2 Buildings and a check to not Update those. Result: All of these Objects where un-breakable, can't be killed or damaged anymore. Also a slight FPS increase, but nothing really "breaking".</p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:18px;">Before we Start</span></p>
+<p> </p>
+<p>You must notice, that <strong>these changes make all Objects invincible</strong>. Also it is <strong><span style="color:#ff0000;">highly recommended to create a Backup</span></strong>, before you start editing.<br/><br/>
+Requierements:<br/>
+- PBO Manager (For editing Server Files)<br/>
+- A custom "variables.sqf" in you Mission Folder</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:18px;">Setting up the Variable for Objects that should not be updated (Client side)</span></p>
+<p> </p>
+<p>These Changes are made in the <strong>variables.sqf</strong>, located in your Mission Folder.</p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p> </p>
+<p>What you want to find and where we add our array is in the <strong>if(isServer) then {};</strong> - section.<br/><br/>
+Find:</p>
+<pre class="ipsCode prettyprint">
+needUpdate_objects = [];
+</pre>
+<p>And place under that:</p>
+<pre class="ipsCode prettyprint">
+dontUpdate_objects = ["ClutterCutter_EP1","Desk","FoldChair","FoldTable","Park_bench1","Park_bench2","Park_bench2_noRoad","SmallTable","WoodChair","Axe_woodblock","Barrel1","Barrel4","Barrel5","Barrels","Fuel_can","Garbage_can","Garbage_container","Haystack","Haystack_small",
+						  "HeliH","HeliHCivil","HeliHRescue","Land_Barrel_empty","Land_Barrel_sand","Land_Barrel_water","Land_Ind_BoardsPack1","Land_Ind_BoardsPack2","Land_Pneu","Land_ladder","Land_ladder_half","Misc_TyreHeap","Misc_concrete_High","Misc_palletsfoiled","Misc_palletsfoiled_heap",
+						  "Notice_board","Paleta1","Paleta2","Pile_of_wood","Satelit","Sr_border","BMP2Wreck","BRDMWreck","HMMWVWreck","LADAWreck","Land_BoatSmall_1","Land_BoatSmall_2a","Land_BoatSmall_2b","Mi8Wreck","SKODAWreck","T72Wreck","T72WreckTurret","UAZWreck","UH1Wreck","UralWreck",
+						  "datsun01Wreck","datsun02Wreck","hiluxWreck","Baseball","Can_small","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","Explosive","FloorMop","Loudspeaker","MetalBucket","Misc_Videoprojektor","Misc_Videoprojektor_platno","Misc_Wall_lamp","Notebook",
+						  "Radio","SatPhone","SkeetDisk","SkeetMachine","SmallTV","Suitcase","bomb","Body","Grave","Hanged","Hanged_MD","Mass_grave","Land_Bench_EP1","Land_Cabinet_EP1","Land_Carpet_2_EP1","Land_Carpet_EP1","Land_Chair_EP1","Land_Chest_EP1","Dirtmount_EP1","Land_Crates_EP1",
+						  "Land_Dirthump01_EP1","Land_Dirthump02_EP1","Land_Dirthump03_EP1","Land_Misc_Coil_EP1","Land_bags_EP1","C130J_wreck_EP1","UH60_wreck_EP1","Land_Bag_EP1","Land_Basket_EP1","Land_Blankets_EP1","Land_Boots_EP1","Land_Bowl_EP1","Land_Bucket_EP1","Land_Canister_EP1",
+						  "Land_Pillow_EP1","Land_Rack_EP1","Land_Reservoir_EP1","Land_Sack_EP1","Land_Shelf_EP1","Land_Table_EP1","Land_Table_small_EP1","Land_Teapot_EP1","Land_Urn_EP1","Land_Vase_EP1","Land_Vase_loam_2_EP1","Land_Vase_loam_3_EP1","Land_Vase_loam_EP1","Land_Water_pipe_EP1",
+						  "Land_Wheel_cart_EP1","Land_Wicker_basket_EP1","Land_stand_waterl_EP1","Land_sunshade_EP1","Land_tires_EP1","Microphone1_ep1","Microphone2_ep1","Microphone3_ep1","Misc_Backpackheap_EP1","Misc_TyreHeapEP1","Sign_sphere100cm_EP1","Sign_sphere10cm_EP1","Sign_sphere25cm_EP1"];
+
+</pre>
+<p></p></blockquote><p></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:18px;">Changing server_updateObject.sqf </span></p>
+<p>These changes are made in <strong>dayz_server.pbo\compiles\server_updateObject.sqf</strong> - This does not effect any custom mods you might have installed, for example the Vehicle Key (thanks, sir - that thing is awesome).</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p> </p>
+<p><strong>The very first to do, if not done already is: Create a Backup! </strong></p>
+<p> </p>
+<p>Now we're going to add our array, so these objects don't take damage, won't get killed and will never be updated. (If you have Plot Maintainance on, do not use Modular Buildings in your dont_update array.<br/><br/>
+Find (for me Line 52):</p>
+<pre class="ipsCode prettyprint">
+_lastUpdate = _object getVariable ["lastUpdate",time];
+</pre>
+<p>And place under that:</p>
+<pre class="ipsCode prettyprint">
+if (_object in dontUpdate_objects) then {_needUpdate = false;};
+</pre>
+<p>Well that was simple, wasn't it? If interested in removing unneccessary functions, proceed to the next Spoiler. If not, just leave as is and save / upload. This is finished already</p>
+<p> </p>
+<p></p></blockquote><p></p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:18px;">Removing unnecessary Functions</span></p>
+<p> </p>
+<p>This is yet still not effecting any mods (not so far i know) - but will result in a faster update of objects, because first of all we'll be using "if", instead of "switch" (If is concidered to be much faster, then switch) and secondary, we will use one function for all Hitpoint actions such as "killed", "damage" or "repair".</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p> </p>
+<p>This is requirering a little bit of commenting out certain functions with /** and **/. If you wish so, you can delete the whole functions. I will not go further into this, as this requieres a total of 12 Characters being placed and, if you can't manage that sorry but then you should not run a server.</p>
+<p> </p>
+<p>Find the Function "<strong>_object_damage</strong>" and comment it out to (including) "<strong>_object_repair</strong>". If you now did not comment out 3 Functions, search for the functions mentioned above, also for "<strong>_object_killed</strong>" and comment them out.<br/><br/>
+Next comment out the whole switch located at your bottom. If this is not a total of 31 Lines, you might have a custom mod installed, i will only cover the vehicle key in this, so you might have to add a few lines manually.<br/><br/>
+Above the switch, IF USE VEHICLE KEY, paste:</p>
+<pre class="ipsCode prettyprint">
+/** We're using IF, instead of SWITCH... **/
+/** We shall Update all Object Parts **/
+if (_type == "all") then {
+	call _object_position;
+	call _object_inventory;
+	[_type] call _object_hitpoints;
+};
+
+/** We shall Update the Position **/
+if (_type == "position") then {
+	if (!(_object in needUpdate_objects)) then {
+		//diag_log format["DEBUG Position: Added to NeedUpdate=%1",_object];
+		needUpdate_objects set [count needUpdate_objects, _object];
+	};
+};
+
+/** We shall Update the Gear **/
+if (_type == "gear") then {
+	call _object_inventory;
+};
+
+/** We shall Update the Damage **/
+if (_type == "damage") then {
+	if ( (time - _lastUpdate) &gt; 5) then {
+		[_type] call _object_hitpoints;
+	} else {
+		if (!(_object in needUpdate_objects)) then {
+			//diag_log format["DEBUG Damage: Added to NeedUpdate=%1",_object];
+			needUpdate_objects set [count needUpdate_objects, _object];
+		};
+	};
+};
+
+/** We can use one function for this **/
+if (_type == "killed" || _type == "repair") then {
+	[_type] call _object_hitpoints;
+};
+
+/** We shall Update the Vehicle Key **/
+if (_type == "vehiclekey") then {
+	_activatingPlayer = _this select 2;
+	_vehicleClassname = _this select 3;
+	_toKey = _this select 4;
+	_toKeyName = _this select 5;
+	_vehicle_ID = _this select 6;
+	_vehicle_UID = _this select 7;
+	[_activatingPlayer, _vehicleClassname, _toKey, _toKeyName, _vehicle_ID, _vehicle_UID] call _object_vehicleKey; //One Semicolon to much?
+};
+</pre>
+<p>Note: If this is not under "<strong>_object setVariable ["lastUpdate",time,true];</strong>" you have done something wrong. If not using vehicle key, then just remove the last IF.</p>
+<p> </p>
+<p> </p>
+<p>Now go to the functions you commented out and <strong>place above them</strong>:</p>
+<pre class="ipsCode prettyprint">
+_object_hitpoints = {
+	private["_hitpoints","_array","_hit","_selection","_key","_damage","_updateType"];
+	
+	_updateType = _this select 0;
+	_hitpoints = _object call vehicle_getHitpoints;
+	if (_updateType != "killed") then {_damage = damage _object;} else {_damage = 1;};
+	_array = [];
+	{
+		_hit = [_object,_x] call object_getHit;
+		_selection = getText (configFile &gt;&gt; "CfgVehicles" &gt;&gt; (typeOf _object) &gt;&gt; "HitPoints" &gt;&gt; _x &gt;&gt; "name");
+		if (_hit &gt; 0) then {_array set [count _array,[_selection,_hit]]};
+		if (_updateType == "killed") then {_hit = 1;};
+		_object setHit ["_selection", _hit]
+	} forEach _hitpoints;
+		
+	if (_objectID == "0") then {
+		_key = format["CHILD:306:%1:%2:%3:",_uid,_array,_damage];
+	} else {
+		_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
+	};
+	
+	_key call server_hiveWrite;
+	_object setVariable ["needUpdate",false,true];
+		
+};
+</pre>
+<p></p></blockquote><p><br/><br/>
+Keep in mind, that you can customize the array of object, that should not be updated by simply adding or removing an object, but please note: <strong><span style="color:#ff0000;">DO NOT, AT NO TIME, NEVER</span></strong> put Objects like Doors, Safes or other Objects that requiere some sort of action - in that array. Reason: As you for example open a Door, the State well more likely the "position" of the door is being updated, forcing the door to actually open. If you forbid this, you obviously can't open Doors anymore. This does not effect Objects like for example Loot, Stairs, Ladders, etc..</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226681_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226681" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226681" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226681&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=226681&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Introducion 
+  
+I was looking into a Problem, where the FPS drops, when players enter a City or any Place with a large amount of Objects placed. After fushing around a while i have noticed, that actually ALL Objects are being updated. This includes houses, cras cutters, bins and fences, as also Modular Buildings like Wooden Walls. So my thought was, that counting and updating all of those Objects may result in a massive Server Load. For testing purposes i made up an array with all arma2 Buildings and a check to not Update those. Result: All of these Objects where un-breakable, can't be killed or damaged anymore. Also a slight FPS increase, but nothing really &quot;breaking&quot;. 
+  
+  
+Before we Start 
+  
+You must notice, that these changes make all Objects invincible. Also it is highly recommended to create a Backup, before you start editing.  
+Requierements: 
+- PBO Manager (For editing Server Files) 
+- A custom &quot;variables.sqf&quot; in you Mission Folder 
+  
+  
+  
+Setting up the Variable for Objects that should not be updated (Client side) 
+  
+These Changes are made in the variables.sqf, located in your Mission Folder. 
+   
+  
+  
+  
+Changing server_updateObject.sqf  
+These changes are made in dayz_server.pbo\compiles\server_updateObject.sqf - This does not effect any custom mods you might have installed, for example the Vehicle Key (thanks, sir - that thing is awesome). 
+  
+   
+  
+  
+Removing unnecessary Functions 
+  
+This is yet still not effecting any mods (not so far i know) - but will result in a faster update of objects, because first of all we'll be using &quot;if&quot;, instead of &quot;switch&quot; (If is concidered to be much faster, then switch) and secondary, we will use one function for all Hitpoint actions such as &quot;killed&quot;, &quot;damage&quot; or &quot;repair&quot;. 
+  
+    
+Keep in mind, that you can customize the array of object, that should not be updated by simply adding or removing an object, but please note: DO NOT, AT NO TIME, NEVER put Objects like Doors, Safes or other Objects that requiere some sort of action - in that array. Reason: As you for example open a Door, the State well more likely the &quot;position&quot; of the door is being updated, forcing the door to actually open. If you forbid this, you obviously can't open Doors anymore. This does not effect Objects like for example Loot, Stairs, Ladders, etc.. 
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226681">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-226815"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226815">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15884-gr8/?do=hovercard" data-ipshover-width="370" href="../../profile/15884-gr8/index.html" rel="nofollow" title="Go to Gr8's profile">
+<img alt="Gr8" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15884.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/15884-gr8/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15884-gr8/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/15884-gr8/index.html" rel="nofollow" title="Go to Gr8's profile"><span style="color:#">Gr8</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226815" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T01:37:57Z" title="04/07/15 01:37  AM">April 7, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15884-gr8/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/15884-gr8/index.html" rel="nofollow" title="Go to Gr8's profile">Gr8</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15884-gr8/?do=hovercard" data-ipshover-width="370" href="../../profile/15884-gr8/index.html" rel="nofollow" title="Go to Gr8's profile">
+<img alt="Gr8" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15884.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/15884-gr8/content/" rel="nofollow" title="1269 posts">
+<i class="fa fa-comment"></i> 1.3k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Debug Land</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226815" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":15884,"username":"Gr8","timestamp":1428370677,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":226815}' id="comment-226815_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226815_wrap" href="#elControls_226815_menu" id="elControls_226815" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226815_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=226815" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226815_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226815" id="elSharePost_226815" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226815" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T01:37:57Z" title="04/07/15 01:37  AM">April 7, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Nice fixes,</p>
+<p> </p>
+<p>fyi, you spelled <strong>Unnecessary</strong> wrong your title</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226815_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226815"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226815" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226815" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226815&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=226815&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Nice fixes, 
+  
+fyi, you spelled Unnecessary wrong your title 
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226815">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-226935"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226935">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226935" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T12:06:09Z" title="04/07/15 12:06  PM">April 7, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226935" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1428408369,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":226935}' id="comment-226935_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226935_wrap" href="#elControls_226935_menu" id="elControls_226935" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226935_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=226935" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226935_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226935" id="elSharePost_226935" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226935" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T12:06:09Z" title="04/07/15 12:06  PM">April 7, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Gr8" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="226815" data-ipsquote-contentid="34100" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1428370677" data-ipsquote-username="Gr8"><div>
+<div>
+<p>Nice fixes,</p>
+<p> </p>
+<p>fyi, you spelled <strong>Unnecessary</strong> wrong your title</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>Thanks :wub:  I'm from Germany hehe..</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226935_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226935"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226935" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226935" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226935&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=226935&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thanks :wub:  I'm from Germany hehe.. 
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226935">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-226973"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226973">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226973" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T13:37:35Z" title="04/07/15 01:37  PM">April 7, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226973" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1428413855,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":226973}' id="comment-226973_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226973_wrap" href="#elControls_226973_menu" id="elControls_226973" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226973_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=226973" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226973_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226973" id="elSharePost_226973" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226973" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T13:37:35Z" title="04/07/15 01:37  PM">April 7, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>With special thanks to Schwede, i also found, that Objects are being updated, even if an update i not needed at all. Due to his logs (Thank you very much!) i came up with a new way to update the Objects, by comparing, if the Object really needs an Update or not.<br/><br/>
+Note: <span style="color:#ff0000;"><strong>This is absolutely untested, i do not know, if this works! </strong></span></p>
+<p>//EDIT: This seems to fix an issue, where you have to Unlock vehicles twice, but that could be only me and is tested on 2 vehicles only..</p>
+<p> </p>
+<p><span style="font-size:18px;">Updating server_updateObject.sqf to set new Variables for comparison</span></p>
+<p> </p>
+<p>This will simply create new Variables and attach them to the Object, as this seems to be the best way to compare, if old or new.</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p> </p>
+<p>Under "<strong>// TODO ----------------------</strong>" find:</p>
+<pre class="ipsCode prettyprint">
+_object setVariable ["lastUpdate",time,true];
+</pre>
+<p>And replace with:</p>
+<pre class="ipsCode prettyprint">
+_object setVariable ["lastUpdate",time,true];
+_object setVariable ["lastPosition",(getPosATL _object),true];
+_object setVariable ["lastHitpoints",(_object call vehicle_getHitpoints),true];
+</pre>
+<p>Note: Those variables ar found UNDER the Functions (_object_inventory, _object_hitpoints etc)..</p>
+<p> </p>
+<p></p></blockquote><p></p>
+<p> </p>
+<p> </p>
+<p><span style="font-size:18px;">Updating the server_functions.sqf, to check if an Update is actually needed</span></p>
+<p> </p>
+<p>This will effect Zupa's single Currency if installed. Also this is completely untested and i did not remove the Logs out of this..<br/><br/></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<p> </p>
+<p>Find "<strong>vehicle_handleInteract</strong>" and, <strong>if using ZSC</strong> replace the whole function with this:</p>
+<pre class="ipsCode prettyprint">
+/** This function Updates all - Damage, Position and Gear. - Is this really necessary?? **/
+vehicle_handleInteract = {
+	private["_object","_lastPosition","_lastInventory","_lastHitpoints","_inventory","_position","_hitpoints"];
+	_object = _this select 0;
+	
+	/** Let's get the last Updates in Inventory and Position **/
+	_lastPosition = _object getVariable ["lastPosition"];
+	_lastInventory = _object getVariable ["lastInventory",[]];
+	_lastHitpoints = _object getVariable ["lastHitpoints"];
+	
+	/** Getting the current Inventory and Position, for comparison **/ 
+	_inventory = [
+			getWeaponCargo _object,
+			getMagazineCargo _object,
+			getBackpackCargo _object,
+			_object getVariable["bankMoney",0]
+			];
+			
+	_position = getPosATL _object;
+	
+	_hitpoints = _object call vehicle_getHitpoints;
+	
+	
+	/** Let's remove the Object from the List outside the IF, to prevent "double" removing, when 2 IF's a true.. **/
+	/** Also this must happen before we check, because otherwise it will be doubled, when calling server_updateObject **/
+	diag_log format["Removed Object %1 from List", _object];
+	needUpdate_objects = needUpdate_objects - [_object];
+	
+	/** Next we compare our results and check, if a Update is really required. **/
+	/** Compare Position **/
+	if (!(_lastPosition == _position)) then {
+		diag_log format["Updating Position of %1", _object];
+		[_object, "position"] call server_updateObject;
+	};
+	
+	/** Compare Inventory **/
+	if (!(_lastInventory == _inventory)) then {
+		diag_log format["Updating Gear of %1", _object];
+		[_object, "gear"] call server_updateObject;
+	};
+	
+	/** Compare Hitpoints **/
+	if (!(_lastHitpoints == _hitpoints)) then {
+		diag_log format["Updating Hitpoints of %1", _object];
+		[_object, "damage"] call server_updateObject;
+	};
+	
+	//needUpdate_objects = needUpdate_objects - [_object];
+	//[_object, "all"] call server_updateObject;
+};
+
+</pre>
+<p><strong>IF NOT using ZSC</strong>, replace with this:<br/>
+ </p>
+<pre class="ipsCode prettyprint">
+/** This function Updates all - Damage, Position and Gear. - Is this really necessary?? **/
+vehicle_handleInteract = {
+	private["_object","_lastPosition","_lastInventory","_lastHitpoints","_inventory","_position","_hitpoints"];
+	_object = _this select 0;
+	
+	/** Let's get the last Updates in Inventory and Position **/
+	_lastPosition = _object getVariable ["lastPosition"];
+	_lastInventory = _object getVariable ["lastInventory",[]];
+	_lastHitpoints = _object getVariable ["lastHitpoints"];
+	
+	/** Getting the current Inventory and Position, for comparison **/ 
+	_inventory = [
+			getWeaponCargo _object,
+			getMagazineCargo _object,
+			getBackpackCargo _object
+			];
+			
+	_position = getPosATL _object;
+	
+	_hitpoints = _object call vehicle_getHitpoints;
+	
+	
+	/** Let's remove the Object from the List outside the IF, to prevent "double" removing, when 2 IF's a true.. **/
+	/** Also this must happen before we check, because otherwise it will be doubled, when calling server_updateObject **/
+	diag_log format["Removed Object %1 from List", _object];
+	needUpdate_objects = needUpdate_objects - [_object];
+	
+	/** Next we compare our results and check, if a Update is really required. **/
+	/** Compare Position **/
+	if (!(_lastPosition == _position)) then {
+		diag_log format["Updating Position of %1", _object];
+		[_object, "position"] call server_updateObject;
+	};
+	
+	/** Compare Inventory **/
+	if (!(_lastInventory == _inventory)) then {
+		diag_log format["Updating Gear of %1", _object];
+		[_object, "gear"] call server_updateObject;
+	};
+	
+	/** Compare Hitpoints **/
+	if (!(_lastHitpoints == _hitpoints)) then {
+		diag_log format["Updating Hitpoints of %1", _object];
+		[_object, "damage"] call server_updateObject;
+	};
+	
+	//needUpdate_objects = needUpdate_objects - [_object];
+	//[_object, "all"] call server_updateObject;
+};
+
+</pre>
+<p></p></blockquote><p></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226973_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226973"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226973" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226973" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226973&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=226973&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="With special thanks to Schwede, i also found, that Objects are being updated, even if an update i not needed at all. Due to his logs (Thank you very much!) i came up with a new way to update the Objects, by comparing, if the Object really needs an Update or not.  
+Note: This is absolutely untested, i do not know, if this works!  
+//EDIT: This seems to fix an issue, where you have to Unlock vehicles twice, but that could be only me and is tested on 2 vehicles only.. 
+  
+Updating server_updateObject.sqf to set new Variables for comparison 
+  
+This will simply create new Variables and attach them to the Object, as this seems to be the best way to compare, if old or new. 
+  
+   
+  
+  
+Updating the server_functions.sqf, to check if an Update is actually needed 
+  
+This will effect Zupa's single Currency if installed. Also this is completely untested and i did not remove the Logs out of this..     
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226973">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-226989"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226989">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15060-schwede/?do=hovercard" data-ipshover-width="370" href="../../profile/15060-schwede/index.html" rel="nofollow" title="Go to SchwEde's profile">
+<img alt="SchwEde" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15060.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/15060-schwede/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15060-schwede/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/15060-schwede/index.html" rel="nofollow" title="Go to SchwEde's profile"><span style="color:#">SchwEde</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226989" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T14:26:55Z" title="04/07/15 02:26  PM">April 7, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15060-schwede/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/15060-schwede/index.html" rel="nofollow" title="Go to SchwEde's profile">SchwEde</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15060-schwede/?do=hovercard" data-ipshover-width="370" href="../../profile/15060-schwede/index.html" rel="nofollow" title="Go to SchwEde's profile">
+<img alt="SchwEde" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15060.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/15060-schwede/content/" rel="nofollow" title="756 posts">
+<i class="fa fa-comment"></i> 756
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226989" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":15060,"username":"SchwEde","timestamp":1428416815,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":226989}' id="comment-226989_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226989_wrap" href="#elControls_226989_menu" id="elControls_226989" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226989_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=226989" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226989_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226989" id="elSharePost_226989" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226989" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T14:26:55Z" title="04/07/15 02:26  PM">April 7, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>will test this, and tell the results (the NOT SC Version!)</p>
+<p>Nice work, Kollege :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226989_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226989"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226989" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226989" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226989&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=226989&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="will test this, and tell the results (the NOT SC Version!) 
+Nice work, Kollege :) 
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226989">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-226997"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_226997">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226997" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T14:45:48Z" title="04/07/15 02:45  PM">April 7, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="226997" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1428417948,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":226997}' id="comment-226997_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-226997_wrap" href="#elControls_226997_menu" id="elControls_226997" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_226997_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=226997" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_226997_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226997" id="elSharePost_226997" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226997" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-07T14:45:48Z" title="04/07/15 02:45  PM">April 7, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="SchwEde" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="226989" data-ipsquote-contentid="34100" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1428416815" data-ipsquote-username="SchwEde"><div>
+<div>
+<p>will test this, and tell the results (the NOT SC Version!)</p>
+<p>Nice work, Kollege :)</p>
+</div>
+</div></blockquote>
+<p>
+I just noticed a smal issue:</p><p></p><p>
+ </p>
+<pre class="ipsCode prettyprint">
+/** Compare Inventory **/
+	if (!(_lastInventory == _hitpoints)) then {
+		diag_log format["Updating Gear of %1", _object];
+		[_object, "gear"] call server_updateObject;
+	};
+	
+	/** Compare Hitpoints **/
+	if (!(_lastHitpoints == _inventory)) then {
+		diag_log format["Updating Hitpoints of %1", _object];
+		[_object, "damage"] call server_updateObject;
+	};
+</pre>
+<p>
+You might want to change that around :P</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_226997_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226997"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226997" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226997" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D226997&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=226997&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='I just noticed a smal issue:  
+  
+
+/** Compare Inventory **/
+	if (!(_lastInventory == _hitpoints)) then {
+		diag_log format["Updating Gear of %1", _object];
+		[_object, "gear"] call server_updateObject;
+	};
+	
+	/** Compare Hitpoints **/
+	if (!(_lastHitpoints == _inventory)) then {
+		diag_log format["Updating Hitpoints of %1", _object];
+		[_object, "damage"] call server_updateObject;
+	};
+
+
+You might want to change that around :P 
+' data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=226997">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-229041"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_229041">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/7586-markokil321/?do=hovercard" data-ipshover-width="370" href="../../profile/7586-markokil321/index.html" rel="nofollow" title="Go to Markokil321's profile">
+<img alt="Markokil321" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-7586.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/7586-markokil321/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/7586-markokil321/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/7586-markokil321/index.html" rel="nofollow" title="Go to Markokil321's profile"><span style="color:#">Markokil321</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229041" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-11T03:22:08Z" title="04/11/15 03:22  AM">April 11, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/7586-markokil321/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/7586-markokil321/index.html" rel="nofollow" title="Go to Markokil321's profile">Markokil321</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/7586-markokil321/?do=hovercard" data-ipshover-width="370" href="../../profile/7586-markokil321/index.html" rel="nofollow" title="Go to Markokil321's profile">
+<img alt="Markokil321" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-7586.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/7586-markokil321/content/" rel="nofollow" title="278 posts">
+<i class="fa fa-comment"></i> 278
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="229041" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":7586,"username":"Markokil321","timestamp":1428722528,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":229041}' id="comment-229041_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-229041_wrap" href="#elControls_229041_menu" id="elControls_229041" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_229041_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=229041" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_229041_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229041" id="elSharePost_229041" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229041" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-11T03:22:08Z" title="04/11/15 03:22  AM">April 11, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Didn't quite understand sorry, have you found out the concept in the first post (create array of objects that <span>_needUpdate </span><span style="color:rgb(102,102,0);">=</span><span> </span><span style="color:rgb(0,0,136);">false</span><span>) in fact was not working as the objects were being updated anyway?</span></p>
+<p><span>Or was this working fine?</span></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_229041_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229041"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D229041" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D229041" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D229041&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=229041&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Didn't quite understand sorry, have you found out the concept in the first post (create array of objects that _needUpdate = false) in fact was not working as the objects were being updated anyway? 
+Or was this working fine? 
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229041">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-229163"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_229163">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229163" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-11T13:05:04Z" title="04/11/15 01:05  PM">April 11, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="229163" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1428757504,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":229163}' id="comment-229163_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-229163_wrap" href="#elControls_229163_menu" id="elControls_229163" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_229163_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=229163" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_229163_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229163" id="elSharePost_229163" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229163" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-04-11T13:05:04Z" title="04/11/15 01:05  PM">April 11, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>It will skip Objects that don't need an Update. But don't touch the "_needUpdate" array. ! </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_229163_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229163"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D229163" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D229163" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D229163&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=229163&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="It will skip Objects that don't need an Update. But don't touch the &quot;_needUpdate&quot; array. !  
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=229163">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									4 weeks later...
+								</li>
+</ul>
+<a id="comment-238039"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_238039">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11696-js2k6/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile"><span style="color:#">js2k6</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=238039" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-05-07T01:26:18Z" title="05/07/15 01:26  AM">May 7, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">js2k6</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11696-js2k6/content/" rel="nofollow" title="209 posts">
+<i class="fa fa-comment"></i> 209
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Melbourne, Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="238039" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11696,"username":"js2k6","timestamp":1430961978,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":238039}' id="comment-238039_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-238039_wrap" href="#elControls_238039_menu" id="elControls_238039" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_238039_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=238039" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_238039_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=238039" id="elSharePost_238039" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=238039" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-05-07T01:26:18Z" title="05/07/15 01:26  AM">May 7, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>What a brilliant idea, will try this out on my dev server tonight</p>
+<p>Thanks for sharing!</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_238039_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=238039"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D238039" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D238039" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D238039&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=238039&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="What a brilliant idea, will try this out on my dev server tonight 
+Thanks for sharing! 
+" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=238039">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									1 month later...
+								</li>
+</ul>
+<a id="comment-249590"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_249590">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17609-bigcrazycat/?do=hovercard" data-ipshover-width="370" href="../../profile/17609-bigcrazycat/index.html" rel="nofollow" title="Go to BigCrazyCat's profile">
+<img alt="BigCrazyCat" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17609.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/17609-bigcrazycat/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17609-bigcrazycat/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/17609-bigcrazycat/index.html" rel="nofollow" title="Go to BigCrazyCat's profile"><span style="color:#">BigCrazyCat</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=249590" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-06-26T09:47:31Z" title="06/26/15 09:47  AM">June 26, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17609-bigcrazycat/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/17609-bigcrazycat/index.html" rel="nofollow" title="Go to BigCrazyCat's profile">BigCrazyCat</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17609-bigcrazycat/?do=hovercard" data-ipshover-width="370" href="../../profile/17609-bigcrazycat/index.html" rel="nofollow" title="Go to BigCrazyCat's profile">
+<img alt="BigCrazyCat" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17609.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/17609-bigcrazycat/content/" rel="nofollow" title="55 posts">
+<i class="fa fa-comment"></i> 55
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="249590" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17609,"username":"BigCrazyCat","timestamp":1435312051,"contentapp":"forums","contenttype":"forums","contentid":34100,"contentclass":"forums_Topic","contentcommentid":249590}' id="comment-249590_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-249590_wrap" href="#elControls_249590_menu" id="elControls_249590" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_249590_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=reportComment&amp;comment=249590" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_249590_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=249590" id="elSharePost_249590" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=249590" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-06-26T09:47:31Z" title="06/26/15 09:47  AM">June 26, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p><span style="font-size:14px;"><span style="color:#282828;"><span style="font-family:helvetica, arial, sans-serif;">Removing unnecessary functions causes RPT errors:</span></span></span></p>
+<pre class="ipsCode prettyprint lang-auto">
+12:38:44 Error in expression &lt;( (time - _lastUpdate) &gt; 5) then {
+call _object_damage;
+} else {
+if (!(_object i&gt;
+12:38:44   Error position: &lt;_object_damage;
+} else {
+if (!(_object i&gt;
+12:38:44   Error Undefined variable in expression: _object_damage
+12:38:44 File z\addons\dayz_server\compile\server_updateObject.sqf, line 259
+12:38:53 "WAI: [Mission:[Bandit] Troop Supply]: Starting... [3824.03,14017.9,0]"
+12:38:53 "WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]"
+12:38:53 "WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]"
+12:38:53 "WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]"
+12:38:54 "WAI: Spawned a group of 1 AI (Hero) at [3829.03,14017.9,0]"
+12:38:54 "WAI: Spawned in 2 M2StaticMG"
+12:39:04 Error in expression &lt;( (time - _lastUpdate) &gt; 5) then {
+call _object_damage;
+} else {
+if (!(_object i&gt;
+12:39:04   Error position: &lt;_object_damage;
+} else {
+if (!(_object i&gt;
+12:39:04   Error Undefined variable in expression: _object_damage
+12:39:04 File z\addons\dayz_server\compile\server_updateObject.sqf, line 259
+12:39:11 Error in expression &lt;( (time - _lastUpdate) &gt; 5) then {
+call _object_damage;
+} else {
+if (!(_object i&gt;
+12:39:11   Error position: &lt;_object_damage;
+} else {
+if (!(_object i&gt;
+12:39:11   Error Undefined variable in expression: _object_damage
+12:39:11 File z\addons\dayz_server\compile\server_updateObject.sqf, line 259
+</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_249590_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=249590"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D249590" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D249590" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F%3Fdo%3DfindComment%26comment%3D249590&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment%26comment=249590&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Removing unnecessary functions causes RPT errors: 
+
+12:38:44 Error in expression &lt;( (time - _lastUpdate) &gt; 5) then {
+call _object_damage;
+} else {
+if (!(_object i&gt;
+12:38:44   Error position: &lt;_object_damage;
+} else {
+if (!(_object i&gt;
+12:38:44   Error Undefined variable in expression: _object_damage
+12:38:44 File z\addons\dayz_server\compile\server_updateObject.sqf, line 259
+12:38:53 "WAI: [Mission:[Bandit] Troop Supply]: Starting... [3824.03,14017.9,0]"
+12:38:53 "WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]"
+12:38:53 "WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]"
+12:38:53 "WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]"
+12:38:54 "WAI: Spawned a group of 1 AI (Hero) at [3829.03,14017.9,0]"
+12:38:54 "WAI: Spawned in 2 M2StaticMG"
+12:39:04 Error in expression &lt;( (time - _lastUpdate) &gt; 5) then {
+call _object_damage;
+} else {
+if (!(_object i&gt;
+12:39:04   Error position: &lt;_object_damage;
+} else {
+if (!(_object i&gt;
+12:39:04   Error Undefined variable in expression: _object_damage
+12:39:04 File z\addons\dayz_server\compile\server_updateObject.sqf, line 259
+12:39:11 Error in expression &lt;( (time - _lastUpdate) &gt; 5) then {
+call _object_damage;
+} else {
+if (!(_object i&gt;
+12:39:11   Error position: &lt;_object_damage;
+} else {
+if (!(_object i&gt;
+12:39:11   Error Undefined variable in expression: _object_damage
+12:39:11 File z\addons\dayz_server\compile\server_updateObject.sqf, line 259
+
+' data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/?do=findComment&amp;comment=249590">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zNDEwMC10dXQtcmVtb3ZpbmctdW5uZWNlc3NhcnktdXBkYXRlcy1hbmQtZnVuY3Rpb25zLWluLXNlcnZlcl91cGRhdGVvYmplY3RzcWYvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%2F&amp;title=%5BTuT%5D+Removing+Unnecessary+updates+and+functions+in+server_updateObject.sqf" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-websharetitle="[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="34100">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">5</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html" rel="parent" title="Go to A2: Epoch Mods (1.0.5.1)">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47147-outdated-full-server-filesscripts-release-cherno-and-tavi/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/47147-outdated-full-server-filesscripts-release-cherno-and-tavi/">
+									[Outdated] Full Server Files/Scripts Release (Cherno and Tavi).
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16450-liqu1dshadow/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/16450-liqu1dshadow/index.html" rel="nofollow" title="Go to Liqu1dShadow's profile">Liqu1dShadow</a>,  <time data-short="4 yr" datetime="2020-12-09T13:15:16Z" title="12/09/20 01:15  PM">December 9, 2020</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="content" href="https://epochmod.com/forum/tags/content/" rel="tag" title="Find other content tagged with 'content'"><span>content</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_16717282">(and 6 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_16717282_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="content" href="https://epochmod.com/forum/tags/content/" rel="tag" title="Find other content tagged with 'content'"><span>content</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="map" href="https://epochmod.com/forum/tags/map/" rel="tag" title="Find other content tagged with 'map'"><span>map</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="keys" href="https://epochmod.com/forum/tags/keys/" rel="tag" title="Find other content tagged with 'keys'"><span>keys</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye" href="https://epochmod.com/forum/tags/battleye/" rel="tag" title="Find other content tagged with 'battleye'"><span>battleye</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="files" href="https://epochmod.com/forum/tags/files/" rel="tag" title="Find other content tagged with 'files'"><span>files</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="arma" href="https://epochmod.com/forum/tags/arma/" rel="tag" title="Find other content tagged with 'arma'"><span>arma</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">7</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">3519</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39586-stephen/?do=hovercard" data-ipshover-width="370" href="../../profile/39586-stephen/index.html" rel="nofollow" title="Go to Stephen's profile">
+<img alt="Stephen" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2383c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39586-stephen/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/39586-stephen/index.html" rel="nofollow" title="Go to Stephen's profile">Stephen</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/47147-outdated-full-server-filesscripts-release-cherno-and-tavi/" title="Go to last post">
+<time data-short="2 yr" datetime="2023-01-12T10:31:17Z" title="01/12/23 10:31  AM">January 12, 2023</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="epoch" href="https://epochmod.com/forum/tags/epoch/" rel="tag" title="Find other content tagged with 'epoch'"><span>epoch</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/48199-solved-server-crashes-on-joining/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/48199-solved-server-crashes-on-joining/">
+									[SOLVED] Server crashes on joining
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39953-kuibi1234/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39953-kuibi1234/" rel="nofollow" title="Go to kuibi1234's profile">kuibi1234</a>,  <time data-short="3 yr" datetime="2022-06-15T22:45:03Z" title="06/15/22 10:45  PM">June 15, 2022</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="crash" href="https://epochmod.com/forum/tags/crash/" rel="tag" title="Find other content tagged with 'crash'"><span>crash</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1633457233">(and 3 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1633457233_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="crash" href="https://epochmod.com/forum/tags/crash/" rel="tag" title="Find other content tagged with 'crash'"><span>crash</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dll" href="https://epochmod.com/forum/tags/dll/" rel="tag" title="Find other content tagged with 'dll'"><span>dll</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="infistar" href="https://epochmod.com/forum/tags/infistar/" rel="tag" title="Find other content tagged with 'infistar'"><span>infistar</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="error" href="https://epochmod.com/forum/tags/error/" rel="tag" title="Find other content tagged with 'error'"><span>error</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">3</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">373</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39953-kuibi1234/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39953-kuibi1234/" rel="nofollow" title="Go to kuibi1234's profile">
+<img alt="kuibi1234" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2022_06/QaoRJdgx_400x400.thumb.jpg.031a812646a65d6d4bb379756f3bcb1c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39953-kuibi1234/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39953-kuibi1234/" rel="nofollow" title="Go to kuibi1234's profile">kuibi1234</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/48199-solved-server-crashes-on-joining/" title="Go to last post">
+<time data-short="3 yr" datetime="2022-06-16T15:58:27Z" title="06/16/22 03:58  PM">June 16, 2022</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/">
+									How to set up and manage multiple DayZ SA Servers responsibly 2021
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>,  <time data-short="4 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_332626040">(and 19 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_332626040_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="standalone" href="https://epochmod.com/forum/tags/standalone/" rel="tag" title="Find other content tagged with 'standalone'"><span>standalone</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="how" href="https://epochmod.com/forum/tags/how/" rel="tag" title="Find other content tagged with 'how'"><span>how</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="manage" href="https://epochmod.com/forum/tags/manage/" rel="tag" title="Find other content tagged with 'manage'"><span>manage</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="multiple" href="https://epochmod.com/forum/tags/multiple/" rel="tag" title="Find other content tagged with 'multiple'"><span>multiple</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="game" href="https://epochmod.com/forum/tags/game/" rel="tag" title="Find other content tagged with 'game'"><span>game</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="restart" href="https://epochmod.com/forum/tags/restart/" rel="tag" title="Find other content tagged with 'restart'"><span>restart</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="archive" href="https://epochmod.com/forum/tags/archive/" rel="tag" title="Find other content tagged with 'archive'"><span>archive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye" href="https://epochmod.com/forum/tags/battleye/" rel="tag" title="Find other content tagged with 'battleye'"><span>battleye</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye extended controls" href="https://epochmod.com/forum/tags/battleye extended controls/" rel="tag" title="Find other content tagged with 'battleye extended controls'"><span>battleye extended controls</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="warning" href="https://epochmod.com/forum/tags/warning/" rel="tag" title="Find other content tagged with 'warning'"><span>warning</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="message" href="https://epochmod.com/forum/tags/message/" rel="tag" title="Find other content tagged with 'message'"><span>message</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="player" href="https://epochmod.com/forum/tags/player/" rel="tag" title="Find other content tagged with 'player'"><span>player</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="walkthrough" href="https://epochmod.com/forum/tags/walkthrough/" rel="tag" title="Find other content tagged with 'walkthrough'"><span>walkthrough</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="2021" href="https://epochmod.com/forum/tags/2021/" rel="tag" title="Find other content tagged with '2021'"><span>2021</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1358</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">
+<img alt="Harkness" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_09/224236537_69223110_10212121577993051_3324963234439495680_n(1)(1)(1)(1)(1).thumb.jpg.2c25a9fd8dfc519e71c8ffa92d07a93c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/" title="Go to last post">
+<time data-short="4 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47336-new-server-need-help-setting-up/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/47336-new-server-need-help-setting-up/">
+									New Server Need Help Setting Up
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39917-polar/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39917-polar/" rel="nofollow" title="Go to Polar's profile">Polar</a>,  <time data-short="4 yr" datetime="2021-06-10T19:56:17Z" title="06/10/21 07:56  PM">June 10, 2021</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> reply</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">812</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10264-ghostrider-grg/?do=hovercard" data-ipshover-width="370" href="../../profile/10264-ghostrider-grg/index.html" rel="nofollow" title="Go to Ghostrider-GRG's profile">
+<img alt="Ghostrider-GRG" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_09/GRG3-400.thumb.jpg.08cd39ea06a532d62d39c270dad9b33d.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10264-ghostrider-grg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="../../profile/10264-ghostrider-grg/index.html" rel="nofollow" title="Go to Ghostrider-GRG's profile">Ghostrider-GRG</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/47336-new-server-need-help-setting-up/" title="Go to last post">
+<time data-short="4 yr" datetime="2021-06-24T02:02:53Z" title="06/24/21 02:02  AM">June 24, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/46921-looking-to-pay-someone-to-help-me-install-an-epoch-server/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/46921-looking-to-pay-someone-to-help-me-install-an-epoch-server/">
+									Looking to pay someone to help me install an Epoch Server
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39744-notorious_bjg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39744-notorious_bjg/" rel="nofollow" title="Go to Notorious_BJG's profile">Notorious_BJG</a>,  <time data-short="4 yr" datetime="2020-09-12T21:29:17Z" title="09/12/20 09:29  PM">September 12, 2020</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1892243992">(and 3 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1892243992_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="help" href="https://epochmod.com/forum/tags/help/" rel="tag" title="Find other content tagged with 'help'"><span>help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="install" href="https://epochmod.com/forum/tags/install/" rel="tag" title="Find other content tagged with 'install'"><span>install</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="unknown module" href="https://epochmod.com/forum/tags/unknown module/" rel="tag" title="Find other content tagged with 'unknown module'"><span>unknown module</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="redux" href="https://epochmod.com/forum/tags/redux/" rel="tag" title="Find other content tagged with 'redux'"><span>redux</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1744</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39744-notorious_bjg/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39744-notorious_bjg/" rel="nofollow" title="Go to Notorious_BJG's profile">
+<img alt="Notorious_BJG" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39744-notorious_bjg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39744-notorious_bjg/" rel="nofollow" title="Go to Notorious_BJG's profile">Notorious_BJG</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/46921-looking-to-pay-someone-to-help-me-install-an-epoch-server/" title="Go to last post">
+<time data-short="4 yr" datetime="2020-09-12T21:29:18Z" title="09/12/20 09:29  PM">September 12, 2020</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf",
+    "headline": "[TuT] Removing Unnecessary updates and functions in server_updateObject.sqf",
+    "text": "Introducion \n\u00a0 \nI was looking into a Problem, where the FPS drops, when players enter a City or any Place with a large amount of Objects placed. After fushing around a while i have noticed, that actually ALL Objects are being updated. This includes houses, cras cutters, bins and fences, as also Modular Buildings like Wooden Walls. So my thought was, that counting and updating all of those Objects may result in a massive Server Load. For testing purposes i made up an array with all arma2 Buildings and a check to not Update those. Result: All of these Objects where un-breakable, can\u0027t be killed or damaged anymore. Also a slight FPS increase, but nothing really \"breaking\". \n\u00a0 \n\u00a0 \nBefore we Start \n\u00a0 \nYou must notice, that these changes make all Objects invincible. Also it is highly recommended to create a Backup, before you start editing.  \nRequierements: \n- PBO Manager (For editing Server Files) \n- A custom \"variables.sqf\" in you Mission Folder \n\u00a0 \n\u00a0 \n\u00a0 \nSetting up the Variable for Objects that should not be updated (Client side) \n\u00a0 \nThese Changes are made in the variables.sqf, located in your Mission Folder. \n   \n\u00a0 \n\u00a0 \n\u00a0 \nChanging server_updateObject.sqf  \nThese changes are made in dayz_server.pbo\\compiles\\server_updateObject.sqf - This does not effect any custom mods you might have installed, for example the Vehicle Key (thanks, sir - that thing is awesome). \n\u00a0 \n   \n\u00a0 \n\u00a0 \nRemoving unnecessary Functions \n\u00a0 \nThis is yet still not effecting any mods (not so far i know) - but will result in a faster update of objects, because first of all we\u0027ll be using \"if\", instead of \"switch\" (If is concidered to be much faster, then switch) and secondary, we will use one function for all Hitpoint actions such as \"killed\", \"damage\" or \"repair\". \n\u00a0 \n    \nKeep in mind, that you can customize the array of object, that should not be updated by simply adding or removing an object, but please note: DO NOT, AT NO TIME, NEVER put Objects like Doors, Safes or other Objects that requiere some sort of action - in that array. Reason: As you for example open a Door, the State well more likely the \"position\" of the door is being updated, forcing the door to actually open. If you forbid this, you obviously can\u0027t open Doors anymore. This does not effect Objects like for example Loot, Stairs, Ladders, etc.. \n",
+    "dateCreated": "2015-04-06T20:27:54+0000",
+    "datePublished": "2015-04-06T20:27:54+0000",
+    "dateModified": "2015-06-26T09:47:31+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "Guest",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 4005
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 9
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 5
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization"
+    },
+    "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/",
+    "discussionUrl": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226815",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226815",
+            "author": {
+                "@type": "Person",
+                "name": "Gr8",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-15884.png",
+                "url": "https://epochmod.com/forum/profile/15884-gr8/"
+            },
+            "dateCreated": "2015-04-07T01:37:57+0000",
+            "text": "Nice fixes, \n\u00a0 \nfyi, you spelled\u00a0Unnecessary wrong your title \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226935",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226935",
+            "author": {
+                "@type": "Person",
+                "name": "Guest",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+            },
+            "dateCreated": "2015-04-07T12:06:09+0000",
+            "text": "Thanks :wub:\u00a0 I\u0027m from Germany hehe.. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226973",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226973",
+            "author": {
+                "@type": "Person",
+                "name": "Guest",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+            },
+            "dateCreated": "2015-04-07T13:37:35+0000",
+            "text": "With special thanks to Schwede, i also found, that Objects are being updated, even if an update i not needed at all. Due to his logs (Thank you very much!) i came up with a new way to update the Objects, by comparing, if the Object really needs an Update or not.  \nNote: This is absolutely untested, i do not know, if this works!  \n//EDIT: This seems to fix an issue, where you have to Unlock vehicles twice, but that could be only me and is tested on 2 vehicles only.. \n\u00a0 \nUpdating server_updateObject.sqf to set new Variables for comparison \n\u00a0 \nThis will simply create new Variables and attach them to the Object, as this seems to be the best way to compare, if old or new. \n\u00a0 \n   \n\u00a0 \n\u00a0 \nUpdating the server_functions.sqf, to check if an Update is actually needed \n\u00a0 \nThis will effect Zupa\u0027s single Currency if installed. Also this is completely untested and i did not remove the Logs out of this..     \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226989",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226989",
+            "author": {
+                "@type": "Person",
+                "name": "SchwEde",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-15060.png",
+                "url": "https://epochmod.com/forum/profile/15060-schwede/"
+            },
+            "dateCreated": "2015-04-07T14:26:55+0000",
+            "text": "will test this, and tell the results (the NOT SC Version!) \nNice work, Kollege :) \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226997",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-226997",
+            "author": {
+                "@type": "Person",
+                "name": "Guest",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+            },
+            "dateCreated": "2015-04-07T14:45:48+0000",
+            "text": "I just noticed a smal issue:  \n\u00a0 \n\n/** Compare Inventory **/\n\tif (!(_lastInventory == _hitpoints)) then {\n\t\tdiag_log format[\"Updating Gear of %1\", _object];\n\t\t[_object, \"gear\"] call server_updateObject;\n\t};\n\t\n\t/** Compare Hitpoints **/\n\tif (!(_lastHitpoints == _inventory)) then {\n\t\tdiag_log format[\"Updating Hitpoints of %1\", _object];\n\t\t[_object, \"damage\"] call server_updateObject;\n\t};\n\n\nYou might want to change that around :P \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-229041",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-229041",
+            "author": {
+                "@type": "Person",
+                "name": "Markokil321",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-7586.png",
+                "url": "https://epochmod.com/forum/profile/7586-markokil321/"
+            },
+            "dateCreated": "2015-04-11T03:22:08+0000",
+            "text": "Didn\u0027t quite understand sorry, have you found out the concept in the first post (create array of objects that\u00a0_needUpdate = false) in fact was not working as the objects were being updated anyway? \nOr was this working fine? \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-229163",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-229163",
+            "author": {
+                "@type": "Person",
+                "name": "Guest",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+            },
+            "dateCreated": "2015-04-11T13:05:04+0000",
+            "text": "It will skip Objects that don\u0027t need an Update. But don\u0027t touch the \"_needUpdate\" array. !  \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-238039",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-238039",
+            "author": {
+                "@type": "Person",
+                "name": "js2k6",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg",
+                "url": "https://epochmod.com/forum/profile/11696-js2k6/"
+            },
+            "dateCreated": "2015-05-07T01:26:18+0000",
+            "text": "What a brilliant idea, will try this out on my dev server tonight \nThanks for sharing! \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-249590",
+            "url": "https://epochmod.com/forum/topic/34100-tut-removing-unnecessary-updates-and-functions-in-server_updateobjectsqf/#comment-249590",
+            "author": {
+                "@type": "Person",
+                "name": "BigCrazyCat",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-17609.png",
+                "url": "https://epochmod.com/forum/profile/17609-bigcrazycat/"
+            },
+            "dateCreated": "2015-06-26T09:47:31+0000",
+            "text": "Removing unnecessary functions causes RPT errors: \n\n12:38:44 Error in expression \u0026lt;( (time - _lastUpdate) \u0026gt; 5) then {\ncall _object_damage;\n} else {\nif (!(_object i\u0026gt;\n12:38:44   Error position: \u0026lt;_object_damage;\n} else {\nif (!(_object i\u0026gt;\n12:38:44   Error Undefined variable in expression: _object_damage\n12:38:44 File z\\addons\\dayz_server\\compile\\server_updateObject.sqf, line 259\n12:38:53 \"WAI: [Mission:[Bandit] Troop Supply]: Starting... [3824.03,14017.9,0]\"\n12:38:53 \"WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]\"\n12:38:53 \"WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]\"\n12:38:53 \"WAI: Spawned a group of 3 AI (Hero) at [3829.03,14017.9,0]\"\n12:38:54 \"WAI: Spawned a group of 1 AI (Hero) at [3829.03,14017.9,0]\"\n12:38:54 \"WAI: Spawned in 2 M2StaticMG\"\n12:39:04 Error in expression \u0026lt;( (time - _lastUpdate) \u0026gt; 5) then {\ncall _object_damage;\n} else {\nif (!(_object i\u0026gt;\n12:39:04   Error position: \u0026lt;_object_damage;\n} else {\nif (!(_object i\u0026gt;\n12:39:04   Error Undefined variable in expression: _object_damage\n12:39:04 File z\\addons\\dayz_server\\compile\\server_updateObject.sqf, line 259\n12:39:11 Error in expression \u0026lt;( (time - _lastUpdate) \u0026gt; 5) then {\ncall _object_damage;\n} else {\nif (!(_object i\u0026gt;\n12:39:11   Error position: \u0026lt;_object_damage;\n} else {\nif (!(_object i\u0026gt;\n12:39:11   Error Undefined variable in expression: _object_damage\n12:39:11 File z\\addons\\dayz_server\\compile\\server_updateObject.sqf, line 259\n\n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/37-legacy-resources/",
+                "name": "Legacy Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/34-a2-epoch-mods-1051/",
+                "name": "A2: Epoch Mods (1.0.5.1)"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

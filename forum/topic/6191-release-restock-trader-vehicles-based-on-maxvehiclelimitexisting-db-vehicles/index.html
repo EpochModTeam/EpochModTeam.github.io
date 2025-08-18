@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles - A2: Epoch Mods (1.0.5.1) - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/" property="og:url"/>
+<meta content="I was getting a lot of complains about restocking vehicles at vendors but based on the MaxVehicleLimit in init.sqf, i couldnt really do much about it. So i sat down today to write a PHP script that will repopulate vendors based on the MaxVehicleLimit and on how many vehicles are in the database. ..." name="description"/>
+<meta content="I was getting a lot of complains about restocking vehicles at vendors but based on the MaxVehicleLimit in init.sqf, i couldnt really do much about it. So i sat down today to write a PHP script that will repopulate vendors based on the MaxVehicleLimit and on how many vehicles are in the database. ..." property="og:description"/>
+<meta content="2014-04-21T00:07:11Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="6191" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy82MTkxLXJlbGVhc2UtcmVzdG9jay10cmFkZXItdmVoaWNsZXMtYmFzZWQtb24tbWF4dmVoaWNsZWxpbWl0ZXhpc3RpbmctZGItdmVoaWNsZXMv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":34}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":6191}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1)</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-01-18T19:17:37Z" title="01/18/14 07:17  PM">January 18, 2014</time> in <a href="../../forum/34-a2-epoch-mods-1051/index.html">A2: Epoch Mods (1.0.5.1)</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="6191">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-6191" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-39502"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_39502">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/1286-sandbird/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile"><span style="color:#">Sandbird</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39502" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-18T19:17:37Z" title="01/18/14 07:17  PM">January 18, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/1286-sandbird/content/" rel="nofollow" title="1045 posts">
+<i class="fa fa-comment"></i> 1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Greece</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="39502" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1286,"username":"Sandbird","timestamp":1390072657,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":39502}' id="comment-39502_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-39502_wrap" href="#elControls_39502_menu" id="elControls_39502" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_39502_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=39502" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_39502_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_39502" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39502" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-18T19:17:37Z" title="01/18/14 07:17  PM">January 18, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I was getting a lot of complains about restocking vehicles at vendors but based on the MaxVehicleLimit in init.sqf, i couldnt really do much about it. So i sat down today to write a PHP script that will repopulate vendors based on the MaxVehicleLimit and on how many vehicles are in the database.</p>
+<p><strong>This script is NOT for everybody, so read carefully first before doing it.....and always backup, backup, backup before trying anything.</strong></p>
+<p>What this script does:</p>
+<p>- Checks how many vehicles are allowed on the map (MaxVehicleLimit, in init.sqf)</p>
+<p>- Based on a value YOU set for the maximum normal epoch spawned vehicles you want to be spawned on the map on every restart, it will calculate how many vehicles are already in the database, how many 'bought' vehicles exist already on the map, how many available quantities the vendors can hold....and then it will repopulate any left overs till MaxVehicleLimit at random vendor slots.But in order to do so It <strong>WILL delete</strong> any untouched vehicle on the map, that have't been used for 15 days, either bought or normal spawned.</p>
+<p>- Also it will always delete (randomly) any excess normal spawned vehicles all the way down to the value you set at the beginning of the script.</p>
+<p> </p>
+<p>At the top of the script you'll see :</p>
+<pre class="ipsCode prettyprint">
+$HOST = "localhost";// DATABASE HOST/IP
+$PASS = "";// DATABASE PASS
+$USER = "root";// DATABASE USER
+$DB   = "dayz_epoch1031";// DATABASE NAME
+$INSTANCE = "17";//HIVE SERVER INSTANCE
+                
+$MaxVehicleLimit= 500;
+$maxMapVehicles = 150;  // How many normal epoch vehicles (not bought) do you want to have on the map (x out of 500)
+$unwantedVehicles = 15; // Max number of vehicles in traders
+$maxTotalVendorStock = 2700;
+</pre>
+<p>Set your database details there.<br/><strong>$MaxVehicleLimit</strong> is the number you have in your init.sqf. How many vehicles you want to have on the map.</p>
+<p><strong>$maxMapVehicles</strong> is the maximum amount of the vehicles you want dayz to spawn on every restart ( not bought vehicles, normal vehicles you find randomly around the map).</p>
+<p>Every time the server restarts new vehicles will be allowed to spawn or be deleted to reach THIS number.</p>
+<p><strong>$unwantedVehicles </strong>is the max amount of vehicles for each category you want in the database...For example if during the game a vendor has 33 MTVRs, after restart it will be 15.</p>
+<p><strong>$maxTotalVendorStock = 2700;</strong> <span style="color:#ff0000;"><strong>This is a very important value. This is the total amount of cars you want the vendors to have in the database.  </strong></span>Based on this number you'll either get repopulated vendors on restart, or not. If you dont know your 'magic' value...then run <strong>info.php</strong> first to see it. Its the <strong>Total Vendor Cars</strong> entry.</p>
+<p>I've created a new table on the database called <strong>allowedvehicles</strong> where i have all the epoch vehicles that can be spawned or bought in the game. You need this table to be able to do comparisons.</p>
+<p>To create your own <strong>allowedvehicles </strong>table open : @DayZ_Epoch_Server\addons\dayz_server\missions\DayZ_Epoch_17.Chernarus\dynamic_vehicle.sqf  and grab all the classnames there. This is how i made mine.</p>
+<p>These are all the legit vehicles that traders sell or epoch spawns....If you have added custom vehicles in your map...then my script will not take them in account. You have to add them in the allowedvehicles table.</p>
+<p>The easiest way to produce that table is reformat that .sqf file in a notepad and create an SQL insert entry to import it in the database.</p>
+<p>Or you can use mine....Its the basic epoch 1042 dynamic_vehicle.sqf with some pook helicopters at the bottom.</p>
+<p> </p>
+<p>At line 37 you'll see :</p>
+<pre class="ipsCode prettyprint">
+SELECT object_data.ObjectID FROM object_data, allowedvehicles WHERE allowedvehicles.className = object_data.Classname AND object_data.CharacterID = '0' AND
+                   object_data.LastUpdated &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 DAY) ORDER BY rand() LIMIT ".$leftOvers);</pre>
+<p>This will delete any normal spawned vehicles that might exist on the server, all the way down to <strong>$maxMapVehicles</strong>. This way it makes room for new vendor slots to be filled.</p>
+<p>(Update: This will only delete normal epoch cars untouched for 15 days...Lower this value to increase chances of getting more free space for vendors.)</p>
+<p> </p>
+<p>At line 46:</p>
+<pre class="ipsCode prettyprint">
+SELECT object_data.ObjectID FROM object_data, allowedvehicles WHERE
+                   allowedvehicles.className = object_data.Classname AND
+                   object_data.LastUpdated &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 DAY)
+                   ORDER BY rand()");         
+</pre>
+<p>I select any vehicle that hasnt been used for 15 days from the database and delete it further down....so people who stopped playing on the server will get their vehicles deleted after 15 days.</p>
+<p> </p>
+<p>At line 65 i am selecting the total amount of vehicles in vendors:</p>
+<pre class="ipsCode prettyprint">
+SELECT SUM(qty)as total FROM traders_data WHERE qty &gt; '0' AND
+`item` NOT LIKE '%ATV_%' AND
+`item` NOT LIKE '%Old_bike%' AND
+`tid` IN (SELECT id FROM `trader_tids` WHERE trader IN (SELECT id FROM server_traders WHERE instance = '".$INSTANCE."' AND (`desc` LIKE '%Aircraft%' OR `desc` LIKE '%Bandit Trader%' OR `desc` LIKE '%Hero Vendor%' OR `desc` LIKE '%Vehicles%'))) AND
+afile = 'trade_any_vehicle'</pre>
+<p>Notice the $INSTANCE. I use instance 17 ( thats where my vendors are ). Make sure you use YOUR instance, otherwise wrong vendors will be updated.</p>
+<p>Also i am not selecting Boat Vendors...Only car, and air vehicles. Noone really cares about boats :P</p>
+<p> </p>
+<p>At line 77:</p>
+<pre class="ipsCode prettyprint">
+if ($canAddToVendors &gt; 0){
+</pre>
+<p>This is where the restocking happens. If <strong>$canAddToVendors</strong> value is positive...that plus amount of vehicles will be distributed in the vehicle vendors. One at a time and random vehicle categories.</p>
+<p> </p>
+<p><strong>And now....how to run the script ?</strong> Well.....i bet 99% of the people here use some type of .bat file to restart the server right, using BEC's scheduler. ?</p>
+<p>If you have an apache server on that machine, then you can use the PHP command line to execute the script BEFORE you start your server.</p>
+<p>I have WAMP installed on the server, so all i had to add was:</p>
+<pre class="ipsCode prettyprint">
+echo.
+echo Restocking vendors......
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+echo.
+echo Starting server...
+cd /D "C:\Program Files (x.... blah blah</pre>
+<p>Why i run the script 4 times you ask ? Well, there are 2 possibilities here. 1) I've been working on this script for almost 12h and i missed something on a 'if' or 'while' loop that i am too tired to figure out where and why, and its not looping correctly....or 2) I remember with the good old update_vehicles.pl script back in normal chernarus, i had to also run that perl script 3-5 times to properly update the database....maybe its a dayz thing ?</p>
+<p>I cant think straight anymore :)</p>
+<p> </p>
+<p> </p>
+<p><u><em><span style="font-size:18px;"><strong>Update 21/4/2014</strong></span></em></u></p>
+<ul><li>File has been updated. Now i include an <strong>info.php</strong> file...Its the same as the <strong>run.php</strong> but it will only show results...It wont execute anything...Its more of an information page so you can see what's going on in your server. <span style="color:#ff0000;"><strong>Run this 1st</strong></span> to see whats happening with the vehicle population in your server.</li>
+<li>Of course you have to have the allowedvehicles table in your database...I've included mine...Its the default dayz_1042 epoch vehicles with some pook bell helis added at the bottom.I dont use them all, so i didnt include them all. Just edit the .sql file to your liking before importing it.</li>
+<li>After you run the <strong>info.php</strong> you might also get negative values in then <strong>Space available</strong> entry...for example:<br/><pre class="ipsCode prettyprint">
+Normal Cars: 188
+Bought Cars: 285
+Total Cars: 473
+Total Vendor Cars: 3391 (without bicycles, atvs)
+Space available:-1726
+
+maxTotalVendorStock 2700
+MaxVehicleLimit 500
+tillMax 62
+</pre>
+<p>That means no new cars are going to be added since i am already <strong>+1726</strong> more vehicles. If you do get negative value and you are sure you've set the  <strong>$MaxVehicleLimit </strong>,<strong> $maxMapVehicles</strong>,<strong> $unwantedVehicles</strong> correctly then raise <strong>$maxTotalVendorStock</strong> till you start seeing positive values in the <strong>Space available</strong>.<br/>
+That will be how many new vehicles will be added in vendors on server restart.</p>
+</li><li>
+<p>Read this thread from the beginning...Changes have been made to the text...and remember....<span style="font-size:18px;"><strong>Run info.php first to get a sense of things</strong></span>.</p>
+</li>
+</ul><p> </p>
+<p style="text-align:center;"><a href="https://www.dropbox.com/s/yccvog0f3oosra0/vehicleClean.zip" rel="external nofollow"><span style="font-size:18px;"><strong>CLICK HERE TO DOWNLOAD SCRIPT </strong></span></a></p>
+<p style="text-align:center;"> </p>
+<p style="text-align:center;"> </p>
+<p>Feel free to contribute, ask questions, etc etc.....And dont forget....backup, backup, backup first.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_39502_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39502" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39502" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39502&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=39502&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I was getting a lot of complains about restocking vehicles at vendors but based on the MaxVehicleLimit in init.sqf, i couldnt really do much about it. So i sat down today to write a PHP script that will repopulate vendors based on the MaxVehicleLimit and on how many vehicles are in the database. 
+This script is NOT for everybody, so read carefully first before doing it.....and always backup, backup, backup before trying anything. 
+What this script does: 
+- Checks how many vehicles are allowed on the map (MaxVehicleLimit, in init.sqf) 
+- Based on a value YOU set for the maximum normal epoch spawned vehicles you want to be spawned on the map on every restart, it will calculate how many vehicles are already in the database, how many 'bought' vehicles exist already on the map, how many available quantities the vendors can hold....and then it will repopulate any left overs till MaxVehicleLimit at random vendor slots.But in order to do so It WILL delete any untouched vehicle on the map, that have't been used for 15 days, either bought or normal spawned. 
+- Also it will always delete (randomly) any excess normal spawned vehicles all the way down to the value you set at the beginning of the script. 
+  
+At the top of the script you'll see : 
+
+$HOST = &quot;localhost&quot;;// DATABASE HOST/IP
+$PASS = &quot;&quot;;// DATABASE PASS
+$USER = &quot;root&quot;;// DATABASE USER
+$DB   = &quot;dayz_epoch1031&quot;;// DATABASE NAME
+$INSTANCE = &quot;17&quot;;//HIVE SERVER INSTANCE
+                
+$MaxVehicleLimit= 500;
+$maxMapVehicles = 150;  // How many normal epoch vehicles (not bought) do you want to have on the map (x out of 500)
+$unwantedVehicles = 15; // Max number of vehicles in traders
+$maxTotalVendorStock = 2700;
+
+Set your database details there. $MaxVehicleLimit is the number you have in your init.sqf. How many vehicles you want to have on the map. 
+$maxMapVehicles is the maximum amount of the vehicles you want dayz to spawn on every restart ( not bought vehicles, normal vehicles you find randomly around the map). 
+Every time the server restarts new vehicles will be allowed to spawn or be deleted to reach THIS number. 
+$unwantedVehicles is the max amount of vehicles for each category you want in the database...For example if during the game a vendor has 33 MTVRs, after restart it will be 15. 
+$maxTotalVendorStock = 2700; This is a very important value. This is the total amount of cars you want the vendors to have in the database.  Based on this number you'll either get repopulated vendors on restart, or not. If you dont know your 'magic' value...then run info.php first to see it. Its the Total Vendor Cars entry. 
+I've created a new table on the database called allowedvehicles where i have all the epoch vehicles that can be spawned or bought in the game. You need this table to be able to do comparisons. 
+To create your own allowedvehicles table open : @DayZ_Epoch_Server\addons\dayz_server\missions\DayZ_Epoch_17.Chernarus\dynamic_vehicle.sqf  and grab all the classnames there. This is how i made mine. 
+These are all the legit vehicles that traders sell or epoch spawns....If you have added custom vehicles in your map...then my script will not take them in account. You have to add them in the allowedvehicles table. 
+The easiest way to produce that table is reformat that .sqf file in a notepad and create an SQL insert entry to import it in the database. 
+Or you can use mine....Its the basic epoch 1042 dynamic_vehicle.sqf with some pook helicopters at the bottom. 
+  
+At line 37 you'll see : 
+
+SELECT object_data.ObjectID FROM object_data, allowedvehicles WHERE allowedvehicles.className = object_data.Classname AND object_data.CharacterID = '0' AND
+                   object_data.LastUpdated &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 DAY) ORDER BY rand() LIMIT &quot;.$leftOvers);
+This will delete any normal spawned vehicles that might exist on the server, all the way down to $maxMapVehicles. This way it makes room for new vendor slots to be filled. 
+(Update: This will only delete normal epoch cars untouched for 15 days...Lower this value to increase chances of getting more free space for vendors.) 
+  
+At line 46: 
+
+SELECT object_data.ObjectID FROM object_data, allowedvehicles WHERE
+                   allowedvehicles.className = object_data.Classname AND
+                   object_data.LastUpdated &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 DAY)
+                   ORDER BY rand()&quot;);         
+
+I select any vehicle that hasnt been used for 15 days from the database and delete it further down....so people who stopped playing on the server will get their vehicles deleted after 15 days. 
+  
+At line 65 i am selecting the total amount of vehicles in vendors: 
+
+SELECT SUM(qty)as total FROM traders_data WHERE qty &gt; '0' AND
+`item` NOT LIKE '%ATV_%' AND
+`item` NOT LIKE '%Old_bike%' AND
+`tid` IN (SELECT id FROM `trader_tids` WHERE trader IN (SELECT id FROM server_traders WHERE instance = '&quot;.$INSTANCE.&quot;' AND (`desc` LIKE '%Aircraft%' OR `desc` LIKE '%Bandit Trader%' OR `desc` LIKE '%Hero Vendor%' OR `desc` LIKE '%Vehicles%'))) AND
+afile = 'trade_any_vehicle'
+Notice the $INSTANCE. I use instance 17 ( thats where my vendors are ). Make sure you use YOUR instance, otherwise wrong vendors will be updated. 
+Also i am not selecting Boat Vendors...Only car, and air vehicles. Noone really cares about boats :P 
+  
+At line 77: 
+
+if ($canAddToVendors &gt; 0){
+
+This is where the restocking happens. If $canAddToVendors value is positive...that plus amount of vehicles will be distributed in the vehicle vendors. One at a time and random vehicle categories. 
+  
+And now....how to run the script ? Well.....i bet 99% of the people here use some type of .bat file to restart the server right, using BEC's scheduler. ? 
+If you have an apache server on that machine, then you can use the PHP command line to execute the script BEFORE you start your server. 
+I have WAMP installed on the server, so all i had to add was: 
+
+echo.
+echo Restocking vendors......
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+C:\wamp\bin\php\php5.2.6\php.exe -f C:\wamp\www\vehiclesclean\run.php
+ping 127.0.0.1 -n 1 &gt;NUL
+echo.
+echo Starting server...
+cd /D &quot;C:\Program Files (x.... blah blah
+Why i run the script 4 times you ask ? Well, there are 2 possibilities here. 1) I've been working on this script for almost 12h and i missed something on a 'if' or 'while' loop that i am too tired to figure out where and why, and its not looping correctly....or 2) I remember with the good old update_vehicles.pl script back in normal chernarus, i had to also run that perl script 3-5 times to properly update the database....maybe its a dayz thing ? 
+I cant think straight anymore :) 
+  
+  
+Update 21/4/2014 
+File has been updated. Now i include an info.php file...Its the same as the run.php but it will only show results...It wont execute anything...Its more of an information page so you can see what's going on in your server. Run this 1st to see whats happening with the vehicle population in your server. 
+Of course you have to have the allowedvehicles table in your database...I've included mine...Its the default dayz_1042 epoch vehicles with some pook bell helis added at the bottom.I dont use them all, so i didnt include them all. Just edit the .sql file to your liking before importing it. 
+After you run the info.php you might also get negative values in then Space available entry...for example: 
+Normal Cars: 188
+Bought Cars: 285
+Total Cars: 473
+Total Vendor Cars: 3391 (without bicycles, atvs)
+Space available:-1726
+
+maxTotalVendorStock 2700
+MaxVehicleLimit 500
+tillMax 62
+
+That means no new cars are going to be added since i am already +1726 more vehicles. If you do get negative value and you are sure you've set the  $MaxVehicleLimit , $maxMapVehicles, $unwantedVehicles correctly then raise $maxTotalVendorStock till you start seeing positive values in the Space available. 
+That will be how many new vehicles will be added in vendors on server restart. 
+ 
+Read this thread from the beginning...Changes have been made to the text...and remember....Run info.php first to get a sense of things. 
+ 
+  
+CLICK HERE TO DOWNLOAD SCRIPT  
+  
+  
+Feel free to contribute, ask questions, etc etc.....And dont forget....backup, backup, backup first. 
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39502">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-39539"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_39539">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile">
+<img alt="Diesel Weasel" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-4040.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/4040-diesel-weasel/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile"><span style="color:#">Diesel Weasel</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39539" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-18T21:21:54Z" title="01/18/14 09:21  PM">January 18, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile">Diesel Weasel</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile">
+<img alt="Diesel Weasel" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-4040.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/4040-diesel-weasel/content/" rel="nofollow" title="46 posts">
+<i class="fa fa-comment"></i> 46
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="39539" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":4040,"username":"Diesel Weasel","timestamp":1390080114,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":39539}' id="comment-39539_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-39539_wrap" href="#elControls_39539_menu" id="elControls_39539" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_39539_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=39539" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_39539_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39539" id="elSharePost_39539" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39539" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-18T21:21:54Z" title="01/18/14 09:21  PM">January 18, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I am EXTREMELY interested in running this script on our server but the only issue is we rent from Vilayer. I taught myself all the scripting for our server so that we would be open to more players. Right now I have our limit at 600 and with people buying vehicles left and right we are well over that. From past experience I also know that we tend to end up with dozens of unwanted cars sprinkled around the map. This sounds like a great compromise! The only thing is I don't understand how I'd be able to run the script. I use Vilayer's restart system and it's worked pretty well for us so far. I do have several database events that run just fine and was wondering if there was a way this could be set as an event as well? I confess I'm new to the database events so if I'm being blind and this will run fine like the others I apologize. </p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=showReactionsComment&amp;comment=39539&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=showReactionsComment&amp;comment=39539&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_39539_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39539"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39539" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39539" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39539&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=39539&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I am EXTREMELY interested in running this script on our server but the only issue is we rent from Vilayer. I taught myself all the scripting for our server so that we would be open to more players. Right now I have our limit at 600 and with people buying vehicles left and right we are well over that. From past experience I also know that we tend to end up with dozens of unwanted cars sprinkled around the map. This sounds like a great compromise! The only thing is I don't understand how I'd be able to run the script. I use Vilayer's restart system and it's worked pretty well for us so far. I do have several database events that run just fine and was wondering if there was a way this could be set as an event as well? I confess I'm new to the database events so if I'm being blind and this will run fine like the others I apologize.  
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39539">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-39546"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_39546">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/1286-sandbird/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile"><span style="color:#">Sandbird</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39546" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-18T21:38:25Z" title="01/18/14 09:38  PM">January 18, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/1286-sandbird/content/" rel="nofollow" title="1045 posts">
+<i class="fa fa-comment"></i> 1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Greece</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="39546" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1286,"username":"Sandbird","timestamp":1390081105,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":39546}' id="comment-39546_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-39546_wrap" href="#elControls_39546_menu" id="elControls_39546" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_39546_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=39546" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_39546_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39546" id="elSharePost_39546" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39546" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-18T21:38:25Z" title="01/18/14 09:38  PM">January 18, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Since it needs to run sql queries and do calculations with them, i highly doubt it can be compressed down to SQL functions. Maybe an SQL guru might be able to do something.</p>
+<p>You definitely need a PHP server to execute this...i think it could be hosted anywhere. If Vilalayer had port 3306 open and allows remote SQL control panels to connect (like Navicat from your PC) then for sure you can set a remote connection from the script to run.</p>
+<p>Now about the startup thing...i dont know how vilalayer startup script operates, but you can ask them that.</p>
+<p>It depends how they do their restarts...if they use a linux based OS then you can host the script somewhere on the net....for example: <a href="http://myblahblahhoster.com/run.php" rel="external nofollow">http://myblahblahhoster.com/run.php</a> and then with curl you can access the script remotely and if you've set your database IP, user, pass, db_name then the script will remotely run.</p>
+<p>If they are using windows, and they can add custom stuff per client request, then you can just send them that line i mention in the end...to run php.exe with the location of the script.</p>
+<p> </p>
+<p>If you cant do any of the above, the simplest thing you could do is create this event:<br/>
+(as an SQL query to make it)</p>
+<pre class="ipsCode prettyprint">
+CREATE DEFINER=`dayz`@`localhost` EVENT `Delete20daysOldVehicles` ON SCHEDULE EVERY 1 DAY STARTS '2013-12-22 16:05:39' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'Deletes 20 days old vehicles' DO DELETE FROM `object_data` WHERE
+`LastUpdated` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 20 DAY) AND
+`Classname` NOT IN ('VaultStorage','LockboxStorage','VaultStorageLocked','LockboxStorageLocked','WoodShack_DZ','StorageShed_DZ','TentStorageDomed','TentStorageDomed2','TentStorage','OutHouse_DZ','Wooden_shed_DZ','GunRack_DZ')  AND
+`Inventory` &lt;&gt; '[]' AND
+`Inventory` IS NOT NULL</pre>
+<p>(or if you want to create the event your self)...Set is as a recurring event, every 1 day:</p>
+<pre class="ipsCode prettyprint">
+DELETE FROM `object_data` WHERE
+`LastUpdated` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 20 DAY) AND
+`Classname` NOT IN ('VaultStorage','LockboxStorage','VaultStorageLocked','LockboxStorageLocked','WoodShack_DZ','StorageShed_DZ','TentStorageDomed','TentStorageDomed2','TentStorage','OutHouse_DZ','Wooden_shed_DZ','GunRack_DZ')  AND
+`Inventory` &lt;&gt; '[]' AND
+`Inventory` IS NOT NULL</pre>
+<p>This wont do all the above, but it will delete all 20 days 'untouched' vehicles.</p>
+<p>Somewhere on this forum there is the above SQL event but only for bought vehicles.</p>
+<p>My way though will delete ANY vehicle that hasnt been touched for 20 days...I think its better this way, so vehicles that are well hidden will be deleted to).</p>
+<p> </p>
+<p>Epoch doesnt have a simple way to distinguish vehicles in the database. This is the closest you can get....Even so, it will not delete vehicles that have inventory set to <strong>[]</strong>....and some times this happens.</p>
+<p>Thats why i created a new table to hold all the epoch vehicles so i am 100% i am deleting everything in my script.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_39546_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39546"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39546" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39546" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D39546&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=39546&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Since it needs to run sql queries and do calculations with them, i highly doubt it can be compressed down to SQL functions. Maybe an SQL guru might be able to do something. 
+You definitely need a PHP server to execute this...i think it could be hosted anywhere. If Vilalayer had port 3306 open and allows remote SQL control panels to connect (like Navicat from your PC) then for sure you can set a remote connection from the script to run. 
+Now about the startup thing...i dont know how vilalayer startup script operates, but you can ask them that. 
+It depends how they do their restarts...if they use a linux based OS then you can host the script somewhere on the net....for example: http://myblahblahhoster.com/run.php and then with curl you can access the script remotely and if you've set your database IP, user, pass, db_name then the script will remotely run. 
+If they are using windows, and they can add custom stuff per client request, then you can just send them that line i mention in the end...to run php.exe with the location of the script. 
+  
+If you cant do any of the above, the simplest thing you could do is create this event: 
+(as an SQL query to make it) 
+
+CREATE DEFINER=`dayz`@`localhost` EVENT `Delete20daysOldVehicles` ON SCHEDULE EVERY 1 DAY STARTS '2013-12-22 16:05:39' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'Deletes 20 days old vehicles' DO DELETE FROM `object_data` WHERE
+`LastUpdated` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 20 DAY) AND
+`Classname` NOT IN ('VaultStorage','LockboxStorage','VaultStorageLocked','LockboxStorageLocked','WoodShack_DZ','StorageShed_DZ','TentStorageDomed','TentStorageDomed2','TentStorage','OutHouse_DZ','Wooden_shed_DZ','GunRack_DZ')  AND
+`Inventory` &lt;&gt; '[]' AND
+`Inventory` IS NOT NULL
+(or if you want to create the event your self)...Set is as a recurring event, every 1 day: 
+
+DELETE FROM `object_data` WHERE
+`LastUpdated` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 20 DAY) AND
+`Classname` NOT IN ('VaultStorage','LockboxStorage','VaultStorageLocked','LockboxStorageLocked','WoodShack_DZ','StorageShed_DZ','TentStorageDomed','TentStorageDomed2','TentStorage','OutHouse_DZ','Wooden_shed_DZ','GunRack_DZ')  AND
+`Inventory` &lt;&gt; '[]' AND
+`Inventory` IS NOT NULL
+This wont do all the above, but it will delete all 20 days 'untouched' vehicles. 
+Somewhere on this forum there is the above SQL event but only for bought vehicles. 
+My way though will delete ANY vehicle that hasnt been touched for 20 days...I think its better this way, so vehicles that are well hidden will be deleted to). 
+  
+Epoch doesnt have a simple way to distinguish vehicles in the database. This is the closest you can get....Even so, it will not delete vehicles that have inventory set to []....and some times this happens. 
+Thats why i created a new table to hold all the epoch vehicles so i am 100% i am deleting everything in my script. 
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=39546">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 weeks later...
+								</li>
+</ul>
+<a id="comment-42089"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_42089">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/1286-sandbird/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile"><span style="color:#">Sandbird</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=42089" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-29T11:49:41Z" title="01/29/14 11:49  AM">January 29, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/1286-sandbird/content/" rel="nofollow" title="1045 posts">
+<i class="fa fa-comment"></i> 1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Greece</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="42089" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1286,"username":"Sandbird","timestamp":1390996181,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":42089}' id="comment-42089_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-42089_wrap" href="#elControls_42089_menu" id="elControls_42089" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_42089_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=42089" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_42089_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=42089" id="elSharePost_42089" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=42089" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-29T11:49:41Z" title="01/29/14 11:49  AM">January 29, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p><strong>Update: </strong>Updated script at line 35:</p>
+<pre class="ipsCode prettyprint">
+AND object_data.LastUpdated &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY)
+</pre>
+<p>This will only delete normal map spawned cars that havent been touched for 10 days.</p>
+<p>The way it was before, it was deleting randomly any epoch car till it reaches 150 vehicles.</p>
+<p>This way you might get less empty slots for vendors, but at least people finding vehicles will have a chance to keep them :)</p>
+<p>Lower the value to get more chances of extra slots for vendors.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_42089_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=42089"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D42089" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D42089" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D42089&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=42089&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Update: Updated script at line 35: 
+
+AND object_data.LastUpdated &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY)
+
+This will only delete normal map spawned cars that havent been touched for 10 days. 
+The way it was before, it was deleting randomly any epoch car till it reaches 150 vehicles. 
+This way you might get less empty slots for vendors, but at least people finding vehicles will have a chance to keep them :) 
+Lower the value to get more chances of extra slots for vendors. 
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=42089">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-44512"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_44512">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile">
+<img alt="Diesel Weasel" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-4040.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/4040-diesel-weasel/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile"><span style="color:#">Diesel Weasel</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=44512" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-02-04T23:54:12Z" title="02/04/14 11:54  PM">February 4, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile">Diesel Weasel</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4040-diesel-weasel/?do=hovercard" data-ipshover-width="370" href="../../profile/4040-diesel-weasel/index.html" rel="nofollow" title="Go to Diesel Weasel's profile">
+<img alt="Diesel Weasel" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-4040.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/4040-diesel-weasel/content/" rel="nofollow" title="46 posts">
+<i class="fa fa-comment"></i> 46
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="44512" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":4040,"username":"Diesel Weasel","timestamp":1391558052,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":44512}' id="comment-44512_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-44512_wrap" href="#elControls_44512_menu" id="elControls_44512" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_44512_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=44512" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_44512_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=44512" id="elSharePost_44512" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=44512" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-02-04T23:54:12Z" title="02/04/14 11:54  PM">February 4, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I ended up Frankensteining a few SQL events together into one event that seems to be working pretty well for us. It's not as nice as this of course but it deletes vehicles older than 10 days which haven't been touched in 5 days AND have no inventory. This means buildings are saved and all you have to do to protect a vehicle from being deleted is put at least one item inside it. No more torn apart vehicles rotting on the server for weeks at a time and finally new stuff can spawn!</p>
+<p> </p>
+<p>If anyone is stuck like I as and can't use this script because they rent, here's my creation. I hope it might be able to help someone someday.</p>
+<pre class="ipsCode prettyprint">
+CREATE EVENT `removeObjectEmpty`
+DELETE FROM `object_data`
+WHERE `LastUpdated` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 5 DAY)
+AND `Datestamp` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY)
+AND ( (`Inventory` IS NULL) OR (`Inventory` = '[]') OR (`Inventory` = '[[[],[]],[[],[]],[[],[]]]') )
+</pre>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=showReactionsComment&amp;comment=44512&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=showReactionsComment&amp;comment=44512&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_44512_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=44512"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D44512" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D44512" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D44512&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=44512&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I ended up Frankensteining a few SQL events together into one event that seems to be working pretty well for us. It's not as nice as this of course but it deletes vehicles older than 10 days which haven't been touched in 5 days AND have no inventory. This means buildings are saved and all you have to do to protect a vehicle from being deleted is put at least one item inside it. No more torn apart vehicles rotting on the server for weeks at a time and finally new stuff can spawn! 
+  
+If anyone is stuck like I as and can't use this script because they rent, here's my creation. I hope it might be able to help someone someday. 
+
+CREATE EVENT `removeObjectEmpty`
+DELETE FROM `object_data`
+WHERE `LastUpdated` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 5 DAY)
+AND `Datestamp` &lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY)
+AND ( (`Inventory` IS NULL) OR (`Inventory` = '[]') OR (`Inventory` = '[[[],[]],[[],[]],[[],[]]]') )
+
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=44512">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									3 weeks later...
+								</li>
+</ul>
+<a id="comment-50888"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_50888">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/1286-sandbird/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile"><span style="color:#">Sandbird</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=50888" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-02-21T13:21:50Z" title="02/21/14 01:21  PM">February 21, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/1286-sandbird/content/" rel="nofollow" title="1045 posts">
+<i class="fa fa-comment"></i> 1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Greece</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="50888" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1286,"username":"Sandbird","timestamp":1392988910,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":50888}' id="comment-50888_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-50888_wrap" href="#elControls_50888_menu" id="elControls_50888" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_50888_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=50888" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_50888_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=50888" id="elSharePost_50888" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=50888" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-02-21T13:21:50Z" title="02/21/14 01:21  PM">February 21, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>To create your own <strong>allowedvehicles </strong>table open : @DayZ_Epoch_Server\addons\dayz_server\missions\DayZ_Epoch_17.Chernarus\dynamic_vehicle.sqf  and grab all the classnames there.</p>
+<p>This is how i made mine. These are all the legit vehicles that traders sell or epoch spawns....If you have added custom vehicles in your map...then my script will not take them in account.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_50888_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=50888"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D50888" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D50888" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D50888&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=50888&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="To create your own allowedvehicles table open : @DayZ_Epoch_Server\addons\dayz_server\missions\DayZ_Epoch_17.Chernarus\dynamic_vehicle.sqf  and grab all the classnames there. 
+This is how i made mine. These are all the legit vehicles that traders sell or epoch spawns....If you have added custom vehicles in your map...then my script will not take them in account. 
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=50888">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									1 month later...
+								</li>
+</ul>
+<a id="comment-69971"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_69971">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3756-coffee/?do=hovercard" data-ipshover-width="370" href="../../profile/3756-coffee/index.html" rel="nofollow" title="Go to Coffee's profile">
+<img alt="Coffee" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3756.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3756-coffee/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3756-coffee/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/3756-coffee/index.html" rel="nofollow" title="Go to Coffee's profile"><span style="color:#">Coffee</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=69971" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-04-20T19:32:29Z" title="04/20/14 07:32  PM">April 20, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3756-coffee/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/3756-coffee/index.html" rel="nofollow" title="Go to Coffee's profile">Coffee</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3756-coffee/?do=hovercard" data-ipshover-width="370" href="../../profile/3756-coffee/index.html" rel="nofollow" title="Go to Coffee's profile">
+<img alt="Coffee" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3756.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3756-coffee/content/" rel="nofollow" title="38 posts">
+<i class="fa fa-comment"></i> 38
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="69971" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3756,"username":"Coffee","timestamp":1398022349,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":69971}' id="comment-69971_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-69971_wrap" href="#elControls_69971_menu" id="elControls_69971" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_69971_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=69971" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_69971_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=69971" id="elSharePost_69971" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=69971" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-04-20T19:32:29Z" title="04/20/14 07:32  PM">April 20, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Do you still have this script please i'm very interested in using it however the download link appears to be invalid</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_69971_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=69971"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D69971" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D69971" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D69971&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=69971&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Do you still have this script please i'm very interested in using it however the download link appears to be invalid 
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=69971">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-70057"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_70057">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/1286-sandbird/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile"><span style="color:#">Sandbird</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=70057" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-04-21T00:07:11Z" title="04/21/14 12:07  AM">April 21, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/1286-sandbird/content/" rel="nofollow" title="1045 posts">
+<i class="fa fa-comment"></i> 1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Greece</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="70057" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1286,"username":"Sandbird","timestamp":1398038831,"contentapp":"forums","contenttype":"forums","contentid":6191,"contentclass":"forums_Topic","contentcommentid":70057}' id="comment-70057_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-70057_wrap" href="#elControls_70057_menu" id="elControls_70057" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_70057_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=reportComment&amp;comment=70057" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_70057_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=70057" id="elSharePost_70057" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=70057" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-04-21T00:07:11Z" title="04/21/14 12:07  AM">April 21, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Coffee" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="69971" data-ipsquote-contentid="6191" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1398022349" data-ipsquote-username="Coffee"><div>
+<div>
+<p>Do you still have this script please i'm very interested in using it however the download link appears to be invalid</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>Ok i updated the 1st post....dont know why that file was delete....good that it did thought, i've updated the script :)</p>
+<p>Read the thread from the beginning again...i've changed some things.</p>
+<p>If you have questions post here...</p>
+<p> </p>
+<p>RUN THE INFO.PHP 1st !!!!</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_70057_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=70057"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D70057" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D70057" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F%3Fdo%3DfindComment%26comment%3D70057&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment%26comment=70057&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Ok i updated the 1st post....dont know why that file was delete....good that it did thought, i've updated the script :) 
+Read the thread from the beginning again...i've changed some things. 
+If you have questions post here... 
+  
+RUN THE INFO.PHP 1st !!!! 
+" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/?do=findComment&amp;comment=70057">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy82MTkxLXJlbGVhc2UtcmVzdG9jay10cmFkZXItdmVoaWNsZXMtYmFzZWQtb24tbWF4dmVoaWNsZWxpbWl0ZXhpc3RpbmctZGItdmVoaWNsZXMvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles%2F&amp;title=%5BRelease%5D+Restock+trader+vehicles+based+on+MaxVehicleLimit%2Bexisting+db+vehicles" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-websharetitle="[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="6191">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html" rel="parent" title="Go to A2: Epoch Mods (1.0.5.1)">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles",
+    "headline": "[Release] Restock trader vehicles based on MaxVehicleLimit+existing db vehicles",
+    "text": "I was getting a lot of complains about restocking vehicles at vendors but based on the MaxVehicleLimit in init.sqf, i couldnt really do much about it. So i sat down today to write a PHP script that will repopulate vendors based on the MaxVehicleLimit and on how many vehicles are in the database. \nThis script is NOT for everybody, so read carefully first before doing it.....and always backup, backup, backup before trying anything. \nWhat this script does: \n- Checks how many vehicles are allowed on the map (MaxVehicleLimit, in init.sqf) \n- Based on a value YOU set for the maximum normal epoch spawned vehicles you want to be spawned on the map on every restart, it will calculate how many vehicles are already in the database, how many \u0027bought\u0027 vehicles exist already on the map, how many available quantities the vendors can hold....and then it will repopulate any left overs till MaxVehicleLimit at random vendor slots.But in order to do so It WILL delete any untouched vehicle on the map, that have\u0027t been used for 15 days, either bought or normal spawned. \n- Also it will always delete (randomly) any excess normal spawned vehicles all the way down to the value you set at the beginning of the script. \n\u00a0 \nAt the top of the script you\u0027ll see : \n\n$HOST = \"localhost\";// DATABASE HOST/IP\n$PASS = \"\";// DATABASE PASS\n$USER = \"root\";// DATABASE USER\n$DB\u00a0\u00a0 = \"dayz_epoch1031\";// DATABASE NAME\n$INSTANCE = \"17\";//HIVE SERVER INSTANCE\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\n$MaxVehicleLimit= 500;\n$maxMapVehicles = 150;\u00a0 // How many normal epoch vehicles (not bought) do you want to have on the map (x out of 500)\n$unwantedVehicles = 15; // Max number of vehicles in traders\n$maxTotalVendorStock = 2700;\n\nSet your database details there. $MaxVehicleLimit is the number you have in your init.sqf. How many vehicles you want to have on the map. \n$maxMapVehicles is the maximum amount of the vehicles you want dayz to spawn on every restart ( not bought vehicles, normal vehicles you find randomly around the map). \nEvery time the server restarts new vehicles will be allowed to spawn or be deleted to reach THIS number. \n$unwantedVehicles is the max amount of vehicles for each category you want in the database...For example if during the game a vendor has 33 MTVRs, after restart it will be 15. \n$maxTotalVendorStock = 2700; This is a very important value. This is the total amount of cars you want the vendors to have in the database.\u00a0 Based on this number you\u0027ll either get repopulated vendors on restart, or not. If you dont know your \u0027magic\u0027 value...then run info.php first to see it. Its the Total Vendor Cars entry. \nI\u0027ve created a new table on the database called allowedvehicles where i have all the epoch vehicles that can be spawned or bought in the game. You need this table to be able to do comparisons. \nTo create your own allowedvehicles table open : @DayZ_Epoch_Server\\addons\\dayz_server\\missions\\DayZ_Epoch_17.Chernarus\\dynamic_vehicle.sqf\u00a0 and grab all the classnames there. This is how i made mine. \nThese are all the legit vehicles that traders sell or epoch spawns....If you have added custom vehicles in your map...then my script will not take them in account. You have to add them in the allowedvehicles table. \nThe easiest way to produce that table is reformat that .sqf file in a notepad and create an SQL insert entry to import it in the database. \nOr you can use mine....Its the basic epoch 1042 dynamic_vehicle.sqf with some pook helicopters at the bottom. \n\u00a0 \nAt line 37 you\u0027ll see : \n\nSELECT object_data.ObjectID FROM object_data, allowedvehicles WHERE allowedvehicles.className = object_data.Classname AND object_data.CharacterID = \u00270\u0027 AND\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0object_data.LastUpdated \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 DAY) ORDER BY rand() LIMIT \".$leftOvers);\nThis will delete any normal spawned vehicles that might exist on the server, all the way down to $maxMapVehicles. This way it makes room for new vendor slots to be filled. \n(Update: This will only delete normal epoch cars untouched for 15 days...Lower this value to increase chances of getting more free space for vendors.) \n\u00a0 \nAt line 46: \n\nSELECT object_data.ObjectID FROM object_data, allowedvehicles WHERE\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0allowedvehicles.className = object_data.Classname AND\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0object_data.LastUpdated \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 15 DAY)\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0ORDER BY rand()\");\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0 \n\nI select any vehicle that hasnt been used for 15 days from the database and delete it further down....so people who stopped playing on the server will get their vehicles deleted after 15 days. \n\u00a0 \nAt line 65 i am selecting the total amount of vehicles in vendors: \n\nSELECT SUM(qty)as total FROM traders_data WHERE qty \u0026gt; \u00270\u0027 AND\n`item` NOT LIKE \u0027%ATV_%\u0027 AND\n`item` NOT LIKE \u0027%Old_bike%\u0027 AND\n`tid` IN (SELECT id FROM `trader_tids` WHERE trader IN (SELECT id FROM server_traders WHERE instance = \u0027\".$INSTANCE.\"\u0027 AND (`desc` LIKE \u0027%Aircraft%\u0027 OR `desc` LIKE \u0027%Bandit Trader%\u0027 OR `desc` LIKE \u0027%Hero Vendor%\u0027 OR `desc` LIKE \u0027%Vehicles%\u0027))) AND\nafile = \u0027trade_any_vehicle\u0027\nNotice the $INSTANCE. I use instance 17 ( thats where my vendors are ). Make sure you use YOUR instance, otherwise wrong vendors will be updated. \nAlso i am not selecting Boat Vendors...Only car, and air vehicles. Noone really cares about boats :P \n\u00a0 \nAt line 77: \n\nif ($canAddToVendors \u0026gt; 0){\n\nThis is where the restocking happens. If $canAddToVendors value is positive...that plus amount of vehicles will be distributed in the vehicle vendors. One at a time and random vehicle categories. \n\u00a0 \nAnd now....how to run the script ? Well.....i bet 99% of the people here use some type of .bat file to restart the server right, using BEC\u0027s scheduler. ? \nIf you have an apache server on that machine, then you can use the PHP command line to execute the script BEFORE you start your server. \nI have WAMP installed on the server, so all i had to add was: \n\necho.\necho Restocking vendors......\nC:\\wamp\\bin\\php\\php5.2.6\\php.exe -f C:\\wamp\\www\\vehiclesclean\\run.php\nping 127.0.0.1 -n 1 \u0026gt;NUL\nC:\\wamp\\bin\\php\\php5.2.6\\php.exe -f C:\\wamp\\www\\vehiclesclean\\run.php\nping 127.0.0.1 -n 1 \u0026gt;NUL\nC:\\wamp\\bin\\php\\php5.2.6\\php.exe -f C:\\wamp\\www\\vehiclesclean\\run.php\nping 127.0.0.1 -n 1 \u0026gt;NUL\nC:\\wamp\\bin\\php\\php5.2.6\\php.exe -f C:\\wamp\\www\\vehiclesclean\\run.php\nping 127.0.0.1 -n 1 \u0026gt;NUL\necho.\necho Starting server...\ncd /D \"C:\\Program Files (x.... blah blah\nWhy i run the script 4 times you ask ? Well, there are 2 possibilities here. 1) I\u0027ve been working on this script for almost 12h and i missed something on a \u0027if\u0027 or \u0027while\u0027 loop that i am too tired to figure out where and why, and its not looping correctly....or 2) I remember with the good old update_vehicles.pl script back in normal chernarus, i had to also run that perl script 3-5 times to properly update the database....maybe its a dayz thing ? \nI cant think straight anymore :) \n\u00a0 \n\u00a0 \nUpdate 21/4/2014 \nFile has been updated. Now i include an info.php file...Its the same as the run.php but it will only show results...It wont execute anything...Its more of an information page so you can see what\u0027s going on in your server. Run this 1st to see whats happening with the vehicle population in your server. \nOf course you have to have the allowedvehicles table in your database...I\u0027ve included mine...Its the default dayz_1042 epoch vehicles with some pook bell helis added at the bottom.I dont use them all, so i didnt include them all. Just edit the .sql file to your liking before importing it. \nAfter you run the info.php you might also get negative values in then Space available entry...for example: \nNormal Cars: 188\nBought Cars: 285\nTotal Cars: 473\nTotal Vendor Cars: 3391 (without bicycles, atvs)\nSpace available:-1726\n\nmaxTotalVendorStock 2700\nMaxVehicleLimit 500\ntillMax 62\n\nThat means no new cars are going to be added since i am already +1726 more vehicles. If you do get negative value and you are sure you\u0027ve set the\u00a0 $MaxVehicleLimit , $maxMapVehicles, $unwantedVehicles correctly then raise $maxTotalVendorStock till you start seeing positive values in the Space available. \nThat will be how many new vehicles will be added in vendors on server restart. \n \nRead this thread from the beginning...Changes have been made to the text...and remember....Run info.php first to get a sense of things. \n \n\u00a0 \nCLICK HERE TO DOWNLOAD SCRIPT  \n\u00a0 \n\u00a0 \nFeel free to contribute, ask questions, etc etc.....And dont forget....backup, backup, backup first. \n",
+    "dateCreated": "2014-01-18T19:17:37+0000",
+    "datePublished": "2014-01-18T19:17:37+0000",
+    "dateModified": "2014-04-21T00:07:11+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "Sandbird",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 3124
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 7
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 2
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "Sandbird",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/",
+    "discussionUrl": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-39539",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-39539",
+            "author": {
+                "@type": "Person",
+                "name": "Diesel Weasel",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-4040.png",
+                "url": "https://epochmod.com/forum/profile/4040-diesel-weasel/"
+            },
+            "dateCreated": "2014-01-18T21:21:54+0000",
+            "text": "I am EXTREMELY interested in running this script on our server but the only issue is we rent from Vilayer. I taught myself all the scripting for our server so that we would be open to more players. Right now I have our limit at 600 and with people buying vehicles left and right we are well over that. From past experience I also know that we tend to end up with dozens of unwanted cars sprinkled around the map. This sounds like a great compromise! The only thing is I don\u0027t understand how I\u0027d be able to run the script. I use Vilayer\u0027s restart system and it\u0027s worked pretty well for us so far. I do have several database events that run just fine and was wondering if there was a way this could be set as an event as well? I confess I\u0027m new to the database events so if I\u0027m being blind and this will run fine like the others I apologize.\u00a0 \n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-39546",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-39546",
+            "author": {
+                "@type": "Person",
+                "name": "Sandbird",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+            },
+            "dateCreated": "2014-01-18T21:38:25+0000",
+            "text": "Since it needs to run sql queries and do calculations with them, i highly doubt it can be compressed down to SQL functions. Maybe an SQL guru might be able to do something. \nYou definitely need a PHP server to execute this...i think it could be hosted anywhere. If Vilalayer had port 3306 open and allows remote SQL control panels to connect (like Navicat from your PC) then for sure you can set a remote connection from the script to run. \nNow about the startup thing...i dont know how vilalayer startup script operates, but you can ask them that. \nIt depends how they do their restarts...if they use a linux based OS then you can host the script somewhere on the net....for example: http://myblahblahhoster.com/run.php and then with curl you can access the script remotely and if you\u0027ve set your database IP, user, pass, db_name then the script will remotely run. \nIf they are using windows, and they can add custom stuff per client request, then you can just send them that line i mention in the end...to run php.exe with the location of the script. \n\u00a0 \nIf you cant do any of the above, the simplest thing you could do is create this event: \n(as an SQL query to make it) \n\nCREATE DEFINER=`dayz`@`localhost` EVENT `Delete20daysOldVehicles` ON SCHEDULE EVERY 1 DAY STARTS \u00272013-12-22 16:05:39\u0027 ON COMPLETION NOT PRESERVE ENABLE COMMENT \u0027Deletes 20 days old vehicles\u0027 DO DELETE FROM `object_data` WHERE\n`LastUpdated` \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 20 DAY) AND\n`Classname` NOT IN (\u0027VaultStorage\u0027,\u0027LockboxStorage\u0027,\u0027VaultStorageLocked\u0027,\u0027LockboxStorageLocked\u0027,\u0027WoodShack_DZ\u0027,\u0027StorageShed_DZ\u0027,\u0027TentStorageDomed\u0027,\u0027TentStorageDomed2\u0027,\u0027TentStorage\u0027,\u0027OutHouse_DZ\u0027,\u0027Wooden_shed_DZ\u0027,\u0027GunRack_DZ\u0027)\u00a0 AND\n`Inventory` \u0026lt;\u0026gt; \u0027[]\u0027 AND\n`Inventory` IS NOT NULL\n(or if you want to create the event your self)...Set is as a recurring event, every 1 day: \n\nDELETE FROM `object_data` WHERE\n`LastUpdated` \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 20 DAY) AND\n`Classname` NOT IN (\u0027VaultStorage\u0027,\u0027LockboxStorage\u0027,\u0027VaultStorageLocked\u0027,\u0027LockboxStorageLocked\u0027,\u0027WoodShack_DZ\u0027,\u0027StorageShed_DZ\u0027,\u0027TentStorageDomed\u0027,\u0027TentStorageDomed2\u0027,\u0027TentStorage\u0027,\u0027OutHouse_DZ\u0027,\u0027Wooden_shed_DZ\u0027,\u0027GunRack_DZ\u0027)\u00a0 AND\n`Inventory` \u0026lt;\u0026gt; \u0027[]\u0027 AND\n`Inventory` IS NOT NULL\nThis wont do all the above, but it will delete all 20 days \u0027untouched\u0027 vehicles. \nSomewhere on this forum there is the above SQL event but only for bought vehicles. \nMy way though will delete ANY vehicle that hasnt been touched for 20 days...I think its better this way, so vehicles that are well hidden will be deleted to). \n\u00a0 \nEpoch doesnt have a simple way to distinguish vehicles in the database. This is the closest you can get....Even so, it will not delete vehicles that have inventory set to []....and some times this happens. \nThats why i created a new table to hold all the epoch vehicles so i am 100% i am deleting everything in my script. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-42089",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-42089",
+            "author": {
+                "@type": "Person",
+                "name": "Sandbird",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+            },
+            "dateCreated": "2014-01-29T11:49:41+0000",
+            "text": "Update: Updated script at line 35: \n\nAND object_data.LastUpdated \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY)\n\nThis will only delete normal map spawned cars that havent been touched for 10 days. \nThe way it was before, it was deleting randomly any epoch car till it reaches 150 vehicles. \nThis way you might get less empty slots for vendors, but at least people finding vehicles will have a chance to keep them :) \nLower the value to get more chances of extra slots for vendors. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-44512",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-44512",
+            "author": {
+                "@type": "Person",
+                "name": "Diesel Weasel",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-4040.png",
+                "url": "https://epochmod.com/forum/profile/4040-diesel-weasel/"
+            },
+            "dateCreated": "2014-02-04T23:54:12+0000",
+            "text": "I ended up Frankensteining a few SQL events together into one event that seems to be working pretty well for us. It\u0027s not as nice as this of course but it deletes vehicles older than 10 days which haven\u0027t been touched in 5 days AND have no inventory. This means buildings are saved and all you have to do to protect a vehicle from being deleted is put at least one item inside it. No more torn apart vehicles rotting on the server for weeks at a time and finally new stuff can spawn! \n\u00a0 \nIf anyone is stuck like I as and can\u0027t use this script because they rent, here\u0027s my creation. I hope it might be able to help someone someday. \n\nCREATE EVENT `removeObjectEmpty`\nDELETE FROM `object_data`\nWHERE `LastUpdated` \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 5 DAY)\nAND `Datestamp` \u0026lt; DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY)\nAND ( (`Inventory` IS NULL) OR (`Inventory` = \u0027[]\u0027) OR (`Inventory` = \u0027[[[],[]],[[],[]],[[],[]]]\u0027) )\n\n",
+            "upvoteCount": 1
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-50888",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-50888",
+            "author": {
+                "@type": "Person",
+                "name": "Sandbird",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+            },
+            "dateCreated": "2014-02-21T13:21:50+0000",
+            "text": "To create your own allowedvehicles table open : @DayZ_Epoch_Server\\addons\\dayz_server\\missions\\DayZ_Epoch_17.Chernarus\\dynamic_vehicle.sqf\u00a0 and grab all the classnames there. \nThis is how i made mine. These are all the legit vehicles that traders sell or epoch spawns....If you have added custom vehicles in your map...then my script will not take them in account. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-69971",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-69971",
+            "author": {
+                "@type": "Person",
+                "name": "Coffee",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3756.jpg",
+                "url": "https://epochmod.com/forum/profile/3756-coffee/"
+            },
+            "dateCreated": "2014-04-20T19:32:29+0000",
+            "text": "Do you still have this script please i\u0027m very interested in using it however the download link appears to be invalid \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-70057",
+            "url": "https://epochmod.com/forum/topic/6191-release-restock-trader-vehicles-based-on-maxvehiclelimitexisting-db-vehicles/#comment-70057",
+            "author": {
+                "@type": "Person",
+                "name": "Sandbird",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+            },
+            "dateCreated": "2014-04-21T00:07:11+0000",
+            "text": "Ok i updated the 1st post....dont know why that file was delete....good that it did thought, i\u0027ve updated the script :) \nRead the thread from the beginning again...i\u0027ve changed some things. \nIf you have questions post here... \n\u00a0 \nRUN THE INFO.PHP 1st !!!! \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/37-legacy-resources/",
+                "name": "Legacy Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/34-a2-epoch-mods-1051/",
+                "name": "A2: Epoch Mods (1.0.5.1)"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

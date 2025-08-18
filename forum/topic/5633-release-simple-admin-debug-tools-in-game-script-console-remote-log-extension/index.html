@@ -1,0 +1,2575 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension) - A2: Epoch Mods (1.0.5.1) - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/" property="og:url"/>
+<meta content="I could not find any ArmA2 debug tool that worked with Epoch so I developed my own little script and dialog to do just some simple things like execute SQF code on the fly (client and server side via custom remote execution). Also I have added my own little extension (DLL) for remote logging to a ..." name="description"/>
+<meta content="I could not find any ArmA2 debug tool that worked with Epoch so I developed my own little script and dialog to do just some simple things like execute SQF code on the fly (client and server side via custom remote execution). Also I have added my own little extension (DLL) for remote logging to a ..." property="og:description"/>
+<meta content="2014-01-16T17:50:20Z" property="og:updated_time"/>
+<meta content="code, run code, remote exec, execute code, exec, script, tool, admin, debug" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="5633" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy81NjMzLXJlbGVhc2Utc2ltcGxlLWFkbWluLWRlYnVnLXRvb2xzLWluLWdhbWUtc2NyaXB0LWNvbnNvbGUtcmVtb3RlLWxvZy1leHRlbnNpb24v"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":34}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":5633}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1)</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="code" href="https://epochmod.com/forum/tags/code/" rel="tag" title="Find other content tagged with 'code'"><span>code</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="run code" href="https://epochmod.com/forum/tags/run code/" rel="tag" title="Find other content tagged with 'run code'"><span>run code</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="remote exec" href="https://epochmod.com/forum/tags/remote exec/" rel="tag" title="Find other content tagged with 'remote exec'"><span>remote exec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="execute code" href="https://epochmod.com/forum/tags/execute code/" rel="tag" title="Find other content tagged with 'execute code'"><span>execute code</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="exec" href="https://epochmod.com/forum/tags/exec/" rel="tag" title="Find other content tagged with 'exec'"><span>exec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tool" href="https://epochmod.com/forum/tags/tool/" rel="tag" title="Find other content tagged with 'tool'"><span>tool</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="admin" href="https://epochmod.com/forum/tags/admin/" rel="tag" title="Find other content tagged with 'admin'"><span>admin</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="debug" href="https://epochmod.com/forum/tags/debug/" rel="tag" title="Find other content tagged with 'debug'"><span>debug</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">Axe Cop</a></strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2013-12-29T20:16:05Z" title="12/29/13 08:16  PM">December 29, 2013</time> in <a href="../../forum/34-a2-epoch-mods-1051/index.html">A2: Epoch Mods (1.0.5.1)</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="5633">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">4</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-5633" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-35236"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35236">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3289-axe-cop/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile"><span style="color:#">Axe Cop</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35236" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-29T20:16:05Z" title="12/29/13 08:16  PM">December 29, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">Axe Cop</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3289-axe-cop/content/" rel="nofollow" title="1134 posts">
+<i class="fa fa-comment"></i> 1.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35236" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3289,"username":"Axe Cop","timestamp":1388348165,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35236}' id="comment-35236_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35236_wrap" href="#elControls_35236_menu" id="elControls_35236" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35236_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35236" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35236_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_35236" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35236" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-29T20:16:05Z" title="12/29/13 08:16  PM">December 29, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+				
+					(edited)
+				
+				
+			</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I could not find any ArmA2 debug tool that worked with Epoch so I developed my own little script and dialog to do just some simple things like execute SQF code on the fly (client and server side via custom remote execution). Also I have added my own little extension (DLL) for remote logging to a separate window on the server, so essentially if you want to log some debug info it pops up in that window and not in the RPT file. That logging extension is optional of course but i use it for debgging myself, not on the live server.</p>
+<p> </p>
+<p>Is there any interest in tools like this? I can publish my stuff if any admin or script/mod developer may need something like this.. :)</p>
+<p> </p>
+<p>Here a simple screenshot what the debug dialog looks like atm:</p>
+<p><a href="http://i.imgur.com/dmrhmxW.jpg" rel="external nofollow"><img alt="EbmWAh8l.jpg" data-src="http://i.imgur.com/EbmWAh8l.jpg" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></a></p>
+<p> </p>
+<p>you can enter any valid SQF script code in the large text field and then execute it locally on the client or via remote execution on the server, the result of the code is displayed in the lower text field (also the result of remote exec), just to simplify it so you won't have to add a log call or "hint str (1+2+3)" instead of just call "1+2+3" or whatever (and yes you can use this as a calculator lol)</p>
+<p> </p>
+<p>some screenshots of the remote log:</p>
+<p><img alt="wvlhptS.png" data-src="http://i.imgur.com/wvlhptS.png" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></p>
+<p> </p>
+<p><img alt="Zmqzmxk.png" data-src="http://i.imgur.com/Zmqzmxk.png" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></p>
+<p> </p>
+<p>I've just added a simple log filter at the bottom, so you are able to filter the log entries to match a specified text in real time.</p>
+<p>the number in the bottom right cornor means 9 log entries filters out of 26 log entries overall.</p>
+<p> </p>
+<p>this ain't pretty but might help with script debugging a lot.</p>
+<p>the code to log something in this example is pretty simple:</p>
+<pre class="ipsCode prettyprint">
+format["Refueling %1 with %2 fuel",_name,_fuel] call DT_fnc_log;
+</pre>
+<p>this is called in my service point refuel script, just as an example how it can be used (keep in mind the refuel script is client side and the log window on the server). :)</p>
+<p> </p>
+<p> </p>
+<p><strong><span style="font-size:18px;">Download: <a href="http://dl.bintray.com/vos/dayz/ArmaDebugTool1.0.zip" rel="external nofollow">http://dl.bintray.com/vos/dayz/ArmaDebugTool1.0.zip</a></span></strong></p>
+<p> </p>
+<p> </p>
+<p><strong><span style="font-size:18px;">Installation Script Console</span></strong></p>
+<ol>
+<li>copy the files RscDebugDialog.hpp and debug.sqf to your MPMission folder/PBO</li>
+<li>open your description.ext file and include the debug dialog at the end of the file like this:<br/><pre class="ipsCode prettyprint">
+#include "RscDebugDialog.hpp"</pre>
+</li>
+<li>execute the debug.sqf from your init.sqf (at the very bottom it needs to be executed on the client and server)<br/><pre class="ipsCode prettyprint">
+execVM "debug.sqf";</pre>
+</li>
+<li>you can open the debug console by invoking the function DT_fnc_openDialog yourself or by default just press the minus key on the numpad to open it if you are in-game (key can be changed with DT_openKey variable in the debug.sqf file)<br/><pre class="ipsCode prettyprint">
+call DT_fnc_openDialog;</pre>
+</li>
+</ol>
+<p>you can now use the debug console in game, be aware the custom remote execution on the server might be tricky if you leave BattlEye enabled because many script values are just blacklisted in the publicvariableval.txt filter file, also you need to add BattlEye exceptions for publicvariable.txt:</p>
+<pre class="ipsCode prettyprint">
+!="DT_logMessage" !="DT_remoteExec"
+</pre>
+<p>I suggest to just disable BattlEye if you want to make use of the remote execution, since this script is only intended for use on a test server anyway ond not for a live server!</p>
+<p>If you want to use this on a live server make sure only admins have access to the script console! :P</p>
+<p> </p>
+<p> </p>
+<p><strong><span style="font-size:18px;">Installation Remote Log Extension (optional)</span></strong></p>
+<p>If you want to use the external log window in combination with my log command DT_fnc_log you need to install the extension first.</p>
+<p>By default the log window is displayed on the server only, it can be used on the client but on the server makes more sense I think.</p>
+<p>The following steps are only server side!</p>
+<ol>
+<li>copy the files jni.dll, jni.conf and ArmaDebugTool.jar in your ArmA:OA installation directory (next to Database.dll and the other Epoch files)</li>
+<li>since the extension is written in Java you need to install a <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" rel="external nofollow">32-bit (x86) Java 7 Runtime Environment (JRE)</a>, if you don't already have that on your server</li>
+<li>open the jni.conf and change the JAVA_HOME path to your JRE installation if necessary</li>
+</ol>
+<p>that should be all, you can now use the DT_fnc_log function on the client or server and it should open a separate window with the first log call.</p>
+<p>e.g.</p>
+<pre class="ipsCode prettyprint">
+"log text" call DT_fnc_log;
+(position player) call DT_fnc_log; // on the client
+(count vehicles) call DT_fnc_log; // server or client </pre>
+<p>or whatever you want to log, string conversion is done automatically so you can log any value or object.</p>
+<p>If there are any problems with calling the ArmaDebugTool.jar or Java-VM there should be a jni.log file next to the jni.dll with error information in it.</p>
+<p>Also for performance reasons the log window is limited to 1000 log entries, it will remove the oldest one from the top if you log more messages.</p>
+<p> </p>
+<p> </p>
+<p><strong>References</strong></p>
+<ul>
+<li>The Java Extension for Arma 3 (jni.dll) was created by micovery: <a href="http://forums.bistudio.com/showthread.php?167749-Java-Extension-for-Arma-3-(jni-dll)" rel="external nofollow">http://forums.bistudio.com/showthread.php?167749-Java-Extension-for-Arma-3-(jni-dll)</a>
+</li>
+<li>Source code for my debug scripts: <a href="https://github.com/vos/dayz/tree/master/debug" rel="external nofollow">https://github.com/vos/dayz/tree/master/debug</a>
+</li>
+<li>Source code for the log extension (ArmaDebugTool.jar): <a href="https://github.com/vos/ArmaDebugTool" rel="external nofollow">https://github.com/vos/ArmaDebugTool</a>
+</li>
+</ul>
+<span class="ipsType_reset ipsType_medium ipsType_light" data-excludequote="">
+<strong>Edited <time data-short="11 yr" datetime="2013-12-31T18:45:26Z" title="12/31/13 06:45  PM">December 31, 2013</time> by Axe Cop</strong>
+</span>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/18780-31_d4b10/?do=hovercard" data-ipshover-width="370" href="../../profile/18780-31_d4b10/index.html" rel="nofollow" title="Go to 31_D!4b10's profile">31_D!4b10</a>, 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/800-axeman/?do=hovercard" data-ipshover-width="370" href="../../profile/800-axeman/index.html" rel="nofollow" title="Go to axeman's profile">axeman</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">Judge Bread</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=showReactionsComment&amp;comment=35236&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=showReactionsComment&amp;comment=35236&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								3
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35236_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35236" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35236" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35236&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35236&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I could not find any ArmA2 debug tool that worked with Epoch so I developed my own little script and dialog to do just some simple things like execute SQF code on the fly (client and server side via custom remote execution). Also I have added my own little extension (DLL) for remote logging to a separate window on the server, so essentially if you want to log some debug info it pops up in that window and not in the RPT file. That logging extension is optional of course but i use it for debgging myself, not on the live server. 
+  
+Is there any interest in tools like this? I can publish my stuff if any admin or script/mod developer may need something like this.. :) 
+  
+Here a simple screenshot what the debug dialog looks like atm: 
+ 
+  
+you can enter any valid SQF script code in the large text field and then execute it locally on the client or via remote execution on the server, the result of the code is displayed in the lower text field (also the result of remote exec), just to simplify it so you won't have to add a log call or &quot;hint str (1+2+3)&quot; instead of just call &quot;1+2+3&quot; or whatever (and yes you can use this as a calculator lol) 
+  
+some screenshots of the remote log: 
+ 
+  
+ 
+  
+I've just added a simple log filter at the bottom, so you are able to filter the log entries to match a specified text in real time. 
+the number in the bottom right cornor means 9 log entries filters out of 26 log entries overall. 
+  
+this ain't pretty but might help with script debugging a lot. 
+the code to log something in this example is pretty simple: 
+
+format[&quot;Refueling %1 with %2 fuel&quot;,_name,_fuel] call DT_fnc_log;
+
+this is called in my service point refuel script, just as an example how it can be used (keep in mind the refuel script is client side and the log window on the server). :) 
+  
+  
+Download: http://dl.bintray.com/vos/dayz/ArmaDebugTool1.0.zip 
+  
+  
+Installation Script Console 
+copy the files RscDebugDialog.hpp and debug.sqf to your MPMission folder/PBO 
+	open your description.ext file and include the debug dialog at the end of the file like this: 
+#include &quot;RscDebugDialog.hpp&quot;
+	 
+execute the debug.sqf from your init.sqf (at the very bottom it needs to be executed on the client and server) 
+execVM &quot;debug.sqf&quot;;
+	 
+	you can open the debug console by invoking the function DT_fnc_openDialog yourself or by default just press the minus key on the numpad to open it if you are in-game (key can be changed with DT_openKey variable in the debug.sqf file) 
+call DT_fnc_openDialog;
+	 
+you can now use the debug console in game, be aware the custom remote execution on the server might be tricky if you leave BattlEye enabled because many script values are just blacklisted in the publicvariableval.txt filter file, also you need to add BattlEye exceptions for publicvariable.txt: 
+
+!=&quot;DT_logMessage&quot; !=&quot;DT_remoteExec&quot;
+
+I suggest to just disable BattlEye if you want to make use of the remote execution, since this script is only intended for use on a test server anyway ond not for a live server! 
+If you want to use this on a live server make sure only admins have access to the script console! :P 
+  
+  
+Installation Remote Log Extension (optional) 
+If you want to use the external log window in combination with my log command DT_fnc_log you need to install the extension first. 
+By default the log window is displayed on the server only, it can be used on the client but on the server makes more sense I think. 
+The following steps are only server side! 
+copy the files jni.dll, jni.conf and ArmaDebugTool.jar in your ArmA:OA installation directory (next to Database.dll and the other Epoch files) 
+	since the extension is written in Java you need to install a 32-bit (x86) Java 7 Runtime Environment (JRE), if you don't already have that on your server 
+	open the jni.conf and change the JAVA_HOME path to your JRE installation if necessary 
+that should be all, you can now use the DT_fnc_log function on the client or server and it should open a separate window with the first log call. 
+e.g. 
+
+&quot;log text&quot; call DT_fnc_log;
+(position player) call DT_fnc_log; // on the client
+(count vehicles) call DT_fnc_log; // server or client 
+or whatever you want to log, string conversion is done automatically so you can log any value or object. 
+If there are any problems with calling the ArmaDebugTool.jar or Java-VM there should be a jni.log file next to the jni.dll with error information in it. 
+Also for performance reasons the log window is limited to 1000 log entries, it will remove the oldest one from the top if you log more messages. 
+  
+  
+References 
+The Java Extension for Arma 3 (jni.dll) was created by micovery: http://forums.bistudio.com/showthread.php?167749-Java-Extension-for-Arma-3-(jni-dll)
+ 
+Source code for my debug scripts: https://github.com/vos/dayz/tree/master/debug
+ 
+Source code for the log extension (ArmaDebugTool.jar): https://github.com/vos/ArmaDebugTool
+ 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35236">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35332"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35332">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">
+<img alt="Judge Bread" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3545.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3545-judge-bread/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile"><span style="color:#">Judge Bread</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35332" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T10:43:44Z" title="12/30/13 10:43  AM">December 30, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">Judge Bread</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">
+<img alt="Judge Bread" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3545.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3545-judge-bread/content/" rel="nofollow" title="181 posts">
+<i class="fa fa-comment"></i> 181
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35332" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3545,"username":"Judge Bread","timestamp":1388400224,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35332}' id="comment-35332_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35332_wrap" href="#elControls_35332_menu" id="elControls_35332" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35332_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35332" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35332_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35332" id="elSharePost_35332" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35332" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T10:43:44Z" title="12/30/13 10:43  AM">December 30, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>This does sound useful especially when testing scripts.</p>
+<p>Especially the server side logger as I find it tedious to constantly have to log into my FTP, download the file, find the error in the 1000s of lines of error that are already spat out on a Taviana server.</p>
+<p>I would really appreciate such a tool even if you don't publish it a PM with the tool attached would be great :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35332_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35332"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35332" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35332" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35332&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35332&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="This does sound useful especially when testing scripts. 
+Especially the server side logger as I find it tedious to constantly have to log into my FTP, download the file, find the error in the 1000s of lines of error that are already spat out on a Taviana server. 
+I would really appreciate such a tool even if you don't publish it a PM with the tool attached would be great :) 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35332">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35352"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35352">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3289-axe-cop/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile"><span style="color:#">Axe Cop</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35352" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T13:38:20Z" title="12/30/13 01:38  PM">December 30, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">Axe Cop</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3289-axe-cop/content/" rel="nofollow" title="1134 posts">
+<i class="fa fa-comment"></i> 1.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35352" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3289,"username":"Axe Cop","timestamp":1388410700,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35352}' id="comment-35352_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35352_wrap" href="#elControls_35352_menu" id="elControls_35352" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35352_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35352" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35352_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35352" id="elSharePost_35352" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35352" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T13:38:20Z" title="12/30/13 01:38  PM">December 30, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>hey, I might publish it later today.. the "problem" is not that I don't want to publish it here but I have to write some instructions and clean up the code a little and stuff like that you know. :p</p>
+<p>if you know what you are doing you can try it yourself, the code for the script console and log functions are already available in my GitHub repository: <a href="https://github.com/vos/dayz/tree/master/debug" rel="external nofollow">https://github.com/vos/dayz/tree/master/debug</a></p>
+<p> </p>
+<p>The log extension itself will follow later, since I only have a very simple prototype for that. :D</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35352_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35352"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35352" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35352" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35352&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35352&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="hey, I might publish it later today.. the &quot;problem&quot; is not that I don't want to publish it here but I have to write some instructions and clean up the code a little and stuff like that you know. :p 
+if you know what you are doing you can try it yourself, the code for the script console and log functions are already available in my GitHub repository: https://github.com/vos/dayz/tree/master/debug 
+  
+The log extension itself will follow later, since I only have a very simple prototype for that. :D 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35352">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35355"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35355">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">
+<img alt="Judge Bread" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3545.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3545-judge-bread/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile"><span style="color:#">Judge Bread</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35355" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T14:18:21Z" title="12/30/13 02:18  PM">December 30, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">Judge Bread</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3545-judge-bread/?do=hovercard" data-ipshover-width="370" href="../../profile/3545-judge-bread/index.html" rel="nofollow" title="Go to Judge Bread's profile">
+<img alt="Judge Bread" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3545.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3545-judge-bread/content/" rel="nofollow" title="181 posts">
+<i class="fa fa-comment"></i> 181
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35355" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3545,"username":"Judge Bread","timestamp":1388413101,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35355}' id="comment-35355_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35355_wrap" href="#elControls_35355_menu" id="elControls_35355" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35355_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35355" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35355_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35355" id="elSharePost_35355" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35355" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T14:18:21Z" title="12/30/13 02:18  PM">December 30, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Thank you I shall have a look when I get a chance.</p>
+<p>Plus look forward to the "polished" version.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35355_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35355"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35355" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35355" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35355&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35355&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Thank you I shall have a look when I get a chance. 
+Plus look forward to the "polished" version. 
+' data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35355">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35379"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35379">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2689-torndeco/?do=hovercard" data-ipshover-width="370" href="../../profile/2689-torndeco/index.html" rel="nofollow" title="Go to Torndeco's profile">
+<img alt="Torndeco" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ET%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2689-torndeco/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2689-torndeco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/2689-torndeco/index.html" rel="nofollow" title="Go to Torndeco's profile"><span style="color:#">Torndeco</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35379" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T16:32:21Z" title="12/30/13 04:32  PM">December 30, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2689-torndeco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/2689-torndeco/index.html" rel="nofollow" title="Go to Torndeco's profile">Torndeco</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2689-torndeco/?do=hovercard" data-ipshover-width="370" href="../../profile/2689-torndeco/index.html" rel="nofollow" title="Go to Torndeco's profile">
+<img alt="Torndeco" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46b%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ET%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2689-torndeco/content/" rel="nofollow" title="235 posts">
+<i class="fa fa-comment"></i> 235
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35379" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2689,"username":"Torndeco","timestamp":1388421141,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35379}' id="comment-35379_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35379_wrap" href="#elControls_35379_menu" id="elControls_35379" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35379_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35379" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35379_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35379" id="elSharePost_35379" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35379" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T16:32:21Z" title="12/30/13 04:32  PM">December 30, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>V.Nice axecop will help reduce time spent testing code..</p>
+<p>Always annoying have to restart server + client to test code when u made a mistake.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35379_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35379"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35379" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35379" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35379&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35379&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="V.Nice axecop will help reduce time spent testing code.. 
+Always annoying have to restart server + client to test code when u made a mistake. 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35379">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35445"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35445">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3289-axe-cop/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile"><span style="color:#">Axe Cop</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35445" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T23:13:52Z" title="12/30/13 11:13  PM">December 30, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">Axe Cop</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3289-axe-cop/content/" rel="nofollow" title="1134 posts">
+<i class="fa fa-comment"></i> 1.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35445" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3289,"username":"Axe Cop","timestamp":1388445232,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35445}' id="comment-35445_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35445_wrap" href="#elControls_35445_menu" id="elControls_35445" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35445_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35445" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35445_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35445" id="elSharePost_35445" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35445" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-30T23:13:52Z" title="12/30/13 11:13  PM">December 30, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>added some screenshots of the remote log extension and a simple example on how to use it.</p>
+<p>code and instructions will follow soon :)</p>
+<p> </p>
+<p>btw the log window could also be displayed on the client instead of the server, but this way you can log things from anywhere no matter if the script is running on the client or server. if you don't have access to the server that might be a solution, but this is intended for a test server anyway.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35445_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35445"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35445" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35445" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35445&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35445&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="added some screenshots of the remote log extension and a simple example on how to use it. 
+code and instructions will follow soon :) 
+  
+btw the log window could also be displayed on the client instead of the server, but this way you can log things from anywhere no matter if the script is running on the client or server. if you don't have access to the server that might be a solution, but this is intended for a test server anyway. 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35445">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35531"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35531">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3289-axe-cop/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile"><span style="color:#">Axe Cop</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35531" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-31T16:57:54Z" title="12/31/13 04:57  PM">December 31, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">Axe Cop</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3289-axe-cop/?do=hovercard" data-ipshover-width="370" href="../../profile/3289-axe-cop/index.html" rel="nofollow" title="Go to Axe Cop's profile">
+<img alt="Axe Cop" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3289-axe-cop/content/" rel="nofollow" title="1134 posts">
+<i class="fa fa-comment"></i> 1.1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Germany</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35531" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3289,"username":"Axe Cop","timestamp":1388509074,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35531}' id="comment-35531_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35531_wrap" href="#elControls_35531_menu" id="elControls_35531" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35531_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35531" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35531_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35531" id="elSharePost_35531" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35531" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-12-31T16:57:54Z" title="12/31/13 04:57  PM">December 31, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Release version 1.0 with download and install instructions in the original post. :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35531_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35531"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35531" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35531" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35531&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35531&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Release version 1.0 with download and install instructions in the original post. :) 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35531">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-35756"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_35756">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/1286-sandbird/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile"><span style="color:#">Sandbird</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35756" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-01T22:23:23Z" title="01/01/14 10:23  PM">January 1, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">
+<img alt="Sandbird" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c491%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/1286-sandbird/content/" rel="nofollow" title="1045 posts">
+<i class="fa fa-comment"></i> 1k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Greece</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="35756" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":1286,"username":"Sandbird","timestamp":1388615003,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":35756}' id="comment-35756_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-35756_wrap" href="#elControls_35756_menu" id="elControls_35756" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_35756_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=35756" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_35756_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35756" id="elSharePost_35756" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35756" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-01T22:23:23Z" title="01/01/14 10:23  PM">January 1, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>awesome :)</p>
+<p>Thanks Axe for that.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_35756_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35756"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35756" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35756" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D35756&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=35756&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="awesome :) 
+Thanks Axe for that. 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=35756">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									2 weeks later...
+								</li>
+</ul>
+<a id="comment-38849"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_38849">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3607-ruubje11/?do=hovercard" data-ipshover-width="370" href="../../profile/3607-ruubje11/index.html" rel="nofollow" title="Go to ruubje11's profile">
+<img alt="ruubje11" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3607.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3607-ruubje11/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3607-ruubje11/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3607-ruubje11/index.html" rel="nofollow" title="Go to ruubje11's profile"><span style="color:#">ruubje11</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=38849" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-16T17:50:20Z" title="01/16/14 05:50  PM">January 16, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3607-ruubje11/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/3607-ruubje11/index.html" rel="nofollow" title="Go to ruubje11's profile">ruubje11</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3607-ruubje11/?do=hovercard" data-ipshover-width="370" href="../../profile/3607-ruubje11/index.html" rel="nofollow" title="Go to ruubje11's profile">
+<img alt="ruubje11" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3607.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3607-ruubje11/content/" rel="nofollow" title="169 posts">
+<i class="fa fa-comment"></i> 169
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Belgium</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="38849" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3607,"username":"ruubje11","timestamp":1389894620,"contentapp":"forums","contenttype":"forums","contentid":5633,"contentclass":"forums_Topic","contentcommentid":38849}' id="comment-38849_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-38849_wrap" href="#elControls_38849_menu" id="elControls_38849" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_38849_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=reportComment&amp;comment=38849" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_38849_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=38849" id="elSharePost_38849" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=38849" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-01-16T17:50:20Z" title="01/16/14 05:50  PM">January 16, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>You are a genious! Thank you very much for releasing this!</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_38849_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=38849"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D38849" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D38849" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F%3Fdo%3DfindComment%26comment%3D38849&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment%26comment=38849&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="You are a genious! Thank you very much for releasing this! 
+" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/?do=findComment&amp;comment=38849">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy81NjMzLXJlbGVhc2Utc2ltcGxlLWFkbWluLWRlYnVnLXRvb2xzLWluLWdhbWUtc2NyaXB0LWNvbnNvbGUtcmVtb3RlLWxvZy1leHRlbnNpb24vI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%2F&amp;title=%5BRelease%5D+Simple+Admin+Debug+Tools+%28in-game+script+console+%26+remote+log+extension%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-websharetitle="[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="5633">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">4</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html" rel="parent" title="Go to A2: Epoch Mods (1.0.5.1)">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/45116-outdated-change-code-change-lockbox-safe-and-door-codes/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/45116-outdated-change-code-change-lockbox-safe-and-door-codes/">
+									[Outdated] Change Code - Change LockBox, Safe and door codes.
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36515-salival/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/36515-salival/index.html" rel="nofollow" title="Go to salival's profile">salival</a>,  <time data-short="7 yr" datetime="2018-05-21T10:25:05Z" title="05/21/18 10:25  AM">May 21, 2018</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="lockbox" href="https://epochmod.com/forum/tags/lockbox/" rel="tag" title="Find other content tagged with 'lockbox'"><span>lockbox</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="safe" href="https://epochmod.com/forum/tags/safe/" rel="tag" title="Find other content tagged with 'safe'"><span>safe</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_60357963">(and 4 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_60357963_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="lockbox" href="https://epochmod.com/forum/tags/lockbox/" rel="tag" title="Find other content tagged with 'lockbox'"><span>lockbox</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="safe" href="https://epochmod.com/forum/tags/safe/" rel="tag" title="Find other content tagged with 'safe'"><span>safe</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="code" href="https://epochmod.com/forum/tags/code/" rel="tag" title="Find other content tagged with 'code'"><span>code</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="change" href="https://epochmod.com/forum/tags/change/" rel="tag" title="Find other content tagged with 'change'"><span>change</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="change code" href="https://epochmod.com/forum/tags/change code/" rel="tag" title="Find other content tagged with 'change code'"><span>change code</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="door" href="https://epochmod.com/forum/tags/door/" rel="tag" title="Find other content tagged with 'door'"><span>door</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> reply</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">2031</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16047-tricks/?do=hovercard" data-ipshover-width="370" href="../../profile/16047-tricks/index.html" rel="nofollow" title="Go to Tricks's profile">
+<img alt="Tricks" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16047.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16047-tricks/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/16047-tricks/index.html" rel="nofollow" title="Go to Tricks's profile">Tricks</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/45116-outdated-change-code-change-lockbox-safe-and-door-codes/" title="Go to last post">
+<time data-short="7 yr" datetime="2018-06-01T13:18:56Z" title="06/01/18 01:18  PM">June 1, 2018</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/">
+									Taxi &amp; Bus   |   Transport for Arma
+								</a>
+</span>
+<span class="ipsPagination ipsPagination_mini" id="elPagination_19a0a44ce9bbadc521851bd59ca8495c">
+<span class="ipsPagination_page"><a data-ipstooltip="" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/#comments" title="Go to page 1">1</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/page/2/#comments" title="Go to page 2">2</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/page/3/#comments" title="Go to page 3">3</a></span>
+<span class="ipsPagination_page"><a data-ipstooltip="" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/page/4/#comments" title="Go to page 4">4</a></span>
+<span class="ipsPagination_last"><a data-ipstooltip="" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/page/9/#comments" title="Last page">9 <i class="fa fa-caret-right"></i></a></span>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a>,  <time data-short="10 yr" datetime="2015-04-02T00:18:36Z" title="04/02/15 12:18  AM">April 2, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="public transport" href="https://epochmod.com/forum/tags/public transport/" rel="tag" title="Find other content tagged with 'public transport'"><span>public transport</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1212315861">(and 6 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1212315861_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="public transport" href="https://epochmod.com/forum/tags/public transport/" rel="tag" title="Find other content tagged with 'public transport'"><span>public transport</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="transport" href="https://epochmod.com/forum/tags/transport/" rel="tag" title="Find other content tagged with 'transport'"><span>transport</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bus" href="https://epochmod.com/forum/tags/bus/" rel="tag" title="Find other content tagged with 'bus'"><span>bus</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="buses" href="https://epochmod.com/forum/tags/buses/" rel="tag" title="Find other content tagged with 'buses'"><span>buses</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="taxis" href="https://epochmod.com/forum/tags/taxis/" rel="tag" title="Find other content tagged with 'taxis'"><span>taxis</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="taxi" href="https://epochmod.com/forum/tags/taxi/" rel="tag" title="Find other content tagged with 'taxi'"><span>taxi</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="wip" href="https://epochmod.com/forum/tags/wip/" rel="tag" title="Find other content tagged with 'wip'"><span>wip</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">201</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">36833</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">
+<img alt="mgm" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16852.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16852-mgm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/16852-mgm/index.html" rel="nofollow" title="Go to mgm's profile">mgm</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/33927-taxi-bus-transport-for-arma/" title="Go to last post">
+<time data-short="4 yr" datetime="2021-01-21T22:22:22Z" title="01/21/21 10:22  PM">January 21, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/45159-admin-footsteps-off-admin-spawn-wai-mission-manually/?preview=1" data-ipshover-timeout="1.5" href="../45159-admin-footsteps-off-admin-spawn-wai-mission-manually/index.html">
+									Admin footsteps off / Admin spawn WAI mission manually
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38449-jakeque/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/38449-jakeque/index.html" rel="nofollow" title="Go to JakeQue's profile">JakeQue</a>,  <time data-short="7 yr" datetime="2018-06-28T22:13:33Z" title="06/28/18 10:13  PM">June 28, 2018</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="wai" href="https://epochmod.com/forum/tags/wai/" rel="tag" title="Find other content tagged with 'wai'"><span>wai</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="mission" href="https://epochmod.com/forum/tags/mission/" rel="tag" title="Find other content tagged with 'mission'"><span>mission</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_293473159">(and 5 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_293473159_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="wai" href="https://epochmod.com/forum/tags/wai/" rel="tag" title="Find other content tagged with 'wai'"><span>wai</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="mission" href="https://epochmod.com/forum/tags/mission/" rel="tag" title="Find other content tagged with 'mission'"><span>mission</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="spawn" href="https://epochmod.com/forum/tags/spawn/" rel="tag" title="Find other content tagged with 'spawn'"><span>spawn</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="manual" href="https://epochmod.com/forum/tags/manual/" rel="tag" title="Find other content tagged with 'manual'"><span>manual</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="footsteps" href="https://epochmod.com/forum/tags/footsteps/" rel="tag" title="Find other content tagged with 'footsteps'"><span>footsteps</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="admin" href="https://epochmod.com/forum/tags/admin/" rel="tag" title="Find other content tagged with 'admin'"><span>admin</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="infistar" href="https://epochmod.com/forum/tags/infistar/" rel="tag" title="Find other content tagged with 'infistar'"><span>infistar</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1208</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38449-jakeque/?do=hovercard" data-ipshover-width="370" href="../../profile/38449-jakeque/index.html" rel="nofollow" title="Go to JakeQue's profile">
+<img alt="JakeQue" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c49e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38449-jakeque/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/38449-jakeque/index.html" rel="nofollow" title="Go to JakeQue's profile">JakeQue</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../45159-admin-footsteps-off-admin-spawn-wai-mission-manually/index.html" title="Go to last post">
+<time data-short="7 yr" datetime="2018-06-28T22:13:33Z" title="06/28/18 10:13  PM">June 28, 2018</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/45150-safeslockboxes-with-eyescan-option/?preview=1" data-ipshover-timeout="1.5" href="../45150-safeslockboxes-with-eyescan-option/index.html">
+									Safe's/Lockboxe's with Eyescan option!
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39234-tyrant50187/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/39234-tyrant50187/index.html" rel="nofollow" title="Go to tyrant50187's profile">tyrant50187</a>,  <time data-short="7 yr" datetime="2018-06-13T08:38:31Z" title="06/13/18 08:38  AM">June 13, 2018</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="eyescan" href="https://epochmod.com/forum/tags/eyescan/" rel="tag" title="Find other content tagged with 'eyescan'"><span>eyescan</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_874259494">(and 2 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_874259494_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="eyescan" href="https://epochmod.com/forum/tags/eyescan/" rel="tag" title="Find other content tagged with 'eyescan'"><span>eyescan</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="retina" href="https://epochmod.com/forum/tags/retina/" rel="tag" title="Find other content tagged with 'retina'"><span>retina</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="oa" href="https://epochmod.com/forum/tags/oa/" rel="tag" title="Find other content tagged with 'oa'"><span>oa</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1044</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39234-tyrant50187/?do=hovercard" data-ipshover-width="370" href="../../profile/39234-tyrant50187/index.html" rel="nofollow" title="Go to tyrant50187's profile">
+<img alt="tyrant50187" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23ad62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ET%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39234-tyrant50187/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/39234-tyrant50187/index.html" rel="nofollow" title="Go to tyrant50187's profile">tyrant50187</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../45150-safeslockboxes-with-eyescan-option/index.html" title="Go to last post">
+<time data-short="7 yr" datetime="2018-06-13T08:38:31Z" title="06/13/18 08:38  AM">June 13, 2018</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/45073-new-arma-2-overpoch-server-need-assistance/?preview=1" data-ipshover-timeout="1.5" href="../45073-new-arma-2-overpoch-server-need-assistance/index.html">
+									New Arma 2 Overpoch Server, Need Assistance
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39180-bloodthirsty/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/39180-bloodthirsty/index.html" rel="nofollow" title="Go to Bloodthirsty's profile">Bloodthirsty</a>,  <time data-short="7 yr" datetime="2018-04-19T02:28:20Z" title="04/19/18 02:28  AM">April 19, 2018</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="overpoch" href="https://epochmod.com/forum/tags/overpoch/" rel="tag" title="Find other content tagged with 'overpoch'"><span>overpoch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="arma 2" href="https://epochmod.com/forum/tags/arma 2/" rel="tag" title="Find other content tagged with 'arma 2'"><span>arma 2</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1030267139">(and 5 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1030267139_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="overpoch" href="https://epochmod.com/forum/tags/overpoch/" rel="tag" title="Find other content tagged with 'overpoch'"><span>overpoch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="arma 2" href="https://epochmod.com/forum/tags/arma 2/" rel="tag" title="Find other content tagged with 'arma 2'"><span>arma 2</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="script help" href="https://epochmod.com/forum/tags/script help/" rel="tag" title="Find other content tagged with 'script help'"><span>script help</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="scripting" href="https://epochmod.com/forum/tags/scripting/" rel="tag" title="Find other content tagged with 'scripting'"><span>scripting</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="coding" href="https://epochmod.com/forum/tags/coding/" rel="tag" title="Find other content tagged with 'coding'"><span>coding</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="scripts" href="https://epochmod.com/forum/tags/scripts/" rel="tag" title="Find other content tagged with 'scripts'"><span>scripts</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> answer</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">2042</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36459-jasontm/?do=hovercard" data-ipshover-width="370" href="../../profile/36459-jasontm/index.html" rel="nofollow" title="Go to JasonTM's profile">
+<img alt="JasonTM" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_06/Beavis-1.thumb.png.b0246a6a6bc425610528f875120ee18c.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/36459-jasontm/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension%252F" data-ipshover-width="370" href="../../profile/36459-jasontm/index.html" rel="nofollow" title="Go to JasonTM's profile">JasonTM</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../45073-new-arma-2-overpoch-server-need-assistance/index.html" title="Go to last post">
+<time data-short="7 yr" datetime="2018-04-19T03:15:36Z" title="04/19/18 03:15  AM">April 19, 2018</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[Release] Simple Admin Debug Tools (in-game script console &amp; remote log extension)
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[Release] Simple Admin Debug Tools (in-game script console \u0026 remote log extension)",
+    "headline": "[Release] Simple Admin Debug Tools (in-game script console \u0026 remote log extension)",
+    "text": "I could not find any ArmA2 debug tool that worked with Epoch so I developed my own little script and dialog to do just some simple things like execute SQF code on the fly (client and server side via custom remote execution). Also I have added my own little extension (DLL) for remote logging to a separate window on the server, so essentially if you want to log some debug info it pops up in that window and not in the RPT file. That logging extension is optional of course but i use it for debgging myself, not on the live server. \n\u00a0 \nIs there any interest in tools like this? I can publish my stuff if any admin or script/mod developer may need something like this.. :) \n\u00a0 \nHere a simple screenshot what the debug dialog looks like atm: \n \n\u00a0 \nyou can enter any valid SQF script code in the large text field and then execute it locally on the client or via remote execution on the server, the result of the code is displayed in the lower text field (also the result of remote exec), just to simplify it so you won\u0027t have to add a log call or \"hint str (1+2+3)\" instead of just call \"1+2+3\" or whatever (and yes you can use this as a calculator lol) \n\u00a0 \nsome screenshots of the remote log: \n \n\u00a0 \n \n\u00a0 \nI\u0027ve just added a simple log filter at the bottom, so you are able to filter the log entries to match a specified text in real time. \nthe number in the bottom right cornor means 9 log entries filters out of 26 log entries overall. \n\u00a0 \nthis ain\u0027t pretty but might help with script debugging a lot. \nthe code to log something in this example is pretty simple: \n\nformat[\"Refueling %1 with %2 fuel\",_name,_fuel] call DT_fnc_log;\n\nthis is called in my service point refuel script, just as an example how it can be used (keep in mind the refuel script is client side and the log window on the server). :) \n\u00a0 \n\u00a0 \nDownload:\u00a0http://dl.bintray.com/vos/dayz/ArmaDebugTool1.0.zip \n\u00a0 \n\u00a0 \nInstallation Script Console \ncopy the files\u00a0RscDebugDialog.hpp and\u00a0debug.sqf to your MPMission\u00a0folder/PBO \n\topen your\u00a0description.ext file and include the debug dialog at the end of the file like this: \n#include \"RscDebugDialog.hpp\"\n\t \nexecute the\u00a0debug.sqf from your init.sqf (at the very bottom it needs to be executed on the client and server) \nexecVM \"debug.sqf\";\n\t \n\tyou can open the debug console by invoking the function\u00a0DT_fnc_openDialog yourself or by default just press the minus key on the numpad to open it if you are in-game (key can be changed with\u00a0DT_openKey variable in the debug.sqf file) \ncall DT_fnc_openDialog;\n\t \nyou can now use the debug console in game, be aware the custom remote execution on the server might be tricky if you leave BattlEye enabled because many script values are just blacklisted in the\u00a0publicvariableval.txt filter file, also you need to add BattlEye exceptions for\u00a0publicvariable.txt: \n\n!=\"DT_logMessage\" !=\"DT_remoteExec\"\n\nI suggest to just disable BattlEye if you want to make use of the remote execution, since this script is only intended for use on a test server anyway ond not for a live server! \nIf you want to use this on a live server make sure only admins have access to the script console! :P \n\u00a0 \n\u00a0 \nInstallation Remote Log Extension (optional) \nIf you want to use the external log window in combination with my log command\u00a0DT_fnc_log you need to install the extension first. \nBy default the log window is displayed on the server only, it can be used on the client but on the server makes more sense I think. \nThe following steps are only server side! \ncopy the files jni.dll,\u00a0jni.conf and\u00a0ArmaDebugTool.jar\u00a0in your ArmA:OA installation directory (next to\u00a0Database.dll and the other Epoch files) \n\tsince the extension is written in Java you need to install a 32-bit (x86) Java 7 Runtime Environment (JRE),\u00a0if you don\u0027t already have that on your server \n\topen the\u00a0jni.conf and change the JAVA_HOME\u00a0path to your JRE installation if necessary \nthat should be all, you can now use the\u00a0DT_fnc_log function on the client or server and it should open a separate window with the first log call. \ne.g. \n\n\"log text\" call DT_fnc_log;\n(position player) call DT_fnc_log; // on the client\n(count vehicles) call DT_fnc_log; // server or client\u00a0\nor whatever you want to log, string conversion is done automatically so you can log any value or object. \nIf there are any problems with calling the\u00a0ArmaDebugTool.jar or Java-VM there should be a jni.log file next to the jni.dll with error information in it. \nAlso for performance reasons the log window is limited to 1000 log entries, it will remove the oldest one from the top if you log more messages. \n\u00a0 \n\u00a0 \nReferences \nThe\u00a0Java Extension for Arma 3 (jni.dll) was created by\u00a0micovery:\u00a0http://forums.bistudio.com/showthread.php?167749-Java-Extension-for-Arma-3-(jni-dll)\n \nSource code for my debug scripts:\u00a0https://github.com/vos/dayz/tree/master/debug\n \nSource code for the log extension (ArmaDebugTool.jar):\u00a0https://github.com/vos/ArmaDebugTool\n \n",
+    "dateCreated": "2013-12-29T20:16:05+0000",
+    "datePublished": "2013-12-29T20:16:05+0000",
+    "dateModified": "2014-01-16T17:50:20+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "Axe Cop",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg",
+        "url": "https://epochmod.com/forum/profile/3289-axe-cop/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 8036
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 8
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 4
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "Axe Cop",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg",
+            "url": "https://epochmod.com/forum/profile/3289-axe-cop/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/",
+    "discussionUrl": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35332",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35332",
+            "author": {
+                "@type": "Person",
+                "name": "Judge Bread",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3545.jpg",
+                "url": "https://epochmod.com/forum/profile/3545-judge-bread/"
+            },
+            "dateCreated": "2013-12-30T10:43:44+0000",
+            "text": "This does sound useful especially when testing scripts. \nEspecially the server side logger as I find it tedious to constantly have to log into my FTP, download the file, find the error in the 1000s of lines of error that are already spat out on a Taviana server. \nI would really appreciate such a tool even if you don\u0027t publish it a PM with the tool attached would be great :) \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35352",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35352",
+            "author": {
+                "@type": "Person",
+                "name": "Axe Cop",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg",
+                "url": "https://epochmod.com/forum/profile/3289-axe-cop/"
+            },
+            "dateCreated": "2013-12-30T13:38:20+0000",
+            "text": "hey, I might publish it later today.. the \"problem\" is not that I don\u0027t want to publish it here but I have to write some instructions and clean up the code a little and stuff like that you know. :p \nif you know what you are doing you can try it yourself, the code for the script console and log functions are already available in my GitHub repository:\u00a0https://github.com/vos/dayz/tree/master/debug \n\u00a0 \nThe log extension itself will follow later, since I only have a very simple prototype for that. :D \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35355",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35355",
+            "author": {
+                "@type": "Person",
+                "name": "Judge Bread",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3545.jpg",
+                "url": "https://epochmod.com/forum/profile/3545-judge-bread/"
+            },
+            "dateCreated": "2013-12-30T14:18:21+0000",
+            "text": "Thank you I shall have a look when I get a chance. \nPlus look forward to the \"polished\" version. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35379",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35379",
+            "author": {
+                "@type": "Person",
+                "name": "Torndeco",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/2689-torndeco/"
+            },
+            "dateCreated": "2013-12-30T16:32:21+0000",
+            "text": "V.Nice axecop will help reduce time spent testing code.. \nAlways annoying have to restart server + client to test code when u made a mistake. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35445",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35445",
+            "author": {
+                "@type": "Person",
+                "name": "Axe Cop",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg",
+                "url": "https://epochmod.com/forum/profile/3289-axe-cop/"
+            },
+            "dateCreated": "2013-12-30T23:13:52+0000",
+            "text": "added some screenshots of the\u00a0remote log extension and a simple example on how to use it. \ncode and instructions will follow soon :) \n\u00a0 \nbtw the log window could also be displayed on the client instead of the server, but this way you can log things from anywhere no matter if the script is running on the client or server. if you don\u0027t have access to the server that might be a solution, but this is intended for a test server anyway. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35531",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35531",
+            "author": {
+                "@type": "Person",
+                "name": "Axe Cop",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3289.jpg",
+                "url": "https://epochmod.com/forum/profile/3289-axe-cop/"
+            },
+            "dateCreated": "2013-12-31T16:57:54+0000",
+            "text": "Release version 1.0 with download and install instructions in the original post. :) \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35756",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-35756",
+            "author": {
+                "@type": "Person",
+                "name": "Sandbird",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/1286-sandbird/"
+            },
+            "dateCreated": "2014-01-01T22:23:23+0000",
+            "text": "awesome :) \nThanks Axe for that. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-38849",
+            "url": "https://epochmod.com/forum/topic/5633-release-simple-admin-debug-tools-in-game-script-console-remote-log-extension/#comment-38849",
+            "author": {
+                "@type": "Person",
+                "name": "ruubje11",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3607.jpg",
+                "url": "https://epochmod.com/forum/profile/3607-ruubje11/"
+            },
+            "dateCreated": "2014-01-16T17:50:20+0000",
+            "text": "You are a genious! Thank you very much for releasing this! \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/37-legacy-resources/",
+                "name": "Legacy Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/34-a2-epoch-mods-1051/",
+                "name": "A2: Epoch Mods (1.0.5.1)"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

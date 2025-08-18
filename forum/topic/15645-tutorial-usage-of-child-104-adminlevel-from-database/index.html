@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[TUTORIAL] Usage of CHILD 104: AdminLevel from database - Gold Coin based Single Currency &amp; Banking System - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/" property="og:url"/>
+<meta content="This hive call whas writen to work the exact same way as how it retrieves entries from the object_data table. CHILD 104 expects 1 parameter to be supplied when calling the HiveExt. The needed parameter is your dayzInstance number - PlayerUID returns as a string to support the full length of the s..." name="description"/>
+<meta content="This hive call whas writen to work the exact same way as how it retrieves entries from the object_data table. CHILD 104 expects 1 parameter to be supplied when calling the HiveExt. The needed parameter is your dayzInstance number - PlayerUID returns as a string to support the full length of the s..." property="og:description"/>
+<meta content="2014-09-13T20:50:30Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="15645" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xNTY0NS10dXRvcmlhbC11c2FnZS1vZi1jaGlsZC0xMDQtYWRtaW5sZXZlbC1mcm9tLWRhdGFiYXNlLw=="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":56}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":15645}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/63-a2-community-projects/index.html">
+<span>A2: Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[TUTORIAL] Usage of CHILD 104: AdminLevel from database
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[TUTORIAL] Usage of CHILD 104: AdminLevel from database</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">
+<img alt="Soul" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">Soul</a></strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-08-16T19:01:50Z" title="08/16/14 07:01  PM">August 16, 2014</time> in <a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">Gold Coin based Single Currency &amp; Banking System</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="15645">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-15645" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-117084"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_117084">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">
+<img alt="Soul" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10451-soul/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile"><span style="color:#">Soul</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=117084" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-08-16T19:01:50Z" title="08/16/14 07:01  PM">August 16, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">Soul</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">
+<img alt="Soul" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10451-soul/content/" rel="nofollow" title="181 posts">
+<i class="fa fa-comment"></i> 181
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Belgium</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="117084" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10451,"username":"Soul","timestamp":1408215710,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":117084}' id="comment-117084_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-117084_wrap" href="#elControls_117084_menu" id="elControls_117084" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_117084_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=117084" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_117084_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_117084" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=117084" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-08-16T19:01:50Z" title="08/16/14 07:01  PM">August 16, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>This hive call whas writen to work the exact same way as how it retrieves entries from the object_data table.<br/><br/>
+CHILD 104 expects 1 parameter to be supplied when calling the HiveExt.</p>
+<p>The needed parameter is your <strong>dayzInstance </strong>number<br/><br/>
+- PlayerUID returns as a string to support the full length of the steamID.<br/>
+- AdminLevel returns as a integer.<br/><br/>
+This new functionality that i added in the custom epoch hive can be use to restrict access to anything you want.</p>
+<p>Infact it could be used for far more then admin access if you think of it.</p>
+<p> </p>
+<p><strong>Practical usage 1: infiSTAR admin access from the database</strong><br/><br/>
+Create a new file named: getDBAdmins.sqf<br/>
+Place this file in the init folder found in your dayz_server.pbo<br/>
+And put this code in it.</p>
+<pre class="ipsCode prettyprint">
+adminUIDs = [];
+_SAdmins = [];
+_HAdmins = [];
+_LAdmins = [];
+
+_key = format["CHILD:104:%1:",dayZ_instance];
+_data = "HiveEXT" callExtension _key;
+    diag_log format["_data: %1",_data];
+_result = call compile format ["%1",_data];
+    diag_log format["_result: %1",_result];
+diag_log "HIVE: Request sent";
+    
+//Process result
+_status = _result select 0;
+    diag_log format["_status: %1",_status];
+_myArray = [];
+if (_status == "ObjectStreamStart") then {
+    _val = _result select 1;
+    diag_log format["%1",_val];
+    //Stream Objects
+    for "_i" from 1 to _val do {
+        _data = "HiveEXT" callExtension _key;
+        diag_log format["_data: %1",_data];
+        _result = call compile format ["%1",_data];
+    diag_log format["_result: %1",_result];
+        _myArray set [count _myArray,_result];
+    diag_log format["_myArray: %1",_myArray];
+    };
+    
+};
+
+{
+    _playerId = _x select 0;
+    diag_log format["_playerId: %1",_playerId];
+    _playerIdType = typeName _playerId;
+    diag_log format["TypeName _playerId: %1",_playerIdType];
+    _adminLevel = _x select 1;
+    diag_log format["_adminLevel: %1",_adminLevel];
+    
+    switch (_adminLevel) do {
+            case 1: { _SAdmins = _SAdmins + [_playerId]; adminUIDs = adminUIDs + [_playerId];diag_log "Added to SA+EXT";};     //Super Admin Level + Special custom abilities
+            case 2: { _SAdmins = _SAdmins + [_playerId]; diag_log "Added to SA";};        //Super Admin Level
+            case 3: { _HAdmins = _HAdmins + [_playerId]; diag_log "Added to HA";};        //High Admin Level
+            case 4: { _LAdmins = _LAdmins + [_playerId]; diag_log "Added to LA";};        //Low Admin Level
+        };
+    
+} forEach _myArray;</pre>
+<p>Find and comment our like below:</p>
+<pre class="ipsCode prettyprint">
+/* 
+if ((preProcessFileLineNumbers ("admins3_dayzpvp.sqf")) != "") then {
+    _tmpLA = call compile preProcessFileLineNumbers "admins3_dayzpvp.sqf";
+    _LAdmins = _LAdmins + _tmpLA;
+};
+if ((preProcessFileLineNumbers ("admins2_dayzpvp.sqf")) != "") then {
+    _tmpNA = call compile preProcessFileLineNumbers "admins2_dayzpvp.sqf";
+    _NAdmins = _NAdmins + _tmpNA;
+};
+if ((preProcessFileLineNumbers ("admins_dayzpvp.sqf")) != "") then {
+    _tmpSA = call compile preProcessFileLineNumbers "admins_dayzpvp.sqf";
+    _SAdmins = _SAdmins + _tmpSA;
+}; 
+*/
+if ((preProcessFileLineNumbers ("blacklist.sqf")) != "") then {
+    _tmpBL = call compile preProcessFileLineNumbers "blacklist.sqf";
+    _BLOCKED = _BLOCKED + _tmpBL;
+};</pre>
+<p>Then after the blacklisting part add this:</p>
+<pre class="ipsCode prettyprint">
+#include "\z\addons\dayz_server\init\getDBAdmins.sqf";
+</pre>
+<p>Then run this query on your database to create the newly needed table.</p>
+<pre class="ipsCode prettyprint">
+DROP TABLE IF EXISTS `admin_data`;
+CREATE TABLE `admin_data` (
+  `PlayerUID` varchar(20) NOT NULL DEFAULT '0',
+  `PlayerName` varchar(128) NOT NULL DEFAULT 'Null',
+  `AdminLevel` int(1) NOT NULL DEFAULT '0',
+  `Instance` int(11) NOT NULL DEFAULT '11',
+  PRIMARY KEY (`PlayerUID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;</pre>
+<p>Your all done and ready to start adding your admins steamID and admin level to your database.<br/>
+No more sitting around and waiting for a restart to make changes and then miss the damn restart right [ ;)]<br/>
+No more need to do manual restarts to add a admin.<br/>
+All it takes for the new admin to have his rights is a server restart automated or manual.<br/><br/><strong>Admin levels explained:</strong><br/>
+In the switch statement you see case 1, case 2, case 3, case 4 right<br/><br/><strong>Case 1:</strong></p>
+<p>Super admin acces just like in infistar ah but this adds the playerid to a custom variable, i use this to give certain super admins base dome access or special markers on their maps and whatnot.<br/>
+take not that the "adminUIDs" variable needs to be publicVariabled after the script is done, the reason this is not the case in the example is because i use publicVariableClient in the playerlogin.sqf file<br/>
+it's just my way of making shure that jip clients have the variable to.<br/><br/><strong>Case 2:</strong></p>
+<p>Super admin access</p>
+<p><strong>Case 3:</strong></p>
+<p>High admin access</p>
+<p><strong>Case 4:</strong></p>
+<p>Low admin access<br/><br/>
+So obviously in the database you fill in 1, 2, 3 or 4 in the "AdminLevel" field</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9190-storm/?do=hovercard" data-ipshover-width="370" href="../../profile/9190-storm/index.html" rel="nofollow" title="Go to Storm's profile">Storm</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=showReactionsComment&amp;comment=117084&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=showReactionsComment&amp;comment=117084&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_117084_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D117084" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D117084" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D117084&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=117084&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="This hive call whas writen to work the exact same way as how it retrieves entries from the object_data table.  
+CHILD 104 expects 1 parameter to be supplied when calling the HiveExt. 
+The needed parameter is your dayzInstance number  
+- PlayerUID returns as a string to support the full length of the steamID. 
+- AdminLevel returns as a integer.  
+This new functionality that i added in the custom epoch hive can be use to restrict access to anything you want. 
+Infact it could be used for far more then admin access if you think of it. 
+  
+Practical usage 1: infiSTAR admin access from the database  
+Create a new file named: getDBAdmins.sqf 
+Place this file in the init folder found in your dayz_server.pbo 
+And put this code in it. 
+
+adminUIDs = [];
+_SAdmins = [];
+_HAdmins = [];
+_LAdmins = [];
+
+_key = format[&quot;CHILD:104:%1:&quot;,dayZ_instance];
+_data = &quot;HiveEXT&quot; callExtension _key;
+    diag_log format[&quot;_data: %1&quot;,_data];
+_result = call compile format [&quot;%1&quot;,_data];
+    diag_log format[&quot;_result: %1&quot;,_result];
+diag_log &quot;HIVE: Request sent&quot;;
+    
+//Process result
+_status = _result select 0;
+    diag_log format[&quot;_status: %1&quot;,_status];
+_myArray = [];
+if (_status == &quot;ObjectStreamStart&quot;) then {
+    _val = _result select 1;
+    diag_log format[&quot;%1&quot;,_val];
+    //Stream Objects
+    for &quot;_i&quot; from 1 to _val do {
+        _data = &quot;HiveEXT&quot; callExtension _key;
+        diag_log format[&quot;_data: %1&quot;,_data];
+        _result = call compile format [&quot;%1&quot;,_data];
+    diag_log format[&quot;_result: %1&quot;,_result];
+        _myArray set [count _myArray,_result];
+    diag_log format[&quot;_myArray: %1&quot;,_myArray];
+    };
+    
+};
+
+{
+    _playerId = _x select 0;
+    diag_log format[&quot;_playerId: %1&quot;,_playerId];
+    _playerIdType = typeName _playerId;
+    diag_log format[&quot;TypeName _playerId: %1&quot;,_playerIdType];
+    _adminLevel = _x select 1;
+    diag_log format[&quot;_adminLevel: %1&quot;,_adminLevel];
+    
+    switch (_adminLevel) do {
+            case 1: { _SAdmins = _SAdmins + [_playerId]; adminUIDs = adminUIDs + [_playerId];diag_log &quot;Added to SA+EXT&quot;;};     //Super Admin Level + Special custom abilities
+            case 2: { _SAdmins = _SAdmins + [_playerId]; diag_log &quot;Added to SA&quot;;};        //Super Admin Level
+            case 3: { _HAdmins = _HAdmins + [_playerId]; diag_log &quot;Added to HA&quot;;};        //High Admin Level
+            case 4: { _LAdmins = _LAdmins + [_playerId]; diag_log &quot;Added to LA&quot;;};        //Low Admin Level
+        };
+    
+} forEach _myArray;
+Find and comment our like below: 
+
+/* 
+if ((preProcessFileLineNumbers (&quot;admins3_dayzpvp.sqf&quot;)) != &quot;&quot;) then {
+    _tmpLA = call compile preProcessFileLineNumbers &quot;admins3_dayzpvp.sqf&quot;;
+    _LAdmins = _LAdmins + _tmpLA;
+};
+if ((preProcessFileLineNumbers (&quot;admins2_dayzpvp.sqf&quot;)) != &quot;&quot;) then {
+    _tmpNA = call compile preProcessFileLineNumbers &quot;admins2_dayzpvp.sqf&quot;;
+    _NAdmins = _NAdmins + _tmpNA;
+};
+if ((preProcessFileLineNumbers (&quot;admins_dayzpvp.sqf&quot;)) != &quot;&quot;) then {
+    _tmpSA = call compile preProcessFileLineNumbers &quot;admins_dayzpvp.sqf&quot;;
+    _SAdmins = _SAdmins + _tmpSA;
+}; 
+*/
+if ((preProcessFileLineNumbers (&quot;blacklist.sqf&quot;)) != &quot;&quot;) then {
+    _tmpBL = call compile preProcessFileLineNumbers &quot;blacklist.sqf&quot;;
+    _BLOCKED = _BLOCKED + _tmpBL;
+};
+Then after the blacklisting part add this: 
+
+#include &quot;\z\addons\dayz_server\init\getDBAdmins.sqf&quot;;
+
+Then run this query on your database to create the newly needed table. 
+
+DROP TABLE IF EXISTS `admin_data`;
+CREATE TABLE `admin_data` (
+  `PlayerUID` varchar(20) NOT NULL DEFAULT '0',
+  `PlayerName` varchar(128) NOT NULL DEFAULT 'Null',
+  `AdminLevel` int(1) NOT NULL DEFAULT '0',
+  `Instance` int(11) NOT NULL DEFAULT '11',
+  PRIMARY KEY (`PlayerUID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+Your all done and ready to start adding your admins steamID and admin level to your database. 
+No more sitting around and waiting for a restart to make changes and then miss the damn restart right [ ;)] 
+No more need to do manual restarts to add a admin. 
+All it takes for the new admin to have his rights is a server restart automated or manual.  Admin levels explained: 
+In the switch statement you see case 1, case 2, case 3, case 4 right  Case 1: 
+Super admin acces just like in infistar ah but this adds the playerid to a custom variable, i use this to give certain super admins base dome access or special markers on their maps and whatnot. 
+take not that the &quot;adminUIDs&quot; variable needs to be publicVariabled after the script is done, the reason this is not the case in the example is because i use publicVariableClient in the playerlogin.sqf file 
+it's just my way of making shure that jip clients have the variable to.  Case 2: 
+Super admin access 
+Case 3: 
+High admin access 
+Case 4: 
+Low admin access  
+So obviously in the database you fill in 1, 2, 3 or 4 in the &quot;AdminLevel&quot; field 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=117084">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<ul class="ipsTopicMeta">
+<li class="ipsTopicMeta__item ipsTopicMeta__item--time">
+									4 weeks later...
+								</li>
+</ul>
+<a id="comment-127942"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_127942">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile">
+<img alt="lordgeorge" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11147.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11147-lordgeorge/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile"><span style="color:#">lordgeorge</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=127942" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-11T21:54:18Z" title="09/11/14 09:54  PM">September 11, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile">lordgeorge</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile">
+<img alt="lordgeorge" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11147.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11147-lordgeorge/content/" rel="nofollow" title="167 posts">
+<i class="fa fa-comment"></i> 167
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United Kingdom</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="127942" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11147,"username":"lordgeorge","timestamp":1410472458,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":127942}' id="comment-127942_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-127942_wrap" href="#elControls_127942_menu" id="elControls_127942" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_127942_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=127942" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_127942_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=127942" id="elSharePost_127942" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=127942" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-11T21:54:18Z" title="09/11/14 09:54  PM">September 11, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Hey dude, nice tool but could i clear something?</p>
+<p>Does this mod require a server restart ?</p>
+<p>I didnt think so as this makes infistar look at the DB for admins.</p>
+<p>If not why do i still need to restart the server to make the change take effect ?</p>
+<p> </p>
+<p>Cheer</p>
+<p>George</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_127942_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=127942"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D127942" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D127942" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D127942&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=127942&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hey dude, nice tool but could i clear something? 
+Does this mod require a server restart ? 
+I didnt think so as this makes infistar look at the DB for admins. 
+If not why do i still need to restart the server to make the change take effect ? 
+  
+Cheer 
+George 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=127942">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-128388"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_128388">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128388" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-12T15:14:14Z" title="09/12/14 03:14  PM">September 12, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="128388" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1410534854,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":128388}' id="comment-128388_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-128388_wrap" href="#elControls_128388_menu" id="elControls_128388" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_128388_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=128388" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_128388_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128388" id="elSharePost_128388" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128388" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-12T15:14:14Z" title="09/12/14 03:14  PM">September 12, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>because the admin list is only generated once at restart, you could insert a command to your antihack sending a publicvariableserver and adding a serverside eventhandler to execute the getdbadmins.sqf during the game manually if you need to update the array without restart ....</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_128388_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128388"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128388" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128388" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128388&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=128388&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="because the admin list is only generated once at restart, you could insert a command to your antihack sending a publicvariableserver and adding a serverside eventhandler to execute the getdbadmins.sqf during the game manually if you need to update the array without restart .... 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128388">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-128469"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_128469">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile">
+<img alt="Namindu" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c494%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3799-namindu/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile"><span style="color:#">Namindu</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128469" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-12T18:24:08Z" title="09/12/14 06:24  PM">September 12, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile">Namindu</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile">
+<img alt="Namindu" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c494%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3799-namindu/content/" rel="nofollow" title="418 posts">
+<i class="fa fa-comment"></i> 418
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="128469" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3799,"username":"Namindu","timestamp":1410546248,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":128469}' id="comment-128469_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-128469_wrap" href="#elControls_128469_menu" id="elControls_128469" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_128469_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=128469" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_128469_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128469" id="elSharePost_128469" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128469" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-12T18:24:08Z" title="09/12/14 06:24  PM">September 12, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="waTTe" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="128388" data-ipsquote-contentid="15645" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1410534854" data-ipsquote-username="waTTe"><div>
+<div>
+<p>because the admin list is only generated once at restart, you could insert a command to your antihack sending a publicvariableserver and adding a serverside eventhandler to execute the getdbadmins.sqf during the game manually if you need to update the array without restart ....</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>It was made to generate once, cause hackers can now easily enter by forcing their way into the anti-hack. But with the one time gen, makes it hard cause the script will know if it changes mid-way.</p>
+<p> </p>
+<p>Personally its not the best idea to edit the anti-hack. As infistar made it so that its secure. For all we know this could create a major backdoor. Not saying this is a bad idea or a script. But it just needs to be double checked is what i mean.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_128469_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128469"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128469" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128469" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128469&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=128469&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="It was made to generate once, cause hackers can now easily enter by forcing their way into the anti-hack. But with the one time gen, makes it hard cause the script will know if it changes mid-way. 
+  
+Personally its not the best idea to edit the anti-hack. As infistar made it so that its secure. For all we know this could create a major backdoor. Not saying this is a bad idea or a script. But it just needs to be double checked is what i mean. 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128469">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-128753"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_128753">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">
+<img alt="Soul" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10451-soul/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile"><span style="color:#">Soul</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128753" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-13T06:22:59Z" title="09/13/14 06:22  AM">September 13, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">Soul</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10451-soul/?do=hovercard" data-ipshover-width="370" href="../../profile/10451-soul/index.html" rel="nofollow" title="Go to Soul's profile">
+<img alt="Soul" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10451-soul/content/" rel="nofollow" title="181 posts">
+<i class="fa fa-comment"></i> 181
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Belgium</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="128753" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10451,"username":"Soul","timestamp":1410589379,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":128753}' id="comment-128753_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-128753_wrap" href="#elControls_128753_menu" id="elControls_128753" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_128753_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=128753" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_128753_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128753" id="elSharePost_128753" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128753" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-13T06:22:59Z" title="09/13/14 06:22  AM">September 13, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>dude all it does is pull the data from the database instead of the sqf files nothing more nothing less.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_128753_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128753"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128753" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128753" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128753&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=128753&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="dude all it does is pull the data from the database instead of the sqf files nothing more nothing less. 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128753">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-128835"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_128835">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile">
+<img alt="lordgeorge" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11147.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11147-lordgeorge/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile"><span style="color:#">lordgeorge</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128835" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-13T10:59:09Z" title="09/13/14 10:59  AM">September 13, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile">lordgeorge</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11147-lordgeorge/?do=hovercard" data-ipshover-width="370" href="../../profile/11147-lordgeorge/index.html" rel="nofollow" title="Go to lordgeorge's profile">
+<img alt="lordgeorge" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11147.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11147-lordgeorge/content/" rel="nofollow" title="167 posts">
+<i class="fa fa-comment"></i> 167
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United Kingdom</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="128835" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11147,"username":"lordgeorge","timestamp":1410605949,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":128835}' id="comment-128835_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-128835_wrap" href="#elControls_128835_menu" id="elControls_128835" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_128835_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=128835" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_128835_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128835" id="elSharePost_128835" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128835" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-13T10:59:09Z" title="09/13/14 10:59  AM">September 13, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Out of interest, what sort of vaiables would i need to use to call the list on manual demand ?</p>
+<p>Getting it to run via AH would be fine but the publicvairable im unsure about.</p>
+<p> </p>
+<p>Cheers</p>
+<p>George</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_128835_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128835"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128835" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128835" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D128835&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=128835&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Out of interest, what sort of vaiables would i need to use to call the list on manual demand ? 
+Getting it to run via AH would be fine but the publicvairable im unsure about. 
+  
+Cheers 
+George 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=128835">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-129089"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_129089">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile">
+<img alt="Namindu" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c494%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3799-namindu/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile"><span style="color:#">Namindu</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=129089" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-13T20:50:30Z" title="09/13/14 08:50  PM">September 13, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F15645-tutorial-usage-of-child-104-adminlevel-from-database%252F" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile">Namindu</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3799-namindu/?do=hovercard" data-ipshover-width="370" href="../../profile/3799-namindu/index.html" rel="nofollow" title="Go to Namindu's profile">
+<img alt="Namindu" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c494%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EN%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3799-namindu/content/" rel="nofollow" title="418 posts">
+<i class="fa fa-comment"></i> 418
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="129089" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3799,"username":"Namindu","timestamp":1410641430,"contentapp":"forums","contenttype":"forums","contentid":15645,"contentclass":"forums_Topic","contentcommentid":129089}' id="comment-129089_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-129089_wrap" href="#elControls_129089_menu" id="elControls_129089" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_129089_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=reportComment&amp;comment=129089" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_129089_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=129089" id="elSharePost_129089" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=129089" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-09-13T20:50:30Z" title="09/13/14 08:50  PM">September 13, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Soul" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="128753" data-ipsquote-contentid="15645" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1410589379" data-ipsquote-username="Soul"><div>
+<div>
+<p>dude all it does is pull the data from the database instead of the sqf files nothing more nothing less.</p>
+</div>
+</div></blockquote>
+<p>I know what you mean, but if you were to inject it like said in the 3 post. then it will give a better way for someone to inject their way in. But i understand you basicly changed it from a sqf to a database call.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_129089_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=129089"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D129089" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D129089" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F%3Fdo%3DfindComment%26comment%3D129089&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment%26comment=129089&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I know what you mean, but if you were to inject it like said in the 3 post. then it will give a better way for someone to inject their way in. But i understand you basicly changed it from a sqf to a database call. 
+" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/?do=findComment&amp;comment=129089">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xNTY0NS10dXRvcmlhbC11c2FnZS1vZi1jaGlsZC0xMDQtYWRtaW5sZXZlbC1mcm9tLWRhdGFiYXNlLyNyZXBseUZvcm0=">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F15645-tutorial-usage-of-child-104-adminlevel-from-database%2F&amp;title=%5BTUTORIAL%5D+Usage+of+CHILD+104%3A+AdminLevel+from+database" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-websharetitle="[TUTORIAL] Usage of CHILD 104: AdminLevel from database" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="15645">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html" rel="parent" title="Go to Gold Coin based Single Currency &amp; Banking System">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/63-a2-community-projects/index.html">
+<span>A2: Community Projects <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/56-gold-coin-based-single-currency-banking-system/index.html">
+<span>Gold Coin based Single Currency &amp; Banking System <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[TUTORIAL] Usage of CHILD 104: AdminLevel from database
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[TUTORIAL] Usage of CHILD 104: AdminLevel from database",
+    "headline": "[TUTORIAL] Usage of CHILD 104: AdminLevel from database",
+    "text": "This hive call whas writen to work the exact same way as how it retrieves entries from the object_data table.  \nCHILD 104 expects 1 parameter to be supplied when calling the HiveExt. \nThe needed parameter is your dayzInstance number  \n- PlayerUID returns as a string to support the full length of the steamID. \n- AdminLevel returns as a integer.  \nThis new functionality that i added in the custom epoch hive can be use to restrict access to anything you want. \nInfact it could be used for far more then admin access if you think of it. \n\u00a0 \nPractical usage 1: infiSTAR admin access from the database  \nCreate a new file named: getDBAdmins.sqf \nPlace this file in the init folder found in your dayz_server.pbo \nAnd put this code in it. \n\nadminUIDs = [];\n_SAdmins = [];\n_HAdmins = [];\n_LAdmins = [];\n\n_key = format[\"CHILD:104:%1:\",dayZ_instance];\n_data = \"HiveEXT\" callExtension _key;\n\u00a0\u00a0 \u00a0diag_log format[\"_data: %1\",_data];\n_result = call compile format [\"%1\",_data];\n\u00a0\u00a0 \u00a0diag_log format[\"_result: %1\",_result];\ndiag_log \"HIVE: Request sent\";\n\u00a0\u00a0 \u00a0\n//Process result\n_status = _result select 0;\n\u00a0\u00a0 \u00a0diag_log format[\"_status: %1\",_status];\n_myArray = [];\nif (_status == \"ObjectStreamStart\") then {\n\u00a0\u00a0 \u00a0_val = _result select 1;\n\u00a0\u00a0 \u00a0diag_log format[\"%1\",_val];\n\u00a0\u00a0 \u00a0//Stream Objects\n\u00a0\u00a0 \u00a0for \"_i\" from 1 to _val do {\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0_data = \"HiveEXT\" callExtension _key;\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0diag_log format[\"_data: %1\",_data];\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0_result = call compile format [\"%1\",_data];\n\u00a0\u00a0 \u00a0diag_log format[\"_result: %1\",_result];\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0_myArray set [count _myArray,_result];\n\u00a0\u00a0 \u00a0diag_log format[\"_myArray: %1\",_myArray];\n\u00a0\u00a0 \u00a0};\n\u00a0\u00a0 \u00a0\n};\n\n{\n\u00a0\u00a0 \u00a0_playerId = _x select 0;\n\u00a0\u00a0 \u00a0diag_log format[\"_playerId: %1\",_playerId];\n\u00a0\u00a0 \u00a0_playerIdType = typeName _playerId;\n\u00a0\u00a0 \u00a0diag_log format[\"TypeName _playerId: %1\",_playerIdType];\n\u00a0\u00a0 \u00a0_adminLevel = _x select 1;\n\u00a0\u00a0 \u00a0diag_log format[\"_adminLevel: %1\",_adminLevel];\n\u00a0\u00a0 \u00a0\n\u00a0\u00a0 \u00a0switch (_adminLevel) do {\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0case 1: { _SAdmins = _SAdmins + [_playerId]; adminUIDs = adminUIDs + [_playerId];diag_log \"Added to SA+EXT\";}; \u00a0\u00a0 \u00a0//Super Admin Level + Special custom abilities\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0case 2: { _SAdmins = _SAdmins + [_playerId]; diag_log \"Added to SA\";};\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0//Super Admin Level\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0case 3: { _HAdmins = _HAdmins + [_playerId]; diag_log \"Added to HA\";};\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0//High Admin Level\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0case 4: { _LAdmins = _LAdmins + [_playerId]; diag_log \"Added to LA\";};\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0//Low Admin Level\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0};\n\u00a0\u00a0 \u00a0\n} forEach _myArray;\nFind and comment our like below: \n\n/* \nif ((preProcessFileLineNumbers (\"admins3_dayzpvp.sqf\")) != \"\") then {\n\u00a0\u00a0 \u00a0_tmpLA = call compile preProcessFileLineNumbers \"admins3_dayzpvp.sqf\";\n\u00a0\u00a0 \u00a0_LAdmins = _LAdmins + _tmpLA;\n};\nif ((preProcessFileLineNumbers (\"admins2_dayzpvp.sqf\")) != \"\") then {\n\u00a0\u00a0 \u00a0_tmpNA = call compile preProcessFileLineNumbers \"admins2_dayzpvp.sqf\";\n\u00a0\u00a0 \u00a0_NAdmins = _NAdmins + _tmpNA;\n};\nif ((preProcessFileLineNumbers (\"admins_dayzpvp.sqf\")) != \"\") then {\n\u00a0\u00a0 \u00a0_tmpSA = call compile preProcessFileLineNumbers \"admins_dayzpvp.sqf\";\n\u00a0\u00a0 \u00a0_SAdmins = _SAdmins + _tmpSA;\n}; \n*/\nif ((preProcessFileLineNumbers (\"blacklist.sqf\")) != \"\") then {\n\u00a0\u00a0 \u00a0_tmpBL = call compile preProcessFileLineNumbers \"blacklist.sqf\";\n\u00a0\u00a0 \u00a0_BLOCKED = _BLOCKED + _tmpBL;\n};\nThen after the blacklisting part add this: \n\n#include \"\\z\\addons\\dayz_server\\init\\getDBAdmins.sqf\";\n\nThen run this query on your database to create the newly needed table. \n\nDROP TABLE IF EXISTS `admin_data`;\nCREATE TABLE `admin_data` (\n\u00a0 `PlayerUID` varchar(20) NOT NULL DEFAULT \u00270\u0027,\n\u00a0 `PlayerName` varchar(128) NOT NULL DEFAULT \u0027Null\u0027,\n\u00a0 `AdminLevel` int(1) NOT NULL DEFAULT \u00270\u0027,\n\u00a0 `Instance` int(11) NOT NULL DEFAULT \u002711\u0027,\n\u00a0 PRIMARY KEY (`PlayerUID`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8;\nYour all done and ready to start adding your admins steamID and admin level to your database. \nNo more sitting around and waiting for a restart to make changes and then miss the damn restart right [ ;)] \nNo more need to do manual restarts to add a admin. \nAll it takes for the new admin to have his rights is a server restart automated or manual.  Admin levels explained: \nIn the switch statement you see case 1, case 2, case 3, case 4 right  Case 1: \nSuper admin acces just like in infistar ah but this adds the playerid to a custom variable, i use this to give certain super admins base dome access or special markers on their maps and whatnot. \ntake not that the \"adminUIDs\" variable needs to be publicVariabled after the script is done, the reason this is not the case in the example is because i use publicVariableClient in the playerlogin.sqf file \nit\u0027s just my way of making shure that jip clients have the variable to.  Case 2: \nSuper admin access \nCase 3: \nHigh admin access \nCase 4: \nLow admin access  \nSo obviously in the database you fill in 1, 2, 3 or 4 in the \"AdminLevel\" field \n",
+    "dateCreated": "2014-08-16T19:01:50+0000",
+    "datePublished": "2014-08-16T19:01:50+0000",
+    "dateModified": "2014-09-13T20:50:30+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png",
+    "author": {
+        "@type": "Person",
+        "name": "Soul",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png",
+        "url": "https://epochmod.com/forum/profile/10451-soul/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1549
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 6
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "Soul",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png",
+            "url": "https://epochmod.com/forum/profile/10451-soul/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/",
+    "discussionUrl": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-127942",
+            "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-127942",
+            "author": {
+                "@type": "Person",
+                "name": "lordgeorge",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11147.png",
+                "url": "https://epochmod.com/forum/profile/11147-lordgeorge/"
+            },
+            "dateCreated": "2014-09-11T21:54:18+0000",
+            "text": "Hey dude, nice tool but could i clear something? \nDoes this mod require a server restart ? \nI didnt think so as this makes infistar look at the DB for admins. \nIf not why do i still need to restart the server to make the change take effect ? \n\u00a0 \nCheer \nGeorge \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128388",
+            "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128388",
+            "author": {
+                "@type": "Person",
+                "name": "Guest",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+            },
+            "dateCreated": "2014-09-12T15:14:14+0000",
+            "text": "because the admin list is only generated once at restart, you could insert a command to your antihack sending a publicvariableserver and adding a serverside eventhandler to execute the getdbadmins.sqf during the game manually if you need to update the array without restart .... \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128469",
+            "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128469",
+            "author": {
+                "@type": "Person",
+                "name": "Namindu",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/3799-namindu/"
+            },
+            "dateCreated": "2014-09-12T18:24:08+0000",
+            "text": "It was made to generate once, cause hackers can now easily enter by forcing their way into the anti-hack. But with the one time gen, makes it hard cause the script will know if it changes mid-way. \n\u00a0 \nPersonally its not the best idea to edit the anti-hack. As infistar made it so that its secure. For all we know this could create a major backdoor. Not saying this is a bad idea or a script. But it just needs to be double checked is what i mean. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128753",
+            "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128753",
+            "author": {
+                "@type": "Person",
+                "name": "Soul",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-10451.png",
+                "url": "https://epochmod.com/forum/profile/10451-soul/"
+            },
+            "dateCreated": "2014-09-13T06:22:59+0000",
+            "text": "dude all it does is pull the data from the database instead of the sqf files nothing more nothing less. \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128835",
+            "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-128835",
+            "author": {
+                "@type": "Person",
+                "name": "lordgeorge",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11147.png",
+                "url": "https://epochmod.com/forum/profile/11147-lordgeorge/"
+            },
+            "dateCreated": "2014-09-13T10:59:09+0000",
+            "text": "Out of interest, what sort of vaiables would i need to use to call the list on manual demand ? \nGetting it to run via AH would be fine but the publicvairable im unsure about. \n\u00a0 \nCheers \nGeorge \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-129089",
+            "url": "https://epochmod.com/forum/topic/15645-tutorial-usage-of-child-104-adminlevel-from-database/#comment-129089",
+            "author": {
+                "@type": "Person",
+                "name": "Namindu",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/3799-namindu/"
+            },
+            "dateCreated": "2014-09-13T20:50:30+0000",
+            "text": "I know what you mean, but if you were to inject it like said in the 3 post. then it will give a better way for someone to inject their way in. But i understand you basicly changed it from a sqf to a database call. \n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/63-a2-community-projects/",
+                "name": "A2: Community Projects"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/56-gold-coin-based-single-currency-banking-system/",
+                "name": "Gold Coin based Single Currency &amp; Banking System"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

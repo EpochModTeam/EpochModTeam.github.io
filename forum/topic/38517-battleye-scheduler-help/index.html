@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Battleye Scheduler help - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Battleye Scheduler help" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/" property="og:url"/>
+<meta content="so basically my issue is all the bec messages come up right, exept for the repeated messages, im trying to get one message to repeat every 15 min or some time that can be edited. I want it to run every restart infinitely, also im trying to make the server lock with 5 minutes to restart to stop pe..." name="description"/>
+<meta content="so basically my issue is all the bec messages come up right, exept for the repeated messages, im trying to get one message to repeat every 15 min or some time that can be edited. I want it to run every restart infinitely, also im trying to make the server lock with 5 minutes to restart to stop pe..." property="og:description"/>
+<meta content="2015-12-01T22:23:00Z" property="og:updated_time"/>
+<meta content="bec, sched" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="38517" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zODUxNy1iYXR0bGV5ZS1zY2hlZHVsZXItaGVscC8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":38517}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Battleye Scheduler help
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<span>Battleye Scheduler help</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="sched" href="https://epochmod.com/forum/tags/sched/" rel="tag" title="Find other content tagged with 'sched'"><span>sched</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">rentiger1112</a>,</strong><br/><span class="ipsType_light"><time data-short="9 yr" datetime="2015-10-23T17:12:15Z" title="10/23/15 05:12  PM">October 23, 2015</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Battleye Scheduler help" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="38517">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-38517" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-265477"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265477">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/14783-rentiger1112/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile"><span style="color:#">rentiger1112</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265477" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T17:12:15Z" title="10/23/15 05:12  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">rentiger1112</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/14783-rentiger1112/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265477" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":14783,"username":"rentiger1112","timestamp":1445620335,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265477}' id="comment-265477_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265477_wrap" href="#elControls_265477_menu" id="elControls_265477" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265477_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265477" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265477_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_265477" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265477" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T17:12:15Z" title="10/23/15 05:12  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>so basically my issue is all the bec messages come up right, exept for the repeated messages, im trying to get one message to repeat every 15 min or some time that can be edited. I want it to run every restart infinitely, also im trying to make the server lock with 5 minutes to restart to stop people from loading in right b4 restart #lock or some shit. I have been told multiple times by CEN, to do it a certain way but it isnt working, any help would be appreciated.  </p><p><a href="http://pastebin.com/HpvRXefG" rel="external nofollow">http://pastebin.com/HpvRXefG</a></p><p> </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265477_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265477" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265477" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265477&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265477&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="so basically my issue is all the bec messages come up right, exept for the repeated messages, im trying to get one message to repeat every 15 min or some time that can be edited. I want it to run every restart infinitely, also im trying to make the server lock with 5 minutes to restart to stop people from loading in right b4 restart #lock or some shit. I have been told multiple times by CEN, to do it a certain way but it isnt working, any help would be appreciated.   http://pastebin.com/HpvRXefG   
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265477">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">9 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-265480"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265480">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<a href="https://epochmod.com/forum/profile/5581-richie/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265480" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T18:14:32Z" title="10/23/15 06:14  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group">Developer</li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.8fdd81fad5028d3aa7ed27322981c592.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5581-richie/content/" rel="nofollow" title="4345 posts">
+<i class="fa fa-comment"></i> 4.3k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265480" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5581,"username":"Richie","timestamp":1445624072,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265480}' id="comment-265480_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265480_wrap" href="#elControls_265480_menu" id="elControls_265480" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265480_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265480" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265480_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265480" id="elSharePost_265480" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265480" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T18:14:32Z" title="10/23/15 06:14  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>cmdtype is no longer supported, when do you want your restart warnings and messages ? i'll edit mine for you to suit your settings</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265480_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265480"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265480" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265480" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265480&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265480&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="cmdtype is no longer supported, when do you want your restart warnings and messages ? i'll edit mine for you to suit your settings 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265480">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265488"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265488">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">
+<img alt="syco" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/12111-syco/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile"><span style="color:#">syco</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265488" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T20:06:44Z" title="10/23/15 08:06  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">syco</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">
+<img alt="syco" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/12111-syco/content/" rel="nofollow" title="299 posts">
+<i class="fa fa-comment"></i> 299
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265488" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12111,"username":"syco","timestamp":1445630804,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265488}' id="comment-265488_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265488_wrap" href="#elControls_265488_menu" id="elControls_265488" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265488_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265488" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265488_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265488" id="elSharePost_265488" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265488" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T20:06:44Z" title="10/23/15 08:06  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+				
+					(edited)
+				
+				
+			</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Message that first runs 15 minutes after the server starts and repeats every 15 minutes.</p><pre class="ipsCode prettyprint">    &lt;job id="10"&gt;
+        &lt;start&gt;001500&lt;/start&gt;
+        &lt;runtime&gt;001500&lt;/runtime&gt;
+        &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+        &lt;loop&gt;-1&lt;/loop&gt;
+        &lt;cmd&gt;say -1 Message goes Here&lt;/cmd&gt;
+    &lt;/job&gt;</pre><p>Will lock the server 5 minutes before restart. Two hours restarts. If you got 3 hour restarts change &lt;start&gt;015500&lt;/start&gt; TO  <span style="line-height:20.8px;">&lt;start&gt;025500&lt;/start&gt; and so on.</span></p><pre class="ipsCode prettyprint">	&lt;job id="12"&gt;
+		&lt;start&gt;015500&lt;/start&gt;
+		&lt;runtime&gt;000000&lt;/runtime&gt;
+		&lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt; 
+		&lt;loop&gt;0&lt;/loop&gt; 
+		&lt;cmd&gt;#lock&lt;/cmd&gt;            
+	&lt;/job&gt;</pre><p>This works for me and should work for you also. Also remember to change the job id's to fit yours. Put the lock server job id at the bottom.</p>
+<span class="ipsType_reset ipsType_medium ipsType_light" data-excludequote="">
+<strong>Edited <time data-short="9 yr" datetime="2015-10-23T20:25:46Z" title="10/23/15 08:25  PM">October 23, 2015</time> by syco</strong>
+</span>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265488_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265488"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265488" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265488" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265488&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265488&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Message that first runs 15 minutes after the server starts and repeats every 15 minutes.     &lt;job id=&quot;10&quot;&gt;
+        &lt;start&gt;001500&lt;/start&gt;
+        &lt;runtime&gt;001500&lt;/runtime&gt;
+        &lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt;
+        &lt;loop&gt;-1&lt;/loop&gt;
+        &lt;cmd&gt;say -1 Message goes Here&lt;/cmd&gt;
+    &lt;/job&gt;Will lock the server 5 minutes before restart. Two hours restarts. If you got 3 hour restarts change &lt;start&gt;015500&lt;/start&gt; TO  &lt;start&gt;025500&lt;/start&gt; and so on. 	&lt;job id=&quot;12&quot;&gt;
+		&lt;start&gt;015500&lt;/start&gt;
+		&lt;runtime&gt;000000&lt;/runtime&gt;
+		&lt;day&gt;1,2,3,4,5,6,7&lt;/day&gt; 
+		&lt;loop&gt;0&lt;/loop&gt; 
+		&lt;cmd&gt;#lock&lt;/cmd&gt;            
+	&lt;/job&gt;This works for me and should work for you also. Also remember to change the job id's to fit yours. Put the lock server job id at the bottom. 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265488">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265492"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265492">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">
+<img alt="syco" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/12111-syco/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile"><span style="color:#">syco</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265492" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T20:25:55Z" title="10/23/15 08:25  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">syco</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">
+<img alt="syco" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/12111-syco/content/" rel="nofollow" title="299 posts">
+<i class="fa fa-comment"></i> 299
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265492" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12111,"username":"syco","timestamp":1445631955,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265492}' id="comment-265492_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265492_wrap" href="#elControls_265492_menu" id="elControls_265492" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265492_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265492" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265492_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265492" id="elSharePost_265492" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265492" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T20:25:55Z" title="10/23/15 08:25  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>After looking at your Scheduler.xml, what host do you have? Is it a dedicated box? Not sure why you are doing it this way.</p><p>I run 2 hours restarts and this is my Scheduler.xml</p><p><a href="http://pastebin.com/5ntJV6PT" rel="external nofollow">http://pastebin.com/5ntJV6PT</a></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265492_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265492"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265492" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265492" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265492&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265492&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="After looking at your Scheduler.xml, what host do you have? Is it a dedicated box? Not sure why you are doing it this way. I run 2 hours restarts and this is my Scheduler.xml http://pastebin.com/5ntJV6PT 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265492">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265493"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265493">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/14783-rentiger1112/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile"><span style="color:#">rentiger1112</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265493" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T20:26:35Z" title="10/23/15 08:26  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">rentiger1112</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/14783-rentiger1112/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265493" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":14783,"username":"rentiger1112","timestamp":1445631995,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265493}' id="comment-265493_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265493_wrap" href="#elControls_265493_menu" id="elControls_265493" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265493_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265493" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265493_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265493" id="elSharePost_265493" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265493" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T20:26:35Z" title="10/23/15 08:26  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>richie  if you could use the same timezone as on the scheduler already provided and do 30,15,5,1 minute restarts?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265493_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265493"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265493" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265493" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265493&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265493&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="richie  if you could use the same timezone as on the scheduler already provided and do 30,15,5,1 minute restarts? 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265493">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265495"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265495">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<a href="https://epochmod.com/forum/profile/5581-richie/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265495" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T21:21:09Z" title="10/23/15 09:21  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group">Developer</li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.8fdd81fad5028d3aa7ed27322981c592.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5581-richie/content/" rel="nofollow" title="4345 posts">
+<i class="fa fa-comment"></i> 4.3k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265495" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5581,"username":"Richie","timestamp":1445635269,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265495}' id="comment-265495_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265495_wrap" href="#elControls_265495_menu" id="elControls_265495" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265495_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265495" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265495_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265495" id="elSharePost_265495" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265495" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T21:21:09Z" title="10/23/15 09:21  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Have a look at <a href="https://www.dropbox.com/s/vyl9jtgakvbycmj/Scheduler.xml?dl=0">mine</a></p><p>What is does is announce restarts 30 minutes, 15 minutes, 10 minutes, 5 minutes and 1 minute before a restart, based on a restart every 4 hours.</p><p>It also locks the server 5 minutes before restart, then finally shutdown the server, I used FireDaemon to handle my restarts.</p><p>There are also several messages at set times, read the message description to see when they run, i've edited it for easier reading.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265495_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265495"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265495" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265495" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265495&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265495&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Have a look at mine What is does is announce restarts 30 minutes, 15 minutes, 10 minutes, 5 minutes and 1 minute before a restart, based on a restart every 4 hours. It also locks the server 5 minutes before restart, then finally shutdown the server, I used FireDaemon to handle my restarts. There are also several messages at set times, read the message description to see when they run, i've edited it for easier reading. 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265495">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265498"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265498">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/14783-rentiger1112/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile"><span style="color:#">rentiger1112</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265498" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T23:12:19Z" title="10/23/15 11:12  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">rentiger1112</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/14783-rentiger1112/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265498" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":14783,"username":"rentiger1112","timestamp":1445641939,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265498}' id="comment-265498_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265498_wrap" href="#elControls_265498_menu" id="elControls_265498" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265498_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265498" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265498_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265498" id="elSharePost_265498" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265498" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T23:12:19Z" title="10/23/15 11:12  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>could you help me fix mine? for 2 hour rs</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265498_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265498"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265498" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265498" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265498&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265498&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="could you help me fix mine? for 2 hour rs 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265498">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265499"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265499">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/14783-rentiger1112/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile"><span style="color:#">rentiger1112</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265499" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T23:13:25Z" title="10/23/15 11:13  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">rentiger1112</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14783-rentiger1112/?do=hovercard" data-ipshover-width="370" href="../../profile/14783-rentiger1112/index.html" rel="nofollow" title="Go to rentiger1112's profile">
+<img alt="rentiger1112" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4c462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/14783-rentiger1112/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265499" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":14783,"username":"rentiger1112","timestamp":1445642005,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265499}' id="comment-265499_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265499_wrap" href="#elControls_265499_menu" id="elControls_265499" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265499_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265499" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265499_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265499" id="elSharePost_265499" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265499" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T23:13:25Z" title="10/23/15 11:13  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I am using vilayer</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265499_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265499"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265499" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265499" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265499&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265499&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I am using vilayer 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265499">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-265500"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_265500">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">
+<img alt="syco" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/12111-syco/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile"><span style="color:#">syco</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265500" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T23:19:35Z" title="10/23/15 11:19  PM">October 23, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">syco</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12111-syco/?do=hovercard" data-ipshover-width="370" href="../../profile/12111-syco/index.html" rel="nofollow" title="Go to syco's profile">
+<img alt="syco" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/12111-syco/content/" rel="nofollow" title="299 posts">
+<i class="fa fa-comment"></i> 299
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="265500" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12111,"username":"syco","timestamp":1445642375,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":265500}' id="comment-265500_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-265500_wrap" href="#elControls_265500_menu" id="elControls_265500" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_265500_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=265500" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_265500_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265500" id="elSharePost_265500" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265500" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-10-23T23:19:35Z" title="10/23/15 11:19  PM">October 23, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Using vilayer's dayz mod package servers, it is not recommended to use the scheduler to do restarts. You need to use the scheduled task and i recommend using there server messages script that you can install in the addons to put out messages. Much easier to use.</p><p>Just use the scheduler for locking the server 5 mins before the restart.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_265500_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265500"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265500" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265500" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D265500&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=265500&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Using vilayer's dayz mod package servers, it is not recommended to use the scheduler to do restarts. You need to use the scheduled task and i recommend using there server messages script that you can install in the addons to put out messages. Much easier to use. Just use the scheduler for locking the server 5 mins before the restart. 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=265500">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-268376"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_268376">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">
+<img alt="Thug" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/12942-thug/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile"><span style="color:#">Thug</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=268376" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-12-01T22:23:00Z" title="12/01/15 10:23  PM">December 1, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">Thug</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">
+<img alt="Thug" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/12942-thug/content/" rel="nofollow" title="710 posts">
+<i class="fa fa-comment"></i> 710
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Florida USA</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="268376" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12942,"username":"Thug","timestamp":1449008580,"contentapp":"forums","contenttype":"forums","contentid":38517,"contentclass":"forums_Topic","contentcommentid":268376}' id="comment-268376_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-268376_wrap" href="#elControls_268376_menu" id="elControls_268376" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_268376_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=reportComment&amp;comment=268376" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_268376_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=268376" id="elSharePost_268376" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=268376" rel="nofollow">Posted <time data-short="9 yr" datetime="2015-12-01T22:23:00Z" title="12/01/15 10:23  PM">December 1, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="265495" data-ipsquote-contentid="38517" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1445635269" data-ipsquote-userid="5581" data-ipsquote-username="Richie">
+<div class="ipsQuote_citation">
+		On 10/23/2015, 5:21:09, Richie said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Have a look at <a href="https://www.dropbox.com/s/vyl9jtgakvbycmj/Scheduler.xml?dl=0" rel="external nofollow">mine</a>
+</p>
+<p>
+			What is does is announce restarts 30 minutes, 15 minutes, 10 minutes, 5 minutes and 1 minute before a restart, based on a restart every 4 hours.
+		</p>
+<p>
+			It also locks the server 5 minutes before restart, then finally shutdown the server, I used FireDaemon to handle my restarts.
+		</p>
+<p>
+			There are also several messages at set times, read the message description to see when they run, i've edited it for easier reading.
+		</p>
+</div>
+</blockquote>
+<p>
+	Richie could you look at my post at  <a href="https://epochmod.com/forum/index.php?/topic/40291-bec-scheduler-not-working/">http://epochmod.com/forum/index.php?/topic/40291-bec-scheduler-not-working/</a>
+</p>
+<p>
+	did not know if  i could post on this page.
+</p>
+<p>
+	Thug
+</p>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_268376_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=268376"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D268376" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D268376" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F%3Fdo%3DfindComment%26comment%3D268376&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment%26comment=268376&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Richie could you look at my post at  http://epochmod.com/forum/index.php?/topic/40291-bec-scheduler-not-working/
+ 
+
+
+	did not know if  i could post on this page.
+ 
+
+
+	Thug
+ 
+
+
+	 
+ 
+" data-websharetitle="Battleye Scheduler help" data-webshareurl="https://epochmod.com/forum/topic/38517-battleye-scheduler-help/?do=findComment&amp;comment=268376">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zODUxNy1iYXR0bGV5ZS1zY2hlZHVsZXItaGVscC8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F38517-battleye-scheduler-help%2F&amp;title=Battleye+Scheduler+help" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/38517-battleye-scheduler-help/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Battleye Scheduler help" data-websharetitle="Battleye Scheduler help" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="38517">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/">
+									How to set up and manage multiple DayZ SA Servers responsibly 2021
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>,  <time data-short="4 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1920242212">(and 19 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1920242212_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="set up" href="https://epochmod.com/forum/tags/set up/" rel="tag" title="Find other content tagged with 'set up'"><span>set up</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="guide" href="https://epochmod.com/forum/tags/guide/" rel="tag" title="Find other content tagged with 'guide'"><span>guide</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="tutorial" href="https://epochmod.com/forum/tags/tutorial/" rel="tag" title="Find other content tagged with 'tutorial'"><span>tutorial</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dayz" href="https://epochmod.com/forum/tags/dayz/" rel="tag" title="Find other content tagged with 'dayz'"><span>dayz</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="standalone" href="https://epochmod.com/forum/tags/standalone/" rel="tag" title="Find other content tagged with 'standalone'"><span>standalone</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="how" href="https://epochmod.com/forum/tags/how/" rel="tag" title="Find other content tagged with 'how'"><span>how</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="manage" href="https://epochmod.com/forum/tags/manage/" rel="tag" title="Find other content tagged with 'manage'"><span>manage</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="multiple" href="https://epochmod.com/forum/tags/multiple/" rel="tag" title="Find other content tagged with 'multiple'"><span>multiple</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="game" href="https://epochmod.com/forum/tags/game/" rel="tag" title="Find other content tagged with 'game'"><span>game</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="restart" href="https://epochmod.com/forum/tags/restart/" rel="tag" title="Find other content tagged with 'restart'"><span>restart</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="archive" href="https://epochmod.com/forum/tags/archive/" rel="tag" title="Find other content tagged with 'archive'"><span>archive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye" href="https://epochmod.com/forum/tags/battleye/" rel="tag" title="Find other content tagged with 'battleye'"><span>battleye</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleye extended controls" href="https://epochmod.com/forum/tags/battleye extended controls/" rel="tag" title="Find other content tagged with 'battleye extended controls'"><span>battleye extended controls</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="warning" href="https://epochmod.com/forum/tags/warning/" rel="tag" title="Find other content tagged with 'warning'"><span>warning</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="message" href="https://epochmod.com/forum/tags/message/" rel="tag" title="Find other content tagged with 'message'"><span>message</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="player" href="https://epochmod.com/forum/tags/player/" rel="tag" title="Find other content tagged with 'player'"><span>player</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="walkthrough" href="https://epochmod.com/forum/tags/walkthrough/" rel="tag" title="Find other content tagged with 'walkthrough'"><span>walkthrough</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="2021" href="https://epochmod.com/forum/tags/2021/" rel="tag" title="Find other content tagged with '2021'"><span>2021</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1358</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">
+<img alt="Harkness" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_09/224236537_69223110_10212121577993051_3324963234439495680_n(1)(1)(1)(1)(1).thumb.jpg.2c25a9fd8dfc519e71c8ffa92d07a93c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/22784-harkness/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/22784-harkness/index.html" rel="nofollow" title="Go to Harkness's profile">Harkness</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/47436-how-to-set-up-and-manage-multiple-dayz-sa-servers-responsibly-2021/" title="Go to last post">
+<time data-short="4 yr" datetime="2021-08-11T01:28:21Z" title="08/11/21 01:28  AM">August 11, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44735-bec-bug-after-last-update/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/44735-bec-bug-after-last-update/">
+									BEC Bug after Last Update
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38041-honey-bee/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/38041-honey-bee/index.html" rel="nofollow" title="Go to Honey Bee's profile">Honey Bee</a>,  <time data-short="7 yr" datetime="2017-12-11T16:34:12Z" title="12/11/17 04:34  PM">December 11, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleyeextandedcontrol" href="https://epochmod.com/forum/tags/battleyeextandedcontrol/" rel="tag" title="Find other content tagged with 'battleyeextandedcontrol'"><span>battleyeextandedcontrol</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_319148874">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_319148874_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="battleyeextandedcontrol" href="https://epochmod.com/forum/tags/battleyeextandedcontrol/" rel="tag" title="Find other content tagged with 'battleyeextandedcontrol'"><span>battleyeextandedcontrol</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bug" href="https://epochmod.com/forum/tags/bug/" rel="tag" title="Find other content tagged with 'bug'"><span>bug</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">8</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1446</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38041-honey-bee/?do=hovercard" data-ipshover-width="370" href="../../profile/38041-honey-bee/index.html" rel="nofollow" title="Go to Honey Bee's profile">
+<img alt="Honey Bee" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_02/155135_105624426175289_6907829_n.thumb.jpg.19c3acbce1c9d905e0913d355f2b92b5.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38041-honey-bee/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/38041-honey-bee/index.html" rel="nofollow" title="Go to Honey Bee's profile">Honey Bee</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44735-bec-bug-after-last-update/" title="Go to last post">
+<time data-short="7 yr" datetime="2018-01-13T08:14:32Z" title="01/13/18 08:14  AM">January 13, 2018</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/43499-having-trouble-setting-up-bec-battleye-extended-controls/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/43499-having-trouble-setting-up-bec-battleye-extended-controls/">
+									Having trouble setting up BEC [Battleye Extended Controls]
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38173-sirrapplez/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/38173-sirrapplez/" rel="nofollow" title="Go to SirRapplez's profile">SirRapplez</a>,  <time data-short="8 yr" datetime="2017-03-16T02:10:13Z" title="03/16/17 02:10  AM">March 16, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="fix" href="https://epochmod.com/forum/tags/fix/" rel="tag" title="Find other content tagged with 'fix'"><span>fix</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="to" href="https://epochmod.com/forum/tags/to/" rel="tag" title="Find other content tagged with 'to'"><span>to</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1457397446">(and 7 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1457397446_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="fix" href="https://epochmod.com/forum/tags/fix/" rel="tag" title="Find other content tagged with 'fix'"><span>fix</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="to" href="https://epochmod.com/forum/tags/to/" rel="tag" title="Find other content tagged with 'to'"><span>to</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="setup" href="https://epochmod.com/forum/tags/setup/" rel="tag" title="Find other content tagged with 'setup'"><span>setup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="not" href="https://epochmod.com/forum/tags/not/" rel="tag" title="Find other content tagged with 'not'"><span>not</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="a" href="https://epochmod.com/forum/tags/a/" rel="tag" title="Find other content tagged with 'a'"><span>a</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="valid" href="https://epochmod.com/forum/tags/valid/" rel="tag" title="Find other content tagged with 'valid'"><span>valid</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="how" href="https://epochmod.com/forum/tags/how/" rel="tag" title="Find other content tagged with 'how'"><span>how</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="directory" href="https://epochmod.com/forum/tags/directory/" rel="tag" title="Find other content tagged with 'directory'"><span>directory</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">11</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">6768</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38173-sirrapplez/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/38173-sirrapplez/" rel="nofollow" title="Go to SirRapplez's profile">
+<img alt="SirRapplez" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c467%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/38173-sirrapplez/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/38173-sirrapplez/" rel="nofollow" title="Go to SirRapplez's profile">SirRapplez</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/43499-having-trouble-setting-up-bec-battleye-extended-controls/" title="Go to last post">
+<time data-short="8 yr" datetime="2017-03-19T14:16:33Z" title="03/19/17 02:16  PM">March 19, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/42995-release-serverbec-monitor-auto-restart-auto-backup-sql-db-script/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/42995-release-serverbec-monitor-auto-restart-auto-backup-sql-db-script/">
+									[RELEASE] Server/Bec-Monitor-Auto Restart-Auto Backup Sql DB Script
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/14798-tech_support/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/14798-tech_support/index.html" rel="nofollow" title="Go to Tech_Support's profile">Tech_Support</a>,  <time data-short="8 yr" datetime="2016-12-18T03:25:20Z" title="12/18/16 03:25  AM">December 18, 2016</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1583385898">(and 8 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1583385898_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="backup" href="https://epochmod.com/forum/tags/backup/" rel="tag" title="Find other content tagged with 'backup'"><span>backup</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="monitor" href="https://epochmod.com/forum/tags/monitor/" rel="tag" title="Find other content tagged with 'monitor'"><span>monitor</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="dedi" href="https://epochmod.com/forum/tags/dedi/" rel="tag" title="Find other content tagged with 'dedi'"><span>dedi</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="vps" href="https://epochmod.com/forum/tags/vps/" rel="tag" title="Find other content tagged with 'vps'"><span>vps</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="windows" href="https://epochmod.com/forum/tags/windows/" rel="tag" title="Find other content tagged with 'windows'"><span>windows</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="batch" href="https://epochmod.com/forum/tags/batch/" rel="tag" title="Find other content tagged with 'batch'"><span>batch</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="script" href="https://epochmod.com/forum/tags/script/" rel="tag" title="Find other content tagged with 'script'"><span>script</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">12</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">6610</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37261-_lance_/?do=hovercard" data-ipshover-width="370" href="../../profile/37261-_lance_/index.html" rel="nofollow" title="Go to _Lance_'s profile">
+<img alt="_Lance_" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_11/cv01650.thumb.jpg.5897ca419c797ed9911bcd9afce6df4c.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/37261-_lance_/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/37261-_lance_/index.html" rel="nofollow" title="Go to _Lance_'s profile">_Lance_</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/42995-release-serverbec-monitor-auto-restart-auto-backup-sql-db-script/" title="Go to last post">
+<time data-short="7 yr" datetime="2017-09-08T20:04:48Z" title="09/08/17 08:04  PM">September 8, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/40291-bec-scheduler-not-working-resolved/?preview=1" data-ipshover-timeout="1.5" href="../40291-bec-scheduler-not-working-resolved/index.html">
+									BEC Scheduler not working      -----Resolved-----
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">Thug</a>,  <time data-short="9 yr" datetime="2015-12-01T22:13:09Z" title="12/01/15 10:13  PM">December 1, 2015</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="restarts" href="https://epochmod.com/forum/tags/restarts/" rel="tag" title="Find other content tagged with 'restarts'"><span>restarts</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec\config" href="https://epochmod.com/forum/tags/bec%5Cconfig/" rel="tag" title="Find other content tagged with 'bec\config'"><span>bec\config</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1681720468">(and 4 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1681720468_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="restarts" href="https://epochmod.com/forum/tags/restarts/" rel="tag" title="Find other content tagged with 'restarts'"><span>restarts</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec\config" href="https://epochmod.com/forum/tags/bec%5Cconfig/" rel="tag" title="Find other content tagged with 'bec\config'"><span>bec\config</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bec" href="https://epochmod.com/forum/tags/bec/" rel="tag" title="Find other content tagged with 'bec'"><span>bec</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="scheduler" href="https://epochmod.com/forum/tags/scheduler/" rel="tag" title="Find other content tagged with 'scheduler'"><span>scheduler</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="xml" href="https://epochmod.com/forum/tags/xml/" rel="tag" title="Find other content tagged with 'xml'"><span>xml</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="v 1.608" href="https://epochmod.com/forum/tags/v 1.608/" rel="tag" title="Find other content tagged with 'v 1.608'"><span>v 1.608</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">0</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">2539</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">
+<img alt="Thug" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12942-thug/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F38517-battleye-scheduler-help%252F" data-ipshover-width="370" href="../../profile/12942-thug/index.html" rel="nofollow" title="Go to Thug's profile">Thug</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../40291-bec-scheduler-not-working-resolved/index.html" title="Go to last post">
+<time data-short="9 yr" datetime="2015-12-01T22:13:09Z" title="12/01/15 10:13  PM">December 1, 2015</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Battleye Scheduler help
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Battleye Scheduler help",
+    "headline": "Battleye Scheduler help",
+    "text": "so basically my issue is all the bec messages come up right, exept for the repeated messages, im trying to get one message to repeat every 15 min or some time that can be edited. I want it to run every restart infinitely, also im trying to make the server lock with 5 minutes to restart to stop people from loading in right b4 restart #lock or some shit. I have been told multiple times by CEN, to do it a certain way but it isnt working, any help would be appreciated.\u00a0\u00a0 http://pastebin.com/HpvRXefG \u00a0 \n",
+    "dateCreated": "2015-10-23T17:12:15+0000",
+    "datePublished": "2015-10-23T17:12:15+0000",
+    "dateModified": "2015-12-01T22:23:00+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "rentiger1112",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/14783-rentiger1112/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2267
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 9
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/",
+    "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Battleye Scheduler help",
+        "text": "so basically my issue is all the bec messages come up right, exept for the repeated messages, im trying to get one message to repeat every 15 min or some time that can be edited. I want it to run every restart infinitely, also im trying to make the server lock with 5 minutes to restart to stop people from loading in right b4 restart #lock or some shit. I have been told multiple times by CEN, to do it a certain way but it isnt working, any help would be appreciated.\u00a0\u00a0 http://pastebin.com/HpvRXefG \u00a0 \n",
+        "answerCount": 9,
+        "dateCreated": "2015-10-23T17:12:15+0000",
+        "author": {
+            "@type": "Person",
+            "name": "rentiger1112"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265480",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265480",
+                "author": {
+                    "@type": "Person",
+                    "name": "Richie",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png",
+                    "url": "https://epochmod.com/forum/profile/5581-richie/"
+                },
+                "dateCreated": "2015-10-23T18:14:32+0000",
+                "text": "cmdtype is no longer supported, when do you want your restart warnings and messages ? i\u0027ll edit mine for you to suit your settings \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265488",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265488",
+                "author": {
+                    "@type": "Person",
+                    "name": "syco",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg",
+                    "url": "https://epochmod.com/forum/profile/12111-syco/"
+                },
+                "dateCreated": "2015-10-23T20:06:44+0000",
+                "text": "Message that first runs\u00a015 minutes after the server starts and repeats every 15 minutes. \u00a0\u00a0 \u00a0\u0026lt;job id=\"10\"\u0026gt;\n\u00a0 \u00a0 \u00a0 \u00a0 \u0026lt;start\u0026gt;001500\u0026lt;/start\u0026gt;\n\u00a0\u00a0 \u00a0\u00a0\u00a0 \u00a0\u0026lt;runtime\u0026gt;001500\u0026lt;/runtime\u0026gt;\n\u00a0 \u00a0 \u00a0 \u00a0 \u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt;\n\u00a0 \u00a0 \u00a0 \u00a0 \u0026lt;loop\u0026gt;-1\u0026lt;/loop\u0026gt;\n\u00a0 \u00a0 \u00a0 \u00a0 \u0026lt;cmd\u0026gt;say -1 Message goes Here\u0026lt;/cmd\u0026gt;\n\u00a0 \u00a0 \u0026lt;/job\u0026gt;Will lock the server 5 minutes before restart. Two hours restarts. If you got 3 hour restarts change \u0026lt;start\u0026gt;015500\u0026lt;/start\u0026gt; TO\u00a0 \u0026lt;start\u0026gt;025500\u0026lt;/start\u0026gt; and so on. \t\u0026lt;job id=\"12\"\u0026gt;\n\t\t\u0026lt;start\u0026gt;015500\u0026lt;/start\u0026gt;\n\t\t\u0026lt;runtime\u0026gt;000000\u0026lt;/runtime\u0026gt;\n\t\t\u0026lt;day\u0026gt;1,2,3,4,5,6,7\u0026lt;/day\u0026gt; \n\t\t\u0026lt;loop\u0026gt;0\u0026lt;/loop\u0026gt; \n\t\t\u0026lt;cmd\u0026gt;#lock\u0026lt;/cmd\u0026gt;            \n\t\u0026lt;/job\u0026gt;This works for me and should work for you also. Also remember to change the job id\u0027s to fit\u00a0yours. Put the lock server job id at the bottom. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265492",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265492",
+                "author": {
+                    "@type": "Person",
+                    "name": "syco",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg",
+                    "url": "https://epochmod.com/forum/profile/12111-syco/"
+                },
+                "dateCreated": "2015-10-23T20:25:55+0000",
+                "text": "After looking at your\u00a0Scheduler.xml, what host do you have? Is it a dedicated box? Not sure why you are doing it this way. I run 2 hours restarts and this is my\u00a0Scheduler.xml http://pastebin.com/5ntJV6PT \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265493",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265493",
+                "author": {
+                    "@type": "Person",
+                    "name": "rentiger1112",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/14783-rentiger1112/"
+                },
+                "dateCreated": "2015-10-23T20:26:35+0000",
+                "text": "richie \u00a0if you could use the same timezone as on the scheduler already provided and do 30,15,5,1 minute restarts? \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265495",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265495",
+                "author": {
+                    "@type": "Person",
+                    "name": "Richie",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png",
+                    "url": "https://epochmod.com/forum/profile/5581-richie/"
+                },
+                "dateCreated": "2015-10-23T21:21:09+0000",
+                "text": "Have a look at mine What is does is announce restarts 30 minutes, 15 minutes, 10 minutes, 5 minutes and 1 minute before a restart, based on a restart every 4 hours. It also locks the server 5 minutes before restart, then finally shutdown the server, I used FireDaemon to handle my restarts. There are also several messages at set times, read the message description to see when they run, i\u0027ve edited it for easier reading. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265498",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265498",
+                "author": {
+                    "@type": "Person",
+                    "name": "rentiger1112",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/14783-rentiger1112/"
+                },
+                "dateCreated": "2015-10-23T23:12:19+0000",
+                "text": "could you help me fix mine? for 2 hour rs \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265499",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265499",
+                "author": {
+                    "@type": "Person",
+                    "name": "rentiger1112",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/14783-rentiger1112/"
+                },
+                "dateCreated": "2015-10-23T23:13:25+0000",
+                "text": "I am using vilayer \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265500",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-265500",
+                "author": {
+                    "@type": "Person",
+                    "name": "syco",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12111.jpg",
+                    "url": "https://epochmod.com/forum/profile/12111-syco/"
+                },
+                "dateCreated": "2015-10-23T23:19:35+0000",
+                "text": "Using vilayer\u0027s\u00a0dayz mod package servers, it is not recommended to use the scheduler to do restarts. You need to use the scheduled task and i recommend using there server messages script that you can install in the addons to put out messages. Much easier to use. Just use the scheduler for locking the server 5 mins before the restart. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-268376",
+                "url": "https://epochmod.com/forum/topic/38517-battleye-scheduler-help/#comment-268376",
+                "author": {
+                    "@type": "Person",
+                    "name": "Thug",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2018_01/Thug_Red_Neck_2x2.thumb.png.e886f8d62b5ddde12c82e923cfca3f9c.png",
+                    "url": "https://epochmod.com/forum/profile/12942-thug/"
+                },
+                "dateCreated": "2015-12-01T22:23:00+0000",
+                "text": "Richie could you look at my post at\u00a0\u00a0http://epochmod.com/forum/index.php?/topic/40291-bec-scheduler-not-working/\n \n\n\n\tdid not know if \u00a0i could post on this page.\n \n\n\n\tThug\n \n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "rentiger1112",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/14783-rentiger1112/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

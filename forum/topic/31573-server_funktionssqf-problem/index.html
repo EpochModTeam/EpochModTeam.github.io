@@ -1,0 +1,3708 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>server_funktions.sqf problem - Server Install - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="server_funktions.sqf problem" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/" property="og:url"/>
+<meta content="Hello I have a problem with the server_function.sqf. whenever I add something like the example map their own things, it is not obligatorily carried out. Best example was the case with the ESSconfig.sqf, he did not recognize me as a vip on, after I had that involved in the mpmission. the command w..." name="description"/>
+<meta content="Hello I have a problem with the server_function.sqf. whenever I add something like the example map their own things, it is not obligatorily carried out. Best example was the case with the ESSconfig.sqf, he did not recognize me as a vip on, after I had that involved in the mpmission. the command w..." property="og:description"/>
+<meta content="2015-01-20T09:07:07Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="31573" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zMTU3My1zZXJ2ZXJfZnVua3Rpb25zc3FmLXByb2JsZW0v"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":29}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":31573}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					server_funktions.sqf problem
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>server_funktions.sqf problem</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a>,</strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2015-01-19T14:31:09Z" title="01/19/15 02:31  PM">January 19, 2015</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="server_funktions.sqf problem" data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="31573">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-31573" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-196798"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_196798">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10151-eno/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile"><span style="color:#">eno</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196798" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T14:31:09Z" title="01/19/15 02:31  PM">January 19, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10151-eno/content/" rel="nofollow" title="51 posts">
+<i class="fa fa-comment"></i> 51
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="196798" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10151,"username":"eno","timestamp":1421677869,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":196798}' id="comment-196798_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-196798_wrap" href="#elControls_196798_menu" id="elControls_196798" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_196798_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=196798" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_196798_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_196798" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196798" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T14:31:09Z" title="01/19/15 02:31  PM">January 19, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<div>Hello I have a problem with the server_function.sqf.</div>
+<div> </div>
+<div>whenever I add something like the example map their own things,</div>
+<div>it is not obligatorily carried out.</div>
+<div> </div>
+<div>Best example was the case with the ESSconfig.sqf, he did not recognize me as a vip on, after I had that involved in the mpmission.</div>
+<div> </div>
+<div>the command would be execVM "\ z \ addons \ dayz_server \ Custom Buildings \ altar.sqf";</div>
+<div> </div>
+<div>and the insert below.</div>
+<div> </div>
+<div>Sorry, nothing happens on the map.</div>
+<div> </div>
+<div>I hope you can help me</div>
+<div> </div>
+<div>until then a nice day</div>
+<p> </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_196798_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196798" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196798" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196798&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=196798&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Hello I have a problem with the server_function.sqf.
+ 
+whenever I add something like the example map their own things,
+it is not obligatorily carried out.
+ 
+Best example was the case with the ESSconfig.sqf, he did not recognize me as a vip on, after I had that involved in the mpmission.
+ 
+the command would be execVM "\ z \ addons \ dayz_server \ Custom Buildings \ altar.sqf";
+ 
+and the insert below.
+ 
+Sorry, nothing happens on the map.
+ 
+I hope you can help me
+ 
+until then a nice day
+  
+' data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196798">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">6 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-196818"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_196818">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11479-lunatikch/?do=hovercard" data-ipshover-width="370" href="../../profile/11479-lunatikch/index.html" rel="nofollow" title="Go to LunatikCH's profile">
+<img alt="LunatikCH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/b9f7861137d8bbb16bcc25cb63f5901d.thumb.jpeg.8c6464c22e623204bfb2bd5263c578a2.jpeg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11479-lunatikch/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11479-lunatikch/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/11479-lunatikch/index.html" rel="nofollow" title="Go to LunatikCH's profile"><span style="color:#">LunatikCH</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196818" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T15:38:59Z" title="01/19/15 03:38  PM">January 19, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11479-lunatikch/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/11479-lunatikch/index.html" rel="nofollow" title="Go to LunatikCH's profile">LunatikCH</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11479-lunatikch/?do=hovercard" data-ipshover-width="370" href="../../profile/11479-lunatikch/index.html" rel="nofollow" title="Go to LunatikCH's profile">
+<img alt="LunatikCH" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/b9f7861137d8bbb16bcc25cb63f5901d.thumb.jpeg.8c6464c22e623204bfb2bd5263c578a2.jpeg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11479-lunatikch/content/" rel="nofollow" title="394 posts">
+<i class="fa fa-comment"></i> 394
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Switzerland</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="196818" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11479,"username":"LunatikCH","timestamp":1421681939,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":196818}' id="comment-196818_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-196818_wrap" href="#elControls_196818_menu" id="elControls_196818" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_196818_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=196818" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_196818_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196818" id="elSharePost_196818" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196818" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T15:38:59Z" title="01/19/15 03:38  PM">January 19, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>"\ z \ addons \ dayz_server \ Custom Buildings \ altar.sqf";</p><p></p><p>Remove the spaces.</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=showReactionsComment&amp;comment=196818&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=showReactionsComment&amp;comment=196818&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_196818_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196818"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196818" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196818" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196818&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=196818&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='"\ z \ addons \ dayz_server \ Custom Buildings \ altar.sqf";  Remove the spaces. 
+' data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196818">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-196827"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_196827">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10151-eno/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile"><span style="color:#">eno</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196827" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T16:04:28Z" title="01/19/15 04:04  PM">January 19, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10151-eno/content/" rel="nofollow" title="51 posts">
+<i class="fa fa-comment"></i> 51
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="196827" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10151,"username":"eno","timestamp":1421683468,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":196827}' id="comment-196827_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-196827_wrap" href="#elControls_196827_menu" id="elControls_196827" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_196827_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=196827" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_196827_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196827" id="elSharePost_196827" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196827" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T16:04:28Z" title="01/19/15 04:04  PM">January 19, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>The space is from copy</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_196827_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196827"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196827" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196827" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196827&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=196827&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="The space is from copy 
+" data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196827">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-196839"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_196839">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10151-eno/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile"><span style="color:#">eno</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196839" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T17:00:26Z" title="01/19/15 05:00  PM">January 19, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10151-eno/content/" rel="nofollow" title="51 posts">
+<i class="fa fa-comment"></i> 51
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="196839" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10151,"username":"eno","timestamp":1421686826,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":196839}' id="comment-196839_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-196839_wrap" href="#elControls_196839_menu" id="elControls_196839" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_196839_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=196839" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_196839_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196839" id="elSharePost_196839" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196839" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-19T17:00:26Z" title="01/19/15 05:00  PM">January 19, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Sorry for my bad englich i am german</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_196839_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196839"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196839" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196839" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D196839&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=196839&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Sorry for my bad englich i am german 
+" data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=196839">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-197059"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_197059">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10151-eno/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile"><span style="color:#">eno</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197059" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-20T05:26:00Z" title="01/20/15 05:26  AM">January 20, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10151-eno/content/" rel="nofollow" title="51 posts">
+<i class="fa fa-comment"></i> 51
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="197059" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10151,"username":"eno","timestamp":1421731560,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":197059}' id="comment-197059_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-197059_wrap" href="#elControls_197059_menu" id="elControls_197059" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_197059_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=197059" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_197059_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197059" id="elSharePost_197059" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197059" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-20T05:26:00Z" title="01/20/15 05:26  AM">January 20, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<div> </div>
+<div>
+<div>
+<div>
+<div>
+<div> </div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div> </div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div> </div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div> </div>
+<span><span>here is my</span> <span>server</span> <span>function</span> <span>where</span> <span>I have the</span> <span>problem</span>. <span>I</span> <span>'ve been</span> <span>inserted</span> <span>essconfig</span> <span>and</span> <span>even a</span> <span>map</span> <span>called</span> <span>altar</span>. <span>both</span> <span>will not run.</span> <span>I</span> <span>hope you can help</span> <span>with</span><span>.</span></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint lang-auto">
+waituntil {!isnil "bis_fnc_init"};
+
+
+
+BIS_MPF_remoteExecutionServer = {
+
+    if ((_this select 1) select 2 == "JIPrequest") then {
+
+        [nil,(_this select 1) select 0,"loc",rJIPEXEC,[any,any,"per","execVM","ca\Modules\Functions\init.sqf"]] call RE;
+
+    };
+
+};
+
+
+
+BIS_Effects_Burn =                {};
+
+server_playerLogin =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerLogin.sqf";
+
+server_playerSetup =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSetup.sqf";
+
+server_onPlayerDisconnect =     compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_onPlayerDisconnect.sqf";
+
+server_updateObject =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateObject.sqf";
+
+server_playerDied =                compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDied.sqf";
+
+server_publishObj =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishObject.sqf";
+
+server_deleteObj =                compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_deleteObj.sqf";
+
+server_swapObject =                compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_swapObject.sqf";
+
+server_publishVeh =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishVehicle.sqf";
+
+server_publishVeh2 =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishVehicle2.sqf";
+
+server_publishVeh3 =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishVehicle3.sqf";
+
+server_tradeObj =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_tradeObject.sqf";
+
+server_traders =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_traders.sqf";
+
+server_playerSync =                compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
+
+server_spawnCrashSite  =        compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
+
+server_spawnEvents =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnEvent.sqf";
+
+//server_weather =                compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_weather.sqf";
+
+fnc_plyrHit   =                    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
+
+server_deaths =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
+
+server_maintainArea =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
+
+
+
+/* PVS/PVC - Skaronator */
+
+server_sendToClient =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_sendToClient.sqf";
+
+
+
+//onPlayerConnected             {[_uid,_name] call server_onPlayerConnect;};
+
+onPlayerDisconnected         {[_uid,_name] call server_onPlayerDisconnect;};
+
+
+
+server_updateNearbyObjects = {
+
+    private["_pos"];
+
+    _pos = _this select 0;
+
+    {
+
+        [_x, "gear"] call server_updateObject;
+
+    } count nearestObjects [_pos, dayz_updateObjects, 10];
+
+};
+
+
+
+server_handleZedSpawn = {
+
+    private["_zed"];
+
+    _zed = _this select 0;
+
+    _zed enableSimulation false;
+
+};
+
+
+
+zombie_findOwner = {
+
+    private["_unit"];
+
+    _unit = _this select 0;
+
+    #ifdef DZE_SERVER_DEBUG
+
+    diag_log ("CLEANUP: DELETE UNCONTROLLED ZOMBIE: " + (typeOf _unit) + " OF: " + str(_unit) );
+
+    #endif
+
+    deleteVehicle _unit;
+
+};
+
+
+
+vehicle_handleInteract = {
+
+    private["_object"];
+
+    _object = _this select 0;
+
+    needUpdate_objects = needUpdate_objects - [_object];
+
+    [_object, "all"] call server_updateObject;
+
+};
+
+
+
+array_reduceSizeReverse = {
+
+    private["_array","_count","_num","_newarray","_startnum","_index"];
+
+    _array = _this select 0;
+
+    _newarray = [];
+
+    _count = _this select 1;
+
+    _num = count _array;
+
+    if (_num &gt; _count) then {
+
+        _startnum = _num - 1;
+
+        _index = _count - 1;
+
+        for "_i" from 0 to _index do {
+
+            _newarray set [(_index-_i),_array select (_startnum - _i)];
+
+        };
+
+        _array = _newarray;
+
+    };
+
+    _array
+
+};
+
+
+
+array_reduceSize = {
+
+    private ["_array1","_array","_count","_num"];
+
+    _array1 = _this select 0;
+
+    _array = _array1 - ["Hatchet_Swing","Machete_Swing","Fishing_Swing","sledge_swing","crowbar_swing","CSGAS"];
+
+    _count = _this select 1;
+
+    _num = count _array;
+
+    if (_num &gt; _count) then {
+
+        _array resize _count;
+
+    };
+
+    _array
+
+};
+
+
+
+object_handleServerKilled = {
+
+    private["_unit","_objectID","_objectUID","_killer"];
+
+    _unit = _this select 0;
+
+    _killer = _this select 1;
+
+    
+
+    _objectID =     _unit getVariable ["ObjectID","0"];
+
+    _objectUID = _unit getVariable ["ObjectUID","0"];
+
+        
+
+    [_objectID,_objectUID,_killer] call server_deleteObj;
+
+    
+
+    _unit removeAllMPEventHandlers "MPKilled";
+
+    _unit removeAllEventHandlers "Killed";
+
+    _unit removeAllEventHandlers "HandleDamage";
+
+    _unit removeAllEventHandlers "GetIn";
+
+    _unit removeAllEventHandlers "GetOut";
+
+};
+
+
+
+check_publishobject = {
+
+    private["_allowed","_object","_playername"];
+
+
+
+    _object = _this select 0;
+
+    _playername = _this select 1;
+
+    _allowed = false;
+
+
+
+    if ((typeOf _object) in dayz_allowedObjects) then {
+
+            //diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername];
+
+            _allowed = true;
+
+    };
+
+    _allowed
+
+};
+
+
+
+//event Handlers
+
+eh_localCleanup = {
+
+    private ["_object"];
+
+    _object = _this select 0;
+
+    _object addEventHandler ["local", {
+
+        if(_this select 1) then {
+
+            private["_type","_unit"];
+
+            _unit = _this select 0;
+
+            _type = typeOf _unit;
+
+             _myGroupUnit = group _unit;
+
+             _unit removeAllMPEventHandlers "mpkilled";
+
+             _unit removeAllMPEventHandlers "mphit";
+
+             _unit removeAllMPEventHandlers "mprespawn";
+
+             _unit removeAllEventHandlers "FiredNear";
+
+            _unit removeAllEventHandlers "HandleDamage";
+
+            _unit removeAllEventHandlers "Killed";
+
+            _unit removeAllEventHandlers "Fired";
+
+            _unit removeAllEventHandlers "GetOut";
+
+            _unit removeAllEventHandlers "GetIn";
+
+            _unit removeAllEventHandlers "Local";
+
+            clearVehicleInit _unit;
+
+            deleteVehicle _unit;
+
+            if ((count (units _myGroupUnit) == 0) &amp;&amp; (_myGroupUnit != grpNull)) then {
+
+                deleteGroup _myGroupUnit;
+
+            };
+
+            //_unit = nil;
+
+            // diag_log ("CLEANUP: DELETED A " + str(_type) );
+
+        };
+
+    }];
+
+};
+
+
+
+server_hiveWrite = {
+
+    private["_data"];
+
+    _data = "HiveExt" callExtension _this;
+
+};
+
+
+
+server_hiveReadWrite = {
+
+    private["_key","_resultArray","_data"];
+
+    _key = _this;
+
+    _data = "HiveExt" callExtension _key;
+
+    _resultArray = call compile format ["%1",_data];
+
+    _resultArray
+
+};
+
+
+
+server_hiveReadWriteLarge = {
+
+    private["_key","_resultArray","_data"];
+
+    _key = _this;
+
+    _data = "HiveExt" callExtension _key;
+
+    _resultArray = call compile _data;
+
+    _resultArray
+
+};
+
+
+
+server_checkIfTowed = {
+
+    private ["_vehicle","_player","_attached"];
+
+    if (DZE_HeliLift) then {
+
+        _vehicle =     _this select 0;
+
+        _player =     _this select 2;
+
+        _attached = _vehicle getVariable["attached",false];
+
+        if (typeName _attached == "OBJECT") then {
+
+            _player action ["eject", _vehicle];
+
+            detach _vehicle;
+
+            _vehicle setVariable["attached",false,true];
+
+            _attached setVariable["hasAttached",false,true];
+
+        };
+
+    };
+
+};
+
+
+
+server_characterSync = {
+
+    private ["_characterID","_playerPos","_playerGear","_playerBackp","_medical","_currentState","_currentModel","_key"];
+
+    _characterID =     _this select 0;    
+
+    _playerPos =    _this select 1;
+
+    _playerGear =    _this select 2;
+
+    _playerBackp =    _this select 3;
+
+    _medical =         _this select 4;
+
+    _currentState =    _this select 5;
+
+    _currentModel = _this select 6;
+
+    
+
+    _key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,0,0,0,0,_currentState,0,0,_currentModel,0];
+
+    _key call server_hiveWrite;
+
+};
+
+
+
+if(isnil "dayz_MapArea") then {
+
+    dayz_MapArea = 10000;
+
+};
+
+if(isnil "DynamicVehicleArea") then {
+
+    DynamicVehicleArea = dayz_MapArea / 2;
+
+};
+
+
+
+// Get all buildings &amp;&amp; roads only once TODO: set variables to nil after done if nessicary
+
+MarkerPosition = getMarkerPos "center";
+
+RoadList = MarkerPosition nearRoads DynamicVehicleArea;
+
+
+
+// Very taxing !!! but only on first startup
+
+BuildingList = [];
+
+{
+
+    if (DZE_MissionLootTable) then {
+
+        if (isClass (missionConfigFile &gt;&gt; "CfgBuildingLoot" &gt;&gt; (typeOf _x))) then
+
+        {
+
+                BuildingList set [count BuildingList,_x];
+
+        };
+
+    } else {
+
+        if (isClass (configFile &gt;&gt; "CfgBuildingLoot" &gt;&gt; (typeOf _x))) then
+
+        {
+
+            BuildingList set [count BuildingList,_x];
+
+        };
+
+    };
+
+    
+
+    
+
+} count (MarkerPosition nearObjects ["building",DynamicVehicleArea]);
+
+
+
+spawn_vehicles = {
+
+    private ["_random","_lastIndex","_weights","_index","_vehicle","_velimit","_qty","_isAir","_isShip","_position","_dir","_istoomany","_veh","_objPosition","_marker","_iClass","_itemTypes","_cntWeights","_itemType","_num","_allCfgLoots"];
+
+    
+
+    if (!isDedicated) exitWith { }; //Be sure the run this
+
+
+
+    while {count AllowedVehiclesList &gt; 0} do {
+
+        // BIS_fnc_selectRandom replaced because the index may be needed to remove the element
+
+        _index = floor random count AllowedVehiclesList;
+
+        _random = AllowedVehiclesList select _index;
+
+
+
+        _vehicle = _random select 0;
+
+        _velimit = _random select 1;
+
+
+
+        _qty = {_x == _vehicle} count serverVehicleCounter;
+
+
+
+        // If under limit allow to proceed
+
+        if (_qty &lt;= _velimit) exitWith {};
+
+
+
+        // vehicle limit reached, remove vehicle from list
+
+        // since elements cannot be removed from an array, overwrite it with the last element &amp;&amp; cut the last element of (as long as order is not important)
+
+        _lastIndex = (count AllowedVehiclesList) - 1;
+
+        if (_lastIndex != _index) then {
+
+            AllowedVehiclesList set [_index, AllowedVehiclesList select _lastIndex];
+
+        };
+
+        AllowedVehiclesList resize _lastIndex;
+
+    };
+
+
+
+    if (count AllowedVehiclesList == 0) then {
+
+        diag_log("DEBUG: unable to find suitable vehicle to spawn");
+
+    } else {
+
+
+
+        // add vehicle to counter for next pass
+
+        serverVehicleCounter set [count serverVehicleCounter,_vehicle];
+
+    
+
+        // Find Vehicle Type to better control spawns
+
+        _isAir = _vehicle isKindOf "Air";
+
+        _isShip = _vehicle isKindOf "Ship";
+
+    
+
+        if(_isShip || _isAir) then {
+
+            if(_isShip) then {
+
+                // Spawn anywhere on coast on water
+
+                waitUntil{!isNil "BIS_fnc_findSafePos"};
+
+                _position = [MarkerPosition,0,DynamicVehicleArea,10,1,2000,1] call BIS_fnc_findSafePos;
+
+                //diag_log("DEBUG: spawning boat near coast " + str(_position));
+
+            } else {
+
+                // Spawn air anywhere that is flat
+
+                waitUntil{!isNil "BIS_fnc_findSafePos"};
+
+                _position = [MarkerPosition,0,DynamicVehicleArea,10,0,2000,0] call BIS_fnc_findSafePos;
+
+                //diag_log("DEBUG: spawning air anywhere flat " + str(_position));
+
+            };
+
+        
+
+        
+
+        } else {
+
+            // Spawn around buildings &amp;&amp; 50% near roads
+
+            if((random 1) &gt; 0.5) then {
+
+            
+
+                waitUntil{!isNil "BIS_fnc_selectRandom"};
+
+                _position = RoadList call BIS_fnc_selectRandom;
+
+            
+
+                _position = _position modelToWorld [0,0,0];
+
+            
+
+                waitUntil{!isNil "BIS_fnc_findSafePos"};
+
+                _position = [_position,0,10,10,0,2000,0] call BIS_fnc_findSafePos;
+
+            
+
+                //diag_log("DEBUG: spawning near road " + str(_position));
+
+            
+
+            } else {
+
+            
+
+                waitUntil{!isNil "BIS_fnc_selectRandom"};
+
+                _position = BuildingList call BIS_fnc_selectRandom;
+
+            
+
+                _position = _position modelToWorld [0,0,0];
+
+            
+
+                waitUntil{!isNil "BIS_fnc_findSafePos"};
+
+                _position = [_position,0,40,5,0,2000,0] call BIS_fnc_findSafePos;
+
+            
+
+                //diag_log("DEBUG: spawning around buildings " + str(_position));
+
+        
+
+            };
+
+        };
+
+        // only proceed if two params otherwise BIS_fnc_findSafePos failed &amp;&amp; may spawn in air
+
+        if ((count _position) == 2) then {
+
+    
+
+            _dir = round(random 180);
+
+        
+
+            _istoomany = _position nearObjects ["AllVehicles",50];
+
+            if((count _istoomany) &gt; 0) exitWith { diag_log("DEBUG: Too many vehicles at " + str(_position)); };
+
+        
+
+            //place vehicle
+
+            _veh = createVehicle [_vehicle, _position, [], 0, "CAN_COLLIDE"];
+
+            _veh setdir _dir;
+
+            _veh setpos _position;        
+
+            
+
+            if(DZEdebug) then {
+
+                _marker = createMarker [str(_position) , _position];
+
+                _marker setMarkerShape "ICON";
+
+                _marker setMarkerType "DOT";
+
+                _marker setMarkerText _vehicle;
+
+            };    
+
+        
+
+            // Get position with ground
+
+            _objPosition = getPosATL _veh;
+
+        
+
+            clearWeaponCargoGlobal  _veh;
+
+            clearMagazineCargoGlobal  _veh;
+
+            // _veh setVehicleAmmo DZE_vehicleAmmo;
+
+
+
+            // Add 0-3 loots to vehicle using random cfgloots
+
+            _num = floor(random 4);
+
+            _allCfgLoots = ["trash","civilian","food","generic","medical","military","policeman","hunter","worker","clothes","militaryclothes","specialclothes","trash"];
+
+            
+
+            for "_x" from 1 to _num do {
+
+                _iClass = _allCfgLoots call BIS_fnc_selectRandom;
+
+
+
+                _itemTypes = [];
+
+                if (DZE_MissionLootTable) then{
+
+                    {
+
+                        _itemTypes set[count _itemTypes, _x select 0]
+
+                    } count getArray(missionConfigFile &gt;&gt; "cfgLoot" &gt;&gt; _iClass);
+
+                }
+
+                else {
+
+                    {
+
+                        _itemTypes set[count _itemTypes, _x select 0]
+
+                    } count getArray(configFile &gt;&gt; "cfgLoot" &gt;&gt; _iClass);
+
+                };
+
+
+
+                _index = dayz_CLBase find _iClass;
+
+                _weights = dayz_CLChances select _index;
+
+                _cntWeights = count _weights;
+
+                
+
+                _index = floor(random _cntWeights);
+
+                _index = _weights select _index;
+
+                _itemType = _itemTypes select _index;
+
+                _veh addMagazineCargoGlobal [_itemType,1];
+
+                //diag_log("DEBUG: spawed loot inside vehicle " + str(_itemType));
+
+            };
+
+
+
+            [_veh,[_dir,_objPosition],_vehicle,true,"0"] call server_publishVeh;
+
+        };
+
+    };
+
+};
+
+
+
+spawn_ammosupply = {
+
+    private ["_position","_veh","_istoomany","_marker","_spawnveh","_WreckList"];
+
+    if (isDedicated) then {
+
+        _WreckList = ["Supply_Crate_DZE"];
+
+        waitUntil{!isNil "BIS_fnc_selectRandom"};
+
+        _position = RoadList call BIS_fnc_selectRandom;
+
+        _position = _position modelToWorld [0,0,0];
+
+        waitUntil{!isNil "BIS_fnc_findSafePos"};
+
+        _position = [_position,5,20,5,0,2000,0] call BIS_fnc_findSafePos;
+
+        if ((count _position) == 2) then {
+
+
+
+            _istoomany = _position nearObjects ["All",5];
+
+            
+
+            if((count _istoomany) &gt; 0) exitWith { diag_log("DEBUG VEIN: Too many at " + str(_position)); };
+
+            
+
+            _spawnveh = _WreckList call BIS_fnc_selectRandom;
+
+
+
+            if(DZEdebug) then {
+
+                _marker = createMarker [str(_position) , _position];
+
+                _marker setMarkerShape "ICON";
+
+                _marker setMarkerType "DOT";
+
+                _marker setMarkerText str(_spawnveh);
+
+            };
+
+            
+
+            _veh = createVehicle [_spawnveh,_position, [], 0, "CAN_COLLIDE"];
+
+            _veh enableSimulation false;
+
+            _veh setDir round(random 360);
+
+            _veh setpos _position;
+
+            _veh setVariable ["ObjectID","1",true];
+
+        };
+
+    };
+
+};
+
+
+
+DZE_LocalRoadBlocks = [];
+
+
+
+spawn_roadblocks = {
+
+    private ["_position","_veh","_istoomany","_marker","_spawnveh","_WreckList"];
+
+    _WreckList = ["SKODAWreck","HMMWVWreck","UralWreck","datsun01Wreck","hiluxWreck","datsun02Wreck","UAZWreck","Land_Misc_Garb_Heap_EP1","Fort_Barricade_EP1","Rubbish2"];
+
+    
+
+    waitUntil{!isNil "BIS_fnc_selectRandom"};
+
+    if (isDedicated) then {
+
+    
+
+        _position = RoadList call BIS_fnc_selectRandom;
+
+        
+
+        _position = _position modelToWorld [0,0,0];
+
+        
+
+        waitUntil{!isNil "BIS_fnc_findSafePos"};
+
+        _position = [_position,0,10,5,0,2000,0] call BIS_fnc_findSafePos;
+
+        
+
+        if ((count _position) == 2) then {
+
+            // Get position with ground
+
+            
+
+            _istoomany = _position nearObjects ["All",5];
+
+        
+
+            if((count _istoomany) &gt; 0) exitWith { diag_log("DEBUG: Too many at " + str(_position)); };
+
+            
+
+            waitUntil{!isNil "BIS_fnc_selectRandom"};
+
+            _spawnveh = _WreckList call BIS_fnc_selectRandom;
+
+
+
+            if(DZEdebug) then {
+
+                _marker = createMarker [str(_position) , _position];
+
+                _marker setMarkerShape "ICON";
+
+                _marker setMarkerType "DOT";
+
+                _marker setMarkerText str(_spawnveh);
+
+            };
+
+
+
+            _veh = createVehicle [_spawnveh,_position, [], 0, "CAN_COLLIDE"];
+
+            _veh enableSimulation false;
+
+
+
+            _veh setDir round(random 360); // Randomize placement a bit
+
+            _veh setpos _position;
+
+
+
+            _veh setVariable ["ObjectID","1",true];
+
+        };
+
+    
+
+    };
+
+    
+
+};
+
+
+
+spawn_mineveins = {
+
+    private ["_position","_veh","_istoomany","_marker","_spawnveh","_positions"];
+
+
+
+    if (isDedicated) then {
+
+        
+
+        _position = [getMarkerPos "center",0,(HeliCrashArea*0.75),10,0,2000,0] call BIS_fnc_findSafePos;
+
+
+
+        if ((count _position) == 2) then {
+
+            
+
+            _positions = selectBestPlaces [_position, 500, "(1 + forest) * (1 + hills) * (1 - houses) * (1 - sea)", 10, 5];
+
+
+
+            _position = (_positions call BIS_fnc_selectRandom) select 0;
+
+
+
+            // Get position with ground
+
+            _istoomany = _position nearObjects ["All",10];
+
+        
+
+            if((count _istoomany) &gt; 0) exitWith { diag_log("DEBUG VEIN: Too many objects at " + str(_position)); };
+
+
+
+            if(isOnRoad _position) exitWith { diag_log("DEBUG VEIN: on road " + str(_position)); };
+
+            
+
+            _spawnveh = ["Iron_Vein_DZE","Iron_Vein_DZE","Iron_Vein_DZE","Iron_Vein_DZE","Iron_Vein_DZE","Silver_Vein_DZE","Silver_Vein_DZE","Silver_Vein_DZE","Gold_Vein_DZE","Gold_Vein_DZE"] call BIS_fnc_selectRandom;
+
+
+
+            if(DZEdebug) then {
+
+                _marker = createMarker [str(_position) , _position];
+
+                _marker setMarkerShape "ICON";
+
+                _marker setMarkerType "DOT";
+
+                _marker setMarkerText str(_spawnveh);
+
+            };
+
+            
+
+            //diag_log("DEBUG: Spawning a crashed " + _spawnveh + " with " + _spawnloot + " at " + str(_position));
+
+            _veh = createVehicle [_spawnveh,_position, [], 0, "CAN_COLLIDE"];
+
+            _veh enableSimulation false;
+
+
+
+            // Randomize placement a bit
+
+            _veh setDir round(random 360);
+
+            _veh setpos _position;
+
+
+
+            _veh setVariable ["ObjectID","1",true];
+
+
+
+        
+
+        };
+
+    };
+
+};
+
+
+
+if(isnil "DynamicVehicleDamageLow") then {
+
+    DynamicVehicleDamageLow = 0;
+
+};
+
+if(isnil "DynamicVehicleDamageHigh") then {
+
+    DynamicVehicleDamageHigh = 100;
+
+};
+
+
+
+if(isnil "DynamicVehicleFuelLow") then {
+
+    DynamicVehicleFuelLow = 0;
+
+};
+
+if(isnil "DynamicVehicleFuelHigh") then {
+
+    DynamicVehicleFuelHigh = 100;
+
+};
+
+
+
+if(isnil "DZE_DiagFpsSlow") then {
+
+    DZE_DiagFpsSlow = false;
+
+};
+
+if(isnil "DZE_DiagFpsFast") then {
+
+    DZE_DiagFpsFast = false;
+
+};
+
+if(isnil "DZE_DiagVerbose") then {
+
+    DZE_DiagVerbose = false;
+
+};
+
+
+
+dze_diag_fps = {
+
+    if(DZE_DiagVerbose) then {
+
+        diag_log format["DEBUG FPS : %1 OBJECTS: %2 : PLAYERS: %3", diag_fps,(count (allMissionObjects "")),(playersNumber west)];
+
+    } else {
+
+        diag_log format["DEBUG FPS : %1", diag_fps];
+
+    };
+
+};
+
+
+
+// Damage generator function
+
+generate_new_damage = {
+
+    private ["_damage"];
+
+    _damage = ((random(DynamicVehicleDamageHigh-DynamicVehicleDamageLow))+DynamicVehicleDamageLow) / 100;
+
+    _damage;
+
+};
+
+
+
+// Damage generator fuction
+
+generate_exp_damage = {
+
+    private ["_damage"];
+
+    _damage = ((random(DynamicVehicleDamageHigh-DynamicVehicleDamageLow))+DynamicVehicleDamageLow) / 100;
+
+    
+
+    // limit this to 85% since vehicle would blow up otherwise.
+
+    //if(_damage &gt;= 0.85) then {
+
+    //    _damage = 0.85;
+
+    //};
+
+    _damage;
+
+};
+
+
+
+server_getDiff =    {
+
+    private["_variable","_object","_vNew","_vOld","_result"];
+
+    _variable = _this select 0;
+
+    _object =     _this select 1;
+
+    _vNew =     _object getVariable[_variable,0];
+
+    _vOld =     _object getVariable[(_variable + "_CHK"),_vNew];
+
+    _result =     0;
+
+    if (_vNew &lt; _vOld) then {
+
+        //JIP issues
+
+        _vNew = _vNew + _vOld;
+
+        _object getVariable[(_variable + "_CHK"),_vNew];
+
+    } else {
+
+        _result = _vNew - _vOld;
+
+        _object setVariable[(_variable + "_CHK"),_vNew];
+
+    };
+
+    _result
+
+};
+
+
+
+server_getDiff2 =    {
+
+    private["_variable","_object","_vNew","_vOld","_result"];
+
+    _variable = _this select 0;
+
+    _object =     _this select 1;
+
+    _vNew =     _object getVariable[_variable,0];
+
+    _vOld =     _object getVariable[(_variable + "_CHK"),_vNew];
+
+    _result = _vNew - _vOld;
+
+    _object setVariable[(_variable + "_CHK"),_vNew];
+
+    _result
+
+};
+
+
+
+dayz_objectUID = {
+
+    private["_position","_dir","_key","_object"];
+
+    _object = _this;
+
+    _position = getPosATL _object;
+
+    _dir = direction _object;
+
+    _key = [_dir,_position] call dayz_objectUID2;
+
+    _key
+
+};
+
+
+
+dayz_objectUID2 = {
+
+    private["_position","_dir","_key"];
+
+    _dir = _this select 0;
+
+    _key = "";
+
+    _position = _this select 1;
+
+    {
+
+        _x = _x * 10;
+
+        if ( _x &lt; 0 ) then { _x = _x * -10 };
+
+        _key = _key + str(round(_x));
+
+    } count _position;
+
+    _key = _key + str(round(_dir));
+
+    _key
+
+};
+
+
+
+dayz_objectUID3 = {
+
+    private["_position","_dir","_key"];
+
+    _dir = _this select 0;
+
+    _key = "";
+
+    _position = _this select 1;
+
+    {
+
+        _x = _x * 10;
+
+        if ( _x &lt; 0 ) then { _x = _x * -10 };
+
+        _key = _key + str(round(_x));
+
+    } count _position;
+
+    _key = _key + str(round(_dir + time));
+
+    _key
+
+};
+
+
+
+dayz_recordLogin = {
+
+    private["_key"];
+
+    _key = format["CHILD:103:%1:%2:%3:",_this select 0,_this select 1,_this select 2];
+
+    _key call server_hiveWrite;
+
+};
+
+#include "ESSconfig.sqf"
+
+dayz_perform_purge = {
+
+    if(!isNull(_this)) then {
+
+        _group = group _this;
+
+        _this removeAllMPEventHandlers "mpkilled";
+
+        _this removeAllMPEventHandlers "mphit";
+
+        _this removeAllMPEventHandlers "mprespawn";
+
+        _this removeAllEventHandlers "FiredNear";
+
+        _this removeAllEventHandlers "HandleDamage";
+
+        _this removeAllEventHandlers "Killed";
+
+        _this removeAllEventHandlers "Fired";
+
+        _this removeAllEventHandlers "GetOut";
+
+        _this removeAllEventHandlers "GetIn";
+
+        _this removeAllEventHandlers "Local";
+
+        clearVehicleInit _this;
+
+        deleteVehicle _this;
+
+        if ((count (units _group) == 0) &amp;&amp; (_group != grpNull)) then {
+
+            deleteGroup _group;
+
+        };
+
+    };
+
+};
+
+
+
+dayz_perform_purge_player = {
+
+
+
+    private ["_countr","_backpack","_backpackType","_backpackWpn","_backpackMag","_objWpnTypes","_objWpnQty","_location","_dir","_holder","_weapons","_magazines"];
+
+    diag_log ("Purging player: " + str(_this));    
+
+
+
+    if(!isNull(_this)) then {
+
+
+
+        _location = getPosATL _this;
+
+        _dir = getDir _this;
+
+
+
+        _holder = createVehicle ["GraveDZE", _location, [], 0, "CAN_COLLIDE"];
+
+        _holder setDir _dir;
+
+        _holder setPosATL _location;
+
+
+
+        _holder enableSimulation false;
+
+
+
+        _weapons = weapons _this;
+
+        _magazines = magazines _this;
+
+
+
+        // find backpack
+
+        if(!(isNull unitBackpack _this)) then {
+
+            _backpack = unitBackpack _this;
+
+            _backpackType = typeOf _backpack;
+
+            _backpackWpn = getWeaponCargo _backpack;
+
+            _backpackMag = getMagazineCargo _backpack;
+
+
+
+            _holder addBackpackCargoGlobal [_backpackType,1];
+
+
+
+            // add items from backpack
+
+            _objWpnTypes = _backpackWpn select 0;
+
+            _objWpnQty = _backpackWpn select 1;
+
+            _countr = 0;
+
+            {
+
+                _holder addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
+
+                _countr = _countr + 1;
+
+            } count _objWpnTypes;
+
+
+
+            // add backpack magazine items
+
+            _objWpnTypes = _backpackMag select 0;
+
+            _objWpnQty = _backpackMag select 1;
+
+            _countr = 0;
+
+            {
+
+                _holder addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
+
+                _countr = _countr + 1;
+
+            } count _objWpnTypes;
+
+        };
+
+    };
+
+
+
+    // add weapons
+
+    {
+
+        _holder addWeaponCargoGlobal [_x, 1];
+
+    } count _weapons;
+
+
+
+    // add mags
+
+    {
+
+        _holder addMagazineCargoGlobal [_x, 1];
+
+    } count _magazines;
+
+    _group = group _this;
+
+    _this removeAllMPEventHandlers "mpkilled";
+
+    _this removeAllMPEventHandlers "mphit";
+
+    _this removeAllMPEventHandlers "mprespawn";
+
+    _this removeAllEventHandlers "FiredNear";
+
+    _this removeAllEventHandlers "HandleDamage";
+
+    _this removeAllEventHandlers "Killed";
+
+    _this removeAllEventHandlers "Fired";
+
+    _this removeAllEventHandlers "GetOut";
+
+    _this removeAllEventHandlers "GetIn";
+
+    _this removeAllEventHandlers "Local";
+
+    clearVehicleInit _this;
+
+    deleteVehicle _this;
+
+    if ((count (units _group) == 0) &amp;&amp; (_group != grpNull)) then {
+
+        deleteGroup _group;
+
+    };
+
+    //  _this = nil;
+
+};
+
+
+
+
+
+dayz_removePlayerOnDisconnect = {
+
+    if(!isNull(_this)) then {
+
+        _group = group _this;
+
+        _this removeAllMPEventHandlers "mphit";
+
+        deleteVehicle _this;
+
+        deleteGroup (group _this);
+
+    };
+
+};
+
+
+
+server_timeSync = {
+
+    //Send request
+
+    private ["_hour","_minute","_date","_key","_result","_outcome"];
+
+    _key = "CHILD:307:";
+
+    _result = _key call server_hiveReadWrite;
+
+    _outcome = _result select 0;
+
+    if(_outcome == "PASS") then {
+
+        _date = _result select 1;
+
+        
+
+        if(dayz_fullMoonNights) then {
+
+            _hour = _date select 3;
+
+            _minute = _date select 4;
+
+            //Force full moon nights
+
+            _date = [2013,8,3,_hour,_minute];
+
+        };
+
+
+
+        setDate _date;
+
+        PVDZE_plr_SetDate = _date;
+
+        publicVariable "PVDZE_plr_SetDate";
+
+        diag_log ("TIME SYNC: Local Time set to " + str(_date));    
+
+    };
+
+};
+
+
+
+// must spawn these
+
+server_spawncleanDead = {
+
+    private ["_deathTime","_delQtyZ","_delQtyP","_qty","_allDead"];
+
+    _allDead = allDead;
+
+    _delQtyZ = 0;
+
+    _delQtyP = 0;
+
+    {
+
+        if (local _x) then {
+
+            if (_x isKindOf "zZombie_Base") then
+
+            {
+
+                _x call dayz_perform_purge;
+
+                sleep 0.05;
+
+                _delQtyZ = _delQtyZ + 1;
+
+            } else {
+
+                if (_x isKindOf "CAManBase") then {
+
+                    _deathTime = _x getVariable ["processedDeath", diag_tickTime];
+
+                    if (diag_tickTime - _deathTime &gt; 1800) then {
+
+                        _x call dayz_perform_purge_player;
+
+                        sleep 0.025;
+
+                        _delQtyP = _delQtyP + 1;
+
+                    };
+
+                };
+
+            };
+
+        };
+
+        sleep 0.025;
+
+    } count _allDead;
+
+    if (_delQtyZ &gt; 0 || _delQtyP &gt; 0) then {
+
+        _qty = count _allDead;
+
+        diag_log (format["CLEANUP: Deleted %1 players &amp;&amp; %2 zombies out of %3 dead",_delQtyP,_delQtyZ,_qty]);
+
+    };
+
+};
+
+server_cleanupGroups = {
+
+    if (DZE_DYN_AntiStuck3rd &gt; 3) then { DZE_DYN_GroupCleanup = nil; DZE_DYN_AntiStuck3rd = 0; };
+
+    if(!isNil "DZE_DYN_GroupCleanup") exitWith {  DZE_DYN_AntiStuck3rd = DZE_DYN_AntiStuck3rd + 1;};
+
+    DZE_DYN_GroupCleanup = true;
+
+    {
+
+        if ((count (units _x) == 0) &amp;&amp; (_x != grpNull)) then {
+
+            deleteGroup _x;
+
+        };
+
+        sleep 0.001;
+
+    } count allGroups;
+
+    DZE_DYN_GroupCleanup = nil;
+
+};
+
+
+
+server_checkHackers = {
+
+    if (DZE_DYN_AntiStuck2nd &gt; 3) then { DZE_DYN_HackerCheck = nil; DZE_DYN_AntiStuck2nd = 0; };
+
+    if(!isNil "DZE_DYN_HackerCheck") exitWith {  DZE_DYN_AntiStuck2nd = DZE_DYN_AntiStuck2nd + 1;};
+
+    DZE_DYN_HackerCheck = true;
+
+    {
+
+    if (!((isNil "_x") || {(isNull _x)})) then {
+
+        if(vehicle _x != _x &amp;&amp; !(vehicle _x in PVDZE_serverObjectMonitor) &amp;&amp; (isPlayer _x)  &amp;&amp; !((typeOf vehicle _x) in DZE_safeVehicle)) then {
+
+            diag_log ("CLEANUP: KILLING A HACKER " + (name _x) + " " + str(_x) + " IN " + (typeOf vehicle _x));
+
+            (vehicle _x) setDamage 1;
+
+            _x setDamage 1;
+
+            sleep 0.25;
+
+        };
+
+    };
+
+        sleep 0.001;
+
+    } count allUnits;
+
+    DZE_DYN_HackerCheck = nil;
+
+};
+
+
+
+server_spawnCleanFire = {
+
+    private ["_delQtyFP","_qty","_delQtyNull","_missionFires"];
+
+    _missionFires = allMissionObjects "Land_Fire_DZ";
+
+    _delQtyFP = 0;
+
+    {
+
+        if (local _x) then {
+
+            deleteVehicle _x;
+
+            sleep 0.025;
+
+            _delQtyFP = _delQtyFP + 1;
+
+        };
+
+        sleep 0.001;
+
+    } count _missionFires;
+
+    if (_delQtyFP &gt; 0) then {
+
+        _qty = count _missionFires;
+
+        diag_log (format["CLEANUP: Deleted %1 fireplaces out of %2",_delQtyNull,_qty]);
+
+    };
+
+};
+
+server_spawnCleanLoot = {
+
+    private ["_created","_delQty","_nearby","_age","_keep","_qty","_missionObjs","_dateNow"];
+
+    if (DZE_DYN_AntiStuck &gt; 3) then { DZE_DYN_cleanLoot = nil; DZE_DYN_AntiStuck = 0; };
+
+    if(!isNil "DZE_DYN_cleanLoot") exitWith {  DZE_DYN_AntiStuck = DZE_DYN_AntiStuck + 1;};
+
+    DZE_DYN_cleanLoot = true;
+
+
+
+    _missionObjs =  allMissionObjects "ReammoBox";
+
+    _delQty = 0;
+
+    _dateNow = (DateToNumber date);
+
+    {
+
+        if (!isNull _x) then {
+
+            _keep = _x getVariable["permaLoot", false];
+
+            if (!_keep) then {
+
+                _created = _x getVariable["created", -0.1];
+
+                if (_created == -0.1) then{
+
+                    _x setVariable["created", _dateNow, false];
+
+                    _created = _dateNow;
+
+                }
+
+                else {
+
+                    _age = (_dateNow - _created) * 525948;
+
+                    if (_age &gt; 20) then{
+
+                        _nearby = { (isPlayer _x) &amp;&amp; (alive _x) } count(_x nearEntities[["CAManBase", "AllVehicles"], 130]);
+
+                        if (_nearby == 0) then{
+
+                            deleteVehicle _x;
+
+                            sleep 0.025;
+
+                            _delQty = _delQty + 1;
+
+                        };
+
+                    };
+
+                };
+
+            };
+
+        };
+
+        sleep 0.001;
+
+    } count _missionObjs;
+
+    if (_delQty &gt; 0) then {
+
+        _qty = count _missionObjs;
+
+        diag_log (format["CLEANUP: Deleted %1 Loot Piles out of %2",_delQty,_qty]);
+
+    };
+
+    DZE_DYN_cleanLoot = nil;
+
+};
+
+
+
+server_spawnCleanAnimals = {
+
+    private ["_pos","_delQtyAnimal","_qty","_missonAnimals","_nearby"];
+
+    _missonAnimals = entities "CAAnimalBase";
+
+    _delQtyAnimal = 0;
+
+    {
+
+        if (local _x) then {
+
+            _x call dayz_perform_purge;
+
+            sleep 0.05;
+
+            _delQtyAnimal = _delQtyAnimal + 1;
+
+        } else {
+
+            if (!alive _x) then {
+
+                _pos = getPosATL _x;
+
+                if (count _pos &gt; 0) then {
+
+                    _nearby = {(isPlayer _x) &amp;&amp; (alive _x)} count (_pos nearEntities [["CAManBase","AllVehicles"], 130]);
+
+                    if (_nearby==0) then {
+
+                        _x call dayz_perform_purge;
+
+                        sleep 0.05;
+
+                        _delQtyAnimal = _delQtyAnimal + 1;
+
+                    };
+
+                };
+
+            };
+
+        };
+
+        sleep 0.001;
+
+    } count _missonAnimals;
+
+    if (_delQtyAnimal &gt; 0) then {
+
+        _qty = count _missonAnimals;
+
+        diag_log (format["CLEANUP: Deleted %1 Animals out of %2",_delQtyAnimal,_qty]);
+
+    };
+
+};
+
+
+
+server_logUnlockLockEvent = {
+
+    private["_player", "_obj", "_objectID", "_objectUID", "_statusText", "_status"];
+
+    _player = _this select 0;
+
+    _obj = _this select 1;
+
+    _status = _this select 2;
+
+    if (!isNull(_obj)) then {
+
+        _objectID = _obj getVariable["ObjectID", "0"];
+
+        _objectUID = _obj getVariable["ObjectUID", "0"];
+
+        _statusText = "UNLOCKED";
+
+        if (_status) then {
+
+            [_obj, "gear"] call server_updateObject;
+
+            _statusText = "LOCKED";
+
+        };
+
+        diag_log format["SAFE %5: ID:%1 UID:%2 BY %3(%4)", _objectID, _objectUID, (name _player), (getPlayerUID _player), _statusText];
+
+    };
+
+};
+
+execVM "\z\addons\dayz_server\init\ESSfloor.sqf";
+
+execVM "\z\addons\dayz_server\CustomBuildings\altar.sqf";</pre>
+<p></p></blockquote><p></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_197059_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197059"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197059" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197059" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197059&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=197059&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="here is my server function where I have the problem. I 've been inserted essconfig and even a map called altar. both will not run. I hope you can help with.
+
+
+
+
+
+  
+  
+   
+" data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197059">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-197085"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_197085">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19741-eldubya/?do=hovercard" data-ipshover-width="370" href="../../profile/19741-eldubya/index.html" rel="nofollow" title="Go to ElDubya's profile">
+<img alt="ElDubya" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-19741.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/19741-eldubya/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19741-eldubya/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/19741-eldubya/index.html" rel="nofollow" title="Go to ElDubya's profile"><span style="color:#">ElDubya</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197085" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-20T08:27:31Z" title="01/20/15 08:27  AM">January 20, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19741-eldubya/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/19741-eldubya/index.html" rel="nofollow" title="Go to ElDubya's profile">ElDubya</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/19741-eldubya/?do=hovercard" data-ipshover-width="370" href="../../profile/19741-eldubya/index.html" rel="nofollow" title="Go to ElDubya's profile">
+<img alt="ElDubya" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-19741.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/19741-eldubya/content/" rel="nofollow" title="1362 posts">
+<i class="fa fa-comment"></i> 1.4k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="197085" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":19741,"username":"ElDubya","timestamp":1421742451,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":197085}' id="comment-197085_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-197085_wrap" href="#elControls_197085_menu" id="elControls_197085" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_197085_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=197085" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_197085_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197085" id="elSharePost_197085" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197085" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-20T08:27:31Z" title="01/20/15 08:27  AM">January 20, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Do you have essfloor.sqf and altar.sqf in your inti and CustomBuildings folders respectively, in @dayz_server pbo?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_197085_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197085"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197085" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197085" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197085&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=197085&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Do you have essfloor.sqf and altar.sqf in your inti and CustomBuildings folders respectively, in @dayz_server pbo? 
+" data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197085">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-197089"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_197089">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10151-eno/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile"><span style="color:#">eno</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197089" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-20T09:07:07Z" title="01/20/15 09:07  AM">January 20, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F31573-server_funktionssqf-problem%252F" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">eno</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10151-eno/?do=hovercard" data-ipshover-width="370" href="../../profile/10151-eno/index.html" rel="nofollow" title="Go to eno's profile">
+<img alt="eno" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c4b0%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10151-eno/content/" rel="nofollow" title="51 posts">
+<i class="fa fa-comment"></i> 51
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="197089" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10151,"username":"eno","timestamp":1421744827,"contentapp":"forums","contenttype":"forums","contentid":31573,"contentclass":"forums_Topic","contentcommentid":197089}' id="comment-197089_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-197089_wrap" href="#elControls_197089_menu" id="elControls_197089" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_197089_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=reportComment&amp;comment=197089" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_197089_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197089" id="elSharePost_197089" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197089" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-01-20T09:07:07Z" title="01/20/15 09:07  AM">January 20, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I have the ESSflor.sqf in my dayz_server ini folders and my altar.sqf in the CustomBuildings folders. And the Essconfig is also in die ini folder. </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_197089_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197089"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197089" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197089" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F%3Fdo%3DfindComment%26comment%3D197089&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment%26comment=197089&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I have the ESSflor.sqf in my dayz_server ini folders and my altar.sqf in the CustomBuildings folders. And the Essconfig is also in die ini folder.  
+" data-websharetitle="server_funktions.sqf problem" data-webshareurl="https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/?do=findComment&amp;comment=197089">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zMTU3My1zZXJ2ZXJfZnVua3Rpb25zc3FmLXByb2JsZW0vI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F31573-server_funktionssqf-problem%2F&amp;title=server_funktions.sqf+problem" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="server_funktions.sqf problem" data-websharetitle="server_funktions.sqf problem" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="31573">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/29-server-install/index.html" rel="parent" title="Go to Server Install">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					server_funktions.sqf problem
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "server_funktions.sqf problem",
+    "headline": "server_funktions.sqf problem",
+    "text": "Hello I have a problem with the server_function.sqf.\n\u00a0\nwhenever I add something like the example map their own things,\nit is not obligatorily carried out.\n\u00a0\nBest example was the case with the ESSconfig.sqf, he did not recognize me as a vip on, after I had that involved in the mpmission.\n\u00a0\nthe command would be execVM \"\\ z \\ addons \\ dayz_server \\ Custom Buildings \\ altar.sqf\";\n\u00a0\nand the insert below.\n\u00a0\nSorry, nothing happens on the map.\n\u00a0\nI hope you can help me\n\u00a0\nuntil then a nice day\n\u00a0 \n",
+    "dateCreated": "2015-01-19T14:31:09+0000",
+    "datePublished": "2015-01-19T14:31:09+0000",
+    "dateModified": "2015-01-20T09:07:07+0000",
+    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+    "author": {
+        "@type": "Person",
+        "name": "eno",
+        "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+        "url": "https://epochmod.com/forum/profile/10151-eno/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 784
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 6
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/",
+    "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "server_funktions.sqf problem",
+        "text": "Hello I have a problem with the server_function.sqf.\n\u00a0\nwhenever I add something like the example map their own things,\nit is not obligatorily carried out.\n\u00a0\nBest example was the case with the ESSconfig.sqf, he did not recognize me as a vip on, after I had that involved in the mpmission.\n\u00a0\nthe command would be execVM \"\\ z \\ addons \\ dayz_server \\ Custom Buildings \\ altar.sqf\";\n\u00a0\nand the insert below.\n\u00a0\nSorry, nothing happens on the map.\n\u00a0\nI hope you can help me\n\u00a0\nuntil then a nice day\n\u00a0 \n",
+        "answerCount": 6,
+        "dateCreated": "2015-01-19T14:31:09+0000",
+        "author": {
+            "@type": "Person",
+            "name": "eno"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-196818",
+                "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-196818",
+                "author": {
+                    "@type": "Person",
+                    "name": "LunatikCH",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2017_03/b9f7861137d8bbb16bcc25cb63f5901d.thumb.jpeg.8c6464c22e623204bfb2bd5263c578a2.jpeg",
+                    "url": "https://epochmod.com/forum/profile/11479-lunatikch/"
+                },
+                "dateCreated": "2015-01-19T15:38:59+0000",
+                "text": "\"\\ z \\ addons \\ dayz_server \\ Custom Buildings \\ altar.sqf\";  Remove the spaces. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-196827",
+                "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-196827",
+                "author": {
+                    "@type": "Person",
+                    "name": "eno",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/10151-eno/"
+                },
+                "dateCreated": "2015-01-19T16:04:28+0000",
+                "text": "The space is from copy \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-196839",
+                "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-196839",
+                "author": {
+                    "@type": "Person",
+                    "name": "eno",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/10151-eno/"
+                },
+                "dateCreated": "2015-01-19T17:00:26+0000",
+                "text": "Sorry for my bad englich i am german \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-197059",
+                "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-197059",
+                "author": {
+                    "@type": "Person",
+                    "name": "eno",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/10151-eno/"
+                },
+                "dateCreated": "2015-01-20T05:26:00+0000",
+                "text": "here is my server function where I have the problem. I \u0027ve been inserted essconfig and even a map called altar. both will not run. I hope you can help with.\n\n\n\n\n\n\u00a0 \n\u00a0 \n   \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-197085",
+                "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-197085",
+                "author": {
+                    "@type": "Person",
+                    "name": "ElDubya",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-19741.jpg",
+                    "url": "https://epochmod.com/forum/profile/19741-eldubya/"
+                },
+                "dateCreated": "2015-01-20T08:27:31+0000",
+                "text": "Do you have essfloor.sqf and altar.sqf in your inti and CustomBuildings folders respectively, in @dayz_server pbo? \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-197089",
+                "url": "https://epochmod.com/forum/topic/31573-server_funktionssqf-problem/#comment-197089",
+                "author": {
+                    "@type": "Person",
+                    "name": "eno",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/10151-eno/"
+                },
+                "dateCreated": "2015-01-20T09:07:07+0000",
+                "text": "I have the ESSflor.sqf in my dayz_server ini folders and my altar.sqf in the CustomBuildings folders. And the Essconfig is also in die ini folder.\u00a0 \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "eno",
+            "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+            "url": "https://epochmod.com/forum/profile/10151-eno/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/29-server-install/",
+                "name": "Server Install"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

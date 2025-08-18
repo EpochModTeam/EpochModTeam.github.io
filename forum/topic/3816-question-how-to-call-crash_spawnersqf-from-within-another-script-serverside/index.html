@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Question: How to call Crash_spawner.sqf from within another script (ServerSide) - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/" property="og:url"/>
+<meta content="Scenario: I'm running a script on my server (server.pbo) that randomly runs a set of missions, one of these is the crash_spawner with a simple map marker added. (I do it this way because I have over 30 missions now and the epoch event init was getting too full).My question is this: How do I prope..." name="description"/>
+<meta content="Scenario: I'm running a script on my server (server.pbo) that randomly runs a set of missions, one of these is the crash_spawner with a simple map marker added. (I do it this way because I have over 30 missions now and the epoch event init was getting too full).My question is this: How do I prope..." property="og:description"/>
+<meta content="2013-11-18T16:24:37Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="3816" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zODE2LXF1ZXN0aW9uLWhvdy10by1jYWxsLWNyYXNoX3NwYXduZXJzcWYtZnJvbS13aXRoaW4tYW5vdGhlci1zY3JpcHQtc2VydmVyc2lkZS8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":3816}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Question: How to call Crash_spawner.sqf from within another script (ServerSide)
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Question: How to call Crash_spawner.sqf from within another script (ServerSide)</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a>,</strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2013-11-18T06:28:37Z" title="11/18/13 06:28  AM">November 18, 2013</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="3816">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-3816" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-23873"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23873">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23873" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T06:28:37Z" title="11/18/13 06:28  AM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23873" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1384756117,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23873}' id="comment-23873_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23873_wrap" href="#elControls_23873_menu" id="elControls_23873" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23873_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23873" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23873_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_23873" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23873" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T06:28:37Z" title="11/18/13 06:28  AM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Scenario: I'm running a script on my server (server.pbo) that randomly runs a set of missions, one of these is the crash_spawner with a simple map marker added. (I do it this way because I have over 30 missions now and the epoch event init was getting too full).</p><p></p><p>My question is this: How do I properly call the file from the script, is it:</p><p></p><p>nul = [] execVM ="filename.sqf";</p><p></p><p>or simply:</p><p></p><p>execVM = "filename.sqf";</p><p></p><p>Also, do I need to set a isServer condition anywhere, because when I call this script from within another script on my server my report file gets filled errors. But if i run it through the Epoch event init , it works fine ..</p><p></p><p>Just a little tired and a little confused lol</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23873_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23873" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23873" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23873&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23873&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Scenario: I'm running a script on my server (server.pbo) that randomly runs a set of missions, one of these is the crash_spawner with a simple map marker added. (I do it this way because I have over 30 missions now and the epoch event init was getting too full).  My question is this: How do I properly call the file from the script, is it:  nul = [] execVM =&quot;filename.sqf&quot;;  or simply:  execVM = &quot;filename.sqf&quot;;  Also, do I need to set a isServer condition anywhere, because when I call this script from within another script on my server my report file gets filled errors. But if i run it through the Epoch event init , it works fine ..  Just a little tired and a little confused lol 
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23873">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">8 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-23874"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23874">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23874" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T06:38:19Z" title="11/18/13 06:38  AM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23874" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1384756699,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23874}' id="comment-23874_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23874_wrap" href="#elControls_23874_menu" id="elControls_23874" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23874_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23874" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23874_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23874" id="elSharePost_23874" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23874" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T06:38:19Z" title="11/18/13 06:38  AM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Edited: deleted that reply (for another script issue) because I noticed there was actually an error with a variable not being set. My question above still stands though if anyone can answer :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23874_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23874"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23874" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23874" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23874&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23874&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Edited: deleted that reply (for another script issue) because I noticed there was actually an error with a variable not being set. My question above still stands though if anyone can answer :) 
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23874">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23899"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23899">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23899" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T09:36:30Z" title="11/18/13 09:36  AM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23899" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1384767390,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23899}' id="comment-23899_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23899_wrap" href="#elControls_23899_menu" id="elControls_23899" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23899_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23899" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23899_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23899" id="elSharePost_23899" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23899" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T09:36:30Z" title="11/18/13 09:36  AM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Does running it like this make any difference ?</p><p></p><p>_handle = [] execVM "\z\addons\dayz_server\modules\crash_spawner2.sqf"</p><p></p><p>Can't test it at the moment as my server is full..</p><p></p><p>Just wondering, because that's how the scripts are called in the epoch events script handler.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23899_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23899"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23899" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23899" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23899&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23899&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Does running it like this make any difference ?  _handle = [] execVM &quot;\z\addons\dayz_server\modules\crash_spawner2.sqf&quot;  Can't test it at the moment as my server is full..  Just wondering, because that's how the scripts are called in the epoch events script handler. 
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23899">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23909"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23909">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">
+<img alt="Granok" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-5002.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/5002-granok/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile"><span style="color:#">Granok</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23909" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T10:32:36Z" title="11/18/13 10:32  AM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">Granok</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">
+<img alt="Granok" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-5002.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5002-granok/content/" rel="nofollow" title="26 posts">
+<i class="fa fa-comment"></i> 26
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23909" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5002,"username":"Granok","timestamp":1384770756,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23909}' id="comment-23909_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23909_wrap" href="#elControls_23909_menu" id="elControls_23909" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23909_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23909" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23909_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23909" id="elSharePost_23909" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23909" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T10:32:36Z" title="11/18/13 10:32  AM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I think this would work just fine if your calling script is in server.pbo,</p>
+<p>I use the missions script (server side)</p>
+<p>and a sqf in my server.pbo call this line :</p>
+<pre class="ipsCode prettyprint">
+_aispawn = [_coords,80,6,6,1] execVM "\z\addons\dayz_server\missions\add_unit_server.sqf";//AI Guards </pre>
+<p>but I have no idea if it's gonna work for a script in mission.pbo</p>
+<p> </p>
+<p>In theory the server run mission.pbo too since <em>init.sqf</em> contain</p>
+<pre class="ipsCode prettyprint">
+if (isDedicated) then</pre>
+<p>By the way I use in my server.pbo this :</p>
+<pre class="ipsCode prettyprint">
+_coords =[Marker1,false] call SHK_pos;</pre>
+<p>it works and SHK_pos is located in <em>dayz_mission\addons\SHK</em>  folder</p>
+<p>(in SHK_pos_init.sqf to be accurate) </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23909_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23909"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23909" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23909" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23909&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23909&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I think this would work just fine if your calling script is in server.pbo, 
+I use the missions script (server side) 
+and a sqf in my server.pbo call this line : 
+
+_aispawn = [_coords,80,6,6,1] execVM &quot;\z\addons\dayz_server\missions\add_unit_server.sqf&quot;;//AI Guards 
+but I have no idea if it's gonna work for a script in mission.pbo 
+  
+In theory the server run mission.pbo too since init.sqf contain 
+
+if (isDedicated) then
+By the way I use in my server.pbo this : 
+
+_coords =[Marker1,false] call SHK_pos;
+it works and SHK_pos is located in dayz_mission\addons\SHK  folder 
+(in SHK_pos_init.sqf to be accurate)  
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23909">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23913"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23913">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23913" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T10:49:09Z" title="11/18/13 10:49  AM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23913" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1384771749,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23913}' id="comment-23913_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23913_wrap" href="#elControls_23913_menu" id="elControls_23913" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23913_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23913" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23913_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23913" id="elSharePost_23913" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23913" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T10:49:09Z" title="11/18/13 10:49  AM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Hi Granok, I'm sorry but your reply has confused me. I'm not sure what exactly you're trying to tell me. Basically, just to clarify my problem..</p><p></p><p>In my mission.pbo init.sqf I call the script "487mission.sqf" via the Epoch Events every 10 minutes.</p><p></p><p>The script is loaded and at random it picks one of 30 custom missions which are all inside that one file.. (This part is irrelevant as those missions work fine) ...</p><p></p><p>If the script is called again but one of those 30 missions is still running I want the script to run one of the default Epoch scripts crash_spawner and supply_drop ... this is how I'm doing it:</p><p> </p><p></p><pre class="ipsCode prettyprint lang-auto">if (MissionActive) exitWith { 
+            diag_log("Mission Status Check: A mission is still running!");
+			
+		_rndOtherMission = floor(random 5);
+		
+			switch (_rndOtherMission) do
+                {
+ case 0: 
+ {  diag_log("487Mission: No Beans!"); };
+
+case 1: 
+ { _handle = [] execVM "\z\addons\dayz_server\modules\supply_drop.sqf"; };
+     
+case 2: 
+ {  diag_log("487Mission: No Beans!"); };
+     
+	  
+case 3: 
+ { diag_log("487Mission: No Beans!"); };
+      
+
+case 4: 
+ { _handle = [] execVM "\z\addons\dayz_server\modules\crash_spawner.sqf"; };
+     
+			};
+			}; </pre>Whenever I run those scripts like this, I get errors in my report file and they dn't run.. The exact same scripts, untouched, run perfectly using the Epoch Events.. <p> </p><p>So my question is , what am I doing wrong ? lol </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23913_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23913"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23913" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23913" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23913&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23913&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hi Granok, I'm sorry but your reply has confused me. I'm not sure what exactly you're trying to tell me. Basically, just to clarify my problem..  In my mission.pbo init.sqf I call the script &quot;487mission.sqf&quot; via the Epoch Events every 10 minutes.  The script is loaded and at random it picks one of 30 custom missions which are all inside that one file.. (This part is irrelevant as those missions work fine) ...  If the script is called again but one of those 30 missions is still running I want the script to run one of the default Epoch scripts crash_spawner and supply_drop ... this is how I'm doing it:    if (MissionActive) exitWith { 
+            diag_log(&quot;Mission Status Check: A mission is still running!&quot;);
+			
+		_rndOtherMission = floor(random 5);
+		
+			switch (_rndOtherMission) do
+                {
+ case 0: 
+ {  diag_log(&quot;487Mission: No Beans!&quot;); };
+
+case 1: 
+ { _handle = [] execVM &quot;\z\addons\dayz_server\modules\supply_drop.sqf&quot;; };
+     
+case 2: 
+ {  diag_log(&quot;487Mission: No Beans!&quot;); };
+     
+	  
+case 3: 
+ { diag_log(&quot;487Mission: No Beans!&quot;); };
+      
+
+case 4: 
+ { _handle = [] execVM &quot;\z\addons\dayz_server\modules\crash_spawner.sqf&quot;; };
+     
+			};
+			}; Whenever I run those scripts like this, I get errors in my report file and they dn't run.. The exact same scripts, untouched, run perfectly using the Epoch Events..   So my question is , what am I doing wrong ? lol  
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23913">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23930"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23930">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">
+<img alt="Granok" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-5002.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/5002-granok/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile"><span style="color:#">Granok</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23930" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T12:05:39Z" title="11/18/13 12:05  PM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">Granok</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">
+<img alt="Granok" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-5002.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5002-granok/content/" rel="nofollow" title="26 posts">
+<i class="fa fa-comment"></i> 26
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23930" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5002,"username":"Granok","timestamp":1384776339,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23930}' id="comment-23930_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23930_wrap" href="#elControls_23930_menu" id="elControls_23930" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23930_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23930" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23930_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23930" id="elSharePost_23930" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23930" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T12:05:39Z" title="11/18/13 12:05  PM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>First of all sorry for my bad english this is certainly why my post confused you ^^</p>
+<p>I was telling you that you can call a sqf located in <em>dayz_mission</em> from a script located in <em>dayz_server </em></p>
+<p>but I wasn't sure the reverse was possible.</p>
+<p> </p>
+<p>Second of all,</p>
+<p>why not move the <span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"><em>487mission.sqf'</em>s file into dayz_server ?</span></p>
+<p>If i understood correctly the purpuse of <em>487mission.sqf </em>is to pick a mission randomly ?</p>
+<p><span>I use a script mission file I found here : </span><a href="http://dayzepoch.com/forum/index.php?/topic/2611-sarge-ai-epoch-edition-mission-system-26-missions/" rel="external nofollow">http://dayzepoch.com/forum/index.php?/topic/2611-sarge-ai-epoch-edition-mission-system-26-missions/</a></p>
+<p>I think it should be pretty similar to yours and all the mechanics are <em>serverside </em></p>
+<p> </p>
+<p>Instead of calling the file with <em>init.sqf</em>,</p>
+<p> </p>
+<p>they call the file with <em>server_function.sqf </em></p>
+<pre class="ipsCode prettyprint">
+ if (isServer) then {
+    [] execVM "\z\addons\dayz_server\missions\major\SMfinder.sqf";
+}
+</pre>
+<p>SMfinder.sqf</p>
+<pre class="ipsCode prettyprint">
+if(!isServer) exitWith {};
+private ["_numb","_element","_num","_firstRun"];
+
+if(isNil {ReAccur}) then { ReAccur = ["SM1","SM2","SM3","SM4","SM5","SM6","SM7","SM8","SM9","SM10"];};
+if(isNil {SMCarray}) then { SMCarray = [];};
+if (count SMarray == 0) then
+{
+_element = ReAccur call BIS_fnc_selectRandom;
+} else {
+_numb = count SMarray;
+_num = floor (random _numb);
+_element = SMarray select _num;
+_Earray = [_element];
+};
+
+[] execVM format ["\z\addons\dayz_server\missions\major\%1.sqf",_element];
+</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23930_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23930"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23930" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23930" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23930&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23930&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="First of all sorry for my bad english this is certainly why my post confused you ^^ 
+I was telling you that you can call a sqf located in dayz_mission from a script located in dayz_server  
+but I wasn't sure the reverse was possible. 
+  
+Second of all, 
+why not move the 487mission.sqf's file into dayz_server ? 
+If i understood correctly the purpuse of 487mission.sqf is to pick a mission randomly ? 
+I use a script mission file I found here : http://dayzepoch.com/forum/index.php?/topic/2611-sarge-ai-epoch-edition-mission-system-26-missions/ 
+I think it should be pretty similar to yours and all the mechanics are serverside  
+  
+Instead of calling the file with init.sqf, 
+  
+they call the file with server_function.sqf  
+
+ if (isServer) then {
+    [] execVM &quot;\z\addons\dayz_server\missions\major\SMfinder.sqf&quot;;
+}
+
+SMfinder.sqf 
+
+if(!isServer) exitWith {};
+private [&quot;_numb&quot;,&quot;_element&quot;,&quot;_num&quot;,&quot;_firstRun&quot;];
+
+if(isNil {ReAccur}) then { ReAccur = [&quot;SM1&quot;,&quot;SM2&quot;,&quot;SM3&quot;,&quot;SM4&quot;,&quot;SM5&quot;,&quot;SM6&quot;,&quot;SM7&quot;,&quot;SM8&quot;,&quot;SM9&quot;,&quot;SM10&quot;];};
+if(isNil {SMCarray}) then { SMCarray = [];};
+if (count SMarray == 0) then
+{
+_element = ReAccur call BIS_fnc_selectRandom;
+} else {
+_numb = count SMarray;
+_num = floor (random _numb);
+_element = SMarray select _num;
+_Earray = [_element];
+};
+
+[] execVM format [&quot;\z\addons\dayz_server\missions\major\%1.sqf&quot;,_element];
+
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23930">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23932"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23932">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">
+<img alt="Granok" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-5002.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/5002-granok/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile"><span style="color:#">Granok</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23932" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T12:17:19Z" title="11/18/13 12:17  PM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">Granok</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5002-granok/?do=hovercard" data-ipshover-width="370" href="../../profile/5002-granok/index.html" rel="nofollow" title="Go to Granok's profile">
+<img alt="Granok" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-5002.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5002-granok/content/" rel="nofollow" title="26 posts">
+<i class="fa fa-comment"></i> 26
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23932" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5002,"username":"Granok","timestamp":1384777039,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23932}' id="comment-23932_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23932_wrap" href="#elControls_23932_menu" id="elControls_23932" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23932_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23932" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23932_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23932" id="elSharePost_23932" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23932" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T12:17:19Z" title="11/18/13 12:17  PM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>This may not be the easiest way, but it works for me :).</p>
+<p> </p>
+<p>By the way, maybe the <em>crash_spawner.sqf</em> and <em>supply_drop.sqf </em>needs parameters to work !</p>
+<p>Like that :</p>
+<pre class="ipsCode prettyprint">
+_handle = ["Param1",param2,parameter3] execVM "\z\addons\dayz_server\modules\supply_drop.sqf"</pre>
+<p>EDIT :I had a quick look and it seems they don't need any parameters but i'm not an expert</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23932_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23932"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23932" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23932" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23932&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23932&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="This may not be the easiest way, but it works for me :). 
+  
+By the way, maybe the crash_spawner.sqf and supply_drop.sqf needs parameters to work ! 
+Like that : 
+
+_handle = [&quot;Param1&quot;,param2,parameter3] execVM &quot;\z\addons\dayz_server\modules\supply_drop.sqf&quot;
+EDIT :I had a quick look and it seems they don't need any parameters but i'm not an expert 
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23932">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23935"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23935">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2542-markk311/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/2542-markk311/" rel="nofollow" title="Go to Markk311's profile">
+<img alt="Markk311" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2542.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2542-markk311/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2542-markk311/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/2542-markk311/" rel="nofollow" title="Go to Markk311's profile"><span style="color:#">Markk311</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23935" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T12:36:26Z" title="11/18/13 12:36  PM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2542-markk311/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/2542-markk311/" rel="nofollow" title="Go to Markk311's profile">Markk311</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2542-markk311/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/2542-markk311/" rel="nofollow" title="Go to Markk311's profile">
+<img alt="Markk311" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2542.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2542-markk311/content/" rel="nofollow" title="73 posts">
+<i class="fa fa-comment"></i> 73
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Mo, USA</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23935" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2542,"username":"Markk311","timestamp":1384778186,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23935}' id="comment-23935_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23935_wrap" href="#elControls_23935_menu" id="elControls_23935" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23935_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23935" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23935_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23935" id="elSharePost_23935" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23935" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T12:36:26Z" title="11/18/13 12:36  PM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Null = [] execVM "\z\addons\dayz_server\modules\<span>crash_spawner</span>.sqf";</p>
+<p>This is correct. no parameters needed. I don't know about the whole mission.pbo thing though. Never tried.</p>
+<p>This does have a random chance not to spawn the event in the script.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23935_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23935"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23935" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23935" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23935&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23935&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Null = [] execVM &quot;\z\addons\dayz_server\modules\crash_spawner.sqf&quot;; 
+This is correct. no parameters needed. I don't know about the whole mission.pbo thing though. Never tried. 
+This does have a random chance not to spawn the event in the script. 
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23935">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-23981"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_23981">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23981" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T16:24:37Z" title="11/18/13 04:24  PM">November 18, 2013</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="23981" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1384791877,"contentapp":"forums","contenttype":"forums","contentid":3816,"contentclass":"forums_Topic","contentcommentid":23981}' id="comment-23981_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-23981_wrap" href="#elControls_23981_menu" id="elControls_23981" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_23981_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=reportComment&amp;comment=23981" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_23981_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23981" id="elSharePost_23981" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23981" rel="nofollow">Posted <time data-short="11 yr" datetime="2013-11-18T16:24:37Z" title="11/18/13 04:24  PM">November 18, 2013</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Thanks guys and no worries Granok, trust me I get confused easily and my inpatient nature doesn't help :)</p><p></p><p>I'm going to test it all again after the weekend. I need to get away from the code for a bit lol</p><p></p><p>Cheers again .</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_23981_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23981"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23981" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23981" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F%3Fdo%3DfindComment%26comment%3D23981&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment%26comment=23981&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thanks guys and no worries Granok, trust me I get confused easily and my inpatient nature doesn't help :)  I'm going to test it all again after the weekend. I need to get away from the code for a bit lol  Cheers again . 
+" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/?do=findComment&amp;comment=23981">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zODE2LXF1ZXN0aW9uLWhvdy10by1jYWxsLWNyYXNoX3NwYXduZXJzcWYtZnJvbS13aXRoaW4tYW5vdGhlci1zY3JpcHQtc2VydmVyc2lkZS8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside%2F&amp;title=Question%3A+How+to+call+Crash_spawner.sqf+from+within+another+script+%28ServerSide%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-websharetitle="Question: How to call Crash_spawner.sqf from within another script (ServerSide)" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="3816">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Question: How to call Crash_spawner.sqf from within another script (ServerSide)
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Question: How to call Crash_spawner.sqf from within another script (ServerSide)",
+    "headline": "Question: How to call Crash_spawner.sqf from within another script (ServerSide)",
+    "text": "Scenario: I\u0027m running a script on my server (server.pbo) that randomly runs a set of missions, one of these is the crash_spawner with a simple map marker added. (I do it this way because I have over 30 missions now and the epoch event init was getting too full).  My question is this: How do I properly call the file from the script, is it:  nul = [] execVM =\"filename.sqf\";  or simply:  execVM = \"filename.sqf\";  Also, do I need to set a isServer condition anywhere, because when I call this script from within another script on my server my report file gets filled errors. But if i run it through the Epoch event init , it works fine ..  Just a little tired and a little confused lol \n",
+    "dateCreated": "2013-11-18T06:28:37+0000",
+    "datePublished": "2013-11-18T06:28:37+0000",
+    "dateModified": "2013-11-18T16:24:37+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "MatthewK",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+        "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1363
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 8
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/",
+    "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Question: How to call Crash_spawner.sqf from within another script (ServerSide)",
+        "text": "Scenario: I\u0027m running a script on my server (server.pbo) that randomly runs a set of missions, one of these is the crash_spawner with a simple map marker added. (I do it this way because I have over 30 missions now and the epoch event init was getting too full).  My question is this: How do I properly call the file from the script, is it:  nul = [] execVM =\"filename.sqf\";  or simply:  execVM = \"filename.sqf\";  Also, do I need to set a isServer condition anywhere, because when I call this script from within another script on my server my report file gets filled errors. But if i run it through the Epoch event init , it works fine ..  Just a little tired and a little confused lol \n",
+        "answerCount": 8,
+        "dateCreated": "2013-11-18T06:28:37+0000",
+        "author": {
+            "@type": "Person",
+            "name": "MatthewK"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23874",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23874",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2013-11-18T06:38:19+0000",
+                "text": "Edited: deleted that reply (for another script issue) because I noticed there was actually an error with a variable not being set. My question above still stands though if anyone can answer :) \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23899",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23899",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2013-11-18T09:36:30+0000",
+                "text": "Does running it like this make any difference ?  _handle = [] execVM \"\\z\\addons\\dayz_server\\modules\\crash_spawner2.sqf\"  Can\u0027t test it at the moment as my server is full..  Just wondering, because that\u0027s how the scripts are called in the epoch events script handler. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23909",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23909",
+                "author": {
+                    "@type": "Person",
+                    "name": "Granok",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-5002.jpg",
+                    "url": "https://epochmod.com/forum/profile/5002-granok/"
+                },
+                "dateCreated": "2013-11-18T10:32:36+0000",
+                "text": "I think this would work just fine if your calling script is in server.pbo, \nI use the missions script (server side) \nand a sqf in my server.pbo call this line : \n\n_aispawn = [_coords,80,6,6,1] execVM \"\\z\\addons\\dayz_server\\missions\\add_unit_server.sqf\";//AI Guards\u00a0\nbut I have no idea if it\u0027s gonna work for a script in mission.pbo \n\u00a0 \nIn theory the server run mission.pbo too since init.sqf contain \n\nif (isDedicated)\u00a0then\nBy the way I use in my server.pbo this : \n\n_coords =[Marker1,false] call SHK_pos;\nit works and SHK_pos is located in dayz_mission\\addons\\SHK \u00a0folder \n(in SHK_pos_init.sqf to be accurate)\u00a0 \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23913",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23913",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2013-11-18T10:49:09+0000",
+                "text": "Hi Granok, I\u0027m sorry but your reply has confused me. I\u0027m not sure what exactly you\u0027re trying to tell me. Basically, just to clarify my problem..  In my mission.pbo init.sqf I call the script \"487mission.sqf\" via the Epoch Events every 10 minutes.  The script is loaded and at random it picks one of 30 custom missions which are all inside that one file.. (This part is irrelevant as those missions work fine) ...  If the script is called again but one of those 30 missions is still running I want the script to run one of the default Epoch scripts crash_spawner and supply_drop ... this is how I\u0027m doing it: \u00a0  if (MissionActive) exitWith { \n            diag_log(\"Mission Status Check: A mission is still running!\");\n\t\t\t\n\t\t_rndOtherMission = floor(random 5);\n\t\t\n\t\t\tswitch (_rndOtherMission) do\n                {\n case 0: \n {  diag_log(\"487Mission: No Beans!\"); };\n\ncase 1: \n { _handle = [] execVM \"\\z\\addons\\dayz_server\\modules\\supply_drop.sqf\"; };\n     \ncase 2: \n {  diag_log(\"487Mission: No Beans!\"); };\n     \n\t  \ncase 3: \n { diag_log(\"487Mission: No Beans!\"); };\n      \n\ncase 4: \n { _handle = [] execVM \"\\z\\addons\\dayz_server\\modules\\crash_spawner.sqf\"; };\n     \n\t\t\t};\n\t\t\t};\u00a0Whenever I run those scripts like this, I get errors in my report file and they dn\u0027t run.. The exact same scripts, untouched, run perfectly using the Epoch Events..\u00a0\u00a0 So my question is , what am I doing wrong ? lol\u00a0 \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23930",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23930",
+                "author": {
+                    "@type": "Person",
+                    "name": "Granok",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-5002.jpg",
+                    "url": "https://epochmod.com/forum/profile/5002-granok/"
+                },
+                "dateCreated": "2013-11-18T12:05:39+0000",
+                "text": "First of all sorry for my bad english this is certainly why my post confused you ^^ \nI was telling you that you can call a sqf located in dayz_mission from a script located in dayz_server\u00a0 \nbut I wasn\u0027t sure the reverse was possible. \n\u00a0 \nSecond of all, \nwhy not move the\u00a0487mission.sqf\u0027s file\u00a0into dayz_server ? \nIf i understood correctly the purpuse of\u00a0487mission.sqf\u00a0is to pick a mission randomly ? \nI use a script mission file I found here :\u00a0http://dayzepoch.com/forum/index.php?/topic/2611-sarge-ai-epoch-edition-mission-system-26-missions/ \nI think it should be pretty similar to yours and all the mechanics are serverside\u00a0 \n\u00a0 \nInstead of calling the file with\u00a0init.sqf, \n\u00a0 \nthey call the file with\u00a0server_function.sqf\u00a0 \n\n if (isServer) then {\n    [] execVM \"\\z\\addons\\dayz_server\\missions\\major\\SMfinder.sqf\";\n}\n\nSMfinder.sqf \n\nif(!isServer) exitWith {};\nprivate [\"_numb\",\"_element\",\"_num\",\"_firstRun\"];\n\nif(isNil {ReAccur}) then { ReAccur = [\"SM1\",\"SM2\",\"SM3\",\"SM4\",\"SM5\",\"SM6\",\"SM7\",\"SM8\",\"SM9\",\"SM10\"];};\nif(isNil {SMCarray}) then { SMCarray = [];};\nif (count SMarray == 0) then\n{\n_element = ReAccur call BIS_fnc_selectRandom;\n} else {\n_numb = count SMarray;\n_num = floor (random _numb);\n_element = SMarray select _num;\n_Earray = [_element];\n};\n\n[] execVM format [\"\\z\\addons\\dayz_server\\missions\\major\\%1.sqf\",_element];\n\n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23932",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23932",
+                "author": {
+                    "@type": "Person",
+                    "name": "Granok",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-5002.jpg",
+                    "url": "https://epochmod.com/forum/profile/5002-granok/"
+                },
+                "dateCreated": "2013-11-18T12:17:19+0000",
+                "text": "This may not be the easiest way, but it works for me :). \n\u00a0 \nBy the way, maybe the\u00a0crash_spawner.sqf and\u00a0supply_drop.sqf needs parameters to work ! \nLike that : \n\n_handle = [\"Param1\",param2,parameter3] execVM \"\\z\\addons\\dayz_server\\modules\\supply_drop.sqf\"\nEDIT :I had a quick look and it seems they don\u0027t need any parameters but i\u0027m not an expert \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23935",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23935",
+                "author": {
+                    "@type": "Person",
+                    "name": "Markk311",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-2542.jpg",
+                    "url": "https://epochmod.com/forum/profile/2542-markk311/"
+                },
+                "dateCreated": "2013-11-18T12:36:26+0000",
+                "text": "Null = [] execVM \"\\z\\addons\\dayz_server\\modules\\crash_spawner.sqf\"; \nThis is correct. no parameters needed. I don\u0027t know about the whole mission.pbo thing though. Never tried. \nThis does have a random chance not to spawn the event in the script. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23981",
+                "url": "https://epochmod.com/forum/topic/3816-question-how-to-call-crash_spawnersqf-from-within-another-script-serverside/#comment-23981",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2013-11-18T16:24:37+0000",
+                "text": "Thanks guys and no worries Granok, trust me I get confused easily and my inpatient nature doesn\u0027t help :)  I\u0027m going to test it all again after the weekend. I need to get away from the code for a bit lol  Cheers again . \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "MatthewK",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+            "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

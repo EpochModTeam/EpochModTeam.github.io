@@ -1,0 +1,3357 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>playerhud.hpp - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="playerhud.hpp" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/41464-playerhudhpp/" property="og:url"/>
+<meta content="RPT Quote 20:04:34 File mpmissions\DayZ_Epoch_11.Chernarus\configs\playerHud.hpp, line 180: '/RscTitles/Server_Hud/controlsBackground/ZSC_Status.idc': Missing ';' at the end of line playerhud.hpp // @file Version: 1.0 // @file Name: playerHud.hpp // @file Author: [zDT] Andrew // @file Info: Credi..." name="description"/>
+<meta content="RPT Quote 20:04:34 File mpmissions\DayZ_Epoch_11.Chernarus\configs\playerHud.hpp, line 180: '/RscTitles/Server_Hud/controlsBackground/ZSC_Status.idc': Missing ';' at the end of line playerhud.hpp // @file Version: 1.0 // @file Name: playerHud.hpp // @file Author: [zDT] Andrew // @file Info: Credi..." property="og:description"/>
+<meta content="2016-02-05T12:14:57Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="41464" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80MTQ2NC1wbGF5ZXJodWRocHAv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":41464}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					playerhud.hpp
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>playerhud.hpp</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">
+<img alt="lucho" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">lucho</a>,</strong><br/><span class="ipsType_light"><time data-short="9 yr" datetime="2016-02-04T17:10:09Z" title="02/04/16 05:10  PM">February 4, 2016</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F&amp;title=playerhud.hpp" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/41464-playerhudhpp/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="playerhud.hpp" data-websharetitle="playerhud.hpp" data-webshareurl="https://epochmod.com/forum/topic/41464-playerhudhpp/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="41464">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/41464-playerhudhpp/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-41464" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-272103"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_272103">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">
+<img alt="lucho" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif"/>
+</a>
+<a href="https://epochmod.com/forum/profile/16425-lucho/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile"><span style="color:#">lucho</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272103" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-04T17:10:09Z" title="02/04/16 05:10  PM">February 4, 2016</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">lucho</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">
+<img alt="lucho" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/16425-lucho/content/" rel="nofollow" title="89 posts">
+<i class="fa fa-comment"></i> 89
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="272103" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":16425,"username":"lucho","timestamp":1454605809,"contentapp":"forums","contenttype":"forums","contentid":41464,"contentclass":"forums_Topic","contentcommentid":272103}' id="comment-272103_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-272103_wrap" href="#elControls_272103_menu" id="elControls_272103" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_272103_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=reportComment&amp;comment=272103" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_272103_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_272103" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272103" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-04T17:10:09Z" title="02/04/16 05:10  PM">February 4, 2016</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	RPT
+</p>
+<blockquote class="ipsQuote" data-ipsquote="">
+<div class="ipsQuote_citation">
+		Quote
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			20:04:34 File mpmissions\DayZ_Epoch_11.Chernarus\configs\playerHud.hpp, line 180: '/RscTitles/Server_Hud/controlsBackground/ZSC_Status.idc': Missing ';' at the end of line
+		</p>
+</div>
+</blockquote>
+<p>
+	 
+</p>
+<p>
+	playerhud.hpp
+</p>
+<p>
+	 
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span>//	@file Version: 1.0
+//	@file Name: playerHud.hpp
+//	@file Author: [zDT] Andrew
+//	@file Info: Credits to DayZ Epoch/Origins All rights to them
+//	@file Info: Images used here are not altered from original content
+//	@file Info: The images are just reused in the same form as original
+class z_RscText {
+
+	idc = -1;
+	type = CT_STATIC;
+	style = ST_LEFT;
+	colorBackground[] = { 1 , 1 , 1 , 0 };
+	colorText[] = { 1 , 1 , 1 , 1 };
+	font = FontM;
+	sizeEx = 0.025;
+	h = 0.25;
+	text = "";
+};
+class Money_Status
+{
+	type = 13;
+	idc = -1;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	font = "Zeppelin32";
+	sizeEx = 0.023;
+	lineSpacing = 3;
+	text = "";
+	style = 0x02;
+	x = 0;
+	y = 0;
+	w = 0.2;
+	h = 0.15;
+};
+class RscPictureGUI
+{
+	access = 0;
+	type = 0;
+	idc = -1;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {0.38,0.63,0.26,0.75};
+	font = "TahomaB";
+	sizeEx = 0;
+	lineSpacing = 0;
+	text = "";
+	style = "0x30 + 0x100 + 0x800";
+	x = 0;
+	y = 0;
+	w = 0.2;
+	h = 0.15;
+};
+
+class RscTextGUIK {
+	type = 0;
+	idc = -1;
+	style = 0x02;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1, 1, 1, 0.5};
+	font = "TahomaB";
+	size = 0.03;
+	sizeEx = 0.03;
+	x = 0;
+	y = 0;
+	w = 0.1;
+	h = 0.2;
+};
+class RscStructuredText {
+	class Attributes;
+};
+class RscStructuredTextGUI: RscStructuredText
+{
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	class Attributes: Attributes
+	{
+		align = "center";
+		valign = "middle";
+	};
+};
+class DZGMHud_Rsc
+{
+	idd = -1;
+	movingEnable = 1;
+	enableSimulation = 1;
+	enableDisplay = 1;
+
+	onLoad = "uiNamespace setVariable ['dzgmHudDisp',_this select 0];";
+
+	duration = 99999999999999999;
+	fadein  = 0;
+	fadeout = 0;
+	class controls
+	{
+		class Icons : w_RscStructuredText
+		{
+			idc = -1;
+			style = 0x00;
+			x = .9;
+			y = .9;
+			w = .9;
+			h = .9;
+			size = .08;
+			colorBackground[] = {0,0,0,0};
+			colortext[] = {0,0,0,.7};
+			text ="";
+			class Attributes {
+				align = "left";
+			};		
+		};
+		class PlayerIcon00:Icons {idc = 46300 +  0;};
+		class PlayerIcon01:Icons {idc = 46300 +  1;};
+		class PlayerIcon02:Icons {idc = 46300 +  2;};
+		class PlayerIcon03:Icons {idc = 46300 +  3;};
+		class PlayerIcon04:Icons {idc = 46300 +  4;};
+		class PlayerIcon05:Icons {idc = 46300 +  5;};
+		class PlayerIcon06:Icons {idc = 46300 +  6;};
+		class PlayerIcon07:Icons {idc = 46300 +  7;};
+		class PlayerIcon08:Icons {idc = 46300 +  8;};
+		class PlayerIcon09:Icons {idc = 46300 +  9;};
+		class PlayerIcon10:Icons {idc = 46300 + 10;};
+		class PlayerIcon11:Icons {idc = 46300 + 11;};
+		class PlayerIcon12:Icons {idc = 46300 + 12;};
+		class PlayerIcon13:Icons {idc = 46300 + 13;};
+		class PlayerIcon14:Icons {idc = 46300 + 14;};
+		class PlayerIcon15:Icons {idc = 46300 + 15;};
+		class PlayerIcon16:Icons {idc = 46300 + 16;};
+		class PlayerIcon17:Icons {idc = 46300 + 17;};
+		class PlayerIcon18:Icons {idc = 46300 + 18;};
+		class PlayerIcon19:Icons {idc = 46300 + 19;};
+		class PlayerIcon20:Icons {idc = 46300 + 20;};
+		class PlayerIcon21:Icons {idc = 46300 + 21;};
+		class PlayerIcon22:Icons {idc = 46300 + 22;};
+		class PlayerIcon23:Icons {idc = 46300 + 23;};
+		class PlayerIcon24:Icons {idc = 46300 + 24;};
+		class PlayerIcon25:Icons {idc = 46300 + 25;};
+		class PlayerIcon26:Icons {idc = 46300 + 26;};
+		class PlayerIcon27:Icons {idc = 46300 + 27;};
+		class PlayerIcon28:Icons {idc = 46300 + 28;};
+		class PlayerIcon29:Icons {idc = 46300 + 29;};
+		class PlayerIcon30:Icons {idc = 46300 + 30;};
+		class PlayerIcon31:Icons {idc = 46300 + 31;};
+		class PlayerIcon32:Icons {idc = 46300 + 32;};
+		class PlayerIcon33:Icons {idc = 46300 + 33;};
+		class PlayerIcon34:Icons {idc = 46300 + 34;};
+		class PlayerIcon35:Icons {idc = 46300 + 35;};
+		class PlayerIcon36:Icons {idc = 46300 + 36;};
+		class PlayerIcon37:Icons {idc = 46300 + 37;};
+		class PlayerIcon38:Icons {idc = 46300 + 38;};
+		class PlayerIcon39:Icons {idc = 46300 + 39;};
+		class PlayerIcon40:Icons {idc = 46300 + 40;};
+	};
+};
+
+#define hud_Survivor 3600
+#define hud_HS 3601
+#define hud_Bandit 3602
+#define hud_Zombie 3603
+#define hud_Icon 3604
+#define hud_Kills 3605
+#define hud_KillsZ_HS 3606
+#define hud_KillsB 3607
+#define hud_KillsZ 3608
+#define hud_Border 3609
+#define hud_Humanity 3610
+#define hud_Z 3611
+#define hud_blood 3612
+#define hud_fps 3613
+#define hud_serv 3614
+#define hud_site 3615
+#define Hud_BG1 3616
+#define Hud_BG2 3617
+#define Hud_BG3 3618
+#define Hud_BG4 3619
+#define hud_ts 3620
+
+class Server_Hud {
+	idd = -1;
+    fadeout=0;
+    fadein=0;
+	duration = 10e10;
+	name= "Server_Hud";
+	onLoad = "uiNamespace setVariable ['Server_Hud', _this select 0]";
+	
+		class controlsBackground {
+		class ZSC_Status: Money_Status
+		{
+		    idc = 4900
+		    size = 0.040;
+			x = safezoneX + (safezoneW -0.35);
+        	y = safezoneY + 0.42 * safezoneW;
+			w = 0.35;
+			h = 0.20;
+		class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_BG1: RscPictureGUI
+		{
+			idc = hud_BG1;
+			size = 1;
+			text = "\z\addons\dayz_code\gui\status\status_bg.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.23  * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_BG2: RscPictureGUI
+		{
+			idc = hud_BG2;
+			size = 1;
+			text = "\z\addons\dayz_code\gui\status\status_bg.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.3 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_BG3: RscPictureGUI
+		{
+			idc = hud_BG3;
+			size = 1;
+			text = "\z\addons\dayz_code\gui\status\status_bg.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.37 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_BG4: RscPictureGUI
+		{
+			idc = hud_BG4;
+			size = 1;
+			text = "\z\addons\dayz_code\gui\status\status_bg.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.44 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudSurvivor: RscPictureGUI
+		{
+			idc = hud_Survivor;
+			size = 1;
+			text = "images\icons\st_humanity_survivor.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.23 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.7};
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudHS: RscPictureGUI
+		{
+			idc = hud_HS;
+			size = 1;
+			text = "images\icons\zombie.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.44 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.75};
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudBandit: RscPictureGUI
+		{
+			idc = hud_Bandit;
+			size = 1;
+			text = "images\icons\st_humanity_bandit.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.3 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.75};
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudZombie: RscPictureGUI
+		{
+			idc = hud_Zombie;
+			size = 1;
+			text = "images\icons\zombie.paa";
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.37 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.75};
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudIcon: RscTextGUIK
+		{
+			idc = hud_Icon;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.885 * safezoneW + safezoneX;
+			y = 0.070 * safezoneH + safezoneY;
+			w = 0.093 * safezoneW;
+			h = 0.113 * safezoneH;
+			colorText[] = {1,1,1,1};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudKills: RscTextGUIK
+		{
+			idc = hud_Kills;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.256 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_HudKillsZ_HS: RscTextGUIK
+		{
+			idc = hud_KillsZ_HS;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.466 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_HudKillsB: RscTextGUIK
+		{
+			idc = hud_KillsB;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.326 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_HudKillsZ: RscTextGUIK
+		{
+			idc = hud_KillsZ;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.396 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_HudBorder: RscTextGUIK
+		{
+			idc = hud_Border;
+			type = CT_STRUCTURED_TEXT;
+			//text = "images\icons\status_humanity_border.paa";
+			text = "";
+			x = 0.885 * safezoneW + safezoneX;
+			y = 0.080 * safezoneH + safezoneY;
+			w = 0.093 * safezoneW;
+			h = 0.110 * safezoneH;
+			colorText[] = {0,0,0,0.6};
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudHumanity: RscTextGUIK
+		{
+			idc = hud_Humanity;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.9065 * safezoneW + safezoneX;
+			y = 0.1630 * safezoneH + safezoneY;
+			w = 0.050 * safezoneW;
+			h = 0.064 * safezoneH;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {0.6875,0.6875,0.6875,1};
+			colorBackground[] = {0,0,0,0};
+			shadow = 4;
+			class Attributes {
+				align = "center";
+			};
+		};
+		class Hud_HudZ: RscTextGUIK
+		{
+			idc = hud_Z;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.949513 * safezoneW + safezoneX;
+			y = 0.44 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_Blood: RscTextGUIK
+		{
+			idc = hud_blood;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.920313 * safezoneW + safezoneX;
+			y = 0.815 * safezoneH + safezoneY; 
+			w = 0.075;
+			h = 0.10;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_Fps: RscTextGUIK
+		{
+			idc = hud_fps;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.916313 * safezoneW + safezoneX;
+			y = 0.905 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_Serv: RscTextGUIK
+		{
+			idc = hud_serv;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.845313 * safezoneW + safezoneX;
+			y = 0.935 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "right";
+			};
+		};
+		class Hud_Site: RscTextGUIK
+		{
+			idc = hud_site;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.845313 * safezoneW + safezoneX;
+			y = 0.965 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "left";
+			};
+		};
+		class Hud_ts: RscTextGUIK
+		{
+			idc = hud_ts;
+			type = CT_STRUCTURED_TEXT;
+			text = "";
+			x = 0.845313 * safezoneW + safezoneX;
+			y = 0.978 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = "left";
+			};
+		};
+	};
+};</span></pre>
+<p>
+	can anybody help me?
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_272103_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/41464-playerhudhpp/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272103" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272103" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272103&amp;title=playerhud.hpp" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment%26comment=272103&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="RPT
+ 
+
+
+
+
+	 
+ 
+
+
+	playerhud.hpp
+ 
+
+
+	 
+ 
+
+
+//	@file Version: 1.0
+//	@file Name: playerHud.hpp
+//	@file Author: [zDT] Andrew
+//	@file Info: Credits to DayZ Epoch/Origins All rights to them
+//	@file Info: Images used here are not altered from original content
+//	@file Info: The images are just reused in the same form as original
+class z_RscText {
+
+	idc = -1;
+	type = CT_STATIC;
+	style = ST_LEFT;
+	colorBackground[] = { 1 , 1 , 1 , 0 };
+	colorText[] = { 1 , 1 , 1 , 1 };
+	font = FontM;
+	sizeEx = 0.025;
+	h = 0.25;
+	text = &quot;&quot;;
+};
+class Money_Status
+{
+	type = 13;
+	idc = -1;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	font = &quot;Zeppelin32&quot;;
+	sizeEx = 0.023;
+	lineSpacing = 3;
+	text = &quot;&quot;;
+	style = 0x02;
+	x = 0;
+	y = 0;
+	w = 0.2;
+	h = 0.15;
+};
+class RscPictureGUI
+{
+	access = 0;
+	type = 0;
+	idc = -1;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {0.38,0.63,0.26,0.75};
+	font = &quot;TahomaB&quot;;
+	sizeEx = 0;
+	lineSpacing = 0;
+	text = &quot;&quot;;
+	style = &quot;0x30 + 0x100 + 0x800&quot;;
+	x = 0;
+	y = 0;
+	w = 0.2;
+	h = 0.15;
+};
+
+class RscTextGUIK {
+	type = 0;
+	idc = -1;
+	style = 0x02;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1, 1, 1, 0.5};
+	font = &quot;TahomaB&quot;;
+	size = 0.03;
+	sizeEx = 0.03;
+	x = 0;
+	y = 0;
+	w = 0.1;
+	h = 0.2;
+};
+class RscStructuredText {
+	class Attributes;
+};
+class RscStructuredTextGUI: RscStructuredText
+{
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	class Attributes: Attributes
+	{
+		align = &quot;center&quot;;
+		valign = &quot;middle&quot;;
+	};
+};
+class DZGMHud_Rsc
+{
+	idd = -1;
+	movingEnable = 1;
+	enableSimulation = 1;
+	enableDisplay = 1;
+
+	onLoad = &quot;uiNamespace setVariable ['dzgmHudDisp',_this select 0];&quot;;
+
+	duration = 99999999999999999;
+	fadein  = 0;
+	fadeout = 0;
+	class controls
+	{
+		class Icons : w_RscStructuredText
+		{
+			idc = -1;
+			style = 0x00;
+			x = .9;
+			y = .9;
+			w = .9;
+			h = .9;
+			size = .08;
+			colorBackground[] = {0,0,0,0};
+			colortext[] = {0,0,0,.7};
+			text =&quot;&quot;;
+			class Attributes {
+				align = &quot;left&quot;;
+			};		
+		};
+		class PlayerIcon00:Icons {idc = 46300 +  0;};
+		class PlayerIcon01:Icons {idc = 46300 +  1;};
+		class PlayerIcon02:Icons {idc = 46300 +  2;};
+		class PlayerIcon03:Icons {idc = 46300 +  3;};
+		class PlayerIcon04:Icons {idc = 46300 +  4;};
+		class PlayerIcon05:Icons {idc = 46300 +  5;};
+		class PlayerIcon06:Icons {idc = 46300 +  6;};
+		class PlayerIcon07:Icons {idc = 46300 +  7;};
+		class PlayerIcon08:Icons {idc = 46300 +  8;};
+		class PlayerIcon09:Icons {idc = 46300 +  9;};
+		class PlayerIcon10:Icons {idc = 46300 + 10;};
+		class PlayerIcon11:Icons {idc = 46300 + 11;};
+		class PlayerIcon12:Icons {idc = 46300 + 12;};
+		class PlayerIcon13:Icons {idc = 46300 + 13;};
+		class PlayerIcon14:Icons {idc = 46300 + 14;};
+		class PlayerIcon15:Icons {idc = 46300 + 15;};
+		class PlayerIcon16:Icons {idc = 46300 + 16;};
+		class PlayerIcon17:Icons {idc = 46300 + 17;};
+		class PlayerIcon18:Icons {idc = 46300 + 18;};
+		class PlayerIcon19:Icons {idc = 46300 + 19;};
+		class PlayerIcon20:Icons {idc = 46300 + 20;};
+		class PlayerIcon21:Icons {idc = 46300 + 21;};
+		class PlayerIcon22:Icons {idc = 46300 + 22;};
+		class PlayerIcon23:Icons {idc = 46300 + 23;};
+		class PlayerIcon24:Icons {idc = 46300 + 24;};
+		class PlayerIcon25:Icons {idc = 46300 + 25;};
+		class PlayerIcon26:Icons {idc = 46300 + 26;};
+		class PlayerIcon27:Icons {idc = 46300 + 27;};
+		class PlayerIcon28:Icons {idc = 46300 + 28;};
+		class PlayerIcon29:Icons {idc = 46300 + 29;};
+		class PlayerIcon30:Icons {idc = 46300 + 30;};
+		class PlayerIcon31:Icons {idc = 46300 + 31;};
+		class PlayerIcon32:Icons {idc = 46300 + 32;};
+		class PlayerIcon33:Icons {idc = 46300 + 33;};
+		class PlayerIcon34:Icons {idc = 46300 + 34;};
+		class PlayerIcon35:Icons {idc = 46300 + 35;};
+		class PlayerIcon36:Icons {idc = 46300 + 36;};
+		class PlayerIcon37:Icons {idc = 46300 + 37;};
+		class PlayerIcon38:Icons {idc = 46300 + 38;};
+		class PlayerIcon39:Icons {idc = 46300 + 39;};
+		class PlayerIcon40:Icons {idc = 46300 + 40;};
+	};
+};
+
+#define hud_Survivor 3600
+#define hud_HS 3601
+#define hud_Bandit 3602
+#define hud_Zombie 3603
+#define hud_Icon 3604
+#define hud_Kills 3605
+#define hud_KillsZ_HS 3606
+#define hud_KillsB 3607
+#define hud_KillsZ 3608
+#define hud_Border 3609
+#define hud_Humanity 3610
+#define hud_Z 3611
+#define hud_blood 3612
+#define hud_fps 3613
+#define hud_serv 3614
+#define hud_site 3615
+#define Hud_BG1 3616
+#define Hud_BG2 3617
+#define Hud_BG3 3618
+#define Hud_BG4 3619
+#define hud_ts 3620
+
+class Server_Hud {
+	idd = -1;
+    fadeout=0;
+    fadein=0;
+	duration = 10e10;
+	name= &quot;Server_Hud&quot;;
+	onLoad = &quot;uiNamespace setVariable ['Server_Hud', _this select 0]&quot;;
+	
+		class controlsBackground {
+		class ZSC_Status: Money_Status
+		{
+		    idc = 4900
+		    size = 0.040;
+			x = safezoneX + (safezoneW -0.35);
+        	y = safezoneY + 0.42 * safezoneW;
+			w = 0.35;
+			h = 0.20;
+		class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_BG1: RscPictureGUI
+		{
+			idc = hud_BG1;
+			size = 1;
+			text = &quot;\z\addons\dayz_code\gui\status\status_bg.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.23  * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_BG2: RscPictureGUI
+		{
+			idc = hud_BG2;
+			size = 1;
+			text = &quot;\z\addons\dayz_code\gui\status\status_bg.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.3 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_BG3: RscPictureGUI
+		{
+			idc = hud_BG3;
+			size = 1;
+			text = &quot;\z\addons\dayz_code\gui\status\status_bg.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.37 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_BG4: RscPictureGUI
+		{
+			idc = hud_BG4;
+			size = 1;
+			text = &quot;\z\addons\dayz_code\gui\status\status_bg.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.44 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudSurvivor: RscPictureGUI
+		{
+			idc = hud_Survivor;
+			size = 1;
+			text = &quot;images\icons\st_humanity_survivor.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.23 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.7};
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudHS: RscPictureGUI
+		{
+			idc = hud_HS;
+			size = 1;
+			text = &quot;images\icons\zombie.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.44 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.75};
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudBandit: RscPictureGUI
+		{
+			idc = hud_Bandit;
+			size = 1;
+			text = &quot;images\icons\st_humanity_bandit.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.3 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.75};
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudZombie: RscPictureGUI
+		{
+			idc = hud_Zombie;
+			size = 1;
+			text = &quot;images\icons\zombie.paa&quot;;
+			x = 0.955313 * safezoneW + safezoneX;
+			y = 0.37 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			colorText[] = {1,1,1,0.75};
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudIcon: RscTextGUIK
+		{
+			idc = hud_Icon;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.885 * safezoneW + safezoneX;
+			y = 0.070 * safezoneH + safezoneY;
+			w = 0.093 * safezoneW;
+			h = 0.113 * safezoneH;
+			colorText[] = {1,1,1,1};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudKills: RscTextGUIK
+		{
+			idc = hud_Kills;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.256 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_HudKillsZ_HS: RscTextGUIK
+		{
+			idc = hud_KillsZ_HS;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.466 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_HudKillsB: RscTextGUIK
+		{
+			idc = hud_KillsB;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.326 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_HudKillsZ: RscTextGUIK
+		{
+			idc = hud_KillsZ;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.931 * safezoneW + safezoneX;
+			y = 0.396 * safezoneH + safezoneY;
+			w = 0.037 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {1,1,1,0.75};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_HudBorder: RscTextGUIK
+		{
+			idc = hud_Border;
+			type = CT_STRUCTURED_TEXT;
+			//text = &quot;images\icons\status_humanity_border.paa&quot;;
+			text = &quot;&quot;;
+			x = 0.885 * safezoneW + safezoneX;
+			y = 0.080 * safezoneH + safezoneY;
+			w = 0.093 * safezoneW;
+			h = 0.110 * safezoneH;
+			colorText[] = {0,0,0,0.6};
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudHumanity: RscTextGUIK
+		{
+			idc = hud_Humanity;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.9065 * safezoneW + safezoneX;
+			y = 0.1630 * safezoneH + safezoneY;
+			w = 0.050 * safezoneW;
+			h = 0.064 * safezoneH;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {0.6875,0.6875,0.6875,1};
+			colorBackground[] = {0,0,0,0};
+			shadow = 4;
+			class Attributes {
+				align = &quot;center&quot;;
+			};
+		};
+		class Hud_HudZ: RscTextGUIK
+		{
+			idc = hud_Z;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.949513 * safezoneW + safezoneX;
+			y = 0.44 * safezoneH + safezoneY;
+			w = 0.075;
+			h = 0.10;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_Blood: RscTextGUIK
+		{
+			idc = hud_blood;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.920313 * safezoneW + safezoneX;
+			y = 0.815 * safezoneH + safezoneY; 
+			w = 0.075;
+			h = 0.10;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_Fps: RscTextGUIK
+		{
+			idc = hud_fps;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.916313 * safezoneW + safezoneX;
+			y = 0.905 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_Serv: RscTextGUIK
+		{
+			idc = hud_serv;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.845313 * safezoneW + safezoneX;
+			y = 0.935 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;right&quot;;
+			};
+		};
+		class Hud_Site: RscTextGUIK
+		{
+			idc = hud_site;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.845313 * safezoneW + safezoneX;
+			y = 0.965 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;left&quot;;
+			};
+		};
+		class Hud_ts: RscTextGUIK
+		{
+			idc = hud_ts;
+			type = CT_STRUCTURED_TEXT;
+			text = &quot;&quot;;
+			x = 0.845313 * safezoneW + safezoneX;
+			y = 0.978 * safezoneH + safezoneY;
+			w = 0.21;
+			h = 0.21;
+			size = 0.0275;
+			sizeEx = 0.0275;
+			colorText[] = {1,0,0,0.85};
+			colorBackground[] = {0,0,0,0};
+			shadow = 2;
+			class Attributes {
+				align = &quot;left&quot;;
+			};
+		};
+	};
+};
+
+
+	can anybody help me?
+ 
+" data-websharetitle="playerhud.hpp" data-webshareurl="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272103">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">3 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/41464-playerhudhpp/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/41464-playerhudhpp/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/41464-playerhudhpp/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-272110"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_272110">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/34425-kelso000/?do=hovercard" data-ipshover-width="370" href="../../profile/34425-kelso000/index.html" rel="nofollow" title="Go to kelso000's profile">
+<img alt="kelso000" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2015_10/avatar_1.jpg.5cb2fa48d0dcf49c7cf12788dce59443.thumb.jpg.09f5ecdf840d7168edaf54459660f4ed.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/34425-kelso000/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/34425-kelso000/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/34425-kelso000/index.html" rel="nofollow" title="Go to kelso000's profile"><span style="color:#">kelso000</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272110" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-04T19:27:58Z" title="02/04/16 07:27  PM">February 4, 2016</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/34425-kelso000/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/34425-kelso000/index.html" rel="nofollow" title="Go to kelso000's profile">kelso000</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/34425-kelso000/?do=hovercard" data-ipshover-width="370" href="../../profile/34425-kelso000/index.html" rel="nofollow" title="Go to kelso000's profile">
+<img alt="kelso000" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2015_10/avatar_1.jpg.5cb2fa48d0dcf49c7cf12788dce59443.thumb.jpg.09f5ecdf840d7168edaf54459660f4ed.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/34425-kelso000/content/" rel="nofollow" title="49 posts">
+<i class="fa fa-comment"></i> 49
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="272110" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":34425,"username":"kelso000","timestamp":1454614078,"contentapp":"forums","contenttype":"forums","contentid":41464,"contentclass":"forums_Topic","contentcommentid":272110}' id="comment-272110_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-272110_wrap" href="#elControls_272110_menu" id="elControls_272110" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_272110_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=reportComment&amp;comment=272110" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_272110_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272110" id="elSharePost_272110" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272110" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-04T19:27:58Z" title="02/04/16 07:27  PM">February 4, 2016</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	Somehow you deleted a };
+</p>
+<p>
+</p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p>
+</p>
+<p>
+	//    @file Version: 1.0<br/>
+	//    @file Name: playerHud.hpp<br/>
+	//    @file Author: [zDT] Andrew<br/>
+	//    @file Info: Credits to DayZ Epoch/Origins All rights to them<br/>
+	//    @file Info: Images used here are not altered from original content<br/>
+	//    @file Info: The images are just reused in the same form as original<br/>
+	class z_RscText {
+</p>
+<p>
+	    idc = -1;<br/>
+	    type = CT_STATIC;<br/>
+	    style = ST_LEFT;<br/>
+	    colorBackground[] = { 1 , 1 , 1 , 0 };<br/>
+	    colorText[] = { 1 , 1 , 1 , 1 };<br/>
+	    font = FontM;<br/>
+	    sizeEx = 0.025;<br/>
+	    h = 0.25;<br/>
+	    text = "";<br/>
+	};<br/>
+	class Money_Status<br/>
+	{<br/>
+	    type = 13;<br/>
+	    idc = -1;<br/>
+	    colorBackground[] = {0,0,0,0};<br/>
+	    colorText[] = {1,1,1,1};<br/>
+	    font = "Zeppelin32";<br/>
+	    sizeEx = 0.023;<br/>
+	    lineSpacing = 3;<br/>
+	    text = "";<br/>
+	    style = 0x02;<br/>
+	    x = 0;<br/>
+	    y = 0;<br/>
+	    w = 0.2;<br/>
+	    h = 0.15;<br/>
+	};<br/>
+	class RscPictureGUI<br/>
+	{<br/>
+	    access = 0;<br/>
+	    type = 0;<br/>
+	    idc = -1;<br/>
+	    colorBackground[] = {0,0,0,0};<br/>
+	    colorText[] = {0.38,0.63,0.26,0.75};<br/>
+	    font = "TahomaB";<br/>
+	    sizeEx = 0;<br/>
+	    lineSpacing = 0;<br/>
+	    text = "";<br/>
+	    style = "0x30 + 0x100 + 0x800";<br/>
+	    x = 0;<br/>
+	    y = 0;<br/>
+	    w = 0.2;<br/>
+	    h = 0.15;<br/>
+	};
+</p>
+<p>
+	class RscTextGUIK {<br/>
+	    type = 0;<br/>
+	    idc = -1;<br/>
+	    style = 0x02;<br/>
+	    colorBackground[] = {0,0,0,0};<br/>
+	    colorText[] = {1, 1, 1, 0.5};<br/>
+	    font = "TahomaB";<br/>
+	    size = 0.03;<br/>
+	    sizeEx = 0.03;<br/>
+	    x = 0;<br/>
+	    y = 0;<br/>
+	    w = 0.1;<br/>
+	    h = 0.2;<br/>
+	};<br/>
+	class RscStructuredText {<br/>
+	    class Attributes;<br/>
+	};<br/>
+	class RscStructuredTextGUI: RscStructuredText<br/>
+	{<br/>
+	    colorBackground[] = {0,0,0,0};<br/>
+	    colorText[] = {1,1,1,1};<br/>
+	    class Attributes: Attributes<br/>
+	    {<br/>
+	        align = "center";<br/>
+	        valign = "middle";<br/>
+	    };<br/>
+	};<br/>
+	class DZGMHud_Rsc<br/>
+	{<br/>
+	    idd = -1;<br/>
+	    movingEnable = 1;<br/>
+	    enableSimulation = 1;<br/>
+	    enableDisplay = 1;
+</p>
+<p>
+	    onLoad = "uiNamespace setVariable ['dzgmHudDisp',_this select 0];";
+</p>
+<p>
+	    duration = 99999999999999999;<br/>
+	    fadein  = 0;<br/>
+	    fadeout = 0;<br/>
+	    class controls<br/>
+	    {<br/>
+	        class Icons : w_RscStructuredText<br/>
+	        {<br/>
+	            idc = -1;<br/>
+	            style = 0x00;<br/>
+	            x = .9;<br/>
+	            y = .9;<br/>
+	            w = .9;<br/>
+	            h = .9;<br/>
+	            size = .08;<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            colortext[] = {0,0,0,.7};<br/>
+	            text ="";<br/>
+	            class Attributes {<br/>
+	                align = "left";<br/>
+	            };        <br/>
+	        };<br/>
+	        class PlayerIcon00:Icons {idc = 46300 +  0;};<br/>
+	        class PlayerIcon01:Icons {idc = 46300 +  1;};<br/>
+	        class PlayerIcon02:Icons {idc = 46300 +  2;};<br/>
+	        class PlayerIcon03:Icons {idc = 46300 +  3;};<br/>
+	        class PlayerIcon04:Icons {idc = 46300 +  4;};<br/>
+	        class PlayerIcon05:Icons {idc = 46300 +  5;};<br/>
+	        class PlayerIcon06:Icons {idc = 46300 +  6;};<br/>
+	        class PlayerIcon07:Icons {idc = 46300 +  7;};<br/>
+	        class PlayerIcon08:Icons {idc = 46300 +  8;};<br/>
+	        class PlayerIcon09:Icons {idc = 46300 +  9;};<br/>
+	        class PlayerIcon10:Icons {idc = 46300 + 10;};<br/>
+	        class PlayerIcon11:Icons {idc = 46300 + 11;};<br/>
+	        class PlayerIcon12:Icons {idc = 46300 + 12;};<br/>
+	        class PlayerIcon13:Icons {idc = 46300 + 13;};<br/>
+	        class PlayerIcon14:Icons {idc = 46300 + 14;};<br/>
+	        class PlayerIcon15:Icons {idc = 46300 + 15;};<br/>
+	        class PlayerIcon16:Icons {idc = 46300 + 16;};<br/>
+	        class PlayerIcon17:Icons {idc = 46300 + 17;};<br/>
+	        class PlayerIcon18:Icons {idc = 46300 + 18;};<br/>
+	        class PlayerIcon19:Icons {idc = 46300 + 19;};<br/>
+	        class PlayerIcon20:Icons {idc = 46300 + 20;};<br/>
+	        class PlayerIcon21:Icons {idc = 46300 + 21;};<br/>
+	        class PlayerIcon22:Icons {idc = 46300 + 22;};<br/>
+	        class PlayerIcon23:Icons {idc = 46300 + 23;};<br/>
+	        class PlayerIcon24:Icons {idc = 46300 + 24;};<br/>
+	        class PlayerIcon25:Icons {idc = 46300 + 25;};<br/>
+	        class PlayerIcon26:Icons {idc = 46300 + 26;};<br/>
+	        class PlayerIcon27:Icons {idc = 46300 + 27;};<br/>
+	        class PlayerIcon28:Icons {idc = 46300 + 28;};<br/>
+	        class PlayerIcon29:Icons {idc = 46300 + 29;};<br/>
+	        class PlayerIcon30:Icons {idc = 46300 + 30;};<br/>
+	        class PlayerIcon31:Icons {idc = 46300 + 31;};<br/>
+	        class PlayerIcon32:Icons {idc = 46300 + 32;};<br/>
+	        class PlayerIcon33:Icons {idc = 46300 + 33;};<br/>
+	        class PlayerIcon34:Icons {idc = 46300 + 34;};<br/>
+	        class PlayerIcon35:Icons {idc = 46300 + 35;};<br/>
+	        class PlayerIcon36:Icons {idc = 46300 + 36;};<br/>
+	        class PlayerIcon37:Icons {idc = 46300 + 37;};<br/>
+	        class PlayerIcon38:Icons {idc = 46300 + 38;};<br/>
+	        class PlayerIcon39:Icons {idc = 46300 + 39;};<br/>
+	        class PlayerIcon40:Icons {idc = 46300 + 40;};<br/>
+	    };<br/>
+	};
+</p>
+<p>
+	#define hud_Survivor 3600<br/>
+	#define hud_HS 3601<br/>
+	#define hud_Bandit 3602<br/>
+	#define hud_Zombie 3603<br/>
+	#define hud_Icon 3604<br/>
+	#define hud_Kills 3605<br/>
+	#define hud_KillsZ_HS 3606<br/>
+	#define hud_KillsB 3607<br/>
+	#define hud_KillsZ 3608<br/>
+	#define hud_Border 3609<br/>
+	#define hud_Humanity 3610<br/>
+	#define hud_Z 3611<br/>
+	#define hud_blood 3612<br/>
+	#define hud_fps 3613<br/>
+	#define hud_serv 3614<br/>
+	#define hud_site 3615<br/>
+	#define Hud_BG1 3616<br/>
+	#define Hud_BG2 3617<br/>
+	#define Hud_BG3 3618<br/>
+	#define Hud_BG4 3619<br/>
+	#define hud_ts 3620
+</p>
+<p>
+	class Server_Hud {<br/>
+	    idd = -1;<br/>
+	    fadeout=0;<br/>
+	    fadein=0;<br/>
+	    duration = 10e10;<br/>
+	    name= "Server_Hud";<br/>
+	    onLoad = "uiNamespace setVariable ['Server_Hud', _this select 0]";<br/>
+	    <br/>
+	        class controlsBackground {<br/>
+	        class ZSC_Status: Money_Status<br/>
+	        {<br/>
+	            idc = 4900<br/>
+	            size = 0.040;<br/>
+	            x = safezoneX + (safezoneW -0.35);<br/>
+	            y = safezoneY + 0.42 * safezoneW;<br/>
+	            w = 0.35;<br/>
+	            h = 0.20;
+</p>
+<p>
+<span style="color:#FF0000;"><span style="font-size:28px;"><strong>};</strong></span></span>
+</p>
+<p>
+<br/>
+	        class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_BG1: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_BG1;<br/>
+	            size = 1;<br/>
+	            text = "\z\addons\dayz_code\gui\status\status_bg.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.23  * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_BG2: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_BG2;<br/>
+	            size = 1;<br/>
+	            text = "\z\addons\dayz_code\gui\status\status_bg.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.3 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_BG3: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_BG3;<br/>
+	            size = 1;<br/>
+	            text = "\z\addons\dayz_code\gui\status\status_bg.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.37 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_BG4: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_BG4;<br/>
+	            size = 1;<br/>
+	            text = "\z\addons\dayz_code\gui\status\status_bg.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.44 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudSurvivor: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_Survivor;<br/>
+	            size = 1;<br/>
+	            text = "images\icons\st_humanity_survivor.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.23 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            colorText[] = {1,1,1,0.7};<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudHS: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_HS;<br/>
+	            size = 1;<br/>
+	            text = "images\icons\zombie.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.44 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudBandit: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_Bandit;<br/>
+	            size = 1;<br/>
+	            text = "images\icons\st_humanity_bandit.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.3 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudZombie: RscPictureGUI<br/>
+	        {<br/>
+	            idc = hud_Zombie;<br/>
+	            size = 1;<br/>
+	            text = "images\icons\zombie.paa";<br/>
+	            x = 0.955313 * safezoneW + safezoneX;<br/>
+	            y = 0.37 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudIcon: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_Icon;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.885 * safezoneW + safezoneX;<br/>
+	            y = 0.070 * safezoneH + safezoneY;<br/>
+	            w = 0.093 * safezoneW;<br/>
+	            h = 0.113 * safezoneH;<br/>
+	            colorText[] = {1,1,1,1};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudKills: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_Kills;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.931 * safezoneW + safezoneX;<br/>
+	            y = 0.256 * safezoneH + safezoneY;<br/>
+	            w = 0.037 * safezoneW;<br/>
+	            h = 0.047 * safezoneH;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudKillsZ_HS: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_KillsZ_HS;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.931 * safezoneW + safezoneX;<br/>
+	            y = 0.466 * safezoneH + safezoneY;<br/>
+	            w = 0.037 * safezoneW;<br/>
+	            h = 0.047 * safezoneH;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudKillsB: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_KillsB;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.931 * safezoneW + safezoneX;<br/>
+	            y = 0.326 * safezoneH + safezoneY;<br/>
+	            w = 0.037 * safezoneW;<br/>
+	            h = 0.047 * safezoneH;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudKillsZ: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_KillsZ;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.931 * safezoneW + safezoneX;<br/>
+	            y = 0.396 * safezoneH + safezoneY;<br/>
+	            w = 0.037 * safezoneW;<br/>
+	            h = 0.047 * safezoneH;<br/>
+	            colorText[] = {1,1,1,0.75};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudBorder: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_Border;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            //text = "images\icons\status_humanity_border.paa";<br/>
+	            text = "";<br/>
+	            x = 0.885 * safezoneW + safezoneX;<br/>
+	            y = 0.080 * safezoneH + safezoneY;<br/>
+	            w = 0.093 * safezoneW;<br/>
+	            h = 0.110 * safezoneH;<br/>
+	            colorText[] = {0,0,0,0.6};<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudHumanity: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_Humanity;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.9065 * safezoneW + safezoneX;<br/>
+	            y = 0.1630 * safezoneH + safezoneY;<br/>
+	            w = 0.050 * safezoneW;<br/>
+	            h = 0.064 * safezoneH;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {0.6875,0.6875,0.6875,1};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 4;<br/>
+	            class Attributes {<br/>
+	                align = "center";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_HudZ: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_Z;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.949513 * safezoneW + safezoneX;<br/>
+	            y = 0.44 * safezoneH + safezoneY;<br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {1,0,0,0.85};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_Blood: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_blood;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.920313 * safezoneW + safezoneX;<br/>
+	            y = 0.815 * safezoneH + safezoneY; <br/>
+	            w = 0.075;<br/>
+	            h = 0.10;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {1,0,0,0.85};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_Fps: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_fps;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.916313 * safezoneW + safezoneX;<br/>
+	            y = 0.905 * safezoneH + safezoneY;<br/>
+	            w = 0.21;<br/>
+	            h = 0.21;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {1,0,0,0.85};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_Serv: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_serv;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.845313 * safezoneW + safezoneX;<br/>
+	            y = 0.935 * safezoneH + safezoneY;<br/>
+	            w = 0.21;<br/>
+	            h = 0.21;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {1,0,0,0.85};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "right";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_Site: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_site;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.845313 * safezoneW + safezoneX;<br/>
+	            y = 0.965 * safezoneH + safezoneY;<br/>
+	            w = 0.21;<br/>
+	            h = 0.21;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {1,0,0,0.85};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "left";<br/>
+	            };<br/>
+	        };<br/>
+	        class Hud_ts: RscTextGUIK<br/>
+	        {<br/>
+	            idc = hud_ts;<br/>
+	            type = CT_STRUCTURED_TEXT;<br/>
+	            text = "";<br/>
+	            x = 0.845313 * safezoneW + safezoneX;<br/>
+	            y = 0.978 * safezoneH + safezoneY;<br/>
+	            w = 0.21;<br/>
+	            h = 0.21;<br/>
+	            size = 0.0275;<br/>
+	            sizeEx = 0.0275;<br/>
+	            colorText[] = {1,0,0,0.85};<br/>
+	            colorBackground[] = {0,0,0,0};<br/>
+	            shadow = 2;<br/>
+	            class Attributes {<br/>
+	                align = "left";<br/>
+	            };<br/>
+	        };<br/>
+	    };<br/>
+	};
+</p>
+<p>
+</p></blockquote><p>
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_272110_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272110"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272110" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272110" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272110&amp;title=playerhud.hpp" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment%26comment=272110&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Somehow you deleted a };
+ 
+
+
+	 
+ 
+" data-websharetitle="playerhud.hpp" data-webshareurl="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272110">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-272111"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_272111">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13111-3sten8igall/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/13111-3sten8igall/" rel="nofollow" title="Go to 3steN8igall's profile">
+<img alt="3steN8igall" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-13111.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/13111-3sten8igall/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13111-3sten8igall/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/13111-3sten8igall/" rel="nofollow" title="Go to 3steN8igall's profile"><span style="color:#">3steN8igall</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272111" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-04T20:17:10Z" title="02/04/16 08:17  PM">February 4, 2016</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13111-3sten8igall/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/13111-3sten8igall/" rel="nofollow" title="Go to 3steN8igall's profile">3steN8igall</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13111-3sten8igall/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/13111-3sten8igall/" rel="nofollow" title="Go to 3steN8igall's profile">
+<img alt="3steN8igall" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-13111.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/13111-3sten8igall/content/" rel="nofollow" title="141 posts">
+<i class="fa fa-comment"></i> 141
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc"> == "home" then addaction "zzzZZZzzz"</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="272111" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":13111,"username":"3steN8igall","timestamp":1454617030,"contentapp":"forums","contenttype":"forums","contentid":41464,"contentclass":"forums_Topic","contentcommentid":272111}' id="comment-272111_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-272111_wrap" href="#elControls_272111_menu" id="elControls_272111" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_272111_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=reportComment&amp;comment=272111" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_272111_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272111" id="elSharePost_272111" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272111" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-04T20:17:10Z" title="02/04/16 08:17  PM">February 4, 2016</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-ipsquote="" data-ipsquote-contentapp="forums" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="272110" data-ipsquote-contentid="41464" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1454614078" data-ipsquote-userid="34425" data-ipsquote-username="kelso000">
+<div class="ipsQuote_citation">
+		48 minutes ago, kelso000 said:
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			Somehow you deleted a };
+		</p>
+<p>
+			 
+		</p>
+<p>
+			class Server_Hud {<br/>
+			    idd = -1;<br/>
+			    fadeout=0;<br/>
+			    fadein=0;<br/>
+			    duration = 10e10;<br/>
+			    name= "Server_Hud";<br/>
+			    onLoad = "uiNamespace setVariable ['Server_Hud', _this select 0]";<br/>
+			    <br/>
+			        class controlsBackground {<br/>
+			        class ZSC_Status: Money_Status<br/>
+			        {<br/>
+			            idc = 4900<span style="color:#FF0000;"><span style="font-size:36px;"><strong>;</strong></span></span><br/>
+			            size = 0.040;<br/>
+			            x = safezoneX + (safezoneW -0.35);<br/>
+			            y = safezoneY + 0.42 * safezoneW;<br/>
+			            w = 0.35;<br/>
+			            h = 0.20;
+		</p>
+<p>
+<span style="color:#FF0000;"><span style="font-size:28px;"><strong>};</strong></span></span>
+</p>
+<p>
+<br/>
+			        class Attributes {<br/>
+			                align = "right";<br/>
+			            };<br/>
+			        };
+		</p>
+<p>
+			 
+		</p>
+</div>
+</blockquote>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_272111_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272111"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272111" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272111" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272111&amp;title=playerhud.hpp" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment%26comment=272111&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="" data-websharetitle="playerhud.hpp" data-webshareurl="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272111">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-272137"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_272137">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">
+<img alt="lucho" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif"/>
+</a>
+<a href="https://epochmod.com/forum/profile/16425-lucho/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile"><span style="color:#">lucho</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272137" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-05T12:14:57Z" title="02/05/16 12:14  PM">February 5, 2016</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F41464-playerhudhpp%252F" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">lucho</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/16425-lucho/?do=hovercard" data-ipshover-width="370" href="../../profile/16425-lucho/index.html" rel="nofollow" title="Go to lucho's profile">
+<img alt="lucho" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/16425-lucho/content/" rel="nofollow" title="89 posts">
+<i class="fa fa-comment"></i> 89
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="272137" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":16425,"username":"lucho","timestamp":1454674497,"contentapp":"forums","contenttype":"forums","contentid":41464,"contentclass":"forums_Topic","contentcommentid":272137}' id="comment-272137_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-272137_wrap" href="#elControls_272137_menu" id="elControls_272137" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_272137_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=reportComment&amp;comment=272137" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_272137_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272137" id="elSharePost_272137" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272137" rel="nofollow">Posted <time data-short="9 yr" datetime="2016-02-05T12:14:57Z" title="02/05/16 12:14  PM">February 5, 2016</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>
+	thanks but now is new error ,,,,
+</p>
+<blockquote class="ipsQuote" data-ipsquote="">
+<div class="ipsQuote_citation">
+		Quote
+	</div>
+<div class="ipsQuote_contents">
+<p>
+			ErrorMessage: File mpmissions\DayZ_Epoch_11.Chernarus\description.ext, line 153: /RscTitles/: Missing '}'
+		</p>
+</div>
+</blockquote>
+<p>
+	 
+</p>
+<p>
+	 
+</p>
+<pre class="ipsCode prettyprint lang-html prettyprinted">
+<span>respawn = "BASE";
+respawndelay = 5;
+onLoadMission= "DayZ Epoch Chernarus";
+OnLoadIntro = "Welcome to DayZ Epoch Chernarus";
+OnLoadIntroTime = False;
+OnLoadMissionTime = False;
+disabledAI = true;
+disableChannels[]={0,2,6};
+enableItemsDropping = 0;
+
+briefing = 0;
+debriefing = 0;
+
+onPauseScript = "c\DupingFix.sqf";
+loadScreen = "\z\addons\dayz_code\gui\dayz_logo_ca.paa";
+
+class Header
+{
+ gameType = COOP;            //DM, Team, Coop, ...
+ minPlayers = 1;             //min # of players the mission supports
+ maxPlayers = 100;            //Max # of players the mission supports
+};
+
+aiKills = 1;
+diagRadio = 1;
+diagHit = 1;
+
+class RscText
+{
+	type = 0;
+	idc = -1;
+	x = 0;
+	y = 0;
+	h = 0.037;
+	w = 0.3;
+	style = 0x100; 
+	font = Zeppelin32;
+	SizeEx = 0.03921;
+	colorText[] = {1,1,1,1};
+	colorBackground[] = {0, 0, 0, 0};
+	linespacing = 1;
+};
+class RscPicture
+{
+	access=0;
+	type=0;
+	idc=-1;
+	style=48;
+	colorBackground[]={0,0,0,0};
+	colorText[]={1,1,1,1};
+	font="TahomaB";
+	sizeEx=0;
+	lineSpacing=0;
+	text="";
+};
+
+class RscLoadingText : RscText
+{
+	style = 2;
+	x = 0.323532;
+	y = 0.666672;
+	w = 0.352944;
+	h = 0.039216;
+	sizeEx = 0.03921;
+	colorText[] = {0.543,0.5742,0.4102,1.0};
+};
+class RscProgress
+{
+	x = 0.344;
+	y = 0.619;
+	w = 0.313726;
+	h = 0.0261438;
+	texture = "\ca\ui\data\loadscreen_progressbar_ca.paa";
+	colorFrame[] = {0,0,0,0};
+	colorBar[] = {1,1,1,1};
+};
+class RscProgressNotFreeze
+{
+	idc = -1;
+	type = 45;
+	style = 0;
+	x = 0.022059;
+	y = 0.911772;
+	w = 0.029412;
+	h = 0.039216;
+	texture = "#(argb,8,8,3)color(0,0,0,0)";
+};
+class DayZ_loadingScreen
+{ 
+	idd = -1;
+	duration = 10e10;
+	fadein = 0;
+	fadeout = 0;
+	name = "loading screen";
+	class controlsBackground
+	{
+		class blackBG : RscText
+		{
+			x = safezoneX;
+			y = safezoneY;
+			w = safezoneW;
+			h = safezoneH;
+			text = "";
+			colorText[] = {0,0,0,0};
+			colorBackground[] = {0,0,0,1};
+		};
+	};
+	class controls
+	{
+		class Title1 : RscLoadingText
+		{
+			text = "$STR_LOADING"; // "Loading" text in the middle of the screen
+		};
+		class CA_Progress : RscProgress // progress bar, has to have idc 104
+		{
+			idc = 104;
+			type = 8; // CT_PROGRESS
+			style = 0; // ST_SINGLE
+			texture = "\ca\ui\data\loadscreen_progressbar_ca.paa";
+		};
+		class CA_Progress2 : RscProgressNotFreeze // progress bar that will go reverse
+		{
+			idc = 103;
+		};
+		class Name2: RscText // the text on the top-left
+		{
+			idc = 101;
+			x = 0.05;
+			y = 0.029412;
+			w = 0.9;
+			h = 0.04902;
+			text = "";
+			sizeEx = 0.05;
+			colorText[] = {0.543,0.5742,0.4102,1.0};
+		};
+	};
+};</span></pre>
+<p>
+	 
+</p>
+<p>
+	 
+</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_272137_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272137"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272137" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272137" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F%3Fdo%3DfindComment%26comment%3D272137&amp;title=playerhud.hpp" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment%26comment=272137&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='thanks but now is new error ,,,,
+ 
+
+
+
+
+	 
+ 
+
+
+	 
+ 
+
+
+respawn = "BASE";
+respawndelay = 5;
+onLoadMission= "DayZ Epoch Chernarus";
+OnLoadIntro = "Welcome to DayZ Epoch Chernarus";
+OnLoadIntroTime = False;
+OnLoadMissionTime = False;
+disabledAI = true;
+disableChannels[]={0,2,6};
+enableItemsDropping = 0;
+
+briefing = 0;
+debriefing = 0;
+
+onPauseScript = "c\DupingFix.sqf";
+loadScreen = "\z\addons\dayz_code\gui\dayz_logo_ca.paa";
+
+class Header
+{
+ gameType = COOP;            //DM, Team, Coop, ...
+ minPlayers = 1;             //min # of players the mission supports
+ maxPlayers = 100;            //Max # of players the mission supports
+};
+
+aiKills = 1;
+diagRadio = 1;
+diagHit = 1;
+
+class RscText
+{
+	type = 0;
+	idc = -1;
+	x = 0;
+	y = 0;
+	h = 0.037;
+	w = 0.3;
+	style = 0x100; 
+	font = Zeppelin32;
+	SizeEx = 0.03921;
+	colorText[] = {1,1,1,1};
+	colorBackground[] = {0, 0, 0, 0};
+	linespacing = 1;
+};
+class RscPicture
+{
+	access=0;
+	type=0;
+	idc=-1;
+	style=48;
+	colorBackground[]={0,0,0,0};
+	colorText[]={1,1,1,1};
+	font="TahomaB";
+	sizeEx=0;
+	lineSpacing=0;
+	text="";
+};
+
+class RscLoadingText : RscText
+{
+	style = 2;
+	x = 0.323532;
+	y = 0.666672;
+	w = 0.352944;
+	h = 0.039216;
+	sizeEx = 0.03921;
+	colorText[] = {0.543,0.5742,0.4102,1.0};
+};
+class RscProgress
+{
+	x = 0.344;
+	y = 0.619;
+	w = 0.313726;
+	h = 0.0261438;
+	texture = "\ca\ui\data\loadscreen_progressbar_ca.paa";
+	colorFrame[] = {0,0,0,0};
+	colorBar[] = {1,1,1,1};
+};
+class RscProgressNotFreeze
+{
+	idc = -1;
+	type = 45;
+	style = 0;
+	x = 0.022059;
+	y = 0.911772;
+	w = 0.029412;
+	h = 0.039216;
+	texture = "#(argb,8,8,3)color(0,0,0,0)";
+};
+class DayZ_loadingScreen
+{ 
+	idd = -1;
+	duration = 10e10;
+	fadein = 0;
+	fadeout = 0;
+	name = "loading screen";
+	class controlsBackground
+	{
+		class blackBG : RscText
+		{
+			x = safezoneX;
+			y = safezoneY;
+			w = safezoneW;
+			h = safezoneH;
+			text = "";
+			colorText[] = {0,0,0,0};
+			colorBackground[] = {0,0,0,1};
+		};
+	};
+	class controls
+	{
+		class Title1 : RscLoadingText
+		{
+			text = "$STR_LOADING"; // "Loading" text in the middle of the screen
+		};
+		class CA_Progress : RscProgress // progress bar, has to have idc 104
+		{
+			idc = 104;
+			type = 8; // CT_PROGRESS
+			style = 0; // ST_SINGLE
+			texture = "\ca\ui\data\loadscreen_progressbar_ca.paa";
+		};
+		class CA_Progress2 : RscProgressNotFreeze // progress bar that will go reverse
+		{
+			idc = 103;
+		};
+		class Name2: RscText // the text on the top-left
+		{
+			idc = 101;
+			x = 0.05;
+			y = 0.029412;
+			w = 0.9;
+			h = 0.04902;
+			text = "";
+			sizeEx = 0.05;
+			colorText[] = {0.543,0.5742,0.4102,1.0};
+		};
+	};
+};
+
+
+	 
+ 
+
+
+	 
+ 
+' data-websharetitle="playerhud.hpp" data-webshareurl="https://epochmod.com/forum/topic/41464-playerhudhpp/?do=findComment&amp;comment=272137">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy80MTQ2NC1wbGF5ZXJodWRocHAvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F41464-playerhudhpp%2F&amp;title=playerhud.hpp" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/41464-playerhudhpp/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="playerhud.hpp" data-websharetitle="playerhud.hpp" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="41464">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					playerhud.hpp
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "playerhud.hpp",
+    "headline": "playerhud.hpp",
+    "text": "RPT\n \n\n\n\n\n\t\u00a0\n \n\n\n\tplayerhud.hpp\n \n\n\n\t\u00a0\n \n\n\n//\t@file Version: 1.0\n//\t@file Name: playerHud.hpp\n//\t@file Author: [zDT] Andrew\n//\t@file Info: Credits to DayZ Epoch/Origins All rights to them\n//\t@file Info: Images used here are not altered from original content\n//\t@file Info: The images are just reused in the same form as original\nclass z_RscText {\n\n\tidc = -1;\n\ttype = CT_STATIC;\n\tstyle = ST_LEFT;\n\tcolorBackground[] = { 1 , 1 , 1 , 0 };\n\tcolorText[] = { 1 , 1 , 1 , 1 };\n\tfont = FontM;\n\tsizeEx = 0.025;\n\th = 0.25;\n\ttext = \"\";\n};\nclass Money_Status\n{\n\ttype = 13;\n\tidc = -1;\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {1,1,1,1};\n\tfont = \"Zeppelin32\";\n\tsizeEx = 0.023;\n\tlineSpacing = 3;\n\ttext = \"\";\n\tstyle = 0x02;\n\tx = 0;\n\ty = 0;\n\tw = 0.2;\n\th = 0.15;\n};\nclass RscPictureGUI\n{\n\taccess = 0;\n\ttype = 0;\n\tidc = -1;\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {0.38,0.63,0.26,0.75};\n\tfont = \"TahomaB\";\n\tsizeEx = 0;\n\tlineSpacing = 0;\n\ttext = \"\";\n\tstyle = \"0x30 + 0x100 + 0x800\";\n\tx = 0;\n\ty = 0;\n\tw = 0.2;\n\th = 0.15;\n};\n\nclass RscTextGUIK {\n\ttype = 0;\n\tidc = -1;\n\tstyle = 0x02;\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {1, 1, 1, 0.5};\n\tfont = \"TahomaB\";\n\tsize = 0.03;\n\tsizeEx = 0.03;\n\tx = 0;\n\ty = 0;\n\tw = 0.1;\n\th = 0.2;\n};\nclass RscStructuredText {\n\tclass Attributes;\n};\nclass RscStructuredTextGUI: RscStructuredText\n{\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {1,1,1,1};\n\tclass Attributes: Attributes\n\t{\n\t\talign = \"center\";\n\t\tvalign = \"middle\";\n\t};\n};\nclass DZGMHud_Rsc\n{\n\tidd = -1;\n\tmovingEnable = 1;\n\tenableSimulation = 1;\n\tenableDisplay = 1;\n\n\tonLoad = \"uiNamespace setVariable [\u0027dzgmHudDisp\u0027,_this select 0];\";\n\n\tduration = 99999999999999999;\n\tfadein  = 0;\n\tfadeout = 0;\n\tclass controls\n\t{\n\t\tclass Icons : w_RscStructuredText\n\t\t{\n\t\t\tidc = -1;\n\t\t\tstyle = 0x00;\n\t\t\tx = .9;\n\t\t\ty = .9;\n\t\t\tw = .9;\n\t\t\th = .9;\n\t\t\tsize = .08;\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tcolortext[] = {0,0,0,.7};\n\t\t\ttext =\"\";\n\t\t\tclass Attributes {\n\t\t\t\talign = \"left\";\n\t\t\t};\t\t\n\t\t};\n\t\tclass PlayerIcon00:Icons {idc = 46300 +  0;};\n\t\tclass PlayerIcon01:Icons {idc = 46300 +  1;};\n\t\tclass PlayerIcon02:Icons {idc = 46300 +  2;};\n\t\tclass PlayerIcon03:Icons {idc = 46300 +  3;};\n\t\tclass PlayerIcon04:Icons {idc = 46300 +  4;};\n\t\tclass PlayerIcon05:Icons {idc = 46300 +  5;};\n\t\tclass PlayerIcon06:Icons {idc = 46300 +  6;};\n\t\tclass PlayerIcon07:Icons {idc = 46300 +  7;};\n\t\tclass PlayerIcon08:Icons {idc = 46300 +  8;};\n\t\tclass PlayerIcon09:Icons {idc = 46300 +  9;};\n\t\tclass PlayerIcon10:Icons {idc = 46300 + 10;};\n\t\tclass PlayerIcon11:Icons {idc = 46300 + 11;};\n\t\tclass PlayerIcon12:Icons {idc = 46300 + 12;};\n\t\tclass PlayerIcon13:Icons {idc = 46300 + 13;};\n\t\tclass PlayerIcon14:Icons {idc = 46300 + 14;};\n\t\tclass PlayerIcon15:Icons {idc = 46300 + 15;};\n\t\tclass PlayerIcon16:Icons {idc = 46300 + 16;};\n\t\tclass PlayerIcon17:Icons {idc = 46300 + 17;};\n\t\tclass PlayerIcon18:Icons {idc = 46300 + 18;};\n\t\tclass PlayerIcon19:Icons {idc = 46300 + 19;};\n\t\tclass PlayerIcon20:Icons {idc = 46300 + 20;};\n\t\tclass PlayerIcon21:Icons {idc = 46300 + 21;};\n\t\tclass PlayerIcon22:Icons {idc = 46300 + 22;};\n\t\tclass PlayerIcon23:Icons {idc = 46300 + 23;};\n\t\tclass PlayerIcon24:Icons {idc = 46300 + 24;};\n\t\tclass PlayerIcon25:Icons {idc = 46300 + 25;};\n\t\tclass PlayerIcon26:Icons {idc = 46300 + 26;};\n\t\tclass PlayerIcon27:Icons {idc = 46300 + 27;};\n\t\tclass PlayerIcon28:Icons {idc = 46300 + 28;};\n\t\tclass PlayerIcon29:Icons {idc = 46300 + 29;};\n\t\tclass PlayerIcon30:Icons {idc = 46300 + 30;};\n\t\tclass PlayerIcon31:Icons {idc = 46300 + 31;};\n\t\tclass PlayerIcon32:Icons {idc = 46300 + 32;};\n\t\tclass PlayerIcon33:Icons {idc = 46300 + 33;};\n\t\tclass PlayerIcon34:Icons {idc = 46300 + 34;};\n\t\tclass PlayerIcon35:Icons {idc = 46300 + 35;};\n\t\tclass PlayerIcon36:Icons {idc = 46300 + 36;};\n\t\tclass PlayerIcon37:Icons {idc = 46300 + 37;};\n\t\tclass PlayerIcon38:Icons {idc = 46300 + 38;};\n\t\tclass PlayerIcon39:Icons {idc = 46300 + 39;};\n\t\tclass PlayerIcon40:Icons {idc = 46300 + 40;};\n\t};\n};\n\n#define hud_Survivor 3600\n#define hud_HS 3601\n#define hud_Bandit 3602\n#define hud_Zombie 3603\n#define hud_Icon 3604\n#define hud_Kills 3605\n#define hud_KillsZ_HS 3606\n#define hud_KillsB 3607\n#define hud_KillsZ 3608\n#define hud_Border 3609\n#define hud_Humanity 3610\n#define hud_Z 3611\n#define hud_blood 3612\n#define hud_fps 3613\n#define hud_serv 3614\n#define hud_site 3615\n#define Hud_BG1 3616\n#define Hud_BG2 3617\n#define Hud_BG3 3618\n#define Hud_BG4 3619\n#define hud_ts 3620\n\nclass Server_Hud {\n\tidd = -1;\n    fadeout=0;\n    fadein=0;\n\tduration = 10e10;\n\tname= \"Server_Hud\";\n\tonLoad = \"uiNamespace setVariable [\u0027Server_Hud\u0027, _this select 0]\";\n\t\n\t\tclass controlsBackground {\n\t\tclass ZSC_Status: Money_Status\n\t\t{\n\t\t    idc = 4900\n\t\t    size = 0.040;\n\t\t\tx = safezoneX + (safezoneW -0.35);\n        \ty = safezoneY + 0.42 * safezoneW;\n\t\t\tw = 0.35;\n\t\t\th = 0.20;\n\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG1: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG1;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.23  * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG2: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG2;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.3 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG3: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG3;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.37 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG4: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG4;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.44 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudSurvivor: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_Survivor;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\st_humanity_survivor.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.23 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.7};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudHS: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_HS;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\zombie.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.44 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudBandit: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_Bandit;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\st_humanity_bandit.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.3 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudZombie: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_Zombie;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\zombie.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.37 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudIcon: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Icon;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.885 * safezoneW + safezoneX;\n\t\t\ty = 0.070 * safezoneH + safezoneY;\n\t\t\tw = 0.093 * safezoneW;\n\t\t\th = 0.113 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,1};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKills: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Kills;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.256 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKillsZ_HS: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_KillsZ_HS;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.466 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKillsB: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_KillsB;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.326 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKillsZ: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_KillsZ;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.396 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudBorder: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Border;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\t//text = \"images\\icons\\status_humanity_border.paa\";\n\t\t\ttext = \"\";\n\t\t\tx = 0.885 * safezoneW + safezoneX;\n\t\t\ty = 0.080 * safezoneH + safezoneY;\n\t\t\tw = 0.093 * safezoneW;\n\t\t\th = 0.110 * safezoneH;\n\t\t\tcolorText[] = {0,0,0,0.6};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudHumanity: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Humanity;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.9065 * safezoneW + safezoneX;\n\t\t\ty = 0.1630 * safezoneH + safezoneY;\n\t\t\tw = 0.050 * safezoneW;\n\t\t\th = 0.064 * safezoneH;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {0.6875,0.6875,0.6875,1};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 4;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudZ: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Z;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.949513 * safezoneW + safezoneX;\n\t\t\ty = 0.44 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Blood: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_blood;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.920313 * safezoneW + safezoneX;\n\t\t\ty = 0.815 * safezoneH + safezoneY; \n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Fps: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_fps;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.916313 * safezoneW + safezoneX;\n\t\t\ty = 0.905 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Serv: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_serv;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.845313 * safezoneW + safezoneX;\n\t\t\ty = 0.935 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Site: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_site;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.845313 * safezoneW + safezoneX;\n\t\t\ty = 0.965 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"left\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_ts: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_ts;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.845313 * safezoneW + safezoneX;\n\t\t\ty = 0.978 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"left\";\n\t\t\t};\n\t\t};\n\t};\n};\n\n\n\tcan anybody help me?\n \n",
+    "dateCreated": "2016-02-04T17:10:09+0000",
+    "datePublished": "2016-02-04T17:10:09+0000",
+    "dateModified": "2016-02-05T12:14:57+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif",
+    "author": {
+        "@type": "Person",
+        "name": "lucho",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif",
+        "url": "https://epochmod.com/forum/profile/16425-lucho/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 803
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 3
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/41464-playerhudhpp/",
+    "url": "https://epochmod.com/forum/topic/41464-playerhudhpp/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "playerhud.hpp",
+        "text": "RPT\n \n\n\n\n\n\t\u00a0\n \n\n\n\tplayerhud.hpp\n \n\n\n\t\u00a0\n \n\n\n//\t@file Version: 1.0\n//\t@file Name: playerHud.hpp\n//\t@file Author: [zDT] Andrew\n//\t@file Info: Credits to DayZ Epoch/Origins All rights to them\n//\t@file Info: Images used here are not altered from original content\n//\t@file Info: The images are just reused in the same form as original\nclass z_RscText {\n\n\tidc = -1;\n\ttype = CT_STATIC;\n\tstyle = ST_LEFT;\n\tcolorBackground[] = { 1 , 1 , 1 , 0 };\n\tcolorText[] = { 1 , 1 , 1 , 1 };\n\tfont = FontM;\n\tsizeEx = 0.025;\n\th = 0.25;\n\ttext = \"\";\n};\nclass Money_Status\n{\n\ttype = 13;\n\tidc = -1;\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {1,1,1,1};\n\tfont = \"Zeppelin32\";\n\tsizeEx = 0.023;\n\tlineSpacing = 3;\n\ttext = \"\";\n\tstyle = 0x02;\n\tx = 0;\n\ty = 0;\n\tw = 0.2;\n\th = 0.15;\n};\nclass RscPictureGUI\n{\n\taccess = 0;\n\ttype = 0;\n\tidc = -1;\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {0.38,0.63,0.26,0.75};\n\tfont = \"TahomaB\";\n\tsizeEx = 0;\n\tlineSpacing = 0;\n\ttext = \"\";\n\tstyle = \"0x30 + 0x100 + 0x800\";\n\tx = 0;\n\ty = 0;\n\tw = 0.2;\n\th = 0.15;\n};\n\nclass RscTextGUIK {\n\ttype = 0;\n\tidc = -1;\n\tstyle = 0x02;\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {1, 1, 1, 0.5};\n\tfont = \"TahomaB\";\n\tsize = 0.03;\n\tsizeEx = 0.03;\n\tx = 0;\n\ty = 0;\n\tw = 0.1;\n\th = 0.2;\n};\nclass RscStructuredText {\n\tclass Attributes;\n};\nclass RscStructuredTextGUI: RscStructuredText\n{\n\tcolorBackground[] = {0,0,0,0};\n\tcolorText[] = {1,1,1,1};\n\tclass Attributes: Attributes\n\t{\n\t\talign = \"center\";\n\t\tvalign = \"middle\";\n\t};\n};\nclass DZGMHud_Rsc\n{\n\tidd = -1;\n\tmovingEnable = 1;\n\tenableSimulation = 1;\n\tenableDisplay = 1;\n\n\tonLoad = \"uiNamespace setVariable [\u0027dzgmHudDisp\u0027,_this select 0];\";\n\n\tduration = 99999999999999999;\n\tfadein  = 0;\n\tfadeout = 0;\n\tclass controls\n\t{\n\t\tclass Icons : w_RscStructuredText\n\t\t{\n\t\t\tidc = -1;\n\t\t\tstyle = 0x00;\n\t\t\tx = .9;\n\t\t\ty = .9;\n\t\t\tw = .9;\n\t\t\th = .9;\n\t\t\tsize = .08;\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tcolortext[] = {0,0,0,.7};\n\t\t\ttext =\"\";\n\t\t\tclass Attributes {\n\t\t\t\talign = \"left\";\n\t\t\t};\t\t\n\t\t};\n\t\tclass PlayerIcon00:Icons {idc = 46300 +  0;};\n\t\tclass PlayerIcon01:Icons {idc = 46300 +  1;};\n\t\tclass PlayerIcon02:Icons {idc = 46300 +  2;};\n\t\tclass PlayerIcon03:Icons {idc = 46300 +  3;};\n\t\tclass PlayerIcon04:Icons {idc = 46300 +  4;};\n\t\tclass PlayerIcon05:Icons {idc = 46300 +  5;};\n\t\tclass PlayerIcon06:Icons {idc = 46300 +  6;};\n\t\tclass PlayerIcon07:Icons {idc = 46300 +  7;};\n\t\tclass PlayerIcon08:Icons {idc = 46300 +  8;};\n\t\tclass PlayerIcon09:Icons {idc = 46300 +  9;};\n\t\tclass PlayerIcon10:Icons {idc = 46300 + 10;};\n\t\tclass PlayerIcon11:Icons {idc = 46300 + 11;};\n\t\tclass PlayerIcon12:Icons {idc = 46300 + 12;};\n\t\tclass PlayerIcon13:Icons {idc = 46300 + 13;};\n\t\tclass PlayerIcon14:Icons {idc = 46300 + 14;};\n\t\tclass PlayerIcon15:Icons {idc = 46300 + 15;};\n\t\tclass PlayerIcon16:Icons {idc = 46300 + 16;};\n\t\tclass PlayerIcon17:Icons {idc = 46300 + 17;};\n\t\tclass PlayerIcon18:Icons {idc = 46300 + 18;};\n\t\tclass PlayerIcon19:Icons {idc = 46300 + 19;};\n\t\tclass PlayerIcon20:Icons {idc = 46300 + 20;};\n\t\tclass PlayerIcon21:Icons {idc = 46300 + 21;};\n\t\tclass PlayerIcon22:Icons {idc = 46300 + 22;};\n\t\tclass PlayerIcon23:Icons {idc = 46300 + 23;};\n\t\tclass PlayerIcon24:Icons {idc = 46300 + 24;};\n\t\tclass PlayerIcon25:Icons {idc = 46300 + 25;};\n\t\tclass PlayerIcon26:Icons {idc = 46300 + 26;};\n\t\tclass PlayerIcon27:Icons {idc = 46300 + 27;};\n\t\tclass PlayerIcon28:Icons {idc = 46300 + 28;};\n\t\tclass PlayerIcon29:Icons {idc = 46300 + 29;};\n\t\tclass PlayerIcon30:Icons {idc = 46300 + 30;};\n\t\tclass PlayerIcon31:Icons {idc = 46300 + 31;};\n\t\tclass PlayerIcon32:Icons {idc = 46300 + 32;};\n\t\tclass PlayerIcon33:Icons {idc = 46300 + 33;};\n\t\tclass PlayerIcon34:Icons {idc = 46300 + 34;};\n\t\tclass PlayerIcon35:Icons {idc = 46300 + 35;};\n\t\tclass PlayerIcon36:Icons {idc = 46300 + 36;};\n\t\tclass PlayerIcon37:Icons {idc = 46300 + 37;};\n\t\tclass PlayerIcon38:Icons {idc = 46300 + 38;};\n\t\tclass PlayerIcon39:Icons {idc = 46300 + 39;};\n\t\tclass PlayerIcon40:Icons {idc = 46300 + 40;};\n\t};\n};\n\n#define hud_Survivor 3600\n#define hud_HS 3601\n#define hud_Bandit 3602\n#define hud_Zombie 3603\n#define hud_Icon 3604\n#define hud_Kills 3605\n#define hud_KillsZ_HS 3606\n#define hud_KillsB 3607\n#define hud_KillsZ 3608\n#define hud_Border 3609\n#define hud_Humanity 3610\n#define hud_Z 3611\n#define hud_blood 3612\n#define hud_fps 3613\n#define hud_serv 3614\n#define hud_site 3615\n#define Hud_BG1 3616\n#define Hud_BG2 3617\n#define Hud_BG3 3618\n#define Hud_BG4 3619\n#define hud_ts 3620\n\nclass Server_Hud {\n\tidd = -1;\n    fadeout=0;\n    fadein=0;\n\tduration = 10e10;\n\tname= \"Server_Hud\";\n\tonLoad = \"uiNamespace setVariable [\u0027Server_Hud\u0027, _this select 0]\";\n\t\n\t\tclass controlsBackground {\n\t\tclass ZSC_Status: Money_Status\n\t\t{\n\t\t    idc = 4900\n\t\t    size = 0.040;\n\t\t\tx = safezoneX + (safezoneW -0.35);\n        \ty = safezoneY + 0.42 * safezoneW;\n\t\t\tw = 0.35;\n\t\t\th = 0.20;\n\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG1: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG1;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.23  * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG2: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG2;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.3 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG3: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG3;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.37 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_BG4: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_BG4;\n\t\t\tsize = 1;\n\t\t\ttext = \"\\z\\addons\\dayz_code\\gui\\status\\status_bg.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.44 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudSurvivor: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_Survivor;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\st_humanity_survivor.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.23 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.7};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudHS: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_HS;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\zombie.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.44 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudBandit: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_Bandit;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\st_humanity_bandit.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.3 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudZombie: RscPictureGUI\n\t\t{\n\t\t\tidc = hud_Zombie;\n\t\t\tsize = 1;\n\t\t\ttext = \"images\\icons\\zombie.paa\";\n\t\t\tx = 0.955313 * safezoneW + safezoneX;\n\t\t\ty = 0.37 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudIcon: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Icon;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.885 * safezoneW + safezoneX;\n\t\t\ty = 0.070 * safezoneH + safezoneY;\n\t\t\tw = 0.093 * safezoneW;\n\t\t\th = 0.113 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,1};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKills: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Kills;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.256 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKillsZ_HS: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_KillsZ_HS;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.466 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKillsB: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_KillsB;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.326 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudKillsZ: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_KillsZ;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.931 * safezoneW + safezoneX;\n\t\t\ty = 0.396 * safezoneH + safezoneY;\n\t\t\tw = 0.037 * safezoneW;\n\t\t\th = 0.047 * safezoneH;\n\t\t\tcolorText[] = {1,1,1,0.75};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudBorder: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Border;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\t//text = \"images\\icons\\status_humanity_border.paa\";\n\t\t\ttext = \"\";\n\t\t\tx = 0.885 * safezoneW + safezoneX;\n\t\t\ty = 0.080 * safezoneH + safezoneY;\n\t\t\tw = 0.093 * safezoneW;\n\t\t\th = 0.110 * safezoneH;\n\t\t\tcolorText[] = {0,0,0,0.6};\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudHumanity: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Humanity;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.9065 * safezoneW + safezoneX;\n\t\t\ty = 0.1630 * safezoneH + safezoneY;\n\t\t\tw = 0.050 * safezoneW;\n\t\t\th = 0.064 * safezoneH;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {0.6875,0.6875,0.6875,1};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 4;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"center\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_HudZ: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_Z;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.949513 * safezoneW + safezoneX;\n\t\t\ty = 0.44 * safezoneH + safezoneY;\n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Blood: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_blood;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.920313 * safezoneW + safezoneX;\n\t\t\ty = 0.815 * safezoneH + safezoneY; \n\t\t\tw = 0.075;\n\t\t\th = 0.10;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Fps: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_fps;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.916313 * safezoneW + safezoneX;\n\t\t\ty = 0.905 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Serv: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_serv;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.845313 * safezoneW + safezoneX;\n\t\t\ty = 0.935 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"right\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_Site: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_site;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.845313 * safezoneW + safezoneX;\n\t\t\ty = 0.965 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"left\";\n\t\t\t};\n\t\t};\n\t\tclass Hud_ts: RscTextGUIK\n\t\t{\n\t\t\tidc = hud_ts;\n\t\t\ttype = CT_STRUCTURED_TEXT;\n\t\t\ttext = \"\";\n\t\t\tx = 0.845313 * safezoneW + safezoneX;\n\t\t\ty = 0.978 * safezoneH + safezoneY;\n\t\t\tw = 0.21;\n\t\t\th = 0.21;\n\t\t\tsize = 0.0275;\n\t\t\tsizeEx = 0.0275;\n\t\t\tcolorText[] = {1,0,0,0.85};\n\t\t\tcolorBackground[] = {0,0,0,0};\n\t\t\tshadow = 2;\n\t\t\tclass Attributes {\n\t\t\t\talign = \"left\";\n\t\t\t};\n\t\t};\n\t};\n};\n\n\n\tcan anybody help me?\n \n",
+        "answerCount": 3,
+        "dateCreated": "2016-02-04T17:10:09+0000",
+        "author": {
+            "@type": "Person",
+            "name": "lucho"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/41464-playerhudhpp/#comment-272110",
+                "url": "https://epochmod.com/forum/topic/41464-playerhudhpp/#comment-272110",
+                "author": {
+                    "@type": "Person",
+                    "name": "kelso000",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2015_10/avatar_1.jpg.5cb2fa48d0dcf49c7cf12788dce59443.thumb.jpg.09f5ecdf840d7168edaf54459660f4ed.jpg",
+                    "url": "https://epochmod.com/forum/profile/34425-kelso000/"
+                },
+                "dateCreated": "2016-02-04T19:27:58+0000",
+                "text": "Somehow you deleted a };\n \n\n\n\t \n \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/41464-playerhudhpp/#comment-272137",
+                "url": "https://epochmod.com/forum/topic/41464-playerhudhpp/#comment-272137",
+                "author": {
+                    "@type": "Person",
+                    "name": "lucho",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif",
+                    "url": "https://epochmod.com/forum/profile/16425-lucho/"
+                },
+                "dateCreated": "2016-02-05T12:14:57+0000",
+                "text": "thanks but now is new error ,,,,\n \n\n\n\n\n\t\u00a0\n \n\n\n\t\u00a0\n \n\n\nrespawn = \"BASE\";\nrespawndelay = 5;\nonLoadMission= \"DayZ Epoch Chernarus\";\nOnLoadIntro = \"Welcome to DayZ Epoch Chernarus\";\nOnLoadIntroTime = False;\nOnLoadMissionTime = False;\ndisabledAI = true;\ndisableChannels[]={0,2,6};\nenableItemsDropping = 0;\n\nbriefing = 0;\ndebriefing = 0;\n\nonPauseScript = \"c\\DupingFix.sqf\";\nloadScreen = \"\\z\\addons\\dayz_code\\gui\\dayz_logo_ca.paa\";\n\nclass Header\n{\n gameType = COOP;            //DM, Team, Coop, ...\n minPlayers = 1;             //min # of players the mission supports\n maxPlayers = 100;            //Max # of players the mission supports\n};\n\naiKills = 1;\ndiagRadio = 1;\ndiagHit = 1;\n\nclass RscText\n{\n\ttype = 0;\n\tidc = -1;\n\tx = 0;\n\ty = 0;\n\th = 0.037;\n\tw = 0.3;\n\tstyle = 0x100; \n\tfont = Zeppelin32;\n\tSizeEx = 0.03921;\n\tcolorText[] = {1,1,1,1};\n\tcolorBackground[] = {0, 0, 0, 0};\n\tlinespacing = 1;\n};\nclass RscPicture\n{\n\taccess=0;\n\ttype=0;\n\tidc=-1;\n\tstyle=48;\n\tcolorBackground[]={0,0,0,0};\n\tcolorText[]={1,1,1,1};\n\tfont=\"TahomaB\";\n\tsizeEx=0;\n\tlineSpacing=0;\n\ttext=\"\";\n};\n\nclass RscLoadingText : RscText\n{\n\tstyle = 2;\n\tx = 0.323532;\n\ty = 0.666672;\n\tw = 0.352944;\n\th = 0.039216;\n\tsizeEx = 0.03921;\n\tcolorText[] = {0.543,0.5742,0.4102,1.0};\n};\nclass RscProgress\n{\n\tx = 0.344;\n\ty = 0.619;\n\tw = 0.313726;\n\th = 0.0261438;\n\ttexture = \"\\ca\\ui\\data\\loadscreen_progressbar_ca.paa\";\n\tcolorFrame[] = {0,0,0,0};\n\tcolorBar[] = {1,1,1,1};\n};\nclass RscProgressNotFreeze\n{\n\tidc = -1;\n\ttype = 45;\n\tstyle = 0;\n\tx = 0.022059;\n\ty = 0.911772;\n\tw = 0.029412;\n\th = 0.039216;\n\ttexture = \"#(argb,8,8,3)color(0,0,0,0)\";\n};\nclass DayZ_loadingScreen\n{ \n\tidd = -1;\n\tduration = 10e10;\n\tfadein = 0;\n\tfadeout = 0;\n\tname = \"loading screen\";\n\tclass controlsBackground\n\t{\n\t\tclass blackBG : RscText\n\t\t{\n\t\t\tx = safezoneX;\n\t\t\ty = safezoneY;\n\t\t\tw = safezoneW;\n\t\t\th = safezoneH;\n\t\t\ttext = \"\";\n\t\t\tcolorText[] = {0,0,0,0};\n\t\t\tcolorBackground[] = {0,0,0,1};\n\t\t};\n\t};\n\tclass controls\n\t{\n\t\tclass Title1 : RscLoadingText\n\t\t{\n\t\t\ttext = \"$STR_LOADING\"; // \"Loading\" text in the middle of the screen\n\t\t};\n\t\tclass CA_Progress : RscProgress // progress bar, has to have idc 104\n\t\t{\n\t\t\tidc = 104;\n\t\t\ttype = 8; // CT_PROGRESS\n\t\t\tstyle = 0; // ST_SINGLE\n\t\t\ttexture = \"\\ca\\ui\\data\\loadscreen_progressbar_ca.paa\";\n\t\t};\n\t\tclass CA_Progress2 : RscProgressNotFreeze // progress bar that will go reverse\n\t\t{\n\t\t\tidc = 103;\n\t\t};\n\t\tclass Name2: RscText // the text on the top-left\n\t\t{\n\t\t\tidc = 101;\n\t\t\tx = 0.05;\n\t\t\ty = 0.029412;\n\t\t\tw = 0.9;\n\t\t\th = 0.04902;\n\t\t\ttext = \"\";\n\t\t\tsizeEx = 0.05;\n\t\t\tcolorText[] = {0.543,0.5742,0.4102,1.0};\n\t\t};\n\t};\n};\n\n\n\t\u00a0\n \n\n\n\t\u00a0\n \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "lucho",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-16425.gif",
+            "url": "https://epochmod.com/forum/profile/16425-lucho/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

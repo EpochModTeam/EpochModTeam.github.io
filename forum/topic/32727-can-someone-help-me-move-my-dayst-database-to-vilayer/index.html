@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Can someone help me move my day.st database to vilayer - Server Install - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Can someone help me move my day.st database to vilayer" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/" property="og:url"/>
+<meta content="hey, guys so i decided to move my day.st server to vilayer, I got everything going but the database, have hedisql set up for both server, i changed instance ID and the Object_DATA to lowercase, etc, but it just doesn't work somehow. When i put in the sql into query, I get a message says: Warnings..." name="description"/>
+<meta content="hey, guys so i decided to move my day.st server to vilayer, I got everything going but the database, have hedisql set up for both server, i changed instance ID and the Object_DATA to lowercase, etc, but it just doesn't work somehow. When i put in the sql into query, I get a message says: Warnings..." property="og:description"/>
+<meta content="2015-02-27T00:36:17Z" property="og:updated_time"/>
+<meta content="database" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="32727" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zMjcyNy1jYW4tc29tZW9uZS1oZWxwLW1lLW1vdmUtbXktZGF5c3QtZGF0YWJhc2UtdG8tdmlsYXllci8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":29}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":32727}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Can someone help me move my day.st database to vilayer
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Can someone help me move my day.st database to vilayer</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">
+<img alt="AllenFromStacysmom" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">AllenFromStacysmom</a>,</strong><br/><span class="ipsType_light"><time data-short="10 yr" datetime="2015-02-26T22:31:37Z" title="02/26/15 10:31  PM">February 26, 2015</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F&amp;title=Can+someone+help+me+move+my+day.st+database+to+vilayer" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Can someone help me move my day.st database to vilayer" data-websharetitle="Can someone help me move my day.st database to vilayer" data-webshareurl="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="32727">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-32727" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-211346"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_211346">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">
+<img alt="AllenFromStacysmom" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/29012-allenfromstacysmom/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile"><span style="color:#">AllenFromStacysmom</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211346" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-26T22:31:37Z" title="02/26/15 10:31  PM">February 26, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">AllenFromStacysmom</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">
+<img alt="AllenFromStacysmom" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/29012-allenfromstacysmom/content/" rel="nofollow" title="107 posts">
+<i class="fa fa-comment"></i> 107
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="211346" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":29012,"username":"AllenFromStacysmom","timestamp":1424989897,"contentapp":"forums","contenttype":"forums","contentid":32727,"contentclass":"forums_Topic","contentcommentid":211346}' id="comment-211346_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-211346_wrap" href="#elControls_211346_menu" id="elControls_211346" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_211346_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=reportComment&amp;comment=211346" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_211346_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_211346" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211346" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-26T22:31:37Z" title="02/26/15 10:31  PM">February 26, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>hey, guys</p>
+<p>so i decided to move my day.st server to vilayer, </p>
+<p>I got everything going but the database, </p>
+<p>have hedisql set up for both server, i changed instance ID and the Object_DATA to lowercase, etc,</p>
+<p>but it just doesn't work somehow.</p>
+<p>When i put in the sql into query,</p>
+<p>I get a message says:</p>
+<pre class="ipsCode prettyprint">
+Warnings from last query:
+Note: Table storage engine for 'object_data' doesn't have this option
+</pre>
+<p>this is what i put in query:</p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+-- --------------------------------------------------------
+-- Host:                         XXXXXXXX
+-- Server version:               5.5.40-0+wheezy1 - (Debian)
+-- Server OS:                    debian-linux-gnu
+-- HeidiSQL Version:             9.1.0.4911
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping database structure for bliss_XXXX
+DROP DATABASE IF EXISTS `dayz`;
+CREATE DATABASE IF NOT EXISTS `dayz` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `dayz`;
+
+
+-- Dumping structure for table bliss_XXXX.Object_DATA
+DROP TABLE IF EXISTS `object_data`;
+CREATE TABLE IF NOT EXISTS `object_data` (
+  `ObjectID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ObjectUID` bigint(24) NOT NULL DEFAULT '0',
+  `Instance` int(11) unsigned NOT NULL,
+  `Classname` varchar(50) DEFAULT NULL,
+  `Datestamp` datetime NOT NULL,
+  `LastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CharacterID` int(11) unsigned NOT NULL DEFAULT '0',
+  `Worldspace` varchar(128) NOT NULL DEFAULT '[]',
+  `Inventory` longtext,
+  `Hitpoints` varchar(512) NOT NULL DEFAULT '[]',
+  `Fuel` double(13,5) NOT NULL DEFAULT '1.00000',
+  `Damage` double(13,5) NOT NULL DEFAULT '0.00000',
+  PRIMARY KEY (`ObjectID`),
+  KEY `ObjectUID` (`ObjectUID`) USING BTREE,
+  KEY `Instance` (`Instance`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7583 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table bliss_1341.object_data: ~1,758 rows (approximately)
+DELETE FROM `object_data`;
+/*!40000 ALTER TABLE `object_data` DISABLE KEYS */;
+INSERT INTO `object_data` (`ObjectID`, `ObjectUID`, `Instance`, `Classname`, `Datestamp`, `LastUpdated`, `CharacterID`, `Worldspace`, `Inventory`, `Hitpoints`, `Fuel`, `Damage`) VALUES
+	(3529, 12759436587055, 40312, 'SkodaBlue', '2015-01-28 05:09:45', '2015-01-28 05:09:45', 0, '[55,[12759.4,3658.69,1.431e-06]]', '[]', '[["motor",0.429],["sklo predni P",0.606],["sklo predni L",0.518],["karoserie",0.53],["palivo",0.66],["wheel_1_1_steering",0.753],["wheel_2_1_steering",0.39],["wheel_1_4_steering",0.618],["wheel_2_4_steering",0.276],["wheel_1_3_steering",0.65],["wheel_2_3_steering",0.321],["wheel_1_2_steering",0.475],["wheel_2_2_steering",0.542],["glass1",0.175],["glass2",0.634],["glass3",0.646],["glass4",0.124]]', 0.05778, 0.00000),
+	(3530, 1749692893015, 40312, 'CSJ_GyroC', '2015-01-28 05:09:45', '2015-01-28 05:09:45', 0, '[15,[1749.55,9289.28,0.021]]', '[]', '[["NEtrup",0.067],["motor",0.501],["elektronika",0.469],["mala vrtule",0.523],["velka vrtule",0.171],["munice",0.253],["sklo predni P",0.382],["sklo predni L",0.163],["glass1",0.427],["glass2",0.595],["glass3",0.77],["glass4",0.208],["glass5",0.828],["glass6",0.211]]', 0.11155, 0.00000),
+	(3531, 954791168692118, 40312, 'GNT_C185R', '2015-01-28 05:09:45', '2015-01-28 05:09:45', 0, '[118,[9547.91,11686.9,0.196]]', '[]', '[["telo",0.498]]', 0.01433, 0.00000),
+	(3533, 1164381251850162, 40312, 'Ikarus_TK_CIV_EP1', '2015-01-28 05:09:45', '2015-01-28 05:09:45', 0, '[162,[11643.8,12518.5,1.526e-05]]', '[]', '[["glass5",0.512],["glass6",0.819],["motor",0.505],["sklo predni P",0.047],["sklo predni L",0.762],["karoserie",0.326],["palivo",0.123],["wheel_1_1_steering",0.083],["wheel_2_1_steering",0.543],["wheel_1_4_steering",0.848],["wheel_2_4_steering",0.214],["wheel_1_3_steering",0.689],["wheel_2_3_steering",0.563],["wheel_1_2_steering",0.168],["wheel_2_2_steering",0.714],["glass1",0.15],["glass2",0.812],["glass3",0.655],["glass4",0.084]]', 0.07147, 0.00000),
+	(3535, 9123140641112, 40312, 'Pickup_PK_TK_GUE_EP1_DZE', '2015-01-28 05:09:45', '2015-01-28 05:09:45', 0, '[12,[9123.08,4064.11,0.08]]', '[]', '[["motor",0.066],["sklo predni P",0.691],["sklo predni L",0.365],["karoserie",0.629],["palivo",0.53],["wheel_1_1_steering",0.554],["wheel_2_1_steering",0.341],["wheel_1_4_steering",0.634],["wheel_2_4_steering",0.124],["wheel_1_3_steering",0.24],["wheel_2_3_steering",0.517],["wheel_1_2_steering",0.446],["wheel_2_2_steering",0.772],["glass1",0.744],["glass2",0.712],["glass3",0.184],["glass4",0.641]]', 0.31836, 0.00000),
+	(3537, 121776347250122, 40312, 'Ural_CDF', '2015-01-28 05:09:45', '2015-01-28 05:09:45', 0, '[122,[12177.6,3472.48,0.009]]', '[]', '[["glass1",0.538],["glass2",0.323],["glass3",0.191],["glass4",0.192],["wheel_1_1_steering",0.499],["wheel_2_1_steering",0.694],["wheel_1_4_steering",0.027],["wheel_2_4_steering",0.362],["wheel_1_3_steering",0.81],["wheel_2_3_steering",0.012],["wheel_1_2_steering",0.518],["wheel_2_2_steering",0.15],["motor",0.374],["sklo predni P",0.492],["sklo predni L",0.123],["karoserie",0.452],["palivo",0.432]]', 0.08057, 0.00000),
+	(3538, 13071483167088, 40312, 'datsun1_civil_3_open', '2015-01-28 05:09:46', '2015-01-28 05:09:46', 0, '[88,[13071.4,8316.73,0.016]]', '[]', '[["motor",0.469],["sklo predni P",0.319],["sklo predni L",0.135],["karoserie",0.286],["palivo",0.215],["wheel_1_1_steering",0.549],["wheel_2_1_steering",0.165],["wheel_1_4_steering",0.561],["wheel_2_4_steering",0.498],["wheel_1_3_steering",0.447],["wheel_2_3_steering",0.054],["wheel_1_2_steering",0.223],["wheel_2_2_steering",0.566],["glass1",0.791],["glass2",0.723],["glass3",0.726],["glass4",0.155]]', 0.12356, 0.00000),
+	(3541, 33199144986610, 40312, 'Mi17_DZE', '2015-01-28 05:09:46', '2015-01-28 05:09:46', 0, '[10,[3319.88,14498.6,0.567]]', '[]', '[["glass1",0.481],["glass2",0.602],["glass3",0.691],["glass4",0.559],["glass5",0.261],["glass6",0.322],["NEtrup",0.847],["motor",0.578],["elektronika",0.639],["mala vrtule",0.304],["velka vrtule",0.49],["munice",0.387],["sklo predni P",0.363],["sklo predni L",0.4]]', 0.30909, 0.00000),
+	(3542, 4608817849150103, 40312, 'Smallboat_2', '2015-01-28 05:09:46', '2015-01-28 05:09:46', 0, '[103,[4608.75,1784.94,15.019]]', '[]', '[["motor",0.094]]', 0.17474, 0.00000),
+	(3543, 54255562872100, 40312, 'CH53_DZE', '2015-01-28 05:09:47', '2015-01-28 05:09:47', 0, '[100,[5425.47,5628.65,0.23]]', '[]', '[["NEtrup",0.144],["palivo",0.792],["motor",0.766],["elektronika",0.557],["mala vrtule",0.407],["velka vrtule",0.636],["munice",0.252],["sklo predni P",0.376],["sklo predni L",0.53],["glass1",0.264],["glass2",0.117],["glass3",0.57],["glass4",0.499],["glass5",0.528],["glass6",0.498]]', 0.03491, 0.00000),
+	(3544, 1186846459009, 40312, 'LandRover_CZ_EP1', '2015-01-28 05:09:47', '2015-01-28 05:09:47', 0, '[9,[11868.4,6459.03,0.011]]', '[]', '[["glass1",0.614],["glass2",0.11],["glass3",0.433],["motor",0.161],["palivo",0.63],["wheel_1_1_steering",0.352],["wheel_1_2_steering",0.654],["wheel_2_1_steering",0.403],["wheel_2_2_steering",0.626],["sklo predni P",0.01],["sklo predni L",0.499],["karoserie",0.01],["wheel_1_4_steering",0.278],["wheel_2_4_steering",0.692],["wheel_1_3_steering",0.46],["wheel_2_3_steering",0.249],["glass4",0.005]]', 0.09937, 0.00000),
+	(3545, 8147811630312, 40312, 'Lada2', '2015-01-28 05:09:47', '2015-01-28 05:09:47', 0, '[2,[8147.83,11630.3,0.077]]', '[]', '[["motor",0.078],["sklo predni P",0.749],["sklo predni L",0.726],["karoserie",0.749],["palivo",0.705],["wheel_1_1_steering",0.411],["wheel_2_1_steering",0.628],["wheel_1_4_steering",0.383],["wheel_2_4_steering",0.595],["wheel_1_3_steering",0.219],["wheel_2_3_steering",0.716],["wheel_1_2_steering",0.525],["wheel_2_2_steering",0.443],["glass1",0.567],["glass2",0.129],["glass3",0.327],["glass4",0.443]]', 0.03386, 0.00000),
+	(3546, 61069104922032, 40312, 'MMT_Civ', '2015-01-28 05:09:47', '2015-01-28 05:09:47', 0, '[32,[6106.86,10492.2,0.036]]', '[]', '[]', 0.00000, 0.00000),
+	(3547, 110353115425026, 40312, 'UAZ_Unarmed_TK_CIV_EP1', '2015-01-28 05:09:48', '2015-01-28 05:09:48', 0, '[26,[11035.3,11542.5,0.007]]', '[]', '[["glass1",0.682],["glass2",0.013],["glass3",0.061],["glass4",0.131],["wheel_1_1_steering",0.781],["wheel_1_2_steering",0.289],["wheel_2_1_steering",0.554],["wheel_2_2_steering",0.086],["motor",0.152],["sklo predni P",0.207],["sklo predni L",0.379],["karoserie",0.57],["palivo",0.276],["wheel_1_4_steering",0.503],["wheel_2_4_steering",0.581],["wheel_1_3_steering",0.72],["wheel_2_3_steering",0.672]]', 0.32285, 0.00000),
+	(3548, 1330751272171124, 40312, 'Kamaz', '2015-01-28 05:09:48', '2015-01-28 05:09:48', 0, '[124,[13307.5,12721.7,0.063]]', '[]', '[["wheel_1_1_steering",0.105],["wheel_2_1_steering",0.495],["wheel_1_4_steering",0.497],["wheel_2_4_steering",0.237],["wheel_1_3_steering",0.728],["wheel_2_3_steering",0.283],["wheel_1_2_steering",0.47],["wheel_2_2_steering",0.178],["motor",0.591],["sklo predni P",0.124],["sklo predni L",0.569],["karoserie",0.803],["palivo",0.72],["glass1",0.311],["glass2",0.704],["glass3",0.267],["glass4",0.727]]', 0.26175, 0.00000),
+	(3549, 12891483496099, 40312, 'LandRover_Special_CZ_EP1_DZE', '2015-01-28 05:09:48', '2015-01-28 05:09:48', 0, '[99,[12891.4,8349.55,0.002]]', '[]', '[["motor",0.758],["palivo",0.57],["wheel_1_1_steering",0.288],["wheel_1_2_steering",0.848],["wheel_2_1_steering",0.537],["wheel_2_2_steering",0.579],["sklo predni P",0.248],["sklo predni L",0.389],["karoserie",0.259],["wheel_1_4_steering",0.422],["wheel_2_4_steering",0.104],["wheel_1_3_steering",0.849],["wheel_2_3_steering",0.507],["glass1",0.797],["glass2",0.708],["glass3",0.044],["glass4",0.366]]', 0.12482, 0.00000),
+	(3552, 446441072370106, 40312, 'SUV_Blue', '2015-01-28 05:09:48', '2015-01-28 05:09:48', 0, '[106,[4464.43,10723.7,0.008]]', '[]', '[["wheel_1_1_steering",0.727],["wheel_1_2_steering",0.606],["wheel_2_1_steering",0.193],["wheel_2_2_steering",0.708],["palivo",0.679],["motor",0.264],["glass1",0.514],["glass2",0.816],["glass3",0.067],["glass4",0.741],["sklo predni P",0.772],["sklo predni L",0.596],["karoserie",0.786],["wheel_1_4_steering",0.419],["wheel_2_4_steering",0.361],["wheel_1_3_steering",0.222],["wheel_2_3_steering",0.7]]', 0.17754, 0.00000),
+	(3553, 79905860851106, 40312, 'SUV_White', '2015-01-28 05:09:48', '2015-01-28 05:09:48', 0, '[106,[7990.49,8608.5,0.064]]', '[]', '[["wheel_1_1_steering",0.065],["wheel_1_2_steering",0.696],["wheel_2_1_steering",0.529],["wheel_2_2_steering",0.323],["palivo",0.077],["motor",0.768],["glass1",0.813],["glass2",0.628],["glass3",0.391],["glass4",0.436],["sklo predni P",0.267],["sklo predni L",0.003],["karoserie",0.671],["wheel_1_4_steering",0.551],["wheel_2_4_steering",0.464],["wheel_1_3_steering",0.172],["wheel_2_3_steering",0.264]]', 0.27900, 0.00000),
+	(3554, 34532101908130, 40312, 'LandRover_TK_CIV_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[30,[3453.23,10190.8,0.078]]', '[]', '[["glass1",0.355],["glass2",0.16],["glass3",0.827],["motor",0.794],["palivo",0.662],["wheel_1_1_steering",0.775],["wheel_1_2_steering",0.353],["wheel_2_1_steering",0.098],["wheel_2_2_steering",0.695],["sklo predni P",0.431],["sklo predni L",0.117],["karoserie",0.384],["wheel_1_4_steering",0.766],["wheel_2_4_steering",0.411],["wheel_1_3_steering",0.64],["wheel_2_3_steering",0.061],["glass4",0.663]]', 0.16528, 0.00000),
+	(3555, 11266378948287, 40312, 'GNT_C185', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[87,[11266.3,7894.76,0.207]]', '[]', '[["telo",0.249]]', 0.02848, 0.00000),
+	(3557, 22983747301139, 40312, 'MH6J_DZ', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[139,[2298.3,7472.96,0.068]]', '[]', '[["glass1",0.847],["glass2",0.733],["glass3",0.838],["glass4",0.744],["glass5",0.626],["NEtrup",0.259],["motor",0.231],["elektronika",0.621],["mala vrtule",0.456],["velka vrtule",0.805],["munice",0.265],["sklo predni P",0.274],["sklo predni L",0.416],["glass6",0.058]]', 0.12417, 0.00000),
+	(3559, 52505232060108, 40312, 'car_hatchback', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[108,[5250.47,2320.65,0.003]]', '[]', '[["motor",0.52],["sklo predni P",0.649],["sklo predni L",0.179],["karoserie",0.745],["palivo",0.664],["wheel_1_1_steering",0.015],["wheel_2_1_steering",0.55],["wheel_1_4_steering",0.667],["wheel_2_4_steering",0.335],["wheel_1_3_steering",0.734],["wheel_2_3_steering",0.776],["wheel_1_2_steering",0.365],["wheel_2_2_steering",0.299],["glass1",0.238],["glass2",0.263],["glass3",0.233],["glass4",0.683]]', 0.22807, 0.00000),
+	(3560, 8644824111034, 40312, 'HMMWV_DES_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[34,[8644.83,2411.1,3.986e-04]]', '[]', '[["glass1",0.698],["glass2",0.119],["glass3",0.007],["glass4",0.007],["wheel_1_1_steering",0.387],["wheel_1_2_steering",0.638],["wheel_2_1_steering",0.643],["wheel_2_2_steering",0.335],["fueltank",0.53],["engine",0.159],["sklo predni P",0.033],["sklo predni L",0.472],["karoserie",0.266],["wheel_1_4_steering",0.088],["wheel_2_4_steering",0.735],["wheel_1_3_steering",0.59],["wheel_2_3_steering",0.743]]', 0.01382, 0.00000),
+	(3561, 116961196392123, 40312, 'GNT_C185C', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[123,[1169.6,11963.9,0.23]]', '[]', '[["telo",0.179]]', 0.05741, 0.00000),
+	(3562, 6559762198230, 40312, 'car_sedan', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[30,[6559.66,6219.82,0.166]]', '[]', '[["motor",0.386],["sklo predni P",0.557],["sklo predni L",0.51],["karoserie",0.21],["palivo",0.318],["wheel_1_1_steering",0.689],["wheel_2_1_steering",0.309],["wheel_1_4_steering",0.691],["wheel_2_4_steering",0.236],["wheel_1_3_steering",0.604],["wheel_2_3_steering",0.369],["wheel_1_2_steering",0.768],["wheel_2_2_steering",0.026],["glass1",0.502],["glass2",0.188],["glass3",0.163],["glass4",0.693]]', 0.27691, 0.00000),
+	(3563, 9283886051011, 40312, 'VolhaLimo_TK_CIV_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[11,[9283.81,8605.08,0.008]]', '[]', '[["wheel_1_1_steering",0.322],["wheel_1_2_steering",0.787],["wheel_2_1_steering",0.275],["wheel_2_2_steering",0.448],["palivo",0.384],["motor",0.184],["glass1",0.287],["glass2",0.637],["glass3",0.509],["glass4",0.836],["sklo predni P",0.375],["sklo predni L",0.783],["karoserie",0.582],["wheel_1_4_steering",0.028],["wheel_2_4_steering",0.129],["wheel_1_3_steering",0.407],["wheel_2_3_steering",0.293]]', 0.30720, 0.00000),
+	(3564, 192511188310118, 40312, 'SUV_TK_CIV_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[118,[1925.09,11883.1,0.008]]', '[]', '[["wheel_1_1_steering",0.531],["wheel_1_2_steering",0.715],["wheel_2_1_steering",0.166],["wheel_2_2_steering",0.376],["palivo",0.357],["motor",0.14],["glass1",0.385],["glass2",0.305],["glass3",0.431],["glass4",0.342],["sklo predni P",0.817],["sklo predni L",0.159],["karoserie",0.434],["wheel_1_4_steering",0.841],["wheel_2_4_steering",0.588],["wheel_1_3_steering",0.134],["wheel_2_3_steering",0.122]]', 0.21163, 0.00000),
+	(3565, 1090172784608, 40312, 'Pickup_PK_GUE_DZE', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[8,[10901.7,2784.63,0.005]]', '[]', '[["motor",0.75],["sklo predni P",0.723],["sklo predni L",0.243],["karoserie",0.459],["palivo",0.686],["wheel_1_1_steering",0.664],["wheel_2_1_steering",0.385],["wheel_1_4_steering",0.617],["wheel_2_4_steering",0.506],["wheel_1_3_steering",0.488],["wheel_2_3_steering",0.071],["wheel_1_2_steering",0.628],["wheel_2_2_steering",0.789],["glass1",0.439],["glass2",0.041],["glass3",0.446],["glass4",0.644]]', 0.30594, 0.00000),
+	(3566, 14185985507169, 40312, 'AN2_DZ', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[169,[1418.46,9854.99,0.677]]', '[]', '[["glass1",0.74],["glass2",0.294],["glass3",0.674],["glass4",0.37],["telo",0.657]]', 0.03744, 0.00000),
+	(3570, 10239219169088, 40312, 'SUV_Green', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[88,[10239.2,1916.91,0.008]]', '[]', '[["wheel_1_1_steering",0.262],["wheel_1_2_steering",0.382],["wheel_2_1_steering",0.175],["wheel_2_2_steering",0.254],["palivo",0.254],["motor",0.8],["glass1",0.698],["glass2",0.011],["glass3",0.829],["glass4",0.05],["sklo predni P",0.078],["sklo predni L",0.18],["karoserie",0.637],["wheel_1_4_steering",0.694],["wheel_2_4_steering",0.755],["wheel_1_3_steering",0.071],["wheel_2_3_steering",0.126]]', 0.29489, 0.00000),
+	(3571, 57684800250108, 40312, 'UH60M_EP1_DZE', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[108,[5768.35,8002.48,0.013]]', '[]', '[["glass1",0.046],["glass2",0.023],["glass3",0.715],["glass4",0.101],["glass5",0.553],["NEtrup",0.331],["motor",0.242],["elektronika",0.628],["mala vrtule",0.076],["velka vrtule",0.416],["munice",0.115],["sklo predni P",0.577],["sklo predni L",0.528],["glass6",0.592]]', 0.34557, 0.00000),
+	(3572, 45254996980109, 40312, 'V3S_Open_TK_CIV_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[109,[4525.44,9969.78,3.052e-05]]', '[]', '[["wheel_1_1_steering",0.718],["wheel_1_2_steering",0.473],["wheel_1_3_steering",0.039],["wheel_2_1_steering",0.425],["wheel_2_2_steering",0.46],["wheel_2_3_steering",0.409],["wheel_1_4_steering",0.619],["wheel_2_4_steering",0.504],["motor",0.438],["sklo predni P",0.354],["sklo predni L",0.158],["karoserie",0.208],["palivo",0.288],["glass1",0.244],["glass2",0.654],["glass3",0.467],["glass4",0.711]]', 0.13759, 0.00000),
+	(3573, 7665934431014, 40312, 'datsun1_civil_2_covered', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[14,[7665.87,3443.15,0.015]]', '[]', '[["motor",0.793],["sklo predni P",0.845],["sklo predni L",0.111],["karoserie",0.574],["palivo",0.726],["wheel_1_1_steering",0.379],["wheel_2_1_steering",0.043],["wheel_1_4_steering",0.837],["wheel_2_4_steering",0.535],["wheel_1_3_steering",0.386],["wheel_2_3_steering",0.591],["wheel_1_2_steering",0.778],["wheel_2_2_steering",0.326],["glass1",0.239],["glass2",0.784],["glass3",0.22],["glass4",0.504]]', 0.16991, 0.00000),
+	(3574, 1116121216555175, 40312, 'TT650_Civ', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[175,[11161.2,12165.5,-0.049]]', '[]', '[["engine",0.58],["sklo predni P",0.822],["sklo predni L",0.634],["karoserie",0.128],["palivo",0.589],["Pravy predni tlumic",0.136],["Pravy zadni tlumic",0.703]]', 0.28735, 0.00000),
+	(3576, 4513223401050, 40312, 'UAZ_Unarmed_UN_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[50,[4513.18,2340.08,9.537e-07]]', '[]', '[["glass1",0.182],["glass2",0.348],["glass3",0.407],["glass4",0.414],["wheel_1_1_steering",0.345],["wheel_1_2_steering",0.601],["wheel_2_1_steering",0.808],["wheel_2_2_steering",0.782],["motor",0.105],["sklo predni P",0.175],["sklo predni L",0.183],["karoserie",0.708],["palivo",0.686],["wheel_1_4_steering",0.028],["wheel_2_4_steering",0.285],["wheel_1_3_steering",0.747],["wheel_2_3_steering",0.619]]', 0.28665, 0.00000),
+	(3577, 12075738207171, 40312, 'AN2_DZ', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[171,[1207.47,7381.97,0.728]]', '[]', '[["glass1",0.375],["glass2",0.188],["glass3",0.783],["glass4",0.429],["telo",0.195]]', 0.26060, 0.00000),
+	(3579, 98276104490024, 40312, 'SUV_Red', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[24,[9827.63,10449,0.011]]', '[]', '[["wheel_1_1_steering",0.721],["wheel_1_2_steering",0.749],["wheel_2_1_steering",0.104],["wheel_2_2_steering",0.561],["palivo",0.098],["motor",0.281],["glass1",0.756],["glass2",0.41],["glass3",0.71],["glass4",0.792],["sklo predni P",0.825],["sklo predni L",0.385],["karoserie",0.578],["wheel_1_4_steering",0.737],["wheel_2_4_steering",0.198],["wheel_1_3_steering",0.406],["wheel_2_3_steering",0.785]]', 0.02631, 0.00000),
+	(3580, 51944861810142, 40312, 'Volha_1_TK_CIV_EP1', '2015-01-28 05:09:49', '2015-01-28 05:09:49', 0, '[142,[5194.43,8618.07,0.015]]', '[]', '[["wheel_1_1_steering",0.706],["wheel_1_2_steering",0.772],["wheel_2_1_steering",0.141],["wheel_2_2_steering",0.462],["palivo",0.364],["motor",0.17],["glass1",0.172],["glass2",0.079],["glass3",0.816],["glass4",0.745],["sklo predni P",0.484],["sklo predni L",0.362],["karoserie",0.485],["wheel_1_4_steering",0.521],["wheel_2_4_steering",0.342],["wheel_1_3_steering",0.397],["wheel_2_3_steering",0.395]]', 0.23054, 0.00000),
+	(3583, 799329748254, 40312, 'Mi17_DZE', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[4,[7993.21,9748.21,0.516]]', '[]', '[["glass1",0.806],["glass2",0.625],["glass3",0.585],["glass4",0.483],["glass5",0.288],["glass6",0.47],["NEtrup",0.511],["motor",0.703],["elektronika",0.598],["mala vrtule",0.347],["velka vrtule",0.585],["munice",0.257],["sklo predni P",0.301],["sklo predni L",0.032]]', 0.05052, 0.00000),
+	(3584, 6125565621058, 40312, 'car_sedan', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[58,[6125.51,6562.09,0.006]]', '[]', '[["motor",0.69],["sklo predni P",0.816],["sklo predni L",0.775],["karoserie",0.273],["palivo",0.236],["wheel_1_1_steering",0.745],["wheel_2_1_steering",0.376],["wheel_1_4_steering",0.123],["wheel_2_4_steering",0.534],["wheel_1_3_steering",0.825],["wheel_2_3_steering",0.302],["wheel_1_2_steering",0.589],["wheel_2_2_steering",0.412],["glass1",0.498],["glass2",0.342],["glass3",0.746],["glass4",0.154]]', 0.09103, 0.00000),
+	(3585, 33447454430120, 40312, 'GLT_M300_LT', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[120,[3344.66,4544.33,0.019]]', '[]', '[["motor",0.672],["sklo predni P",0.375],["sklo predni L",0.219],["karoserie",0.066],["palivo",0.833],["wheel_1_1_steering",0.431],["wheel_2_1_steering",0.335],["wheel_1_4_steering",0.482],["wheel_2_4_steering",0.346],["wheel_1_3_steering",0.188],["wheel_2_3_steering",0.16],["wheel_1_2_steering",0.776],["wheel_2_2_steering",0.41],["glass1",0.435],["glass2",0.72],["glass3",0.09],["glass4",0.573]]', 0.24301, 0.00000),
+	(3586, 10407388707046, 40312, 'SUV_Silver', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[46,[10407.3,8870.69,0.047]]', '[]', '[["wheel_1_1_steering",0.474],["wheel_1_2_steering",0.128],["wheel_2_1_steering",0.371],["wheel_2_2_steering",0.055],["palivo",0.278],["motor",0.364],["glass1",0.298],["glass2",0.644],["glass3",0.831],["glass4",0.366],["sklo predni P",0.106],["sklo predni L",0.056],["karoserie",0.538],["wheel_1_4_steering",0.763],["wheel_2_4_steering",0.398],["wheel_1_3_steering",0.668],["wheel_2_3_steering",0.791]]', 0.20292, 0.00000),
+	(3587, 64150254340172, 40312, 'LadaLM', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[172,[6414.97,2543.43,0]]', '[]', '[["motor",0.365],["sklo predni P",0.809],["sklo predni L",0.773],["karoserie",0.734],["palivo",0.616],["wheel_1_1_steering",0.443],["wheel_2_1_steering",0.366],["wheel_1_4_steering",0.455],["wheel_2_4_steering",0.375],["wheel_1_3_steering",0.25],["wheel_2_3_steering",0.83],["wheel_1_2_steering",0.61],["wheel_2_2_steering",0.053],["glass1",0.058],["glass2",0.021],["glass3",0.481],["glass4",0.627]]', 0.11188, 0.00000),
+	(3588, 9604188260179, 40312, 'GAZ_Vodnik_DZE', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[79,[9604.05,8825.99,0.059]]', '[]', '[["wheel_1_1_steering",0.688],["wheel_1_2_steering",0.188],["wheel_2_1_steering",0.054],["wheel_2_2_steering",0.335],["palivo",0.751],["glass1",0.221],["glass2",0.776],["glass3",0.136],["glass4",0.526],["motor",0.721],["sklo predni P",0.779],["sklo predni L",0.072],["karoserie",0.27],["wheel_1_4_steering",0.2],["wheel_2_4_steering",0.517],["wheel_1_3_steering",0.805],["wheel_2_3_steering",0.252]]', 0.02314, 0.00000),
+	(3589, 12008285551048, 40312, 'MtvrRefuel_DES_EP1_DZ', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[48,[12008.2,8555.07,0.002]]', '[]', '[["wheel_1_1_steering",0.136],["wheel_1_2_steering",0.516],["wheel_1_3_steering",0.032],["wheel_2_1_steering",0.203],["wheel_2_2_steering",0.697],["wheel_2_3_steering",0.557],["palivo",0.712],["wheel_1_4_steering",0.649],["wheel_2_4_steering",0.413],["motor",0.579],["sklo predni P",0.086],["sklo predni L",0.538],["karoserie",0.75],["glass1",0.191],["glass2",0.314],["glass3",0.023],["glass4",0.585]]', 0.07842, 0.00000),
+	(3590, 10687624504057, 40312, 'UAZ_CDF', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[57,[10687.6,2450.37,1.998e-04]]', '[]', '[["glass1",0.219],["glass2",0.182],["glass3",0.717],["glass4",0.289],["wheel_1_1_steering",0.594],["wheel_1_2_steering",0.267],["wheel_2_1_steering",0.554],["wheel_2_2_steering",0.058],["motor",0.192],["sklo predni P",0.771],["sklo predni L",0.645],["karoserie",0.389],["palivo",0.158],["wheel_1_4_steering",0.619],["wheel_2_4_steering",0.77],["wheel_1_3_steering",0.29],["wheel_2_3_steering",0.324]]', 0.17176, 0.00000),
+	(3591, 39696914800114, 40312, 'Ural_TK_CIV_EP1', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[114,[3969.63,9147.96,0.018]]', '[]', '[["glass1",0.63],["glass2",0.508],["glass3",0.825],["glass4",0.265],["wheel_1_1_steering",0.282],["wheel_2_1_steering",0.013],["wheel_1_4_steering",0.329],["wheel_2_4_steering",0.759],["wheel_1_3_steering",0.61],["wheel_2_3_steering",0.434],["wheel_1_2_steering",0.745],["wheel_2_2_steering",0.781],["motor",0.821],["sklo predni P",0.219],["sklo predni L",0.586],["karoserie",0.286],["palivo",0.21]]', 0.18706, 0.00000),
+	(3592, 4134025468042, 40312, 'Pickup_PK_GUE_DZE', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[42,[4133.95,2546.79,0.005]]', '[]', '[["motor",0.515],["sklo predni P",0.508],["sklo predni L",0.266],["karoserie",0.567],["palivo",0.346],["wheel_1_1_steering",0.692],["wheel_2_1_steering",0.52],["wheel_1_4_steering",0.482],["wheel_2_4_steering",0.769],["wheel_1_3_steering",0.433],["wheel_2_3_steering",0.824],["wheel_1_2_steering",0.082],["wheel_2_2_steering",0.659],["glass1",0.609],["glass2",0.668],["glass3",0.161],["glass4",0.213]]', 0.20933, 0.00000),
+	(3594, 5687493687028, 40312, 'SkodaBlue', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[28,[5687.38,9368.69,7.629e-04]]', '[]', '[["motor",0.562],["sklo predni P",0.683],["sklo predni L",0.346],["karoserie",0.533],["palivo",0.79],["wheel_1_1_steering",0.831],["wheel_2_1_steering",0.841],["wheel_1_4_steering",0.043],["wheel_2_4_steering",0.436],["wheel_1_3_steering",0.31],["wheel_2_3_steering",0.485],["wheel_1_2_steering",0.105],["wheel_2_2_steering",0.805],["glass1",0.122],["glass2",0.288],["glass3",0.358],["glass4",0.313]]', 0.25122, 0.00000),
+	(3595, 25887541780178, 40312, 'AH6X_DZ', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[178,[2588.67,5417.84,0.038]]', '[]', '[["glass1",0.672],["glass2",0.592],["glass3",0.329],["glass4",0.462],["glass5",0.421],["NEtrup",0.48],["motor",0.39],["elektronika",0.199],["mala vrtule",0.433],["velka vrtule",0.098],["munice",0.343],["sklo predni P",0.512],["sklo predni L",0.746],["glass6",0.694]]', 0.00796, 0.00000),
+	(3598, 7979832181068, 40312, 'V3S_Open_TK_CIV_EP1', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[68,[7979.79,3218.08,0.006]]', '[]', '[["wheel_1_1_steering",0.302],["wheel_1_2_steering",0.001],["wheel_1_3_steering",0.056],["wheel_2_1_steering",0.78],["wheel_2_2_steering",0.285],["wheel_2_3_steering",0.301],["wheel_1_4_steering",0.256],["wheel_2_4_steering",0.536],["motor",0.508],["sklo predni P",0.159],["sklo predni L",0.227],["karoserie",0.505],["palivo",0.027],["glass1",0.377],["glass2",0.346],["glass3",0.087],["glass4",0.66]]', 0.13364, 0.00000),
+	(3599, 23265106492030, 40312, 'UralRefuel_TK_EP1_DZ', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[30,[2326.53,10649.2,6.104e-05]]', '[]', '[["glass1",0.723],["glass2",0.664],["glass3",0.645],["glass4",0.658],["wheel_1_1_steering",0.054],["wheel_2_1_steering",0.425],["wheel_1_4_steering",0.372],["wheel_2_4_steering",0.759],["wheel_1_3_steering",0.376],["wheel_2_3_steering",0.702],["wheel_1_2_steering",0.772],["wheel_2_2_steering",0.259],["motor",0.611],["sklo predni P",0.591],["sklo predni L",0.171],["karoserie",0.532],["palivo",0.233]]', 0.28475, 0.00000),
+	(3600, 47715725380171, 40312, 'UH1H_DZE', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[171,[4771.5,7253.81,0.017]]', '[]', '[["glass1",0.11],["glass2",0.408],["glass3",0.334],["glass4",0.747],["glass5",0.734],["NEtrup",0.816],["motor",0.066],["elektronika",0.301],["mala vrtule",0.072],["velka vrtule",0.026],["munice",0.664],["sklo predni P",0.478],["sklo predni L",0.548],["glass6",0.08]]', 0.29512, 0.00000),
+	(3601, 66838933772148, 40312, 'CH53_DZE', '2015-01-28 05:09:50', '2015-01-28 05:09:50', 0, '[148,[6683.84,9337.72,0.241]]', '[]', '[["NEtrup",0.264],["palivo",0.018],["motor",0.357],["elektronika",0.597],["mala vrtule",0.627],["velka vrtule",0.633],["munice",0.127],["sklo predni P",0.378],["sklo predni L",0.658],["glass1",0.18],["glass2",0.194],["glass3",0.624],["glass4",0.776],["glass5",0.381],["glass6",0.366]]', 0.26301, 0.00000),
+	(3604, 10591896177184, 40312, 'Lada1_TK_CIV_EP1', '2015-01-28 05:09:51', '2015-01-28 05:09:51', 0, '[84,[10591.8,9617.74,0.073]]', '[]', '[["motor",0.292],["sklo predni P",0.314],["sklo predni L",0.214],["karoserie",0.633],["palivo",0.081],["wheel_1_1_steering",0.223],["wheel_2_1_steering",0.085],["wheel_1_4_steering",0.45],["wheel_2_4_steering",0.066],["wheel_1_3_steering",0.788],["wheel_2_3_steering",0.753],["wheel_1_2_steering",0.802],["wheel_2_2_steering",0.474],["glass1",0.798],["glass2",0.749],["glass3",0.12],["glass4",0.236]]', 0.28794, 0.00000),
+	(3606, 39520121465011, 40312, 'V3S_Open_TK_EP1', '2015-01-28 05:09:51', '2015-01-28 05:09:51', 0, '[11,[3952.05,12146.5,0.041]]', '[]', '[["wheel_1_1_steering",0.036],["wheel_1_2_steering",0.013],["wheel_1_3_steering",0.036],["wheel_2_1_steering",0.44],["wheel_2_2_steering",0.008],["wheel_2_3_steering",0.325],["wheel_1_4_steering",0.375],["wheel_2_4_steering",0.236],["motor",0.336],["sklo predni P",0.734],["sklo predni L",0.825],["karoserie",0.291],["palivo",0.41],["glass1",0.382],["glass2",0.484],["glass3",0.257],["glass4",0.836]]', 0.13576, 0.00000),
+	(3608, 126231434340103, 40312, 'datsun1_civil_2_covered', '2015-01-28 05:09:51', '2015-01-28 05:09:51', 0, '[103,[12623.1,4343.41,0.015]]', '[]', '[["motor",0.14],["sklo predni P",0.445],["sklo predni L",0.285],["karoserie",0.335],["palivo",0.002],["wheel_1_1_steering",0.333],["wheel_2_1_steering",0.804],["wheel_1_4_steering",0.008],["wheel_2_4_steering",0.389],["wheel_1_3_steering",0.233],["wheel_2_3_steering",0.517],["wheel_1_2_steering",0.81],["wheel_2_2_steering",0.462],["glass1",0.42],["glass2",0.036],["glass3",0.665],["glass4",0.67]]', 0.06513, 0.00000),
+............
+.........
+.......
+...........
+........
+	(7582, 1147697474454107, 40312,'CinderWall_DZ', '2015-02-26 05:55:07', '2015-02-26 05:55:07', 3239, '[107.04,[11476.9,7474.37,5.426]]', '[]', '[]', 0.00000, 0.00000);
+/*!40000 ALTER TABLE `object_data` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+ </pre>
+<p>  </p></blockquote><p></p>
+<p> </p>
+<p>can someone like help me out </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_211346_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211346" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211346" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211346&amp;title=Can+someone+help+me+move+my+day.st+database+to+vilayer" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment%26comment=211346&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="hey, guys 
+so i decided to move my day.st server to vilayer,  
+I got everything going but the database,  
+have hedisql set up for both server, i changed instance ID and the Object_DATA to lowercase, etc, 
+but it just doesn't work somehow. 
+When i put in the sql into query, 
+I get a message says: 
+
+Warnings from last query:
+Note: Table storage engine for 'object_data' doesn't have this option
+
+this is what i put in query: 
+   
+  
+can someone like help me out  
+" data-websharetitle="Can someone help me move my day.st database to vilayer" data-webshareurl="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211346">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">2 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-211390"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_211390">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">
+<img alt="AllenFromStacysmom" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/29012-allenfromstacysmom/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile"><span style="color:#">AllenFromStacysmom</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211390" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-27T00:35:02Z" title="02/27/15 12:35  AM">February 27, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">AllenFromStacysmom</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29012-allenfromstacysmom/?do=hovercard" data-ipshover-width="370" href="../../profile/29012-allenfromstacysmom/index.html" rel="nofollow" title="Go to AllenFromStacysmom's profile">
+<img alt="AllenFromStacysmom" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/29012-allenfromstacysmom/content/" rel="nofollow" title="107 posts">
+<i class="fa fa-comment"></i> 107
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="211390" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":29012,"username":"AllenFromStacysmom","timestamp":1424997302,"contentapp":"forums","contenttype":"forums","contentid":32727,"contentclass":"forums_Topic","contentcommentid":211390}' id="comment-211390_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-211390_wrap" href="#elControls_211390_menu" id="elControls_211390" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_211390_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=reportComment&amp;comment=211390" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_211390_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211390" id="elSharePost_211390" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211390" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-27T00:35:02Z" title="02/27/15 12:35  AM">February 27, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p><span style="font-size:24px;"><span style="color:#ff0000;"><span style="font-family:'courier new', courier, monospace;">Nvm, Problem solved :D</span></span></span></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_211390_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211390"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211390" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211390" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211390&amp;title=Can+someone+help+me+move+my+day.st+database+to+vilayer" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment%26comment=211390&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Nvm, Problem solved :D 
+" data-websharetitle="Can someone help me move my day.st database to vilayer" data-webshareurl="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211390">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-211392"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_211392">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<a href="https://epochmod.com/forum/profile/5581-richie/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211392" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-27T00:36:17Z" title="02/27/15 12:36  AM">February 27, 2015</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group">Developer</li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.8fdd81fad5028d3aa7ed27322981c592.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5581-richie/content/" rel="nofollow" title="4345 posts">
+<i class="fa fa-comment"></i> 4.3k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="211392" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5581,"username":"Richie","timestamp":1424997377,"contentapp":"forums","contenttype":"forums","contentid":32727,"contentclass":"forums_Topic","contentcommentid":211392}' id="comment-211392_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-211392_wrap" href="#elControls_211392_menu" id="elControls_211392" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_211392_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=reportComment&amp;comment=211392" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_211392_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211392" id="elSharePost_211392" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211392" rel="nofollow">Posted <time data-short="10 yr" datetime="2015-02-27T00:36:17Z" title="02/27/15 12:36  AM">February 27, 2015</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Dayz.st are still running :o they should of went bust years back, terrible servers, terrible support and i can't find anything nice to say about them.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_211392_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211392"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211392" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211392" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F%3Fdo%3DfindComment%26comment%3D211392&amp;title=Can+someone+help+me+move+my+day.st+database+to+vilayer" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment%26comment=211392&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Dayz.st are still running :o they should of went bust years back, terrible servers, terrible support and i can't find anything nice to say about them. 
+" data-websharetitle="Can someone help me move my day.st database to vilayer" data-webshareurl="https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/?do=findComment&amp;comment=211392">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8zMjcyNy1jYW4tc29tZW9uZS1oZWxwLW1lLW1vdmUtbXktZGF5c3QtZGF0YWJhc2UtdG8tdmlsYXllci8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%2F&amp;title=Can+someone+help+me+move+my+day.st+database+to+vilayer" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Can someone help me move my day.st database to vilayer" data-websharetitle="Can someone help me move my day.st database to vilayer" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="32727">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/29-server-install/index.html" rel="parent" title="Go to Server Install">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block">
+<h3 class="ipsWidget_title ipsType_reset">Similar Content</h3>
+<div class="ipsWidget_inner">
+<ul class="ipsDataList">
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/47312-epoch-107-database-issues/?preview=1" data-ipshover-timeout="1.5" href="../47312-epoch-107-database-issues/index.html">
+									Epoch 1.0.7 Database Issues
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/29524-voltan/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/29524-voltan/index.html" rel="nofollow" title="Go to Voltan's profile">Voltan</a>,  <time data-short="4 yr" datetime="2021-05-13T16:30:30Z" title="05/13/21 04:30  PM">May 13, 2021</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="epoch 1.0.7" href="https://epochmod.com/forum/tags/epoch 1.0.7/" rel="tag" title="Find other content tagged with 'epoch 1.0.7'"><span>epoch 1.0.7</span></a>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> answer</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">853</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31214-airwaves-man/?do=hovercard" data-ipshover-width="370" href="../../profile/31214-airwaves-man/index.html" rel="nofollow" title="Go to Airwaves Man's profile">
+<img alt="Airwaves Man" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_12/photo_2016-12-18_17-42-12.thumb.jpg.4e45d4ccfe998a0815fc83429c7bc402.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/31214-airwaves-man/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/31214-airwaves-man/index.html" rel="nofollow" title="Go to Airwaves Man's profile">Airwaves Man</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../47312-epoch-107-database-issues/index.html" title="Go to last post">
+<time data-short="4 yr" datetime="2021-05-29T07:49:26Z" title="05/29/21 07:49  AM">May 29, 2021</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span>
+<a class="ipsTag_prefix" data-tag-label="epoch" href="https://epochmod.com/forum/tags/epoch/" rel="tag" title="Find other content tagged with 'epoch'"><span>epoch</span></a>
+</span>
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/46753-i-cant-get-player-built-objects-to-save-to-my-database/?preview=1" data-ipshover-timeout="1.5" href="../46753-i-cant-get-player-built-objects-to-save-to-my-database/index.html">
+									I can't get player built objects to save to my database
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39711-joeclark1337gmailcom/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/39711-joeclark1337gmailcom/index.html" rel="nofollow" title="Go to joeclark1337@gmail.com's profile"><span class="__cf_email__" data-cfemail="ef85808a8c838e9d84dedcdcd8af88828e8683c18c8082">[email protected]</span></a>,  <time data-short="5 yr" datetime="2020-06-22T19:44:59Z" title="06/22/20 07:44  PM">June 22, 2020</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="day-z" href="https://epochmod.com/forum/tags/day-z/" rel="tag" title="Find other content tagged with 'day-z'"><span>day-z</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_874754862">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_874754862_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="day-z" href="https://epochmod.com/forum/tags/day-z/" rel="tag" title="Find other content tagged with 'day-z'"><span>day-z</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="arma-2" href="https://epochmod.com/forum/tags/arma-2/" rel="tag" title="Find other content tagged with 'arma-2'"><span>arma-2</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> answer</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1568</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39588-kreefthond/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39588-kreefthond/" rel="nofollow" title="Go to Kreefthond's profile">
+<img alt="Kreefthond" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%238bc462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EK%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39588-kreefthond/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39588-kreefthond/" rel="nofollow" title="Go to Kreefthond's profile">Kreefthond</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../46753-i-cant-get-player-built-objects-to-save-to-my-database/index.html" title="Go to last post">
+<time data-short="5 yr" datetime="2020-08-14T08:43:28Z" title="08/14/20 08:43  AM">August 14, 2020</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/45331-release-dayzepoch10623deditorlivemissionwithdatabaseinteraction/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/45331-release-dayzepoch10623deditorlivemissionwithdatabaseinteraction/">
+									[Release] Dayz.Epoch.1062.3d.Editor.Live.Mission.With.Database.Interaction
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1286-sandbird/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/1286-sandbird/index.html" rel="nofollow" title="Go to Sandbird's profile">Sandbird</a>,  <time data-short="6 yr" datetime="2018-10-24T10:16:24Z" title="10/24/18 10:16  AM">October 24, 2018</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="hive" href="https://epochmod.com/forum/tags/hive/" rel="tag" title="Find other content tagged with 'hive'"><span>hive</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1156069425">(and 2 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1156069425_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="hive" href="https://epochmod.com/forum/tags/hive/" rel="tag" title="Find other content tagged with 'hive'"><span>hive</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="server" href="https://epochmod.com/forum/tags/server/" rel="tag" title="Find other content tagged with 'server'"><span>server</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="editor" href="https://epochmod.com/forum/tags/editor/" rel="tag" title="Find other content tagged with 'editor'"><span>editor</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">20</span>
+<span class="ipsDataItem_stats_type"> replies</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">6304</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39563-jexie/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39563-jexie/" rel="nofollow" title="Go to Jexie's profile">
+<img alt="Jexie" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23629fc4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EJ%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39563-jexie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/39563-jexie/" rel="nofollow" title="Go to Jexie's profile">Jexie</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/45331-release-dayzepoch10623deditorlivemissionwithdatabaseinteraction/" title="Go to last post">
+<time data-short="4 yr" datetime="2020-11-15T20:03:40Z" title="11/15/20 08:03  PM">November 15, 2020</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44951-safe-is-not-saving-items-to-the-database/?preview=1" data-ipshover-timeout="1.5" href="../44951-safe-is-not-saving-items-to-the-database/index.html">
+									Safe is not saving items to the database
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39110-warburgg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/39110-warburgg/index.html" rel="nofollow" title="Go to Warburgg's profile">Warburgg</a>,  <time data-short="7 yr" datetime="2018-02-28T17:58:22Z" title="02/28/18 05:58  PM">February 28, 2018</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="safe" href="https://epochmod.com/forum/tags/safe/" rel="tag" title="Find other content tagged with 'safe'"><span>safe</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1528734679">(and 2 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1528734679_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="safe" href="https://epochmod.com/forum/tags/safe/" rel="tag" title="Find other content tagged with 'safe'"><span>safe</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="sql" href="https://epochmod.com/forum/tags/sql/" rel="tag" title="Find other content tagged with 'sql'"><span>sql</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="bug" href="https://epochmod.com/forum/tags/bug/" rel="tag" title="Find other content tagged with 'bug'"><span>bug</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">3</span>
+<span class="ipsDataItem_stats_type"> answers</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1890</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39110-warburgg/?do=hovercard" data-ipshover-width="370" href="../../profile/39110-warburgg/index.html" rel="nofollow" title="Go to Warburgg's profile">
+<img alt="Warburgg" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2018_02/26166130_1479188562207222_2226282309561326408_n.thumb.jpg.2f424d840a3b87189ec244e079f28080.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/39110-warburgg/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/39110-warburgg/index.html" rel="nofollow" title="Go to Warburgg's profile">Warburgg</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="../44951-safe-is-not-saving-items-to-the-database/index.html" title="Go to last post">
+<time data-short="7 yr" datetime="2018-03-01T19:57:08Z" title="03/01/18 07:57  PM">March 1, 2018</time>
+</a>
+</li>
+</ul>
+</li>
+<li class="ipsDataItem ipsDataItem_responsivePhoto">
+<div class="ipsDataItem_main">
+<h4 class="ipsDataItem_title ipsContained_container">
+<span class="ipsType_break ipsContained">
+<a data-ipshover="" data-ipshover-target="https://epochmod.com/forum/topic/44755-dirty-deedsswitching-vehicle-mods-or-removing-a-vehicle-mod/?preview=1" data-ipshover-timeout="1.5" href="https://epochmod.com/forum/topic/44755-dirty-deedsswitching-vehicle-mods-or-removing-a-vehicle-mod/">
+									[DIRTY DEEDS]Switching vehicle mods or removing a vehicle mod?
+								</a>
+</span>
+</h4>
+<p class="ipsType_reset ipsType_medium ipsType_light">
+							By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/26778-dirtysanchez/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="../../profile/26778-dirtysanchez/index.html" rel="nofollow" title="Go to DirtySanchez's profile">DirtySanchez</a>,  <time data-short="7 yr" datetime="2017-12-22T12:40:31Z" title="12/22/17 12:40  PM">December 22, 2017</time>
+</p>
+						
+							  
+							
+
+
+	
+		<ul class="ipsTags ipsTags_inline ipsList_inline ipsResponsive_hidePhone ipsGap:1 ipsGap_row:0">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="map" href="https://epochmod.com/forum/tags/map/" rel="tag" title="Find other content tagged with 'map'"><span>map</span></a>
+</li>
+<li class="ipsType_small">
+<span class="ipsType_light ipsCursor_pointer" data-ipsmenu="" id="elTags_1595241447">(and 1 more) <i class="fa fa-caret-down ipsJS_show"></i></span>
+<div class="ipsHide ipsMenu ipsMenu_normal ipsPad_half cTagPopup" id="elTags_1595241447_menu">
+<p class="ipsType_medium ipsType_reset ipsType_light">Tagged with:</p>
+<ul class="ipsTags ipsList_inline ipsGap:1">
+<li>
+<a class="ipsTag" data-tag-label="database" href="https://epochmod.com/forum/tags/database/" rel="tag" title="Find other content tagged with 'database'"><span>database</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="map" href="https://epochmod.com/forum/tags/map/" rel="tag" title="Find other content tagged with 'map'"><span>map</span></a>
+</li>
+<li>
+<a class="ipsTag" data-tag-label="mod removal" href="https://epochmod.com/forum/tags/mod removal/" rel="tag" title="Find other content tagged with 'mod removal'"><span>mod removal</span></a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<ul class="ipsDataItem_stats">
+<li>
+<span class="ipsDataItem_stats_number">1</span>
+<span class="ipsDataItem_stats_type"> reply</span>
+</li>
+<li>
+<span class="ipsDataItem_stats_number">1378</span>
+<span class="ipsDataItem_stats_type"> views</span>
+</li>
+</ul>
+<ul class="ipsDataItem_lastPoster ipsDataItem_withPhoto">
+<li>
+<a class="ipsUserPhoto ipsUserPhoto_tiny" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/25169-natoed/" rel="nofollow" title="Go to natoed's profile">
+<img alt="natoed" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-25169.jpg"/>
+</a>
+</li>
+<li>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/25169-natoed/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F32727-can-someone-help-me-move-my-dayst-database-to-vilayer%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/25169-natoed/" rel="nofollow" title="Go to natoed's profile">natoed</a>
+</li>
+<li class="ipsType_light">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/44755-dirty-deedsswitching-vehicle-mods-or-removing-a-vehicle-mod/" title="Go to last post">
+<time data-short="7 yr" datetime="2017-12-22T15:41:13Z" title="12/22/17 03:41  PM">December 22, 2017</time>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/29-server-install/index.html">
+<span>Server Install <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Can someone help me move my day.st database to vilayer
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="https://epochmod.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Can someone help me move my day.st database to vilayer",
+    "headline": "Can someone help me move my day.st database to vilayer",
+    "text": "hey, guys \nso i decided to move my day.st server to vilayer,\u00a0 \nI got everything going but the database,\u00a0 \nhave hedisql set up for both server, i changed instance ID and the Object_DATA to lowercase, etc, \nbut it just doesn\u0027t work somehow. \nWhen i put in the sql into query, \nI get a message says: \n\nWarnings from last query:\nNote: Table storage engine for \u0027object_data\u0027 doesn\u0027t have this option\n\nthis is what i put in query: \n   \n\u00a0 \ncan someone like help me out\u00a0 \n",
+    "dateCreated": "2015-02-26T22:31:37+0000",
+    "datePublished": "2015-02-26T22:31:37+0000",
+    "dateModified": "2015-02-27T00:36:17+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "AllenFromStacysmom",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg",
+        "url": "https://epochmod.com/forum/profile/29012-allenfromstacysmom/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 1031
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 2
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/",
+    "url": "https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Can someone help me move my day.st database to vilayer",
+        "text": "hey, guys \nso i decided to move my day.st server to vilayer,\u00a0 \nI got everything going but the database,\u00a0 \nhave hedisql set up for both server, i changed instance ID and the Object_DATA to lowercase, etc, \nbut it just doesn\u0027t work somehow. \nWhen i put in the sql into query, \nI get a message says: \n\nWarnings from last query:\nNote: Table storage engine for \u0027object_data\u0027 doesn\u0027t have this option\n\nthis is what i put in query: \n   \n\u00a0 \ncan someone like help me out\u00a0 \n",
+        "answerCount": 2,
+        "dateCreated": "2015-02-26T22:31:37+0000",
+        "author": {
+            "@type": "Person",
+            "name": "AllenFromStacysmom"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/#comment-211390",
+                "url": "https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/#comment-211390",
+                "author": {
+                    "@type": "Person",
+                    "name": "AllenFromStacysmom",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg",
+                    "url": "https://epochmod.com/forum/profile/29012-allenfromstacysmom/"
+                },
+                "dateCreated": "2015-02-27T00:35:02+0000",
+                "text": "Nvm, Problem solved :D \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/#comment-211392",
+                "url": "https://epochmod.com/forum/topic/32727-can-someone-help-me-move-my-dayst-database-to-vilayer/#comment-211392",
+                "author": {
+                    "@type": "Person",
+                    "name": "Richie",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png",
+                    "url": "https://epochmod.com/forum/profile/5581-richie/"
+                },
+                "dateCreated": "2015-02-27T00:36:17+0000",
+                "text": "Dayz.st are still running :o they should of went bust years back, terrible servers, terrible support and i can\u0027t find anything nice to say about them. \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "AllenFromStacysmom",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-29012.jpg",
+            "url": "https://epochmod.com/forum/profile/29012-allenfromstacysmom/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/29-server-install/",
+                "name": "Server Install"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>
