@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Massive Dsync fix? - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Massive Dsync fix?" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/13431-massive-dsync-fix/" property="og:url"/>
+<meta content="our server has been averaging 50 players recently, but even before when we averaged 25 players, the server would get to this point where it would freeze and all the players dsync read 10000 I've not encountered this in the past so i havent any ideas my basic.cfg reads MinBandwidth=50030798; MaxBa..." name="description"/>
+<meta content="our server has been averaging 50 players recently, but even before when we averaged 25 players, the server would get to this point where it would freeze and all the players dsync read 10000 I've not encountered this in the past so i havent any ideas my basic.cfg reads MinBandwidth=50030798; MaxBa..." property="og:description"/>
+<meta content="2014-08-30T07:36:16Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="13431" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzQzMS1tYXNzaXZlLWRzeW5jLWZpeC8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":13431}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Massive Dsync fix?
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Massive Dsync fix?</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">HollowAddiction</a>,</strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-06-28T22:42:06Z" title="06/28/14 10:42  PM">June 28, 2014</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Massive Dsync fix?" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13431">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">4</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-13431" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-95746"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95746">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/9988-hollowaddiction/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile"><span style="color:#">HollowAddiction</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95746" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-28T22:42:06Z" title="06/28/14 10:42  PM">June 28, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">HollowAddiction</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/9988-hollowaddiction/content/" rel="nofollow" title="256 posts">
+<i class="fa fa-comment"></i> 256
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">FL</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95746" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":9988,"username":"HollowAddiction","timestamp":1403995326,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95746}' id="comment-95746_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95746_wrap" href="#elControls_95746_menu" id="elControls_95746" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95746_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95746" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95746_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_95746" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95746" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-28T22:42:06Z" title="06/28/14 10:42  PM">June 28, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>our server has been averaging 50 players recently, but even before when we averaged 25 players, the server would get to this point where it would freeze and all the players dsync read 10000</p>
+<p> </p>
+<p>I've not encountered this in the past so i havent any ideas</p>
+<p> </p>
+<p> </p>
+<p>my basic.cfg reads</p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><span style="font-size:14px;">MinBandwidth=50030798;</span>
+<div>MaxBandwidth=1073741824;</div>
+<div>MaxMsgSend=192;</div>
+<div>MaxSizeGuaranteed=512;</div>
+<div>MaxSizeNonguaranteed=192;</div>
+<div>MinErrorToSendNear=0.04999999;</div>
+<div>MinErrorToSend=0.0039999988;</div>
+<div>MaxCustomFileSize=0;</div>
+<div>Windowed=0;</div>
+<div>adapter=-1;</div>
+<div>3D_Performance=1;</div>
+<div>Resolution_W=800;</div>
+<div>Resolution_H=600;</div>
+<div>Resolution_Bpp=32;</div>
+<div>serverLongitude=-95;</div>
+<div>serverLatitude=39;</div>
+<div>serverLongitudeAuto=-95;</div>
+<div>serverLatitudeAuto=39;</div>
+<div> </div>
+<p></p></blockquote><p></p>
+<p> </p>
+<p> </p>
+<p>were on a dedicated box and i've monitored our bandwidth and have not come close to the limit.</p>
+<p> </p>
+<p> </p>
+<p>help is desperately needed I dont know how much longer the server will last with an issue like this</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95746_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95746" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95746" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95746&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95746&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="our server has been averaging 50 players recently, but even before when we averaged 25 players, the server would get to this point where it would freeze and all the players dsync read 10000 
+  
+I've not encountered this in the past so i havent any ideas 
+  
+  
+my basic.cfg reads 
+   
+  
+  
+were on a dedicated box and i've monitored our bandwidth and have not come close to the limit. 
+  
+  
+help is desperately needed I dont know how much longer the server will last with an issue like this 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95746">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">12 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-95763"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95763">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile">
+<img alt="ReDBaroN" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15396.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/15396-redbaron/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile"><span style="color:#">ReDBaroN</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95763" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-28T23:21:06Z" title="06/28/14 11:21  PM">June 28, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile">ReDBaroN</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile">
+<img alt="ReDBaroN" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15396.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/15396-redbaron/content/" rel="nofollow" title="859 posts">
+<i class="fa fa-comment"></i> 859
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95763" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":15396,"username":"ReDBaroN","timestamp":1403997666,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95763}' id="comment-95763_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95763_wrap" href="#elControls_95763_menu" id="elControls_95763" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95763_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95763" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95763_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95763" id="elSharePost_95763" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95763" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-28T23:21:06Z" title="06/28/14 11:21  PM">June 28, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Minerrortosend and minerrortosendnear look quite high. As stock they start at 0.01 &amp; 0.001. </p><p></p><p>
+Have you tried dropping them and seeing if that helps?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95763_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95763"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95763" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95763" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95763&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95763&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Minerrortosend and minerrortosendnear look quite high. As stock they start at 0.01 &amp; 0.001.   
+Have you tried dropping them and seeing if that helps? 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95763">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-95769"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95769">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/9988-hollowaddiction/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile"><span style="color:#">HollowAddiction</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95769" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-28T23:36:40Z" title="06/28/14 11:36  PM">June 28, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">HollowAddiction</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/9988-hollowaddiction/content/" rel="nofollow" title="256 posts">
+<i class="fa fa-comment"></i> 256
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">FL</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95769" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":9988,"username":"HollowAddiction","timestamp":1403998600,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95769}' id="comment-95769_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95769_wrap" href="#elControls_95769_menu" id="elControls_95769" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95769_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95769" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95769_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95769" id="elSharePost_95769" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95769" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-28T23:36:40Z" title="06/28/14 11:36  PM">June 28, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="ReDBaroN" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="95763" data-ipsquote-contentid="13431" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1403997666" data-ipsquote-username="ReDBaroN"><div>
+<div>
+<p>Minerrortosend and minerrortosendnear look quite high. As stock they start at 0.01 &amp; 0.001.</p><p></p><p>
+Have you tried dropping them and seeing if that helps?</p>
+</div>
+</div></blockquote>
+<p>no changes</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95769_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95769"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95769" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95769" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95769&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95769&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="no changes 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95769">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-95812"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95812">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11576-icomrade/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/11576-icomrade/" rel="nofollow" title="Go to icomrade's profile">
+<img alt="icomrade" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4a362%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EI%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="icomrade is a moderator"></span>
+<a href="https://epochmod.com/forum/profile/11576-icomrade/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11576-icomrade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/11576-icomrade/" rel="nofollow" title="Go to icomrade's profile">icomrade</a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95812" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T02:12:45Z" title="06/29/14 02:12  AM">June 29, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11576-icomrade/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/11576-icomrade/" rel="nofollow" title="Go to icomrade's profile">icomrade</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11576-icomrade/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/11576-icomrade/" rel="nofollow" title="Go to icomrade's profile">
+<img alt="icomrade" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c4a362%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EI%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="icomrade is a moderator"></span>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group">Moderator</li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.71bef1d8ad93af7dcefca484b7d640a4.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11576-icomrade/content/" rel="nofollow" title="493 posts">
+<i class="fa fa-comment"></i> 493
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95812" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11576,"username":"icomrade","timestamp":1404007965,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95812}' id="comment-95812_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95812_wrap" href="#elControls_95812_menu" id="elControls_95812" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95812_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95812" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95812_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95812" id="elSharePost_95812" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95812" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T02:12:45Z" title="06/29/14 02:12  AM">June 29, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="ReDBaroN" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="95763" data-ipsquote-contentid="13431" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1403997666" data-ipsquote-username="ReDBaroN"><div>
+<div>
+<p>Minerrortosend and minerrortosendnear look quite high. As stock they start at 0.01 &amp; 0.001.</p><p></p><p>
+Have you tried dropping them and seeing if that helps?</p>
+</div>
+</div></blockquote>
+<p>The lower, the more often the game sends updates. Having these values too large will result in desync because updates are not frequent.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95812_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95812"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95812" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95812" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95812&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95812&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="The lower, the more often the game sends updates. Having these values too large will result in desync because updates are not frequent. 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95812">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-95853"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95853">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">
+<img alt="Friendly" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/9459-friendly/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile"><span style="color:#">Friendly</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95853" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T05:01:02Z" title="06/29/14 05:01  AM">June 29, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">Friendly</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9459-friendly/?do=hovercard" data-ipshover-width="370" href="../../profile/9459-friendly/index.html" rel="nofollow" title="Go to Friendly's profile">
+<img alt="Friendly" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/9459-friendly/content/" rel="nofollow" title="502 posts">
+<i class="fa fa-comment"></i> 502
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">California</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95853" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":9459,"username":"Friendly","timestamp":1404018062,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95853}' id="comment-95853_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95853_wrap" href="#elControls_95853_menu" id="elControls_95853" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95853_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95853" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95853_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95853" id="elSharePost_95853" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95853" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T05:01:02Z" title="06/29/14 05:01  AM">June 29, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Try this basic.cfg</p>
+<pre class="ipsCode prettyprint">
+MaxMsgSend=192;
+MaxSizeGuaranteed=512;
+MaxSizeNonguaranteed=192;
+MinErrorToSendNear=0.047000002;
+MinErrorToSend=0.0040000002;
+MaxCustomFileSize=100000;
+Windowed=0;
+adapter=-1;
+3D_Performance=1;
+Resolution_W=800;
+Resolution_H=600;
+Resolution_Bpp=32;
+class sockets
+{
+	maxPacketSize=1400;
+};
+</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95853_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95853"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95853" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95853" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95853&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95853&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Try this basic.cfg 
+
+MaxMsgSend=192;
+MaxSizeGuaranteed=512;
+MaxSizeNonguaranteed=192;
+MinErrorToSendNear=0.047000002;
+MinErrorToSend=0.0040000002;
+MaxCustomFileSize=100000;
+Windowed=0;
+adapter=-1;
+3D_Performance=1;
+Resolution_W=800;
+Resolution_H=600;
+Resolution_Bpp=32;
+class sockets
+{
+	maxPacketSize=1400;
+};
+
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95853">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-95881"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95881">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile">
+<img alt="ReDBaroN" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15396.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/15396-redbaron/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile"><span style="color:#">ReDBaroN</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95881" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T08:29:58Z" title="06/29/14 08:29  AM">June 29, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile">ReDBaroN</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15396-redbaron/?do=hovercard" data-ipshover-width="370" href="../../profile/15396-redbaron/index.html" rel="nofollow" title="Go to ReDBaroN's profile">
+<img alt="ReDBaroN" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-15396.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/15396-redbaron/content/" rel="nofollow" title="859 posts">
+<i class="fa fa-comment"></i> 859
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95881" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":15396,"username":"ReDBaroN","timestamp":1404030598,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95881}' id="comment-95881_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95881_wrap" href="#elControls_95881_menu" id="elControls_95881" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95881_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95881" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95881_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95881" id="elSharePost_95881" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95881" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T08:29:58Z" title="06/29/14 08:29  AM">June 29, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="icomrade" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="95812" data-ipsquote-contentid="13431" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1404007965" data-ipsquote-username="icomrade"><div>
+<div>
+<p>The lower, the more often the game sends updates. Having these values too large will result in desync because updates are not frequent.</p>
+</div>
+</div></blockquote>
+<p>Thanks Icomrade, so with having mine set lower, that's better for a mid-high pop server? I am currently using your settings you posted <iframe data-embed-src="https://epochmod.com/forum/index.php?/topic/7619-server-network-message-xxxxxx-is-pending/?p=60549&amp;do=embed" data-embedcontent="" frameborder="0" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"></iframe> but, would you say that with the recent version changes your excellent guide is still accurate?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95881_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95881"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95881" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95881" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95881&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95881&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thanks Icomrade, so with having mine set lower, that's better for a mid-high pop server? I am currently using your settings you posted  but, would you say that with the recent version changes your excellent guide is still accurate? 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95881">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-95934"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95934">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/9988-hollowaddiction/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile"><span style="color:#">HollowAddiction</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95934" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T11:25:06Z" title="06/29/14 11:25  AM">June 29, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">HollowAddiction</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/9988-hollowaddiction/content/" rel="nofollow" title="256 posts">
+<i class="fa fa-comment"></i> 256
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">FL</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95934" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":9988,"username":"HollowAddiction","timestamp":1404041106,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95934}' id="comment-95934_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95934_wrap" href="#elControls_95934_menu" id="elControls_95934" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95934_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95934" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95934_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95934" id="elSharePost_95934" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95934" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T11:25:06Z" title="06/29/14 11:25  AM">June 29, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Ive just lowered our player count to 45, and found some players whos bandwidth on my server was lower then 200 and booted them, seems to have cleared it up</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95934_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95934"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95934" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95934" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95934&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95934&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Ive just lowered our player count to 45, and found some players whos bandwidth on my server was lower then 200 and booted them, seems to have cleared it up 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95934">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-95964"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_95964">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<a href="https://epochmod.com/forum/profile/5581-richie/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95964" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T13:09:24Z" title="06/29/14 01:09  PM">June 29, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">Richie</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/5581-richie/?do=hovercard" data-ipshover-width="370" href="../../profile/5581-richie/index.html" rel="nofollow" title="Go to Richie's profile">
+<img alt="Richie" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png"/>
+</a>
+<span class="cAuthorPane_badge cAuthorPane_badge--moderator" data-ipstooltip="" title="Richie is a moderator"></span>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group">Developer</li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.8fdd81fad5028d3aa7ed27322981c592.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/5581-richie/content/" rel="nofollow" title="4345 posts">
+<i class="fa fa-comment"></i> 4.3k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="95964" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":5581,"username":"Richie","timestamp":1404047364,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":95964}' id="comment-95964_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-95964_wrap" href="#elControls_95964_menu" id="elControls_95964" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_95964_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=95964" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_95964_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95964" id="elSharePost_95964" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95964" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-29T13:09:24Z" title="06/29/14 01:09  PM">June 29, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="HollowAddiction" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="95934" data-ipsquote-contentid="13431" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1404041106" data-ipsquote-username="HollowAddiction"><div>
+<div>
+<p>Ive just lowered our player count to 45, and found some players whos bandwidth on my server was lower then 200 and booted them, seems to have cleared it up</p>
+</div>
+</div></blockquote>
+<p>That's a known issue, I remember MGT having a look into this but no idea if he found a fix, maybe send him a PM ? He's a nice guy and will try to help :)</p>
+<p> </p>
+<p>*EDIT*</p>
+<p>See <iframe data-embed-src="https://epochmod.com/forum/index.php?/topic/2235-anyway-to-auto-kick-those-with-sub-100-bandwidth&amp;do=embed" data-embedcontent="" frameborder="0" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"></iframe> post.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_95964_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95964"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95964" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95964" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D95964&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=95964&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="That's a known issue, I remember MGT having a look into this but no idea if he found a fix, maybe send him a PM ? He's a nice guy and will try to help :) 
+  
+*EDIT* 
+See  post. 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=95964">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97197"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97197">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/9988-hollowaddiction/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile"><span style="color:#">HollowAddiction</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=97197" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T19:25:32Z" title="07/01/14 07:25  PM">July 1, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">HollowAddiction</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/9988-hollowaddiction/?do=hovercard" data-ipshover-width="370" href="../../profile/9988-hollowaddiction/index.html" rel="nofollow" title="Go to HollowAddiction's profile">
+<img alt="HollowAddiction" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/9988-hollowaddiction/content/" rel="nofollow" title="256 posts">
+<i class="fa fa-comment"></i> 256
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">FL</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97197" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":9988,"username":"HollowAddiction","timestamp":1404242732,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":97197}' id="comment-97197_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97197_wrap" href="#elControls_97197_menu" id="elControls_97197" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97197_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=97197" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97197_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=97197" id="elSharePost_97197" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=97197" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T19:25:32Z" title="07/01/14 07:25  PM">July 1, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Well i've tweeked my basic.cfg a few times, moved my dedi to some better hardware, tried lowering player count(but yesterday dsync came while only 14 players were on) I have just been kicking layers with 100k dsync/low bandwidth but even then it occurs, I'm really at a loss pulling my hair out over here</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97197_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=97197"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D97197" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D97197" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D97197&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=97197&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Well i've tweeked my basic.cfg a few times, moved my dedi to some better hardware, tried lowering player count(but yesterday dsync came while only 14 players were on) I have just been kicking layers with 100k dsync/low bandwidth but even then it occurs, I'm really at a loss pulling my hair out over here 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=97197">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-122433"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_122433">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">
+<img alt="bFe" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-3416.jpeg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3416-bfe/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile"><span style="color:#">bFe</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122433" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T02:24:55Z" title="08/30/14 02:24  AM">August 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">bFe</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">
+<img alt="bFe" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-3416.jpeg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3416-bfe/content/" rel="nofollow" title="586 posts">
+<i class="fa fa-comment"></i> 586
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Norway</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="122433" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3416,"username":"bFe","timestamp":1409365495,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":122433}' id="comment-122433_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-122433_wrap" href="#elControls_122433_menu" id="elControls_122433" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_122433_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=122433" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_122433_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122433" id="elSharePost_122433" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122433" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T02:24:55Z" title="08/30/14 02:24  AM">August 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I'm gonna revive this one instead of starting a new topic.</p>
+<p>I'm getting desync on my server when theres 20+ players.<br/><br/>
+Heres my arma2.cfg</p>
+<p> </p>
+<div>MinBandwidth=132500000;</div>
+<div>MaxBandwidth=1073741824;</div>
+<div>MaxMsgSend=92;</div>
+<div>MaxSizeNonguaranteed=64;</div>
+<div>MaxSizeGuaranteed=128;</div>
+<div>MinErrorToSendNear=0.029999997;</div>
+<div>MinErrorToSend=0.0019999994;</div>
+<div>MaxCustomFileSize=0;</div>
+<div>Windowed=0;</div>
+<div>adapter=-1;</div>
+<div>3D_Performance=1;</div>
+<div>Resolution_Bpp=32;</div>
+<div>class sockets</div>
+<div>{</div>
+<div>maxPacketSize=1400;</div>
+<div>};</div>
+<div> </div>
+<div>What needs to be changed?<br/>
+ </div>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_122433_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122433"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122433" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122433" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122433&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=122433&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I'm gonna revive this one instead of starting a new topic. 
+I'm getting desync on my server when theres 20+ players.  
+Heres my arma2.cfg 
+  
+MinBandwidth=132500000;
+MaxBandwidth=1073741824;
+MaxMsgSend=92;
+MaxSizeNonguaranteed=64;
+MaxSizeGuaranteed=128;
+MinErrorToSendNear=0.029999997;
+MinErrorToSend=0.0019999994;
+MaxCustomFileSize=0;
+Windowed=0;
+adapter=-1;
+3D_Performance=1;
+Resolution_Bpp=32;
+class sockets
+{
+maxPacketSize=1400;
+};
+ 
+What needs to be changed? 
+ 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122433">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-122434"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_122434">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile">
+<img alt="MGT" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/12-mgt/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile"><span style="color:#">MGT</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122434" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T02:29:18Z" title="08/30/14 02:29  AM">August 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile">MGT</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile">
+<img alt="MGT" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/12-mgt/content/" rel="nofollow" title="1368 posts">
+<i class="fa fa-comment"></i> 1.4k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="122434" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12,"username":"MGT","timestamp":1409365758,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":122434}' id="comment-122434_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-122434_wrap" href="#elControls_122434_menu" id="elControls_122434" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_122434_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=122434" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_122434_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122434" id="elSharePost_122434" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122434" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T02:29:18Z" title="08/30/14 02:29  AM">August 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Give mine a go, works for me</p>
+<pre class="ipsCode prettyprint">
+MinBandwidth=1097152;
+MaxBandwidth=2147483647;
+MaxMsgSend=256;
+MaxSizeGuaranteed=512;
+MaxSizeNonguaranteed=192;
+MinErrorToSendNear=0.05;
+MinErrorToSend=0.004;
+MaxCustomFileSize=0;
+Windowed=0;
+adapter=-1;
+3D_Performance=1;
+Resolution_W=800;
+Resolution_H=600;
+Resolution_Bpp=32;
+</pre>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17631-shadow_fl/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/17631-shadow_fl/" rel="nofollow" title="Go to shadow_fl's profile">shadow_fl</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=showReactionsComment&amp;comment=122434&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=showReactionsComment&amp;comment=122434&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_122434_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122434"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122434" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122434" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122434&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=122434&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Give mine a go, works for me 
+
+MinBandwidth=1097152;
+MaxBandwidth=2147483647;
+MaxMsgSend=256;
+MaxSizeGuaranteed=512;
+MaxSizeNonguaranteed=192;
+MinErrorToSendNear=0.05;
+MinErrorToSend=0.004;
+MaxCustomFileSize=0;
+Windowed=0;
+adapter=-1;
+3D_Performance=1;
+Resolution_W=800;
+Resolution_H=600;
+Resolution_Bpp=32;
+
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122434">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-122457"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_122457">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">
+<img alt="bFe" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-3416.jpeg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3416-bfe/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile"><span style="color:#">bFe</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122457" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T03:43:12Z" title="08/30/14 03:43  AM">August 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">bFe</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3416-bfe/?do=hovercard" data-ipshover-width="370" href="../../profile/3416-bfe/index.html" rel="nofollow" title="Go to bFe's profile">
+<img alt="bFe" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-3416.jpeg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3416-bfe/content/" rel="nofollow" title="586 posts">
+<i class="fa fa-comment"></i> 586
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Norway</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="122457" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3416,"username":"bFe","timestamp":1409370192,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":122457}' id="comment-122457_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-122457_wrap" href="#elControls_122457_menu" id="elControls_122457" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_122457_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=122457" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_122457_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122457" id="elSharePost_122457" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122457" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T03:43:12Z" title="08/30/14 03:43  AM">August 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Thanks! I'll try it out,</p>
+<p>One other thing I noticed, the arma2.cfg isnt added in the startup paramater, should it be?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_122457_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122457"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122457" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122457" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122457&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=122457&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Thanks! I'll try it out, 
+One other thing I noticed, the arma2.cfg isnt added in the startup paramater, should it be? 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122457">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-122509"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_122509">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile">
+<img alt="MGT" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/12-mgt/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile"><span style="color:#">MGT</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122509" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T07:36:16Z" title="08/30/14 07:36  AM">August 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13431-massive-dsync-fix%252F" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile">MGT</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/12-mgt/?do=hovercard" data-ipshover-width="370" href="../../profile/12-mgt/index.html" rel="nofollow" title="Go to MGT's profile">
+<img alt="MGT" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-12.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/12-mgt/content/" rel="nofollow" title="1368 posts">
+<i class="fa fa-comment"></i> 1.4k
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="122509" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":12,"username":"MGT","timestamp":1409384176,"contentapp":"forums","contenttype":"forums","contentid":13431,"contentclass":"forums_Topic","contentcommentid":122509}' id="comment-122509_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-122509_wrap" href="#elControls_122509_menu" id="elControls_122509" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_122509_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=reportComment&amp;comment=122509" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_122509_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122509" id="elSharePost_122509" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122509" rel="nofollow">Posted <time data-short="10 yr" datetime="2014-08-30T07:36:16Z" title="08/30/14 07:36  AM">August 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="bFe" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="122457" data-ipsquote-contentid="13431" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1409370192" data-ipsquote-username="bFe"><div><p>
+Thanks! I'll try it out,</p><p>
+One other thing I noticed, the arma2.cfg isnt added in the startup paramater, should it be?</p></div></blockquote>
+<p>
+Isn't needed for the server instance.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_122509_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122509"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122509" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122509" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F%3Fdo%3DfindComment%26comment%3D122509&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment%26comment=122509&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Isn't needed for the server instance. 
+" data-websharetitle="Massive Dsync fix?" data-webshareurl="https://epochmod.com/forum/topic/13431-massive-dsync-fix/?do=findComment&amp;comment=122509">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzQzMS1tYXNzaXZlLWRzeW5jLWZpeC8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13431-massive-dsync-fix%2F&amp;title=Massive+Dsync+fix%3F" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13431-massive-dsync-fix/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Massive Dsync fix?" data-websharetitle="Massive Dsync fix?" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13431">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">4</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Massive Dsync fix?
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Massive Dsync fix?",
+    "headline": "Massive Dsync fix?",
+    "text": "our server has been averaging 50 players recently, but even before when we averaged 25 players, the server would get to this point where it would freeze and all the players dsync read 10000 \n\u00a0 \nI\u0027ve not encountered this in the past so i havent any ideas \n\u00a0 \n\u00a0 \nmy basic.cfg reads \n   \n\u00a0 \n\u00a0 \nwere on a dedicated box and i\u0027ve monitored our bandwidth and have not come close to the limit. \n\u00a0 \n\u00a0 \nhelp is desperately needed I dont know how much longer the server will last with an issue like this \n",
+    "dateCreated": "2014-06-28T22:42:06+0000",
+    "datePublished": "2014-06-28T22:42:06+0000",
+    "dateModified": "2014-08-30T07:36:16+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png",
+    "author": {
+        "@type": "Person",
+        "name": "HollowAddiction",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png",
+        "url": "https://epochmod.com/forum/profile/9988-hollowaddiction/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2069
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 12
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 4
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/",
+    "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Massive Dsync fix?",
+        "text": "our server has been averaging 50 players recently, but even before when we averaged 25 players, the server would get to this point where it would freeze and all the players dsync read 10000 \n\u00a0 \nI\u0027ve not encountered this in the past so i havent any ideas \n\u00a0 \n\u00a0 \nmy basic.cfg reads \n   \n\u00a0 \n\u00a0 \nwere on a dedicated box and i\u0027ve monitored our bandwidth and have not come close to the limit. \n\u00a0 \n\u00a0 \nhelp is desperately needed I dont know how much longer the server will last with an issue like this \n",
+        "answerCount": 12,
+        "dateCreated": "2014-06-28T22:42:06+0000",
+        "author": {
+            "@type": "Person",
+            "name": "HollowAddiction"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95763",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95763",
+                "author": {
+                    "@type": "Person",
+                    "name": "ReDBaroN",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-15396.jpg",
+                    "url": "https://epochmod.com/forum/profile/15396-redbaron/"
+                },
+                "dateCreated": "2014-06-28T23:21:06+0000",
+                "text": "Minerrortosend and minerrortosendnear look quite high. As stock they start at 0.01 \u0026amp; 0.001.   \nHave you tried dropping them and seeing if that helps? \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95769",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95769",
+                "author": {
+                    "@type": "Person",
+                    "name": "HollowAddiction",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png",
+                    "url": "https://epochmod.com/forum/profile/9988-hollowaddiction/"
+                },
+                "dateCreated": "2014-06-28T23:36:40+0000",
+                "text": "no changes \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95812",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95812",
+                "author": {
+                    "@type": "Person",
+                    "name": "icomrade",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/11576-icomrade/"
+                },
+                "dateCreated": "2014-06-29T02:12:45+0000",
+                "text": "The lower, the more often the game sends updates. Having these values too large will result in desync because updates are not frequent. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95853",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95853",
+                "author": {
+                    "@type": "Person",
+                    "name": "Friendly",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9459.png",
+                    "url": "https://epochmod.com/forum/profile/9459-friendly/"
+                },
+                "dateCreated": "2014-06-29T05:01:02+0000",
+                "text": "Try this basic.cfg \n\nMaxMsgSend=192;\nMaxSizeGuaranteed=512;\nMaxSizeNonguaranteed=192;\nMinErrorToSendNear=0.047000002;\nMinErrorToSend=0.0040000002;\nMaxCustomFileSize=100000;\nWindowed=0;\nadapter=-1;\n3D_Performance=1;\nResolution_W=800;\nResolution_H=600;\nResolution_Bpp=32;\nclass sockets\n{\n\tmaxPacketSize=1400;\n};\n\n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95881",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95881",
+                "author": {
+                    "@type": "Person",
+                    "name": "ReDBaroN",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-15396.jpg",
+                    "url": "https://epochmod.com/forum/profile/15396-redbaron/"
+                },
+                "dateCreated": "2014-06-29T08:29:58+0000",
+                "text": "Thanks Icomrade, so with having mine set lower, that\u0027s better for a mid-high pop server? I am currently using your settings you posted  but, would you say that with the recent version changes your excellent guide is still accurate? \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95934",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95934",
+                "author": {
+                    "@type": "Person",
+                    "name": "HollowAddiction",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png",
+                    "url": "https://epochmod.com/forum/profile/9988-hollowaddiction/"
+                },
+                "dateCreated": "2014-06-29T11:25:06+0000",
+                "text": "Ive just lowered our player count to 45, and found some players whos bandwidth on my server was lower then 200 and booted them, seems to have cleared it up \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95964",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-95964",
+                "author": {
+                    "@type": "Person",
+                    "name": "Richie",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2016_01/epochlogo.png.b5f4510d1cd9df136810fbc8a7304da9.thumb.png.7bf30da9466297789cb41ebc9db23738.png",
+                    "url": "https://epochmod.com/forum/profile/5581-richie/"
+                },
+                "dateCreated": "2014-06-29T13:09:24+0000",
+                "text": "That\u0027s a known issue, I remember MGT having a look into this but no idea if he found a fix, maybe send him a PM ? He\u0027s a nice guy and will try to help :) \n\u00a0 \n*EDIT* \nSee  post. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-97197",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-97197",
+                "author": {
+                    "@type": "Person",
+                    "name": "HollowAddiction",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png",
+                    "url": "https://epochmod.com/forum/profile/9988-hollowaddiction/"
+                },
+                "dateCreated": "2014-07-01T19:25:32+0000",
+                "text": "Well i\u0027ve tweeked my basic.cfg a few times, moved my dedi to some better hardware, tried lowering player count(but yesterday dsync came while only 14 players were on) I have just been kicking layers with 100k dsync/low bandwidth but even then it occurs, I\u0027m really at a loss pulling my hair out over here \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122433",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122433",
+                "author": {
+                    "@type": "Person",
+                    "name": "bFe",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-3416.jpeg",
+                    "url": "https://epochmod.com/forum/profile/3416-bfe/"
+                },
+                "dateCreated": "2014-08-30T02:24:55+0000",
+                "text": "I\u0027m gonna revive this one instead of starting a new topic. \nI\u0027m getting desync on my server when theres 20+ players.  \nHeres my arma2.cfg \n\u00a0 \nMinBandwidth=132500000;\nMaxBandwidth=1073741824;\nMaxMsgSend=92;\nMaxSizeNonguaranteed=64;\nMaxSizeGuaranteed=128;\nMinErrorToSendNear=0.029999997;\nMinErrorToSend=0.0019999994;\nMaxCustomFileSize=0;\nWindowed=0;\nadapter=-1;\n3D_Performance=1;\nResolution_Bpp=32;\nclass sockets\n{\nmaxPacketSize=1400;\n};\n\u00a0\nWhat needs to be changed? \n\u00a0\n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122434",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122434",
+                "author": {
+                    "@type": "Person",
+                    "name": "MGT",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12.jpg",
+                    "url": "https://epochmod.com/forum/profile/12-mgt/"
+                },
+                "dateCreated": "2014-08-30T02:29:18+0000",
+                "text": "Give mine a go, works for me \n\nMinBandwidth=1097152;\nMaxBandwidth=2147483647;\nMaxMsgSend=256;\nMaxSizeGuaranteed=512;\nMaxSizeNonguaranteed=192;\nMinErrorToSendNear=0.05;\nMinErrorToSend=0.004;\nMaxCustomFileSize=0;\nWindowed=0;\nadapter=-1;\n3D_Performance=1;\nResolution_W=800;\nResolution_H=600;\nResolution_Bpp=32;\n\n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122457",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122457",
+                "author": {
+                    "@type": "Person",
+                    "name": "bFe",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-3416.jpeg",
+                    "url": "https://epochmod.com/forum/profile/3416-bfe/"
+                },
+                "dateCreated": "2014-08-30T03:43:12+0000",
+                "text": "Thanks! I\u0027ll try it out, \nOne other thing I noticed, the arma2.cfg isnt added in the startup paramater, should it be? \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122509",
+                "url": "https://epochmod.com/forum/topic/13431-massive-dsync-fix/#comment-122509",
+                "author": {
+                    "@type": "Person",
+                    "name": "MGT",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-12.jpg",
+                    "url": "https://epochmod.com/forum/profile/12-mgt/"
+                },
+                "dateCreated": "2014-08-30T07:36:16+0000",
+                "text": "Isn\u0027t needed for the server instance. \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "HollowAddiction",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-9988.png",
+            "url": "https://epochmod.com/forum/profile/9988-hollowaddiction/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

@@ -1,0 +1,2826 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Only run script on new spawns. - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Only run script on new spawns." property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/" property="og:url"/>
+<meta content="i've been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far. It's very frustrating and I'm not sure if its because I'm using Parachute spawning or that Epoch uses different conditions to check if players are new spawn. I'm usin..." name="description"/>
+<meta content="i've been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far. It's very frustrating and I'm not sure if its because I'm using Parachute spawning or that Epoch uses different conditions to check if players are new spawn. I'm usin..." property="og:description"/>
+<meta content="2014-05-30T09:19:17Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="11277" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMTI3Ny1vbmx5LXJ1bi1zY3JpcHQtb24tbmV3LXNwYXducy8="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":11277}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Only run script on new spawns.
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Only run script on new spawns.</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a>,</strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-05-15T13:29:45Z" title="05/15/14 01:29  PM">May 15, 2014</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Only run script on new spawns." data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="11277">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-11277" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-79010"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79010">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79010" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-15T13:29:45Z" title="05/15/14 01:29  PM">May 15, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79010" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1400160585,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79010}' id="comment-79010_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79010_wrap" href="#elControls_79010_menu" id="elControls_79010" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79010_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79010" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79010_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_79010" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79010" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-15T13:29:45Z" title="05/15/14 01:29  PM">May 15, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>i've been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far.  It's very frustrating and I'm not sure if its because I'm using Parachute spawning or that Epoch uses different conditions to check if players are new spawn.  I'm using this at the moment, which should work but just doesn't.. :(</p>
+<pre class="ipsCode prettyprint">
+waitUntil {!isNil ("PVDZ_plr_LoginRecord")};
+if (PVCDZ_plr_Login2 select 2) then
+{
+
+//Code for this script: https://gist.github.com/IT07/6210573
+
+};
+</pre>
+<p>Any ideas? I've put a link to the script I'm embedding too.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79010_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79010" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79010" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79010&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79010&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="i've been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far.  It's very frustrating and I'm not sure if its because I'm using Parachute spawning or that Epoch uses different conditions to check if players are new spawn.  I'm using this at the moment, which should work but just doesn't.. :( 
+
+waitUntil {!isNil (&quot;PVDZ_plr_LoginRecord&quot;)};
+if (PVCDZ_plr_Login2 select 2) then
+{
+
+//Code for this script: https://gist.github.com/IT07/6210573
+
+};
+
+Any ideas? I've put a link to the script I'm embedding too. 
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79010">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">10 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-79108"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79108">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">
+<img alt="Glenn" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2731.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2731-glenn/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile"><span style="color:#">Glenn</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79108" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-15T18:38:31Z" title="05/15/14 06:38  PM">May 15, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">Glenn</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">
+<img alt="Glenn" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2731.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2731-glenn/content/" rel="nofollow" title="573 posts">
+<i class="fa fa-comment"></i> 573
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79108" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2731,"username":"Glenn","timestamp":1400179111,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79108}' id="comment-79108_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79108_wrap" href="#elControls_79108_menu" id="elControls_79108" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79108_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79108" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79108_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79108" id="elSharePost_79108" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79108" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-15T18:38:31Z" title="05/15/14 06:38  PM">May 15, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Where are you trying to put this code? </p>
+<p> </p>
+<p>If you are not having it in the init.sqf, as the installation instructions are giving you, then you will have issues making the script work. </p>
+<p> </p>
+<p>It should be in the Dedicated portion of the missions init.sqf: <br/><br/>
+ </p>
+<pre class="ipsCode prettyprint">
+if (!isDedicated) then {                               &lt;-----
+	//Conduct Credit Style Info                    &lt;-----
+	[] execVM "Custom\Server_WelcomeCredits.sqf";  &lt;-----
+	//Conduct map operations
+	0 fadeSound 0;
+	waitUntil {!isNil "dayz_loadScreenMsg"};
+	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+	
+	//Run the player monitor
+	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
+	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
+
+};
+</pre>
+<p>I dont know if you can put <a href="http://pastebin.com/pBXHs57Q" rel="external nofollow">this</a> into a sqf and execute it in the location above... but it could be something to explore? </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79108_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79108"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79108" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79108" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79108&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79108&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Where are you trying to put this code?  
+  
+If you are not having it in the init.sqf, as the installation instructions are giving you, then you will have issues making the script work.  
+  
+It should be in the Dedicated portion of the missions init.sqf:   
+  
+
+if (!isDedicated) then {                               &lt;-----
+	//Conduct Credit Style Info                    &lt;-----
+	[] execVM "Custom\Server_WelcomeCredits.sqf";  &lt;-----
+	//Conduct map operations
+	0 fadeSound 0;
+	waitUntil {!isNil "dayz_loadScreenMsg"};
+	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+	
+	//Run the player monitor
+	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
+	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
+
+};
+
+I dont know if you can put this into a sqf and execute it in the location above... but it could be something to explore?  
+' data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79108">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-79129"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79129">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79129" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-15T19:44:37Z" title="05/15/14 07:44  PM">May 15, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79129" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1400183077,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79129}' id="comment-79129_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79129_wrap" href="#elControls_79129_menu" id="elControls_79129" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79129_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79129" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79129_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79129" id="elSharePost_79129" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79129" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-15T19:44:37Z" title="05/15/14 07:44  PM">May 15, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Glenn" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="79108" data-ipsquote-contentid="11277" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1400179111" data-ipsquote-username="Glenn"><div>
+<div>
+<p>Where are you trying to put this code? </p>
+<p> </p>
+<p>If you are not having it in the init.sqf, as the installation instructions are giving you, then you will have issues making the script work. </p>
+<p> </p>
+<p>It should be in the Dedicated portion of the missions init.sqf: </p><p></p><p>
+ </p>
+<pre class="ipsCode prettyprint">
+if (!isDedicated) then {                               &lt;-----
+	//Conduct Credit Style Info                    &lt;-----
+	[] execVM "Custom\Server_WelcomeCredits.sqf";  &lt;-----
+	//Conduct map operations
+	0 fadeSound 0;
+	waitUntil {!isNil "dayz_loadScreenMsg"};
+	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+	
+	//Run the player monitor
+	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
+	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
+
+};
+</pre>
+<p>I dont know if you can put <a href="http://pastebin.com/pBXHs57Q" rel="external nofollow">this</a> into a sqf and execute it in the location above... but it could be something to explore? </p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>I'm doing exactly as the instructions say, but I'm just trying to add code to the script itself, to ONLY run if it detects the player is a new spawn.  So it loads that file above, then all I've done is add the code as in my example.. I hope that makes sense.. I didn't include the entire file as it was just going to waste screen space here :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79129_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79129"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79129" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79129" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79129&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79129&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I'm doing exactly as the instructions say, but I'm just trying to add code to the script itself, to ONLY run if it detects the player is a new spawn.  So it loads that file above, then all I've done is add the code as in my example.. I hope that makes sense.. I didn't include the entire file as it was just going to waste screen space here :) 
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79129">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-79268"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79268">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile">
+<img alt="Halvhjearne" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10011-halvhjearne/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile"><span style="color:#">Halvhjearne</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79268" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-16T05:34:02Z" title="05/16/14 05:34  AM">May 16, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile">Halvhjearne</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile">
+<img alt="Halvhjearne" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10011-halvhjearne/content/" rel="nofollow" title="1479 posts">
+<i class="fa fa-comment"></i> 1.5k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">DK</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79268" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10011,"username":"Halvhjearne","timestamp":1400218442,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79268}' id="comment-79268_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79268_wrap" href="#elControls_79268_menu" id="elControls_79268" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79268_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79268" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79268_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79268" id="elSharePost_79268" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79268" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-16T05:34:02Z" title="05/16/14 05:34  AM">May 16, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="MatthewK" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="79010" data-ipsquote-contentid="11277" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1400160585" data-ipsquote-username="MatthewK"><div>
+<div>
+<p>i've been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far.  It's very frustrating and I'm not sure if its because I'm using Parachute spawning or that Epoch uses different conditions to check if players are new spawn.  I'm using this at the moment, which should work but just doesn't.. :(</p>
+<pre class="ipsCode prettyprint">
+waitUntil {!isNil ("PVDZ_plr_LoginRecord")};
+if (PVCDZ_plr_Login2 select 2) then
+{
+
+//Code for this script: https://gist.github.com/IT07/6210573
+
+};
+</pre>
+<p>Any ideas? I've put a link to the script I'm embedding too.</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p><strike>this code is correct, you need to show us the script you intend to use as i think the error is there ... also check you client rpt file for clues as to what went wrong</strike></p>
+<p> </p>
+<p>quicksaver edit:</p>
+<p>code is incorrect ... try this:</p>
+<pre class="ipsCode prettyprint">
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")};
+if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {
+</pre>
+<p>just woke up ... sorry</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">Glenn</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=showReactionsComment&amp;comment=79268&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=showReactionsComment&amp;comment=79268&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79268_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79268"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79268" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79268" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79268&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79268&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='this code is correct, you need to show us the script you intend to use as i think the error is there ... also check you client rpt file for clues as to what went wrong 
+  
+quicksaver edit: 
+code is incorrect ... try this: 
+
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")};
+if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {
+
+just woke up ... sorry 
+' data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79268">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-79270"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79270">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79270" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-16T06:05:17Z" title="05/16/14 06:05  AM">May 16, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79270" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1400220317,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79270}' id="comment-79270_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79270_wrap" href="#elControls_79270_menu" id="elControls_79270" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79270_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79270" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79270_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79270" id="elSharePost_79270" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79270" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-16T06:05:17Z" title="05/16/14 06:05  AM">May 16, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Halvhjearne" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="79268" data-ipsquote-contentid="11277" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1400218442" data-ipsquote-username="Halvhjearne"><div>
+<div>
+<p><strike>this code is correct, you need to show us the script you intend to use as i think the error is there ... also check you client rpt file for clues as to what went wrong</strike></p>
+<p> </p>
+<p>quicksaver edit:</p>
+<p>code is incorrect ... try this:</p>
+<pre class="ipsCode prettyprint">
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")};
+if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {
+</pre>
+<p>just woke up ... sorry</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>Edit: That still doesn't work.. </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79270_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79270"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79270" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79270" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79270&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79270&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Edit: That still doesn't work..  
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79270">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-79893"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79893">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79893" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-18T02:46:31Z" title="05/18/14 02:46  AM">May 18, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79893" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1400381191,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79893}' id="comment-79893_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79893_wrap" href="#elControls_79893_menu" id="elControls_79893" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79893_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79893" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79893_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79893" id="elSharePost_79893" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79893" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-18T02:46:31Z" title="05/18/14 02:46  AM">May 18, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>waitUntil {!isNil ("PVDZE_plr_LoginRecord")};<br/>
+if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {</p>
+<p> </p>
+<p>Still doesn't work .. I'm giving up!</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79893_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79893"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79893" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79893" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79893&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79893&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="waitUntil {!isNil (&quot;PVDZE_plr_LoginRecord&quot;)}; 
+if (dayzPlayerLogin2 select 2 and !(player isKindOf &quot;PZombie_VB&quot;)) then { 
+  
+Still doesn't work .. I'm giving up! 
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79893">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-79967"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_79967">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile">
+<img alt="Halvhjearne" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/10011-halvhjearne/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile"><span style="color:#">Halvhjearne</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79967" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-18T10:15:14Z" title="05/18/14 10:15  AM">May 18, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile">Halvhjearne</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/10011-halvhjearne/?do=hovercard" data-ipshover-width="370" href="../../profile/10011-halvhjearne/index.html" rel="nofollow" title="Go to Halvhjearne's profile">
+<img alt="Halvhjearne" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%2362c46e%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Collaborator</span></li>
+<li data-role="group-icon"><img alt="" class="cAuthorGroupIcon" src="https://epochmod.com/forum/uploads/monthly_2016_12/collaborators_icon.png.7cad9165da414faefb2067f3803d57bb.png"/></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/10011-halvhjearne/content/" rel="nofollow" title="1479 posts">
+<i class="fa fa-comment"></i> 1.5k
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">DK</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="79967" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":10011,"username":"Halvhjearne","timestamp":1400408114,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":79967}' id="comment-79967_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-79967_wrap" href="#elControls_79967_menu" id="elControls_79967" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_79967_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=79967" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_79967_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79967" id="elSharePost_79967" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79967" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-18T10:15:14Z" title="05/18/14 10:15  AM">May 18, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="MatthewK" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="79893" data-ipsquote-contentid="11277" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1400381191" data-ipsquote-username="MatthewK"><div>
+<div>
+<p>waitUntil {!isNil ("PVDZE_plr_LoginRecord")};</p><p>
+if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {</p>
+<p> </p>
+<p>Still doesn't work .. I'm giving up!</p>
+</div>
+</div></blockquote>
+<p> </p>
+<p>unless you forgot a closing bracket or your script is broken, this will work ... oh and you also need to edit server_playerSetup.sqf, but i assumed you already changed this:</p>
+<pre class="ipsCode prettyprint">
+dayzPlayerLogin2 = [_worldspace,_state];
+</pre>
+<p>to this:</p>
+<pre class="ipsCode prettyprint">
+dayzPlayerLogin2 = [_worldspace,_state,_randomSpot];
+</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_79967_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79967"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79967" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79967" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D79967&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=79967&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="unless you forgot a closing bracket or your script is broken, this will work ... oh and you also need to edit server_playerSetup.sqf, but i assumed you already changed this: 
+
+dayzPlayerLogin2 = [_worldspace,_state];
+
+to this: 
+
+dayzPlayerLogin2 = [_worldspace,_state,_randomSpot];
+
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=79967">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-80107"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_80107">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=80107" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-18T18:42:03Z" title="05/18/14 06:42  PM">May 18, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="80107" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1400438523,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":80107}' id="comment-80107_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-80107_wrap" href="#elControls_80107_menu" id="elControls_80107" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_80107_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=80107" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_80107_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=80107" id="elSharePost_80107" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=80107" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-18T18:42:03Z" title="05/18/14 06:42  PM">May 18, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="Halvhjearne" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="79967" data-ipsquote-contentid="11277" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1400408114" data-ipsquote-username="Halvhjearne"><div>
+<div>
+<p> </p>
+<p>unless you forgot a closing bracket or your script is broken, this will work ... oh and you also need to edit server_playerSetup.sqf, but i assumed you already changed this:</p>
+<pre class="ipsCode prettyprint">
+dayzPlayerLogin2 = [_worldspace,_state];
+</pre>
+<p>to this:</p>
+<pre class="ipsCode prettyprint">
+dayzPlayerLogin2 = [_worldspace,_state,_randomS</pre>
+</div>
+</div></blockquote>
+<p> </p>
+<p>The script works fine when i don't add the condition to check if player is new. to prove this I just added a condition that checks the players height (ATL) and if above 200m it triggers the script on startup. As my players all parachute in on respawn, this works just fine for me.  </p>
+<p> </p>
+<p>So are you saying (this is just to help me learn something) that the dayzPlayerlogin2 variable is empty, until I add that array to it? I always assumed that dayzPlayerLogin2 was a local variable set at start up.  Maybe i'm missing something.  I certainly don't think you need to edit your playersetup.sqf, that just doesn't make sense to me when I know there is already a function to check whether player is a new spawn... lol.. (pulls hair out)</p>
+<p> </p>
+<p>Thanks for your help, appreciate it.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_80107_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=80107"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D80107" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D80107" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D80107&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=80107&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="The script works fine when i don't add the condition to check if player is new. to prove this I just added a condition that checks the players height (ATL) and if above 200m it triggers the script on startup. As my players all parachute in on respawn, this works just fine for me.   
+  
+So are you saying (this is just to help me learn something) that the dayzPlayerlogin2 variable is empty, until I add that array to it? I always assumed that dayzPlayerLogin2 was a local variable set at start up.  Maybe i'm missing something.  I certainly don't think you need to edit your playersetup.sqf, that just doesn't make sense to me when I know there is already a function to check whether player is a new spawn... lol.. (pulls hair out) 
+  
+Thanks for your help, appreciate it. 
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=80107">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-82513"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_82513">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile">
+<img alt="THAC0_Gewch" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_04/_780207187_4017885s460u266b0d25780ff84df6f8c236833a94e5d493db51v4.thumb_f38e756e0c7773cc45729789c08be329.00cb620013a1690d57a583873d429fb0"/>
+</a>
+<a href="https://epochmod.com/forum/profile/15494-thac0_gewch/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile"><span style="color:#">THAC0_Gewch</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82513" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-25T19:53:28Z" title="05/25/14 07:53  PM">May 25, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile">THAC0_Gewch</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile">
+<img alt="THAC0_Gewch" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_04/_780207187_4017885s460u266b0d25780ff84df6f8c236833a94e5d493db51v4.thumb_f38e756e0c7773cc45729789c08be329.00cb620013a1690d57a583873d429fb0"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/15494-thac0_gewch/content/" rel="nofollow" title="44 posts">
+<i class="fa fa-comment"></i> 44
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="82513" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":15494,"username":"THAC0_Gewch","timestamp":1401047608,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":82513}' id="comment-82513_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-82513_wrap" href="#elControls_82513_menu" id="elControls_82513" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_82513_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=82513" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_82513_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82513" id="elSharePost_82513" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82513" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-25T19:53:28Z" title="05/25/14 07:53  PM">May 25, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Try the following:</p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler=""><p>//</p><span> </span>FILENAME: server_WelcomeCredits.sqf
+<div>//<span> </span>=====</div>
+<div>//<span> </span>SCRIPT NAME: Server Intro Credits Script by IT07</div>
+<div>//<span> </span>SCRIPT VERSION: v1.3.7 BETA</div>
+<div>//<span> </span>Credits for original script: Bohemia Interactive <a href="http://bistudio.com/" rel="external nofollow">http://bistudio.com</a></div>
+<div> </div>
+<div>//<span> </span>========== SCRIPT CONFIG ============</div>
+<div>_onScreenTime = 6; <span> </span>//how long one role should stay on screen. Use value from 0 to 10 where 0 is almost instant transition to next role </div>
+<div>//NOTE: Above value is not in seconds. It is percentage. Default: 6</div>
+<div> </div>
+<div>//<span> </span>==== CUSTOMIZING THE CREDITS ===</div>
+<div>//<span> </span>If you want more or less credits on the screen, you have to add/remove roles.</div>
+<div>//<span> </span>Watch out though, you need to make sure BOTH role lists match eachother in terms of amount.</div>
+<div>//<span> </span>Just take a good look at the _role1 and the rest and you will see what I mean.</div>
+<div> </div>
+<div>//<span> </span>== CUSTOMIZING TEXT COLOR ==</div>
+<div>//<span> </span>Find line 49 and look for: color='#f2cb0b'</div>
+<div>//  #f2cb0b is the HTML color code for the text. As well as #FFFFFF in the row below it.</div>
+<div>//<span> </span>Find the color code you want here: <a href="http://html-color-codes.info/" rel="external nofollow">http://html-color-codes.info</a></div>
+<div>//<span> </span>=====</div>
+<div> </div>
+<div>//<span> </span>==== SCRIPT START ====</div>
+<div>waitUntil {!isNil "dayz_animalCheck"}; //remove this line completely to make it work in ArmA 3. Yes you read that correctly.</div>
+<div>waitUntil {!isNil ("PVDZE_plr_LoginRecord")};</div>
+<div>if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {</div>
+<div>sleep 10; //Wait in seconds before the credits start after player IS ingame</div>
+<div> </div>
+<div>_role1 = "Welcome to";</div>
+<div>_role1names = ["Your server name"];</div>
+<div>_role2 = "Admins";</div>
+<div>_role2names = ["ChuckNorris", "Eddie Morphine"];</div>
+<div>_role3 = "Server mod";</div>
+<div>_role3names = ["DayZ Epoch Chernarus"];</div>
+<div>_role4 = "Server antihack&lt;br /&gt;by";<span> </span>//The "by" in this row will be shown one row below "Server antihack". Can be applied to any role</div>
+<div>_role4names = ["infiSTAR.de", "Blurgaming"];</div>
+<div>_role5 = "Server Mods";</div>
+<div>_role5names = ["Dynamic Spawns", "Self-bb", "Custom traders", "More mods"];</div>
+<div>_role6 = "Website";</div>
+<div>_role6names = ["yourwebsite.com"];</div>
+<div>_role7 = "Twitter";</div>
+<div>_role7names = ["@yourtwittername"];</div>
+<div>_role8 = "Email Support";</div>
+<div>_role8names = ["<a class="__cf_email__" data-cfemail="96eff9e3e4f3fbf7fffaf7f2f2e4f3e5e5d6f1fbf7fffab8f5f9fb" href="https://epochmod.com/cdn-cgi/l/email-protection">[email protected]</a>"];</div>
+<div>_role9 = "Special Thanks";</div>
+<div>_role9names = ["DayZ.ST", "Blurgaming.com", "infiSTAR.de", "HFBservers.com", "ArmAholic.com", "OpendayZ.net", "DayZmod.com"];</div>
+<div> </div>
+<div>{</div>
+<div>sleep 2;</div>
+<div>_memberFunction = _x select 0;</div>
+<div>_memberNames = _x select 1;</div>
+<div>_finalText = format ["&lt;t size='0.40' color='#f2cb0b' align='right'&gt;%1&lt;br /&gt;&lt;/t&gt;", _memberFunction];</div>
+<div>_finalText = _finalText + "&lt;t size='0.70' color='#FFFFFF' align='right'&gt;";</div>
+<div>{_finalText = _finalText + format ["%1&lt;br /&gt;", _x]} forEach _memberNames;</div>
+<div>_finalText = _finalText + "&lt;/t&gt;";</div>
+<div>_onScreenTime + (((count _memberNames) - 1) * 0.5);</div>
+<div>[</div>
+<div>_finalText,</div>
+<div>[safezoneX + safezoneW - 0.8,0.50],<span> </span>//DEFAULT: 0.5,0.35</div>
+<div>[safezoneY + safezoneH - 0.8,0.7], <span> </span>//DEFAULT: 0.8,0.7</div>
+<div>_onScreenTime,</div>
+<div>0.5</div>
+<div>] spawn BIS_fnc_dynamicText;</div>
+<div>sleep (_onScreenTime);</div>
+<div>} forEach [</div>
+<div>//The list below should have exactly the same amount of roles as the list above</div>
+<div>[_role1, _role1names],</div>
+<div>[_role2, _role2names],</div>
+<div>[_role3, _role3names],</div>
+<div>[_role4, _role4names],</div>
+<div>[_role5, _role5names],</div>
+<div>[_role6, _role6names],</div>
+<div>[_role7, _role7names],</div>
+<div>[_role8, _role8names],</div>
+<div>[_role9, _role9names]<span> </span>//make SURE the last one here does NOT have a , at the end</div>
+<div>];</div>
+<p>};</p></blockquote><p><br/><br/>
+I'm actually interested in seeing if this works myself, as we run the server intro credits script on our server and I've pondered having it run only when a player is a new spawn.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_82513_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82513"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D82513" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D82513" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D82513&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=82513&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Try the following: 
+  
+    
+I'm actually interested in seeing if this works myself, as we run the server intro credits script on our server and I've pondered having it run only when a player is a new spawn. 
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82513">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-82818"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_82818">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">
+<img alt="Glenn" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2731.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2731-glenn/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile"><span style="color:#">Glenn</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82818" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-26T19:06:06Z" title="05/26/14 07:06  PM">May 26, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">Glenn</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2731-glenn/?do=hovercard" data-ipshover-width="370" href="../../profile/2731-glenn/index.html" rel="nofollow" title="Go to Glenn's profile">
+<img alt="Glenn" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2731.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2731-glenn/content/" rel="nofollow" title="573 posts">
+<i class="fa fa-comment"></i> 573
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="82818" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2731,"username":"Glenn","timestamp":1401131166,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":82818}' id="comment-82818_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-82818_wrap" href="#elControls_82818_menu" id="elControls_82818" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_82818_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=82818" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_82818_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82818" id="elSharePost_82818" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82818" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-26T19:06:06Z" title="05/26/14 07:06  PM">May 26, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Would it be the following: </p>
+<p> </p>
+<p>In your missions init.sqf: </p>
+<p> </p>
+<p>Add: </p>
+<pre class="ipsCode prettyprint">
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")}; if (dayzPlayerLogin2 select 2) then { [] execVM "custom\server_WelcomeCredits.sqf"; };
+</pre>
+<p>After the: </p>
+<pre class="ipsCode prettyprint">
+if (!isDedicated) then {
+	//Conduct map operations
+	0 fadeSound 0;
+	waitUntil {!isNil "dayz_loadScreenMsg"};
+	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+
+	//Run the player monitor
+	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
+	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
+
+
+	//anti Hack
+	[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+
+	//Lights
+	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+};
+</pre>
+<p>Note that I am not sure if the server_WelcomeCredits.sqf can run outside of the "if (!isDedicated) then {", but you should really be doing the check in the mission before you load the credits. <br/><br/>
+If thats not possible, using this in the server_WelcomeCredits.sqf is likely better: </p>
+<p> </p>
+<p></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+// FILENAME: server_WelcomeCredits.sqf
+// =====
+// SCRIPT NAME: Server Intro Credits Script by IT07
+// SCRIPT VERSION: v1.3.7 BETA
+// Credits for original script: Bohemia Interactive http://bistudio.com
+ 
+// ========== SCRIPT CONFIG ============
+_onScreenTime = 6; //how long one role should stay on screen. Use value from 0 to 10 where 0 is almost instant transition to next role 
+//NOTE: Above value is not in seconds. It is percentage. Default: 6
+ 
+// ==== CUSTOMIZING THE CREDITS ===
+// If you want more or less credits on the screen, you have to add/remove roles.
+// Watch out though, you need to make sure BOTH role lists match eachother in terms of amount.
+// Just take a good look at the _role1 and the rest and you will see what I mean.
+ 
+// == CUSTOMIZING TEXT COLOR ==
+// Find line 49 and look for: color='#f2cb0b'
+//  #f2cb0b is the HTML color code for the text. As well as #FFFFFF in the row below it.
+// Find the color code you want here: http://html-color-codes.info
+// =====
+ 
+// ==== SCRIPT START ====
+waitUntil {!isNil "dayz_animalCheck"}; //remove this line completely to make it work in ArmA 3. Yes you read that correctly.
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")}; if (dayzPlayerLogin2 select 2) then {
+sleep 10; //Wait in seconds before the credits start after player IS ingame
+ 
+_role1 = "Welcome to";
+_role1names = ["Your server name"];
+_role2 = "Admins";
+_role2names = ["ChuckNorris", "Eddie Morphine"];
+_role3 = "Server mod";
+_role3names = ["DayZ Epoch Chernarus"];
+_role4 = "Server antihack&lt;br /&gt;by"; //The "by" in this row will be shown one row below "Server antihack". Can be applied to any role
+_role4names = ["infiSTAR.de", "Blurgaming"];
+_role5 = "Server Mods";
+_role5names = ["Dynamic Spawns", "Self-bb", "Custom traders", "More mods"];
+_role6 = "Website";
+_role6names = ["yourwebsite.com"];
+_role7 = "Twitter";
+_role7names = ["@yourtwittername"];
+_role8 = "Email Support";
+_role8names = ["<a class="__cf_email__" data-cfemail="cab3a5bfb8afa7aba3a6abaeaeb8afb9b98aada7aba3a6e4a9a5a7" href="https://epochmod.com/cdn-cgi/l/email-protection">[email protected]</a>"];
+_role9 = "Special Thanks";
+_role9names = ["DayZ.ST", "Blurgaming.com", "infiSTAR.de", "HFBservers.com", "ArmAholic.com", "OpendayZ.net", "DayZmod.com"];
+ 
+{
+sleep 2;
+_memberFunction = _x select 0;
+_memberNames = _x select 1;
+_finalText = format ["&lt;t size='0.40' color='#f2cb0b' align='right'&gt;%1&lt;br /&gt;&lt;/t&gt;", _memberFunction];
+_finalText = _finalText + "&lt;t size='0.70' color='#FFFFFF' align='right'&gt;";
+{_finalText = _finalText + format ["%1&lt;br /&gt;", _x]} forEach _memberNames;
+_finalText = _finalText + "&lt;/t&gt;";
+_onScreenTime + (((count _memberNames) - 1) * 0.5);
+[
+_finalText,
+[safezoneX + safezoneW - 0.8,0.50], //DEFAULT: 0.5,0.35
+[safezoneY + safezoneH - 0.8,0.7], //DEFAULT: 0.8,0.7
+_onScreenTime,
+0.5
+] spawn BIS_fnc_dynamicText;
+sleep (_onScreenTime);
+} forEach [
+//The list below should have exactly the same amount of roles as the list above
+[_role1, _role1names],
+[_role2, _role2names],
+[_role3, _role3names],
+[_role4, _role4names],
+[_role5, _role5names],
+[_role6, _role6names],
+[_role7, _role7names],
+[_role8, _role8names],
+[_role9, _role9names] //make SURE the last one here does NOT have a , at the end
+];
+};
+};
+</pre>
+<p></p></blockquote><p></p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_82818_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82818"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D82818" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D82818" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D82818&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=82818&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='Would it be the following:  
+  
+In your missions init.sqf:  
+  
+Add:  
+
+waitUntil {!isNil ("PVDZE_plr_LoginRecord")}; if (dayzPlayerLogin2 select 2) then { [] execVM "custom\server_WelcomeCredits.sqf"; };
+
+After the:  
+
+if (!isDedicated) then {
+	//Conduct map operations
+	0 fadeSound 0;
+	waitUntil {!isNil "dayz_loadScreenMsg"};
+	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+
+	//Run the player monitor
+	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
+	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
+
+
+	//anti Hack
+	[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+
+	//Lights
+	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+};
+
+Note that I am not sure if the server_WelcomeCredits.sqf can run outside of the "if (!isDedicated) then {", but you should really be doing the check in the mission before you load the credits.   
+If thats not possible, using this in the server_WelcomeCredits.sqf is likely better:  
+  
+   
+' data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=82818">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-84195"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_84195">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile">
+<img alt="THAC0_Gewch" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_04/_780207187_4017885s460u266b0d25780ff84df6f8c236833a94e5d493db51v4.thumb_f38e756e0c7773cc45729789c08be329.00cb620013a1690d57a583873d429fb0"/>
+</a>
+<a href="https://epochmod.com/forum/profile/15494-thac0_gewch/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile"><span style="color:#">THAC0_Gewch</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=84195" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-30T09:19:17Z" title="05/30/14 09:19  AM">May 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F11277-only-run-script-on-new-spawns%252F" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile">THAC0_Gewch</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/15494-thac0_gewch/?do=hovercard" data-ipshover-width="370" href="../../profile/15494-thac0_gewch/index.html" rel="nofollow" title="Go to THAC0_Gewch's profile">
+<img alt="THAC0_Gewch" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2020_04/_780207187_4017885s460u266b0d25780ff84df6f8c236833a94e5d493db51v4.thumb_f38e756e0c7773cc45729789c08be329.00cb620013a1690d57a583873d429fb0"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/15494-thac0_gewch/content/" rel="nofollow" title="44 posts">
+<i class="fa fa-comment"></i> 44
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="84195" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":15494,"username":"THAC0_Gewch","timestamp":1401441557,"contentapp":"forums","contenttype":"forums","contentid":11277,"contentclass":"forums_Topic","contentcommentid":84195}' id="comment-84195_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-84195_wrap" href="#elControls_84195_menu" id="elControls_84195" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_84195_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=reportComment&amp;comment=84195" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_84195_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=84195" id="elSharePost_84195" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=84195" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-05-30T09:19:17Z" title="05/30/14 09:19  AM">May 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Finally got some time to implement and test this, use the following as it is working on our server:<br/><br/><br/></p><p></p><blockquote class="ipsStyle_spoiler" data-ipsspoiler="">
+<pre class="ipsCode prettyprint">
+// FILENAME: server_WelcomeCredits.sqf
+
+// =====
+// SCRIPT NAME: Server Intro Credits Script by IT07
+// SCRIPT VERSION: v1.3.7 BETA
+// Credits for original script: Bohemia Interactive http://bistudio.com
+
+
+// ========== SCRIPT CONFIG ============
+_onScreenTime = 6; //how long one role should stay on screen. Use value from 0 to 10 where 0 is almost instant transition to next role 
+//NOTE: Above value is not in seconds. It is percentage. Default: 6
+
+
+// ==== CUSTOMIZING THE CREDITS ===
+// If you want more or less credits on the screen, you have to add/remove roles.
+// Watch out though, you need to make sure BOTH role lists match eachother in terms of amount.
+// Just take a good look at the _role1 and the rest and you will see what I mean.
+
+
+// == CUSTOMIZING TEXT COLOR ==
+// Find line 49 and look for: color='#f2cb0b'
+//  #f2cb0b is the HTML color code for the text. As well as #FFFFFF in the row below it.
+// Find the color code you want here: http://html-color-codes.info
+// =====
+
+
+// ==== SCRIPT START ====
+waitUntil {!isNil "dayz_animalCheck"}; //remove this line completely to make it work in ArmA 3. Yes you read that correctly.
+if (dayzPlayerLogin2 select 2 and !(player isKindOf "PZombie_VB")) then {
+sleep 10; //Wait in seconds before the credits start after player IS ingame
+
+
+_role1 = "Welcome to";
+_role1names = ["Your server name"];
+_role2 = "Admins";
+_role2names = ["ChuckNorris", "Eddie Morphine"];
+_role3 = "Server mod";
+_role3names = ["DayZ Epoch Chernarus"];
+_role4 = "Server antihack&lt;br /&gt;by"; //The "by" in this row will be shown one row below "Server antihack". Can be applied to any role
+_role4names = ["infiSTAR.de", "Blurgaming"];
+_role5 = "Server Mods";
+_role5names = ["Dynamic Spawns", "Self-bb", "Custom traders", "More mods"];
+_role6 = "Website";
+_role6names = ["yourwebsite.com"];
+_role7 = "Twitter";
+_role7names = ["@yourtwittername"];
+_role8 = "Email Support";
+_role8names = ["<a class="__cf_email__" data-cfemail="ceb7a1bbbcaba3afa7a2afaaaabcabbdbd8ea9a3afa7a2e0ada1a3" href="https://epochmod.com/cdn-cgi/l/email-protection">[email protected]</a>"];
+_role9 = "Special Thanks";
+_role9names = ["DayZ.ST", "Blurgaming.com", "infiSTAR.de", "HFBservers.com", "ArmAholic.com", "OpendayZ.net", "DayZmod.com"];
+
+
+{
+sleep 2;
+_memberFunction = _x select 0;
+_memberNames = _x select 1;
+_finalText = format ["&lt;t size='0.40' color='#f2cb0b' align='right'&gt;%1&lt;br /&gt;&lt;/t&gt;", _memberFunction];
+_finalText = _finalText + "&lt;t size='0.70' color='#FFFFFF' align='right'&gt;";
+{_finalText = _finalText + format ["%1&lt;br /&gt;", _x]} forEach _memberNames;
+_finalText = _finalText + "&lt;/t&gt;";
+_onScreenTime + (((count _memberNames) - 1) * 0.5);
+[
+_finalText,
+[safezoneX + safezoneW - 0.8,0.50], //DEFAULT: 0.5,0.35
+[safezoneY + safezoneH - 0.8,0.7], //DEFAULT: 0.8,0.7
+_onScreenTime,
+0.5
+] spawn BIS_fnc_dynamicText;
+sleep (_onScreenTime);
+} forEach [
+//The list below should have exactly the same amount of roles as the list above
+[_role1, _role1names],
+[_role2, _role2names],
+[_role3, _role3names],
+[_role4, _role4names],
+[_role5, _role5names],
+[_role6, _role6names],
+[_role7, _role7names],
+[_role8, _role8names],
+[_role9, _role9names] //make SURE the last one here does NOT have a , at the end
+];
+};</pre>
+<p style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"></p></blockquote><p><br/><br/>
+You will obviously need to adjust the displayed information to be what you want but this basic template will result in the credits only rolling for fresh spawns.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_84195_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=84195"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D84195" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D84195" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F%3Fdo%3DfindComment%26comment%3D84195&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment%26comment=84195&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Finally got some time to implement and test this, use the following as it is working on our server:       
+You will obviously need to adjust the displayed information to be what you want but this basic template will result in the credits only rolling for fresh spawns. 
+" data-websharetitle="Only run script on new spawns." data-webshareurl="https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/?do=findComment&amp;comment=84195">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMTI3Ny1vbmx5LXJ1bi1zY3JpcHQtb24tbmV3LXNwYXducy8jcmVwbHlGb3Jt">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F11277-only-run-script-on-new-spawns%2F&amp;title=Only+run+script+on+new+spawns." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Only run script on new spawns." data-websharetitle="Only run script on new spawns." data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="11277">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">1</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Only run script on new spawns.
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="https://epochmod.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Only run script on new spawns.",
+    "headline": "Only run script on new spawns.",
+    "text": "i\u0027ve been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far. \u00a0It\u0027s very frustrating and I\u0027m not sure if its because I\u0027m using Parachute spawning or that Epoch uses different conditions to check if players are new spawn. \u00a0I\u0027m using this at the moment, which should work but just doesn\u0027t.. :( \n\nwaitUntil {!isNil (\"PVDZ_plr_LoginRecord\")};\nif (PVCDZ_plr_Login2 select 2) then\n{\n\n//Code for this script: https://gist.github.com/IT07/6210573\n\n};\n\nAny ideas? I\u0027ve put a link to the script I\u0027m embedding too. \n",
+    "dateCreated": "2014-05-15T13:29:45+0000",
+    "datePublished": "2014-05-15T13:29:45+0000",
+    "dateModified": "2014-05-30T09:19:17+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "MatthewK",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+        "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 2245
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 10
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 1
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/",
+    "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Only run script on new spawns.",
+        "text": "i\u0027ve been trying to get a script in my mission folder to execute only if the player is a new spawn. But nothing is working so far. \u00a0It\u0027s very frustrating and I\u0027m not sure if its because I\u0027m using Parachute spawning or that Epoch uses different conditions to check if players are new spawn. \u00a0I\u0027m using this at the moment, which should work but just doesn\u0027t.. :( \n\nwaitUntil {!isNil (\"PVDZ_plr_LoginRecord\")};\nif (PVCDZ_plr_Login2 select 2) then\n{\n\n//Code for this script: https://gist.github.com/IT07/6210573\n\n};\n\nAny ideas? I\u0027ve put a link to the script I\u0027m embedding too. \n",
+        "answerCount": 10,
+        "dateCreated": "2014-05-15T13:29:45+0000",
+        "author": {
+            "@type": "Person",
+            "name": "MatthewK"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79108",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79108",
+                "author": {
+                    "@type": "Person",
+                    "name": "Glenn",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-2731.jpg",
+                    "url": "https://epochmod.com/forum/profile/2731-glenn/"
+                },
+                "dateCreated": "2014-05-15T18:38:31+0000",
+                "text": "Where are you trying to put this code?\u00a0 \n\u00a0 \nIf you are not having it in the init.sqf, as the installation instructions are giving you, then you will have issues making the script work.\u00a0 \n\u00a0 \nIt should be in the Dedicated portion of the missions init.sqf:\u00a0  \n\u00a0 \n\nif (!isDedicated) then {                               \u0026lt;-----\n\t//Conduct Credit Style Info                    \u0026lt;-----\n\t[] execVM \"Custom\\Server_WelcomeCredits.sqf\";  \u0026lt;-----\n\t//Conduct map operations\n\t0 fadeSound 0;\n\twaitUntil {!isNil \"dayz_loadScreenMsg\"};\n\tdayz_loadScreenMsg = (localize \"STR_AUTHENTICATING\");\n\t\n\t//Run the player monitor\n\t_id = player addEventHandler [\"Respawn\", {_id = [] spawn player_death;}];\n\t_playerMonitor = \t[] execVM \"\\z\\addons\\dayz_code\\system\\player_monitor.sqf\";\t\n\n};\n\nI dont know if you can put this into a sqf and execute it in the location above... but it could be something to explore?\u00a0 \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79129",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79129",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2014-05-15T19:44:37+0000",
+                "text": "I\u0027m doing exactly as the instructions say, but I\u0027m just trying to add code to the script itself, to ONLY run if it detects the player is a new spawn. \u00a0So it loads that file above, then all I\u0027ve done is add the code as in my example.. I hope that makes sense.. I didn\u0027t include the entire file as it was just going to waste screen space here :) \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79268",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79268",
+                "author": {
+                    "@type": "Person",
+                    "name": "Halvhjearne",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/10011-halvhjearne/"
+                },
+                "dateCreated": "2014-05-16T05:34:02+0000",
+                "text": "this code is correct, you need to show us the script you intend to use as i think the error is there ... also check you client rpt file for clues as to what went wrong \n\u00a0 \nquicksaver edit: \ncode is incorrect ... try this: \n\nwaitUntil {!isNil (\"PVDZE_plr_LoginRecord\")};\nif (dayzPlayerLogin2 select 2 and !(player isKindOf \"PZombie_VB\")) then {\n\njust woke up ... sorry \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79270",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79270",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2014-05-16T06:05:17+0000",
+                "text": "Edit: That still doesn\u0027t work..\u00a0 \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79893",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79893",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2014-05-18T02:46:31+0000",
+                "text": "waitUntil {!isNil (\"PVDZE_plr_LoginRecord\")}; \nif (dayzPlayerLogin2 select 2 and !(player isKindOf \"PZombie_VB\")) then { \n\u00a0 \nStill doesn\u0027t work .. I\u0027m giving up! \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79967",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-79967",
+                "author": {
+                    "@type": "Person",
+                    "name": "Halvhjearne",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/10011-halvhjearne/"
+                },
+                "dateCreated": "2014-05-18T10:15:14+0000",
+                "text": "unless you forgot a closing bracket or your script is broken, this will work ... oh and you also need to edit server_playerSetup.sqf, but i assumed you already changed this: \n\ndayzPlayerLogin2 = [_worldspace,_state];\n\nto this: \n\ndayzPlayerLogin2 = [_worldspace,_state,_randomSpot];\n\n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-80107",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-80107",
+                "author": {
+                    "@type": "Person",
+                    "name": "MatthewK",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                    "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+                },
+                "dateCreated": "2014-05-18T18:42:03+0000",
+                "text": "The script works fine when i don\u0027t add the condition to check if player is new. to prove this I just added a condition that checks the players height (ATL) and if above 200m it triggers the script on startup. As my players all parachute in on respawn, this works just fine for me. \u00a0 \n\u00a0 \nSo are you saying (this is just to help me learn something) that the dayzPlayerlogin2 variable is empty, until I add that array to it? I always assumed that dayzPlayerLogin2 was a local variable set at start up. \u00a0Maybe i\u0027m missing something. \u00a0I certainly don\u0027t think you need to edit your playersetup.sqf, that just doesn\u0027t make sense to me when I know there is already a function to check whether player is a new spawn... lol.. (pulls hair out) \n\u00a0 \nThanks for your help, appreciate it. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-82513",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-82513",
+                "author": {
+                    "@type": "Person",
+                    "name": "THAC0_Gewch",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2020_04/_780207187_4017885s460u266b0d25780ff84df6f8c236833a94e5d493db51v4.thumb_f38e756e0c7773cc45729789c08be329.00cb620013a1690d57a583873d429fb0",
+                    "url": "https://epochmod.com/forum/profile/15494-thac0_gewch/"
+                },
+                "dateCreated": "2014-05-25T19:53:28+0000",
+                "text": "Try the following: \n\u00a0 \n    \nI\u0027m actually interested in seeing if this works myself, as we run the server intro credits script on our server and I\u0027ve pondered having it run only when a player is a new spawn. \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-82818",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-82818",
+                "author": {
+                    "@type": "Person",
+                    "name": "Glenn",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-2731.jpg",
+                    "url": "https://epochmod.com/forum/profile/2731-glenn/"
+                },
+                "dateCreated": "2014-05-26T19:06:06+0000",
+                "text": "Would it be the following:\u00a0 \n\u00a0 \nIn your missions init.sqf:\u00a0 \n\u00a0 \nAdd:\u00a0 \n\nwaitUntil {!isNil (\"PVDZE_plr_LoginRecord\")}; if (dayzPlayerLogin2 select 2) then { [] execVM \"custom\\server_WelcomeCredits.sqf\"; };\n\nAfter the:\u00a0 \n\nif (!isDedicated) then {\n\t//Conduct map operations\n\t0 fadeSound 0;\n\twaitUntil {!isNil \"dayz_loadScreenMsg\"};\n\tdayz_loadScreenMsg = (localize \"STR_AUTHENTICATING\");\n\n\t//Run the player monitor\n\t_id = player addEventHandler [\"Respawn\", {_id = [] spawn player_death;}];\n\t_playerMonitor = \t[] execVM \"\\z\\addons\\dayz_code\\system\\player_monitor.sqf\";\t\n\n\n\t//anti Hack\n\t[] execVM \"\\z\\addons\\dayz_code\\system\\antihack.sqf\";\n\n\t//Lights\n\t//[false,12] execVM \"\\z\\addons\\dayz_code\\compile\\local_lights_init.sqf\";\n};\n\nNote that I am not sure if the\u00a0server_WelcomeCredits.sqf can run outside of the \"if (!isDedicated) then {\", but you should really be doing the check in the mission before you load the credits.\u00a0  \nIf thats not possible, using this in the server_WelcomeCredits.sqf is likely better:\u00a0 \n\u00a0 \n   \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-84195",
+                "url": "https://epochmod.com/forum/topic/11277-only-run-script-on-new-spawns/#comment-84195",
+                "author": {
+                    "@type": "Person",
+                    "name": "THAC0_Gewch",
+                    "image": "https://epochmod.com/forum/uploads/monthly_2020_04/_780207187_4017885s460u266b0d25780ff84df6f8c236833a94e5d493db51v4.thumb_f38e756e0c7773cc45729789c08be329.00cb620013a1690d57a583873d429fb0",
+                    "url": "https://epochmod.com/forum/profile/15494-thac0_gewch/"
+                },
+                "dateCreated": "2014-05-30T09:19:17+0000",
+                "text": "Finally got some time to implement and test this, use the following as it is working on our server:       \nYou will obviously need to adjust the displayed information to be what you want but this basic template will result in the credits only rolling for fresh spawns. \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "MatthewK",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+            "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

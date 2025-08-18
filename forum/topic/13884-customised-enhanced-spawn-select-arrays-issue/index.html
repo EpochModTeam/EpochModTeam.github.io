@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Customised Enhanced Spawn Select - Arrays Issue - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Customised Enhanced Spawn Select - Arrays Issue" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/" property="og:url"/>
+<meta content="Hi everyone, I have been working on modifying ebay's enhanced spawn select for one of my overpoch servers. And I was working on a randomiser for the loadouts, after much playing around and help from ebay. http://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/ I came up with somet..." name="description"/>
+<meta content="Hi everyone, I have been working on modifying ebay's enhanced spawn select for one of my overpoch servers. And I was working on a randomiser for the loadouts, after much playing around and help from ebay. http://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/ I came up with somet..." property="og:description"/>
+<meta content="2014-07-07T07:12:25Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="13884" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzg4NC1jdXN0b21pc2VkLWVuaGFuY2VkLXNwYXduLXNlbGVjdC1hcnJheXMtaXNzdWUv"/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":13884}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Customised Enhanced Spawn Select - Arrays Issue
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Customised Enhanced Spawn Select - Arrays Issue</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13884-customised-enhanced-spawn-select-arrays-issue%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">js2k6</a>,</strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-07-07T01:30:39Z" title="07/07/14 01:30  AM">July 7, 2014</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F&amp;title=Customised+Enhanced+Spawn+Select+-+Arrays+Issue" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Customised Enhanced Spawn Select - Arrays Issue" data-websharetitle="Customised Enhanced Spawn Select - Arrays Issue" data-webshareurl="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13884">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-13884" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-99734"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_99734">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11696-js2k6/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13884-customised-enhanced-spawn-select-arrays-issue%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile"><span style="color:#">js2k6</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99734" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-07T01:30:39Z" title="07/07/14 01:30  AM">July 7, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13884-customised-enhanced-spawn-select-arrays-issue%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">js2k6</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11696-js2k6/content/" rel="nofollow" title="209 posts">
+<i class="fa fa-comment"></i> 209
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Melbourne, Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="99734" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11696,"username":"js2k6","timestamp":1404696639,"contentapp":"forums","contenttype":"forums","contentid":13884,"contentclass":"forums_Topic","contentcommentid":99734}' id="comment-99734_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-99734_wrap" href="#elControls_99734_menu" id="elControls_99734" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_99734_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=reportComment&amp;comment=99734" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_99734_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_99734" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99734" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-07T01:30:39Z" title="07/07/14 01:30  AM">July 7, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Hi everyone, </p>
+<p> </p>
+<p>I have been working on modifying ebay's enhanced spawn select for one of my overpoch servers.</p>
+<p>And I was working on a randomiser for the loadouts, after much playing around and help from ebay. </p>
+<p><a href="http://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/ " rel="external nofollow">http://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/ </a></p>
+<p> </p>
+<p>I came up with something that works. (kinda. for some people)</p>
+<p>Now this works every single time without fail for me, and also for one of my friends.</p>
+<p>admittedly we both have pretty high spec machines. overclocked i7s, SSDs etc... </p>
+<p> </p>
+<p>and our dedicated server machine is also quite decent. 4/8HT core e3-xeon, 16gb ram, SSD etc. </p>
+<p>even with all our different scripts, wai, dzms and 40 players our server fps stays above 5. </p>
+<p>so i'm thinking it isn't server load.</p>
+<p> </p>
+<p>but for many of our players, if they select any class that uses these arrays,</p>
+<p>they spawn in with the default mags, backpack. plain survivor skin.</p>
+<p> </p>
+<p>I tried this on the mrs' pc, which is my old amd hexcore from 5 years ago, </p>
+<p>and 2/5 spawns on her pc, spawned with default mags only. </p>
+<p> </p>
+<p>Now i'm wondering is this script taking too long to load for someone with a slower cpu? is it due to slower hdd read times? </p>
+<p> </p>
+<p> </p>
+<p>I've put this in the mission pbo, so that way it randomises each spawn. </p>
+<p>if i put it in server pbo it only randomises once per restart and all players get the same kit every time they spawn. which isn't how i want the script to function. </p>
+<p> </p>
+<p>is there possibly another way i can write this that would cause it to work 100% of the time? </p>
+<p> </p>
+<p>here is an example snippet from my variables.sqf. </p>
+<pre class="ipsCode prettyprint">
+StartBackpacks = ["DZ_TerminalPack_EP1","DZ_CompactPack_EP1","DZ_TK_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_GunBag_EP1"];
+GoodBackpacks = ["DZ_LargeGunBag_EP1","DZ_Backpack_EP1","DZ_CivilBackpack_EP1"];
+StartPistols = ["RH_g17","RH_Deagle","vil_USP45SD","RH_m93r","RH_g18","RH_bull","RH_mk2","RH_Deagleg","RH_Deaglem","RH_anac","RH_python","RH_p226","RH_p38","RH_ppk","RH_tt33","RH_m9","Vil_PYA","vil_USP45","RH_browninghp"];
+SDPistols = ["vil_USP45SD","MakarovSD","RH_g17sd","vil_apssd","vil_USPSD","RH_m9csd","RH_m1911sd","RH_uspsd","RH_mk22vsd"];
+WestWeps = ["FHQ_ACR_BLK_CCO_GL","FHQ_ACR_WDL_G33","FHQ_ACR_WDL_HAMR_F","vil_HK416_EOT","FHQ_ACR_SNW_HWS","FHQ_ACR_BLK_HAMR_SD","RH_hk416seotech","RH_hk417sdeotech","RH_hk417acog","SCAR_L_CQC_EGLM_Holo","FN_FAL","RH_sc2aim"];
+EastWeps = ["vil_G36KSKES","vil_G36KSK","vil_G3an","vil_AEK2","vil_AEK_GL","vil_AG3EOT","vil_Abakan_P29","vil_Abakan","vil_AK_74m_EOT"];
+StalkerSkins = ["gsc_eco_stalker_mask_fred","gsc_eco_stalker_head_fred","gsc_eco_stalker_mask_camo","gsc_eco_stalker_head_camo1","gsc_eco_stalker_mask_duty","gsc_eco_stalker_head_duty","gsc_eco_stalker_mask_neutral","gsc_eco_stalker_head_neutral"];
+
+_stalker = StalkerSkins call BIS_fnc_selectRandom;
+_startBP = StartBackpacks call BIS_fnc_selectRandom;
+_goodBP = GoodBackpacks call BIS_fnc_selectRandom;
+_startPis = StartPistols call BIS_fnc_selectRandom;
+_startPammo = getArray (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _startPis &gt;&gt; "magazines") select 0;
+_SDPis = SDPistols call BIS_fnc_selectRandom;
+_SDPammo = getArray (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _SDPis &gt;&gt; "magazines") select 0;
+_Wweps = WestWeps call BIS_fnc_selectRandom;
+_Wmags = getArray (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _Wweps &gt;&gt; "magazines") select 0;
+_Eweps = EastWeps call BIS_fnc_selectRandom;
+_Emags = getArray (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _Eweps &gt;&gt; "magazines") select 0;
+
+// preset classes follow this format
+// [Name, Skin, Magazines, Weapons, Backpack, Backpack Magazines, Backpack Weapons, DL, HL] 
+presetClasses = [
+["Survivor","Survivor2_DZ",[_startPammo,_startPammo,"ItemBandage","ItemPainkiller"],[_startPis,"ItemHatchet_DZE","ItemKnife"],_startBP,[],[],0,0],
+["Soldier","Graves_Light_DZ",[_startPammo,_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],
+["Sniper","GUE_Soldier_Sniper_DZ",[_SDPammo,_SDPammo,_SDPammo],[_SDPis],_startBP,[],[],0,0],
+["Stalker",_stalker,[_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],
+// humanity based loadouts
+["- Bandit -","Bandit2_DZ",[_SDPammo,_SDPammo,_Emags,_Emags,"ItemMorphine"],["ItemKnife","ItemHatchet_DZE",_SDPis,_Eweps],_goodBP,[],[],0,-7500],
+["- Hero -","Soldier_Sniper_PMC_DZ",[_SDPammo,_SDPammo,_Wmags,_Wmags,"ItemMorphine"],["ItemKnife","ItemHatchet_DZE",_SDPis,_Wweps],_goodBP,[],[],0,7500],
+</pre>
+<p>My theory is, that due to the config files for overwatch+epoch containing so many items, the getArray to get the mag class names is what is causing this problem. </p>
+<p> </p>
+<p>I'm still kind of noob when it comes to scripting for arma, so i'm probably wrong. </p>
+<p>any help would be greatly appreciated. </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_99734_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F%3Fdo%3DfindComment%26comment%3D99734" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F%3Fdo%3DfindComment%26comment%3D99734" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F%3Fdo%3DfindComment%26comment%3D99734&amp;title=Customised+Enhanced+Spawn+Select+-+Arrays+Issue" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment%26comment=99734&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hi everyone,  
+  
+I have been working on modifying ebay's enhanced spawn select for one of my overpoch servers. 
+And I was working on a randomiser for the loadouts, after much playing around and help from ebay.  
+http://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/  
+  
+I came up with something that works. (kinda. for some people) 
+Now this works every single time without fail for me, and also for one of my friends. 
+admittedly we both have pretty high spec machines. overclocked i7s, SSDs etc...  
+  
+and our dedicated server machine is also quite decent. 4/8HT core e3-xeon, 16gb ram, SSD etc.  
+even with all our different scripts, wai, dzms and 40 players our server fps stays above 5.  
+so i'm thinking it isn't server load. 
+  
+but for many of our players, if they select any class that uses these arrays, 
+they spawn in with the default mags, backpack. plain survivor skin. 
+  
+I tried this on the mrs' pc, which is my old amd hexcore from 5 years ago,  
+and 2/5 spawns on her pc, spawned with default mags only.  
+  
+Now i'm wondering is this script taking too long to load for someone with a slower cpu? is it due to slower hdd read times?  
+  
+  
+I've put this in the mission pbo, so that way it randomises each spawn.  
+if i put it in server pbo it only randomises once per restart and all players get the same kit every time they spawn. which isn't how i want the script to function.  
+  
+is there possibly another way i can write this that would cause it to work 100% of the time?  
+  
+here is an example snippet from my variables.sqf.  
+
+StartBackpacks = [&quot;DZ_TerminalPack_EP1&quot;,&quot;DZ_CompactPack_EP1&quot;,&quot;DZ_TK_Assault_Pack_EP1&quot;,&quot;DZ_Czech_Vest_Puch&quot;,&quot;DZ_GunBag_EP1&quot;];
+GoodBackpacks = [&quot;DZ_LargeGunBag_EP1&quot;,&quot;DZ_Backpack_EP1&quot;,&quot;DZ_CivilBackpack_EP1&quot;];
+StartPistols = [&quot;RH_g17&quot;,&quot;RH_Deagle&quot;,&quot;vil_USP45SD&quot;,&quot;RH_m93r&quot;,&quot;RH_g18&quot;,&quot;RH_bull&quot;,&quot;RH_mk2&quot;,&quot;RH_Deagleg&quot;,&quot;RH_Deaglem&quot;,&quot;RH_anac&quot;,&quot;RH_python&quot;,&quot;RH_p226&quot;,&quot;RH_p38&quot;,&quot;RH_ppk&quot;,&quot;RH_tt33&quot;,&quot;RH_m9&quot;,&quot;Vil_PYA&quot;,&quot;vil_USP45&quot;,&quot;RH_browninghp&quot;];
+SDPistols = [&quot;vil_USP45SD&quot;,&quot;MakarovSD&quot;,&quot;RH_g17sd&quot;,&quot;vil_apssd&quot;,&quot;vil_USPSD&quot;,&quot;RH_m9csd&quot;,&quot;RH_m1911sd&quot;,&quot;RH_uspsd&quot;,&quot;RH_mk22vsd&quot;];
+WestWeps = [&quot;FHQ_ACR_BLK_CCO_GL&quot;,&quot;FHQ_ACR_WDL_G33&quot;,&quot;FHQ_ACR_WDL_HAMR_F&quot;,&quot;vil_HK416_EOT&quot;,&quot;FHQ_ACR_SNW_HWS&quot;,&quot;FHQ_ACR_BLK_HAMR_SD&quot;,&quot;RH_hk416seotech&quot;,&quot;RH_hk417sdeotech&quot;,&quot;RH_hk417acog&quot;,&quot;SCAR_L_CQC_EGLM_Holo&quot;,&quot;FN_FAL&quot;,&quot;RH_sc2aim&quot;];
+EastWeps = [&quot;vil_G36KSKES&quot;,&quot;vil_G36KSK&quot;,&quot;vil_G3an&quot;,&quot;vil_AEK2&quot;,&quot;vil_AEK_GL&quot;,&quot;vil_AG3EOT&quot;,&quot;vil_Abakan_P29&quot;,&quot;vil_Abakan&quot;,&quot;vil_AK_74m_EOT&quot;];
+StalkerSkins = [&quot;gsc_eco_stalker_mask_fred&quot;,&quot;gsc_eco_stalker_head_fred&quot;,&quot;gsc_eco_stalker_mask_camo&quot;,&quot;gsc_eco_stalker_head_camo1&quot;,&quot;gsc_eco_stalker_mask_duty&quot;,&quot;gsc_eco_stalker_head_duty&quot;,&quot;gsc_eco_stalker_mask_neutral&quot;,&quot;gsc_eco_stalker_head_neutral&quot;];
+
+_stalker = StalkerSkins call BIS_fnc_selectRandom;
+_startBP = StartBackpacks call BIS_fnc_selectRandom;
+_goodBP = GoodBackpacks call BIS_fnc_selectRandom;
+_startPis = StartPistols call BIS_fnc_selectRandom;
+_startPammo = getArray (configFile &gt;&gt; &quot;CfgWeapons&quot; &gt;&gt; _startPis &gt;&gt; &quot;magazines&quot;) select 0;
+_SDPis = SDPistols call BIS_fnc_selectRandom;
+_SDPammo = getArray (configFile &gt;&gt; &quot;CfgWeapons&quot; &gt;&gt; _SDPis &gt;&gt; &quot;magazines&quot;) select 0;
+_Wweps = WestWeps call BIS_fnc_selectRandom;
+_Wmags = getArray (configFile &gt;&gt; &quot;CfgWeapons&quot; &gt;&gt; _Wweps &gt;&gt; &quot;magazines&quot;) select 0;
+_Eweps = EastWeps call BIS_fnc_selectRandom;
+_Emags = getArray (configFile &gt;&gt; &quot;CfgWeapons&quot; &gt;&gt; _Eweps &gt;&gt; &quot;magazines&quot;) select 0;
+
+// preset classes follow this format
+// [Name, Skin, Magazines, Weapons, Backpack, Backpack Magazines, Backpack Weapons, DL, HL] 
+presetClasses = [
+[&quot;Survivor&quot;,&quot;Survivor2_DZ&quot;,[_startPammo,_startPammo,&quot;ItemBandage&quot;,&quot;ItemPainkiller&quot;],[_startPis,&quot;ItemHatchet_DZE&quot;,&quot;ItemKnife&quot;],_startBP,[],[],0,0],
+[&quot;Soldier&quot;,&quot;Graves_Light_DZ&quot;,[_startPammo,_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],
+[&quot;Sniper&quot;,&quot;GUE_Soldier_Sniper_DZ&quot;,[_SDPammo,_SDPammo,_SDPammo],[_SDPis],_startBP,[],[],0,0],
+[&quot;Stalker&quot;,_stalker,[_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],
+// humanity based loadouts
+[&quot;- Bandit -&quot;,&quot;Bandit2_DZ&quot;,[_SDPammo,_SDPammo,_Emags,_Emags,&quot;ItemMorphine&quot;],[&quot;ItemKnife&quot;,&quot;ItemHatchet_DZE&quot;,_SDPis,_Eweps],_goodBP,[],[],0,-7500],
+[&quot;- Hero -&quot;,&quot;Soldier_Sniper_PMC_DZ&quot;,[_SDPammo,_SDPammo,_Wmags,_Wmags,&quot;ItemMorphine&quot;],[&quot;ItemKnife&quot;,&quot;ItemHatchet_DZE&quot;,_SDPis,_Wweps],_goodBP,[],[],0,7500],
+
+My theory is, that due to the config files for overwatch+epoch containing so many items, the getArray to get the mag class names is what is causing this problem.  
+  
+I'm still kind of noob when it comes to scripting for arma, so i'm probably wrong.  
+any help would be greatly appreciated.  
+" data-websharetitle="Customised Enhanced Spawn Select - Arrays Issue" data-webshareurl="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99734">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">1 answer to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-99816"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_99816">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11696-js2k6/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13884-customised-enhanced-spawn-select-arrays-issue%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile"><span style="color:#">js2k6</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99816" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-07T07:12:25Z" title="07/07/14 07:12  AM">July 7, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13884-customised-enhanced-spawn-select-arrays-issue%252F" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">js2k6</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11696-js2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/11696-js2k6/index.html" rel="nofollow" title="Go to js2k6's profile">
+<img alt="js2k6" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11696-js2k6/content/" rel="nofollow" title="209 posts">
+<i class="fa fa-comment"></i> 209
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Melbourne, Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="99816" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11696,"username":"js2k6","timestamp":1404717145,"contentapp":"forums","contenttype":"forums","contentid":13884,"contentclass":"forums_Topic","contentcommentid":99816}' id="comment-99816_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-99816_wrap" href="#elControls_99816_menu" id="elControls_99816" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_99816_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=reportComment&amp;comment=99816" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_99816_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99816" id="elSharePost_99816" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99816" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-07T07:12:25Z" title="07/07/14 07:12  AM">July 7, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>tried something a little different. </p>
+<p>not using bis_fnc_selectrandom any longer</p>
+<p> </p>
+<p>created a new file, call it just after custom variables.</p>
+<pre class="ipsCode prettyprint">
+private ["_pistol","_pist","_pistmags","_StartBackpacks","_startBP","_foodlist","_food","_drinklist","_drink"];
+
+_StartBackpacks = ["DZ_TerminalPack_EP1","DZ_CompactPack_EP1","DZ_TK_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_GunBag_EP1"];
+
+_drinklist = ["ItemSodaCoke","ItemSodaPepsi","ItemSodaMdew","ItemSodaMtngreen","ItemSodaR4z0r","ItemSodaClays","ItemSodaSmasht","ItemSodaDrwaste","ItemSodaLvg","ItemSodaMzly","ItemSodaRabbit","ItemWaterbottleBoiled"];
+_foodlist = ["FoodCanBakedBeans","FoodCanSardines","FoodCanFrankBeans","FoodCanPasta","FoodCanGriff","FoodCanBoneboy","FoodCanCorn","FoodCanCurgon","FoodCanDemon","FoodCanFraggleos","FoodCanHerpy","FoodCanOrlok","FoodCanPowell","FoodCanTylers"]; 
+
+_pistol = ["RH_g17","RH_Deagle","vil_USP45SD","RH_m93r","RH_g18","RH_bull","RH_mk2","RH_Deagleg","RH_Deaglem","RH_anac","RH_python","RH_p226","RH_p38","RH_ppk","RH_tt33","RH_m9","Vil_PYA","vil_USP45","RH_browninghp"];
+_pist = _pistol select (floor (random (count _pistol)));
+_pistmags = getArray (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _pist &gt;&gt; "magazines") select 0;
+
+_startBP = _StartBackpacks select (floor (random (count _StartBackpacks)));
+_food = _foodlist select (floor (random (count _foodlist)));
+_drink = _drinklist select (floor (random (count _drinklist)));
+
+DefaultMagazines = ["ItemBandage","ItemBandage","ItemPainkiller",_drink,_food,_pistmags,_pistmags]; 
+DefaultWeapons = ["ItemMap","ItemCompass","ItemToolbox","ItemRadio",_pist,"ItemHatchet_DZE"]; 
+DefaultBackpack = _startBP;
+</pre>
+<p>And now it seems to be working for our test group. </p>
+<p>including people who were having issues before! :) </p>
+<p> </p>
+<p>maybe it was bis_fnc_selectrandom?  not sure. </p>
+<p> </p>
+<p>are there any better ways i could write this up? </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_99816_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99816"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F%3Fdo%3DfindComment%26comment%3D99816" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F%3Fdo%3DfindComment%26comment%3D99816" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F%3Fdo%3DfindComment%26comment%3D99816&amp;title=Customised+Enhanced+Spawn+Select+-+Arrays+Issue" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment%26comment=99816&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='tried something a little different.  
+not using bis_fnc_selectrandom any longer 
+  
+created a new file, call it just after custom variables. 
+
+private ["_pistol","_pist","_pistmags","_StartBackpacks","_startBP","_foodlist","_food","_drinklist","_drink"];
+
+_StartBackpacks = ["DZ_TerminalPack_EP1","DZ_CompactPack_EP1","DZ_TK_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_GunBag_EP1"];
+
+_drinklist = ["ItemSodaCoke","ItemSodaPepsi","ItemSodaMdew","ItemSodaMtngreen","ItemSodaR4z0r","ItemSodaClays","ItemSodaSmasht","ItemSodaDrwaste","ItemSodaLvg","ItemSodaMzly","ItemSodaRabbit","ItemWaterbottleBoiled"];
+_foodlist = ["FoodCanBakedBeans","FoodCanSardines","FoodCanFrankBeans","FoodCanPasta","FoodCanGriff","FoodCanBoneboy","FoodCanCorn","FoodCanCurgon","FoodCanDemon","FoodCanFraggleos","FoodCanHerpy","FoodCanOrlok","FoodCanPowell","FoodCanTylers"]; 
+
+_pistol = ["RH_g17","RH_Deagle","vil_USP45SD","RH_m93r","RH_g18","RH_bull","RH_mk2","RH_Deagleg","RH_Deaglem","RH_anac","RH_python","RH_p226","RH_p38","RH_ppk","RH_tt33","RH_m9","Vil_PYA","vil_USP45","RH_browninghp"];
+_pist = _pistol select (floor (random (count _pistol)));
+_pistmags = getArray (configFile &gt;&gt; "CfgWeapons" &gt;&gt; _pist &gt;&gt; "magazines") select 0;
+
+_startBP = _StartBackpacks select (floor (random (count _StartBackpacks)));
+_food = _foodlist select (floor (random (count _foodlist)));
+_drink = _drinklist select (floor (random (count _drinklist)));
+
+DefaultMagazines = ["ItemBandage","ItemBandage","ItemPainkiller",_drink,_food,_pistmags,_pistmags]; 
+DefaultWeapons = ["ItemMap","ItemCompass","ItemToolbox","ItemRadio",_pist,"ItemHatchet_DZE"]; 
+DefaultBackpack = _startBP;
+
+And now it seems to be working for our test group.  
+including people who were having issues before! :)  
+  
+maybe it was bis_fnc_selectrandom?  not sure.  
+  
+are there any better ways i could write this up?  
+' data-websharetitle="Customised Enhanced Spawn Select - Arrays Issue" data-webshareurl="https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/?do=findComment&amp;comment=99816">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzg4NC1jdXN0b21pc2VkLWVuaGFuY2VkLXNwYXduLXNlbGVjdC1hcnJheXMtaXNzdWUvI3JlcGx5Rm9ybQ==">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13884-customised-enhanced-spawn-select-arrays-issue%2F&amp;title=Customised+Enhanced+Spawn+Select+-+Arrays+Issue" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Customised Enhanced Spawn Select - Arrays Issue" data-websharetitle="Customised Enhanced Spawn Select - Arrays Issue" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13884">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Customised Enhanced Spawn Select - Arrays Issue
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Customised Enhanced Spawn Select - Arrays Issue",
+    "headline": "Customised Enhanced Spawn Select - Arrays Issue",
+    "text": "Hi everyone,\u00a0 \n\u00a0 \nI have been working on modifying ebay\u0027s enhanced spawn select for one of my overpoch servers. \nAnd I was working on a randomiser for the loadouts, after much playing around and help from ebay.\u00a0 \nhttp://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/\u00a0 \n\u00a0 \nI came up with something that works. (kinda. for some people) \nNow this works every single time without fail for me, and also for one of my friends. \nadmittedly we both have pretty high spec machines. overclocked i7s, SSDs etc...\u00a0 \n\u00a0 \nand our dedicated server machine is also quite decent. 4/8HT core e3-xeon, 16gb ram, SSD etc.\u00a0 \neven with all our different scripts, wai, dzms and 40 players our server fps stays above 5.\u00a0 \nso i\u0027m thinking it isn\u0027t server load. \n\u00a0 \nbut for many of our players, if they select any class that uses these arrays, \nthey spawn in with the default mags, backpack. plain survivor skin. \n\u00a0 \nI tried this on the mrs\u0027 pc, which is my old amd hexcore from 5 years ago,\u00a0 \nand 2/5 spawns on her pc, spawned with default mags only.\u00a0 \n\u00a0 \nNow i\u0027m wondering is this script taking too long to load for someone with a slower cpu? is it due to slower hdd read times?\u00a0 \n\u00a0 \n\u00a0 \nI\u0027ve put this in the mission pbo, so that way it randomises each spawn.\u00a0 \nif i put it in server pbo it only randomises once per restart and all players get the same kit every time they spawn. which isn\u0027t how i want the script to function.\u00a0 \n\u00a0 \nis there possibly another way i can write this that would cause it to work 100% of the time?\u00a0 \n\u00a0 \nhere is an example snippet from my variables.sqf.\u00a0 \n\nStartBackpacks = [\"DZ_TerminalPack_EP1\",\"DZ_CompactPack_EP1\",\"DZ_TK_Assault_Pack_EP1\",\"DZ_Czech_Vest_Puch\",\"DZ_GunBag_EP1\"];\nGoodBackpacks = [\"DZ_LargeGunBag_EP1\",\"DZ_Backpack_EP1\",\"DZ_CivilBackpack_EP1\"];\nStartPistols = [\"RH_g17\",\"RH_Deagle\",\"vil_USP45SD\",\"RH_m93r\",\"RH_g18\",\"RH_bull\",\"RH_mk2\",\"RH_Deagleg\",\"RH_Deaglem\",\"RH_anac\",\"RH_python\",\"RH_p226\",\"RH_p38\",\"RH_ppk\",\"RH_tt33\",\"RH_m9\",\"Vil_PYA\",\"vil_USP45\",\"RH_browninghp\"];\nSDPistols = [\"vil_USP45SD\",\"MakarovSD\",\"RH_g17sd\",\"vil_apssd\",\"vil_USPSD\",\"RH_m9csd\",\"RH_m1911sd\",\"RH_uspsd\",\"RH_mk22vsd\"];\nWestWeps = [\"FHQ_ACR_BLK_CCO_GL\",\"FHQ_ACR_WDL_G33\",\"FHQ_ACR_WDL_HAMR_F\",\"vil_HK416_EOT\",\"FHQ_ACR_SNW_HWS\",\"FHQ_ACR_BLK_HAMR_SD\",\"RH_hk416seotech\",\"RH_hk417sdeotech\",\"RH_hk417acog\",\"SCAR_L_CQC_EGLM_Holo\",\"FN_FAL\",\"RH_sc2aim\"];\nEastWeps = [\"vil_G36KSKES\",\"vil_G36KSK\",\"vil_G3an\",\"vil_AEK2\",\"vil_AEK_GL\",\"vil_AG3EOT\",\"vil_Abakan_P29\",\"vil_Abakan\",\"vil_AK_74m_EOT\"];\nStalkerSkins = [\"gsc_eco_stalker_mask_fred\",\"gsc_eco_stalker_head_fred\",\"gsc_eco_stalker_mask_camo\",\"gsc_eco_stalker_head_camo1\",\"gsc_eco_stalker_mask_duty\",\"gsc_eco_stalker_head_duty\",\"gsc_eco_stalker_mask_neutral\",\"gsc_eco_stalker_head_neutral\"];\n\n_stalker = StalkerSkins call BIS_fnc_selectRandom;\n_startBP = StartBackpacks call BIS_fnc_selectRandom;\n_goodBP = GoodBackpacks call BIS_fnc_selectRandom;\n_startPis = StartPistols call BIS_fnc_selectRandom;\n_startPammo = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _startPis \u0026gt;\u0026gt; \"magazines\") select 0;\n_SDPis = SDPistols call BIS_fnc_selectRandom;\n_SDPammo = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _SDPis \u0026gt;\u0026gt; \"magazines\") select 0;\n_Wweps = WestWeps call BIS_fnc_selectRandom;\n_Wmags = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _Wweps \u0026gt;\u0026gt; \"magazines\") select 0;\n_Eweps = EastWeps call BIS_fnc_selectRandom;\n_Emags = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _Eweps \u0026gt;\u0026gt; \"magazines\") select 0;\n\n// preset classes follow this format\n// [Name, Skin, Magazines, Weapons, Backpack, Backpack Magazines, Backpack Weapons, DL, HL] \npresetClasses = [\n[\"Survivor\",\"Survivor2_DZ\",[_startPammo,_startPammo,\"ItemBandage\",\"ItemPainkiller\"],[_startPis,\"ItemHatchet_DZE\",\"ItemKnife\"],_startBP,[],[],0,0],\n[\"Soldier\",\"Graves_Light_DZ\",[_startPammo,_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],\n[\"Sniper\",\"GUE_Soldier_Sniper_DZ\",[_SDPammo,_SDPammo,_SDPammo],[_SDPis],_startBP,[],[],0,0],\n[\"Stalker\",_stalker,[_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],\n// humanity based loadouts\n[\"- Bandit -\",\"Bandit2_DZ\",[_SDPammo,_SDPammo,_Emags,_Emags,\"ItemMorphine\"],[\"ItemKnife\",\"ItemHatchet_DZE\",_SDPis,_Eweps],_goodBP,[],[],0,-7500],\n[\"- Hero -\",\"Soldier_Sniper_PMC_DZ\",[_SDPammo,_SDPammo,_Wmags,_Wmags,\"ItemMorphine\"],[\"ItemKnife\",\"ItemHatchet_DZE\",_SDPis,_Wweps],_goodBP,[],[],0,7500],\n\nMy theory is, that due to the config files for overwatch+epoch containing so many items, the getArray to get the mag class names is what is causing this problem.\u00a0 \n\u00a0 \nI\u0027m still kind of noob when it comes to scripting for arma, so i\u0027m probably wrong.\u00a0 \nany help would be greatly appreciated.\u00a0 \n",
+    "dateCreated": "2014-07-07T01:30:39+0000",
+    "datePublished": "2014-07-07T01:30:39+0000",
+    "dateModified": "2014-07-07T07:12:25+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "js2k6",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg",
+        "url": "https://epochmod.com/forum/profile/11696-js2k6/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 716
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 1
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/",
+    "url": "https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Customised Enhanced Spawn Select - Arrays Issue",
+        "text": "Hi everyone,\u00a0 \n\u00a0 \nI have been working on modifying ebay\u0027s enhanced spawn select for one of my overpoch servers. \nAnd I was working on a randomiser for the loadouts, after much playing around and help from ebay.\u00a0 \nhttp://opendayz.net/threads/release-ess-enhanced-spawn-selection.19998/\u00a0 \n\u00a0 \nI came up with something that works. (kinda. for some people) \nNow this works every single time without fail for me, and also for one of my friends. \nadmittedly we both have pretty high spec machines. overclocked i7s, SSDs etc...\u00a0 \n\u00a0 \nand our dedicated server machine is also quite decent. 4/8HT core e3-xeon, 16gb ram, SSD etc.\u00a0 \neven with all our different scripts, wai, dzms and 40 players our server fps stays above 5.\u00a0 \nso i\u0027m thinking it isn\u0027t server load. \n\u00a0 \nbut for many of our players, if they select any class that uses these arrays, \nthey spawn in with the default mags, backpack. plain survivor skin. \n\u00a0 \nI tried this on the mrs\u0027 pc, which is my old amd hexcore from 5 years ago,\u00a0 \nand 2/5 spawns on her pc, spawned with default mags only.\u00a0 \n\u00a0 \nNow i\u0027m wondering is this script taking too long to load for someone with a slower cpu? is it due to slower hdd read times?\u00a0 \n\u00a0 \n\u00a0 \nI\u0027ve put this in the mission pbo, so that way it randomises each spawn.\u00a0 \nif i put it in server pbo it only randomises once per restart and all players get the same kit every time they spawn. which isn\u0027t how i want the script to function.\u00a0 \n\u00a0 \nis there possibly another way i can write this that would cause it to work 100% of the time?\u00a0 \n\u00a0 \nhere is an example snippet from my variables.sqf.\u00a0 \n\nStartBackpacks = [\"DZ_TerminalPack_EP1\",\"DZ_CompactPack_EP1\",\"DZ_TK_Assault_Pack_EP1\",\"DZ_Czech_Vest_Puch\",\"DZ_GunBag_EP1\"];\nGoodBackpacks = [\"DZ_LargeGunBag_EP1\",\"DZ_Backpack_EP1\",\"DZ_CivilBackpack_EP1\"];\nStartPistols = [\"RH_g17\",\"RH_Deagle\",\"vil_USP45SD\",\"RH_m93r\",\"RH_g18\",\"RH_bull\",\"RH_mk2\",\"RH_Deagleg\",\"RH_Deaglem\",\"RH_anac\",\"RH_python\",\"RH_p226\",\"RH_p38\",\"RH_ppk\",\"RH_tt33\",\"RH_m9\",\"Vil_PYA\",\"vil_USP45\",\"RH_browninghp\"];\nSDPistols = [\"vil_USP45SD\",\"MakarovSD\",\"RH_g17sd\",\"vil_apssd\",\"vil_USPSD\",\"RH_m9csd\",\"RH_m1911sd\",\"RH_uspsd\",\"RH_mk22vsd\"];\nWestWeps = [\"FHQ_ACR_BLK_CCO_GL\",\"FHQ_ACR_WDL_G33\",\"FHQ_ACR_WDL_HAMR_F\",\"vil_HK416_EOT\",\"FHQ_ACR_SNW_HWS\",\"FHQ_ACR_BLK_HAMR_SD\",\"RH_hk416seotech\",\"RH_hk417sdeotech\",\"RH_hk417acog\",\"SCAR_L_CQC_EGLM_Holo\",\"FN_FAL\",\"RH_sc2aim\"];\nEastWeps = [\"vil_G36KSKES\",\"vil_G36KSK\",\"vil_G3an\",\"vil_AEK2\",\"vil_AEK_GL\",\"vil_AG3EOT\",\"vil_Abakan_P29\",\"vil_Abakan\",\"vil_AK_74m_EOT\"];\nStalkerSkins = [\"gsc_eco_stalker_mask_fred\",\"gsc_eco_stalker_head_fred\",\"gsc_eco_stalker_mask_camo\",\"gsc_eco_stalker_head_camo1\",\"gsc_eco_stalker_mask_duty\",\"gsc_eco_stalker_head_duty\",\"gsc_eco_stalker_mask_neutral\",\"gsc_eco_stalker_head_neutral\"];\n\n_stalker = StalkerSkins call BIS_fnc_selectRandom;\n_startBP = StartBackpacks call BIS_fnc_selectRandom;\n_goodBP = GoodBackpacks call BIS_fnc_selectRandom;\n_startPis = StartPistols call BIS_fnc_selectRandom;\n_startPammo = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _startPis \u0026gt;\u0026gt; \"magazines\") select 0;\n_SDPis = SDPistols call BIS_fnc_selectRandom;\n_SDPammo = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _SDPis \u0026gt;\u0026gt; \"magazines\") select 0;\n_Wweps = WestWeps call BIS_fnc_selectRandom;\n_Wmags = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _Wweps \u0026gt;\u0026gt; \"magazines\") select 0;\n_Eweps = EastWeps call BIS_fnc_selectRandom;\n_Emags = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _Eweps \u0026gt;\u0026gt; \"magazines\") select 0;\n\n// preset classes follow this format\n// [Name, Skin, Magazines, Weapons, Backpack, Backpack Magazines, Backpack Weapons, DL, HL] \npresetClasses = [\n[\"Survivor\",\"Survivor2_DZ\",[_startPammo,_startPammo,\"ItemBandage\",\"ItemPainkiller\"],[_startPis,\"ItemHatchet_DZE\",\"ItemKnife\"],_startBP,[],[],0,0],\n[\"Soldier\",\"Graves_Light_DZ\",[_startPammo,_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],\n[\"Sniper\",\"GUE_Soldier_Sniper_DZ\",[_SDPammo,_SDPammo,_SDPammo],[_SDPis],_startBP,[],[],0,0],\n[\"Stalker\",_stalker,[_startPammo,_startPammo],[_startPis],_startBP,[],[],0,0],\n// humanity based loadouts\n[\"- Bandit -\",\"Bandit2_DZ\",[_SDPammo,_SDPammo,_Emags,_Emags,\"ItemMorphine\"],[\"ItemKnife\",\"ItemHatchet_DZE\",_SDPis,_Eweps],_goodBP,[],[],0,-7500],\n[\"- Hero -\",\"Soldier_Sniper_PMC_DZ\",[_SDPammo,_SDPammo,_Wmags,_Wmags,\"ItemMorphine\"],[\"ItemKnife\",\"ItemHatchet_DZE\",_SDPis,_Wweps],_goodBP,[],[],0,7500],\n\nMy theory is, that due to the config files for overwatch+epoch containing so many items, the getArray to get the mag class names is what is causing this problem.\u00a0 \n\u00a0 \nI\u0027m still kind of noob when it comes to scripting for arma, so i\u0027m probably wrong.\u00a0 \nany help would be greatly appreciated.\u00a0 \n",
+        "answerCount": 1,
+        "dateCreated": "2014-07-07T01:30:39+0000",
+        "author": {
+            "@type": "Person",
+            "name": "js2k6"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/#comment-99816",
+                "url": "https://epochmod.com/forum/topic/13884-customised-enhanced-spawn-select-arrays-issue/#comment-99816",
+                "author": {
+                    "@type": "Person",
+                    "name": "js2k6",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg",
+                    "url": "https://epochmod.com/forum/profile/11696-js2k6/"
+                },
+                "dateCreated": "2014-07-07T07:12:25+0000",
+                "text": "tried something a little different.\u00a0 \nnot using bis_fnc_selectrandom any longer \n\u00a0 \ncreated a new file, call it just after custom variables. \n\nprivate [\"_pistol\",\"_pist\",\"_pistmags\",\"_StartBackpacks\",\"_startBP\",\"_foodlist\",\"_food\",\"_drinklist\",\"_drink\"];\n\n_StartBackpacks = [\"DZ_TerminalPack_EP1\",\"DZ_CompactPack_EP1\",\"DZ_TK_Assault_Pack_EP1\",\"DZ_Czech_Vest_Puch\",\"DZ_GunBag_EP1\"];\n\n_drinklist = [\"ItemSodaCoke\",\"ItemSodaPepsi\",\"ItemSodaMdew\",\"ItemSodaMtngreen\",\"ItemSodaR4z0r\",\"ItemSodaClays\",\"ItemSodaSmasht\",\"ItemSodaDrwaste\",\"ItemSodaLvg\",\"ItemSodaMzly\",\"ItemSodaRabbit\",\"ItemWaterbottleBoiled\"];\n_foodlist = [\"FoodCanBakedBeans\",\"FoodCanSardines\",\"FoodCanFrankBeans\",\"FoodCanPasta\",\"FoodCanGriff\",\"FoodCanBoneboy\",\"FoodCanCorn\",\"FoodCanCurgon\",\"FoodCanDemon\",\"FoodCanFraggleos\",\"FoodCanHerpy\",\"FoodCanOrlok\",\"FoodCanPowell\",\"FoodCanTylers\"]; \n\n_pistol = [\"RH_g17\",\"RH_Deagle\",\"vil_USP45SD\",\"RH_m93r\",\"RH_g18\",\"RH_bull\",\"RH_mk2\",\"RH_Deagleg\",\"RH_Deaglem\",\"RH_anac\",\"RH_python\",\"RH_p226\",\"RH_p38\",\"RH_ppk\",\"RH_tt33\",\"RH_m9\",\"Vil_PYA\",\"vil_USP45\",\"RH_browninghp\"];\n_pist = _pistol select (floor (random (count _pistol)));\n_pistmags = getArray (configFile \u0026gt;\u0026gt; \"CfgWeapons\" \u0026gt;\u0026gt; _pist \u0026gt;\u0026gt; \"magazines\") select 0;\n\n_startBP = _StartBackpacks select (floor (random (count _StartBackpacks)));\n_food = _foodlist select (floor (random (count _foodlist)));\n_drink = _drinklist select (floor (random (count _drinklist)));\n\nDefaultMagazines = [\"ItemBandage\",\"ItemBandage\",\"ItemPainkiller\",_drink,_food,_pistmags,_pistmags]; \nDefaultWeapons = [\"ItemMap\",\"ItemCompass\",\"ItemToolbox\",\"ItemRadio\",_pist,\"ItemHatchet_DZE\"]; \nDefaultBackpack = _startBP;\n\nAnd now it seems to be working for our test group.\u00a0 \nincluding people who were having issues before! :)\u00a0 \n\u00a0 \nmaybe it was bis_fnc_selectrandom? \u00a0not sure.\u00a0 \n\u00a0 \nare there any better ways i could write this up?\u00a0 \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "js2k6",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11696.jpg",
+            "url": "https://epochmod.com/forum/profile/11696-js2k6/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

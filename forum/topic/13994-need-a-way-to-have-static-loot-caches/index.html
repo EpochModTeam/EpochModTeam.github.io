@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>Need a way to have static loot caches. - Scripting - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="Need a way to have static loot caches." property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/" property="og:url"/>
+<meta content="Hi Everyone, As the title says, I need a way to have loot caches in set locations (yes this is another salvation city thing) Need them to refresh at every server start and only at server restart to eliminate them being farmed. How would I go about doing this? Cheers SG." name="description"/>
+<meta content="Hi Everyone, As the title says, I need a way to have loot caches in set locations (yes this is another salvation city thing) Need them to refresh at every server start and only at server restart to eliminate them being farmed. How would I go about doing this? Cheers SG." property="og:description"/>
+<meta content="2014-07-16T06:43:24Z" property="og:updated_time"/>
+<meta content="loot cache script placed" name="keywords"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="13994" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzk5NC1uZWVkLWEtd2F5LXRvLWhhdmUtc3RhdGljLWxvb3QtY2FjaGVzLw=="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":35}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":13994}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Need a way to have static loot caches.
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:stretch ipsFlex-jc:center">
+<ul class="ipsList_reset cRatingColumn cRatingColumn_question ipsType_center ipsMargin_right ipsFlex-flex:00 ipsBorder_right">
+<li>
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this question"><i class="fa fa-angle-up"></i></span>
+</li>
+<li><span class="cAnswerRating" data-role="voteCount" data-votecount="0">0</span></li>
+</ul>
+<div class="ipsFlex-flex:11">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>Need a way to have static loot caches.</span>
+</span>
+</h1>
+<ul class="ipsTags ipsList_inline">
+<li>
+<a class="ipsTag" data-tag-label="loot cache script placed" href="https://epochmod.com/forum/tags/loot cache script placed/" rel="tag" title="Find other content tagged with 'loot cache script placed'"><span>loot cache script placed</span></a>
+</li>
+</ul>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>Asked by 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">SgtSparraGump</a>,</strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-07-09T08:07:02Z" title="07/09/14 08:07  AM">July 9, 2014</time></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Need a way to have static loot caches." data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13994">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-13994" data-lastpage="" id="comments">
+<div class="ipsBox ipsResponsive_pull">
+<h2 class="ipsType_sectionTitle ipsType_reset">Question</h2>
+<a id="comment-100943"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsBox--child sm:ipsPadding_horizontal:half ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_100943">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/17847-sgtsparragump/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile"><span style="color:#">SgtSparraGump</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100943" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T08:07:02Z" title="07/09/14 08:07  AM">July 9, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">SgtSparraGump</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/17847-sgtsparragump/content/" rel="nofollow" title="108 posts">
+<i class="fa fa-comment"></i> 108
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sydney, NSW - Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="100943" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17847,"username":"SgtSparraGump","timestamp":1404893222,"contentapp":"forums","contenttype":"forums","contentid":13994,"contentclass":"forums_Topic","contentcommentid":100943}' id="comment-100943_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-100943_wrap" href="#elControls_100943_menu" id="elControls_100943" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_100943_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=reportComment&amp;comment=100943" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_100943_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_100943" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100943" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T08:07:02Z" title="07/09/14 08:07  AM">July 9, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Hi Everyone,</p>
+<p> </p>
+<p>As the title says, I need a way to have loot caches in set locations (yes this is another salvation city thing) </p>
+<p> </p>
+<p>Need them to refresh at every server start and only at server restart to eliminate them being farmed.</p>
+<p> </p>
+<p>How would I go about doing this?</p>
+<p> </p>
+<p>Cheers</p>
+<p> </p>
+<p>SG.</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_100943_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100943" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100943" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100943&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment%26comment=100943&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hi Everyone, 
+  
+As the title says, I need a way to have loot caches in set locations (yes this is another salvation city thing)  
+  
+Need them to refresh at every server start and only at server restart to eliminate them being farmed. 
+  
+How would I go about doing this? 
+  
+Cheers 
+  
+SG. 
+" data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100943">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div class="ipsSpacer_both">
+<div class="ipsBox ipsResponsive_pull ipsMargin_bottom">
+<h2 class="ipsType_sectionTitle ipsType_reset ipsHide">5 answers to this question</h2>
+<div class="ipsPadding:half ipsClearfix">
+<ul class="ipsPos_right ipsButtonRow ipsClearfix sm:ipsMargin_bottom:half">
+<li>
+<a class="ipsButtonRow_active" href="index.html" id="elSortBy_answers">Sort by votes</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?sortby=date" id="elSortBy_date">Sort by date</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-100947"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_100947">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+				
+
+
+Guest
+			</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100947" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T08:21:46Z" title="07/09/14 08:21  AM">July 9, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+
+
+Guest</strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<span class="ipsUserPhoto ipsUserPhoto_large">
+<img alt="Guest" loading="lazy" src="https://epochmod.com/forum/uploads/set_resources_19/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png"/>
+</span>
+</div>
+</li>
+<li data-role="group">Guest</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="100947" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":null,"username":"Guest","timestamp":1404894106,"contentapp":"forums","contenttype":"forums","contentid":13994,"contentclass":"forums_Topic","contentcommentid":100947}' id="comment-100947_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-100947_wrap" href="#elControls_100947_menu" id="elControls_100947" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_100947_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=reportComment&amp;comment=100947" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_100947_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100947" id="elSharePost_100947" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100947" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T08:21:46Z" title="07/09/14 08:21  AM">July 9, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>look at WAI mission system</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_100947_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100947"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100947" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100947" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100947&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment%26comment=100947&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="look at WAI mission system 
+" data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100947">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-100958"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_100958">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/17847-sgtsparragump/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile"><span style="color:#">SgtSparraGump</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100958" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T09:00:17Z" title="07/09/14 09:00  AM">July 9, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">SgtSparraGump</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/17847-sgtsparragump/content/" rel="nofollow" title="108 posts">
+<i class="fa fa-comment"></i> 108
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sydney, NSW - Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="100958" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17847,"username":"SgtSparraGump","timestamp":1404896417,"contentapp":"forums","contenttype":"forums","contentid":13994,"contentclass":"forums_Topic","contentcommentid":100958}' id="comment-100958_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-100958_wrap" href="#elControls_100958_menu" id="elControls_100958" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_100958_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=reportComment&amp;comment=100958" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_100958_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100958" id="elSharePost_100958" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100958" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T09:00:17Z" title="07/09/14 09:00  AM">July 9, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Well this is going to be awkward but I am currently using it to a heli patrol and some AI on foot.</p>
+<p> </p>
+<p>How does it do the supply cache as well?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_100958_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100958"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100958" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100958" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100958&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment%26comment=100958&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Well this is going to be awkward but I am currently using it to a heli patrol and some AI on foot. 
+  
+How does it do the supply cache as well? 
+" data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100958">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-100962"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_100962">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4206-renegade2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/4206-renegade2k6/index.html" rel="nofollow" title="Go to Renegade2k6's profile">
+<img alt="Renegade2k6" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46291%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/4206-renegade2k6/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4206-renegade2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/4206-renegade2k6/index.html" rel="nofollow" title="Go to Renegade2k6's profile"><span style="color:#">Renegade2k6</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100962" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T09:06:59Z" title="07/09/14 09:06  AM">July 9, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4206-renegade2k6/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/4206-renegade2k6/index.html" rel="nofollow" title="Go to Renegade2k6's profile">Renegade2k6</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/4206-renegade2k6/?do=hovercard" data-ipshover-width="370" href="../../profile/4206-renegade2k6/index.html" rel="nofollow" title="Go to Renegade2k6's profile">
+<img alt="Renegade2k6" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c46291%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ER%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/4206-renegade2k6/content/" rel="nofollow" title="202 posts">
+<i class="fa fa-comment"></i> 202
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">United Kingdom</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="100962" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":4206,"username":"Renegade2k6","timestamp":1404896819,"contentapp":"forums","contenttype":"forums","contentid":13994,"contentclass":"forums_Topic","contentcommentid":100962}' id="comment-100962_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-100962_wrap" href="#elControls_100962_menu" id="elControls_100962" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_100962_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=reportComment&amp;comment=100962" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_100962_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100962" id="elSharePost_100962" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100962" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T09:06:59Z" title="07/09/14 09:06  AM">July 9, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I use the following code to spawn loot boxes on our AI Island, they spawn every restart.</p>
+<pre class="ipsCode prettyprint">
+if(!isServer) exitwith {};
+diag_log["AI Crates Started"];
+
+_Base = [["M9","15Rnd_9x19_M9"], ["AKS_74_UN_kobra","30Rnd_545x39_AKSD"], ["M4A3_CCO_EP1","30Rnd_556x45_Stanag"], ["M4A1_AIM_SD_camo","30Rnd_556x45_StanagSD"], ["M16A4","30Rnd_556x45_Stanag"], ["m8_carbine","30Rnd_556x45_Stanag"], ["BAF_L85A2_RIS_Holo","30Rnd_556x45_Stanag"], ["Sa58V_CCO_EP1","30Rnd_762x39_AK47"]];
+_Scoped = [["AK_107_pso","30Rnd_545x39_AK"], ["M16A4_ACG","30Rnd_556x45_Stanag"], ["Sa58V_RCO_EP1","30Rnd_762x39_AK47"], ["SCAR_L_STD_Mk4CQT","30Rnd_556x45_Stanag"], ["BAF_L86A2_ACOG","30Rnd_556x45_Stanag"], ["M4A1_AIM_SD_camo","30Rnd_556x45_StanagSD"], ["M14_EP1","20Rnd_762x51_DMR"], ["M8_sharpshooter","30Rnd_556x45_Stanag"]];
+_Underbarrel = [["AK_107_GL_pso","30Rnd_545x39_AK"], ["AK_107_GL_kobra","30Rnd_545x39_AK"], ["M4A1_HWS_GL","30Rnd_556x45_Stanag"], ["M16A4_ACG_GL","30Rnd_556x45_Stanag"], ["RPG7V","PG7V"], ["M8_carbineGL","30Rnd_556x45_Stanag"], ["SCAR_L_STD_EGLM_RCO","30Rnd_556x45_Stanag"], ["BAF_L85A2_UGL_Holo","30Rnd_556x45_Stanag"], ["M4A3_RCO_GL_EP1","30Rnd_556x45_Stanag"]];
+_Sniper = [["KSVK","5Rnd_127x108_KSVK"], ["SCAR_H_STD_EGLM_Spect","20rnd_762x51_B_SCAR"], ["M110_NVG_EP1","20rnd_762x51_B_SCAR"], ["SCAR_H_LNG_Sniper_SD","20rnd_762x51_SB_SCAR"], ["SVD_CAMO","10Rnd_762x54_SVD"], ["VSS_Vintorez","20Rnd_9x39_SP5_VSS"], ["BAF_LRR_scoped","5Rnd_86x70_L115A1"], ["DMR","20Rnd_762x51_DMR"], ["M40A3","5Rnd_762x51_M24"]];
+_LMG = [["RPK_74","75Rnd_545x39_RPK"], ["MK_48_DZ","100Rnd_762x51_M240"], ["M249_DZ","200Rnd_556x45_M249"], ["Pecheneg_DZ","100Rnd_762x54_PK"], ["RPG7V","PG7V"], ["M240_DZ","100Rnd_762x51_M240"]];
+_Trade= [["ItemWoodStairs"],["ItemWoodStairs"],["MortarBucket"],["CinderBlocks"],["ItemWoodFloor"],["metal_floor_kit"],["ItemWoodWallGarageDoor"],["ItemWoodWallWindowLg"],["ItemWoodWallLg"],["outhouse_kit"],["cinder_wall_kit"],["PartPlankPack"],["PartPlywoodPack"]];
+_Gold =[["ItemBriefcase100oz"]];
+
+//Spawn Boxes skanky
+_wbox1 = createVehicle ["RUOrdnanceBox",[14000.7, 2799.59, 0.002], [], 0, "CAN_COLLIDE"]; //Lumber Mill
+_wbox2 = createVehicle ["RUOrdnanceBox",[14008.6, 2720.19, 0.002], [], 0, "CAN_COLLIDE"]; //Dock
+_wbox3 = createVehicle ["RUOrdnanceBox",[13692.5, 2956.68, 0.002], [], 0, "CAN_COLLIDE"]; //Church
+_wbox4 = createVehicle ["RUOrdnanceBox",[13692.7, 2956.82, 0.443], [], 0, "CAN_COLLIDE"]; //Hill Left
+_wbox5 = createVehicle ["RUOrdnanceBox",[13656.5, 3010.72, 0.002], [], 0, "CAN_COLLIDE"]; //Village 1
+_wbox6 = createVehicle ["RUOrdnanceBox",[13441.4, 3312.91, 0.201], [], 0, "CAN_COLLIDE"]; //Hill Right
+_wbox7 = createVehicle ["RUOrdnanceBox",[13629.3, 2913.38, 0.001], [], 0, "CAN_COLLIDE"]; //Village 2
+
+//Clear ammo boxes
+clearWeaponCargoGlobal _wbox1;
+clearMagazineCargoGlobal _wbox1;
+clearBackpackCargoGlobal _wbox1;
+clearWeaponCargoGlobal _wbox2;
+clearMagazineCargoGlobal _wbox2;
+clearBackpackCargoGlobal _wbox2;
+clearWeaponCargoGlobal _wbox3;
+clearMagazineCargoGlobal _wbox3;
+clearBackpackCargoGlobal _wbox3;
+clearWeaponCargoGlobal _wbox4;
+clearMagazineCargoGlobal _wbox4;
+clearBackpackCargoGlobal _wbox4;
+clearWeaponCargoGlobal _wbox5;
+clearMagazineCargoGlobal _wbox5;
+clearBackpackCargoGlobal _wbox5;
+clearWeaponCargoGlobal _wbox6;
+clearMagazineCargoGlobal _wbox6;
+clearBackpackCargoGlobal _wbox6;
+clearWeaponCargoGlobal _wbox7;
+clearMagazineCargoGlobal _wbox7;
+clearBackpackCargoGlobal _wbox7;
+
+//Set Loot skanky
+_Baseloot = _Base call BIS_fnc_selectRandom;
+_Baseloot2 = _Base call BIS_fnc_selectRandom;
+_Baseloot3 = _Base call BIS_fnc_selectRandom;
+_ScopedLoot = _Scoped call BIS_fnc_selectRandom;
+_ScopedLoot2 = _Scoped call BIS_fnc_selectRandom;
+_UnderbarrelLoot = _Underbarrel call BIS_fnc_selectRandom;
+_SniperLoot = _Sniper call BIS_fnc_selectRandom;
+_SniperLoot2 = _Sniper call BIS_fnc_selectRandom;
+_LMGLoot = _LMG call BIS_fnc_selectRandom;
+_LMGLoot2 = _LMG call BIS_fnc_selectRandom;
+_Construction = _Trade call BIS_fnc_selectRandom;
+_Construction1 = _Trade call BIS_fnc_selectRandom;
+_Construction2= _Trade call BIS_fnc_selectRandom;
+_Construction3 = _Trade call BIS_fnc_selectRandom;
+_Gold = _Gold call BIS_fnc_selectRandom;
+_Gold1 = _Gold call BIS_fnc_selectRandom;
+_Gold2 = _Gold call BIS_fnc_selectRandom;
+_Gold3 = _Gold call BIS_fnc_selectRandom;
+//Spawn weapons
+_wbox1 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+
+//Spawn Mags
+_wbox1 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_Construction2 select 0, 10];
+_wbox1 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox2 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_Construction1 select 0, 10];
+_wbox2 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox3 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_Construction3 select 0, 10];
+_wbox3 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox4 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox4 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox5 addMagazineCargoGlobal [_Baseloot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_Baseloot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_Baseloot3 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_ScopedLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_ScopedLoot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_SniperLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_SniperLoot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_LMGLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_LMGLoot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox5 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox6 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox6 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox7 addMagazineCargoGlobal [_Baseloot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_Baseloot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_Baseloot3 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_ScopedLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_ScopedLoot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_SniperLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_SniperLoot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_LMGLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_LMGLoot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox7 addMagazineCargoGlobal [_Gold select 0, 2];
+
+//Loot Perm
+_wbox1 setVariable ["permaLoot",true];
+_wbox2 setVariable ["permaLoot",true];
+_wbox3 setVariable ["permaLoot",true];
+_wbox4 setVariable ["permaLoot",true];
+_wbox5 setVariable ["permaLoot",true];
+_wbox6 setVariable ["permaLoot",true];
+_wbox7 setVariable ["permaLoot",true];
+
+diag_log["AI Crates Spawning Complete"];
+</pre>
+<p>Obviously change co ords and loot to suit yourself.</p>
+<p> </p>
+<p>Save in server.pbo Mines saved in the init folder.</p>
+<p> </p>
+<p>Called Server side.    </p>
+<p> </p>
+<p>//Load Crates</p>
+<div>[] ExecVM "\z\addons\dayz_server\init\crates.sqf";</div>
+<div> </div>
+<div>Bottom of server_functions.sqf</div>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11706-stonxer/?do=hovercard" data-ipshover-width="370" href="../../profile/11706-stonxer/index.html" rel="nofollow" title="Go to stonXer's profile">stonXer</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=showReactionsComment&amp;comment=100962&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=showReactionsComment&amp;comment=100962&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_100962_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100962"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100962" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100962" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100962&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment%26comment=100962&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='I use the following code to spawn loot boxes on our AI Island, they spawn every restart. 
+
+if(!isServer) exitwith {};
+diag_log["AI Crates Started"];
+
+_Base = [["M9","15Rnd_9x19_M9"], ["AKS_74_UN_kobra","30Rnd_545x39_AKSD"], ["M4A3_CCO_EP1","30Rnd_556x45_Stanag"], ["M4A1_AIM_SD_camo","30Rnd_556x45_StanagSD"], ["M16A4","30Rnd_556x45_Stanag"], ["m8_carbine","30Rnd_556x45_Stanag"], ["BAF_L85A2_RIS_Holo","30Rnd_556x45_Stanag"], ["Sa58V_CCO_EP1","30Rnd_762x39_AK47"]];
+_Scoped = [["AK_107_pso","30Rnd_545x39_AK"], ["M16A4_ACG","30Rnd_556x45_Stanag"], ["Sa58V_RCO_EP1","30Rnd_762x39_AK47"], ["SCAR_L_STD_Mk4CQT","30Rnd_556x45_Stanag"], ["BAF_L86A2_ACOG","30Rnd_556x45_Stanag"], ["M4A1_AIM_SD_camo","30Rnd_556x45_StanagSD"], ["M14_EP1","20Rnd_762x51_DMR"], ["M8_sharpshooter","30Rnd_556x45_Stanag"]];
+_Underbarrel = [["AK_107_GL_pso","30Rnd_545x39_AK"], ["AK_107_GL_kobra","30Rnd_545x39_AK"], ["M4A1_HWS_GL","30Rnd_556x45_Stanag"], ["M16A4_ACG_GL","30Rnd_556x45_Stanag"], ["RPG7V","PG7V"], ["M8_carbineGL","30Rnd_556x45_Stanag"], ["SCAR_L_STD_EGLM_RCO","30Rnd_556x45_Stanag"], ["BAF_L85A2_UGL_Holo","30Rnd_556x45_Stanag"], ["M4A3_RCO_GL_EP1","30Rnd_556x45_Stanag"]];
+_Sniper = [["KSVK","5Rnd_127x108_KSVK"], ["SCAR_H_STD_EGLM_Spect","20rnd_762x51_B_SCAR"], ["M110_NVG_EP1","20rnd_762x51_B_SCAR"], ["SCAR_H_LNG_Sniper_SD","20rnd_762x51_SB_SCAR"], ["SVD_CAMO","10Rnd_762x54_SVD"], ["VSS_Vintorez","20Rnd_9x39_SP5_VSS"], ["BAF_LRR_scoped","5Rnd_86x70_L115A1"], ["DMR","20Rnd_762x51_DMR"], ["M40A3","5Rnd_762x51_M24"]];
+_LMG = [["RPK_74","75Rnd_545x39_RPK"], ["MK_48_DZ","100Rnd_762x51_M240"], ["M249_DZ","200Rnd_556x45_M249"], ["Pecheneg_DZ","100Rnd_762x54_PK"], ["RPG7V","PG7V"], ["M240_DZ","100Rnd_762x51_M240"]];
+_Trade= [["ItemWoodStairs"],["ItemWoodStairs"],["MortarBucket"],["CinderBlocks"],["ItemWoodFloor"],["metal_floor_kit"],["ItemWoodWallGarageDoor"],["ItemWoodWallWindowLg"],["ItemWoodWallLg"],["outhouse_kit"],["cinder_wall_kit"],["PartPlankPack"],["PartPlywoodPack"]];
+_Gold =[["ItemBriefcase100oz"]];
+
+//Spawn Boxes skanky
+_wbox1 = createVehicle ["RUOrdnanceBox",[14000.7, 2799.59, 0.002], [], 0, "CAN_COLLIDE"]; //Lumber Mill
+_wbox2 = createVehicle ["RUOrdnanceBox",[14008.6, 2720.19, 0.002], [], 0, "CAN_COLLIDE"]; //Dock
+_wbox3 = createVehicle ["RUOrdnanceBox",[13692.5, 2956.68, 0.002], [], 0, "CAN_COLLIDE"]; //Church
+_wbox4 = createVehicle ["RUOrdnanceBox",[13692.7, 2956.82, 0.443], [], 0, "CAN_COLLIDE"]; //Hill Left
+_wbox5 = createVehicle ["RUOrdnanceBox",[13656.5, 3010.72, 0.002], [], 0, "CAN_COLLIDE"]; //Village 1
+_wbox6 = createVehicle ["RUOrdnanceBox",[13441.4, 3312.91, 0.201], [], 0, "CAN_COLLIDE"]; //Hill Right
+_wbox7 = createVehicle ["RUOrdnanceBox",[13629.3, 2913.38, 0.001], [], 0, "CAN_COLLIDE"]; //Village 2
+
+//Clear ammo boxes
+clearWeaponCargoGlobal _wbox1;
+clearMagazineCargoGlobal _wbox1;
+clearBackpackCargoGlobal _wbox1;
+clearWeaponCargoGlobal _wbox2;
+clearMagazineCargoGlobal _wbox2;
+clearBackpackCargoGlobal _wbox2;
+clearWeaponCargoGlobal _wbox3;
+clearMagazineCargoGlobal _wbox3;
+clearBackpackCargoGlobal _wbox3;
+clearWeaponCargoGlobal _wbox4;
+clearMagazineCargoGlobal _wbox4;
+clearBackpackCargoGlobal _wbox4;
+clearWeaponCargoGlobal _wbox5;
+clearMagazineCargoGlobal _wbox5;
+clearBackpackCargoGlobal _wbox5;
+clearWeaponCargoGlobal _wbox6;
+clearMagazineCargoGlobal _wbox6;
+clearBackpackCargoGlobal _wbox6;
+clearWeaponCargoGlobal _wbox7;
+clearMagazineCargoGlobal _wbox7;
+clearBackpackCargoGlobal _wbox7;
+
+//Set Loot skanky
+_Baseloot = _Base call BIS_fnc_selectRandom;
+_Baseloot2 = _Base call BIS_fnc_selectRandom;
+_Baseloot3 = _Base call BIS_fnc_selectRandom;
+_ScopedLoot = _Scoped call BIS_fnc_selectRandom;
+_ScopedLoot2 = _Scoped call BIS_fnc_selectRandom;
+_UnderbarrelLoot = _Underbarrel call BIS_fnc_selectRandom;
+_SniperLoot = _Sniper call BIS_fnc_selectRandom;
+_SniperLoot2 = _Sniper call BIS_fnc_selectRandom;
+_LMGLoot = _LMG call BIS_fnc_selectRandom;
+_LMGLoot2 = _LMG call BIS_fnc_selectRandom;
+_Construction = _Trade call BIS_fnc_selectRandom;
+_Construction1 = _Trade call BIS_fnc_selectRandom;
+_Construction2= _Trade call BIS_fnc_selectRandom;
+_Construction3 = _Trade call BIS_fnc_selectRandom;
+_Gold = _Gold call BIS_fnc_selectRandom;
+_Gold1 = _Gold call BIS_fnc_selectRandom;
+_Gold2 = _Gold call BIS_fnc_selectRandom;
+_Gold3 = _Gold call BIS_fnc_selectRandom;
+//Spawn weapons
+_wbox1 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox1 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox1 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox2 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox2 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox3 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox3 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox4 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox4 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox5 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox5 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox6 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox6 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_Baseloot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_Baseloot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_Baseloot3 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_ScopedLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_SniperLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];
+_wbox7 addWeaponCargoGlobal [_LMGLoot select 0, 5];
+_wbox7 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];
+
+//Spawn Mags
+_wbox1 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox1 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox1 addMagazineCargoGlobal [_Construction2 select 0, 10];
+_wbox1 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox2 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox2 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox2 addMagazineCargoGlobal [_Construction1 select 0, 10];
+_wbox2 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox3 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox3 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox3 addMagazineCargoGlobal [_Construction3 select 0, 10];
+_wbox3 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox4 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox4 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox4 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox4 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox5 addMagazineCargoGlobal [_Baseloot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_Baseloot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_Baseloot3 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_ScopedLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_ScopedLoot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_SniperLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_SniperLoot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_LMGLoot select 1, 10];
+_wbox5 addMagazineCargoGlobal [_LMGLoot2 select 1, 10];
+_wbox5 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox5 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox6 addMagazineCargoGlobal [_Baseloot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_Baseloot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_Baseloot3 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_ScopedLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_SniperLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_LMGLoot select 1, 2];
+_wbox6 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];
+_wbox6 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox6 addMagazineCargoGlobal [_Gold select 0, 2];
+_wbox7 addMagazineCargoGlobal [_Baseloot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_Baseloot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_Baseloot3 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_ScopedLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_ScopedLoot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_SniperLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_SniperLoot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_LMGLoot select 1, 10];
+_wbox7 addMagazineCargoGlobal [_LMGLoot2 select 1, 10];
+_wbox7 addMagazineCargoGlobal [_Construction select 0, 10];
+_wbox7 addMagazineCargoGlobal [_Gold select 0, 2];
+
+//Loot Perm
+_wbox1 setVariable ["permaLoot",true];
+_wbox2 setVariable ["permaLoot",true];
+_wbox3 setVariable ["permaLoot",true];
+_wbox4 setVariable ["permaLoot",true];
+_wbox5 setVariable ["permaLoot",true];
+_wbox6 setVariable ["permaLoot",true];
+_wbox7 setVariable ["permaLoot",true];
+
+diag_log["AI Crates Spawning Complete"];
+
+Obviously change co ords and loot to suit yourself. 
+  
+Save in server.pbo Mines saved in the init folder. 
+  
+Called Server side.     
+  
+//Load Crates 
+[] ExecVM "\z\addons\dayz_server\init\crates.sqf";
+ 
+Bottom of server_functions.sqf
+' data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100962">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-100966"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_100966">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/17847-sgtsparragump/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile"><span style="color:#">SgtSparraGump</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100966" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T09:13:05Z" title="07/09/14 09:13  AM">July 9, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">SgtSparraGump</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17847-sgtsparragump/?do=hovercard" data-ipshover-width="370" href="../../profile/17847-sgtsparragump/index.html" rel="nofollow" title="Go to SgtSparraGump's profile">
+<img alt="SgtSparraGump" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-17847.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/17847-sgtsparragump/content/" rel="nofollow" title="108 posts">
+<i class="fa fa-comment"></i> 108
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sydney, NSW - Australia</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="100966" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17847,"username":"SgtSparraGump","timestamp":1404897185,"contentapp":"forums","contenttype":"forums","contentid":13994,"contentclass":"forums_Topic","contentcommentid":100966}' id="comment-100966_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-100966_wrap" href="#elControls_100966_menu" id="elControls_100966" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_100966_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=reportComment&amp;comment=100966" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_100966_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100966" id="elSharePost_100966" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100966" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-09T09:13:05Z" title="07/09/14 09:13  AM">July 9, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Very nice! thank you very much!</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_100966_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100966"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100966" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100966" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D100966&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment%26comment=100966&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Very nice! thank you very much! 
+" data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=100966">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-103950"></a>
+<article class="cPost ipsBox ipsResponsive_pull cPostQuestion ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_103950">
+<div class="cRatingColumn ipsClearfix ipsAreaBackground_light ipsColumn ipsColumn_narrow ipsType_center" data-controller="forums.front.topic.answers">
+<ul class="ipsList_reset cPostRating_controls">
+<li class="cPostRating_up">
+<span class="cAnswerRate cAnswerRate_up cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-up"></i></span>
+</li>
+<li class="cPostRating_count">
+<span class="cAnswerRating" data-role="voteCount" data-votecount="0" title=" votes">0</span>
+</li>
+<li class="cPostRating_down">
+<span class="cAnswerRate cAnswerRate_down cAnswerRate_noPermission" data-ipstooltip="" title="Sign in to rate this answer"><i class="fa fa-angle-down"></i></span>
+</li>
+</ul>
+</div>
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11706-stonxer/?do=hovercard" data-ipshover-width="370" href="../../profile/11706-stonxer/index.html" rel="nofollow" title="Go to stonXer's profile">
+<img alt="stonXer" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11706.png"/>
+</a>
+<a href="https://epochmod.com/forum/profile/11706-stonxer/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11706-stonxer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/11706-stonxer/index.html" rel="nofollow" title="Go to stonXer's profile"><span style="color:#">stonXer</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=103950" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-16T06:43:24Z" title="07/16/14 06:43  AM">July 16, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11706-stonxer/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13994-need-a-way-to-have-static-loot-caches%252F" data-ipshover-width="370" href="../../profile/11706-stonxer/index.html" rel="nofollow" title="Go to stonXer's profile">stonXer</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/11706-stonxer/?do=hovercard" data-ipshover-width="370" href="../../profile/11706-stonxer/index.html" rel="nofollow" title="Go to stonXer's profile">
+<img alt="stonXer" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-11706.png"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/11706-stonxer/content/" rel="nofollow" title="483 posts">
+<i class="fa fa-comment"></i> 483
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">ewsg-gaming.com</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="103950" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":11706,"username":"stonXer","timestamp":1405493004,"contentapp":"forums","contenttype":"forums","contentid":13994,"contentclass":"forums_Topic","contentcommentid":103950}' id="comment-103950_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-103950_wrap" href="#elControls_103950_menu" id="elControls_103950" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_103950_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=reportComment&amp;comment=103950" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_103950_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=103950" id="elSharePost_103950" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=103950" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-16T06:43:24Z" title="07/16/14 06:43  AM">July 16, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I found loading the crate sqf that way caused it to spawn each one twice, you couldn't see there were 2 there, but moving around and checking gear at different spots would give you 2 different loot selections.</p>
+<p>Added it to be called along with custom map edits, worked a charm, nomore multiple loots :) </p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_103950_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=103950"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D103950" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D103950" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F%3Fdo%3DfindComment%26comment%3D103950&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment%26comment=103950&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I found loading the crate sqf that way caused it to spawn each one twice, you couldn't see there were 2 there, but moving around and checking gear at different spots would give you 2 different loot selections. 
+Added it to be called along with custom map edits, worked a charm, nomore multiple loots :)  
+" data-websharetitle="Need a way to have static loot caches." data-webshareurl="https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/?do=findComment&amp;comment=103950">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzk5NC1uZWVkLWEtd2F5LXRvLWhhdmUtc3RhdGljLWxvb3QtY2FjaGVzLyNyZXBseUZvcm0=">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13994-need-a-way-to-have-static-loot-caches%2F&amp;title=Need+a+way+to+have+static+loot+caches." rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Need a way to have static loot caches." data-websharetitle="Need a way to have static loot caches." data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13994">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall ipsButton_disabled" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/35-scripting/index.html" rel="parent" title="Go to Scripting">
+<span class="ipsPager_type">Go to question listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/96-qa-section/index.html">
+<span>Q&amp;A Section <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/35-scripting/index.html">
+<span>Scripting <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					Need a way to have static loot caches.
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "Need a way to have static loot caches.",
+    "headline": "Need a way to have static loot caches.",
+    "text": "Hi Everyone, \n\u00a0 \nAs the title says, I need a way to have loot caches in set locations (yes this is another salvation city thing)\u00a0 \n\u00a0 \nNeed them to refresh at every server start and only at server restart to eliminate them being farmed. \n\u00a0 \nHow would I go about doing this? \n\u00a0 \nCheers \n\u00a0 \nSG. \n",
+    "dateCreated": "2014-07-09T08:07:02+0000",
+    "datePublished": "2014-07-09T08:07:02+0000",
+    "dateModified": "2014-07-16T06:43:24+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-17847.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "SgtSparraGump",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-17847.jpg",
+        "url": "https://epochmod.com/forum/profile/17847-sgtsparragump/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 715
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 5
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 0
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "QAPage",
+    "@id": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/",
+    "url": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/",
+    "mainEntity": {
+        "@type": "Question",
+        "name": "Need a way to have static loot caches.",
+        "text": "Hi Everyone, \n\u00a0 \nAs the title says, I need a way to have loot caches in set locations (yes this is another salvation city thing)\u00a0 \n\u00a0 \nNeed them to refresh at every server start and only at server restart to eliminate them being farmed. \n\u00a0 \nHow would I go about doing this? \n\u00a0 \nCheers \n\u00a0 \nSG. \n",
+        "answerCount": 5,
+        "dateCreated": "2014-07-09T08:07:02+0000",
+        "author": {
+            "@type": "Person",
+            "name": "SgtSparraGump"
+        },
+        "suggestedAnswer": [
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100947",
+                "url": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100947",
+                "author": {
+                    "@type": "Person",
+                    "name": "Guest",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png"
+                },
+                "dateCreated": "2014-07-09T08:21:46+0000",
+                "text": "look at WAI mission system \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100958",
+                "url": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100958",
+                "author": {
+                    "@type": "Person",
+                    "name": "SgtSparraGump",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-17847.jpg",
+                    "url": "https://epochmod.com/forum/profile/17847-sgtsparragump/"
+                },
+                "dateCreated": "2014-07-09T09:00:17+0000",
+                "text": "Well this is going to be awkward but I am currently using it to a heli patrol and some AI on foot. \n\u00a0 \nHow does it do the supply cache as well? \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100962",
+                "url": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100962",
+                "author": {
+                    "@type": "Person",
+                    "name": "Renegade2k6",
+                    "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                    "url": "https://epochmod.com/forum/profile/4206-renegade2k6/"
+                },
+                "dateCreated": "2014-07-09T09:06:59+0000",
+                "text": "I use the following code to spawn loot boxes on our AI Island, they spawn every restart. \n\nif(!isServer) exitwith {};\ndiag_log[\"AI Crates Started\"];\n\n_Base = [[\"M9\",\"15Rnd_9x19_M9\"], [\"AKS_74_UN_kobra\",\"30Rnd_545x39_AKSD\"], [\"M4A3_CCO_EP1\",\"30Rnd_556x45_Stanag\"], [\"M4A1_AIM_SD_camo\",\"30Rnd_556x45_StanagSD\"], [\"M16A4\",\"30Rnd_556x45_Stanag\"], [\"m8_carbine\",\"30Rnd_556x45_Stanag\"], [\"BAF_L85A2_RIS_Holo\",\"30Rnd_556x45_Stanag\"], [\"Sa58V_CCO_EP1\",\"30Rnd_762x39_AK47\"]];\n_Scoped = [[\"AK_107_pso\",\"30Rnd_545x39_AK\"], [\"M16A4_ACG\",\"30Rnd_556x45_Stanag\"], [\"Sa58V_RCO_EP1\",\"30Rnd_762x39_AK47\"], [\"SCAR_L_STD_Mk4CQT\",\"30Rnd_556x45_Stanag\"], [\"BAF_L86A2_ACOG\",\"30Rnd_556x45_Stanag\"], [\"M4A1_AIM_SD_camo\",\"30Rnd_556x45_StanagSD\"], [\"M14_EP1\",\"20Rnd_762x51_DMR\"], [\"M8_sharpshooter\",\"30Rnd_556x45_Stanag\"]];\n_Underbarrel = [[\"AK_107_GL_pso\",\"30Rnd_545x39_AK\"], [\"AK_107_GL_kobra\",\"30Rnd_545x39_AK\"], [\"M4A1_HWS_GL\",\"30Rnd_556x45_Stanag\"], [\"M16A4_ACG_GL\",\"30Rnd_556x45_Stanag\"], [\"RPG7V\",\"PG7V\"], [\"M8_carbineGL\",\"30Rnd_556x45_Stanag\"], [\"SCAR_L_STD_EGLM_RCO\",\"30Rnd_556x45_Stanag\"], [\"BAF_L85A2_UGL_Holo\",\"30Rnd_556x45_Stanag\"], [\"M4A3_RCO_GL_EP1\",\"30Rnd_556x45_Stanag\"]];\n_Sniper = [[\"KSVK\",\"5Rnd_127x108_KSVK\"], [\"SCAR_H_STD_EGLM_Spect\",\"20rnd_762x51_B_SCAR\"], [\"M110_NVG_EP1\",\"20rnd_762x51_B_SCAR\"], [\"SCAR_H_LNG_Sniper_SD\",\"20rnd_762x51_SB_SCAR\"], [\"SVD_CAMO\",\"10Rnd_762x54_SVD\"], [\"VSS_Vintorez\",\"20Rnd_9x39_SP5_VSS\"], [\"BAF_LRR_scoped\",\"5Rnd_86x70_L115A1\"], [\"DMR\",\"20Rnd_762x51_DMR\"], [\"M40A3\",\"5Rnd_762x51_M24\"]];\n_LMG = [[\"RPK_74\",\"75Rnd_545x39_RPK\"], [\"MK_48_DZ\",\"100Rnd_762x51_M240\"], [\"M249_DZ\",\"200Rnd_556x45_M249\"], [\"Pecheneg_DZ\",\"100Rnd_762x54_PK\"], [\"RPG7V\",\"PG7V\"], [\"M240_DZ\",\"100Rnd_762x51_M240\"]];\n_Trade= [[\"ItemWoodStairs\"],[\"ItemWoodStairs\"],[\"MortarBucket\"],[\"CinderBlocks\"],[\"ItemWoodFloor\"],[\"metal_floor_kit\"],[\"ItemWoodWallGarageDoor\"],[\"ItemWoodWallWindowLg\"],[\"ItemWoodWallLg\"],[\"outhouse_kit\"],[\"cinder_wall_kit\"],[\"PartPlankPack\"],[\"PartPlywoodPack\"]];\n_Gold =[[\"ItemBriefcase100oz\"]];\n\n//Spawn Boxes skanky\n_wbox1 = createVehicle [\"RUOrdnanceBox\",[14000.7, 2799.59, 0.002], [], 0, \"CAN_COLLIDE\"]; //Lumber Mill\n_wbox2 = createVehicle [\"RUOrdnanceBox\",[14008.6, 2720.19, 0.002], [], 0, \"CAN_COLLIDE\"]; //Dock\n_wbox3 = createVehicle [\"RUOrdnanceBox\",[13692.5, 2956.68, 0.002], [], 0, \"CAN_COLLIDE\"]; //Church\n_wbox4 = createVehicle [\"RUOrdnanceBox\",[13692.7, 2956.82, 0.443], [], 0, \"CAN_COLLIDE\"]; //Hill Left\n_wbox5 = createVehicle [\"RUOrdnanceBox\",[13656.5, 3010.72, 0.002], [], 0, \"CAN_COLLIDE\"]; //Village 1\n_wbox6 = createVehicle [\"RUOrdnanceBox\",[13441.4, 3312.91, 0.201], [], 0, \"CAN_COLLIDE\"]; //Hill Right\n_wbox7 = createVehicle [\"RUOrdnanceBox\",[13629.3, 2913.38, 0.001], [], 0, \"CAN_COLLIDE\"]; //Village 2\n\n//Clear ammo boxes\nclearWeaponCargoGlobal _wbox1;\nclearMagazineCargoGlobal _wbox1;\nclearBackpackCargoGlobal _wbox1;\nclearWeaponCargoGlobal _wbox2;\nclearMagazineCargoGlobal _wbox2;\nclearBackpackCargoGlobal _wbox2;\nclearWeaponCargoGlobal _wbox3;\nclearMagazineCargoGlobal _wbox3;\nclearBackpackCargoGlobal _wbox3;\nclearWeaponCargoGlobal _wbox4;\nclearMagazineCargoGlobal _wbox4;\nclearBackpackCargoGlobal _wbox4;\nclearWeaponCargoGlobal _wbox5;\nclearMagazineCargoGlobal _wbox5;\nclearBackpackCargoGlobal _wbox5;\nclearWeaponCargoGlobal _wbox6;\nclearMagazineCargoGlobal _wbox6;\nclearBackpackCargoGlobal _wbox6;\nclearWeaponCargoGlobal _wbox7;\nclearMagazineCargoGlobal _wbox7;\nclearBackpackCargoGlobal _wbox7;\n\n//Set Loot skanky\n_Baseloot = _Base call BIS_fnc_selectRandom;\n_Baseloot2 = _Base call BIS_fnc_selectRandom;\n_Baseloot3 = _Base call BIS_fnc_selectRandom;\n_ScopedLoot = _Scoped call BIS_fnc_selectRandom;\n_ScopedLoot2 = _Scoped call BIS_fnc_selectRandom;\n_UnderbarrelLoot = _Underbarrel call BIS_fnc_selectRandom;\n_SniperLoot = _Sniper call BIS_fnc_selectRandom;\n_SniperLoot2 = _Sniper call BIS_fnc_selectRandom;\n_LMGLoot = _LMG call BIS_fnc_selectRandom;\n_LMGLoot2 = _LMG call BIS_fnc_selectRandom;\n_Construction = _Trade call BIS_fnc_selectRandom;\n_Construction1 = _Trade call BIS_fnc_selectRandom;\n_Construction2= _Trade call BIS_fnc_selectRandom;\n_Construction3 = _Trade call BIS_fnc_selectRandom;\n_Gold = _Gold call BIS_fnc_selectRandom;\n_Gold1 = _Gold call BIS_fnc_selectRandom;\n_Gold2 = _Gold call BIS_fnc_selectRandom;\n_Gold3 = _Gold call BIS_fnc_selectRandom;\n//Spawn weapons\n_wbox1 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox1 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox1 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox1 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox1 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox1 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox1 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox1 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox1 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox1 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n_wbox2 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox2 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox2 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox2 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox2 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox2 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox2 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox2 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox2 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox2 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n_wbox3 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox3 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox3 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox3 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox3 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox3 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox3 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox3 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox3 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox3 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n_wbox4 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox4 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox4 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox4 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox4 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox4 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox4 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox4 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox4 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox4 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n_wbox5 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox5 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox5 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox5 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox5 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox5 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox5 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox5 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox5 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox5 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n_wbox6 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox6 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox6 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox6 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox6 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox6 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox6 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox6 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox6 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox6 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n_wbox7 addWeaponCargoGlobal [_Baseloot select 0, 5];\n_wbox7 addWeaponCargoGlobal [_Baseloot2 select 0, 5];\n_wbox7 addWeaponCargoGlobal [_Baseloot3 select 0, 5];\n_wbox7 addWeaponCargoGlobal [_ScopedLoot select 0, 5];\n_wbox7 addWeaponCargoGlobal [_ScopedLoot2 select 0, 5];\n_wbox7 addWeaponCargoGlobal [_UnderbarrelLoot select 0, 5];\n_wbox7 addWeaponCargoGlobal [_SniperLoot select 0, 5];\n_wbox7 addWeaponCargoGlobal [_SniperLoot2 select 0, 5];\n_wbox7 addWeaponCargoGlobal [_LMGLoot select 0, 5];\n_wbox7 addWeaponCargoGlobal [_LMGLoot2 select 0, 5];\n\n//Spawn Mags\n_wbox1 addMagazineCargoGlobal [_Baseloot select 1, 2];\n_wbox1 addMagazineCargoGlobal [_Baseloot2 select 1, 2];\n_wbox1 addMagazineCargoGlobal [_Baseloot3 select 1, 2];\n_wbox1 addMagazineCargoGlobal [_ScopedLoot select 1, 2];\n_wbox1 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];\n_wbox1 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];\n_wbox1 addMagazineCargoGlobal [_SniperLoot select 1, 2];\n_wbox1 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];\n_wbox1 addMagazineCargoGlobal [_LMGLoot select 1, 2];\n_wbox1 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];\n_wbox1 addMagazineCargoGlobal [_Construction2 select 0, 10];\n_wbox1 addMagazineCargoGlobal [_Gold select 0, 2];\n_wbox2 addMagazineCargoGlobal [_Baseloot select 1, 2];\n_wbox2 addMagazineCargoGlobal [_Baseloot2 select 1, 2];\n_wbox2 addMagazineCargoGlobal [_Baseloot3 select 1, 2];\n_wbox2 addMagazineCargoGlobal [_ScopedLoot select 1, 2];\n_wbox2 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];\n_wbox2 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];\n_wbox2 addMagazineCargoGlobal [_SniperLoot select 1, 2];\n_wbox2 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];\n_wbox2 addMagazineCargoGlobal [_LMGLoot select 1, 2];\n_wbox2 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];\n_wbox2 addMagazineCargoGlobal [_Construction1 select 0, 10];\n_wbox2 addMagazineCargoGlobal [_Gold select 0, 2];\n_wbox3 addMagazineCargoGlobal [_Baseloot select 1, 2];\n_wbox3 addMagazineCargoGlobal [_Baseloot2 select 1, 2];\n_wbox3 addMagazineCargoGlobal [_Baseloot3 select 1, 2];\n_wbox3 addMagazineCargoGlobal [_ScopedLoot select 1, 2];\n_wbox3 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];\n_wbox3 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];\n_wbox3 addMagazineCargoGlobal [_SniperLoot select 1, 2];\n_wbox3 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];\n_wbox3 addMagazineCargoGlobal [_LMGLoot select 1, 2];\n_wbox3 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];\n_wbox3 addMagazineCargoGlobal [_Construction3 select 0, 10];\n_wbox3 addMagazineCargoGlobal [_Gold select 0, 2];\n_wbox4 addMagazineCargoGlobal [_Baseloot select 1, 2];\n_wbox4 addMagazineCargoGlobal [_Baseloot2 select 1, 2];\n_wbox4 addMagazineCargoGlobal [_Baseloot3 select 1, 2];\n_wbox4 addMagazineCargoGlobal [_ScopedLoot select 1, 2];\n_wbox4 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];\n_wbox4 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];\n_wbox4 addMagazineCargoGlobal [_SniperLoot select 1, 2];\n_wbox4 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];\n_wbox4 addMagazineCargoGlobal [_LMGLoot select 1, 2];\n_wbox4 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];\n_wbox4 addMagazineCargoGlobal [_Construction select 0, 10];\n_wbox4 addMagazineCargoGlobal [_Gold select 0, 2];\n_wbox5 addMagazineCargoGlobal [_Baseloot select 1, 10];\n_wbox5 addMagazineCargoGlobal [_Baseloot2 select 1, 10];\n_wbox5 addMagazineCargoGlobal [_Baseloot3 select 1, 10];\n_wbox5 addMagazineCargoGlobal [_ScopedLoot select 1, 10];\n_wbox5 addMagazineCargoGlobal [_ScopedLoot2 select 1, 10];\n_wbox5 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 10];\n_wbox5 addMagazineCargoGlobal [_SniperLoot select 1, 10];\n_wbox5 addMagazineCargoGlobal [_SniperLoot2 select 1, 10];\n_wbox5 addMagazineCargoGlobal [_LMGLoot select 1, 10];\n_wbox5 addMagazineCargoGlobal [_LMGLoot2 select 1, 10];\n_wbox5 addMagazineCargoGlobal [_Construction select 0, 10];\n_wbox5 addMagazineCargoGlobal [_Gold select 0, 2];\n_wbox6 addMagazineCargoGlobal [_Baseloot select 1, 2];\n_wbox6 addMagazineCargoGlobal [_Baseloot2 select 1, 2];\n_wbox6 addMagazineCargoGlobal [_Baseloot3 select 1, 2];\n_wbox6 addMagazineCargoGlobal [_ScopedLoot select 1, 2];\n_wbox6 addMagazineCargoGlobal [_ScopedLoot2 select 1, 2];\n_wbox6 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 2];\n_wbox6 addMagazineCargoGlobal [_SniperLoot select 1, 2];\n_wbox6 addMagazineCargoGlobal [_SniperLoot2 select 1, 2];\n_wbox6 addMagazineCargoGlobal [_LMGLoot select 1, 2];\n_wbox6 addMagazineCargoGlobal [_LMGLoot2 select 1, 2];\n_wbox6 addMagazineCargoGlobal [_Construction select 0, 10];\n_wbox6 addMagazineCargoGlobal [_Gold select 0, 2];\n_wbox7 addMagazineCargoGlobal [_Baseloot select 1, 10];\n_wbox7 addMagazineCargoGlobal [_Baseloot2 select 1, 10];\n_wbox7 addMagazineCargoGlobal [_Baseloot3 select 1, 10];\n_wbox7 addMagazineCargoGlobal [_ScopedLoot select 1, 10];\n_wbox7 addMagazineCargoGlobal [_ScopedLoot2 select 1, 10];\n_wbox7 addMagazineCargoGlobal [_UnderbarrelLoot select 1, 10];\n_wbox7 addMagazineCargoGlobal [_SniperLoot select 1, 10];\n_wbox7 addMagazineCargoGlobal [_SniperLoot2 select 1, 10];\n_wbox7 addMagazineCargoGlobal [_LMGLoot select 1, 10];\n_wbox7 addMagazineCargoGlobal [_LMGLoot2 select 1, 10];\n_wbox7 addMagazineCargoGlobal [_Construction select 0, 10];\n_wbox7 addMagazineCargoGlobal [_Gold select 0, 2];\n\n//Loot Perm\n_wbox1 setVariable [\"permaLoot\",true];\n_wbox2 setVariable [\"permaLoot\",true];\n_wbox3 setVariable [\"permaLoot\",true];\n_wbox4 setVariable [\"permaLoot\",true];\n_wbox5 setVariable [\"permaLoot\",true];\n_wbox6 setVariable [\"permaLoot\",true];\n_wbox7 setVariable [\"permaLoot\",true];\n\ndiag_log[\"AI Crates Spawning Complete\"];\n\nObviously change co ords and loot to suit yourself. \n\u00a0 \nSave in server.pbo Mines saved in the init folder. \n\u00a0 \nCalled Server side. \u00a0 \u00a0 \n\u00a0 \n//Load Crates \n[] ExecVM \"\\z\\addons\\dayz_server\\init\\crates.sqf\";\n\u00a0\nBottom of server_functions.sqf\n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100966",
+                "url": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-100966",
+                "author": {
+                    "@type": "Person",
+                    "name": "SgtSparraGump",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-17847.jpg",
+                    "url": "https://epochmod.com/forum/profile/17847-sgtsparragump/"
+                },
+                "dateCreated": "2014-07-09T09:13:05+0000",
+                "text": "Very nice! thank you very much! \n",
+                "upvoteCount": 0
+            },
+            {
+                "@type": "Answer",
+                "@id": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-103950",
+                "url": "https://epochmod.com/forum/topic/13994-need-a-way-to-have-static-loot-caches/#comment-103950",
+                "author": {
+                    "@type": "Person",
+                    "name": "stonXer",
+                    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-11706.png",
+                    "url": "https://epochmod.com/forum/profile/11706-stonxer/"
+                },
+                "dateCreated": "2014-07-16T06:43:24+0000",
+                "text": "I found loading the crate sqf that way caused it to spawn each one twice, you couldn\u0027t see there were 2 there, but moving around and checking gear at different spots would give you 2 different loot selections. \nAdded it to be called along with custom map edits, worked a charm, nomore multiple loots :)\u00a0 \n",
+                "upvoteCount": 0
+            }
+        ]
+    },
+    "publisher": {
+        "member": {
+            "@type": "Person",
+            "name": "SgtSparraGump",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-17847.jpg",
+            "url": "https://epochmod.com/forum/profile/17847-sgtsparragump/"
+        }
+    }
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/96-qa-section/",
+                "name": "Q&amp;A Section"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/35-scripting/",
+                "name": "Scripting"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>

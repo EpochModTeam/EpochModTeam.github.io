@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+
+<!-- Added by HTTrack --><meta content="text/html;charset=utf-8" http-equiv="content-type"/><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8"/>
+<title>[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+) - A2: Epoch Mods (1.0.5.1) - Epoch Mod Community</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52081052-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@EpochMod" name="twitter:site">
+<meta content="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/" property="og:url"/>
+<meta content="I've only tested this on the latest Epoch build (1.0.5.1) with the latest Arma patch (1.63.112555) Note: There are two versions of this script below, the first will check for all cities , towns and villages within a certain radius (500 meters) and prevent the player from building. The second scri..." name="description"/>
+<meta content="I've only tested this on the latest Epoch build (1.0.5.1) with the latest Arma patch (1.63.112555) Note: There are two versions of this script below, the first will check for all cities , towns and villages within a certain radius (500 meters) and prevent the player from building. The second scri..." property="og:description"/>
+<meta content="2014-07-02T19:57:05Z" property="og:updated_time"/>
+<meta content="Epoch Mod Community" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<link href="index.html" rel="canonical"/>
+<link href="https://epochmod.com/forum/manifest.webmanifest/" rel="manifest"/>
+<meta content="https://epochmod.com/forum/browserconfig.xml/" name="msapplication-config"/>
+<meta content="/" name="msapplication-starturl"/>
+<meta content="Epoch Mod Community" name="application-name"/>
+<meta content="Epoch Mod Community" name="apple-mobile-web-app-title"/>
+<meta content="#000000" name="theme-color"/>
+<link as="font" crossorigin="anonymous" href="http://epochmod.com/forum/applications/core/interface/font/fontawesome-webfont.woff2?v=4.7.0" rel="preload"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/341e4a57816af3ba440d891ca87450ff_framework.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/05e81b71abe4f22d6eb8d1a929494829_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/90eb5adf50a8c640f633d47fd7eb1778_core.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/5a0da001ccc2200dc5625c3f3934497d_core_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/62e269ced0fdab7e30e026f1d30ae516_forums.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/76e62c573090645fb99a15a363d8620e_forums_responsive.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/ebdea0c6a7dab6d37900b9190d3ac77b_topics.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/css_built_19/258adbb6e4f3e83cd3b355f84e3fa002_custom.css" media="all" rel="stylesheet"/>
+<link href="https://epochmod.com/forum/uploads/monthly_2018_04/favicon.ico.c690be06d87a954c1dce2d924fe2a0f2.ico" rel="shortcut icon" type="image/x-icon"/>
+</meta></meta></head>
+<body class="ipsApp ipsApp_front ipsJS_none ipsClearfix" data-controller="core.front.core.app" data-message="" data-pageapp="forums" data-pagecontroller="topic" data-pageid="13513" data-pagelocation="front" data-pagemodule="forums">
+<a accesskey="m" class="ipsHide" href="#ipsLayout_mainArea" title="Go to main content on this page">Jump to content</a>
+<div class="ipsClearfix" id="ipsLayout_header">
+<header>
+<div class="ipsLayout_container">
+<a accesskey="1" href="../../index.html" id="elLogo"><img alt="Epoch Mod Community" src="https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"/></a>
+<ul class="ipsList_inline cSignedOut ipsResponsive_showDesktop" id="elUserNav">
+<li id="elSignInLink">
+<a data-ipsmenu="" data-ipsmenu-closeonclick="false" href="https://epochmod.com/forum/login/" id="elUserSignIn">
+                    Existing user? Sign In  <i class="fa fa-caret-down"></i>
+</a>
+<div class="ipsMenu ipsMenu_auto ipsHide" id="elUserSignIn_menu">
+<form accept-charset="utf-8" action="https://epochmod.com/forum/login/" method="post">
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<input name="ref" type="hidden" value="aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzUxMy13aXAtcHJldmVudC1idWlsZGluZy1pbi1jaXRpZXMtdG93bnMtYW5kLXZpbGxhZ2VzLXYxMDUxLw=="/>
+<div data-role="loginForm">
+<div class="ipsPad ipsForm ipsForm_vertical">
+<h4 class="ipsType_sectionHead">Sign In</h4>
+<br/><br/>
+<ul class="ipsList_reset">
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="email" name="auth" placeholder="Display Name or Email Address" type="text"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_noLabel ipsFieldRow_fullWidth">
+<input autocomplete="current-password" name="password" placeholder="Password" type="password"/>
+</li>
+<li class="ipsFieldRow ipsFieldRow_checkbox ipsClearfix">
+<span class="ipsCustomInput">
+<input aria-checked="true" checked="" id="remember_me_checkbox" name="remember_me" type="checkbox" value="1"/>
+<span></span>
+</span>
+<div class="ipsFieldRow_content">
+<label class="ipsFieldRow_label" for="remember_me_checkbox">Remember me</label>
+<span class="ipsFieldRow_desc">Not recommended on shared computers</span>
+</div>
+</li>
+<li class="ipsFieldRow ipsFieldRow_fullWidth">
+<button class="ipsButton ipsButton_primary ipsButton_small" id="elSignIn_submit" name="_processLogin" type="submit" value="usernamepassword">Sign In</button>
+<p class="ipsType_right ipsType_small">
+<a data-ipsdialog="" data-ipsdialog-title="Forgot your password?" href="https://epochmod.com/forum/lostpassword/">
+					
+					Forgot your password?</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+</li>
+</ul>
+<ul class="ipsMobileHamburger ipsList_reset ipsResponsive_hideDesktop">
+<li data-ipsdrawer="" data-ipsdrawer-drawerelem="#elMobileDrawer">
+<a href="#">
+<i class="fa fa-navicon"></i>
+</a>
+</li>
+</ul>
+</div>
+</header>
+<nav class="ipsResponsive_showDesktop" data-controller="core.front.core.navBar">
+<div class="ipsNavBar_primary ipsLayout_container">
+<ul class="ipsClearfix" data-role="primaryNavBar">
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_18">
+<a data-navitem-id="18" href="http://epochmod.com/">
+					Home<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="cms" data-navext="Pages" data-role="navBarItem" id="elNavSecondary_12">
+<a data-navitem-id="12" href="https://epochmod.com/forum/projects/">
+					Downloads<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsNavBar_active" data-active="" data-navapp="forums" data-navext="Forums" data-role="navBarItem" id="elNavSecondary_8">
+<a data-navdefault="" data-navitem-id="8" href="../../index.html">
+					Forums<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_13">
+<a data-navitem-id="13" href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">
+					Wiki<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_1">
+<a data-navitem-id="1" href="../../index.html">
+					Browse<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="StaffDirectory" data-role="navBarItem" id="elNavSecondary_10">
+<a data-navitem-id="10" href="https://epochmod.com/forum/staff/">
+					Staff<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="OnlineUsers" data-role="navBarItem" id="elNavSecondary_11">
+<a data-navitem-id="11" href="https://epochmod.com/forum/online/">
+					Online Users<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_1">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_1" href="#" id="elNavigationMore_1_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_1_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="CustomItem" data-role="navBarItem" id="elNavSecondary_2">
+<a data-navitem-id="2" href="https://epochmod.com/forum/discover/">
+					Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li data-navapp="core" data-navext="AllActivity" data-role="navBarItem" id="elNavSecondary_3">
+<a data-navitem-id="3" href="https://epochmod.com/forum/discover/">
+					All Activity<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreams" data-role="navBarItem" id="elNavSecondary_4">
+<a data-navitem-id="4" href="#">
+					My Activity Streams<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_5">
+<a data-navitem-id="5" href="https://epochmod.com/forum/discover/unread/">
+					Unread Content<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="YourActivityStreamsItem" data-role="navBarItem" id="elNavSecondary_6">
+<a data-navitem-id="6" href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li data-navapp="core" data-navext="Search" data-role="navBarItem" id="elNavSecondary_7">
+<a data-navitem-id="7" href="https://epochmod.com/forum/search/">
+					Search<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_2">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_2" href="#" id="elNavigationMore_2_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_2_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+<li data-navapp="core" data-navext="Leaderboard" data-role="navBarItem" id="elNavSecondary_19">
+<a data-navitem-id="19" href="https://epochmod.com/forum/leaderboard/">
+					Leaderboard<span class="ipsNavBar_active__identifier"></span>
+</a>
+</li>
+<li class="ipsHide" data-role="navMore" id="elNavigationMore">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore" href="#" id="elNavigationMore_dropdown">More</a>
+<ul class="ipsNavBar_secondary ipsHide" data-role="secondaryNavBar">
+<li class="ipsHide" data-role="navMore" id="elNavigationMore_more">
+<a data-ipsmenu="" data-ipsmenu-appendto="#elNavigationMore_more" href="#" id="elNavigationMore_more_dropdown">More <i class="fa fa-caret-down"></i></a>
+<ul class="ipsHide ipsMenu ipsMenu_auto" data-role="moreDropdown" id="elNavigationMore_more_dropdown_menu"></ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="elSearchWrapper">
+<div data-controller="core.front.core.quickSearch" id="elSearch">
+<form accept-charset="utf-8" action="http://epochmod.com/forum/search/?do=quicksearch" method="post">
+<input aria-label="Search" autocomplete="off" id="elSearchField" name="q" placeholder="Search..." type="search"/>
+<details class="cSearchFilter">
+<summary class="cSearchFilter__text"></summary>
+<ul class="cSearchFilter__menu">
+<li><label><input name="type" type="radio" value="all"/><span class="cSearchFilter__menuText">Everywhere</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","nodes":34}'/><span class="cSearchFilter__menuText">This Forum</span></label></li>
+<li><label><input checked="" name="type" type="radio" value='contextual_{"type":"forums_topic","item":13513}'/><span class="cSearchFilter__menuText">This Topic</span></label></li>
+<li><label><input name="type" type="radio" value="core_statuses_status"/><span class="cSearchFilter__menuText">Status Updates</span></label></li>
+<li><label><input name="type" type="radio" value="forums_topic"/><span class="cSearchFilter__menuText">Topics</span></label></li>
+<li><label><input name="type" type="radio" value="cms_pages_pageitem"/><span class="cSearchFilter__menuText">Pages</span></label></li>
+<li><label><input name="type" type="radio" value="cms_records1"/><span class="cSearchFilter__menuText">Article</span></label></li>
+<li><label><input name="type" type="radio" value="core_members"/><span class="cSearchFilter__menuText">Members</span></label></li>
+</ul>
+</details>
+<button aria-label="Search" class="cSearchSubmit" type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</div>
+</div>
+</nav>
+<ul class="ipsResponsive_hideDesktop" data-controller="core.front.core.mobileNav" id="elMobileNav">
+<li id="elMobileBreadcrumb">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1)</span>
+</a>
+</li>
+<li>
+<a data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i></a>
+</li>
+<li class="ipsJS_show">
+<a href="https://epochmod.com/forum/search/"><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+<main class="ipsLayout_container" id="ipsLayout_body">
+<div id="ipsLayout_contentArea">
+<div id="ipsLayout_contentWrapper">
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)
+				
+			</li>
+</ul>
+</nav>
+<div id="ipsLayout_mainArea">
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+<div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+<div class="ipsFlex-flex:11">
+<h1 class="ipsType_pageTitle ipsContained_container">
+<span class="ipsType_break ipsContained">
+<span>[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)</span>
+</span>
+</h1>
+</div>
+</div>
+<hr class="ipsHr"/>
+<div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+<div class="ipsFlex-flex:11">
+<div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+<a class="ipsUserPhoto ipsUserPhoto_mini" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<div>
+<p class="ipsType_reset ipsType_blendLinks">
+<span class="ipsType_normal">
+<strong>By 
+
+
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong><br/><span class="ipsType_light"><time data-short="11 yr" datetime="2014-06-30T15:49:08Z" title="06/30/14 03:49  PM">June 30, 2014</time> in <a href="../../forum/34-a2-epoch-mods-1051/index.html">A2: Epoch Mods (1.0.5.1)</a></span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_link ipsButton_link--light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13513">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsClearfix">
+<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ipsResponsive_hidePhone">
+</ul>
+</div>
+<div class="cTopic ipsClear ipsSpacer_top" data-autopoll="" data-baseurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/" data-controller="core.front.core.commentFeed,forums.front.topic.view, core.front.core.ignoredComments" data-feedid="topic-13513" data-lastpage="" id="comments">
+<div class="ipsRecommendedComments ipsHide" data-controller="core.front.core.recommendedComments" data-url="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?recommended=comments">
+<div data-role="recommendedComments">
+<h2 class="ipsType_sectionHead ipsType_large ipsType_bold ipsMargin_bottom">Recommended Posts</h2>
+</div>
+</div>
+<div data-controller="core.front.core.moderation" data-role="commentFeed" id="elPostFeed">
+<form action="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?csrfKey=bbd96aef55be1a90d685e56a4524d73a&amp;do=multimodComment" data-ipspageaction="" data-role="moderationTools" method="post">
+<a id="comment-96551"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_96551">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96551" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-30T15:49:08Z" title="06/30/14 03:49  PM">June 30, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="96551" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1404143348,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":96551}' id="comment-96551_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-96551_wrap" href="#elControls_96551_menu" id="elControls_96551" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_96551_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=96551" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_96551_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="index.html" id="elSharePost_96551" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96551" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-06-30T15:49:08Z" title="06/30/14 03:49  PM">June 30, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>I've only tested this on the latest Epoch build (1.0.5.1) with the latest Arma patch (1.63.112555)<br/>
+ <br/>
+Note: There are two versions of this script below, the first will check for all cities , towns and villages within a certain radius (500 meters) and prevent the player from building.  The second script lets you add the cities, towns and villages of your choice (the second script hasn't been tested yet, so it might not work, let me know if you try it and have success).  The code that I get you to copy and paste is simply my additions added to the existing 1.0.5.1 Epoch player_build.sqf script (so only follow this guide if you're using 1.0.5.1)</p>
+<p> </p>
+<p>Edit: Asremix has also provided a solution to this script request here: <iframe data-embed-src="https://epochmod.com/forum/index.php?/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/&amp;do=embed&amp;embedComment=97452&amp;embedDo=findComment" data-embedcontent="" frameborder="0" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"></iframe><br/>
+ <br/><span style="font-size:18px;"><strong>SCRIPT 1: Works 100%</strong></span><br/>
+ <br/><strong>What this does: </strong><br/>
+It stops players from building in or near cities, towns and villages.<br/>
+ <br/><strong>You will need: </strong><br/>
+1. Your mission pbo and knowledge of editing and packaging it.<br/>
+2. A /custom folder (or any folder you put custom scripts)<br/>
+3. A copy of your Compiles.sqf already in  your custom folder.<br/>
+NB: If you're using snap-build, you'll need to make the changes to your existing player_build.sqf which should already be in your custom scripts folder (this tutorial is assuming you don't though).<br/>
+ <br/><strong>Instructions:</strong><br/>
+1. Create a file in  your custom scripts folder called <span style="color:#0000cd;"><strong>player_build.sqf</strong></span><br/>
+2. Cut and Paste everything from <a href="http://pastebin.com/rwgepSHi" rel="external nofollow">here</a> into your custom player_build.sqf<br/>
+3. Open  your custom Compiles.sqf and look for the line starting:<br/><span style="color:#0000cd;"><strong>player_build = compile preprocessFileLineNumbers ....</strong></span><br/>
+4. Change that entire line to:<br/><span style="color:#0000cd;"><strong>player_build = compile preprocessFileLineNumbers "custom\player_build.sqf";</strong></span><br/>
+5. Repackage your mission file, upload and you're done.<br/>
+ <br/>
+For reference, the code blocks I added are: </p>
+<pre class="ipsCode prettyprint lang-auto">
+// NO building in cities or towns (if you don't mind people building in Villages, remove "NameVillage" etc)
+_nearestCity = nearestLocations [getPos player, ["NameCityCapital","NameCity","NameVillage"],500];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};
+</pre>
+<p>I also added the private variable name to the private variable array. <br/>
+ <br/>
+ <br/><br/>
+ <br/><br/><span style="font-size:18px;"><strong>Script 2: Might not work, as I've not had time to test it yet</strong></span><br/>
+ <br/><br/><strong>What this does: </strong><br/>
+It stops players from building in or near a cities, towns and villages that you define in an array at the top of the player_build.sqf file.  A list of towns and cities can be found here: dayz.gamepedia.com/Towns_and_Cities<br/>
+ <br/><strong>You will need: </strong><br/>
+1. Your mission pbo and knowledge of editing and packaging it.<br/>
+2. A /custom folder (or any folder you put custom scripts)<br/>
+3. A copy of your Compiles.sqf already in  your custom folder.<br/>
+NB: If you're using snap-build, you'll need to make the changes to your existing player_build.sqf which should already be in your custom scripts folder (this tutorial is assuming you don't though).<br/>
+ <br/><strong>Instructions:</strong><br/>
+1. Create a file in  your custom scripts folder called <span style="color:#0000cd;"><strong>player_build.sqf</strong></span><br/>
+2. Cut and Paste everything from <a href="http://pastebin.com/erzLYtAD" rel="external nofollow">here</a> into your custom player_build.sqf<br/>
+3. Open  your custom Compiles.sqf and look for the line starting:<br/><span style="color:#0000cd;"><strong>player_build = compile preprocessFileLineNumbers ....</strong></span><br/>
+4. Change that entire line to:<br/><span style="color:#0000cd;"><strong>player_build = compile preprocessFileLineNumbers "custom\player_build.sqf";</strong></span><br/>
+5. Repackage your mission file, upload and you're done.<br/>
+ <br/>
+For reference the code blocks I added are:  </p>
+<pre class="ipsCode prettyprint lang-auto">
+// NO building in cities or towns (if you don't mind people building in Villages, remove "NameVillage" etc)
+_ChkCities = ["Berezino","Chernogorsk","Staroye"]; // List here: dayz.gamepedia.com/Towns_and_Cities
+_nearestCity = nearestLocations [getPos player, ["NameCityCapital","NameCity","NameVillage"],500];
+
+
+AND 
+
+
+// No building in Cities or Towns
+if (_nearestCity in _ChkCities) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};
+</pre>
+<p>I also added the two private variable name to the private variable array</p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/13318-darihon/?do=hovercard" data-ipshover-width="370" href="../../profile/13318-darihon/index.html" rel="nofollow" title="Go to Darihon's profile">Darihon</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=showReactionsComment&amp;comment=96551&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=showReactionsComment&amp;comment=96551&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								1
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_96551_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96551" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96551" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96551&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=96551&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="I've only tested this on the latest Epoch build (1.0.5.1) with the latest Arma patch (1.63.112555) 
+  
+Note: There are two versions of this script below, the first will check for all cities , towns and villages within a certain radius (500 meters) and prevent the player from building.  The second script lets you add the cities, towns and villages of your choice (the second script hasn't been tested yet, so it might not work, let me know if you try it and have success).  The code that I get you to copy and paste is simply my additions added to the existing 1.0.5.1 Epoch player_build.sqf script (so only follow this guide if you're using 1.0.5.1) 
+  
+Edit: Asremix has also provided a solution to this script request here:  
+  SCRIPT 1: Works 100% 
+  What this does:  
+It stops players from building in or near cities, towns and villages. 
+  You will need:  
+1. Your mission pbo and knowledge of editing and packaging it. 
+2. A /custom folder (or any folder you put custom scripts) 
+3. A copy of your Compiles.sqf already in  your custom folder. 
+NB: If you're using snap-build, you'll need to make the changes to your existing player_build.sqf which should already be in your custom scripts folder (this tutorial is assuming you don't though). 
+  Instructions: 
+1. Create a file in  your custom scripts folder called player_build.sqf 
+2. Cut and Paste everything from here into your custom player_build.sqf 
+3. Open  your custom Compiles.sqf and look for the line starting: player_build = compile preprocessFileLineNumbers .... 
+4. Change that entire line to: player_build = compile preprocessFileLineNumbers &quot;custom\player_build.sqf&quot;; 
+5. Repackage your mission file, upload and you're done. 
+  
+For reference, the code blocks I added are:  
+
+// NO building in cities or towns (if you don't mind people building in Villages, remove &quot;NameVillage&quot; etc)
+_nearestCity = nearestLocations [getPos player, [&quot;NameCityCapital&quot;,&quot;NameCity&quot;,&quot;NameVillage&quot;],500];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);};
+
+I also added the private variable name to the private variable array.  
+  
+   
+   Script 2: Might not work, as I've not had time to test it yet 
+   What this does:  
+It stops players from building in or near a cities, towns and villages that you define in an array at the top of the player_build.sqf file.  A list of towns and cities can be found here: dayz.gamepedia.com/Towns_and_Cities 
+  You will need:  
+1. Your mission pbo and knowledge of editing and packaging it. 
+2. A /custom folder (or any folder you put custom scripts) 
+3. A copy of your Compiles.sqf already in  your custom folder. 
+NB: If you're using snap-build, you'll need to make the changes to your existing player_build.sqf which should already be in your custom scripts folder (this tutorial is assuming you don't though). 
+  Instructions: 
+1. Create a file in  your custom scripts folder called player_build.sqf 
+2. Cut and Paste everything from here into your custom player_build.sqf 
+3. Open  your custom Compiles.sqf and look for the line starting: player_build = compile preprocessFileLineNumbers .... 
+4. Change that entire line to: player_build = compile preprocessFileLineNumbers &quot;custom\player_build.sqf&quot;; 
+5. Repackage your mission file, upload and you're done. 
+  
+For reference the code blocks I added are:   
+
+// NO building in cities or towns (if you don't mind people building in Villages, remove &quot;NameVillage&quot; etc)
+_ChkCities = [&quot;Berezino&quot;,&quot;Chernogorsk&quot;,&quot;Staroye&quot;]; // List here: dayz.gamepedia.com/Towns_and_Cities
+_nearestCity = nearestLocations [getPos player, [&quot;NameCityCapital&quot;,&quot;NameCity&quot;,&quot;NameVillage&quot;],500];
+
+
+AND 
+
+
+// No building in Cities or Towns
+if (_nearestCity in _ChkCities) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);};
+
+I also added the two private variable name to the private variable array 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96551">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-96791"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_96791">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile">
+<img alt="HellWalker" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2842.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2842-hellwalker/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile"><span style="color:#">HellWalker</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96791" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T00:51:51Z" title="07/01/14 12:51  AM">July 1, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile">HellWalker</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile">
+<img alt="HellWalker" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2842.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2842-hellwalker/content/" rel="nofollow" title="230 posts">
+<i class="fa fa-comment"></i> 230
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="96791" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2842,"username":"HellWalker","timestamp":1404175911,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":96791}' id="comment-96791_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-96791_wrap" href="#elControls_96791_menu" id="elControls_96791" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_96791_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=96791" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_96791_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96791" id="elSharePost_96791" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96791" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T00:51:51Z" title="07/01/14 12:51  AM">July 1, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="MatthewK" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="96551" data-ipsquote-contentid="13513" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1404143348" data-ipsquote-username="MatthewK"><div>
+<div>
+<p>I've only tested this on the latest Epoch build (1.0.5.1) with the latest Arma patch (1.63.112555)</p><p>
+ </p><p>
+Note: There are two versions of this script below, the first will check for all cities , towns and villages within a certain radius (500 meters) and prevent the player from building.  The second script lets you add the cities, towns and villages of your choice (the second script hasn't been tested yet, so it might not work, let me know if you try it and have success).  The code that I get you to copy and paste is simply my additions added to the existing 1.0.5.1 Epoch player_build.sqf script (so only follow this guide if you're using 1.0.5.1)</p><p>
+ </p><p><span style="font-size:18px;"><strong>SCRIPT 1: Works 100%</strong></span></p>
+</div>
+</div></blockquote>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Would this work if i setup my code like this?</p>
+<pre class="ipsCode prettyprint">
+// NO building in cities or towns (if you don't mind people building in Villages, remove "NameVillage" etc)
+_nearestCity = nearestLocations [getPos player, ["NameCityCapital"],700];
+
+_nearestCity = nearestLocations [getPos player, ["NameCity"],500];
+
+_nearestCity = nearestLocations [getPos player, ["NameVillage"],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_96791_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96791"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96791" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96791" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96791&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=96791&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Would this work if i setup my code like this? 
+
+// NO building in cities or towns (if you don't mind people building in Villages, remove &quot;NameVillage&quot; etc)
+_nearestCity = nearestLocations [getPos player, [&quot;NameCityCapital&quot;],700];
+
+_nearestCity = nearestLocations [getPos player, [&quot;NameCity&quot;],500];
+
+_nearestCity = nearestLocations [getPos player, [&quot;NameVillage&quot;],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);};
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96791">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-96839"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_96839">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17410-fictitious/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/17410-fictitious/" rel="nofollow" title="Go to Fictitious's profile">
+<img alt="Fictitious" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462b7%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EF%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<a href="https://epochmod.com/forum/profile/17410-fictitious/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17410-fictitious/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/17410-fictitious/" rel="nofollow" title="Go to Fictitious's profile"><span style="color:#">Fictitious</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96839" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T03:43:25Z" title="07/01/14 03:43  AM">July 1, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17410-fictitious/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="https://epochmod.com/forum/profile/17410-fictitious/" rel="nofollow" title="Go to Fictitious's profile">Fictitious</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/17410-fictitious/?do=hovercard" data-ipshover-width="370" href="https://epochmod.com/forum/profile/17410-fictitious/" rel="nofollow" title="Go to Fictitious's profile">
+<img alt="Fictitious" loading="lazy" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462b7%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EF%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/17410-fictitious/content/" rel="nofollow" title="1 post">
+<i class="fa fa-comment"></i> 1
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="96839" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":17410,"username":"Fictitious","timestamp":1404186205,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":96839}' id="comment-96839_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-96839_wrap" href="#elControls_96839_menu" id="elControls_96839" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_96839_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=96839" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_96839_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96839" id="elSharePost_96839" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96839" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T03:43:25Z" title="07/01/14 03:43  AM">July 1, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="HellWalker" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="96791" data-ipsquote-contentid="13513" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1404175911" data-ipsquote-username="HellWalker"><div>
+<div>
+<p> </p>
+<p>Would this work if i setup my code like this?</p>
+<pre class="ipsCode prettyprint">
+// NO building in cities or towns (if you don't mind people building in Villages, remove "NameVillage" etc)
+_nearestCity = nearestLocations [getPos player, ["NameCityCapital"],700];
+
+_nearestCity = nearestLocations [getPos player, ["NameCity"],500];
+
+_nearestCity = nearestLocations [getPos player, ["NameVillage"],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};</pre>
+</div>
+</div></blockquote>
+<p>Haven't actually tried it but I believe you can do this haven't tested it though</p>
+<pre class="ipsCode prettyprint">
+// NO building in cities or towns (if you don't mind people building in Villages, remove "NameVillage" etc)
+_nearestCity = nearestLocations [getPos player, ["NameCityCapital"],700];
+
+_nearestCity = _nearestCity + nearestLocations [getPos player, ["NameCity"],500];
+
+_nearestCity = _nearestCity + nearestLocations [getPos player, ["NameVillage"],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};
+</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_96839_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96839"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96839" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96839" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96839&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=96839&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Haven't actually tried it but I believe you can do this haven't tested it though 
+
+// NO building in cities or towns (if you don't mind people building in Villages, remove &quot;NameVillage&quot; etc)
+_nearestCity = nearestLocations [getPos player, [&quot;NameCityCapital&quot;],700];
+
+_nearestCity = _nearestCity + nearestLocations [getPos player, [&quot;NameCity&quot;],500];
+
+_nearestCity = _nearestCity + nearestLocations [getPos player, [&quot;NameVillage&quot;],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);};
+
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96839">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-96877"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_96877">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">
+<img alt="asremix" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2582-asremix/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile"><span style="color:#">asremix</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96877" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T06:00:10Z" title="07/01/14 06:00  AM">July 1, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">asremix</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">
+<img alt="asremix" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2582-asremix/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="96877" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2582,"username":"asremix","timestamp":1404194410,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":96877}' id="comment-96877_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-96877_wrap" href="#elControls_96877_menu" id="elControls_96877" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_96877_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=96877" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_96877_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96877" id="elSharePost_96877" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96877" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-01T06:00:10Z" title="07/01/14 06:00  AM">July 1, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<pre class="ipsCode prettyprint">
+</pre>
+<p> :P</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_96877_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96877"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96877" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96877" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D96877&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=96877&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext=":P 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=96877">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97354"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97354">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97354" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T02:25:16Z" title="07/02/14 02:25  AM">July 2, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97354" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1404267916,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":97354}' id="comment-97354_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97354_wrap" href="#elControls_97354_menu" id="elControls_97354" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97354_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=97354" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97354_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97354" id="elSharePost_97354" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97354" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T02:25:16Z" title="07/02/14 02:25  AM">July 2, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="asremix" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="96877" data-ipsquote-contentid="13513" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1404194410" data-ipsquote-username="asremix"><div>
+<div>
+<p> </p>
+<p>This code from origins mod. </p>
+<pre class="ipsCode prettyprint">
+_</pre>
+</div>
+</div></blockquote>
+<p> </p>
+<p>Hijack my thread will you :p</p>
+<p> </p>
+<p>Seriously though, can you explain to people how they'd add it to their scripts.  </p>
+<p>I'm a little fussy when it comes to this kind of thing, I like to make it clear and concise :D</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97354_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97354"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97354" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97354" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97354&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=97354&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Hijack my thread will you :p 
+  
+Seriously though, can you explain to people how they'd add it to their scripts.   
+I'm a little fussy when it comes to this kind of thing, I like to make it clear and concise :D 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97354">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97358"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97358">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97358" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T02:30:48Z" title="07/02/14 02:30  AM">July 2, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97358" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1404268248,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":97358}' id="comment-97358_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97358_wrap" href="#elControls_97358_menu" id="elControls_97358" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97358_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=97358" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97358_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97358" id="elSharePost_97358" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97358" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T02:30:48Z" title="07/02/14 02:30  AM">July 2, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>@HellWalker. I'm not feeling great right now, so i'm going to give you a quick and dirty way of doing it.<br/>
+I'll try and work on a cleaner version later... But basically, you can do this:</p>
+<pre class="ipsCode prettyprint lang-auto">
+_nearestCapital = nearestLocations [getPos player, ["NameCityCapital"],700];
+_nearestCity = nearestLocations [getPos player, ["NameCity"],500];
+_nearestVillage = nearestLocations [getPos player, ["NameVillage"],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCapital &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");};
+if (count _nearestVillage &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat ("You cannot build here!");}; 
+</pre>
+<p>Don't forget to add the private variables to the private variable array at the top of the script.. They are:<br/>
+_nearestVillage<br/>
+ _nearestCity<br/>
+_nearestCapital</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97358_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97358"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97358" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97358" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97358&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=97358&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="@HellWalker. I'm not feeling great right now, so i'm going to give you a quick and dirty way of doing it. 
+I'll try and work on a cleaner version later... But basically, you can do this: 
+
+_nearestCapital = nearestLocations [getPos player, [&quot;NameCityCapital&quot;],700];
+_nearestCity = nearestLocations [getPos player, [&quot;NameCity&quot;],500];
+_nearestVillage = nearestLocations [getPos player, [&quot;NameVillage&quot;],300];
+
+AND 
+
+// No building in Cities or Towns
+if (count _nearestCapital &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);};
+if (count _nearestCity &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);};
+if (count _nearestVillage &gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (&quot;You cannot build here!&quot;);}; 
+
+Don't forget to add the private variables to the private variable array at the top of the script.. They are: 
+_nearestVillage 
+ _nearestCity 
+_nearestCapital 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97358">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97452"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97452">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">
+<img alt="asremix" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2582-asremix/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile"><span style="color:#">asremix</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97452" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T09:03:51Z" title="07/02/14 09:03  AM">July 2, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">asremix</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">
+<img alt="asremix" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2582-asremix/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97452" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2582,"username":"asremix","timestamp":1404291831,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":97452}' id="comment-97452_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97452_wrap" href="#elControls_97452_menu" id="elControls_97452" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97452_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=97452" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97452_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97452" id="elSharePost_97452" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97452" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T09:03:51Z" title="07/02/14 09:03  AM">July 2, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>My custom script check from near objects 150 meters. And can add allow objects can build near.</p>
+<p> </p>
+<p> </p>
+<p><strong>Instructions:</strong><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">1. Create a file in  your custom scripts folder called </span><span style="font-family:helvetica, arial, sans-serif;color:rgb(0,0,205);"><strong>player_build.sqf</strong></span><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">2. Cut and Paste everything from </span><a href="http://pastebin.com/ESPSRMLJ" rel="external nofollow">here</a><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"> into your custom player_build.sqf</span><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">3. Open  your custom Compiles.sqf and look for the line starting:</span><br/><span style="font-family:helvetica, arial, sans-serif;color:rgb(0,0,205);"><strong>player_build = compile preprocessFileLineNumbers ....</strong></span><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">4. Change that entire line to:</span><br/><span style="font-family:helvetica, arial, sans-serif;color:rgb(0,0,205);"><strong>player_build = compile preprocessFileLineNumbers "custom\player_build.sqf";</strong></span><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">5. Repackage your mission file, upload and you're done.</span><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;"> </span><br/><span style="color:rgb(40,40,40);font-family:helvetica, arial, sans-serif;">The code blocks.</span></p>
+<pre class="ipsCode prettyprint">
+//Find this
+
+private ["...","_playerPos","_playerID","_player","_builOk","_stopGo"];
+
+//...
+//...
+//...
+
+//Next Find this 
+call gear_ui_init;
+closeDialog 1;
+
+
+// Add this below
+
+////////////START Check Near Objects////////////////////
+_playerPos = getPosATL player;
+_playerID =	getPlayerUID player;
+_stopGo = false;
+
+///////////Allow to build near this Objects.
+_builOk = ["Land_Misc_deerstand"]; //Make like this  "Land_Misc_deerstand","Land_Misc_deerstand"
+////////////////////////////////////
+{
+
+if (!(typeOf _x in _builOk)) then {
+if ((["Land_",(typeOf _x),false] call fnc_inString)) exitWith { DZE_ActionInProgress = false; _stopGo = true;};
+};
+} forEach nearestObjects [_playerPos, ["House"], 150];  ///150 change this
+
+if (_stopGo) 			exitWith { titletext ["You need to be at least 150 meters away from city.", "PLAIN DOWN"]; _stopGo = true; };
+////////////END////////////////////
+
+</pre>
+<p><img alt="ysvYQWa.jpg" data-src="http://i.imgur.com/ysvYQWa.jpg" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><img alt="6U5RMOw.jpg" data-src="http://i.imgur.com/6U5RMOw.jpg" src="http://epochmod.com/forum/applications/core/interface/js/spacer.png"/></p>
+</div>
+<div class="ipsItemControls">
+<div class="ipsItemControls_right ipsClearfix" data-controller="core.front.core.reaction">
+<div class="ipsReact ipsPos_right">
+<div class="ipsReact_blurb" data-role="reactionBlurb">
+<ul class="ipsReact_reactions">
+<li class="ipsReact_overview ipsType_blendLinks">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/1880-insertcoins/?do=hovercard" data-ipshover-width="370" href="../../profile/1880-insertcoins/index.html" rel="nofollow" title="Go to insertcoins's profile">insertcoins</a> and 
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a>
+</li>
+<li class="ipsReact_reactCount">
+<a data-ipsdialog="" data-ipsdialog-size="medium" data-ipsdialog-title="See who reacted to this" data-ipstooltip="" data-ipstooltip-ajax="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=showReactionsComment&amp;comment=97452&amp;reaction=1&amp;tooltip=1" data-ipstooltip-label="&lt;strong&gt;Like&lt;/strong&gt;&lt;br&gt;Loading..." data-ipstooltip-safe="" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=showReactionsComment&amp;comment=97452&amp;reaction=1" title='See who reacted "Like"'>
+<span>
+<img alt="Like" loading="lazy" src="https://epochmod.com/forum/uploads/reactions/react_like.png"/>
+</span>
+<span>
+								2
+							</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<ul class="ipsComment_controls ipsClearfix ipsItemControls_left" data-role="commentControls">
+<li class="ipsHide" data-role="commentLoading">
+<span class="ipsLoading ipsLoading_tiny ipsLoading_noAnim"></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97452_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97452"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97452" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97452" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97452&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=97452&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="My custom script check from near objects 150 meters. And can add allow objects can build near. 
+  
+  
+Instructions: 1. Create a file in  your custom scripts folder called player_build.sqf 2. Cut and Paste everything from here into your custom player_build.sqf 3. Open  your custom Compiles.sqf and look for the line starting: player_build = compile preprocessFileLineNumbers .... 4. Change that entire line to: player_build = compile preprocessFileLineNumbers &quot;custom\player_build.sqf&quot;; 5. Repackage your mission file, upload and you're done.   The code blocks. 
+
+//Find this
+
+private [&quot;...&quot;,&quot;_playerPos&quot;,&quot;_playerID&quot;,&quot;_player&quot;,&quot;_builOk&quot;,&quot;_stopGo&quot;];
+
+//...
+//...
+//...
+
+//Next Find this 
+call gear_ui_init;
+closeDialog 1;
+
+
+// Add this below
+
+////////////START Check Near Objects////////////////////
+_playerPos = getPosATL player;
+_playerID =	getPlayerUID player;
+_stopGo = false;
+
+///////////Allow to build near this Objects.
+_builOk = [&quot;Land_Misc_deerstand&quot;]; //Make like this  &quot;Land_Misc_deerstand&quot;,&quot;Land_Misc_deerstand&quot;
+////////////////////////////////////
+{
+
+if (!(typeOf _x in _builOk)) then {
+if (([&quot;Land_&quot;,(typeOf _x),false] call fnc_inString)) exitWith { DZE_ActionInProgress = false; _stopGo = true;};
+};
+} forEach nearestObjects [_playerPos, [&quot;House&quot;], 150];  ///150 change this
+
+if (_stopGo) 			exitWith { titletext [&quot;You need to be at least 150 meters away from city.&quot;, &quot;PLAIN DOWN&quot;]; _stopGo = true; };
+////////////END////////////////////
+
+
+ 
+  
+  
+  
+  
+  
+  
+ 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97452">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97536"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97536">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/3217-matthewk/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile"><span style="color:#">MatthewK</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97536" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T13:34:06Z" title="07/02/14 01:34  PM">July 2, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">MatthewK</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/3217-matthewk/?do=hovercard" data-ipshover-width="370" href="../../profile/3217-matthewk/index.html" rel="nofollow" title="Go to MatthewK's profile">
+<img alt="MatthewK" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/3217-matthewk/content/" rel="nofollow" title="794 posts">
+<i class="fa fa-comment"></i> 794
+							
+								</a>
+</li>
+</ul>
+</li>
+<li class="ipsResponsive_hidePhone ipsType_break" data-role="custom-field">
+<span class="ft">Location</span><span class="fc">Sparta</span>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97536" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":3217,"username":"MatthewK","timestamp":1404308046,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":97536}' id="comment-97536_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+<li><strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong></li>
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97536_wrap" href="#elControls_97536_menu" id="elControls_97536" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97536_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=97536" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97536_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97536" id="elSharePost_97536" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97536" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T13:34:06Z" title="07/02/14 01:34  PM">July 2, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>Cheers Asremix.  I've added a link to your post at the top of this thread. I think between yours and mine, this is pertty much done.  People can choose which method works best for their needs and go with it.  Thanks again for your help :)</p>
+<p> </p>
+<p>Edit: Sssh, don't tell anyone but I think I like your method better.  Mine was originally just to help walker with his building near cities question, but yours will also prevent players building on airfields etc, too :)</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97536_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97536"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97536" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97536" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97536&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=97536&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="Cheers Asremix.  I've added a link to your post at the top of this thread. I think between yours and mine, this is pertty much done.  People can choose which method works best for their needs and go with it.  Thanks again for your help :) 
+  
+Edit: Sssh, don't tell anyone but I think I like your method better.  Mine was originally just to help walker with his building near cities question, but yours will also prevent players building on airfields etc, too :) 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97536">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97544"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97544">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile">
+<img alt="HellWalker" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2842.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2842-hellwalker/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile"><span style="color:#">HellWalker</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97544" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T13:52:49Z" title="07/02/14 01:52  PM">July 2, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile">HellWalker</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2842-hellwalker/?do=hovercard" data-ipshover-width="370" href="../../profile/2842-hellwalker/index.html" rel="nofollow" title="Go to HellWalker's profile">
+<img alt="HellWalker" loading="lazy" src="https://epochmod.com/forum/uploads/profile/photo-thumb-2842.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2842-hellwalker/content/" rel="nofollow" title="230 posts">
+<i class="fa fa-comment"></i> 230
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97544" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2842,"username":"HellWalker","timestamp":1404309169,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":97544}' id="comment-97544_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97544_wrap" href="#elControls_97544_menu" id="elControls_97544" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97544_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=97544" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97544_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97544" id="elSharePost_97544" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97544" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T13:52:49Z" title="07/02/14 01:52  PM">July 2, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<p>So, just to undestand (since i am at work now and can't test it), the script from @Asremix will block player from building in any place 150m close to any object from the map? Any house, light pole, etc.. ?</p>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97544_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97544"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97544" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97544" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97544&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=97544&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="So, just to undestand (since i am at work now and can't test it), the script from @Asremix will block player from building in any place 150m close to any object from the map? Any house, light pole, etc.. ? 
+" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97544">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<a id="comment-97706"></a>
+<article class="cPost ipsBox ipsResponsive_pull ipsComment ipsComment_parent ipsClearfix ipsClear ipsColumns ipsColumns_noSpacing ipsColumns_collapsePhone" id="elComment_97706">
+<div class="cAuthorPane_mobile ipsResponsive_showPhone">
+<div class="cAuthorPane_photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">
+<img alt="asremix" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg"/>
+</a>
+<a href="https://epochmod.com/forum/profile/2582-asremix/badges/" rel="nofollow">
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</a>
+</div>
+</div>
+<div class="cAuthorPane_content">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_break ipsType_blendLinks ipsFlex ipsFlex-ai:center">
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile"><span style="color:#">asremix</span></a>
+</h3>
+<div class="ipsType_light ipsType_reset">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97706" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T19:57:05Z" title="07/02/14 07:57  PM">July 2, 2014</time></a>
+</div>
+</div>
+</div>
+<aside class="ipsComment_author cAuthorPane ipsColumn ipsColumn_medium ipsResponsive_hidePhone">
+<h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break"><strong>
+<a class="ipsType_break" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard&amp;referrer=https%253A%252F%252Fepochmod.com%252Fforum%252Ftopic%252F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%252F" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">asremix</a></strong>
+</h3>
+<ul class="cAuthorPane_info ipsList_reset">
+<li class="cAuthorPane_photo" data-role="photo">
+<div class="cAuthorPane_photoWrap">
+<a class="ipsUserPhoto ipsUserPhoto_large" data-ipshover="" data-ipshover-target="https://epochmod.com/forum/profile/2582-asremix/?do=hovercard" data-ipshover-width="370" href="../../profile/2582-asremix/index.html" rel="nofollow" title="Go to asremix's profile">
+<img alt="asremix" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg"/>
+</a>
+<img alt="Newbie" class="cAuthorPane_badge cAuthorPane_badge--rank ipsOutline ipsOutline:2px" data-ipstooltip="" loading="lazy" src="https://epochmod.com/forum/uploads/monthly_2023_04/1_Newbie.svg" title="Rank: Newbie (1/14)"/>
+</div>
+</li>
+<li data-role="group"><span style="color:#">Member</span></li>
+<li class="ipsMargin_top" data-role="stats">
+<ul class="ipsList_reset ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:center ipsGap_row:2 cAuthorPane_stats">
+<li>
+<a class="ipsType_blendLinks" data-ipstooltip="" href="https://epochmod.com/forum/profile/2582-asremix/content/" rel="nofollow" title="94 posts">
+<i class="fa fa-comment"></i> 94
+							
+								</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="ipsColumn ipsColumn_fluid ipsMargin:none">
+<div class="ipsComment_content ipsType_medium" data-commentapp="forums" data-commentid="97706" data-commenttype="forums" data-controller="core.front.core.comment" data-quotedata='{"userid":2582,"username":"asremix","timestamp":1404331025,"contentapp":"forums","contenttype":"forums","contentid":13513,"contentclass":"forums_Topic","contentcommentid":97706}' id="comment-97706_wrap">
+<div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+<div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+<div class="ipsResponsive_hidePhone ipsComment_badges">
+<ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1">
+</ul>
+</div>
+<ul class="ipsList_reset ipsComment_tools">
+<li>
+<a class="ipsComment_ellipsis" data-ipsmenu="" data-ipsmenu-appendto="#comment-97706_wrap" href="#elControls_97706_menu" id="elControls_97706" title="More options..."><i class="fa fa-ellipsis-h"></i></a>
+<ul class="ipsMenu ipsMenu_narrow ipsHide" id="elControls_97706_menu">
+<li class="ipsMenu_item"><a data-action="reportComment" data-ipsdialog="" data-ipsdialog-flashmessage="Thanks for your report." data-ipsdialog-remotesubmit="" data-ipsdialog-size="medium" data-ipsdialog-title="Report post" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=reportComment&amp;comment=97706" title="Report this content">Report</a></li>
+<li class="ipsMenu_item"><a data-ipsdialog="" data-ipsdialog-content="#elShareComment_97706_menu" data-ipsdialog-size="narrow" data-ipsdialog-title="Share this post" data-role="shareComment" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97706" id="elSharePost_97706" rel="nofollow" title="Share this post">Share</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ipsType_reset ipsResponsive_hidePhone">
+<a class="ipsType_blendLinks" href="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97706" rel="nofollow">Posted <time data-short="11 yr" datetime="2014-07-02T19:57:05Z" title="07/02/14 07:57  PM">July 2, 2014</time></a>
+<span class="ipsResponsive_hidePhone">
+</span>
+</div>
+</div>
+<div class="cPost_contentWrap">
+<div class="ipsType_normal ipsType_richText ipsPadding_bottom ipsContained" data-controller="core.front.core.lightboxedImages" data-role="commentContent">
+<blockquote class="ipsQuote" data-cite="HellWalker" data-ipsquote="" data-ipsquote-contentclass="forums_Topic" data-ipsquote-contentcommentid="97544" data-ipsquote-contentid="13513" data-ipsquote-contenttype="forums" data-ipsquote-timestamp="1404309169" data-ipsquote-username="HellWalker"><div>
+<div>
+<p>So, just to undestand (since i am at work now and can't test it), the script from @Asremix will block player from building in any place 150m close to any object from the map? Any house, light pole, etc.. ?</p>
+</div>
+</div></blockquote>
+<pre class="ipsCode prettyprint">
+///////////Allow to build near this Objects.
+_builOk = ["TentStorage","TentStorageDomed","TentStorageDomed2", "VaultStorageLocked", "Hedgehog_DZ", "Sandbag1_DZ","BagFenceRound_DZ","TrapBear","Fort_RazorWire","WoodGate_DZ","Land_HBarrier1_DZ","Land_HBarrier3_DZ","Land_HBarrier5_DZ","Fence_corrugated_DZ","M240Nest_DZ","CanvasHut_DZ","ParkBench_DZ","MetalGate_DZ","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","Plastic_Pole_EP1_DZ","Generator_DZ","StickFence_DZ","LightPole_DZ","FuelPump_DZ","DesertCamoNet_DZ","ForestCamoNet_DZ","DesertLargeCamoNet_DZ","ForestLargeCamoNet_DZ","SandNest_DZ","DeerStand_DZ","MetalPanel_DZ","WorkBench_DZ","WoodFloor_DZ","WoodLargeWall_DZ","WoodLargeWallDoor_DZ","WoodLargeWallWin_DZ","WoodSmallWall_DZ","WoodSmallWallWin_DZ","WoodSmallWallDoor_DZ","LockboxStorageLocked","WoodFloorHalf_DZ","WoodFloorQuarter_DZ","WoodStairs_DZ","WoodStairsSans_DZ","WoodStairsRails_DZ","WoodSmallWallThird_DZ","WoodLadder_DZ","Land_DZE_GarageWoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_WoodDoor","Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallHalf_DZ","CinderWall_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","MetalFloor_DZ","WoodRamp_DZ","GunRack_DZ","FireBarrel_DZ","WoodCrate_DZ","Scaffolding_DZ","MBG_Killhouse_1_InEditor","MBG_Killhouse_2_InEditor","MBG_Killhouse_3_InEditor","MBG_Killhouse_4_InEditor","MBG_Killhouse_5_InEditor","MBG_Killhouse_1_InEditor","MBG_Warehouse_InEditor","Land_MBG_ATC_Segment","MAP_leseni4x","MAP_leseni2x","WarfareBCamp","HeliHCivil","Land_fortified_nest_big_EP1","Land_Fire_barrel_burning","Land_CncBlock_Stripes","Land_Ind_TankSmall2_EP1","ASC_runway_YellowlightB","ASC_runway_BluelightB","Land_Campfire_burning"];
+
+</pre>
+</div>
+</div>
+<div class="ipsPadding ipsHide cPostShareMenu" id="elShareComment_97706_menu">
+<h5 class="ipsType_normal ipsType_reset">Link to comment</h5>
+<input class="ipsField_fullWidth" type="text" value="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97706"/>
+<h5 class="ipsType_normal ipsType_reset ipsSpacer_top">Share on other sites</h5>
+<ul class="ipsList_inline ipsList_noSpacing ipsClearfix" data-controller="core.front.core.sharelink">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97706" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97706" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F%3Fdo%3DfindComment%26comment%3D97706&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment%26comment=97706&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_small ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext='///////////Allow to build near this Objects.
+_builOk = ["TentStorage","TentStorageDomed","TentStorageDomed2", "VaultStorageLocked", "Hedgehog_DZ", "Sandbag1_DZ","BagFenceRound_DZ","TrapBear","Fort_RazorWire","WoodGate_DZ","Land_HBarrier1_DZ","Land_HBarrier3_DZ","Land_HBarrier5_DZ","Fence_corrugated_DZ","M240Nest_DZ","CanvasHut_DZ","ParkBench_DZ","MetalGate_DZ","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","Plastic_Pole_EP1_DZ","Generator_DZ","StickFence_DZ","LightPole_DZ","FuelPump_DZ","DesertCamoNet_DZ","ForestCamoNet_DZ","DesertLargeCamoNet_DZ","ForestLargeCamoNet_DZ","SandNest_DZ","DeerStand_DZ","MetalPanel_DZ","WorkBench_DZ","WoodFloor_DZ","WoodLargeWall_DZ","WoodLargeWallDoor_DZ","WoodLargeWallWin_DZ","WoodSmallWall_DZ","WoodSmallWallWin_DZ","WoodSmallWallDoor_DZ","LockboxStorageLocked","WoodFloorHalf_DZ","WoodFloorQuarter_DZ","WoodStairs_DZ","WoodStairsSans_DZ","WoodStairsRails_DZ","WoodSmallWallThird_DZ","WoodLadder_DZ","Land_DZE_GarageWoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_WoodDoor","Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallHalf_DZ","CinderWall_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","MetalFloor_DZ","WoodRamp_DZ","GunRack_DZ","FireBarrel_DZ","WoodCrate_DZ","Scaffolding_DZ","MBG_Killhouse_1_InEditor","MBG_Killhouse_2_InEditor","MBG_Killhouse_3_InEditor","MBG_Killhouse_4_InEditor","MBG_Killhouse_5_InEditor","MBG_Killhouse_1_InEditor","MBG_Warehouse_InEditor","Land_MBG_ATC_Segment","MAP_leseni4x","MAP_leseni2x","WarfareBCamp","HeliHCivil","Land_fortified_nest_big_EP1","Land_Fire_barrel_burning","Land_CncBlock_Stripes","Land_Ind_TankSmall2_EP1","ASC_runway_YellowlightB","ASC_runway_BluelightB","Land_Campfire_burning"];
+
+
+' data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/?do=findComment&amp;comment=97706">More sharing options...</button>
+</div>
+</div>
+</div>
+</article>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a">
+</input></form>
+</div>
+<a id="replyForm"></a>
+<div class="cTopicPostArea ipsBox ipsResponsive_pull ipsPadding cTopicPostArea_noSize ipsSpacer_top" data-role="replyArea">
+<div>
+<input name="csrfKey" type="hidden" value="bbd96aef55be1a90d685e56a4524d73a"/>
+<div class="ipsType_center ipsPad">
+<h2 class="ipsType_pageTitle">Please sign in to comment</h2>
+<p class="ipsType_light ipsType_normal ipsType_reset ipsSpacer_top ipsSpacer_half">You will be able to leave a comment after signing in</p>
+<br/>
+<br/>
+<a class="ipsButton ipsButton_alternate ipsButton_large" data-ipsdialog="" data-ipsdialog-remoteverify="false" data-ipsdialog-size="medium" data-ipsdialog-title="Sign In Now" href="https://epochmod.com/forum/login/?ref=aHR0cHM6Ly9kNDIyLmVwb2NobW9kLmNvbS9mb3J1bS90b3BpYy8xMzUxMy13aXAtcHJldmVudC1idWlsZGluZy1pbi1jaXRpZXMtdG93bnMtYW5kLXZpbGxhZ2VzLXYxMDUxLyNyZXBseUZvcm0=">Sign In Now</a>
+</div>
+</div>
+</div>
+<div class="ipsBox ipsPadding ipsResponsive_pull ipsResponsive_showPhone ipsMargin_top">
+<div class="ipsShareLinks">
+<a class="ipsShareButton ipsButton ipsButton_verySmall ipsButton_light" data-ipsmenu="" href="#elShareItem_menu" id="elShareItem">
+<span><i class="fa fa-share-alt"></i></span>  Share
+    </a>
+<div class="ipsPadding ipsMenu ipsMenu_auto ipsHide" data-controller="core.front.core.sharelink" id="elShareItem_menu">
+<ul class="ipsList_inline">
+<li>
+<a class="cShareLink cShareLink_twitter" data-ipstooltip="" data-role="shareLink" href="https://twitter.com/share?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F" rel="nofollow noopener" target="_blank" title="Share on Twitter">
+<i class="fa fa-twitter"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_facebook" data-ipstooltip="" data-role="shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F" rel="noopener nofollow" target="_blank" title="Share on Facebook">
+<i class="fa fa-facebook"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_reddit" data-ipstooltip="" href="https://www.reddit.com/submit?url=https%3A%2F%2Fepochmod.com%2Fforum%2Ftopic%2F13513-wip-prevent-building-in-cities-towns-and-villages-v1051%2F&amp;title=%5BWIP%5D+Prevent+Building+in+Cities%2C+towns+and+villages+%28V1.0.5.1%2B%29" rel="nofollow noopener" target="_blank" title="Share on Reddit">
+<i class="fa fa-reddit"></i>
+</a></li>
+<li>
+<a class="cShareLink cShareLink_pinterest" data-ipstooltip="" data-role="shareLink" href="https://pinterest.com/pin/create/button/?url=https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/&amp;media=https://epochmod.com/forum/uploads/monthly_2018_04/logo_only_black.png.c85695b79cad231dd136cd63c4db8256.png" rel="nofollow noopener" target="_blank" title="Share on Pinterest">
+<i class="fa fa-pinterest"></i>
+</a></li>
+</ul>
+<hr class="ipsHr"/>
+<button class="ipsHide ipsButton ipsButton_verySmall ipsButton_light ipsButton_fullWidth ipsMargin_top:half" data-controller="core.front.core.webshare" data-role="webShare" data-websharetext="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-websharetitle="[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)" data-webshareurl="index.html">More sharing options...</button>
+</div>
+<div data-controller="core.front.core.followButton" data-followapp="forums" data-followarea="topic" data-followid="13513">
+<a class="ipsFollow ipsPos_middle ipsButton ipsButton_light ipsButton_verySmall" data-ipstooltip="" data-role="followButton" href="https://epochmod.com/forum/login/" rel="nofollow" title="Sign in to follow this">
+<span>Followers</span>
+<span class="ipsCommentCount">2</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ipsPager ipsSpacer_top">
+<div class="ipsPager_prev">
+<a href="../../forum/34-a2-epoch-mods-1051/index.html" rel="parent" title="Go to A2: Epoch Mods (1.0.5.1)">
+<span class="ipsPager_type">Go to topic listing</span>
+</a>
+</div>
+</div>
+<div class="cWidgetContainer" data-orientation="horizontal" data-role="widgetReceiver" data-widgetarea="footer">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_horizontal ipsBox ipsWidgetHide ipsHide" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_core_relatedContent_sido2emh4" data-blocktitle="Similar Content" data-controller="core.front.widgets.block"></li>
+<li class="ipsWidget ipsWidget_horizontal ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Blocks_mtkskjhzs" data-blocktitle="Custom Blocks" data-controller="core.front.widgets.block">
+Advertisement
+
+
+</li>
+</ul>
+</div>
+</div>
+<div class="ipsLayout_sidebarright" data-controller="core.front.widgets.sidebar" id="ipsLayout_sidebar">
+<div class="cWidgetContainer" data-orientation="vertical" data-role="widgetReceiver" data-widgetarea="sidebar">
+<ul class="ipsList_reset">
+<li class="ipsWidget ipsWidget_vertical ipsBox" data-blockconfig="true" data-blockerrormessage="This block cannot be shown. This could be because it needs configuring, is unable to show on this page, or will show after reloading this page." data-blockid="app_cms_Wysiwyg_hbjjvq53w" data-blocktitle="WYSIWYG Editor" data-controller="core.front.widgets.block">
+<div class="ipsWidget_inner ipsPad ipsType_richText" data-controller="core.front.core.lightboxedImages">
+<p>
+<a href="https://discord.gg/0k4ynDDCsnMzkxk7" rel="external nofollow" style="color:inherit;"><img alt="Discord" src="http://i.imgur.com/hFgq3Rt.png" style="width:300px;height:auto;"/></a>
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<nav class="ipsBreadcrumb ipsBreadcrumb_bottom ipsFaded_withHover">
+<ul class="ipsList_inline ipsPos_right">
+<li>
+<a class="ipsType_light" data-action="defaultStream" href="https://epochmod.com/forum/discover/"><i aria-hidden="true" class="fa fa-newspaper-o"></i> <span>All Activity</span></a>
+</li>
+</ul>
+<ul data-role="breadcrumbList">
+<li>
+<a href="../../index.html" title="Home">
+<span>Home <i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/1-arma-2/index.html">
+<span>ArmA 2 <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/37-legacy-resources/index.html">
+<span>Legacy Resources <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+<a href="../../forum/34-a2-epoch-mods-1051/index.html">
+<span>A2: Epoch Mods (1.0.5.1) <i aria-hidden="true" class="fa fa-angle-right"></i></span>
+</a>
+</li>
+<li>
+				
+					[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)
+				
+			</li>
+</ul>
+</nav>
+</div>
+</div>
+</main>
+<footer class="ipsClearfix" id="ipsLayout_footer">
+<div class="ipsLayout_container">
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterSocialLinks">
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_facebook" href="https://facebook.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-facebook"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_twitter" href="https://twitter.com/EpochMod" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+</li>
+<li class="cUserNav_icon">
+<a class="cShareLink cShareLink_github" href="https://github.com/EpochModTeam/" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+</li>
+</ul>
+<ul class="ipsList_inline ipsType_center ipsSpacer_top" id="elFooterLinks">
+<li><a data-ipsdialog="" data-ipsdialog-flashmessage="Thanks, your message has been sent to the administrators." data-ipsdialog-remotesubmit="" data-ipsdialog-title="Contact Us" href="https://epochmod.com/forum/contact/" rel="nofollow">Contact Us</a></li>
+</ul>
+<p id="elCopyright">
+<span id="elCopyright_userLine">Copyright © 2019 Epoch Mod Team</span>
+<a href="https://www.invisioncommunity.com/" rel="nofollow" title="Invision Community">Powered by Invision Community</a>
+</p>
+</div>
+</footer>
+<div class="ipsDrawer ipsHide" id="elMobileDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsFlex ipsFlex-fd:column">
+<div class="ipsPadding ipsBorder_bottom">
+<ul class="ipsToolList ipsToolList_vertical">
+<li>
+<a class="ipsButton ipsButton_light ipsButton_small ipsButton_fullWidth" href="https://epochmod.com/forum/login/" id="elSigninButton_mobile">Existing user? Sign In</a>
+</li>
+</ul>
+</div>
+<ul class="ipsDrawer_list ipsFlex-flex:11">
+<li><a href="http://epochmod.com/">Home</a></li>
+<li><a href="https://epochmod.com/forum/projects/">Downloads</a></li>
+<li><a href="../../index.html">Forums</a></li>
+<li><a href="http://epochmod.gamepedia.com/" rel="noopener" target="_blank">Wiki</a></li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Browse</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/staff/">
+					Staff
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/online/">
+					Online Users
+				</a>
+</li>
+</ul>
+</li>
+<li class="ipsDrawer_itemParent">
+<h4 class="ipsDrawer_title"><a href="#">Activity</a></h4>
+<ul class="ipsDrawer_list">
+<li data-action="back"><a href="#">Back</a></li>
+<li>
+<a href="https://epochmod.com/forum/discover/">
+					All Activity
+				</a>
+</li>
+<li>
+<a href="#">
+					My Activity Streams
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/unread/">
+					Unread Content
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/discover/content-started/">
+					Content I Started
+				</a>
+</li>
+<li>
+<a href="https://epochmod.com/forum/search/">
+					Search
+				</a>
+</li>
+</ul>
+</li>
+<li><a href="https://epochmod.com/forum/leaderboard/">Leaderboard</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ipsDrawer ipsHide" id="elMobileCreateMenuDrawer">
+<div class="ipsDrawer_menu">
+<a class="ipsDrawer_close" data-action="close" href="#"><span>×</span></a>
+<div class="ipsDrawer_content ipsSpacer_bottom ipsPad">
+<ul class="ipsDrawer_list">
+<li class="ipsDrawer_listTitle ipsType_reset">Create New...</li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		var ipsDebug = false;		
+	
+		var CKEDITOR_BASEPATH = 'http://epochmod.com/forum/applications/core/interface/ckeditor/ckeditor/';
+	
+		var ipsSettings = {
+			
+			
+			cookie_path: "/forum/",
+			
+			cookie_prefix: "ips4_",
+			
+			
+			cookie_ssl: true,
+			
+			upload_imgURL: "",
+			message_imgURL: "",
+			notification_imgURL: "",
+			baseURL: "//epochmod.com/forum/",
+			jsURL: "//epochmod.com/forum/applications/core/interface/js/js.php",
+			csrfKey: "bbd96aef55be1a90d685e56a4524d73a",
+			antiCache: "7f6edac1d51681449780",
+			jsAntiCache: "7f6edac1d51727923486",
+			disableNotificationSounds: true,
+			useCompiledFiles: true,
+			links_external: true,
+			memberID: 0,
+			lazyLoadEnabled: true,
+			blankImg: "//epochmod.com/forum/applications/core/interface/js/spacer.png",
+			googleAnalyticsEnabled: true,
+			matomoEnabled: false,
+			viewProfiles: true,
+			mapProvider: 'none',
+			mapApiKey: '',
+			pushPublicKey: "BLY90A45HZZHrwnCKz6BVlOhu0SsCnzllubxC73QTZM5sfEOds9DfPrBRijrqkg_Tm4PSeJkPCuKkWiWNi4sOC4",
+			relativeDates: true
+		};
+		
+		
+		
+		
+			ipsSettings['maxImageDimensions'] = {
+				width: 1000,
+				height: 750
+			};
+		
+		
+	</script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_library.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_js_lang_1.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_framework.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/global_global_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_front.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_core/front_front_core.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_forums/front_front_topic.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script data-ips="" src="https://epochmod.com/forum/uploads/javascript_global/root_map.js?v=7f6edac1d51727923486" type="text/javascript"></script>
+<script type="text/javascript">
+		
+			ips.setSetting( 'date_format', jQuery.parseJSON('"mm\/dd\/yy"') );
+		
+			ips.setSetting( 'date_first_day', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'ipb_url_filter_option', jQuery.parseJSON('"none"') );
+		
+			ips.setSetting( 'url_filter_any_action', jQuery.parseJSON('"allow"') );
+		
+			ips.setSetting( 'bypass_profanity', jQuery.parseJSON('0') );
+		
+			ips.setSetting( 'emoji_style', jQuery.parseJSON('"native"') );
+		
+			ips.setSetting( 'emoji_shortcodes', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_ascii', jQuery.parseJSON('true') );
+		
+			ips.setSetting( 'emoji_cache', jQuery.parseJSON('1681342651') );
+		
+			ips.setSetting( 'image_jpg_quality', jQuery.parseJSON('75') );
+		
+			ips.setSetting( 'cloud2', jQuery.parseJSON('false') );
+		
+			ips.setSetting( 'isAnonymous', jQuery.parseJSON('false') );
+		
+		
+	</script>
+<script type="application/ld+json">
+{
+    "name": "[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)",
+    "headline": "[WIP] Prevent Building in Cities, towns and villages (V1.0.5.1+)",
+    "text": "I\u0027ve only tested this on the latest Epoch build (1.0.5.1) with the latest Arma patch (1.63.112555) \n\u00a0 \nNote: There are two versions of this script below, the first will check for all cities , towns and villages within a certain radius (500 meters) and prevent the player from building. \u00a0The second script lets you add the cities, towns and villages of your choice (the second script hasn\u0027t been tested yet, so it might not work, let me know if you try it and have success). \u00a0The code that I get you to copy and paste is simply my additions added to the existing 1.0.5.1 Epoch player_build.sqf script (so only follow this guide if you\u0027re using 1.0.5.1) \n\u00a0 \nEdit: Asremix has also provided a solution to this script request here:\u00a0 \n\u00a0 SCRIPT 1: Works 100% \n\u00a0 What this does:  \nIt stops players from building in or near cities, towns and villages. \n\u00a0 You will need:\u00a0 \n1. Your mission pbo and knowledge of editing and packaging it. \n2. A /custom folder (or any folder you put custom scripts) \n3. A copy of your Compiles.sqf already in \u00a0your custom folder. \nNB: If you\u0027re using snap-build, you\u0027ll need to make the changes to your existing player_build.sqf which should already be in your custom scripts folder (this tutorial is assuming you don\u0027t though). \n\u00a0 Instructions: \n1. Create a file in \u00a0your custom scripts folder called player_build.sqf \n2. Cut and Paste everything from here\u00a0into your custom player_build.sqf \n3. Open \u00a0your custom Compiles.sqf and look for the line starting: player_build = compile preprocessFileLineNumbers .... \n4. Change that entire line to: player_build = compile preprocessFileLineNumbers \"custom\\player_build.sqf\"; \n5. Repackage your mission file, upload and you\u0027re done. \n\u00a0 \nFor reference, the code blocks I added are:\u00a0 \n\n// NO building in cities or towns (if you don\u0027t mind people building in Villages, remove \"NameVillage\" etc)\n_nearestCity = nearestLocations [getPos player, [\"NameCityCapital\",\"NameCity\",\"NameVillage\"],500];\n\nAND \n\n// No building in Cities or Towns\nif (count _nearestCity \u0026gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\n\nI also added the private variable name to the private variable array.\u00a0 \n\u00a0 \n\u00a0  \n\u00a0  Script 2: Might not work, as I\u0027ve not had time to test it yet \n\u00a0  What this does:\u00a0 \nIt stops players from building in or near a cities, towns and villages that you define in an array at the top of the player_build.sqf file. \u00a0A list of towns and cities can be found here:\u00a0dayz.gamepedia.com/Towns_and_Cities \n\u00a0 You will need:\u00a0 \n1. Your mission pbo and knowledge of editing and packaging it. \n2. A /custom folder (or any folder you put custom scripts) \n3. A copy of your Compiles.sqf already in \u00a0your custom folder. \nNB: If you\u0027re using snap-build, you\u0027ll need to make the changes to your existing player_build.sqf which should already be in your custom scripts folder (this tutorial is assuming you don\u0027t though). \n\u00a0 Instructions: \n1. Create a file in \u00a0your custom scripts folder called\u00a0player_build.sqf \n2. Cut and Paste everything from\u00a0here\u00a0into your custom player_build.sqf \n3. Open \u00a0your custom Compiles.sqf and look for the line starting: player_build = compile preprocessFileLineNumbers .... \n4. Change that entire line to: player_build = compile preprocessFileLineNumbers \"custom\\player_build.sqf\"; \n5. Repackage your mission file, upload and you\u0027re done. \n\u00a0 \nFor reference the code blocks I added are:\u00a0\u00a0 \n\n// NO building in cities or towns (if you don\u0027t mind people building in Villages, remove \"NameVillage\" etc)\n_ChkCities = [\"Berezino\",\"Chernogorsk\",\"Staroye\"]; // List here: dayz.gamepedia.com/Towns_and_Cities\n_nearestCity = nearestLocations [getPos player, [\"NameCityCapital\",\"NameCity\",\"NameVillage\"],500];\n\n\nAND \n\n\n// No building in Cities or Towns\nif (_nearestCity in _ChkCities) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\n\nI also added the two private variable name to the private variable array \n",
+    "dateCreated": "2014-06-30T15:49:08+0000",
+    "datePublished": "2014-06-30T15:49:08+0000",
+    "dateModified": "2014-07-02T19:57:05+0000",
+    "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+    "author": {
+        "@type": "Person",
+        "name": "MatthewK",
+        "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+        "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+    },
+    "interactionStatistic": [
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/ViewAction",
+            "userInteractionCount": 3135
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/CommentAction",
+            "userInteractionCount": 9
+        },
+        {
+            "@type": "InteractionCounter",
+            "interactionType": "http://schema.org/FollowAction",
+            "userInteractionCount": 2
+        }
+    ],
+    "@context": "http://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/",
+    "isPartOf": {
+        "@id": "https://epochmod.com/forum/#website"
+    },
+    "publisher": {
+        "@id": "https://epochmod.com/forum/#organization",
+        "member": {
+            "@type": "Person",
+            "name": "MatthewK",
+            "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+            "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+        }
+    },
+    "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/",
+    "discussionUrl": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/"
+    },
+    "pageStart": 1,
+    "pageEnd": 1,
+    "comment": [
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-96791",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-96791",
+            "author": {
+                "@type": "Person",
+                "name": "HellWalker",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-2842.jpg",
+                "url": "https://epochmod.com/forum/profile/2842-hellwalker/"
+            },
+            "dateCreated": "2014-07-01T00:51:51+0000",
+            "text": "Would this work if i setup my code like this? \n\n// NO building in cities or towns (if you don\u0027t mind people building in Villages, remove \"NameVillage\" etc)\n_nearestCity = nearestLocations [getPos player, [\"NameCityCapital\"],700];\n\n_nearestCity\u00a0=\u00a0nearestLocations\u00a0[getPos player,\u00a0[\"NameCity\"],500];\n\n_nearestCity\u00a0=\u00a0nearestLocations\u00a0[getPos player,\u00a0[\"NameVillage\"],300];\n\nAND \n\n// No building in Cities or Towns\nif (count _nearestCity \u0026gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-96839",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-96839",
+            "author": {
+                "@type": "Person",
+                "name": "Fictitious",
+                "image": "https://epochmod.com/forum/applications/core/interface/email/default_photo.png",
+                "url": "https://epochmod.com/forum/profile/17410-fictitious/"
+            },
+            "dateCreated": "2014-07-01T03:43:25+0000",
+            "text": "Haven\u0027t actually tried it but I believe you can do this haven\u0027t tested it though \n\n// NO building in cities or towns (if you don\u0027t mind people building in Villages, remove \"NameVillage\" etc)\n_nearestCity = nearestLocations [getPos player, [\"NameCityCapital\"],700];\n\n_nearestCity = _nearestCity + nearestLocations [getPos player, [\"NameCity\"],500];\n\n_nearestCity = _nearestCity + nearestLocations [getPos player, [\"NameVillage\"],300];\n\nAND \n\n// No building in Cities or Towns\nif (count _nearestCity \u0026gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\n\n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-96877",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-96877",
+            "author": {
+                "@type": "Person",
+                "name": "asremix",
+                "image": "https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg",
+                "url": "https://epochmod.com/forum/profile/2582-asremix/"
+            },
+            "dateCreated": "2014-07-01T06:00:10+0000",
+            "text": ":P \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97354",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97354",
+            "author": {
+                "@type": "Person",
+                "name": "MatthewK",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+            },
+            "dateCreated": "2014-07-02T02:25:16+0000",
+            "text": "Hijack my thread will you :p \n\u00a0 \nSeriously though, can you explain to people how they\u0027d add it to their scripts. \u00a0 \nI\u0027m a little fussy when it comes to this kind of thing, I like to make it clear and concise :D \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97358",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97358",
+            "author": {
+                "@type": "Person",
+                "name": "MatthewK",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+            },
+            "dateCreated": "2014-07-02T02:30:48+0000",
+            "text": "@HellWalker. I\u0027m not feeling great right now, so i\u0027m going to give you a quick and dirty way of doing it. \nI\u0027ll try and work on a cleaner version later... But basically, you can do this: \n\n_nearestCapital = nearestLocations [getPos player, [\"NameCityCapital\"],700];\n_nearestCity = nearestLocations [getPos player, [\"NameCity\"],500];\n_nearestVillage = nearestLocations [getPos player, [\"NameVillage\"],300];\n\nAND \n\n// No building in Cities or Towns\nif (count _nearestCapital \u0026gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\nif (count _nearestCity \u0026gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\nif (count _nearestVillage \u0026gt; 0) exitWith { DZE_ActionInProgress = false; systemChat (\"You cannot build here!\");};\u00a0\n\nDon\u0027t forget to add the private variables to the private variable array at the top of the script.. They are: \n_nearestVillage \n\u00a0_nearestCity \n_nearestCapital \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97452",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97452",
+            "author": {
+                "@type": "Person",
+                "name": "asremix",
+                "image": "https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg",
+                "url": "https://epochmod.com/forum/profile/2582-asremix/"
+            },
+            "dateCreated": "2014-07-02T09:03:51+0000",
+            "text": "My custom script check from\u00a0near objects 150\u00a0meters. And can add allow\u00a0objects can build\u00a0near. \n\u00a0 \n\u00a0 \nInstructions: 1. Create a file in \u00a0your custom scripts folder called\u00a0player_build.sqf 2. Cut and Paste everything from\u00a0here\u00a0into your custom player_build.sqf 3. Open \u00a0your custom Compiles.sqf and look for the line starting: player_build = compile preprocessFileLineNumbers .... 4. Change that entire line to: player_build = compile preprocessFileLineNumbers \"custom\\player_build.sqf\"; 5. Repackage your mission file, upload and you\u0027re done. \u00a0 The code blocks. \n\n//Find this\n\nprivate [\"...\",\"_playerPos\",\"_playerID\",\"_player\",\"_builOk\",\"_stopGo\"];\n\n//...\n//...\n//...\n\n//Next Find this \ncall gear_ui_init;\ncloseDialog 1;\n\n\n// Add this below\n\n////////////START Check Near Objects////////////////////\n_playerPos = getPosATL player;\n_playerID =\tgetPlayerUID player;\n_stopGo = false;\n\n///////////Allow to build near this Objects.\n_builOk = [\"Land_Misc_deerstand\"]; //Make like this  \"Land_Misc_deerstand\",\"Land_Misc_deerstand\"\n////////////////////////////////////\n{\n\nif (!(typeOf _x in _builOk)) then {\nif (([\"Land_\",(typeOf _x),false] call fnc_inString)) exitWith { DZE_ActionInProgress = false; _stopGo = true;};\n};\n} forEach nearestObjects [_playerPos, [\"House\"], 150];  ///150 change this\n\nif (_stopGo) \t\t\texitWith { titletext [\"You need to be at least 150 meters away from city.\", \"PLAIN DOWN\"]; _stopGo = true; };\n////////////END////////////////////\n\n\n \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n\u00a0 \n \n",
+            "upvoteCount": 2
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97536",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97536",
+            "author": {
+                "@type": "Person",
+                "name": "MatthewK",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-3217.jpg",
+                "url": "https://epochmod.com/forum/profile/3217-matthewk/"
+            },
+            "dateCreated": "2014-07-02T13:34:06+0000",
+            "text": "Cheers Asremix. \u00a0I\u0027ve added a link to your post at the top of this thread. I think between yours and mine, this is pertty much done. \u00a0People can choose which method works best for their needs and go with it. \u00a0Thanks again for your help :) \n\u00a0 \nEdit: Sssh, don\u0027t tell anyone but I think I like your method better. \u00a0Mine was originally just to help walker with his building near cities question, but yours will also prevent players building on airfields etc, too :) \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97544",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97544",
+            "author": {
+                "@type": "Person",
+                "name": "HellWalker",
+                "image": "https://epochmod.com/forum/uploads/profile/photo-thumb-2842.jpg",
+                "url": "https://epochmod.com/forum/profile/2842-hellwalker/"
+            },
+            "dateCreated": "2014-07-02T13:52:49+0000",
+            "text": "So, just to undestand (since i am at work now and can\u0027t test it), the script from @Asremix will block player from building in any place 150m close to any object from the map? Any house, light pole, etc.. ? \n",
+            "upvoteCount": 0
+        },
+        {
+            "@type": "Comment",
+            "@id": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97706",
+            "url": "https://epochmod.com/forum/topic/13513-wip-prevent-building-in-cities-towns-and-villages-v1051/#comment-97706",
+            "author": {
+                "@type": "Person",
+                "name": "asremix",
+                "image": "https://epochmod.com/forum/uploads/monthly_2017_03/photo.thumb.jpg.c7351e979cbd833f6d8c8578e7d02f9a.jpg",
+                "url": "https://epochmod.com/forum/profile/2582-asremix/"
+            },
+            "dateCreated": "2014-07-02T19:57:05+0000",
+            "text": "///////////Allow to build near this Objects.\n_builOk = [\"TentStorage\",\"TentStorageDomed\",\"TentStorageDomed2\", \"VaultStorageLocked\", \"Hedgehog_DZ\", \"Sandbag1_DZ\",\"BagFenceRound_DZ\",\"TrapBear\",\"Fort_RazorWire\",\"WoodGate_DZ\",\"Land_HBarrier1_DZ\",\"Land_HBarrier3_DZ\",\"Land_HBarrier5_DZ\",\"Fence_corrugated_DZ\",\"M240Nest_DZ\",\"CanvasHut_DZ\",\"ParkBench_DZ\",\"MetalGate_DZ\",\"OutHouse_DZ\",\"Wooden_shed_DZ\",\"WoodShack_DZ\",\"StorageShed_DZ\",\"Plastic_Pole_EP1_DZ\",\"Generator_DZ\",\"StickFence_DZ\",\"LightPole_DZ\",\"FuelPump_DZ\",\"DesertCamoNet_DZ\",\"ForestCamoNet_DZ\",\"DesertLargeCamoNet_DZ\",\"ForestLargeCamoNet_DZ\",\"SandNest_DZ\",\"DeerStand_DZ\",\"MetalPanel_DZ\",\"WorkBench_DZ\",\"WoodFloor_DZ\",\"WoodLargeWall_DZ\",\"WoodLargeWallDoor_DZ\",\"WoodLargeWallWin_DZ\",\"WoodSmallWall_DZ\",\"WoodSmallWallWin_DZ\",\"WoodSmallWallDoor_DZ\",\"LockboxStorageLocked\",\"WoodFloorHalf_DZ\",\"WoodFloorQuarter_DZ\",\"WoodStairs_DZ\",\"WoodStairsSans_DZ\",\"WoodStairsRails_DZ\",\"WoodSmallWallThird_DZ\",\"WoodLadder_DZ\",\"Land_DZE_GarageWoodDoor\",\"Land_DZE_LargeWoodDoor\",\"Land_DZE_WoodDoor\",\"Land_DZE_GarageWoodDoorLocked\",\"Land_DZE_LargeWoodDoorLocked\",\"Land_DZE_WoodDoorLocked\",\"CinderWallHalf_DZ\",\"CinderWall_DZ\",\"CinderWallDoorway_DZ\",\"CinderWallDoor_DZ\",\"CinderWallDoorLocked_DZ\",\"CinderWallSmallDoorway_DZ\",\"CinderWallDoorSmall_DZ\",\"CinderWallDoorSmallLocked_DZ\",\"MetalFloor_DZ\",\"WoodRamp_DZ\",\"GunRack_DZ\",\"FireBarrel_DZ\",\"WoodCrate_DZ\",\"Scaffolding_DZ\",\"MBG_Killhouse_1_InEditor\",\"MBG_Killhouse_2_InEditor\",\"MBG_Killhouse_3_InEditor\",\"MBG_Killhouse_4_InEditor\",\"MBG_Killhouse_5_InEditor\",\"MBG_Killhouse_1_InEditor\",\"MBG_Warehouse_InEditor\",\"Land_MBG_ATC_Segment\",\"MAP_leseni4x\",\"MAP_leseni2x\",\"WarfareBCamp\",\"HeliHCivil\",\"Land_fortified_nest_big_EP1\",\"Land_Fire_barrel_burning\",\"Land_CncBlock_Stripes\",\"Land_Ind_TankSmall2_EP1\",\"ASC_runway_YellowlightB\",\"ASC_runway_BluelightB\",\"Land_Campfire_burning\"];\n\n\n",
+            "upvoteCount": 0
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "publisher": "https://epochmod.com/forum/#organization",
+    "@type": "WebSite",
+    "@id": "https://epochmod.com/forum/#website",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "potentialAction": {
+        "type": "SearchAction",
+        "query-input": "required name=query",
+        "target": "https://epochmod.com/forum/search/?q={query}"
+    },
+    "inLanguage": [
+        {
+            "@type": "Language",
+            "name": "English (USA)",
+            "alternateName": "en-US"
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://www.schema.org",
+    "@type": "Organization",
+    "@id": "https://epochmod.com/forum/#organization",
+    "mainEntityOfPage": "https://epochmod.com/forum/",
+    "name": "Epoch Mod Community",
+    "url": "https://epochmod.com/forum/",
+    "logo": {
+        "@type": "ImageObject",
+        "@id": "https://epochmod.com/forum/#logo",
+        "url": "https://epochmod.com/forum/uploads/monthly_2023_04/text_only.png.512d7d1c1eb3e42e7aae78351fa37e02.png"
+    },
+    "sameAs": [
+        "https://facebook.com/EpochMod",
+        "https://twitter.com/EpochMod",
+        "https://github.com/EpochModTeam/"
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/1-arma-2/",
+                "name": "ArmA 2"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/37-legacy-resources/",
+                "name": "Legacy Resources"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://epochmod.com/forum/forum/34-a2-epoch-mods-1051/",
+                "name": "A2: Epoch Mods (1.0.5.1)"
+            }
+        }
+    ]
+}	
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "ContactPage",
+    "url": "https://epochmod.com/forum/contact/"
+}	
+</script>
+<script type="text/javascript">
+    (() => {
+        let gqlKeys = [];
+        for (let [k, v] of Object.entries(gqlKeys)) {
+            ips.setGraphQlData(k, v);
+        }
+    })();
+</script>
+<!--ipsQueryLog-->
+<!--ipsCachingLog-->
+</body>
+
+</html>
