@@ -490,13 +490,7 @@ inputField.addEventListener('input', function() {
 
 function startGame() {
     // Retrieve the player's name from the input field
-    playerName = document.getElementById('playerName').value;
-
-    // Check if the player entered a name
-    if (playerName.trim() === "") {
-        alert("Please enter your name before starting the game.");
-    }    
-        
+    playerName = document.getElementById('playerName').value;  
     document.getElementById('startgame').style.visibility = 'hidden';
     
     resetPivotPoints();
